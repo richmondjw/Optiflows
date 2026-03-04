@@ -1,6 +1,13 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
+  <!--
+  ╔══════════════════════════════════════════════════════╗
+  ║  Created with Perplexity Computer                    ║
+  ║  https://www.perplexity.ai/computer                  ║
+  ╚══════════════════════════════════════════════════════╝
+  -->
+  <meta name="generator" content="Perplexity Computer, https://www.perplexity.ai/computer">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Optiflows — Growth Operating Model Installs for Founder-Led B2B</title>
@@ -23,7 +30,6 @@
        Typography: Instrument Serif (display) + DM Sans (body)
        ================================================================ */
 
-    /* — Type Scale — */
     :root {
       --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
       --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
@@ -34,7 +40,6 @@
       --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
       --text-hero: clamp(2.75rem,  0.5rem  + 6vw,    6.5rem);
 
-      /* — Spacing — */
       --space-1:  0.25rem;
       --space-2:  0.5rem;
       --space-3:  0.75rem;
@@ -49,22 +54,18 @@
       --space-24: 6rem;
       --space-32: 8rem;
 
-      /* — Radius — */
       --radius-sm: 0.25rem;
       --radius-md: 0.5rem;
       --radius-lg: 0.75rem;
       --radius-xl: 1rem;
       --radius-full: 9999px;
 
-      /* — Transitions — */
       --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
 
-      /* — Content Widths — */
       --content-narrow: 640px;
       --content-default: 960px;
       --content-wide: 1200px;
 
-      /* — Fonts — */
       --font-display: 'Instrument Serif', Georgia, serif;
       --font-body: 'DM Sans', system-ui, sans-serif;
     }
@@ -91,6 +92,11 @@
       --color-primary-hover:  #23A0A7;
       --color-primary-active: #1A7F85;
       --color-primary-highlight: #14292B;
+
+      --color-danger:         #C25450;
+      --color-danger-soft:    #2B1A1A;
+      --color-success:        #3DA57C;
+      --color-success-soft:   #1A2B22;
 
       --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.25);
       --shadow-md: 0 4px 12px oklch(0 0 0 / 0.35);
@@ -119,6 +125,11 @@
       --color-primary-hover:  #0C4E54;
       --color-primary-active: #0F3638;
       --color-primary-highlight: #D5E8E9;
+
+      --color-danger:         #B83D39;
+      --color-danger-soft:    #F5E8E7;
+      --color-success:        #2D8C66;
+      --color-success-soft:   #E3F2EC;
 
       --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
       --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.08);
@@ -197,6 +208,10 @@
       max-width: var(--content-default);
     }
 
+    .container--tight {
+      max-width: var(--content-narrow);
+    }
+
     .section {
       padding-block: clamp(var(--space-12), 8vw, var(--space-24));
     }
@@ -215,9 +230,6 @@
       display: block;
     }
 
-    /* ================================================================
-       SECTION HEADING
-       ================================================================ */
     .section-heading {
       font-family: var(--font-display);
       font-size: var(--text-xl);
@@ -227,6 +239,17 @@
       max-width: 30ch;
       margin-bottom: var(--space-8);
       line-height: 1.2;
+    }
+
+    .section-body {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      max-width: 60ch;
+    }
+
+    .section-body + .section-body {
+      margin-top: var(--space-4);
     }
 
     /* ================================================================
@@ -243,9 +266,7 @@
       transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .header--scrolled {
-      box-shadow: var(--shadow-sm);
-    }
+    .header--scrolled { box-shadow: var(--shadow-sm); }
 
     .header__inner {
       display: flex;
@@ -257,19 +278,17 @@
     .header__logo {
       display: flex;
       align-items: center;
+      gap: var(--space-2);
       text-decoration: none;
       color: var(--color-text);
     }
 
-    .header__logo img {
-      height: 22px;
-      width: auto;
-      display: block;
-      transition: opacity 0.2s ease;
+    .header__logo-text {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      letter-spacing: 0.04em;
     }
-
-    [data-theme="dark"]  .logo--light { display: none; }
-    [data-theme="light"] .logo--dark  { display: none; }
 
     .header__nav {
       display: flex;
@@ -298,9 +317,7 @@
       transition: color var(--transition-interactive);
     }
 
-    .header__nav-links a:hover {
-      color: var(--color-text);
-    }
+    .header__nav-links a:hover { color: var(--color-text); }
 
     .header__actions {
       display: flex;
@@ -323,7 +340,6 @@
       background: oklch(from var(--color-text) l c h / 0.06);
     }
 
-    /* Mobile menu */
     .mobile-menu-btn {
       display: flex;
       padding: var(--space-2);
@@ -346,9 +362,7 @@
       padding: var(--space-8) var(--space-5);
     }
 
-    .mobile-nav.is-open {
-      display: block;
-    }
+    .mobile-nav.is-open { display: block; }
 
     .mobile-nav a {
       display: block;
@@ -415,7 +429,6 @@
       transform: translateX(3px);
     }
 
-    /* Header CTA — compact */
     .header .btn-cta {
       font-size: var(--text-xs);
       padding: var(--space-2) var(--space-4);
@@ -427,10 +440,10 @@
     }
 
     /* ================================================================
-       HERO
+       HERO — CATEGORY DECLARATION
        ================================================================ */
     .hero {
-      min-height: 85vh;
+      min-height: 90vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -439,9 +452,7 @@
       overflow: hidden;
     }
 
-    .hero .container {
-      max-width: var(--content-wide);
-    }
+    .hero .container { max-width: var(--content-wide); }
 
     .hero::before {
       content: '';
@@ -461,6 +472,17 @@
       z-index: 1;
     }
 
+    .hero__category {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: var(--color-primary);
+      margin-bottom: var(--space-6);
+      display: block;
+    }
+
     .hero h1 {
       font-family: var(--font-display);
       font-size: var(--text-hero);
@@ -468,7 +490,7 @@
       line-height: 1.02;
       letter-spacing: -0.02em;
       color: var(--color-text);
-      max-width: 14ch;
+      max-width: 16ch;
       margin-bottom: var(--space-6);
     }
 
@@ -481,7 +503,7 @@
       font-size: var(--text-base);
       color: var(--color-text-muted);
       line-height: 1.65;
-      max-width: 48ch;
+      max-width: 52ch;
       margin-bottom: var(--space-8);
     }
 
@@ -505,7 +527,7 @@
     }
 
     /* ================================================================
-       PROBLEM STATEMENT
+       PROBLEM REFRAME
        ================================================================ */
     .problem {
       border-top: 1px solid var(--color-divider);
@@ -547,39 +569,133 @@
     }
 
     /* ================================================================
-       WHAT WE INSTALL
+       LOOP DIAGRAMS — Bottleneck vs Operating Model
        ================================================================ */
-    .install {
+    .loops {
       border-top: 1px solid var(--color-divider);
     }
 
-    .install__grid {
+    .loops__grid {
       display: grid;
-      gap: var(--space-6);
+      gap: var(--space-8);
     }
 
     @media (min-width: 768px) {
-      .install__grid {
+      .loops__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-8);
+      }
+    }
+
+    .loop-card {
+      border: 1px solid oklch(from var(--color-text) l c h / 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-8) var(--space-6);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .loop-card--broken {
+      background: var(--color-danger-soft);
+      border-color: oklch(from var(--color-danger) l c h / 0.2);
+    }
+
+    .loop-card--system {
+      background: var(--color-success-soft);
+      border-color: oklch(from var(--color-success) l c h / 0.2);
+    }
+
+    .loop-card__label {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      margin-bottom: var(--space-6);
+      display: block;
+    }
+
+    .loop-card--broken .loop-card__label { color: var(--color-danger); }
+    .loop-card--system .loop-card__label { color: var(--color-success); }
+
+    .loop-card__diagram {
+      margin: 0 auto var(--space-6);
+      max-width: 260px;
+    }
+
+    .loop-card__items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .loop-card__items li {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .loop-card__caption {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      font-style: italic;
+      margin-top: var(--space-4);
+      line-height: 1.5;
+    }
+
+    /* ================================================================
+       ENGAGEMENT MODEL — DESIGN + BUILD + PILOT
+       ================================================================ */
+    .engagement {
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .engagement__framing {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 1.5;
+      max-width: 640px;
+      margin-bottom: var(--space-12);
+    }
+
+    .engagement__framing strong {
+      color: var(--color-primary);
+      font-weight: 400;
+    }
+
+    /* Timeline phases */
+    .phase-timeline {
+      display: grid;
+      gap: var(--space-6);
+      margin-bottom: var(--space-16);
+    }
+
+    @media (min-width: 768px) {
+      .phase-timeline {
         grid-template-columns: repeat(3, 1fr);
         gap: var(--space-6);
       }
     }
 
-    .install-card {
+    .phase-card {
+      position: relative;
       background: var(--color-surface);
       border: 1px solid oklch(from var(--color-text) l c h / 0.06);
       border-radius: var(--radius-lg);
       padding: var(--space-6);
       transition: all var(--transition-interactive);
-      position: relative;
     }
 
-    .install-card:hover {
+    .phase-card:hover {
       border-color: oklch(from var(--color-primary) l c h / 0.2);
       box-shadow: 0 0 0 1px oklch(from var(--color-primary) l c h / 0.08);
     }
 
-    .install-card__name {
+    .phase-card__week {
       font-family: var(--font-body);
       font-size: var(--text-xs);
       font-weight: 600;
@@ -589,7 +705,7 @@
       margin-bottom: var(--space-2);
     }
 
-    .install-card__title {
+    .phase-card__title {
       font-family: var(--font-display);
       font-size: var(--text-lg);
       font-weight: 400;
@@ -599,155 +715,129 @@
       line-height: 1.25;
     }
 
-    .install-card__desc {
+    .phase-card__desc {
       font-size: var(--text-sm);
       color: var(--color-text-muted);
       line-height: 1.7;
       margin-bottom: var(--space-5);
     }
 
-    .install-card__deliverables {
+    .phase-card__items {
       font-size: var(--text-xs);
       color: var(--color-text-faint);
-      line-height: 1.7;
+      line-height: 1.8;
       padding-top: var(--space-4);
       border-top: 1px solid var(--color-divider);
+      list-style: none;
+      padding-left: 0;
+      margin: 0;
     }
 
-    .install-card__deliverables strong {
-      color: var(--color-text-muted);
-      font-weight: 500;
-    }
-
-    /* ================================================================
-       HOW IT WORKS
-       ================================================================ */
-    .process {
-      border-top: 1px solid var(--color-divider);
-    }
-
-    .process__steps {
-      display: grid;
-      gap: var(--space-8);
-      counter-reset: step;
-    }
-
-    @media (min-width: 768px) {
-      .process__steps {
-        grid-template-columns: repeat(3, 1fr);
-        gap: var(--space-6);
-      }
-    }
-
-    .process-step {
-      counter-increment: step;
+    .phase-card__items li {
+      padding-left: var(--space-4);
       position: relative;
     }
 
-    .process-step__number {
-      font-family: var(--font-display);
-      font-size: var(--text-2xl);
-      color: oklch(from var(--color-text) l c h / 0.08);
-      line-height: 1;
-      margin-bottom: var(--space-3);
+    .phase-card__items li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--color-text-faint);
     }
 
-    .process-step__title {
+    /* Deliverable cards */
+    .deliverables-heading {
       font-family: var(--font-display);
-      font-size: var(--text-lg);
+      font-size: var(--text-xl);
       font-style: italic;
       color: var(--color-text);
       margin-bottom: var(--space-3);
-      line-height: 1.25;
     }
 
-    .process-step__body {
+    .deliverables-sub {
       font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      max-width: 640px;
+      margin-bottom: var(--space-10);
+    }
+
+    .deliverables-grid {
+      display: grid;
+      gap: var(--space-4);
+    }
+
+    @media (min-width: 640px) {
+      .deliverables-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .deliverables-grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .deliverable {
+      background: var(--color-surface);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5) var(--space-5) var(--space-4);
+      transition: all var(--transition-interactive);
+    }
+
+    .deliverable:hover {
+      border-color: oklch(from var(--color-primary) l c h / 0.15);
+    }
+
+    .deliverable__number {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-primary);
+      letter-spacing: 0.06em;
+      margin-bottom: var(--space-2);
+    }
+
+    .deliverable__title {
+      font-family: var(--font-display);
+      font-size: var(--text-base);
+      font-style: italic;
+      color: var(--color-text);
+      line-height: 1.3;
+      margin-bottom: var(--space-3);
+    }
+
+    .deliverable__desc {
+      font-size: var(--text-xs);
       color: var(--color-text-muted);
       line-height: 1.7;
     }
 
-    /* Connecting line on desktop */
-    @media (min-width: 768px) {
-      .process-step:not(:last-child)::after {
-        content: '';
-        position: absolute;
-        top: 1.2rem;
-        right: calc(-1 * var(--space-3));
-        width: var(--space-6);
-        height: 1px;
-        background: var(--color-divider);
-      }
-    }
-
-    /* ================================================================
-       WHO IT'S FOR
-       ================================================================ */
-    .audience {
+    .engagement__coda {
+      margin-top: var(--space-12);
+      padding-top: var(--space-8);
       border-top: 1px solid var(--color-divider);
-      background: var(--color-surface);
-    }
-
-    .audience__grid {
-      display: grid;
-      gap: var(--space-8);
-    }
-
-    @media (min-width: 768px) {
-      .audience__grid {
-        grid-template-columns: 1fr 1fr;
-        gap: var(--space-16);
-      }
-    }
-
-    .audience__list {
-      list-style: none;
       display: flex;
       flex-direction: column;
       gap: var(--space-4);
     }
 
-    .audience__list li {
-      font-size: var(--text-sm);
-      color: var(--color-text-muted);
-      line-height: 1.6;
-      padding-left: var(--space-5);
-      position: relative;
-    }
-
-    .audience__list li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 0.55em;
-      width: 6px;
-      height: 6px;
-      border-radius: var(--radius-full);
-      background: var(--color-primary);
-      opacity: 0.6;
-    }
-
-    .audience__note {
+    .engagement__coda p {
       font-size: var(--text-sm);
       color: var(--color-text-muted);
       line-height: 1.7;
-      margin-top: var(--space-6);
+      max-width: 640px;
     }
 
-    .audience__note strong {
+    .engagement__coda p strong {
       color: var(--color-text);
       font-weight: 500;
     }
 
-    .audience__sectors {
-      font-size: var(--text-xs);
-      color: var(--color-text-faint);
-      margin-top: var(--space-6);
-      line-height: 1.7;
-    }
-
     /* ================================================================
-       PROOF & CREDIBILITY
+       PROOF — BEFORE/AFTER TABLE
        ================================================================ */
     .proof {
       border-top: 1px solid var(--color-divider);
@@ -792,13 +882,8 @@
       vertical-align: top;
     }
 
-    .proof__table td:first-child {
-      color: var(--color-text-faint);
-    }
-
-    .proof__table td:last-child {
-      color: var(--color-text);
-    }
+    .proof__table td:first-child { color: var(--color-text-faint); }
+    .proof__table td:last-child { color: var(--color-text); }
 
     .proof__note {
       font-size: var(--text-xs);
@@ -808,60 +893,344 @@
     }
 
     /* ================================================================
-       GOVERNANCE
+       DIAGNOSTIC TRIGGER — FREE AUDIT CTA
        ================================================================ */
-    .governance {
+    .diagnostic {
       border-top: 1px solid var(--color-divider);
       background: var(--color-surface);
     }
 
-    .governance__list {
+    .diagnostic__inner {
+      display: grid;
+      gap: var(--space-8);
+    }
+
+    @media (min-width: 768px) {
+      .diagnostic__inner {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-16);
+        align-items: start;
+      }
+    }
+
+    .diagnostic__checklist {
       list-style: none;
       display: flex;
       flex-direction: column;
-      gap: var(--space-5);
-      max-width: 60ch;
+      gap: var(--space-4);
     }
 
-    .governance__list li {
+    .diagnostic__checklist li {
       font-size: var(--text-sm);
       color: var(--color-text-muted);
-      line-height: 1.7;
+      line-height: 1.6;
       padding-left: var(--space-6);
       position: relative;
     }
 
-    .governance__list li::before {
-      content: '';
+    .diagnostic__checklist li::before {
+      content: '→';
       position: absolute;
       left: 0;
-      top: 0.45em;
-      width: 12px;
-      height: 12px;
-      border: 1.5px solid var(--color-primary);
-      border-radius: 2px;
-      opacity: 0.5;
+      color: var(--color-primary);
+      font-weight: 500;
     }
 
-    .governance__list li::after {
-      content: '';
-      position: absolute;
-      left: 3px;
-      top: calc(0.45em + 3px);
-      width: 6px;
+    .diagnostic__investment {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      margin-top: var(--space-6);
+      line-height: 1.6;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .diagnostic__investment strong {
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    /* ================================================================
+       MULTI-STEP APPLICATION FORM
+       ================================================================ */
+    .application {
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .form-outer {
+      max-width: var(--content-narrow);
+      margin-inline: auto;
+    }
+
+    .form-progress {
+      display: flex;
+      align-items: center;
+      gap: var(--space-1);
+      margin-bottom: var(--space-8);
+      overflow: hidden;
+    }
+
+    .form-progress__bar {
+      flex: 1;
       height: 3px;
-      border-left: 1.5px solid var(--color-primary);
-      border-bottom: 1.5px solid var(--color-primary);
-      transform: rotate(-45deg);
-      opacity: 0.5;
+      background: var(--color-divider);
+      border-radius: var(--radius-full);
+      transition: background 400ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .governance__footer {
+    .form-progress__bar.is-active {
+      background: var(--color-primary);
+    }
+
+    .form-progress__bar.is-done {
+      background: var(--color-primary);
+      opacity: 0.6;
+    }
+
+    .form-step {
+      display: none;
+    }
+
+    .form-step.is-active {
+      display: block;
+    }
+
+    .form-step__number {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--color-text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-3);
+    }
+
+    .form-step__question {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+      line-height: 1.25;
+    }
+
+    .form-step__hint {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      margin-bottom: var(--space-5);
+      line-height: 1.5;
+    }
+
+    .form-options {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-bottom: var(--space-6);
+    }
+
+    .form-option {
+      display: block;
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-surface);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.08);
+      border-radius: var(--radius-md);
+      cursor: pointer;
+      transition: all var(--transition-interactive);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.5;
+    }
+
+    .form-option:hover {
+      border-color: oklch(from var(--color-primary) l c h / 0.3);
+      color: var(--color-text);
+    }
+
+    .form-option.is-selected {
+      border-color: var(--color-primary);
+      background: var(--color-primary-highlight);
+      color: var(--color-text);
+    }
+
+    .form-option input {
+      display: none;
+    }
+
+    .form-input {
+      width: 100%;
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-surface);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.08);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      transition: border-color var(--transition-interactive);
+      margin-bottom: var(--space-4);
+    }
+
+    .form-input:focus {
+      outline: none;
+      border-color: var(--color-primary);
+    }
+
+    .form-input::placeholder {
+      color: var(--color-text-faint);
+    }
+
+    textarea.form-input {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    .form-nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+
+    .form-nav__back {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      transition: color var(--transition-interactive);
+      padding: var(--space-2) 0;
+    }
+
+    .form-nav__back:hover { color: var(--color-text); }
+
+    .form-nav__back:disabled {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    /* ================================================================
+       PRE-CALL INDOCTRINATION
+       ================================================================ */
+    .precall {
+      display: none;
+      border-top: 1px solid var(--color-divider);
+      background: var(--color-surface);
+    }
+
+    .precall.is-visible { display: block; }
+
+    .precall__grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    @media (min-width: 768px) {
+      .precall__grid {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .precall-card {
+      padding: var(--space-6);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.06);
+      border-radius: var(--radius-lg);
+    }
+
+    .precall-card__number {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: oklch(from var(--color-text) l c h / 0.08);
+      line-height: 1;
+      margin-bottom: var(--space-3);
+    }
+
+    .precall-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+      line-height: 1.25;
+    }
+
+    .precall-card__body {
       font-size: var(--text-sm);
       color: var(--color-text-muted);
       line-height: 1.7;
-      margin-top: var(--space-8);
-      max-width: 60ch;
+    }
+
+    /* ================================================================
+       INVESTMENT SECTION
+       ================================================================ */
+    .investment {
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .investment__tiers {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    @media (min-width: 768px) {
+      .investment__tiers {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .tier-card {
+      background: var(--color-surface);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+    }
+
+    .tier-card--featured {
+      border-color: oklch(from var(--color-primary) l c h / 0.3);
+    }
+
+    .tier-card__name {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .tier-card__price {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      color: var(--color-text);
+      line-height: 1.2;
+      margin-bottom: var(--space-4);
+    }
+
+    .tier-card__desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--space-5);
+    }
+
+    .tier-card__includes {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .tier-card__includes li {
+      padding-left: var(--space-4);
+      position: relative;
+    }
+
+    .tier-card__includes li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: var(--color-primary);
+      font-size: var(--text-xs);
     }
 
     /* ================================================================
@@ -869,6 +1238,7 @@
        ================================================================ */
     .faq {
       border-top: 1px solid var(--color-divider);
+      background: var(--color-surface);
     }
 
     .faq__list {
@@ -895,13 +1265,7 @@
       transition: color var(--transition-interactive);
     }
 
-    .faq-item__trigger:hover {
-      color: var(--color-primary);
-    }
-
-    .faq-item__trigger:active {
-      opacity: 0.8;
-    }
+    .faq-item__trigger:hover { color: var(--color-primary); }
 
     .faq-item__icon {
       flex-shrink: 0;
@@ -912,9 +1276,7 @@
       margin-top: 2px;
     }
 
-    .faq-item.is-open .faq-item__icon {
-      transform: rotate(45deg);
-    }
+    .faq-item.is-open .faq-item__icon { transform: rotate(45deg); }
 
     .faq-item__content {
       display: grid;
@@ -922,13 +1284,9 @@
       transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .faq-item.is-open .faq-item__content {
-      grid-template-rows: 1fr;
-    }
+    .faq-item.is-open .faq-item__content { grid-template-rows: 1fr; }
 
-    .faq-item__content-inner {
-      overflow: hidden;
-    }
+    .faq-item__content-inner { overflow: hidden; }
 
     .faq-item__answer {
       padding-bottom: var(--space-6);
@@ -947,9 +1305,7 @@
       padding-block: clamp(var(--space-16), 10vw, var(--space-32));
     }
 
-    .final-cta .overline {
-      text-align: center;
-    }
+    .final-cta .overline { text-align: center; }
 
     .final-cta__heading {
       font-family: var(--font-display);
@@ -1013,22 +1369,17 @@
       transition: color var(--transition-interactive);
     }
 
-    .footer__links a:hover {
-      color: var(--color-text-muted);
-    }
+    .footer__links a:hover { color: var(--color-text-muted); }
 
     /* ================================================================
        SCROLL REVEAL
        ================================================================ */
-    /* Reveal: JS marks elements with .will-reveal then observes. No JS = fully visible. */
     .will-reveal {
       opacity: 0;
       transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1);
     }
 
-    .will-reveal.is-visible {
-      opacity: 1;
-    }
+    .will-reveal.is-visible { opacity: 1; }
 
     .will-stagger > * {
       opacity: 0;
@@ -1056,7 +1407,7 @@
     }
 
     /* ================================================================
-       RESPONSIVE ADJUSTMENTS
+       RESPONSIVE
        ================================================================ */
     @media (max-width: 767px) {
       .hero {
@@ -1064,52 +1415,12 @@
         padding-block: clamp(var(--space-12), 8vw, var(--space-20));
       }
 
-      .hero h1 {
-        max-width: 100%;
-      }
-
-      .section-heading {
-        max-width: 100%;
-      }
+      .hero h1 { max-width: 100%; }
+      .section-heading { max-width: 100%; }
     }
   </style>
 </head>
 <body>
-
-  <!-- ============================================================
-       TEMP PASSWORD GATE — remove this block before going live
-       ============================================================ -->
-  <div id="pw-gate" style="display:none;position:fixed;inset:0;z-index:9999;background:#0d0d0d;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;">
-    <div style="text-align:center;">
-      <p style="color:#a0a0a0;font-size:0.9rem;margin-bottom:1rem;letter-spacing:0.05em;">PREVIEW ACCESS</p>
-      <input id="pw-input" type="password" placeholder="Password" autofocus
-        style="background:#1a1a1a;border:1px solid #333;color:#fff;padding:0.6rem 1rem;border-radius:6px;font-size:1rem;outline:none;width:200px;text-align:center;">
-      <p id="pw-error" style="color:#e05c5c;font-size:0.8rem;margin-top:0.5rem;opacity:0;transition:opacity 0.2s;">Incorrect password</p>
-    </div>
-  </div>
-  <script>
-    (function(){
-      var gate = document.getElementById('pw-gate');
-      var input = document.getElementById('pw-input');
-      var error = document.getElementById('pw-error');
-      if (sessionStorage.getItem('optiflows-auth') === '1') { gate.style.display = 'none'; return; }
-      gate.style.display = 'flex';
-      input.addEventListener('keydown', function(e){
-        if (e.key !== 'Enter') return;
-        if (input.value === '1xlx1') {
-          sessionStorage.setItem('optiflows-auth', '1');
-          gate.style.display = 'none';
-        } else {
-          error.style.opacity = '1';
-          input.value = '';
-          setTimeout(function(){ error.style.opacity = '0'; }, 2000);
-        }
-      });
-    })();
-  </script>
-  <!-- ============================================================
-       END TEMP PASSWORD GATE
-       ============================================================ -->
   <!-- Skip link -->
   <a href="#main" class="sr-only" style="position:absolute;z-index:200;top:var(--space-2);left:var(--space-2);padding:var(--space-2) var(--space-4);background:var(--color-primary);color:var(--color-text-inverse);border-radius:var(--radius-md);font-size:var(--text-sm);text-decoration:none;" onfocus="this.style.position='fixed';this.style.clip='auto';this.style.width='auto';this.style.height='auto';this.style.overflow='visible';" onblur="this.style.position='absolute';this.style.clip='rect(0,0,0,0)';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden';">Skip to content</a>
 
@@ -1117,15 +1428,20 @@
   <header class="header" role="banner">
     <div class="container header__inner">
       <a href="#" class="header__logo" aria-label="Optiflows Home">
-        <img class="logo--dark"  src="images/Optiflows_Logo_White.png" alt="Optiflows">
-        <img class="logo--light" src="images/Optiflows_Logo_BLK.png"   alt="Optiflows">
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="10" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+          <circle cx="16" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="22" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="1"/>
+          <circle cx="22" cy="16" r="2.5" fill="var(--color-primary)"/>
+        </svg>
+        <span class="header__logo-text">Optiflows</span>
       </a>
 
       <nav class="header__nav" role="navigation" aria-label="Main navigation">
         <ul class="header__nav-links" role="list">
-          <li><a href="#install">System</a></li>
-          <li><a href="#process">Process</a></li>
+          <li><a href="#system">Engagement</a></li>
           <li><a href="#proof">Proof</a></li>
+          <li><a href="#apply">Apply</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
 
@@ -1136,7 +1452,7 @@
             </svg>
           </button>
 
-          <a href="#audit" class="btn-cta btn-cta--primary">Book an Audit <span class="arrow">&rarr;</span></a>
+          <a href="#apply" class="btn-cta btn-cta--primary">Apply for Audit <span class="arrow">&rarr;</span></a>
 
           <button class="mobile-menu-btn" aria-label="Open menu" data-mobile-toggle>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1150,26 +1466,28 @@
 
   <!-- Mobile nav -->
   <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
-    <a href="#install" data-mobile-link>System</a>
-    <a href="#process" data-mobile-link>Process</a>
+    <a href="#system" data-mobile-link>Engagement</a>
     <a href="#proof" data-mobile-link>Proof</a>
+    <a href="#apply" data-mobile-link>Apply</a>
     <a href="#faq" data-mobile-link>FAQ</a>
-    <a href="#audit" data-mobile-link style="color: var(--color-primary); font-weight: 600;">Book an Audit &rarr;</a>
+    <a href="#apply" data-mobile-link style="color: var(--color-primary); font-weight: 600;">Apply for Audit &rarr;</a>
   </nav>
 
   <main id="main">
 
-    <!-- ========== HERO ========== -->
+    <!-- ====================================================================
+         STEP 1: CATEGORY DECLARATION — HERO
+         ==================================================================== -->
     <section class="hero section" aria-label="Hero">
       <div class="container">
         <div class="hero__content">
+          <span class="hero__category">Growth Operating Model Install</span>
           <h1>We Redesign How <em>Growth Work</em> Happens.</h1>
           <p class="hero__sub">
-            Growth Operating Model installs for founder-led B2B companies.<br>
-            <strong>Units-based delivery. Measurable outcomes. 4-week sprints.</strong>
+            Most founder-led B2B companies don't have a marketing problem. They have an operating model problem. The product works. The team is capable. But the system that should be generating consistent, compounding demand — <strong>doesn't exist.</strong>
           </p>
           <div class="hero__cta-group">
-            <a href="#audit" class="btn-cta btn-cta--primary">
+            <a href="#apply" class="btn-cta btn-cta--primary">
               Book a 30 Minute Growth Operating Model Audit <span class="arrow">&rarr;</span>
             </a>
             <p class="hero__cta-note">No retainer. No pitch. You'll leave with a clear view of what's missing and what to install next.</p>
@@ -1178,7 +1496,9 @@
       </div>
     </section>
 
-    <!-- ========== PROBLEM STATEMENT ========== -->
+    <!-- ====================================================================
+         STEP 2: PROBLEM REFRAME
+         ==================================================================== -->
     <section class="problem section" id="problem" aria-label="Problem statement">
       <div class="container container--narrow">
         <div class="problem__grid reveal">
@@ -1200,106 +1520,205 @@
       </div>
     </section>
 
-    <!-- ========== WHAT WE INSTALL ========== -->
-    <section class="install section" id="install" aria-label="What we install">
-      <div class="container">
-        <span class="overline">What we install</span>
-        <h2 class="section-heading">Three engines, one system.</h2>
-
-        <div class="install__grid reveal-stagger">
-          <!-- SPARK -->
-          <div class="install-card">
-            <div class="install-card__name">SPARK</div>
-            <div class="install-card__title">Campaign Engine</div>
-            <p class="install-card__desc">Category positioning that makes your ideal buyers self-identify. A repeatable campaign engine that produces qualified pipeline on a defined cadence. Built on your sector's language and buying patterns — not a generic playbook.</p>
-            <div class="install-card__deliverables">
-              <strong>Delivers:</strong> Messaging playbook · Campaign-in-a-box · Nurture sequences · Outbound scripts · Funnel blueprint
-            </div>
-          </div>
-
-          <!-- FLOW -->
-          <div class="install-card">
-            <div class="install-card__name">FLOW</div>
-            <div class="install-card__title">Automation Engine</div>
-            <p class="install-card__desc">Every hour a founder spends on tasks the system should handle is an hour not spent on growth. FLOW instruments the work that creates leverage and removes it from human hands — governed, documented, and measurable.</p>
-            <div class="install-card__deliverables">
-              <strong>Delivers:</strong> CRM routing workflows · AI follow-up agent · Internal handoff automation · Governance documentation · Human-in-the-loop rules
-            </div>
-          </div>
-
-          <!-- VISION -->
-          <div class="install-card">
-            <div class="install-card__name">VISION</div>
-            <div class="install-card__title">Insights Engine</div>
-            <p class="install-card__desc">Most founder-led companies have data, but not intelligence. VISION instruments your operating model with dashboards and a monthly cadence that makes the answer clear every time — what's working, what to iterate, where to put the next dollar.</p>
-            <div class="install-card__deliverables">
-              <strong>Delivers:</strong> KPI dashboard · Reporting framework · Monthly insights review · Quarterly strategy recalibration
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== HOW IT WORKS ========== -->
-    <section class="process section" id="process" aria-label="How it works">
-      <div class="container">
-        <span class="overline">How it works</span>
-        <h2 class="section-heading">Audit. Optimise. Own.</h2>
-
-        <div class="process__steps reveal-stagger">
-          <div class="process-step">
-            <div class="process-step__number">01</div>
-            <h3 class="process-step__title">Growth Operating Model Audit</h3>
-            <p class="process-step__body">30 minutes, free. We map your current state, identify the highest-leverage gaps in your growth operating model, and show you exactly what we'd install and in what sequence. You leave with a clear view regardless of whether we work together.</p>
-          </div>
-
-          <div class="process-step">
-            <div class="process-step__number">02</div>
-            <h3 class="process-step__title">Sprint Install</h3>
-            <p class="process-step__body">4-week delivery. We design, build, and deploy the operating model components in your existing stack. Units-based delivery means you know exactly what you receive and when. Named deliverables, acceptance criteria, and defined revision limits — before work begins.</p>
-          </div>
-
-          <div class="process-step">
-            <div class="process-step__number">03</div>
-            <h3 class="process-step__title">Own the System</h3>
-            <p class="process-step__body">When the sprint ends, the system is yours. We transfer ownership with documentation, SOPs, and training. We're available for ongoing governance and optimisation — but the operating model is yours to operate independently.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== WHO IT'S FOR ========== -->
-    <section class="audience section" id="audience" aria-label="Who it's for">
+    <!-- ====================================================================
+         STEP 3: SYSTEM INSIGHT — LOOP DIAGRAMS
+         ==================================================================== -->
+    <section class="loops section" id="loops" aria-label="System comparison">
       <div class="container container--narrow">
-        <div class="audience__grid reveal">
-          <div>
-            <span class="overline">Who it's for</span>
-            <h2 class="section-heading">Built for founder-led B2B companies at an inflection point.</h2>
+        <span class="overline">System insight</span>
+        <h2 class="section-heading">Two loops. One breaks you. One builds you.</h2>
+        <p class="section-body" style="margin-bottom: var(--space-10);">Every founder-led B2B company is running one of these two loops. The difference isn't effort. It's architecture.</p>
+
+        <div class="loops__grid">
+          <!-- BROKEN LOOP -->
+          <div class="loop-card loop-card--broken">
+            <span class="loop-card__label">The Founder Bottleneck Loop</span>
+            <div class="loop-card__diagram">
+              <svg viewBox="0 0 240 240" fill="none" role="img" aria-label="Founder Bottleneck Loop: a circular diagram showing a broken cycle of tactical effort without leverage">
+                <!-- Outer circle (dashed — broken) -->
+                <circle cx="120" cy="120" r="95" stroke="var(--color-danger)" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.4"/>
+                <!-- Nodes -->
+                <circle cx="120" cy="30" r="18" fill="var(--color-danger-soft)" stroke="var(--color-danger)" stroke-width="1"/>
+                <text x="120" y="34" text-anchor="middle" fill="var(--color-danger)" font-family="var(--font-body)" font-size="9" font-weight="500">Founder</text>
+
+                <circle cx="215" cy="100" r="18" fill="var(--color-danger-soft)" stroke="var(--color-danger)" stroke-width="1"/>
+                <text x="215" y="98" text-anchor="middle" fill="var(--color-danger)" font-family="var(--font-body)" font-size="8" font-weight="500">Tactical</text>
+                <text x="215" y="108" text-anchor="middle" fill="var(--color-danger)" font-family="var(--font-body)" font-size="8" font-weight="500">Activity</text>
+
+                <circle cx="190" cy="200" r="18" fill="var(--color-danger-soft)" stroke="var(--color-danger)" stroke-width="1"/>
+                <text x="190" y="198" text-anchor="middle" fill="var(--color-danger)" font-family="var(--font-body)" font-size="8" font-weight="500">No</text>
+                <text x="190" y="208" text-anchor="middle" fill="var(--color-danger)" font-family="var(--font-body)" font-size="8" font-weight="500">Leverage</text>
+
+                <circle cx="50" cy="200" r="18" fill="var(--color-danger-soft)" stroke="var(--color-danger)" stroke-width="1"/>
+                <text x="50" y="198" text-anchor="middle" fill="var(--color-danger)" font-family="var(--font-body)" font-size="8" font-weight="500">Same</text>
+                <text x="50" y="208" text-anchor="middle" fill="var(--color-danger)" font-family="var(--font-body)" font-size="8" font-weight="500">Results</text>
+
+                <circle cx="25" cy="100" r="18" fill="var(--color-danger-soft)" stroke="var(--color-danger)" stroke-width="1"/>
+                <text x="25" y="98" text-anchor="middle" fill="var(--color-danger)" font-family="var(--font-body)" font-size="8" font-weight="500">Reset</text>
+                <text x="25" y="108" text-anchor="middle" fill="var(--color-danger)" font-family="var(--font-body)" font-size="8" font-weight="500">Monthly</text>
+
+                <!-- Arrows between nodes -->
+                <path d="M136 36 L198 86" stroke="var(--color-danger)" stroke-width="1" opacity="0.5" marker-end="url(#arrowRed)"/>
+                <path d="M218 118 L198 182" stroke="var(--color-danger)" stroke-width="1" opacity="0.5" marker-end="url(#arrowRed)"/>
+                <path d="M172 206 L68 206" stroke="var(--color-danger)" stroke-width="1" opacity="0.5" marker-end="url(#arrowRed)"/>
+                <path d="M40 186 L28 118" stroke="var(--color-danger)" stroke-width="1" opacity="0.5" marker-end="url(#arrowRed)"/>
+                <path d="M38 86 L106 36" stroke="var(--color-danger)" stroke-width="1" opacity="0.5" marker-end="url(#arrowRed)"/>
+
+                <defs>
+                  <marker id="arrowRed" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+                    <path d="M0,0 L6,2 L0,4" fill="var(--color-danger)" opacity="0.5"/>
+                  </marker>
+                </defs>
+              </svg>
+            </div>
+            <p class="loop-card__caption">The founder is the engine. Every month resets. No compounding. No leverage.</p>
           </div>
-          <div>
-            <ul class="audience__list" role="list">
-              <li>You're running a B2B company with 10–50 people and a complex offer</li>
-              <li>Pipeline is inconsistent — feast one month, famine the next</li>
-              <li>The founder is still the engine: approving everything, filling every gap</li>
-              <li>You've tried marketing help before and ended up doing all the work anyway</li>
-              <li>You want measurable outcomes, not activity reports</li>
-            </ul>
 
-            <p class="audience__sectors">We work with companies in technology, professional services, industrial and IoT sectors, and agencies modernising their own growth engine.</p>
+          <!-- SYSTEM LOOP -->
+          <div class="loop-card loop-card--system">
+            <span class="loop-card__label">The Operating Model Loop</span>
+            <div class="loop-card__diagram">
+              <svg viewBox="0 0 240 240" fill="none" role="img" aria-label="Operating Model Loop: a circular diagram showing a virtuous cycle of system-driven growth">
+                <!-- Outer circle (solid — continuous) -->
+                <circle cx="120" cy="120" r="95" stroke="var(--color-success)" stroke-width="1.5" opacity="0.3"/>
+                <!-- Nodes -->
+                <circle cx="120" cy="30" r="18" fill="var(--color-success-soft)" stroke="var(--color-success)" stroke-width="1"/>
+                <text x="120" y="34" text-anchor="middle" fill="var(--color-success)" font-family="var(--font-body)" font-size="9" font-weight="500">System</text>
 
-            <p class="audience__note"><strong>We don't take every engagement.</strong> We reject companies that want more content without a system, or ungoverned automation without accountability. The model only works when both parties are committed to the install.</p>
+                <circle cx="215" cy="100" r="18" fill="var(--color-success-soft)" stroke="var(--color-success)" stroke-width="1"/>
+                <text x="215" y="98" text-anchor="middle" fill="var(--color-success)" font-family="var(--font-body)" font-size="8" font-weight="500">Campaign</text>
+                <text x="215" y="108" text-anchor="middle" fill="var(--color-success)" font-family="var(--font-body)" font-size="8" font-weight="500">Engine</text>
+
+                <circle cx="190" cy="200" r="18" fill="var(--color-success-soft)" stroke="var(--color-success)" stroke-width="1"/>
+                <text x="190" y="198" text-anchor="middle" fill="var(--color-success)" font-family="var(--font-body)" font-size="8" font-weight="500">Qualified</text>
+                <text x="190" y="208" text-anchor="middle" fill="var(--color-success)" font-family="var(--font-body)" font-size="8" font-weight="500">Pipeline</text>
+
+                <circle cx="50" cy="200" r="18" fill="var(--color-success-soft)" stroke="var(--color-success)" stroke-width="1"/>
+                <text x="50" y="198" text-anchor="middle" fill="var(--color-success)" font-family="var(--font-body)" font-size="8" font-weight="500">Measured</text>
+                <text x="50" y="208" text-anchor="middle" fill="var(--color-success)" font-family="var(--font-body)" font-size="8" font-weight="500">Outcomes</text>
+
+                <circle cx="25" cy="100" r="18" fill="var(--color-success-soft)" stroke="var(--color-success)" stroke-width="1"/>
+                <text x="25" y="98" text-anchor="middle" fill="var(--color-success)" font-family="var(--font-body)" font-size="8" font-weight="500">Iterate &</text>
+                <text x="25" y="108" text-anchor="middle" fill="var(--color-success)" font-family="var(--font-body)" font-size="8" font-weight="500">Compound</text>
+
+                <!-- Arrows -->
+                <path d="M136 36 L198 86" stroke="var(--color-success)" stroke-width="1" opacity="0.5" marker-end="url(#arrowGreen)"/>
+                <path d="M218 118 L198 182" stroke="var(--color-success)" stroke-width="1" opacity="0.5" marker-end="url(#arrowGreen)"/>
+                <path d="M172 206 L68 206" stroke="var(--color-success)" stroke-width="1" opacity="0.5" marker-end="url(#arrowGreen)"/>
+                <path d="M40 186 L28 118" stroke="var(--color-success)" stroke-width="1" opacity="0.5" marker-end="url(#arrowGreen)"/>
+                <path d="M38 86 L106 36" stroke="var(--color-success)" stroke-width="1" opacity="0.5" marker-end="url(#arrowGreen)"/>
+
+                <defs>
+                  <marker id="arrowGreen" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
+                    <path d="M0,0 L6,2 L0,4" fill="var(--color-success)" opacity="0.5"/>
+                  </marker>
+                </defs>
+              </svg>
+            </div>
+            <p class="loop-card__caption">The system compounds. Each cycle produces data that improves the next. The founder reviews, not builds.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== PROOF AND CREDIBILITY ========== -->
+    <!-- ====================================================================
+         STEP 4: OPERATING SYSTEM REVEAL — WHAT WE INSTALL
+         ==================================================================== -->
+    <section class="engagement section" id="system" aria-label="How we work">
+      <div class="container">
+        <span class="overline">How we work</span>
+        <h2 class="section-heading">Design + Build + Pilot. 12 weeks.</h2>
+        <p class="engagement__framing">You don't need more strategy decks. You need <strong>a working engine</strong> — designed around your business, built inside your team, and running in market before the engagement ends.</p>
+
+        <!-- Three-phase timeline -->
+        <div class="phase-timeline">
+          <div class="phase-card">
+            <div class="phase-card__week">Weeks 1–3</div>
+            <div class="phase-card__title">Design</div>
+            <p class="phase-card__desc">Define the future-state operating model first. Work backwards from where the system needs to be — roles, cadences, workflows, and governance — then map the build path to get there.</p>
+            <ul class="phase-card__items">
+              <li>Future-state operating model design</li>
+              <li>Workflow architecture and ownership model</li>
+              <li>Output framework and quality standards</li>
+              <li>Build sequence and milestone definition</li>
+            </ul>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-card__week">Weeks 4–8</div>
+            <div class="phase-card__title">Build &amp; Run</div>
+            <p class="phase-card__desc">Instrument the system. Build the workflows, governance layers, and output frameworks — then put them into production with your team, live.</p>
+            <ul class="phase-card__items">
+              <li>Core workflow implementation</li>
+              <li>Governance and decision-point design</li>
+              <li>Team onboarding and role clarity</li>
+              <li>Live pilot launch in market</li>
+            </ul>
+          </div>
+
+          <div class="phase-card">
+            <div class="phase-card__week">Weeks 9–12</div>
+            <div class="phase-card__title">Optimise &amp; Lock</div>
+            <p class="phase-card__desc">Measure what's running. Tighten the loops. Lock the system so it operates without founder dependency. Build the scale and automation map.</p>
+            <ul class="phase-card__items">
+              <li>Performance review and iteration</li>
+              <li>Process optimisation and documentation</li>
+              <li>Automation and scale roadmap</li>
+              <li>Handover — your team owns the system</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- What you'll have -->
+        <h3 class="deliverables-heading">What you'll have at the end of 12 weeks.</h3>
+        <p class="deliverables-sub">Five operational deliverables. Not slide decks. Not strategy documents. Working infrastructure your team can run, measure, and scale.</p>
+
+        <div class="deliverables-grid">
+          <div class="deliverable">
+            <div class="deliverable__number">01</div>
+            <div class="deliverable__title">Future-State Operating Model</div>
+            <p class="deliverable__desc">The complete architecture of how growth work happens in your business — roles, cadences, decision points, and governance.</p>
+          </div>
+          <div class="deliverable">
+            <div class="deliverable__number">02</div>
+            <div class="deliverable__title">Documented Core Workflows</div>
+            <p class="deliverable__desc">Every repeatable process mapped, owned, and documented. Clear inputs, outputs, and handoff points — no ambiguity.</p>
+          </div>
+          <div class="deliverable">
+            <div class="deliverable__number">03</div>
+            <div class="deliverable__title">Defined Output Framework</div>
+            <p class="deliverable__desc">Explicit quality standards for every output your system produces. What good looks like — measured, not assumed.</p>
+          </div>
+          <div class="deliverable">
+            <div class="deliverable__number">04</div>
+            <div class="deliverable__title">Live Pilot Running in Market</div>
+            <p class="deliverable__desc">Not a plan to launch. A system that's already running, producing real data, and generating measurable outcomes.</p>
+          </div>
+          <div class="deliverable">
+            <div class="deliverable__number">05</div>
+            <div class="deliverable__title">Scale &amp; Automation Map</div>
+            <p class="deliverable__desc">The roadmap for what to automate, what to scale, and in what order — so you know exactly where the next dollar of leverage comes from.</p>
+          </div>
+        </div>
+
+        <!-- Closing framing -->
+        <div class="engagement__coda">
+          <p><strong>Contained build. Clear scope. Clear accountability.</strong></p>
+          <p>This is embedded build time — not advisory oversight. We work inside your business, with your team, building the system that replaces founder dependency with operational leverage.</p>
+          <p>A working engine — not a strategy deck.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         STEP 5: PROOF — BEFORE/AFTER TABLE + CREDIBILITY
+         ==================================================================== -->
     <section class="proof section" id="proof" aria-label="Proof and credibility">
       <div class="container">
         <span class="overline">Proof</span>
         <h2 class="section-heading">The receipts, not the pitch.</h2>
 
-        <p class="proof__intro reveal">Optiflows is led by a founder with 20 years of marketing leadership across enterprise and mid-market technology companies, including HPE, Telstra, and Semtech. That experience informs a productised operating system — not ad hoc consulting.</p>
+        <p class="proof__intro reveal">Optiflows is led by a founder with 20 years of marketing leadership across enterprise and mid-market technology companies, including HPE, Telstra, and Semtech. That experience informs a productised operating model — not ad hoc consulting.</p>
 
         <div class="proof__table-wrap reveal">
           <table class="proof__table">
@@ -1338,25 +1757,269 @@
       </div>
     </section>
 
-    <!-- ========== GOVERNANCE COMMITMENT ========== -->
-    <section class="governance section" id="governance" aria-label="Governance commitment">
+    <!-- ====================================================================
+         STEP 6: DIAGNOSTIC TRIGGER — AUDIT PITCH
+         ==================================================================== -->
+    <section class="diagnostic section" id="diagnostic" aria-label="Diagnostic trigger">
       <div class="container container--narrow">
-        <span class="overline">Governance</span>
-        <h2 class="section-heading">You deserve to know exactly what we do — and what we don't.</h2>
+        <div class="diagnostic__inner reveal">
+          <div>
+            <span class="overline">The diagnostic</span>
+            <h2 class="section-heading">In 30 minutes, we'll map the architecture of your growth problem.</h2>
+            <p class="section-body">This isn't a sales call. It's a diagnostic. You'll leave with a clear view of your current operating model, the highest-leverage gaps, and what we'd install first — regardless of whether we work together.</p>
+          </div>
+          <div>
+            <ul class="diagnostic__checklist" role="list">
+              <li>Map the future-state operating model your business actually needs</li>
+              <li>Identify the single highest-leverage gap holding pipeline back</li>
+              <li>Map the install sequence — what to build first, second, third</li>
+              <li>Provide a clear recommendation with or without Optiflows</li>
+            </ul>
 
-        <ul class="governance__list reveal-stagger" role="list">
-          <li>Every AI tool used in delivery is classified and disclosed</li>
-          <li>Every customer-facing output is reviewed by a human practitioner before you see it — no exceptions</li>
-          <li>No client contact data enters an external AI tool without your explicit written consent</li>
-          <li>Every automation deployed is registered, versioned, and documented — and the registry is yours at handover</li>
-          <li>Every engagement includes a rollback plan before any automation goes live</li>
-        </ul>
-
-        <p class="governance__footer">We don't sell AI usage. We install a measurable Growth Operating Model with governance built in — so the system you receive is one you can explain to your board, your clients, and your team.</p>
+            <div class="diagnostic__investment">
+              <strong>Investment range for a full install:</strong> AUD $22,000 – $32,000 for a complete Growth Operating Model build. Sprints from AUD $8,500. Paid diagnostics from AUD $1,500. The audit itself is free — apply below.
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- ========== FAQ ========== -->
+    <!-- ====================================================================
+         STEP 7: MULTI-STEP APPLICATION FORM (11 steps)
+         ==================================================================== -->
+    <section class="application section" id="apply" aria-label="Application form">
+      <div class="container">
+        <div class="form-outer">
+          <span class="overline">Apply for your audit</span>
+          <h2 class="section-heading" style="margin-bottom: var(--space-4);">We don't take every company. This form helps us both decide if there's a fit.</h2>
+          <p class="section-body" style="margin-bottom: var(--space-8);">11 questions. Takes about 3 minutes. Every answer shapes the diagnostic we prepare for your call.</p>
+
+          <!-- Progress bar -->
+          <div class="form-progress" id="formProgress" aria-label="Form progress">
+            <div class="form-progress__bar is-active" data-bar="0"></div>
+            <div class="form-progress__bar" data-bar="1"></div>
+            <div class="form-progress__bar" data-bar="2"></div>
+            <div class="form-progress__bar" data-bar="3"></div>
+            <div class="form-progress__bar" data-bar="4"></div>
+            <div class="form-progress__bar" data-bar="5"></div>
+            <div class="form-progress__bar" data-bar="6"></div>
+            <div class="form-progress__bar" data-bar="7"></div>
+            <div class="form-progress__bar" data-bar="8"></div>
+            <div class="form-progress__bar" data-bar="9"></div>
+            <div class="form-progress__bar" data-bar="10"></div>
+          </div>
+
+          <form id="applicationForm" novalidate>
+
+            <!-- Q1: Company size -->
+            <div class="form-step is-active" data-step="0">
+              <div class="form-step__number">Question 1 of 11</div>
+              <div class="form-step__question">How many people work in your company?</div>
+              <div class="form-options" data-field="company_size">
+                <label class="form-option"><input type="radio" name="company_size" value="1-5"> 1–5 people (founder + early team)</label>
+                <label class="form-option"><input type="radio" name="company_size" value="6-15"> 6–15 people</label>
+                <label class="form-option"><input type="radio" name="company_size" value="16-50"> 16–50 people</label>
+                <label class="form-option"><input type="radio" name="company_size" value="50+"> 50+ people</label>
+              </div>
+              <div class="form-nav">
+                <button type="button" class="form-nav__back" disabled>&larr; Back</button>
+                <button type="button" class="btn-cta btn-cta--primary form-nav__next">Continue <span class="arrow">&rarr;</span></button>
+              </div>
+            </div>
+
+            <!-- Q2: Revenue range -->
+            <div class="form-step" data-step="1">
+              <div class="form-step__number">Question 2 of 11</div>
+              <div class="form-step__question">What's your current annual revenue range?</div>
+              <div class="form-step__hint">Approximate is fine. This helps us understand scale.</div>
+              <div class="form-options" data-field="revenue">
+                <label class="form-option"><input type="radio" name="revenue" value="pre-revenue"> Pre-revenue or under AUD $500K</label>
+                <label class="form-option"><input type="radio" name="revenue" value="500k-2m"> AUD $500K – $2M</label>
+                <label class="form-option"><input type="radio" name="revenue" value="2m-10m"> AUD $2M – $10M</label>
+                <label class="form-option"><input type="radio" name="revenue" value="10m+"> AUD $10M+</label>
+              </div>
+              <div class="form-nav">
+                <button type="button" class="form-nav__back">&larr; Back</button>
+                <button type="button" class="btn-cta btn-cta--primary form-nav__next">Continue <span class="arrow">&rarr;</span></button>
+              </div>
+            </div>
+
+            <!-- Q3: Business model -->
+            <div class="form-step" data-step="2">
+              <div class="form-step__number">Question 3 of 11</div>
+              <div class="form-step__question">What best describes your business?</div>
+              <div class="form-options" data-field="business_type">
+                <label class="form-option"><input type="radio" name="business_type" value="saas"> B2B SaaS / Technology</label>
+                <label class="form-option"><input type="radio" name="business_type" value="services"> Professional Services / Consulting</label>
+                <label class="form-option"><input type="radio" name="business_type" value="industrial"> Industrial / IoT / Hardware</label>
+                <label class="form-option"><input type="radio" name="business_type" value="agency"> Agency / Creative Services</label>
+              </div>
+              <div class="form-nav">
+                <button type="button" class="form-nav__back">&larr; Back</button>
+                <button type="button" class="btn-cta btn-cta--primary form-nav__next">Continue <span class="arrow">&rarr;</span></button>
+              </div>
+            </div>
+
+            <!-- Q4: Pipeline source -->
+            <div class="form-step" data-step="3">
+              <div class="form-step__number">Question 4 of 11</div>
+              <div class="form-step__question">Where does most of your pipeline come from today?</div>
+              <div class="form-options" data-field="pipeline_source">
+                <label class="form-option"><input type="radio" name="pipeline_source" value="referrals"> Mostly referrals and word-of-mouth</label>
+                <label class="form-option"><input type="radio" name="pipeline_source" value="outbound"> Outbound (cold email, LinkedIn, calls)</label>
+                <label class="form-option"><input type="radio" name="pipeline_source" value="inbound"> Inbound (content, SEO, paid ads)</label>
+                <label class="form-option"><input type="radio" name="pipeline_source" value="mixed"> A mix — but nothing consistent</label>
+              </div>
+              <div class="form-nav">
+                <button type="button" class="form-nav__back">&larr; Back</button>
+                <button type="button" class="btn-cta btn-cta--primary form-nav__next">Continue <span class="arrow">&rarr;</span></button>
+              </div>
+            </div>
+
+            <!-- Q5: Biggest growth challenge -->
+            <div class="form-step" data-step="4">
+              <div class="form-step__number">Question 5 of 11</div>
+              <div class="form-step__question">What's your single biggest growth challenge right now?</div>
+              <div class="form-options" data-field="challenge">
+                <label class="form-option"><input type="radio" name="challenge" value="pipeline"> Pipeline is inconsistent — feast or famine</label>
+                <label class="form-option"><input type="radio" name="challenge" value="founder-bottleneck"> I'm the bottleneck — growth depends on me</label>
+                <label class="form-option"><input type="radio" name="challenge" value="no-system"> We have tactics but no system tying them together</label>
+                <label class="form-option"><input type="radio" name="challenge" value="measurement"> We can't measure what's working and what isn't</label>
+              </div>
+              <div class="form-nav">
+                <button type="button" class="form-nav__back">&larr; Back</button>
+                <button type="button" class="btn-cta btn-cta--primary form-nav__next">Continue <span class="arrow">&rarr;</span></button>
+              </div>
+            </div>
+
+            <!-- Q6: Past marketing experience -->
+            <div class="form-step" data-step="5">
+              <div class="form-step__number">Question 6 of 11</div>
+              <div class="form-step__question">Have you worked with agencies or marketing consultants before?</div>
+              <div class="form-options" data-field="past_agencies">
+                <label class="form-option"><input type="radio" name="past_agencies" value="yes-bad"> Yes — and it didn't work</label>
+                <label class="form-option"><input type="radio" name="past_agencies" value="yes-ok"> Yes — mixed results</label>
+                <label class="form-option"><input type="radio" name="past_agencies" value="no"> No — we've handled everything internally</label>
+              </div>
+              <div class="form-nav">
+                <button type="button" class="form-nav__back">&larr; Back</button>
+                <button type="button" class="btn-cta btn-cta--primary form-nav__next">Continue <span class="arrow">&rarr;</span></button>
+              </div>
+            </div>
+
+            <!-- Q7: What would success look like? -->
+            <div class="form-step" data-step="6">
+              <div class="form-step__number">Question 7 of 11</div>
+              <div class="form-step__question">If this engagement worked perfectly, what would be different in 90 days?</div>
+              <div class="form-step__hint">Be specific. This shapes the diagnostic we build for your call.</div>
+              <textarea class="form-input" name="success_vision" placeholder="e.g., Pipeline running without me touching it. Dashboard I can check weekly. A system my team can actually operate."></textarea>
+              <div class="form-nav">
+                <button type="button" class="form-nav__back">&larr; Back</button>
+                <button type="button" class="btn-cta btn-cta--primary form-nav__next">Continue <span class="arrow">&rarr;</span></button>
+              </div>
+            </div>
+
+            <!-- Q8: Investment readiness -->
+            <div class="form-step" data-step="7">
+              <div class="form-step__number">Question 8 of 11</div>
+              <div class="form-step__question">Are you prepared to invest in system design and install — not just more campaigns?</div>
+              <div class="form-step__hint">Full installs range from AUD $22,000 – $32,000. Sprints from AUD $8,500.</div>
+              <div class="form-options" data-field="investment_ready">
+                <label class="form-option"><input type="radio" name="investment_ready" value="yes"> Yes — the investment matches the problem</label>
+                <label class="form-option"><input type="radio" name="investment_ready" value="exploring"> I need to understand the ROI first</label>
+                <label class="form-option"><input type="radio" name="investment_ready" value="not-yet"> Not right now — just exploring</label>
+              </div>
+              <div class="form-nav">
+                <button type="button" class="form-nav__back">&larr; Back</button>
+                <button type="button" class="btn-cta btn-cta--primary form-nav__next">Continue <span class="arrow">&rarr;</span></button>
+              </div>
+            </div>
+
+            <!-- Q9: Timeline -->
+            <div class="form-step" data-step="8">
+              <div class="form-step__number">Question 9 of 11</div>
+              <div class="form-step__question">When would you want to start?</div>
+              <div class="form-options" data-field="timeline">
+                <label class="form-option"><input type="radio" name="timeline" value="asap"> As soon as possible</label>
+                <label class="form-option"><input type="radio" name="timeline" value="1-2months"> Within 1–2 months</label>
+                <label class="form-option"><input type="radio" name="timeline" value="quarter"> Next quarter</label>
+                <label class="form-option"><input type="radio" name="timeline" value="exploring"> Just exploring for now</label>
+              </div>
+              <div class="form-nav">
+                <button type="button" class="form-nav__back">&larr; Back</button>
+                <button type="button" class="btn-cta btn-cta--primary form-nav__next">Continue <span class="arrow">&rarr;</span></button>
+              </div>
+            </div>
+
+            <!-- Q10: Anything else -->
+            <div class="form-step" data-step="9">
+              <div class="form-step__number">Question 10 of 11</div>
+              <div class="form-step__question">Anything else we should know before the call?</div>
+              <div class="form-step__hint">Optional. Context about your situation, current tools, team structure, or anything that would help us prepare a better diagnostic.</div>
+              <textarea class="form-input" name="additional_context" placeholder="Optional — share anything that would help us prepare a better diagnostic."></textarea>
+              <div class="form-nav">
+                <button type="button" class="form-nav__back">&larr; Back</button>
+                <button type="button" class="btn-cta btn-cta--primary form-nav__next">Continue <span class="arrow">&rarr;</span></button>
+              </div>
+            </div>
+
+            <!-- Q11: Contact details -->
+            <div class="form-step" data-step="10">
+              <div class="form-step__number">Question 11 of 11</div>
+              <div class="form-step__question">Where should we send your diagnostic prep?</div>
+              <input type="text" class="form-input" name="full_name" placeholder="Full name" required>
+              <input type="email" class="form-input" name="email" placeholder="Email address" required>
+              <input type="text" class="form-input" name="company_name" placeholder="Company name" required>
+              <input type="url" class="form-input" name="website" placeholder="Website URL (optional)">
+              <div class="form-nav">
+                <button type="button" class="form-nav__back">&larr; Back</button>
+                <button type="submit" class="btn-cta btn-cta--primary">Submit Application <span class="arrow">&rarr;</span></button>
+              </div>
+            </div>
+
+            <!-- Confirmation -->
+            <div class="form-step" data-step="confirm" style="text-align: center; padding: var(--space-12) 0;">
+              <div style="font-size: var(--text-2xl); margin-bottom: var(--space-2);">&#10003;</div>
+              <div class="form-step__question" style="max-width: 28ch; margin-inline: auto;">Application received. We'll review and respond within 24 hours.</div>
+              <p class="section-body" style="margin-inline: auto; text-align: center;">If there's a fit, you'll receive a short pre-call brief with our initial observations and suggested agenda for your Growth Operating Model Audit.</p>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         STEP 8: PRE-CALL INDOCTRINATION (shown after form submit)
+         ==================================================================== -->
+    <section class="precall section" id="precall" aria-label="What happens next">
+      <div class="container">
+        <span class="overline">After you apply</span>
+        <h2 class="section-heading">What happens next.</h2>
+
+        <div class="precall__grid reveal-stagger">
+          <div class="precall-card">
+            <div class="precall-card__number">01</div>
+            <h3 class="precall-card__title">We review your application</h3>
+            <p class="precall-card__body">Within 24 hours, we review your answers and decide if there's a fit. Not every company is right for this model — and we'll tell you directly if a different approach would serve you better.</p>
+          </div>
+          <div class="precall-card">
+            <div class="precall-card__number">02</div>
+            <h3 class="precall-card__title">You receive a pre-call brief</h3>
+            <p class="precall-card__body">If accepted, you'll receive a short document with our initial observations, questions we'll explore, and a suggested agenda. The call starts informed, not cold.</p>
+          </div>
+          <div class="precall-card">
+            <div class="precall-card__number">03</div>
+            <h3 class="precall-card__title">30-minute diagnostic call</h3>
+            <p class="precall-card__body">We map your growth operating model live, identify the highest-leverage gap, and present the install sequence. You leave with a clear recommendation — with or without Optiflows.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         STEP 9 & 10: FAQ + FINAL CTA
+         ==================================================================== -->
     <section class="faq section" id="faq" aria-label="Frequently asked questions">
       <div class="container">
         <span class="overline">FAQ</span>
@@ -1370,7 +2033,7 @@
             </button>
             <div class="faq-item__content">
               <div class="faq-item__content-inner">
-                <p class="faq-item__answer">That's the most common thing founders say before they engage us — and it's a healthy response. Agencies sell execution. They bill for hours and measure impressions. Optiflows installs an operating model — a system you own when we're done. Deliverables are named before the sprint begins. Acceptance criteria are defined in the SOW. If we haven't installed the system, we haven't delivered. The comparison isn't us versus a previous agency. It's: continue without a system, or install the model that makes growth work.</p>
+                <p class="faq-item__answer">That's the most common thing founders say before they engage us — and it's a healthy response. Agencies sell execution. They bill for hours and measure impressions. Optiflows installs an operating model — a system you own when we're done. Deliverables are named before the sprint begins. Acceptance criteria are defined in the SOW. If we haven't installed the system, we haven't delivered.</p>
               </div>
             </div>
           </div>
@@ -1382,7 +2045,7 @@
             </button>
             <div class="faq-item__content">
               <div class="faq-item__content-inner">
-                <p class="faq-item__answer">You can — if you have a team member with operating model design skills, the bandwidth to run the mapping, the framework to instrument the automation layer, and the discipline to govern it. What we hear more often: "We know we need to do this, but it keeps getting deprioritised because we're delivering." That's not a capability problem. That's an operating reality. Optiflows installs the system in a defined sprint, transfers ownership with documentation and training, and hands you something your team can operate independently. The question isn't whether you can do it internally. It's whether it will actually happen — and when.</p>
+                <p class="faq-item__answer">You can — if you have a team member with operating model design skills, the bandwidth to run the mapping, the framework to instrument the automation layer, and the discipline to govern it. What we hear more often: "We know we need to do this, but it keeps getting deprioritised because we're delivering." Optiflows installs the system in a defined sprint, transfers ownership with documentation, and hands you something your team can operate independently.</p>
               </div>
             </div>
           </div>
@@ -1394,7 +2057,7 @@
             </button>
             <div class="faq-item__content">
               <div class="faq-item__content-inner">
-                <p class="faq-item__answer">If we ran more campaigns without fixing anything else, you'd get leads — but they'd route inconsistently, follow-up would be delayed, and conversion rates would tell the same story they tell now. Most B2B growth problems aren't channel problems. They're conversion architecture problems. The weak link is rarely at the top of the funnel. What we do before touching demand generation is install the foundation: category positioning that makes your ideal buyers self-identify, routing and nurture that handles every lead without manual intervention, and a measurement layer that shows what's converting and why. That's when more leads actually become more revenue.</p>
+                <p class="faq-item__answer">If we ran more campaigns without fixing anything else, you'd get leads — but they'd route inconsistently, follow-up would be delayed, and conversion rates would tell the same story. Most B2B growth problems aren't channel problems. They're conversion architecture problems. What we do before touching demand generation is install the foundation: category positioning, routing, nurture, and measurement. That's when more leads actually become more revenue.</p>
               </div>
             </div>
           </div>
@@ -1406,7 +2069,7 @@
             </button>
             <div class="faq-item__content">
               <div class="faq-item__content-inner">
-                <p class="faq-item__answer">Good instinct. We implement formal governance in every engagement: approved tool registry, PII controls, human-in-the-loop rules for every customer-facing output, documented rollback procedures, and version-controlled automation registry. Nothing customer-facing is automated without a human checkpoint. Nothing is deployed without your sign-off. And at engagement close, you receive the full governance registry — so your next hire, your board, or your legal team can review exactly what's running and why.</p>
+                <p class="faq-item__answer">We implement formal governance in every engagement: approved tool registry, PII controls, human-in-the-loop rules for every customer-facing output, documented rollback procedures, and version-controlled automation registry. Nothing customer-facing is automated without a human checkpoint. At engagement close, you receive the full governance registry.</p>
               </div>
             </div>
           </div>
@@ -1418,7 +2081,7 @@
             </button>
             <div class="faq-item__content">
               <div class="faq-item__content-inner">
-                <p class="faq-item__answer">Consultants deliver reports. Fractional CMOs advise. Neither installs a system you own after they leave. Optiflows delivers a working system: by the end of a 4-week sprint, you have a messaging playbook your team uses, a campaign running, a routing workflow live in your CRM, and a dashboard showing what it's producing. That's execution with a design layer — not strategy without delivery. A fractional CMO in Australia costs AUD $7,000–$18,000 per month for strategic guidance alone, without a system to show for it. Optiflows installs the full operating model for a fixed project fee — and what you own at the end continues producing results without ongoing dependency.</p>
+                <p class="faq-item__answer">Consultants deliver reports. Fractional CMOs advise. Neither installs a system you own after they leave. Optiflows delivers a working system: by the end of a 4-week sprint, you have a messaging playbook, a campaign running, a routing workflow live in your CRM, and a dashboard showing what it's producing. A fractional CMO in Australia costs AUD $7,000–$18,000 per month for guidance alone. Optiflows installs the full operating model for a fixed project fee — and what you own continues producing results without ongoing dependency.</p>
               </div>
             </div>
           </div>
@@ -1426,16 +2089,18 @@
       </div>
     </section>
 
-    <!-- ========== FINAL CTA ========== -->
+    <!-- ====================================================================
+         FINAL CTA
+         ==================================================================== -->
     <section class="final-cta section" id="audit" aria-label="Book an audit">
       <div class="container">
         <span class="overline">Next step</span>
         <h2 class="final-cta__heading">The first step is 30 minutes.</h2>
-        <p class="final-cta__body">In that conversation, we map your current growth state, identify the highest-leverage gaps, and show you exactly what we'd install and in what sequence. No retainer required to start. No pitch. You leave with a clear picture of what's missing and what it would take to fix it.</p>
-        <a href="#audit" class="btn-cta btn-cta--primary" style="font-size: var(--text-sm);">
+        <p class="final-cta__body">In that conversation, we map your current growth state, identify the highest-leverage gaps, and show you exactly what we'd install and in what sequence. No retainer required. No pitch. You leave with a clear picture.</p>
+        <a href="#apply" class="btn-cta btn-cta--primary" style="font-size: var(--text-sm);">
           Book a 30 Minute Growth Operating Model Audit <span class="arrow">&rarr;</span>
         </a>
-
+        <p class="final-cta__note">For founder-led B2B companies whose pipeline isn't as predictable as their product.</p>
       </div>
     </section>
   </main>
@@ -1445,6 +2110,7 @@
     <div class="container footer__inner">
       <span class="footer__copy">&copy; 2026 Optiflows. Growth Operating Model installs.</span>
       <ul class="footer__links" role="list">
+        <li><a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a></li>
         <li><a href="#">optiflows.com.au</a></li>
       </ul>
     </div>
@@ -1457,7 +2123,6 @@
       const toggle = document.querySelector('[data-theme-toggle]');
       const root = document.documentElement;
       let theme = 'dark';
-      root.setAttribute('data-theme', theme);
 
       if (toggle) {
         toggle.addEventListener('click', () => {
@@ -1491,6 +2156,78 @@
       links.forEach(l => l.addEventListener('click', () => { if (open) toggle(); }));
     })();
 
+    /* — Multi-Step Form — */
+    (function() {
+      const form = document.getElementById('applicationForm');
+      const steps = form.querySelectorAll('.form-step');
+      const bars = document.querySelectorAll('.form-progress__bar');
+      const precall = document.getElementById('precall');
+      let currentStep = 0;
+      const totalSteps = 11;
+
+      function showStep(idx) {
+        steps.forEach(s => s.classList.remove('is-active'));
+        const target = idx === 'confirm'
+          ? form.querySelector('[data-step="confirm"]')
+          : form.querySelector(`[data-step="${idx}"]`);
+        if (target) target.classList.add('is-active');
+
+        // Update progress
+        bars.forEach((bar, i) => {
+          bar.classList.remove('is-active', 'is-done');
+          if (idx === 'confirm') {
+            bar.classList.add('is-done');
+          } else if (i < idx) {
+            bar.classList.add('is-done');
+          } else if (i === idx) {
+            bar.classList.add('is-active');
+          }
+        });
+      }
+
+      // Option selection
+      form.addEventListener('click', (e) => {
+        const option = e.target.closest('.form-option');
+        if (!option) return;
+        const group = option.closest('.form-options');
+        if (!group) return;
+        group.querySelectorAll('.form-option').forEach(o => o.classList.remove('is-selected'));
+        option.classList.add('is-selected');
+        const radio = option.querySelector('input[type="radio"]');
+        if (radio) radio.checked = true;
+      });
+
+      // Next button
+      form.addEventListener('click', (e) => {
+        if (!e.target.closest('.form-nav__next')) return;
+        if (currentStep < totalSteps - 1) {
+          currentStep++;
+          showStep(currentStep);
+          // Scroll form into view
+          document.getElementById('apply').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+
+      // Back button
+      form.addEventListener('click', (e) => {
+        if (!e.target.closest('.form-nav__back')) return;
+        if (currentStep > 0) {
+          currentStep--;
+          showStep(currentStep);
+          document.getElementById('apply').scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+
+      // Submit
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        showStep('confirm');
+        // Show the pre-call section
+        if (precall) precall.classList.add('is-visible');
+        document.getElementById('apply').scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    })();
+
     /* — FAQ Accordion — */
     (function() {
       const items = document.querySelectorAll('.faq-item');
@@ -1498,12 +2235,10 @@
         const trigger = item.querySelector('.faq-item__trigger');
         trigger.addEventListener('click', () => {
           const isOpen = item.classList.contains('is-open');
-          // Close all
           items.forEach(i => {
             i.classList.remove('is-open');
             i.querySelector('.faq-item__trigger').setAttribute('aria-expanded', 'false');
           });
-          // Open clicked (if wasn't open)
           if (!isOpen) {
             item.classList.add('is-open');
             trigger.setAttribute('aria-expanded', 'true');
@@ -1517,7 +2252,6 @@
       const reveals = document.querySelectorAll('.reveal');
       const staggers = document.querySelectorAll('.reveal-stagger');
 
-      // Progressive enhancement: JS adds animation classes
       reveals.forEach(el => el.classList.add('will-reveal'));
       staggers.forEach(el => el.classList.add('will-stagger'));
 
@@ -1528,10 +2262,10 @@
         return;
       }
 
-      // Immediately mark elements already in viewport
+      // Immediately mark elements in or near viewport
       all.forEach(el => {
         const rect = el.getBoundingClientRect();
-        if (rect.top < window.innerHeight && rect.bottom > 0) {
+        if (rect.top < window.innerHeight * 1.5 && rect.bottom > 0) {
           el.classList.add('is-visible');
         }
       });
@@ -1543,13 +2277,18 @@
             observer.unobserve(entry.target);
           }
         });
-      }, { threshold: 0.05, rootMargin: '20px 0px -20px 0px' });
+      }, { threshold: 0.02, rootMargin: '200px 0px 0px 0px' });
 
       all.forEach(el => {
         if (!el.classList.contains('is-visible')) {
           observer.observe(el);
         }
       });
+
+      // Fallback: make everything visible after 2s if observer hasn't fired
+      setTimeout(() => {
+        all.forEach(el => el.classList.add('is-visible'));
+      }, 2000);
     })();
 
     /* — Header Scroll State — */
