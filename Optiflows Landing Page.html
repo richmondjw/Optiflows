@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Optiflows — Growth Operating Model Installs for Founder-Led B2B</title>
+  <meta name="description" content="Optiflows installs Growth Operating Models for founder-led B2B companies. Units-based delivery. Measurable outcomes. 4-week sprints.">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Optiflows — We Redesign How Growth Work Happens">
+  <meta property="og:description" content="Growth Operating Model installs for founder-led B2B companies. Units-based delivery. Measurable outcomes. 4-week sprints.">
+  <meta property="og:type" content="website">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300..700;1,9..40,300..700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+
+  <style>
+    /* ================================================================
+       OPTIFLOWS DESIGN SYSTEM
+       Palette: Dark editorial — near-black + warm teal accent
+       Typography: Instrument Serif (display) + DM Sans (body)
+       ================================================================ */
+
+    /* — Type Scale — */
+    :root {
+      --text-xs:   clamp(0.75rem,  0.7rem  + 0.25vw, 0.875rem);
+      --text-sm:   clamp(0.875rem, 0.8rem  + 0.35vw, 1rem);
+      --text-base: clamp(1rem,     0.9rem  + 0.5vw,  1.125rem);
+      --text-lg:   clamp(1.125rem, 0.95rem + 0.85vw, 1.5rem);
+      --text-xl:   clamp(1.5rem,   1rem    + 1.5vw,  2.25rem);
+      --text-2xl:  clamp(2rem,     1.2rem  + 2.5vw,  3.5rem);
+      --text-3xl:  clamp(2.5rem,   1rem    + 4vw,    5rem);
+      --text-hero: clamp(2.75rem,  0.5rem  + 6vw,    6.5rem);
+
+      /* — Spacing — */
+      --space-1:  0.25rem;
+      --space-2:  0.5rem;
+      --space-3:  0.75rem;
+      --space-4:  1rem;
+      --space-5:  1.25rem;
+      --space-6:  1.5rem;
+      --space-8:  2rem;
+      --space-10: 2.5rem;
+      --space-12: 3rem;
+      --space-16: 4rem;
+      --space-20: 5rem;
+      --space-24: 6rem;
+      --space-32: 8rem;
+
+      /* — Radius — */
+      --radius-sm: 0.25rem;
+      --radius-md: 0.5rem;
+      --radius-lg: 0.75rem;
+      --radius-xl: 1rem;
+      --radius-full: 9999px;
+
+      /* — Transitions — */
+      --transition-interactive: 180ms cubic-bezier(0.16, 1, 0.3, 1);
+
+      /* — Content Widths — */
+      --content-narrow: 640px;
+      --content-default: 960px;
+      --content-wide: 1200px;
+
+      /* — Fonts — */
+      --font-display: 'Instrument Serif', Georgia, serif;
+      --font-body: 'DM Sans', system-ui, sans-serif;
+    }
+
+    /* ================================================================
+       DARK MODE (default)
+       ================================================================ */
+    :root, [data-theme="dark"] {
+      --color-bg:             #0D0D0F;
+      --color-surface:        #131316;
+      --color-surface-2:      #1A1A1E;
+      --color-surface-offset: #161619;
+      --color-surface-offset-2: #1E1E22;
+      --color-surface-dynamic: #252529;
+      --color-divider:        #2A2A2F;
+      --color-border:         #333338;
+
+      --color-text:           #E8E8EC;
+      --color-text-muted:     #8A8A94;
+      --color-text-faint:     #55555E;
+      --color-text-inverse:   #0D0D0F;
+
+      --color-primary:        #2BBBC3;
+      --color-primary-hover:  #23A0A7;
+      --color-primary-active: #1A7F85;
+      --color-primary-highlight: #14292B;
+
+      --shadow-sm: 0 1px 2px oklch(0 0 0 / 0.25);
+      --shadow-md: 0 4px 12px oklch(0 0 0 / 0.35);
+      --shadow-lg: 0 12px 32px oklch(0 0 0 / 0.45);
+    }
+
+    /* ================================================================
+       LIGHT MODE
+       ================================================================ */
+    [data-theme="light"] {
+      --color-bg:             #F5F5F3;
+      --color-surface:        #FFFFFF;
+      --color-surface-2:      #FAFAF8;
+      --color-surface-offset: #EDEDEB;
+      --color-surface-offset-2: #E5E5E2;
+      --color-surface-dynamic: #DDDDD9;
+      --color-divider:        #D0D0CC;
+      --color-border:         #C2C2BD;
+
+      --color-text:           #1A1A1E;
+      --color-text-muted:     #6B6B73;
+      --color-text-faint:     #A0A0A8;
+      --color-text-inverse:   #F5F5F3;
+
+      --color-primary:        #01696F;
+      --color-primary-hover:  #0C4E54;
+      --color-primary-active: #0F3638;
+      --color-primary-highlight: #D5E8E9;
+
+      --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
+      --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.08);
+      --shadow-lg: 0 12px 32px oklch(0.2 0.01 80 / 0.12);
+    }
+
+    /* ================================================================
+       BASE RESET
+       ================================================================ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html {
+      -moz-text-size-adjust: none;
+      -webkit-text-size-adjust: none;
+      text-size-adjust: none;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      text-rendering: optimizeLegibility;
+      scroll-behavior: smooth;
+      hanging-punctuation: first last;
+      scroll-padding-top: 5rem;
+    }
+
+    body {
+      min-height: 100dvh;
+      line-height: 1.6;
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      color: var(--color-text);
+      background-color: var(--color-bg);
+    }
+
+    img, picture, video, canvas, svg { display: block; max-width: 100%; height: auto; }
+    ul[role="list"], ol[role="list"] { list-style: none; }
+    input, button, textarea, select { font: inherit; color: inherit; }
+    h1, h2, h3, h4, h5, h6 { text-wrap: balance; line-height: 1.15; }
+    p, li, figcaption { text-wrap: pretty; max-width: 72ch; }
+    button { cursor: pointer; background: none; border: none; }
+    table { border-collapse: collapse; width: 100%; }
+
+    ::selection {
+      background: oklch(from var(--color-primary) l c h / 0.3);
+      color: var(--color-text);
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--color-primary);
+      outline-offset: 3px;
+      border-radius: var(--radius-sm);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+      }
+    }
+
+    .sr-only {
+      position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+      overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border-width: 0;
+    }
+
+    /* ================================================================
+       LAYOUT
+       ================================================================ */
+    .container {
+      max-width: var(--content-wide);
+      margin-inline: auto;
+      padding-inline: var(--space-5);
+    }
+
+    .container--narrow {
+      max-width: var(--content-default);
+    }
+
+    .section {
+      padding-block: clamp(var(--space-12), 8vw, var(--space-24));
+    }
+
+    /* ================================================================
+       OVERLINE / LABEL
+       ================================================================ */
+    .overline {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: var(--color-primary);
+      margin-bottom: var(--space-4);
+      display: block;
+    }
+
+    /* ================================================================
+       SECTION HEADING
+       ================================================================ */
+    .section-heading {
+      font-family: var(--font-display);
+      font-size: var(--text-xl);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text);
+      max-width: 30ch;
+      margin-bottom: var(--space-8);
+      line-height: 1.2;
+    }
+
+    /* ================================================================
+       HEADER / NAV
+       ================================================================ */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: oklch(from var(--color-bg) l c h / 0.88);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid oklch(from var(--color-text) l c h / 0.06);
+      transition: box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .header--scrolled {
+      box-shadow: var(--shadow-sm);
+    }
+
+    .header__inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 3.5rem;
+    }
+
+    .header__logo {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      text-decoration: none;
+      color: var(--color-text);
+    }
+
+    .header__logo-text {
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      letter-spacing: 0.04em;
+    }
+
+    .header__nav {
+      display: flex;
+      align-items: center;
+      gap: var(--space-6);
+    }
+
+    .header__nav-links {
+      display: none;
+      list-style: none;
+      gap: var(--space-5);
+      align-items: center;
+    }
+
+    @media (min-width: 768px) {
+      .header__nav-links { display: flex; }
+    }
+
+    .header__nav-links a {
+      font-size: var(--text-xs);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      transition: color var(--transition-interactive);
+    }
+
+    .header__nav-links a:hover {
+      color: var(--color-text);
+    }
+
+    .header__actions {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+
+    .theme-toggle {
+      padding: var(--space-2);
+      border-radius: var(--radius-md);
+      color: var(--color-text-muted);
+      transition: all var(--transition-interactive);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .theme-toggle:hover {
+      color: var(--color-text);
+      background: oklch(from var(--color-text) l c h / 0.06);
+    }
+
+    /* Mobile menu */
+    .mobile-menu-btn {
+      display: flex;
+      padding: var(--space-2);
+      color: var(--color-text-muted);
+      transition: color var(--transition-interactive);
+    }
+
+    .mobile-menu-btn:hover { color: var(--color-text); }
+
+    @media (min-width: 768px) {
+      .mobile-menu-btn { display: none; }
+    }
+
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      inset: 3.5rem 0 0 0;
+      background: var(--color-bg);
+      z-index: 99;
+      padding: var(--space-8) var(--space-5);
+    }
+
+    .mobile-nav.is-open {
+      display: block;
+    }
+
+    .mobile-nav a {
+      display: block;
+      font-size: var(--text-base);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      text-decoration: none;
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--color-divider);
+      transition: color var(--transition-interactive);
+    }
+
+    .mobile-nav a:hover { color: var(--color-text); }
+
+    /* ================================================================
+       CTA BUTTON
+       ================================================================ */
+    .btn-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      padding: var(--space-3) var(--space-6);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      transition: all var(--transition-interactive);
+      white-space: nowrap;
+    }
+
+    .btn-cta--primary {
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+    }
+
+    .btn-cta--primary:hover {
+      background: var(--color-primary-hover);
+      transform: translateY(-1px);
+      box-shadow: 0 4px 16px oklch(from var(--color-primary) l c h / 0.25);
+    }
+
+    .btn-cta--primary:active {
+      transform: translateY(0);
+      background: var(--color-primary-active);
+    }
+
+    .btn-cta--ghost {
+      background: transparent;
+      color: var(--color-primary);
+      border: 1px solid oklch(from var(--color-primary) l c h / 0.3);
+    }
+
+    .btn-cta--ghost:hover {
+      background: var(--color-primary-highlight);
+      border-color: oklch(from var(--color-primary) l c h / 0.5);
+    }
+
+    .btn-cta .arrow {
+      transition: transform var(--transition-interactive);
+    }
+
+    .btn-cta:hover .arrow {
+      transform: translateX(3px);
+    }
+
+    /* Header CTA — compact */
+    .header .btn-cta {
+      font-size: var(--text-xs);
+      padding: var(--space-2) var(--space-4);
+      display: none;
+    }
+
+    @media (min-width: 768px) {
+      .header .btn-cta { display: inline-flex; }
+    }
+
+    /* ================================================================
+       HERO
+       ================================================================ */
+    .hero {
+      min-height: 85vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-block: clamp(var(--space-16), 12vw, var(--space-32));
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero .container {
+      max-width: var(--content-wide);
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -40%;
+      right: -20%;
+      width: 60vw;
+      height: 60vw;
+      max-width: 700px;
+      max-height: 700px;
+      background: radial-gradient(circle, oklch(from var(--color-primary) l c h / 0.06) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero__content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: var(--text-hero);
+      font-weight: 400;
+      line-height: 1.02;
+      letter-spacing: -0.02em;
+      color: var(--color-text);
+      max-width: 14ch;
+      margin-bottom: var(--space-6);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--color-primary);
+    }
+
+    .hero__sub {
+      font-size: var(--text-base);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      max-width: 48ch;
+      margin-bottom: var(--space-8);
+    }
+
+    .hero__sub strong {
+      color: var(--color-text);
+      font-weight: 500;
+    }
+
+    .hero__cta-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      align-items: flex-start;
+    }
+
+    .hero__cta-note {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      max-width: 50ch;
+      line-height: 1.6;
+    }
+
+    /* ================================================================
+       PROBLEM STATEMENT
+       ================================================================ */
+    .problem {
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .problem__grid {
+      display: grid;
+      gap: var(--space-8);
+    }
+
+    @media (min-width: 768px) {
+      .problem__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-16);
+      }
+    }
+
+    .problem__body p {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-5);
+      max-width: 55ch;
+      line-height: 1.7;
+    }
+
+    .problem__stat {
+      font-family: var(--font-display);
+      font-size: var(--text-3xl);
+      color: var(--color-text);
+      line-height: 1;
+      margin-bottom: var(--space-2);
+    }
+
+    .problem__stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ================================================================
+       WHAT WE INSTALL
+       ================================================================ */
+    .install {
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .install__grid {
+      display: grid;
+      gap: var(--space-6);
+    }
+
+    @media (min-width: 768px) {
+      .install__grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+      }
+    }
+
+    .install-card {
+      background: var(--color-surface);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.06);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      transition: all var(--transition-interactive);
+      position: relative;
+    }
+
+    .install-card:hover {
+      border-color: oklch(from var(--color-primary) l c h / 0.2);
+      box-shadow: 0 0 0 1px oklch(from var(--color-primary) l c h / 0.08);
+    }
+
+    .install-card__name {
+      font-family: var(--font-body);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--color-primary);
+      margin-bottom: var(--space-2);
+    }
+
+    .install-card__title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: var(--space-4);
+      line-height: 1.25;
+    }
+
+    .install-card__desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-bottom: var(--space-5);
+    }
+
+    .install-card__deliverables {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      line-height: 1.7;
+      padding-top: var(--space-4);
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .install-card__deliverables strong {
+      color: var(--color-text-muted);
+      font-weight: 500;
+    }
+
+    /* ================================================================
+       HOW IT WORKS
+       ================================================================ */
+    .process {
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .process__steps {
+      display: grid;
+      gap: var(--space-8);
+      counter-reset: step;
+    }
+
+    @media (min-width: 768px) {
+      .process__steps {
+        grid-template-columns: repeat(3, 1fr);
+        gap: var(--space-6);
+      }
+    }
+
+    .process-step {
+      counter-increment: step;
+      position: relative;
+    }
+
+    .process-step__number {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      color: oklch(from var(--color-text) l c h / 0.08);
+      line-height: 1;
+      margin-bottom: var(--space-3);
+    }
+
+    .process-step__title {
+      font-family: var(--font-display);
+      font-size: var(--text-lg);
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: var(--space-3);
+      line-height: 1.25;
+    }
+
+    .process-step__body {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+    }
+
+    /* Connecting line on desktop */
+    @media (min-width: 768px) {
+      .process-step:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 1.2rem;
+        right: calc(-1 * var(--space-3));
+        width: var(--space-6);
+        height: 1px;
+        background: var(--color-divider);
+      }
+    }
+
+    /* ================================================================
+       WHO IT'S FOR
+       ================================================================ */
+    .audience {
+      border-top: 1px solid var(--color-divider);
+      background: var(--color-surface);
+    }
+
+    .audience__grid {
+      display: grid;
+      gap: var(--space-8);
+    }
+
+    @media (min-width: 768px) {
+      .audience__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-16);
+      }
+    }
+
+    .audience__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+
+    .audience__list li {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.6;
+      padding-left: var(--space-5);
+      position: relative;
+    }
+
+    .audience__list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.55em;
+      width: 6px;
+      height: 6px;
+      border-radius: var(--radius-full);
+      background: var(--color-primary);
+      opacity: 0.6;
+    }
+
+    .audience__note {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-top: var(--space-6);
+    }
+
+    .audience__note strong {
+      color: var(--color-text);
+      font-weight: 500;
+    }
+
+    .audience__sectors {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      margin-top: var(--space-6);
+      line-height: 1.7;
+    }
+
+    /* ================================================================
+       PROOF & CREDIBILITY
+       ================================================================ */
+    .proof {
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .proof__intro {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      max-width: 60ch;
+      line-height: 1.7;
+      margin-bottom: var(--space-10);
+    }
+
+    .proof__table-wrap {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin-bottom: var(--space-8);
+    }
+
+    .proof__table {
+      width: 100%;
+      min-width: 500px;
+      border-collapse: collapse;
+    }
+
+    .proof__table th {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--color-text-faint);
+      text-align: left;
+      padding: var(--space-3) var(--space-4);
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .proof__table td {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      padding: var(--space-4);
+      border-bottom: 1px solid oklch(from var(--color-text) l c h / 0.04);
+      vertical-align: top;
+    }
+
+    .proof__table td:first-child {
+      color: var(--color-text-faint);
+    }
+
+    .proof__table td:last-child {
+      color: var(--color-text);
+    }
+
+    .proof__note {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ================================================================
+       GOVERNANCE
+       ================================================================ */
+    .governance {
+      border-top: 1px solid var(--color-divider);
+      background: var(--color-surface);
+    }
+
+    .governance__list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-5);
+      max-width: 60ch;
+    }
+
+    .governance__list li {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      padding-left: var(--space-6);
+      position: relative;
+    }
+
+    .governance__list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.45em;
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid var(--color-primary);
+      border-radius: 2px;
+      opacity: 0.5;
+    }
+
+    .governance__list li::after {
+      content: '';
+      position: absolute;
+      left: 3px;
+      top: calc(0.45em + 3px);
+      width: 6px;
+      height: 3px;
+      border-left: 1.5px solid var(--color-primary);
+      border-bottom: 1.5px solid var(--color-primary);
+      transform: rotate(-45deg);
+      opacity: 0.5;
+    }
+
+    .governance__footer {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.7;
+      margin-top: var(--space-8);
+      max-width: 60ch;
+    }
+
+    /* ================================================================
+       FAQ
+       ================================================================ */
+    .faq {
+      border-top: 1px solid var(--color-divider);
+    }
+
+    .faq__list {
+      max-width: var(--content-narrow);
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-divider);
+    }
+
+    .faq-item__trigger {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: var(--space-4);
+      padding: var(--space-5) 0;
+      text-align: left;
+      font-family: var(--font-body);
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text);
+      line-height: 1.5;
+      transition: color var(--transition-interactive);
+    }
+
+    .faq-item__trigger:hover {
+      color: var(--color-primary);
+    }
+
+    .faq-item__trigger:active {
+      opacity: 0.8;
+    }
+
+    .faq-item__icon {
+      flex-shrink: 0;
+      width: 20px;
+      height: 20px;
+      color: var(--color-text-faint);
+      transition: transform var(--transition-interactive);
+      margin-top: 2px;
+    }
+
+    .faq-item.is-open .faq-item__icon {
+      transform: rotate(45deg);
+    }
+
+    .faq-item__content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 300ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .faq-item.is-open .faq-item__content {
+      grid-template-rows: 1fr;
+    }
+
+    .faq-item__content-inner {
+      overflow: hidden;
+    }
+
+    .faq-item__answer {
+      padding-bottom: var(--space-6);
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.75;
+      max-width: 60ch;
+    }
+
+    /* ================================================================
+       FINAL CTA
+       ================================================================ */
+    .final-cta {
+      border-top: 1px solid var(--color-divider);
+      text-align: center;
+      padding-block: clamp(var(--space-16), 10vw, var(--space-32));
+    }
+
+    .final-cta .overline {
+      text-align: center;
+    }
+
+    .final-cta__heading {
+      font-family: var(--font-display);
+      font-size: var(--text-2xl);
+      font-weight: 400;
+      font-style: italic;
+      color: var(--color-text);
+      margin-bottom: var(--space-6);
+      max-width: 22ch;
+      margin-inline: auto;
+      line-height: 1.15;
+    }
+
+    .final-cta__body {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      max-width: 48ch;
+      margin-inline: auto;
+      margin-bottom: var(--space-8);
+      line-height: 1.7;
+    }
+
+    .final-cta__note {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      margin-top: var(--space-4);
+      font-style: italic;
+    }
+
+    /* ================================================================
+       FOOTER
+       ================================================================ */
+    .footer {
+      border-top: 1px solid var(--color-divider);
+      padding-block: var(--space-8);
+    }
+
+    .footer__inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+    }
+
+    .footer__copy {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+    }
+
+    .footer__links {
+      display: flex;
+      gap: var(--space-5);
+      list-style: none;
+    }
+
+    .footer__links a {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      text-decoration: none;
+      transition: color var(--transition-interactive);
+    }
+
+    .footer__links a:hover {
+      color: var(--color-text-muted);
+    }
+
+    /* ================================================================
+       SCROLL REVEAL
+       ================================================================ */
+    /* Reveal: JS marks elements with .will-reveal then observes. No JS = fully visible. */
+    .will-reveal {
+      opacity: 0;
+      transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .will-reveal.is-visible {
+      opacity: 1;
+    }
+
+    .will-stagger > * {
+      opacity: 0;
+      transition: opacity 500ms cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .will-stagger.is-visible > *:nth-child(1) { opacity: 1; transition-delay: 0ms; }
+    .will-stagger.is-visible > *:nth-child(2) { opacity: 1; transition-delay: 60ms; }
+    .will-stagger.is-visible > *:nth-child(3) { opacity: 1; transition-delay: 120ms; }
+    .will-stagger.is-visible > *:nth-child(4) { opacity: 1; transition-delay: 180ms; }
+    .will-stagger.is-visible > *:nth-child(5) { opacity: 1; transition-delay: 240ms; }
+    .will-stagger.is-visible > *:nth-child(6) { opacity: 1; transition-delay: 300ms; }
+
+    /* ================================================================
+       GRAIN TEXTURE
+       ================================================================ */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.025;
+      pointer-events: none;
+      z-index: 1000;
+      background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+    }
+
+    /* ================================================================
+       RESPONSIVE ADJUSTMENTS
+       ================================================================ */
+    @media (max-width: 767px) {
+      .hero {
+        min-height: auto;
+        padding-block: clamp(var(--space-12), 8vw, var(--space-20));
+      }
+
+      .hero h1 {
+        max-width: 100%;
+      }
+
+      .section-heading {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip link -->
+  <a href="#main" class="sr-only" style="position:absolute;z-index:200;top:var(--space-2);left:var(--space-2);padding:var(--space-2) var(--space-4);background:var(--color-primary);color:var(--color-text-inverse);border-radius:var(--radius-md);font-size:var(--text-sm);text-decoration:none;" onfocus="this.style.position='fixed';this.style.clip='auto';this.style.width='auto';this.style.height='auto';this.style.overflow='visible';" onblur="this.style.position='absolute';this.style.clip='rect(0,0,0,0)';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden';">Skip to content</a>
+
+  <!-- ========== HEADER ========== -->
+  <header class="header" role="banner">
+    <div class="container header__inner">
+      <a href="#" class="header__logo" aria-label="Optiflows Home">
+        <!-- Optiflows SVG Logo: abstract flow mark — three overlapping circles forming a gradient-like progression -->
+        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+          <circle cx="10" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
+          <circle cx="16" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+          <circle cx="22" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="1"/>
+          <circle cx="22" cy="16" r="2.5" fill="var(--color-primary)"/>
+        </svg>
+        <span class="header__logo-text">Optiflows</span>
+      </a>
+
+      <nav class="header__nav" role="navigation" aria-label="Main navigation">
+        <ul class="header__nav-links" role="list">
+          <li><a href="#install">System</a></li>
+          <li><a href="#process">Process</a></li>
+          <li><a href="#proof">Proof</a></li>
+          <li><a href="#faq">FAQ</a></li>
+        </ul>
+
+        <div class="header__actions">
+          <button class="theme-toggle" data-theme-toggle aria-label="Switch to light mode">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/>
+            </svg>
+          </button>
+
+          <a href="#audit" class="btn-cta btn-cta--primary">Book an Audit <span class="arrow">&rarr;</span></a>
+
+          <button class="mobile-menu-btn" aria-label="Open menu" data-mobile-toggle>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M3 12h18M3 6h18M3 18h18"/>
+            </svg>
+          </button>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Mobile nav -->
+  <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
+    <a href="#install" data-mobile-link>System</a>
+    <a href="#process" data-mobile-link>Process</a>
+    <a href="#proof" data-mobile-link>Proof</a>
+    <a href="#faq" data-mobile-link>FAQ</a>
+    <a href="#audit" data-mobile-link style="color: var(--color-primary); font-weight: 600;">Book an Audit &rarr;</a>
+  </nav>
+
+  <main id="main">
+
+    <!-- ========== HERO ========== -->
+    <section class="hero section" aria-label="Hero">
+      <div class="container">
+        <div class="hero__content">
+          <h1>We Redesign How <em>Growth Work</em> Happens.</h1>
+          <p class="hero__sub">
+            Growth Operating Model installs for founder-led B2B companies.<br>
+            <strong>Units-based delivery. Measurable outcomes. 4-week sprints.</strong>
+          </p>
+          <div class="hero__cta-group">
+            <a href="#audit" class="btn-cta btn-cta--primary">
+              Book a 30 Minute Growth Operating Model Audit <span class="arrow">&rarr;</span>
+            </a>
+            <p class="hero__cta-note">No retainer. No pitch. You'll leave with a clear view of what's missing and what to install next.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROBLEM STATEMENT ========== -->
+    <section class="problem section" id="problem" aria-label="Problem statement">
+      <div class="container container--narrow">
+        <div class="problem__grid reveal">
+          <div>
+            <span class="overline">The gap</span>
+            <h2 class="section-heading">The real problem isn't effort. It's the absence of a system underneath all of it.</h2>
+          </div>
+          <div class="problem__body">
+            <p>Most founder-led B2B companies have growth <em>activity</em> — posts going out, campaigns running, a CRM in place. What they don't have is a growth <em>system</em>. Activity without a system creates noise, not pipeline. Every month feels like a new experiment. The founder is still the engine.</p>
+            <p>McKinsey's research on 3,164 Series A companies found that <strong style="color: var(--color-text);">78% of businesses that achieve product-market fit still fail to scale</strong>. Not because the product failed. Because the operating model never evolved.</p>
+            <p>That's the gap. And it's what we install.</p>
+
+            <div style="margin-top: var(--space-8);">
+              <div class="problem__stat">78%</div>
+              <div class="problem__stat-label">of companies with PMF still fail to scale</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WHAT WE INSTALL ========== -->
+    <section class="install section" id="install" aria-label="What we install">
+      <div class="container">
+        <span class="overline">What we install</span>
+        <h2 class="section-heading">Three engines, one system.</h2>
+
+        <div class="install__grid reveal-stagger">
+          <!-- SPARK -->
+          <div class="install-card">
+            <div class="install-card__name">SPARK</div>
+            <div class="install-card__title">Campaign Engine</div>
+            <p class="install-card__desc">Category positioning that makes your ideal buyers self-identify. A repeatable campaign engine that produces qualified pipeline on a defined cadence. Built on your sector's language and buying patterns — not a generic playbook.</p>
+            <div class="install-card__deliverables">
+              <strong>Delivers:</strong> Messaging playbook · Campaign-in-a-box · Nurture sequences · Outbound scripts · Funnel blueprint
+            </div>
+          </div>
+
+          <!-- FLOW -->
+          <div class="install-card">
+            <div class="install-card__name">FLOW</div>
+            <div class="install-card__title">Automation Engine</div>
+            <p class="install-card__desc">Every hour a founder spends on tasks the system should handle is an hour not spent on growth. FLOW instruments the work that creates leverage and removes it from human hands — governed, documented, and measurable.</p>
+            <div class="install-card__deliverables">
+              <strong>Delivers:</strong> CRM routing workflows · AI follow-up agent · Internal handoff automation · Governance documentation · Human-in-the-loop rules
+            </div>
+          </div>
+
+          <!-- VISION -->
+          <div class="install-card">
+            <div class="install-card__name">VISION</div>
+            <div class="install-card__title">Insights Engine</div>
+            <p class="install-card__desc">Most founder-led companies have data, but not intelligence. VISION instruments your operating model with dashboards and a monthly cadence that makes the answer clear every time — what's working, what to iterate, where to put the next dollar.</p>
+            <div class="install-card__deliverables">
+              <strong>Delivers:</strong> KPI dashboard · Reporting framework · Monthly insights review · Quarterly strategy recalibration
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== HOW IT WORKS ========== -->
+    <section class="process section" id="process" aria-label="How it works">
+      <div class="container">
+        <span class="overline">How it works</span>
+        <h2 class="section-heading">Audit. Optimise. Own.</h2>
+
+        <div class="process__steps reveal-stagger">
+          <div class="process-step">
+            <div class="process-step__number">01</div>
+            <h3 class="process-step__title">Growth Operating Model Audit</h3>
+            <p class="process-step__body">30 minutes, free. We map your current state, identify the highest-leverage gaps in your growth operating model, and show you exactly what we'd install and in what sequence. You leave with a clear view regardless of whether we work together.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="process-step__number">02</div>
+            <h3 class="process-step__title">Sprint Install</h3>
+            <p class="process-step__body">4-week delivery. We design, build, and deploy the operating model components in your existing stack. Units-based delivery means you know exactly what you receive and when. Named deliverables, acceptance criteria, and defined revision limits — before work begins.</p>
+          </div>
+
+          <div class="process-step">
+            <div class="process-step__number">03</div>
+            <h3 class="process-step__title">Own the System</h3>
+            <p class="process-step__body">When the sprint ends, the system is yours. We transfer ownership with documentation, SOPs, and training. We're available for ongoing governance and optimisation — but the operating model is yours to operate independently.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WHO IT'S FOR ========== -->
+    <section class="audience section" id="audience" aria-label="Who it's for">
+      <div class="container container--narrow">
+        <div class="audience__grid reveal">
+          <div>
+            <span class="overline">Who it's for</span>
+            <h2 class="section-heading">Built for founder-led B2B companies at an inflection point.</h2>
+          </div>
+          <div>
+            <ul class="audience__list" role="list">
+              <li>You're running a B2B company with 10–50 people and a complex offer</li>
+              <li>Pipeline is inconsistent — feast one month, famine the next</li>
+              <li>The founder is still the engine: approving everything, filling every gap</li>
+              <li>You've tried marketing help before and ended up doing all the work anyway</li>
+              <li>You want measurable outcomes, not activity reports</li>
+            </ul>
+
+            <p class="audience__sectors">We work with companies in technology, professional services, industrial and IoT sectors, and agencies modernising their own growth engine.</p>
+
+            <p class="audience__note"><strong>We don't take every engagement.</strong> We reject companies that want more content without a system, or ungoverned automation without accountability. The model only works when both parties are committed to the install.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PROOF AND CREDIBILITY ========== -->
+    <section class="proof section" id="proof" aria-label="Proof and credibility">
+      <div class="container">
+        <span class="overline">Proof</span>
+        <h2 class="section-heading">The receipts, not the pitch.</h2>
+
+        <p class="proof__intro reveal">Optiflows is led by a founder with 20 years of marketing leadership across enterprise and mid-market technology companies, including HPE, Telstra, and Semtech. That experience informs a productised operating system — not ad hoc consulting.</p>
+
+        <div class="proof__table-wrap reveal">
+          <table class="proof__table">
+            <thead>
+              <tr>
+                <th>Before the Install</th>
+                <th>After the Install</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Referral-dependent pipeline</td>
+                <td>Campaign engine running on a defined cadence</td>
+              </tr>
+              <tr>
+                <td>Manual follow-up delayed by hours</td>
+                <td>Automated routing, triggers within minutes</td>
+              </tr>
+              <tr>
+                <td>Messaging that drifts by person</td>
+                <td>Documented playbook your whole team delivers</td>
+              </tr>
+              <tr>
+                <td>Spreadsheets and gut-feel reporting</td>
+                <td>Live dashboard with leading indicators, weekly</td>
+              </tr>
+              <tr>
+                <td>Founder consuming 40–60% of bandwidth on growth</td>
+                <td>System operates independently; founder reviews, not builds</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="proof__note">Case studies available on request. Proof assets — workflow maps, dashboard screenshots, before/after cycle times — are presented in the Growth Operating Model Audit.</p>
+      </div>
+    </section>
+
+    <!-- ========== GOVERNANCE COMMITMENT ========== -->
+    <section class="governance section" id="governance" aria-label="Governance commitment">
+      <div class="container container--narrow">
+        <span class="overline">Governance</span>
+        <h2 class="section-heading">You deserve to know exactly what we do — and what we don't.</h2>
+
+        <ul class="governance__list reveal-stagger" role="list">
+          <li>Every AI tool used in delivery is classified and disclosed</li>
+          <li>Every customer-facing output is reviewed by a human practitioner before you see it — no exceptions</li>
+          <li>No client contact data enters an external AI tool without your explicit written consent</li>
+          <li>Every automation deployed is registered, versioned, and documented — and the registry is yours at handover</li>
+          <li>Every engagement includes a rollback plan before any automation goes live</li>
+        </ul>
+
+        <p class="governance__footer">We don't sell AI usage. We install a measurable Growth Operating Model with governance built in — so the system you receive is one you can explain to your board, your clients, and your team.</p>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="faq section" id="faq" aria-label="Frequently asked questions">
+      <div class="container">
+        <span class="overline">FAQ</span>
+        <h2 class="section-heading">Five objections, answered directly.</h2>
+
+        <div class="faq__list">
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>We've been burned by agencies before.</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-item__content">
+              <div class="faq-item__content-inner">
+                <p class="faq-item__answer">That's the most common thing founders say before they engage us — and it's a healthy response. Agencies sell execution. They bill for hours and measure impressions. Optiflows installs an operating model — a system you own when we're done. Deliverables are named before the sprint begins. Acceptance criteria are defined in the SOW. If we haven't installed the system, we haven't delivered. The comparison isn't us versus a previous agency. It's: continue without a system, or install the model that makes growth work.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>Can't we handle this internally?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-item__content">
+              <div class="faq-item__content-inner">
+                <p class="faq-item__answer">You can — if you have a team member with operating model design skills, the bandwidth to run the mapping, the framework to instrument the automation layer, and the discipline to govern it. What we hear more often: "We know we need to do this, but it keeps getting deprioritised because we're delivering." That's not a capability problem. That's an operating reality. Optiflows installs the system in a defined sprint, transfers ownership with documentation and training, and hands you something your team can operate independently. The question isn't whether you can do it internally. It's whether it will actually happen — and when.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>We just need more leads.</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-item__content">
+              <div class="faq-item__content-inner">
+                <p class="faq-item__answer">If we ran more campaigns without fixing anything else, you'd get leads — but they'd route inconsistently, follow-up would be delayed, and conversion rates would tell the same story they tell now. Most B2B growth problems aren't channel problems. They're conversion architecture problems. The weak link is rarely at the top of the funnel. What we do before touching demand generation is install the foundation: category positioning that makes your ideal buyers self-identify, routing and nurture that handles every lead without manual intervention, and a measurement layer that shows what's converting and why. That's when more leads actually become more revenue.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>How do we trust automation with our brand and customer data?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-item__content">
+              <div class="faq-item__content-inner">
+                <p class="faq-item__answer">Good instinct. We implement formal governance in every engagement: approved tool registry, PII controls, human-in-the-loop rules for every customer-facing output, documented rollback procedures, and version-controlled automation registry. Nothing customer-facing is automated without a human checkpoint. Nothing is deployed without your sign-off. And at engagement close, you receive the full governance registry — so your next hire, your board, or your legal team can review exactly what's running and why.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-item__trigger" aria-expanded="false">
+              <span>How is this different from a strategy consultant or fractional CMO?</span>
+              <svg class="faq-item__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            </button>
+            <div class="faq-item__content">
+              <div class="faq-item__content-inner">
+                <p class="faq-item__answer">Consultants deliver reports. Fractional CMOs advise. Neither installs a system you own after they leave. Optiflows delivers a working system: by the end of a 4-week sprint, you have a messaging playbook your team uses, a campaign running, a routing workflow live in your CRM, and a dashboard showing what it's producing. That's execution with a design layer — not strategy without delivery. A fractional CMO in Australia costs AUD $7,000–$18,000 per month for strategic guidance alone, without a system to show for it. Optiflows installs the full operating model for a fixed project fee — and what you own at the end continues producing results without ongoing dependency.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FINAL CTA ========== -->
+    <section class="final-cta section" id="audit" aria-label="Book an audit">
+      <div class="container">
+        <span class="overline">Next step</span>
+        <h2 class="final-cta__heading">The first step is 30 minutes.</h2>
+        <p class="final-cta__body">In that conversation, we map your current growth state, identify the highest-leverage gaps, and show you exactly what we'd install and in what sequence. No retainer required to start. No pitch. You leave with a clear picture of what's missing and what it would take to fix it.</p>
+        <a href="#audit" class="btn-cta btn-cta--primary" style="font-size: var(--text-sm);">
+          Book a 30 Minute Growth Operating Model Audit <span class="arrow">&rarr;</span>
+        </a>
+        <p class="final-cta__note">For founder-led B2B companies whose pipeline isn't as predictable as their product.</p>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container footer__inner">
+      <span class="footer__copy">&copy; 2026 Optiflows. Growth Operating Model installs.</span>
+      <ul class="footer__links" role="list">
+        <li><a href="#">optiflows.com.au</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <!-- ========== JAVASCRIPT ========== -->
+  <script>
+    /* — Theme Toggle — */
+    (function() {
+      const toggle = document.querySelector('[data-theme-toggle]');
+      const root = document.documentElement;
+      let theme = 'dark';
+      root.setAttribute('data-theme', theme);
+
+      if (toggle) {
+        toggle.addEventListener('click', () => {
+          theme = theme === 'dark' ? 'light' : 'dark';
+          root.setAttribute('data-theme', theme);
+          toggle.setAttribute('aria-label', `Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`);
+          toggle.innerHTML = theme === 'dark'
+            ? '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><path d="M12 1v2M12 21v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M1 12h2M21 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42"/></svg>'
+            : '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>';
+        });
+      }
+    })();
+
+    /* — Mobile Nav — */
+    (function() {
+      const btn = document.querySelector('[data-mobile-toggle]');
+      const nav = document.getElementById('mobile-nav');
+      const links = document.querySelectorAll('[data-mobile-link]');
+      let open = false;
+
+      function toggle() {
+        open = !open;
+        nav.classList.toggle('is-open', open);
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        btn.innerHTML = open
+          ? '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6L6 18M6 6l12 12"/></svg>'
+          : '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18"/></svg>';
+      }
+
+      if (btn) btn.addEventListener('click', toggle);
+      links.forEach(l => l.addEventListener('click', () => { if (open) toggle(); }));
+    })();
+
+    /* — FAQ Accordion — */
+    (function() {
+      const items = document.querySelectorAll('.faq-item');
+      items.forEach(item => {
+        const trigger = item.querySelector('.faq-item__trigger');
+        trigger.addEventListener('click', () => {
+          const isOpen = item.classList.contains('is-open');
+          // Close all
+          items.forEach(i => {
+            i.classList.remove('is-open');
+            i.querySelector('.faq-item__trigger').setAttribute('aria-expanded', 'false');
+          });
+          // Open clicked (if wasn't open)
+          if (!isOpen) {
+            item.classList.add('is-open');
+            trigger.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    })();
+
+    /* — Scroll Reveal — */
+    (function() {
+      const reveals = document.querySelectorAll('.reveal');
+      const staggers = document.querySelectorAll('.reveal-stagger');
+
+      // Progressive enhancement: JS adds animation classes
+      reveals.forEach(el => el.classList.add('will-reveal'));
+      staggers.forEach(el => el.classList.add('will-stagger'));
+
+      const all = [...reveals, ...staggers];
+
+      if (!('IntersectionObserver' in window)) {
+        all.forEach(el => el.classList.add('is-visible'));
+        return;
+      }
+
+      // Immediately mark elements already in viewport
+      all.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight && rect.bottom > 0) {
+          el.classList.add('is-visible');
+        }
+      });
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.05, rootMargin: '20px 0px -20px 0px' });
+
+      all.forEach(el => {
+        if (!el.classList.contains('is-visible')) {
+          observer.observe(el);
+        }
+      });
+    })();
+
+    /* — Header Scroll State — */
+    (function() {
+      const header = document.querySelector('.header');
+      let scrolled = false;
+      window.addEventListener('scroll', () => {
+        const isScrolled = window.scrollY > 20;
+        if (isScrolled !== scrolled) {
+          scrolled = isScrolled;
+          header.classList.toggle('header--scrolled', scrolled);
+        }
+      }, { passive: true });
+    })();
+  </script>
+</body>
+</html>
