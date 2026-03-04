@@ -1666,11 +1666,7 @@
 
     /* --- Glowing section dividers --- */
     .section + .section::before {
-      content: '';
-      display: block;
-      height: 1px;
-      background: linear-gradient(90deg, transparent 0%, oklch(from var(--color-primary) l c h / 0.4) 50%, transparent 100%);
-      margin-bottom: -1px;
+      display: none;
     }
 
     /* --- Phase cards — glowing gradient border on hover --- */
