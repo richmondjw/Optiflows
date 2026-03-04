@@ -151,7 +151,7 @@
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
       text-rendering: optimizeLegibility;
-      scroll-behavior: smooth;
+      scroll-behavior: auto; /* Lenis handles smooth scrolling */
       hanging-punctuation: first last;
       scroll-padding-top: 5rem;
     }
@@ -2526,7 +2526,7 @@
           currentStep++;
           showStep(currentStep);
           // Scroll form into view
-          document.getElementById('apply').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          (window.__lenis ? window.__lenis.scrollTo(document.getElementById('apply'), { offset: -56 }) : document.getElementById('apply').scrollIntoView({ block: 'start' }));
         }
       });
 
@@ -2536,7 +2536,7 @@
         if (currentStep > 0) {
           currentStep--;
           showStep(currentStep);
-          document.getElementById('apply').scrollIntoView({ behavior: 'smooth', block: 'start' });
+          (window.__lenis ? window.__lenis.scrollTo(document.getElementById('apply'), { offset: -56 }) : document.getElementById('apply').scrollIntoView({ block: 'start' }));
         }
       });
 
@@ -2557,7 +2557,7 @@
           if (response.ok) {
             showStep('confirm');
             if (precall) precall.classList.add('is-visible');
-            document.getElementById('apply').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            (window.__lenis ? window.__lenis.scrollTo(document.getElementById('apply'), { offset: -56 }) : document.getElementById('apply').scrollIntoView({ block: 'start' }));
           } else {
             submitBtn.disabled = false;
             submitBtn.innerHTML = 'Submit Application <span class="arrow">&rarr;</span>';
@@ -2652,9 +2652,33 @@
   <script>
     (function () {
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+
+      const lenis = new Lenis({
+        duration: 1.4,
+        easing: t => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+        smoothWheel: true,
+        smoothTouch: false,
+        touchMultiplier: 2,
+      });
+
+      // Expose globally so other scripts can use lenis.scrollTo()
+      window.__lenis = lenis;
+
+      // RAF loop
       function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
       requestAnimationFrame(raf);
+
+      // Handle all anchor clicks
+      document.addEventListener('click', e => {
+        const a = e.target.closest('a[href^="#"]');
+        if (!a) return;
+        const id = a.getAttribute('href');
+        if (id === '#') return;
+        const target = document.querySelector(id);
+        if (!target) return;
+        e.preventDefault();
+        lenis.scrollTo(target, { offset: -56, duration: 1.4 });
+      });
     })();
   </script>
 
