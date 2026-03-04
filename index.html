@@ -257,17 +257,19 @@
     .header__logo {
       display: flex;
       align-items: center;
-      gap: var(--space-2);
       text-decoration: none;
       color: var(--color-text);
     }
 
-    .header__logo-text {
-      font-family: var(--font-body);
-      font-size: var(--text-sm);
-      font-weight: 600;
-      letter-spacing: 0.04em;
+    .header__logo img {
+      height: 22px;
+      width: auto;
+      display: block;
+      transition: opacity 0.2s ease;
     }
+
+    [data-theme="dark"]  .logo--light { display: none; }
+    [data-theme="light"] .logo--dark  { display: none; }
 
     .header__nav {
       display: flex;
@@ -1115,14 +1117,8 @@
   <header class="header" role="banner">
     <div class="container header__inner">
       <a href="#" class="header__logo" aria-label="Optiflows Home">
-        <!-- Optiflows SVG Logo: abstract flow mark — three overlapping circles forming a gradient-like progression -->
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <circle cx="10" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
-          <circle cx="16" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-          <circle cx="22" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="1"/>
-          <circle cx="22" cy="16" r="2.5" fill="var(--color-primary)"/>
-        </svg>
-        <span class="header__logo-text">Optiflows</span>
+        <img class="logo--dark"  src="images/Optiflows_Logo_White.png" alt="Optiflows">
+        <img class="logo--light" src="images/Optiflows_Logo_BLK.png"   alt="Optiflows">
       </a>
 
       <nav class="header__nav" role="navigation" aria-label="Main navigation">
@@ -1439,7 +1435,7 @@
         <a href="#audit" class="btn-cta btn-cta--primary" style="font-size: var(--text-sm);">
           Book a 30 Minute Growth Operating Model Audit <span class="arrow">&rarr;</span>
         </a>
-        <p class="final-cta__note">For founder-led B2B companies whose pipeline isn't as predictable as their product.</p>
+
       </div>
     </section>
   </main>
