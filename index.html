@@ -1633,6 +1633,118 @@
     /* --- Table row subtle hover --- */
     .proof__table tbody tr { transition: background 0.2s ease; }
     .proof__table tbody tr:hover { background: oklch(from var(--color-primary) l c h / 0.04); }
+
+    /* ================================================================
+       NAVIGATE ENGINE-INSPIRED ENHANCEMENTS
+       ================================================================ */
+
+    /* --- Canvas particle network --- */
+    #hero-canvas {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      opacity: 0.55;
+      z-index: 0;
+    }
+
+    /* --- Dot grid texture on dark sections --- */
+    [data-theme="dark"] .hero,
+    [data-theme="dark"] .final-cta {
+      background-image: radial-gradient(circle, oklch(from var(--color-primary) l c h / 0.18) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+
+    /* --- Section gradient backgrounds --- */
+    [data-theme="dark"] .problem {
+      background: linear-gradient(180deg, var(--color-bg) 0%, oklch(from var(--color-primary) l c h / 0.03) 50%, var(--color-bg) 100%);
+    }
+    [data-theme="dark"] .engagement {
+      background: linear-gradient(180deg, var(--color-bg) 0%, oklch(from var(--color-primary) l c h / 0.04) 40%, var(--color-bg) 100%);
+    }
+
+    /* --- Glowing section dividers --- */
+    .section + .section::before {
+      content: '';
+      display: block;
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, oklch(from var(--color-primary) l c h / 0.4) 50%, transparent 100%);
+      margin-bottom: -1px;
+    }
+
+    /* --- Phase cards — glowing gradient border on hover --- */
+    @property --border-angle { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+    @keyframes border-rotate { to { --border-angle: 360deg; } }
+
+    .phase-card {
+      background: var(--color-surface);
+      border: none;
+      position: relative;
+    }
+    .phase-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      padding: 1px;
+      background: conic-gradient(from var(--border-angle),
+        oklch(from var(--color-primary) l c h / 0.08) 0%,
+        oklch(from var(--color-primary) l c h / 0.35) 25%,
+        oklch(from var(--color-primary) l c h / 0.08) 50%,
+        oklch(from var(--color-primary) l c h / 0) 75%
+      );
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .phase-card:hover::before {
+      opacity: 1;
+      animation: border-rotate 3s linear infinite;
+    }
+
+    /* --- CTA button — more dramatic glow --- */
+    .btn-cta--primary:hover {
+      box-shadow:
+        0 0 0 1px oklch(from var(--color-primary) l c h / 0.5),
+        0 8px 32px oklch(from var(--color-primary) l c h / 0.45),
+        0 0 80px oklch(from var(--color-primary) l c h / 0.15);
+    }
+
+    /* --- Final CTA — stronger ambient pulse --- */
+    .final-cta::after {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      width: 80%;
+      height: 300%;
+      background: radial-gradient(ellipse, oklch(from var(--color-primary) l c h / 0.12) 0%, transparent 60%);
+      pointer-events: none;
+      animation: glow-pulse 6s ease-in-out infinite;
+      animation-delay: 3s;
+    }
+
+    /* --- Navbar blur stronger + teal tint on scroll --- */
+    .header--scrolled {
+      background: oklch(from var(--color-bg) l c h / 0.92) !important;
+      box-shadow: 0 1px 0 oklch(from var(--color-primary) l c h / 0.12), var(--shadow-md) !important;
+    }
+
+    /* --- Overline glow --- */
+    .overline { text-shadow: 0 0 20px oklch(from var(--color-primary) l c h / 0.4); }
+
+    /* --- Hero h1 — stronger presence --- */
+    .hero h1 { text-shadow: 0 2px 40px oklch(from var(--color-primary) l c h / 0.08); }
+
+    /* --- Loop card system — animated inner glow --- */
+    @keyframes inner-glow {
+      0%, 100% { box-shadow: 0 0 0 1px oklch(from var(--color-success) l c h / 0.15), inset 0 0 30px oklch(from var(--color-success) l c h / 0.04); }
+      50%        { box-shadow: 0 0 0 1px oklch(from var(--color-success) l c h / 0.3),  inset 0 0 50px oklch(from var(--color-success) l c h / 0.08); }
+    }
+    .loop-card--system { animation: inner-glow 4s ease-in-out infinite; }
   </style>
 </head>
 <body>
@@ -1689,6 +1801,7 @@
          STEP 1: CATEGORY DECLARATION — HERO
          ==================================================================== -->
     <section class="hero section" aria-label="Hero">
+      <canvas id="hero-canvas" aria-hidden="true"></canvas>
       <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
       <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
       <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
@@ -2515,6 +2628,84 @@
           header.classList.toggle('header--scrolled', scrolled);
         }
       }, { passive: true });
+    })();
+  </script>
+
+  <!-- Canvas particle network -->
+  <script>
+    (function () {
+      const canvas = document.getElementById('hero-canvas');
+      if (!canvas) return;
+      const ctx = canvas.getContext('2d');
+      let W, H, nodes, raf;
+      const COUNT = 55;
+      const MAX_DIST = 160;
+      const PRIMARY = [43, 187, 195]; // teal #2BBBC3
+
+      function resize() {
+        W = canvas.width  = canvas.offsetWidth;
+        H = canvas.height = canvas.offsetHeight;
+      }
+
+      function mkNode() {
+        return {
+          x: Math.random() * W,
+          y: Math.random() * H,
+          vx: (Math.random() - 0.5) * 0.4,
+          vy: (Math.random() - 0.5) * 0.4,
+          r: Math.random() * 1.8 + 0.8,
+        };
+      }
+
+      function init() {
+        resize();
+        nodes = Array.from({ length: COUNT }, mkNode);
+      }
+
+      function draw() {
+        ctx.clearRect(0, 0, W, H);
+        for (let i = 0; i < nodes.length; i++) {
+          const a = nodes[i];
+          a.x += a.vx; a.y += a.vy;
+          if (a.x < 0 || a.x > W) a.vx *= -1;
+          if (a.y < 0 || a.y > H) a.vy *= -1;
+
+          // Draw node
+          ctx.beginPath();
+          ctx.arc(a.x, a.y, a.r, 0, Math.PI * 2);
+          ctx.fillStyle = `rgba(${PRIMARY},0.7)`;
+          ctx.fill();
+
+          // Draw edges
+          for (let j = i + 1; j < nodes.length; j++) {
+            const b = nodes[j];
+            const dx = a.x - b.x, dy = a.y - b.y;
+            const d = Math.sqrt(dx * dx + dy * dy);
+            if (d < MAX_DIST) {
+              const alpha = (1 - d / MAX_DIST) * 0.35;
+              ctx.beginPath();
+              ctx.moveTo(a.x, a.y);
+              ctx.lineTo(b.x, b.y);
+              ctx.strokeStyle = `rgba(${PRIMARY},${alpha})`;
+              ctx.lineWidth = 0.8;
+              ctx.stroke();
+            }
+          }
+        }
+        raf = requestAnimationFrame(draw);
+      }
+
+      init();
+      draw();
+      window.addEventListener('resize', () => { resize(); }, { passive: true });
+
+      // Pause when off-screen
+      const hero = canvas.closest('section');
+      if (hero && 'IntersectionObserver' in window) {
+        new IntersectionObserver(entries => {
+          entries[0].isIntersecting ? (raf || (raf = requestAnimationFrame(draw))) : (cancelAnimationFrame(raf), raf = null);
+        }).observe(hero);
+      }
     })();
   </script>
 
