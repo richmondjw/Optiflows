@@ -1073,6 +1073,41 @@
   </style>
 </head>
 <body>
+
+  <!-- ============================================================
+       TEMP PASSWORD GATE — remove this block before going live
+       ============================================================ -->
+  <div id="pw-gate" style="display:none;position:fixed;inset:0;z-index:9999;background:#0d0d0d;display:flex;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;">
+    <div style="text-align:center;">
+      <p style="color:#a0a0a0;font-size:0.9rem;margin-bottom:1rem;letter-spacing:0.05em;">PREVIEW ACCESS</p>
+      <input id="pw-input" type="password" placeholder="Password" autofocus
+        style="background:#1a1a1a;border:1px solid #333;color:#fff;padding:0.6rem 1rem;border-radius:6px;font-size:1rem;outline:none;width:200px;text-align:center;">
+      <p id="pw-error" style="color:#e05c5c;font-size:0.8rem;margin-top:0.5rem;opacity:0;transition:opacity 0.2s;">Incorrect password</p>
+    </div>
+  </div>
+  <script>
+    (function(){
+      var gate = document.getElementById('pw-gate');
+      var input = document.getElementById('pw-input');
+      var error = document.getElementById('pw-error');
+      if (sessionStorage.getItem('optiflows-auth') === '1') { gate.style.display = 'none'; return; }
+      gate.style.display = 'flex';
+      input.addEventListener('keydown', function(e){
+        if (e.key !== 'Enter') return;
+        if (input.value === '1xlx1') {
+          sessionStorage.setItem('optiflows-auth', '1');
+          gate.style.display = 'none';
+        } else {
+          error.style.opacity = '1';
+          input.value = '';
+          setTimeout(function(){ error.style.opacity = '0'; }, 2000);
+        }
+      });
+    })();
+  </script>
+  <!-- ============================================================
+       END TEMP PASSWORD GATE
+       ============================================================ -->
   <!-- Skip link -->
   <a href="#main" class="sr-only" style="position:absolute;z-index:200;top:var(--space-2);left:var(--space-2);padding:var(--space-2) var(--space-4);background:var(--color-primary);color:var(--color-text-inverse);border-radius:var(--radius-md);font-size:var(--text-sm);text-decoration:none;" onfocus="this.style.position='fixed';this.style.clip='auto';this.style.width='auto';this.style.height='auto';this.style.overflow='visible';" onblur="this.style.position='absolute';this.style.clip='rect(0,0,0,0)';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden';">Skip to content</a>
 
