@@ -18,6 +18,9 @@
   <meta property="og:description" content="Growth Operating Model installs for founder-led B2B companies. Units-based delivery. Measurable outcomes. 4-week sprints.">
   <meta property="og:type" content="website">
 
+  <!-- Smooth scroll -->
+  <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2642,6 +2645,16 @@
           header.classList.toggle('header--scrolled', scrolled);
         }
       }, { passive: true });
+    })();
+  </script>
+
+  <!-- Lenis smooth scroll init -->
+  <script>
+    (function () {
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      const lenis = new Lenis({ lerp: 0.08, smoothWheel: true });
+      function raf(time) { lenis.raf(time); requestAnimationFrame(raf); }
+      requestAnimationFrame(raf);
     })();
   </script>
 
