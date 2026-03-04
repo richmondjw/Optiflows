@@ -1422,6 +1422,218 @@
       .section-heading { max-width: 100%; }
     }
   </style>
+
+  <!-- ================================================================
+       ANIMATIONS & GRADIENTS ENHANCEMENT
+       ================================================================ -->
+  <style>
+    /* --- Keyframes --- */
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes float-a {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      33%       { transform: translate(28px, -22px) scale(1.04); }
+      66%       { transform: translate(-18px, 14px) scale(0.97); }
+    }
+    @keyframes float-b {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      40%       { transform: translate(-22px, 18px) scale(1.03); }
+      75%       { transform: translate(18px, -14px) scale(0.98); }
+    }
+    @keyframes shimmer-text {
+      0%   { background-position: 0% 50%; }
+      50%  { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    @keyframes glow-pulse {
+      0%, 100% { opacity: 0.5; transform: translate(-50%, -50%) scale(1); }
+      50%       { opacity: 1;   transform: translate(-50%, -50%) scale(1.08); }
+    }
+    @keyframes shimmer-sweep {
+      from { left: -100%; }
+      to   { left: 160%; }
+    }
+
+    /* --- Hero ambient orbs --- */
+    .hero__orb {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      filter: blur(72px);
+    }
+    .hero__orb--1 {
+      width: clamp(400px, 55vw, 720px);
+      height: clamp(400px, 55vw, 720px);
+      top: -30%; right: -15%;
+      background: radial-gradient(circle, oklch(from var(--color-primary) l c h / 0.11) 0%, transparent 68%);
+      animation: float-a 20s ease-in-out infinite;
+    }
+    .hero__orb--2 {
+      width: clamp(250px, 40vw, 520px);
+      height: clamp(250px, 40vw, 520px);
+      bottom: -15%; left: -8%;
+      background: radial-gradient(circle, oklch(from var(--color-primary) l c h / 0.06) 0%, transparent 68%);
+      animation: float-b 25s ease-in-out infinite;
+    }
+    .hero__orb--3 {
+      width: clamp(180px, 25vw, 340px);
+      height: clamp(180px, 25vw, 340px);
+      top: 55%; left: 38%;
+      background: radial-gradient(circle, oklch(from var(--color-primary) 0.65 0.07 200 / 0.05) 0%, transparent 68%);
+      animation: float-a 30s ease-in-out infinite reverse;
+    }
+
+    /* --- Hero entrance stagger --- */
+    .hero__category  { animation: fade-up 0.8s 0.05s both cubic-bezier(0.16, 1, 0.3, 1); }
+    .hero h1         { animation: fade-up 0.9s 0.2s  both cubic-bezier(0.16, 1, 0.3, 1); }
+    .hero__sub       { animation: fade-up 0.9s 0.42s both cubic-bezier(0.16, 1, 0.3, 1); }
+    .hero__cta-group { animation: fade-up 0.9s 0.62s both cubic-bezier(0.16, 1, 0.3, 1); }
+
+    /* --- Hero h1 accent gradient text --- */
+    .hero h1 em {
+      font-style: italic;
+      background: linear-gradient(120deg,
+        var(--color-primary) 0%,
+        oklch(from var(--color-primary) calc(l + 0.12) calc(c * 0.9) calc(h + 18)) 45%,
+        var(--color-primary) 100%);
+      background-size: 220% auto;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      animation: shimmer-text 5s ease infinite;
+    }
+
+    /* --- Dark mode ambient background glow --- */
+    [data-theme="dark"] body {
+      background:
+        radial-gradient(ellipse 90% 40% at 70% -5%, oklch(from var(--color-primary) l c h / 0.055) 0%, transparent 55%),
+        radial-gradient(ellipse 60% 30% at 10% 90%, oklch(from var(--color-primary) l c h / 0.03) 0%, transparent 50%),
+        var(--color-bg);
+    }
+
+    /* --- CTA button gradient shift --- */
+    .btn-cta--primary {
+      background: linear-gradient(135deg,
+        var(--color-primary) 0%,
+        oklch(from var(--color-primary) calc(l + 0.07) calc(c * 0.85) calc(h + 22)) 100%);
+      background-size: 200% auto;
+      transition: all var(--transition-interactive), background-position 0.5s ease;
+    }
+    .btn-cta--primary:hover {
+      background-position: right center;
+      box-shadow:
+        0 6px 24px oklch(from var(--color-primary) l c h / 0.38),
+        0 1px 0 oklch(from var(--color-primary) calc(l + 0.2) c h / 0.4) inset;
+      transform: translateY(-2px);
+    }
+
+    /* --- Phase card hover lift + gradient overlay --- */
+    .phase-card { overflow: hidden; }
+    .phase-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: inherit;
+      background: linear-gradient(140deg, oklch(from var(--color-primary) l c h / 0) 0%, oklch(from var(--color-primary) l c h / 0.06) 100%);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+      pointer-events: none;
+    }
+    .phase-card:hover { transform: translateY(-4px); }
+    .phase-card:hover::after { opacity: 1; }
+    .phase-card:hover {
+      border-color: oklch(from var(--color-primary) l c h / 0.28);
+      box-shadow: 0 16px 48px oklch(from var(--color-primary) l c h / 0.12);
+    }
+
+    /* --- Deliverable card shimmer sweep --- */
+    .deliverable { overflow: hidden; }
+    .deliverable::after {
+      content: '';
+      position: absolute;
+      top: 0; left: -100%;
+      width: 55%; height: 100%;
+      background: linear-gradient(105deg, transparent 0%, oklch(from var(--color-primary) l c h / 0.08) 50%, transparent 100%);
+      transition: none;
+      pointer-events: none;
+    }
+    .deliverable:hover::after { animation: shimmer-sweep 0.6s ease forwards; }
+    .deliverable:hover {
+      border-color: oklch(from var(--color-primary) l c h / 0.2);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px oklch(from var(--color-primary) l c h / 0.08);
+      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    /* --- Problem stats gradient text --- */
+    .problem__stat {
+      background: linear-gradient(135deg, var(--color-text) 0%, var(--color-primary) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* --- Final CTA ambient glow --- */
+    .final-cta { position: relative; overflow: hidden; }
+    .final-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 70%; height: 250%;
+      background: radial-gradient(ellipse, oklch(from var(--color-primary) l c h / 0.08) 0%, transparent 65%);
+      pointer-events: none;
+      animation: glow-pulse 5s ease-in-out infinite;
+    }
+
+    /* --- Gradient rule after hero --- */
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 10%; right: 10%;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, oklch(from var(--color-primary) l c h / 0.35), transparent);
+    }
+
+    /* --- Scroll reveal --- */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition:
+        opacity  0.8s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.in-view {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-stagger > * {
+      opacity: 0;
+      transform: translateY(22px);
+      transition:
+        opacity  0.7s cubic-bezier(0.16, 1, 0.3, 1),
+        transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal-stagger.in-view > *:nth-child(1) { opacity:1; transform:none; transition-delay:0s; }
+    .reveal-stagger.in-view > *:nth-child(2) { opacity:1; transform:none; transition-delay:0.12s; }
+    .reveal-stagger.in-view > *:nth-child(3) { opacity:1; transform:none; transition-delay:0.24s; }
+    .reveal-stagger.in-view > *:nth-child(4) { opacity:1; transform:none; transition-delay:0.36s; }
+    .reveal-stagger.in-view > *:nth-child(5) { opacity:1; transform:none; transition-delay:0.48s; }
+    .reveal-stagger.in-view > *:nth-child(6) { opacity:1; transform:none; transition-delay:0.60s; }
+
+    /* --- Loop card system glow --- */
+    .loop-card--system {
+      box-shadow: 0 0 0 1px oklch(from var(--color-success) l c h / 0.15), 0 8px 32px oklch(from var(--color-success) l c h / 0.07);
+    }
+    .loop-card--broken {
+      box-shadow: 0 0 0 1px oklch(from var(--color-danger) l c h / 0.15), 0 8px 32px oklch(from var(--color-danger) l c h / 0.05);
+    }
+
+    /* --- Table row subtle hover --- */
+    .proof__table tbody tr { transition: background 0.2s ease; }
+    .proof__table tbody tr:hover { background: oklch(from var(--color-primary) l c h / 0.04); }
+  </style>
 </head>
 <body>
   <!-- Skip link -->
@@ -1477,6 +1689,9 @@
          STEP 1: CATEGORY DECLARATION — HERO
          ==================================================================== -->
     <section class="hero section" aria-label="Hero">
+      <div class="hero__orb hero__orb--1" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--2" aria-hidden="true"></div>
+      <div class="hero__orb hero__orb--3" aria-hidden="true"></div>
       <div class="container">
         <div class="hero__content">
           <span class="hero__category">Growth Operating Model Install</span>
@@ -2300,6 +2515,72 @@
           header.classList.toggle('header--scrolled', scrolled);
         }
       }, { passive: true });
+    })();
+  </script>
+
+  <!-- Scroll reveal + hero parallax -->
+  <script>
+    (function () {
+      // Auto-tag elements for reveal
+      const revealSelectors = [
+        '.problem__grid',
+        '.loops__grid',
+        '.phase-timeline',
+        '.deliverables-grid',
+        '.proof__intro',
+        '.proof__table-wrap',
+        '.section-heading',
+        '.section-body',
+        '.engagement__framing',
+        '.engagement__coda',
+        '.overline',
+        '.precall-card',
+        '.final-cta__heading',
+        '.final-cta__body',
+        '.faq-item',
+      ];
+
+      const staggerSelectors = [
+        '.phase-timeline',
+        '.deliverables-grid',
+        '.loops__grid',
+      ];
+
+      revealSelectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach(el => el.classList.add('reveal'));
+      });
+      staggerSelectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach(el => {
+          el.classList.remove('reveal');
+          el.classList.add('reveal-stagger');
+        });
+      });
+
+      // IntersectionObserver
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('in-view');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
+
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+
+      // Hero orb mouse parallax
+      const orbs = document.querySelectorAll('.hero__orb');
+      if (orbs.length) {
+        document.addEventListener('mousemove', (e) => {
+          const cx = window.innerWidth / 2;
+          const cy = window.innerHeight / 2;
+          const dx = (e.clientX - cx) / cx;
+          const dy = (e.clientY - cy) / cy;
+          orbs[0] && (orbs[0].style.transform = `translate(${dx * -18}px, ${dy * -12}px) scale(1)`);
+          orbs[1] && (orbs[1].style.transform = `translate(${dx *  12}px, ${dy *  10}px) scale(1)`);
+          orbs[2] && (orbs[2].style.transform = `translate(${dx *   8}px, ${dy * -8}px) scale(1)`);
+        }, { passive: true });
+      }
     })();
   </script>
 </body>
