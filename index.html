@@ -290,6 +290,9 @@
       letter-spacing: 0.04em;
     }
 
+    [data-theme="dark"]  .logo--light { display: none; }
+    [data-theme="light"] .logo--dark  { display: none; }
+
     .header__nav {
       display: flex;
       align-items: center;
@@ -1428,13 +1431,8 @@
   <header class="header" role="banner">
     <div class="container header__inner">
       <a href="#" class="header__logo" aria-label="Optiflows Home">
-        <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-          <circle cx="10" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="0.35"/>
-          <circle cx="16" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
-          <circle cx="22" cy="16" r="7" stroke="currentColor" stroke-width="1.5" opacity="1"/>
-          <circle cx="22" cy="16" r="2.5" fill="var(--color-primary)"/>
-        </svg>
-        <span class="header__logo-text">Optiflows</span>
+        <img class="logo--dark"  src="images/Optiflows_Logo_White.png" alt="Optiflows" style="height:22px;width:auto;display:block;">
+        <img class="logo--light" src="images/Optiflows_Logo_BLK.png"   alt="Optiflows" style="height:22px;width:auto;display:block;">
       </a>
 
       <nav class="header__nav" role="navigation" aria-label="Main navigation">
