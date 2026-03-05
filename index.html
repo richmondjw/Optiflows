@@ -479,15 +479,15 @@
     }
 
     @keyframes fade-up {
-      from { opacity: 0; transform: translateY(20px); }
-      to   { opacity: 1; transform: translateY(0); }
+      from { opacity: 0; transform: translateY(2.5rem) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
     }
-    .hero__eyebrow   { animation: fade-up 0.6s 0.05s both var(--ease); }
-    .hero h1         { animation: fade-up 0.7s 0.18s both var(--ease); }
-    .hero__sub       { animation: fade-up 0.7s 0.32s both var(--ease); }
-    .hero__actions   { animation: fade-up 0.7s 0.46s both var(--ease); }
-    .hero__note      { animation: fade-up 0.7s 0.52s both var(--ease); }
-    .hero__credibility { animation: fade-up 0.7s 0.60s both var(--ease); }
+    .hero__eyebrow   { animation: fade-up 0.7s 0.05s both var(--ease); }
+    .hero h1         { animation: fade-up 0.8s 0.18s both var(--ease); }
+    .hero__sub       { animation: fade-up 0.8s 0.34s both var(--ease); }
+    .hero__actions   { animation: fade-up 0.7s 0.50s both var(--ease); }
+    .hero__note      { animation: fade-up 0.7s 0.56s both var(--ease); }
+    .hero__credibility { animation: fade-up 0.7s 0.64s both var(--ease); }
 
     /* ================================================================
        PROBLEM
@@ -571,7 +571,13 @@
     .loop-card--broken .loop-card__label { color: var(--danger); }
     .loop-card--system .loop-card__label { color: var(--success); }
 
-    .loop-card__diagram { margin: 0 auto var(--s-6); max-width: 240px; }
+    .loop-card__diagram { margin: 0 auto var(--s-6); max-width: 280px; }
+
+    @keyframes loop-spin {
+      from { stroke-dashoffset: 0; }
+      to   { stroke-dashoffset: -660; }
+    }
+    .loop-card--system .loop-spin { animation: loop-spin 7s linear infinite; }
 
     .loop-card__caption {
       font-family: var(--font-body);
@@ -1123,26 +1129,102 @@
     .footer__links a:hover { color: var(--text-muted); }
 
     /* ================================================================
-       SCROLL REVEAL
+       SCROLL REVEAL — ManyChat-style system
+       ease matches ease-mc: cubic-bezier(0.16,1,0.3,1)
        ================================================================ */
     .reveal {
       opacity: 0;
-      transform: translateY(18px);
-      transition: opacity 0.65s var(--ease), transform 0.65s var(--ease);
+      transform: translateY(3.5rem) scale(0.97);
+      transition: opacity 700ms var(--ease), transform 700ms var(--ease);
     }
     .reveal.in-view { opacity: 1; transform: none; }
 
+    /* Directional reveals for split-column layouts */
+    .reveal-left {
+      opacity: 0;
+      transform: translateX(-2.5rem) scale(0.98);
+      transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+    }
+    .reveal-left.in-view { opacity: 1; transform: none; }
+
+    .reveal-right {
+      opacity: 0;
+      transform: translateX(2.5rem) scale(0.98);
+      transition: opacity 700ms var(--ease), transform 700ms var(--ease);
+    }
+    .reveal-right.in-view { opacity: 1; transform: none; }
+
+    /* Stagger — children animate in sequence */
     .reveal-stagger > * {
       opacity: 0;
-      transform: translateY(14px);
-      transition: opacity 0.55s var(--ease), transform 0.55s var(--ease);
+      transform: translateY(2rem) scale(0.98);
+      transition: opacity 650ms var(--ease), transform 650ms var(--ease);
     }
     .reveal-stagger.in-view > *:nth-child(1) { opacity:1; transform:none; transition-delay:0s; }
-    .reveal-stagger.in-view > *:nth-child(2) { opacity:1; transform:none; transition-delay:.09s; }
-    .reveal-stagger.in-view > *:nth-child(3) { opacity:1; transform:none; transition-delay:.18s; }
-    .reveal-stagger.in-view > *:nth-child(4) { opacity:1; transform:none; transition-delay:.27s; }
-    .reveal-stagger.in-view > *:nth-child(5) { opacity:1; transform:none; transition-delay:.36s; }
-    .reveal-stagger.in-view > *:nth-child(6) { opacity:1; transform:none; transition-delay:.45s; }
+    .reveal-stagger.in-view > *:nth-child(2) { opacity:1; transform:none; transition-delay:.08s; }
+    .reveal-stagger.in-view > *:nth-child(3) { opacity:1; transform:none; transition-delay:.16s; }
+    .reveal-stagger.in-view > *:nth-child(4) { opacity:1; transform:none; transition-delay:.24s; }
+    .reveal-stagger.in-view > *:nth-child(5) { opacity:1; transform:none; transition-delay:.32s; }
+    .reveal-stagger.in-view > *:nth-child(6) { opacity:1; transform:none; transition-delay:.40s; }
+    .reveal-stagger.in-view > *:nth-child(7) { opacity:1; transform:none; transition-delay:.48s; }
+    .reveal-stagger.in-view > *:nth-child(8) { opacity:1; transform:none; transition-delay:.56s; }
+    .reveal-stagger.in-view > *:nth-child(9) { opacity:1; transform:none; transition-delay:.64s; }
+
+    /* ================================================================
+       MARQUEE — infinite credibility ticker
+       ================================================================ */
+    .marquee {
+      overflow: hidden;
+      padding-block: var(--s-6);
+      border-top: 1px solid var(--divider);
+      border-bottom: 1px solid var(--divider);
+      background: var(--surface);
+      position: relative;
+    }
+    .marquee::before,
+    .marquee::after {
+      content: '';
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 8rem;
+      z-index: 1;
+      pointer-events: none;
+    }
+    .marquee::before { left: 0;  background: linear-gradient(90deg, var(--surface), transparent); }
+    .marquee::after  { right: 0; background: linear-gradient(-90deg, var(--surface), transparent); }
+
+    .marquee__track {
+      display: flex;
+      width: max-content;
+      animation: marquee-scroll 28s linear infinite;
+    }
+    .marquee__track:hover { animation-play-state: paused; }
+
+    @keyframes marquee-scroll {
+      from { transform: translateX(0); }
+      to   { transform: translateX(-50%); }
+    }
+
+    .marquee__item {
+      display: flex;
+      align-items: center;
+      gap: var(--s-3);
+      padding-inline: var(--s-8);
+      font-family: var(--font-display);
+      font-size: var(--text-xs);
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: var(--text-faint);
+      white-space: nowrap;
+    }
+    .marquee__dot {
+      width: 3px; height: 3px;
+      border-radius: 50%;
+      background: var(--primary);
+      opacity: 0.5;
+      flex-shrink: 0;
+    }
 
     /* ================================================================
        RESPONSIVE
@@ -1269,16 +1351,47 @@
     </section>
 
     <!-- ====================================================================
+         MARQUEE CREDIBILITY STRIP
+         ==================================================================== -->
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee__track" id="marquee-track">
+        <span class="marquee__item">Growth Operating Model<span class="marquee__dot"></span></span>
+        <span class="marquee__item">HPE<span class="marquee__dot"></span></span>
+        <span class="marquee__item">Telstra<span class="marquee__dot"></span></span>
+        <span class="marquee__item">Semtech<span class="marquee__dot"></span></span>
+        <span class="marquee__item">4-Week Sprints<span class="marquee__dot"></span></span>
+        <span class="marquee__item">Units-Based Delivery<span class="marquee__dot"></span></span>
+        <span class="marquee__item">Measurable Outcomes<span class="marquee__dot"></span></span>
+        <span class="marquee__item">Founder-Led B2B<span class="marquee__dot"></span></span>
+        <span class="marquee__item">20 Years Enterprise<span class="marquee__dot"></span></span>
+        <span class="marquee__item">System Install<span class="marquee__dot"></span></span>
+        <span class="marquee__item">No Retainer<span class="marquee__dot"></span></span>
+        <!-- duplicated for seamless loop -->
+        <span class="marquee__item">Growth Operating Model<span class="marquee__dot"></span></span>
+        <span class="marquee__item">HPE<span class="marquee__dot"></span></span>
+        <span class="marquee__item">Telstra<span class="marquee__dot"></span></span>
+        <span class="marquee__item">Semtech<span class="marquee__dot"></span></span>
+        <span class="marquee__item">4-Week Sprints<span class="marquee__dot"></span></span>
+        <span class="marquee__item">Units-Based Delivery<span class="marquee__dot"></span></span>
+        <span class="marquee__item">Measurable Outcomes<span class="marquee__dot"></span></span>
+        <span class="marquee__item">Founder-Led B2B<span class="marquee__dot"></span></span>
+        <span class="marquee__item">20 Years Enterprise<span class="marquee__dot"></span></span>
+        <span class="marquee__item">System Install<span class="marquee__dot"></span></span>
+        <span class="marquee__item">No Retainer<span class="marquee__dot"></span></span>
+      </div>
+    </div>
+
+    <!-- ====================================================================
          PROBLEM REFRAME
          ==================================================================== -->
     <section class="problem section" id="problem" aria-label="Problem statement">
       <div class="container container--narrow">
         <div class="problem__grid">
-          <div>
+          <div class="reveal-left">
             <span class="overline">The gap</span>
             <h2 class="section-heading">The real problem isn't effort. It's the absence of a system underneath all of it.</h2>
           </div>
-          <div class="problem__body">
+          <div class="problem__body reveal-right">
             <p>Most founder-led B2B companies have growth <em>activity</em> — posts going out, campaigns running, a CRM in place. What they don't have is a growth <em>system</em>. Activity without a system creates noise, not pipeline. Every month feels like a new experiment. The founder is still the engine.</p>
             <p>McKinsey's research on 3,164 Series A companies found that <strong>78% of businesses that achieve product-market fit still fail to scale</strong>. Not because the product failed. Because the operating model never evolved.</p>
             <p>That's the gap. And it's what we install.</p>
@@ -1304,32 +1417,43 @@
           <div class="loop-card loop-card--broken">
             <span class="loop-card__label">The Founder Bottleneck Loop</span>
             <div class="loop-card__diagram">
-              <svg viewBox="0 0 240 240" fill="none" role="img" aria-label="Founder Bottleneck Loop">
-                <circle cx="120" cy="120" r="95" stroke="var(--danger)" stroke-width="1.5" stroke-dasharray="8 6" opacity="0.4"/>
-                <circle cx="120" cy="30"  r="18" fill="var(--danger-dim)" stroke="var(--danger)" stroke-width="1"/>
-                <text x="120" y="34" text-anchor="middle" fill="var(--danger)" font-family="var(--font-display)" font-size="9" font-weight="500">Founder</text>
-                <circle cx="215" cy="100" r="18" fill="var(--danger-dim)" stroke="var(--danger)" stroke-width="1"/>
-                <text x="215" y="98"  text-anchor="middle" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="500">Tactical</text>
-                <text x="215" y="108" text-anchor="middle" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="500">Activity</text>
-                <circle cx="190" cy="200" r="18" fill="var(--danger-dim)" stroke="var(--danger)" stroke-width="1"/>
-                <text x="190" y="198" text-anchor="middle" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="500">No</text>
-                <text x="190" y="208" text-anchor="middle" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="500">Leverage</text>
-                <circle cx="50"  cy="200" r="18" fill="var(--danger-dim)" stroke="var(--danger)" stroke-width="1"/>
-                <text x="50"  y="198" text-anchor="middle" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="500">Same</text>
-                <text x="50"  y="208" text-anchor="middle" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="500">Results</text>
-                <circle cx="25"  cy="100" r="18" fill="var(--danger-dim)" stroke="var(--danger)" stroke-width="1"/>
-                <text x="25"  y="98"  text-anchor="middle" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="500">Reset</text>
-                <text x="25"  y="108" text-anchor="middle" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="500">Monthly</text>
-                <path d="M136 36 L198 86"   stroke="var(--danger)" stroke-width="1" opacity="0.5" marker-end="url(#arrowRed)"/>
-                <path d="M218 118 L198 182" stroke="var(--danger)" stroke-width="1" opacity="0.5" marker-end="url(#arrowRed)"/>
-                <path d="M172 206 L68 206"  stroke="var(--danger)" stroke-width="1" opacity="0.5" marker-end="url(#arrowRed)"/>
-                <path d="M40 186 L28 118"   stroke="var(--danger)" stroke-width="1" opacity="0.5" marker-end="url(#arrowRed)"/>
-                <path d="M38 86 L106 36"    stroke="var(--danger)" stroke-width="1" opacity="0.5" marker-end="url(#arrowRed)"/>
+              <svg viewBox="0 0 300 300" fill="none" role="img" aria-label="Founder Bottleneck Loop">
                 <defs>
-                  <marker id="arrowRed" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
-                    <path d="M0,0 L6,2 L0,4" fill="var(--danger)" opacity="0.5"/>
+                  <filter id="gR" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="3.5" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                  <marker id="aR" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+                    <path d="M0,0 L7,2.5 L0,5Z" fill="var(--danger)" opacity="0.85"/>
                   </marker>
                 </defs>
+                <!-- Background ring — dashed to signal chaos/broken cycle -->
+                <circle cx="150" cy="150" r="105" stroke="var(--danger)" stroke-width="1" stroke-dasharray="5 8" opacity="0.18"/>
+                <!-- Arc arrows (clockwise) -->
+                <path d="M176.1,48.4 A105,105 0 0 1 238.7,93.8"  stroke="var(--danger)" stroke-width="1.5" opacity="0.7" marker-end="url(#aR)"/>
+                <path d="M254.8,143.2 A105,105 0 0 1 230.7,217"  stroke="var(--danger)" stroke-width="1.5" opacity="0.7" marker-end="url(#aR)"/>
+                <path d="M188.7,247.5 A105,105 0 0 1 111.3,247.5" stroke="var(--danger)" stroke-width="1.5" opacity="0.7" marker-end="url(#aR)"/>
+                <path d="M69.3,217 A105,105 0 0 1 45.2,143.2"    stroke="var(--danger)" stroke-width="1.5" opacity="0.7" marker-end="url(#aR)"/>
+                <path d="M61.3,93.8 A105,105 0 0 1 123.9,48.4"   stroke="var(--danger)" stroke-width="1.5" opacity="0.7" marker-end="url(#aR)"/>
+                <!-- Node 0: Founder (top) -->
+                <circle cx="150" cy="45" r="26" fill="var(--danger-dim)" stroke="var(--danger)" stroke-width="1.5" filter="url(#gR)"/>
+                <text x="150" y="45" text-anchor="middle" dominant-baseline="central" fill="var(--danger)" font-family="var(--font-display)" font-size="10" font-weight="700">FOUNDER</text>
+                <!-- Node 1: Tactical Activity (top-right) -->
+                <circle cx="250" cy="118" r="26" fill="var(--danger-dim)" stroke="var(--danger)" stroke-width="1.5" filter="url(#gR)"/>
+                <text x="250" y="112" text-anchor="middle" dominant-baseline="central" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="700">TACTICAL</text>
+                <text x="250" y="124" text-anchor="middle" dominant-baseline="central" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="700">ACTIVITY</text>
+                <!-- Node 2: No Leverage (bottom-right) -->
+                <circle cx="212" cy="235" r="26" fill="var(--danger-dim)" stroke="var(--danger)" stroke-width="1.5" filter="url(#gR)"/>
+                <text x="212" y="229" text-anchor="middle" dominant-baseline="central" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="700">NO</text>
+                <text x="212" y="241" text-anchor="middle" dominant-baseline="central" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="700">LEVERAGE</text>
+                <!-- Node 3: Same Results (bottom-left) -->
+                <circle cx="88" cy="235" r="26" fill="var(--danger-dim)" stroke="var(--danger)" stroke-width="1.5" filter="url(#gR)"/>
+                <text x="88" y="229" text-anchor="middle" dominant-baseline="central" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="700">SAME</text>
+                <text x="88" y="241" text-anchor="middle" dominant-baseline="central" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="700">RESULTS</text>
+                <!-- Node 4: Reset Monthly (top-left) -->
+                <circle cx="50" cy="118" r="26" fill="var(--danger-dim)" stroke="var(--danger)" stroke-width="1.5" filter="url(#gR)"/>
+                <text x="50" y="112" text-anchor="middle" dominant-baseline="central" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="700">RESET</text>
+                <text x="50" y="124" text-anchor="middle" dominant-baseline="central" fill="var(--danger)" font-family="var(--font-display)" font-size="8" font-weight="700">MONTHLY</text>
               </svg>
             </div>
             <p class="loop-card__caption">The founder is the engine. Every month resets. No compounding. No leverage.</p>
@@ -1338,32 +1462,45 @@
           <div class="loop-card loop-card--system">
             <span class="loop-card__label">The Operating Model Loop</span>
             <div class="loop-card__diagram">
-              <svg viewBox="0 0 240 240" fill="none" role="img" aria-label="Operating Model Loop">
-                <circle cx="120" cy="120" r="95" stroke="var(--success)" stroke-width="1.5" opacity="0.3"/>
-                <circle cx="120" cy="30"  r="18" fill="var(--success-dim)" stroke="var(--success)" stroke-width="1"/>
-                <text x="120" y="34" text-anchor="middle" fill="var(--success)" font-family="var(--font-display)" font-size="9" font-weight="500">System</text>
-                <circle cx="215" cy="100" r="18" fill="var(--success-dim)" stroke="var(--success)" stroke-width="1"/>
-                <text x="215" y="98"  text-anchor="middle" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="500">Campaign</text>
-                <text x="215" y="108" text-anchor="middle" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="500">Engine</text>
-                <circle cx="190" cy="200" r="18" fill="var(--success-dim)" stroke="var(--success)" stroke-width="1"/>
-                <text x="190" y="198" text-anchor="middle" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="500">Qualified</text>
-                <text x="190" y="208" text-anchor="middle" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="500">Pipeline</text>
-                <circle cx="50"  cy="200" r="18" fill="var(--success-dim)" stroke="var(--success)" stroke-width="1"/>
-                <text x="50"  y="198" text-anchor="middle" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="500">Measured</text>
-                <text x="50"  y="208" text-anchor="middle" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="500">Outcomes</text>
-                <circle cx="25"  cy="100" r="18" fill="var(--success-dim)" stroke="var(--success)" stroke-width="1"/>
-                <text x="25"  y="98"  text-anchor="middle" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="500">Iterate &amp;</text>
-                <text x="25"  y="108" text-anchor="middle" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="500">Compound</text>
-                <path d="M136 36 L198 86"   stroke="var(--success)" stroke-width="1" opacity="0.5" marker-end="url(#arrowGreen)"/>
-                <path d="M218 118 L198 182" stroke="var(--success)" stroke-width="1" opacity="0.5" marker-end="url(#arrowGreen)"/>
-                <path d="M172 206 L68 206"  stroke="var(--success)" stroke-width="1" opacity="0.5" marker-end="url(#arrowGreen)"/>
-                <path d="M40 186 L28 118"   stroke="var(--success)" stroke-width="1" opacity="0.5" marker-end="url(#arrowGreen)"/>
-                <path d="M38 86 L106 36"    stroke="var(--success)" stroke-width="1" opacity="0.5" marker-end="url(#arrowGreen)"/>
+              <svg viewBox="0 0 300 300" fill="none" role="img" aria-label="Operating Model Loop">
                 <defs>
-                  <marker id="arrowGreen" markerWidth="6" markerHeight="4" refX="5" refY="2" orient="auto">
-                    <path d="M0,0 L6,2 L0,4" fill="var(--success)" opacity="0.5"/>
+                  <filter id="gG" x="-40%" y="-40%" width="180%" height="180%">
+                    <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="b"/>
+                    <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+                  </filter>
+                  <marker id="aG" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+                    <path d="M0,0 L7,2.5 L0,5Z" fill="var(--success)"/>
                   </marker>
                 </defs>
+                <!-- Background ring — solid to signal stability -->
+                <circle cx="150" cy="150" r="105" stroke="var(--success)" stroke-width="1" opacity="0.22"/>
+                <!-- Animated traveling arc — shows the system is alive and moving -->
+                <circle class="loop-spin" cx="150" cy="150" r="105" stroke="var(--success)" stroke-width="2.5" stroke-dasharray="48 612" stroke-linecap="round" opacity="0.55"/>
+                <!-- Arc arrows (clockwise) -->
+                <path d="M176.1,48.4 A105,105 0 0 1 238.7,93.8"  stroke="var(--success)" stroke-width="2" opacity="0.85" marker-end="url(#aG)"/>
+                <path d="M254.8,143.2 A105,105 0 0 1 230.7,217"  stroke="var(--success)" stroke-width="2" opacity="0.85" marker-end="url(#aG)"/>
+                <path d="M188.7,247.5 A105,105 0 0 1 111.3,247.5" stroke="var(--success)" stroke-width="2" opacity="0.85" marker-end="url(#aG)"/>
+                <path d="M69.3,217 A105,105 0 0 1 45.2,143.2"    stroke="var(--success)" stroke-width="2" opacity="0.85" marker-end="url(#aG)"/>
+                <path d="M61.3,93.8 A105,105 0 0 1 123.9,48.4"   stroke="var(--success)" stroke-width="2" opacity="0.85" marker-end="url(#aG)"/>
+                <!-- Node 0: System (top) -->
+                <circle cx="150" cy="45" r="26" fill="var(--success-dim)" stroke="var(--success)" stroke-width="1.5" filter="url(#gG)"/>
+                <text x="150" y="45" text-anchor="middle" dominant-baseline="central" fill="var(--success)" font-family="var(--font-display)" font-size="10" font-weight="700">SYSTEM</text>
+                <!-- Node 1: Campaign Engine (top-right) -->
+                <circle cx="250" cy="118" r="26" fill="var(--success-dim)" stroke="var(--success)" stroke-width="1.5" filter="url(#gG)"/>
+                <text x="250" y="112" text-anchor="middle" dominant-baseline="central" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="700">CAMPAIGN</text>
+                <text x="250" y="124" text-anchor="middle" dominant-baseline="central" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="700">ENGINE</text>
+                <!-- Node 2: Qualified Pipeline (bottom-right) -->
+                <circle cx="212" cy="235" r="26" fill="var(--success-dim)" stroke="var(--success)" stroke-width="1.5" filter="url(#gG)"/>
+                <text x="212" y="229" text-anchor="middle" dominant-baseline="central" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="700">QUALIFIED</text>
+                <text x="212" y="241" text-anchor="middle" dominant-baseline="central" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="700">PIPELINE</text>
+                <!-- Node 3: Measured Outcomes (bottom-left) -->
+                <circle cx="88" cy="235" r="26" fill="var(--success-dim)" stroke="var(--success)" stroke-width="1.5" filter="url(#gG)"/>
+                <text x="88" y="229" text-anchor="middle" dominant-baseline="central" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="700">MEASURED</text>
+                <text x="88" y="241" text-anchor="middle" dominant-baseline="central" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="700">OUTCOMES</text>
+                <!-- Node 4: Iterate & Compound (top-left) -->
+                <circle cx="50" cy="118" r="26" fill="var(--success-dim)" stroke="var(--success)" stroke-width="1.5" filter="url(#gG)"/>
+                <text x="50" y="112" text-anchor="middle" dominant-baseline="central" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="700">ITERATE &amp;</text>
+                <text x="50" y="124" text-anchor="middle" dominant-baseline="central" fill="var(--success)" font-family="var(--font-display)" font-size="8" font-weight="700">COMPOUND</text>
               </svg>
             </div>
             <p class="loop-card__caption">The system compounds. Each cycle produces data that improves the next. The founder reviews, not builds.</p>
@@ -2001,46 +2138,54 @@
 
     /* — Scroll Reveal — */
     (function() {
-      const selectors = [
-        '.problem__grid', '.loops__grid', '.phase-timeline', '.deliverables-grid',
+      const staggerSelectors = ['.phase-timeline', '.deliverables-grid', '.loops__grid', '.precall__grid'];
+      const revealSelectors  = [
         '.proof__intro', '.proof__snapshots', '.proof__table-wrap',
         '.section-heading', '.section-body', '.engagement__intro',
-        '.engagement__coda', '.overline', '.precall__grid',
+        '.engagement__coda', '.overline',
         '.final-cta__heading', '.final-cta__body', '.faq-item',
-        '.diagnostic__inner', '.form-outer',
+        '.form-outer', '.problem__stat-block',
       ];
 
-      const staggerSelectors = ['.phase-timeline', '.deliverables-grid', '.loops__grid', '.precall__grid'];
-
-      selectors.forEach(sel => {
-        document.querySelectorAll(sel).forEach(el => el.classList.add('reveal'));
+      revealSelectors.forEach(sel => {
+        document.querySelectorAll(sel).forEach(el => {
+          if (!el.classList.contains('reveal-left') && !el.classList.contains('reveal-right')) {
+            el.classList.add('reveal');
+          }
+        });
       });
       staggerSelectors.forEach(sel => {
-        document.querySelectorAll(sel).forEach(el => {
-          el.classList.remove('reveal');
-          el.classList.add('reveal-stagger');
-        });
+        document.querySelectorAll(sel).forEach(el => el.classList.add('reveal-stagger'));
       });
 
       if (!('IntersectionObserver' in window)) {
-        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => el.classList.add('in-view'));
+        document.querySelectorAll('.reveal, .reveal-stagger, .reveal-left, .reveal-right')
+          .forEach(el => el.classList.add('in-view'));
         return;
       }
 
       const io = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('in-view');
-            io.unobserve(entry.target);
+          if (!entry.isIntersecting) return;
+          const el    = entry.target;
+          const delay = el.dataset.delay ? parseInt(el.dataset.delay) : 0;
+          if (delay) {
+            setTimeout(() => el.classList.add('in-view'), delay);
+          } else {
+            el.classList.add('in-view');
           }
+          io.unobserve(el);
         });
-      }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+      }, { threshold: 0.05, rootMargin: '0px 0px -8% 0px' });
 
-      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => io.observe(el));
+      document.querySelectorAll('.reveal, .reveal-stagger, .reveal-left, .reveal-right')
+        .forEach(el => io.observe(el));
 
+      /* Fallback: ensure everything is visible after 3s */
       setTimeout(() => {
-        document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => el.classList.add('in-view'));
-      }, 2500);
+        document.querySelectorAll('.reveal, .reveal-stagger, .reveal-left, .reveal-right')
+          .forEach(el => el.classList.add('in-view'));
+      }, 3000);
     })();
 
     /* — Header Scroll State — */
