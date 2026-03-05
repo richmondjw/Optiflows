@@ -6,6 +6,5 @@
     <path d="M4 56 L4 20 Q4 2 32 2 Q60 2 60 20 L60 56" stroke="#5BC4C8" stroke-width="1.8" stroke-linecap="round" fill="none" opacity="0.22"/>
     <circle cx="32" cy="36" r="3.5" fill="#5BC4C8"/>
   </g>
-  <text x="200" y="118" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="64" font-weight="500" fill="#E8EDEE" letter-spacing="-1">Opti</text>
-  <text x="382" y="118" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="64" font-weight="700" fill="#E8EDEE" letter-spacing="-1">flows</text>
+  <text x="200" y="118" font-family="DM Sans, Helvetica, Arial, sans-serif" font-size="64" fill="#E8EDEE" letter-spacing="-1"><tspan font-weight="500">Opti</tspan><tspan font-weight="700">flows</tspan></text>
 </svg>
