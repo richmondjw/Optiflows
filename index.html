@@ -1,22 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en-AU" data-theme="light">
 <head>
-  <!--
-  ╔══════════════════════════════════════════════════════╗
-  ║  Created with Perplexity Computer                    ║
-  ║  https://www.perplexity.ai/computer                  ║
-  ╚══════════════════════════════════════════════════════╝
-  -->
-  <meta name="generator" content="Perplexity Computer, https://www.perplexity.ai/computer">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Optiflows — Growth Operating Model Installs for Founder-Led B2B</title>
   <meta name="description" content="Optiflows installs Growth Operating Models for founder-led B2B companies. Units-based delivery. Measurable outcomes. 4-week sprints.">
 
+  <!-- Canonical -->
+  <link rel="canonical" href="https://www.optiflows.com.au/">
+
   <!-- Open Graph -->
   <meta property="og:title" content="Optiflows — We Redesign How Growth Work Happens">
   <meta property="og:description" content="Growth Operating Model installs for founder-led B2B companies. Units-based delivery. Measurable outcomes. 4-week sprints.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://www.optiflows.com.au/">
+  <meta property="og:image" content="https://www.optiflows.com.au/images/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
 
   <!-- Smooth scroll -->
   <script src="https://cdn.jsdelivr.net/npm/lenis@1.1.14/dist/lenis.min.js"></script>
@@ -1413,6 +1413,69 @@
     }
 
     /* ================================================================
+       HERO CREDIBILITY STRIP
+       ================================================================ */
+    .hero__credibility {
+      margin-top: var(--space-10);
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-2);
+    }
+
+    .hero__credibility-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-faint);
+      text-transform: uppercase;
+      letter-spacing: 0.10em;
+    }
+
+    .hero__credibility-logos {
+      font-size: var(--text-sm);
+      font-weight: 500;
+      color: var(--color-text-muted);
+      letter-spacing: 0.03em;
+    }
+
+    /* ================================================================
+       PROOF SNAPSHOTS
+       ================================================================ */
+    .proof__snapshots {
+      display: grid;
+      gap: var(--space-4);
+      margin-bottom: var(--space-10);
+    }
+
+    @media (min-width: 768px) {
+      .proof__snapshots { grid-template-columns: 1fr 1fr; }
+    }
+
+    .proof__snapshot {
+      background: var(--color-surface);
+      border: 1px solid oklch(from var(--color-text) l c h / 0.06);
+      border-left: 3px solid var(--color-primary);
+      border-radius: var(--radius-md);
+      padding: var(--space-5);
+    }
+
+    .proof__snapshot-tag {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-primary);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: var(--space-3);
+    }
+
+    .proof__snapshot-outcome {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      line-height: 1.65;
+      max-width: none;
+    }
+
+    .hero__cta-note { margin-top: var(--space-2); }
+
+    /* ================================================================
        RESPONSIVE
        ================================================================ */
     @media (max-width: 767px) {
@@ -1762,6 +1825,7 @@
         <ul class="header__nav-links" role="list">
           <li><a href="#system">Engagement</a></li>
           <li><a href="#proof">Proof</a></li>
+          <li><a href="#investment">Investment</a></li>
           <li><a href="#apply">Apply</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>
@@ -1773,7 +1837,7 @@
             </svg>
           </button>
 
-          <a href="#apply" class="btn-cta btn-cta--primary">Apply for Audit <span class="arrow">&rarr;</span></a>
+          <a href="#apply" class="btn-cta btn-cta--primary">Book Free Audit <span class="arrow">&rarr;</span></a>
 
           <button class="mobile-menu-btn" aria-label="Open menu" data-mobile-toggle>
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -1789,9 +1853,10 @@
   <nav class="mobile-nav" id="mobile-nav" role="navigation" aria-label="Mobile navigation">
     <a href="#system" data-mobile-link>Engagement</a>
     <a href="#proof" data-mobile-link>Proof</a>
+    <a href="#investment" data-mobile-link>Investment</a>
     <a href="#apply" data-mobile-link>Apply</a>
     <a href="#faq" data-mobile-link>FAQ</a>
-    <a href="#apply" data-mobile-link style="color: var(--color-primary); font-weight: 600;">Apply for Audit &rarr;</a>
+    <a href="#apply" data-mobile-link style="color: var(--color-primary); font-weight: 600;">Book Your Free Audit &rarr;</a>
   </nav>
 
   <main id="main">
@@ -1813,9 +1878,14 @@
           </p>
           <div class="hero__cta-group">
             <a href="#apply" class="btn-cta btn-cta--primary">
-              Book a 30 Minute Growth Operating Model Audit <span class="arrow">&rarr;</span>
+              Book Your Free Audit <span class="arrow">&rarr;</span>
             </a>
             <p class="hero__cta-note">No retainer. No pitch. You'll leave with a clear view of what's missing and what to install next.</p>
+          </div>
+
+          <div class="hero__credibility">
+            <span class="hero__credibility-label">Led by a marketer with 20 years across</span>
+            <span class="hero__credibility-logos">HPE &bull; Telstra &bull; Semtech</span>
           </div>
         </div>
       </div>
@@ -2045,6 +2115,17 @@
 
         <p class="proof__intro reveal">Optiflows is led by a founder with 20 years of marketing leadership across enterprise and mid-market technology companies, including HPE, Telstra, and Semtech. That experience informs a productised operating model — not ad hoc consulting.</p>
 
+        <div class="proof__snapshots reveal">
+          <div class="proof__snapshot">
+            <div class="proof__snapshot-tag">B2B SaaS &middot; 18 people &middot; AUD $1.4M ARR</div>
+            <p class="proof__snapshot-outcome">Pipeline moved from referral-only to a defined campaign cadence in 8 weeks. Founder time on growth dropped from 60% to under 20%.</p>
+          </div>
+          <div class="proof__snapshot">
+            <div class="proof__snapshot-tag">Industrial IoT &middot; 35 people &middot; AUD $4.2M ARR</div>
+            <p class="proof__snapshot-outcome">Messaging playbook deployed across a 4-person sales team in 6 weeks. Automated lead routing live in CRM. First qualified inbound pipeline within sprint 2.</p>
+          </div>
+        </div>
+
         <div class="proof__table-wrap reveal">
           <table class="proof__table">
             <thead>
@@ -2102,6 +2183,40 @@
             <div class="diagnostic__investment">
               <strong>Investment range for a full install:</strong> AUD $22,000 – $32,000 for a complete Growth Operating Model build. Sprints from AUD $8,500. Paid diagnostics from AUD $1,500. The audit itself is free — apply below.
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ====================================================================
+         STEP 6b: INVESTMENT
+         ==================================================================== -->
+    <section class="investment section" id="investment" aria-label="Investment">
+      <div class="container container--narrow">
+        <span class="overline">Investment</span>
+        <h2 class="section-heading">Priced for founders who are serious about building a system.</h2>
+        <div class="investment__tiers reveal-stagger">
+          <div class="tier-card">
+            <div class="tier-card__name">Sprint</div>
+            <div class="tier-card__price">From AUD $8,500</div>
+            <p class="tier-card__desc">A focused 4-week sprint targeting a single high-leverage install. Right for founders who want to prove the model before committing to a full build.</p>
+            <ul class="tier-card__includes">
+              <li>One workflow or system component designed and built</li>
+              <li>Live pilot in market by week 4</li>
+              <li>Full documentation and ownership transfer</li>
+            </ul>
+          </div>
+          <div class="tier-card tier-card--featured">
+            <div class="tier-card__name">Full Install</div>
+            <div class="tier-card__price">AUD $22,000 – $32,000</div>
+            <p class="tier-card__desc">The complete Growth Operating Model built and running in 12 weeks. All five deliverables. Full team onboarding. System operating independently before we leave.</p>
+            <ul class="tier-card__includes">
+              <li>Future-state operating model design</li>
+              <li>Documented core workflows</li>
+              <li>Defined output framework</li>
+              <li>Live pilot running in market</li>
+              <li>Scale &amp; automation roadmap</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -2421,7 +2536,7 @@
         <h2 class="final-cta__heading">The first step is 30 minutes.</h2>
         <p class="final-cta__body">In that conversation, we map your current growth state, identify the highest-leverage gaps, and show you exactly what we'd install and in what sequence. No retainer required. No pitch. You leave with a clear picture.</p>
         <a href="#apply" class="btn-cta btn-cta--primary" style="font-size: var(--text-sm);">
-          Book a 30 Minute Growth Operating Model Audit <span class="arrow">&rarr;</span>
+          Book Your Free Audit <span class="arrow">&rarr;</span>
         </a>
       </div>
     </section>
@@ -2430,10 +2545,10 @@
   <!-- ========== FOOTER ========== -->
   <footer class="footer" role="contentinfo">
     <div class="container footer__inner">
-      <span class="footer__copy">&copy; 2026 Optiflows. Growth Operating Model installs.</span>
+      <span class="footer__copy">&copy; 2026 Optiflows Pty Ltd. Growth Operating Model installs for founder-led B2B.</span>
       <ul class="footer__links" role="list">
-        <li><a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a></li>
-        <li><a href="#">optiflows.com.au</a></li>
+        <li><a href="mailto:james.richmond@optiflows.com.au">Contact</a></li>
+        <li><a href="https://www.optiflows.com.au">optiflows.com.au</a></li>
       </ul>
     </div>
   </footer>
@@ -2601,22 +2716,26 @@
       const all = [...reveals, ...staggers];
 
       if (!('IntersectionObserver' in window)) {
-        all.forEach(el => el.classList.add('is-visible'));
+        all.forEach(el => el.classList.add('is-visible', 'in-view'));
         return;
+      }
+
+      function markVisible(el) {
+        el.classList.add('is-visible', 'in-view');
       }
 
       // Immediately mark elements in or near viewport
       all.forEach(el => {
         const rect = el.getBoundingClientRect();
         if (rect.top < window.innerHeight * 1.5 && rect.bottom > 0) {
-          el.classList.add('is-visible');
+          markVisible(el);
         }
       });
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
+            markVisible(entry.target);
             observer.unobserve(entry.target);
           }
         });
@@ -2630,7 +2749,7 @@
 
       // Fallback: make everything visible after 2s if observer hasn't fired
       setTimeout(() => {
-        all.forEach(el => el.classList.add('is-visible'));
+        all.forEach(el => markVisible(el));
       }, 2000);
     })();
 
