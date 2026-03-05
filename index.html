@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Optiflows — Growth Operating Model Installs for Founder-Led B2B</title>
+  <link rel="icon" type="image/svg+xml" href="images/optiflows-favicon.svg">
+  <link rel="icon" type="image/png" sizes="32x32" href="images/optiflows-favicon-32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="images/optiflows-favicon-16.png">
+  <link rel="apple-touch-icon" href="images/optiflows-apple-touch-icon.png">
   <meta name="description" content="Optiflows installs Growth Operating Models for founder-led B2B companies. Units-based delivery. Measurable outcomes. 4-week sprints.">
 
   <!-- Google tag (gtag.js) -->
@@ -86,24 +90,24 @@
        LIGHT MODE (default)
        ================================================================ */
     :root, [data-theme="light"] {
-      --color-bg:             #FAFAFA;
+      --color-bg:             #FAFAF8;
       --color-surface:        #FFFFFF;
-      --color-surface-2:      #F5F5F3;
-      --color-surface-offset: #F0F0EE;
-      --color-surface-offset-2: #E8E8E5;
-      --color-surface-dynamic: #DDDDD9;
-      --color-divider:        #E2E2DE;
-      --color-border:         #D0D0CC;
+      --color-surface-2:      #F0F4F4;
+      --color-surface-offset: #EBF0F0;
+      --color-surface-offset-2: #E4ECEC;
+      --color-surface-dynamic: #D8E4E4;
+      --color-divider:        #E8EEEF;
+      --color-border:         #D6E0E1;
 
-      --color-text:           #1A1A1E;
-      --color-text-muted:     #5C5C66;
-      --color-text-faint:     #9A9AA2;
-      --color-text-inverse:   #FAFAFA;
+      --color-text:           #1A2E33;
+      --color-text-muted:     #5A7A7E;
+      --color-text-faint:     #8FA8AB;
+      --color-text-inverse:   #FAFAF8;
 
-      --color-primary:        #01696F;
-      --color-primary-hover:  #0C4E54;
-      --color-primary-active: #0F3638;
-      --color-primary-highlight: #E0F2F3;
+      --color-primary:        #2A7C7F;
+      --color-primary-hover:  #1E5A5D;
+      --color-primary-active: #154042;
+      --color-primary-highlight: #E6F4F4;
 
       --color-danger:         #B83D39;
       --color-danger-soft:    #F5E8E7;
@@ -119,24 +123,24 @@
        DARK MODE
        ================================================================ */
     [data-theme="dark"] {
-      --color-bg:             #0D0D0F;
-      --color-surface:        #131316;
-      --color-surface-2:      #1A1A1E;
-      --color-surface-offset: #161619;
-      --color-surface-offset-2: #1E1E22;
-      --color-surface-dynamic: #252529;
-      --color-divider:        #2A2A2F;
-      --color-border:         #333338;
+      --color-bg:             #0F1A1C;
+      --color-surface:        #162022;
+      --color-surface-2:      #1A2E33;
+      --color-surface-offset: #1E2E30;
+      --color-surface-offset-2: #233436;
+      --color-surface-dynamic: #2A3E40;
+      --color-divider:        #2A3E40;
+      --color-border:         #354A4C;
 
-      --color-text:           #E8E8EC;
-      --color-text-muted:     #8A8A94;
-      --color-text-faint:     #55555E;
-      --color-text-inverse:   #0D0D0F;
+      --color-text:           #E8EDEE;
+      --color-text-muted:     #8AABAE;
+      --color-text-faint:     #557275;
+      --color-text-inverse:   #0F1A1C;
 
-      --color-primary:        #2BBBC3;
-      --color-primary-hover:  #23A0A7;
-      --color-primary-active: #1A7F85;
-      --color-primary-highlight: #14292B;
+      --color-primary:        #5BC4C8;
+      --color-primary-hover:  #4AAFB3;
+      --color-primary-active: #3A9599;
+      --color-primary-highlight: #1A3436;
 
       --color-danger:         #C25450;
       --color-danger-soft:    #2B1A1A;
@@ -1827,14 +1831,14 @@
     font-family:var(--font-body);
   ">
     <div style="text-align:center;max-width:320px;width:100%;padding:var(--space-6);">
-      <img src="images/Optiflows_Logo_BLK.svg" alt="Optiflows" style="height:32px;width:auto;margin:0 auto var(--space-8);">
+      <img src="images/optiflows-lockup-horizontal-dark.svg" alt="Optiflows" style="height:32px;width:auto;margin:0 auto var(--space-8);">
       <input id="password-input" type="password" placeholder="Enter password"
         style="width:100%;padding:var(--space-3) var(--space-4);border:1px solid #D0D0CC;border-radius:0.5rem;font-size:1rem;font-family:inherit;color:#1A1A1E;background:#fff;margin-bottom:var(--space-3);outline:none;"
         autofocus>
       <div id="password-error" style="font-size:0.8rem;color:#B83D39;margin-bottom:var(--space-3);display:none;">Incorrect password.</div>
       <button onclick="checkPassword()" style="
         width:100%;padding:0.75rem 1.5rem;
-        background:#01696F;color:#fff;border:none;border-radius:0.5rem;
+        background:#2A7C7F;color:#fff;border:none;border-radius:0.5rem;
         font-size:0.95rem;font-family:inherit;font-weight:500;cursor:pointer;
       ">Enter</button>
     </div>
@@ -1866,8 +1870,8 @@
   <header class="header" role="banner">
     <div class="container header__inner">
       <a href="#" class="header__logo" aria-label="Optiflows Home">
-        <img class="logo--dark"  src="images/Optiflows_Logo_White.svg" alt="Optiflows" style="height:32px;width:auto;display:block;">
-        <img class="logo--light" src="images/Optiflows_Logo_BLK.svg"   alt="Optiflows" style="height:32px;width:auto;display:block;">
+        <img class="logo--dark"  src="images/optiflows-lockup-horizontal-light.svg" alt="Optiflows" style="height:32px;width:auto;display:block;">
+        <img class="logo--light" src="images/optiflows-lockup-horizontal-dark.svg"  alt="Optiflows" style="height:32px;width:auto;display:block;">
       </a>
 
       <nav class="header__nav" role="navigation" aria-label="Main navigation">
@@ -2819,7 +2823,7 @@
       let W, H, nodes, raf;
       const COUNT = 55;
       const MAX_DIST = 160;
-      const PRIMARY = [43, 187, 195]; // teal #2BBBC3
+      const PRIMARY = [91, 196, 200]; // light teal #5BC4C8
 
       function resize() {
         W = canvas.width  = canvas.offsetWidth;
