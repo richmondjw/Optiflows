@@ -1810,6 +1810,46 @@
   </style>
 </head>
 <body>
+  <!-- Password Gate -->
+  <div id="password-gate" style="
+    position:fixed;inset:0;z-index:9999;
+    background:var(--color-bg);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--font-body);
+  ">
+    <div style="text-align:center;max-width:320px;width:100%;padding:var(--space-6);">
+      <img src="images/Optiflows_Logo_BLK.png" alt="Optiflows" style="height:20px;width:auto;margin:0 auto var(--space-8);">
+      <input id="password-input" type="password" placeholder="Enter password"
+        style="width:100%;padding:var(--space-3) var(--space-4);border:1px solid #D0D0CC;border-radius:0.5rem;font-size:1rem;font-family:inherit;color:#1A1A1E;background:#fff;margin-bottom:var(--space-3);outline:none;"
+        autofocus>
+      <div id="password-error" style="font-size:0.8rem;color:#B83D39;margin-bottom:var(--space-3);display:none;">Incorrect password.</div>
+      <button onclick="checkPassword()" style="
+        width:100%;padding:0.75rem 1.5rem;
+        background:#01696F;color:#fff;border:none;border-radius:0.5rem;
+        font-size:0.95rem;font-family:inherit;font-weight:500;cursor:pointer;
+      ">Enter</button>
+    </div>
+  </div>
+  <script>
+    (function() {
+      if (sessionStorage.getItem('of_auth') === '1') {
+        document.getElementById('password-gate').style.display = 'none';
+      }
+      document.getElementById('password-input').addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') checkPassword();
+      });
+    })();
+    function checkPassword() {
+      if (document.getElementById('password-input').value === '1xlx1') {
+        sessionStorage.setItem('of_auth', '1');
+        document.getElementById('password-gate').style.display = 'none';
+      } else {
+        document.getElementById('password-error').style.display = 'block';
+        document.getElementById('password-input').value = '';
+        document.getElementById('password-input').focus();
+      }
+    }
+  </script>
   <!-- Skip link -->
   <a href="#main" class="sr-only" style="position:absolute;z-index:200;top:var(--space-2);left:var(--space-2);padding:var(--space-2) var(--space-4);background:var(--color-primary);color:var(--color-text-inverse);border-radius:var(--radius-md);font-size:var(--text-sm);text-decoration:none;" onfocus="this.style.position='fixed';this.style.clip='auto';this.style.width='auto';this.style.height='auto';this.style.overflow='visible';" onblur="this.style.position='absolute';this.style.clip='rect(0,0,0,0)';this.style.width='1px';this.style.height='1px';this.style.overflow='hidden';">Skip to content</a>
 
