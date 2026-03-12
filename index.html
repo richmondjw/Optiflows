@@ -149,11 +149,8 @@ ul, ol {
   position: sticky;
   top: 0;
   z-index: 100;
-  background: rgba(255, 255, 255, 0.92);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
+  background: var(--color-bg);
   border-bottom: 1px solid var(--color-divider);
-  transition: box-shadow 0.4s ease;
 }
 
 .nav-inner {
@@ -1023,16 +1020,12 @@ ul, ol {
 }
 
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  padding-bottom: 0;
-  transition: max-height 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-              padding-bottom 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  display: none;
+  padding-bottom: 1.5rem;
 }
 
 .faq-item.open .faq-answer {
-  max-height: 500px;
-  padding-bottom: 1.5rem;
+  display: block;
 }
 
 .faq-answer p {
@@ -1093,222 +1086,6 @@ ul, ol {
     text-align: center;
   }
 }
-/* ============================================
-   ANIMATION SYSTEM
-   Scroll reveals, parallax, micro-interactions
-   ============================================ */
-
-/* --- Scroll Reveal (JS adds .will-reveal) --- */
-.will-reveal {
-  opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.will-reveal.revealed {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Grid stagger delays */
-.phases-grid .will-reveal:nth-child(2) { transition-delay: 0.12s; }
-.phases-grid .will-reveal:nth-child(3) { transition-delay: 0.24s; }
-
-.outcome-grid .will-reveal:nth-child(2) { transition-delay: 0.08s; }
-.outcome-grid .will-reveal:nth-child(3) { transition-delay: 0.16s; }
-.outcome-grid .will-reveal:nth-child(4) { transition-delay: 0.24s; }
-.outcome-grid .will-reveal:nth-child(5) { transition-delay: 0.32s; }
-
-.deliverables-list .will-reveal:nth-child(2) { transition-delay: 0.07s; }
-.deliverables-list .will-reveal:nth-child(3) { transition-delay: 0.14s; }
-.deliverables-list .will-reveal:nth-child(4) { transition-delay: 0.21s; }
-.deliverables-list .will-reveal:nth-child(5) { transition-delay: 0.28s; }
-
-/* --- Nav Scroll State --- */
-.nav.scrolled {
-  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.04);
-}
-
-/* --- Hero Entrance (scoped to .js for progressive enhancement) --- */
-.js .hero-content > * {
-  opacity: 0;
-  transform: translateY(32px);
-}
-
-.hero.animate .hero-content > * {
-  animation: heroIn 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-}
-
-.hero.animate .hero-content > *:nth-child(1) { animation-delay: 0.05s; }
-.hero.animate .hero-content > *:nth-child(2) { animation-delay: 0.2s; }
-.hero.animate .hero-content > *:nth-child(3) { animation-delay: 0.38s; }
-.hero.animate .hero-content > *:nth-child(4) { animation-delay: 0.48s; }
-
-@keyframes heroIn {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Hero underline draw-in */
-.js .hero-headline .accent-underline {
-  background-size: 0% 2px;
-  transition: background-size 1s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.hero.animate .hero-headline .accent-underline {
-  background-size: 100% 2px;
-  transition-delay: 0.9s;
-}
-
-/* Hero mouse parallax */
-.hero-content {
-  transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
-}
-
-/* --- Section Rules Expand --- */
-.section-rule.will-reveal {
-  transform: scaleX(0);
-  transform-origin: left center;
-  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.section-rule.will-reveal.revealed {
-  transform: scaleX(1);
-}
-
-/* --- Phase Progress Sequential --- */
-.js .phase-progress > * {
-  opacity: 0;
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.phase-progress.revealed > *:nth-child(1) { opacity: 1; transition-delay: 0s; }
-.phase-progress.revealed > *:nth-child(2) { opacity: 1; transition-delay: 0.15s; }
-.phase-progress.revealed > *:nth-child(3) { opacity: 1; transition-delay: 0.3s; }
-.phase-progress.revealed > *:nth-child(4) { opacity: 1; transition-delay: 0.45s; }
-.phase-progress.revealed > *:nth-child(5) { opacity: 1; transition-delay: 0.6s; }
-
-/* --- Card & Panel Interactions --- */
-.loop-panel {
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.loop-panel:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.06);
-}
-
-.outcome-card {
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.outcome-card:hover {
-  transform: translateX(4px);
-}
-
-.diagnostic-investment {
-  transition: transform 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-              box-shadow 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.diagnostic-investment:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.04);
-}
-
-.deliverable-item {
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.deliverable-item:hover {
-  transform: translateX(4px);
-}
-
-/* --- CTA Button Polish --- */
-.cta-button {
-  transition: background 200ms, transform 200ms, box-shadow 200ms;
-}
-
-.cta-button:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 4px 20px rgba(13, 115, 119, 0.2);
-}
-
-.cta-button:active {
-  transform: translateY(0);
-  box-shadow: none;
-}
-
-/* --- Form Step Slide --- */
-.form-step.active {
-  animation: stepIn 0.4s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-@keyframes stepIn {
-  from { opacity: 0; transform: translateX(16px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-/* Form option hover */
-.form-option {
-  transition: border-color 200ms, color 200ms, transform 200ms, box-shadow 200ms;
-}
-
-.form-option:hover {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-}
-
-.form-option.selected {
-  transform: translateY(-1px);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
-}
-
-/* Progress segment animation */
-.form-progress-segment {
-  transition: background 400ms cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-/* --- Dashboard Tilt --- */
-.proof-dashboard {
-  transition: transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: transform;
-}
-
-/* --- Loop SVG Ambient Float --- */
-.loop-svg-container svg {
-  animation: svgFloat 8s ease-in-out infinite;
-}
-
-.loop-panel:nth-child(2) .loop-svg-container svg {
-  animation-delay: -4s;
-}
-
-@keyframes svgFloat {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-5px); }
-}
-
-/* --- FAQ Smooth Icon --- */
-.faq-icon {
-  transition: transform 300ms cubic-bezier(0.22, 1, 0.36, 1), color 200ms;
-}
-
-/* --- Reduced Motion --- */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-  .will-reveal, .js .hero-content > *,
-  .js .phase-progress > *, .section-rule.will-reveal {
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}
-
 /* --- PASSWORD GATE --- */
 .password-gate {
   position: fixed;
@@ -2107,9 +1884,6 @@ function checkPassword() {
 function unlockSite() {
   document.getElementById('passwordGate').classList.add('hidden');
   document.getElementById('siteContent').classList.remove('locked');
-  requestAnimationFrame(() => {
-    if (typeof initAnimations === 'function') initAnimations();
-  });
 }
 
 // Auto-unlock if already authed this session
@@ -2121,142 +1895,6 @@ if (sessionStorage.getItem(PASS_KEY) === '1') {
 document.getElementById('passwordInput').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') checkPassword();
 });
-</script>
-
-<script>
-/* ============================================
-   ANIMATION ENGINE
-   Scroll reveals, parallax, counters
-   ============================================ */
-document.documentElement.classList.add('js');
-
-function initAnimations() {
-  // --- Hero entrance ---
-  const hero = document.querySelector('.hero');
-  if (hero) {
-    requestAnimationFrame(() => hero.classList.add('animate'));
-  }
-
-  // --- Scroll reveal: auto-discover elements ---
-  const selectors = [
-    '.gap-grid > *',
-    '.loops-intro',
-    '.loop-panel',
-    '.engagement-intro',
-    '.phases-grid .phase',
-    '.deliverables-heading',
-    '.deliverable-item',
-    '.proof-intro',
-    '.proof-dashboard',
-    '.outcome-card',
-    '.proof-disclaimer',
-    '.diagnostic-grid > *',
-    '.form-section > .container > .label',
-    '.form-section > .container > .heading-section',
-    '.form-social-proof',
-    '#formWizard',
-    '.faq-intro',
-    '.faq-item',
-    '.final-cta .container > *',
-    '.section-rule'
-  ];
-
-  const revealEls = document.querySelectorAll(selectors.join(', '));
-  revealEls.forEach(el => el.classList.add('will-reveal'));
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('revealed');
-        observer.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08, rootMargin: '0px 0px -40px 0px' });
-
-  revealEls.forEach(el => observer.observe(el));
-
-  // --- Phase progress ---
-  const phaseProgress = document.querySelector('.phase-progress');
-  if (phaseProgress) {
-    const ppObs = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('revealed');
-          ppObs.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.3 });
-    ppObs.observe(phaseProgress);
-  }
-
-  // --- Nav scroll state ---
-  const nav = document.querySelector('.nav');
-  if (nav) {
-    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 10);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  }
-
-  // --- Hero mouse parallax ---
-  if (hero && window.matchMedia('(hover: hover)').matches) {
-    const content = hero.querySelector('.hero-content');
-    hero.addEventListener('mousemove', (e) => {
-      const rect = hero.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      content.style.transform = `translate(${x * -10}px, ${y * -8}px)`;
-    });
-    hero.addEventListener('mouseleave', () => {
-      content.style.transform = '';
-    });
-  }
-
-  // --- Proof dashboard tilt on mouse ---
-  const dashboard = document.querySelector('.proof-dashboard');
-  if (dashboard && window.matchMedia('(hover: hover)').matches) {
-    dashboard.addEventListener('mousemove', (e) => {
-      const rect = dashboard.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      dashboard.style.transform = `perspective(800px) rotateY(${x * 3}deg) rotateX(${y * -2}deg) translateY(-2px)`;
-    });
-    dashboard.addEventListener('mouseleave', () => {
-      dashboard.style.transform = '';
-    });
-  }
-
-  // --- Counter animation for 78% stat ---
-  const statNumber = document.querySelector('.gap-stat-number');
-  if (statNumber) {
-    const text = statNumber.textContent.trim();
-    const match = text.match(/(\d+)/);
-    if (match) {
-      const target = parseInt(match[1]);
-      const suffix = text.replace(match[1], '');
-      statNumber.textContent = '0' + suffix;
-
-      const counterObs = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            animateCounter(entry.target, 0, target, suffix, 1400);
-            counterObs.unobserve(entry.target);
-          }
-        });
-      }, { threshold: 0.5 });
-      counterObs.observe(statNumber);
-    }
-  }
-}
-
-function animateCounter(el, start, end, suffix, duration) {
-  const t0 = performance.now();
-  (function tick(now) {
-    const p = Math.min((now - t0) / duration, 1);
-    const eased = 1 - Math.pow(1 - p, 3);
-    el.textContent = Math.round(start + (end - start) * eased) + suffix;
-    if (p < 1) requestAnimationFrame(tick);
-  })(t0);
-}
 </script>
 
 </body>
