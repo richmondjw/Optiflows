@@ -1825,6 +1825,7 @@ async function submitForm() {
 
   try {
     const body = new FormData();
+    body.append('_subject', 'Optiflows lead submission');
     body.append('email', formData.email);
     body.append('phone', formData.phone || '');
     body.append('company', formData.companyName || '');
