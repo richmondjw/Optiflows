@@ -3,34 +3,34 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Optiflows — Growth Operating Model Install</title>
+<title>Optiflows -Growth Operating Model Install</title>
 <meta name="description" content="We redesign how growth work happens. A 12-week operating model install for founder-led B2B companies.">
 <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
 <link href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700&display=swap" rel="stylesheet">
 <style>
 /* ============================================
-   OPTIFLOWS — TATE MODERN MUSEUM AESTHETIC
+   OPTIFLOWS -TATE MODERN MUSEUM AESTHETIC
    Single typeface: Switzer (neo-grotesk)
    Light mode only. Gallery-grade restraint.
    ============================================ */
 
 /* --- CUSTOM PROPERTIES --- */
 :root {
-  /* Colors — Deep Teal System: modern systems-engineering authority */
+  /* Colors -Deep Teal System: modern systems-engineering authority */
   --color-bg: #FFFFFF;
   --color-surface: #F4F5F6;   /* blue-grey cooled surface */
   --color-surface-2: #EAECEE; /* cooled secondary surface */
-  --color-text: #1C2127;      /* deep charcoal — cooler than pure black */
+  --color-text: #1C2127;      /* deep charcoal -cooler than pure black */
   --color-text-muted: #5A6370; /* slate-grey body text */
   --color-text-faint: #8B939E; /* blue-tinted faint */
   --color-divider: #DDE0E4;   /* cooled divider */
   --color-border: #C8CDD3;    /* cooled border */
-  --color-accent: #0D7377;    /* deep teal — authority, systems, precision */
+  --color-accent: #0D7377;    /* deep teal -authority, systems, precision */
   --color-accent-hover: #095558; /* darker teal on hover */
   --color-text-inverse: #FFFFFF;
-  --color-outcome: #0D7377;   /* teal — achievement reads as systems mastery */
+  --color-outcome: #0D7377;   /* teal -achievement reads as systems mastery */
   --color-outcome-bg: #EFF7F7; /* barely-there teal tint */
-  --color-bottleneck: #7A828D; /* cooled slate grey — constraint, friction */
+  --color-bottleneck: #7A828D; /* cooled slate grey -constraint, friction */
   --color-bottleneck-light: #A8AEB6; /* lighter slate */
 
   /* Typography */
@@ -1053,6 +1053,84 @@ ul, ol {
   letter-spacing: -0.01em;
 }
 
+/* --- CONTACT --- */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--grid-gap);
+  align-items: start;
+}
+
+.contact-left .heading-section {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.contact-channels {
+  margin-top: 2rem;
+}
+
+.contact-channel {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.contact-channel-icon {
+  flex-shrink: 0;
+  width: 20px;
+  height: 20px;
+  color: var(--color-text-faint);
+}
+
+.contact-channel a {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  transition: color 200ms;
+}
+
+.contact-channel a:hover {
+  color: var(--color-accent);
+}
+
+.contact-form {
+  padding: clamp(2rem, 3vw, 3rem);
+  background: var(--color-surface);
+}
+
+.contact-form .label {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form .form-input-group {
+  margin-bottom: 1.25rem;
+}
+
+.contact-form textarea {
+  min-height: 100px;
+}
+
+.contact-form-thankyou {
+  display: none;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.contact-form-thankyou p {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* --- FOOTER --- */
 .footer {
   border-top: 1px solid var(--color-divider);
@@ -1071,14 +1149,20 @@ ul, ol {
   letter-spacing: 0.02em;
 }
 
-.footer-attr a {
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+  align-items: center;
+}
+
+.footer-links a {
   font-size: var(--text-xs);
   color: var(--color-text-faint);
   letter-spacing: 0.02em;
   transition: color 200ms;
 }
 
-.footer-attr a:hover {
+.footer-links a:hover {
   color: var(--color-accent);
 }
 
@@ -1190,6 +1274,7 @@ ul, ol {
       <a href="#engagement">Engagement</a>
       <a href="#proof">Proof</a>
       <a href="#apply">Apply</a>
+      <a href="#contact">Contact</a>
     </div>
     <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMobileMenu()">
       <span></span>
@@ -1202,6 +1287,7 @@ ul, ol {
       <a href="#engagement" onclick="closeMobileMenu()">Engagement</a>
       <a href="#proof" onclick="closeMobileMenu()">Proof</a>
       <a href="#apply" onclick="closeMobileMenu()">Apply</a>
+      <a href="#contact" onclick="closeMobileMenu()">Contact</a>
     </div>
   </div>
 </nav>
@@ -1232,8 +1318,8 @@ ul, ol {
         </div>
       </div>
       <div class="gap-body">
-        <p>They have a product customers want. They have revenue. They have ambition. But the way growth work happens inside their company — the handoffs, the dependencies, the founder as single point of approval — creates a ceiling that talent and budget alone cannot break through.</p>
-        <p>The gap is not strategy. It is not creative. It is not media spend. The gap is the operating model — the invisible system of governance, workflows, and accountability that determines whether any growth investment compounds or collapses.</p>
+        <p>They have a product customers want. They have revenue. They have ambition. But the way growth work happens inside their company -the handoffs, the dependencies, the founder as single point of approval -creates a ceiling that talent and budget alone cannot break through.</p>
+        <p>The gap is not strategy. It is not creative. It is not media spend. The gap is the operating model -the invisible system of governance, workflows, and accountability that determines whether any growth investment compounds or collapses.</p>
         <p>We exist to close that gap. Not with more campaigns, more tools, or more headcount. With a system design that makes growth work predictable, measurable, and independent of any single person.</p>
       </div>
     </div>
@@ -1247,7 +1333,7 @@ ul, ol {
     <div class="loops-intro">
       <p class="label">SYSTEM INSIGHT</p>
       <h2 class="heading-section">Two loops. One breaks you. One builds you.</h2>
-      <p class="body-text">Every founder-led company runs on one of two loops. The first keeps the founder at the centre of every decision. The second builds a self-reinforcing system that compounds. The difference is not effort — it is architecture.</p>
+      <p class="body-text">Every founder-led company runs on one of two loops. The first keeps the founder at the centre of every decision. The second builds a self-reinforcing system that compounds. The difference is not effort -it is architecture.</p>
     </div>
     <div class="loops-grid">
       <div class="loop-panel">
@@ -1256,7 +1342,7 @@ ul, ol {
           <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
             <!-- Founder node: disproportionately large, centre of gravity -->
             <circle cx="160" cy="110" r="22" fill="#F0F1F3" stroke="var(--color-bottleneck, #7A828D)" stroke-width="1.5"/>
-            <circle cx="160" cy="110" r="4" fill="#C45A3C"/><!-- warm amber-red overload indicator — single stress signal -->
+            <circle cx="160" cy="110" r="4" fill="#C45A3C"/><!-- warm amber-red overload indicator -single stress signal -->
             <text x="160" y="76" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="9" font-weight="500" letter-spacing="0.1em" fill="#7A828D">FOUNDER</text>
 
             <!-- Peripheral nodes: small, starved, distant -->
@@ -1345,7 +1431,7 @@ ul, ol {
     <div class="engagement-intro">
       <p class="label">ENGAGEMENT</p>
       <h2 class="heading-section">A 12 week build.</h2>
-      <p class="body-text">Three phases. Each with defined deliverables, measurable outcomes, and clear governance. This is a units-based delivery model — not a retainer, not a project with scope creep.</p>
+      <p class="body-text">Three phases. Each with defined deliverables, measurable outcomes, and clear governance. This is a units-based delivery model -not a retainer, not a project with scope creep.</p>
     </div>
 
     <!-- Phase progress visual -->
@@ -1441,7 +1527,7 @@ ul, ol {
     <div class="proof-intro">
       <p class="label">PROOF</p>
       <h2 class="heading-section">Results, not theory.</h2>
-      <p class="body-text">20 years of operating model design across HPE, Telstra, Semtech, and 40+ founder-led companies. Every outcome below was delivered through system design — not heroics.</p>
+      <p class="body-text">20 years of operating model design across HPE, Telstra, Semtech, and 40+ founder-led companies. Every outcome below was delivered through system design -not heroics.</p>
     </div>
 
     <div class="proof-dashboard">
@@ -1453,31 +1539,31 @@ ul, ol {
         <p class="outcome-problem">Referral-dependent pipeline</p>
         <p class="outcome-metric">Pipeline source diversity: 15% → 65%</p>
         <p class="outcome-desc">Replaced single-channel dependency with a multi-source pipeline architecture generating qualified opportunities from four distinct channels.</p>
-        <p class="outcome-industry">B2B SaaS — Series A</p>
+        <p class="outcome-industry">B2B SaaS -Series A</p>
       </div>
       <div class="outcome-card">
         <p class="outcome-problem">Manual follow-up delayed by hours</p>
         <p class="outcome-metric">Response time: 4.2 hours → 8 minutes</p>
         <p class="outcome-desc">Automation sequences eliminated manual handoffs between marketing-qualified signals and sales follow-up across the entire funnel.</p>
-        <p class="outcome-industry">Professional Services — 30 FTE</p>
+        <p class="outcome-industry">Professional Services -30 FTE</p>
       </div>
       <div class="outcome-card">
         <p class="outcome-problem">Messaging that drifts by person</p>
         <p class="outcome-metric">Message consistency score: 34% → 91%</p>
         <p class="outcome-desc">A voice system and content governance framework replaced ad hoc messaging with a scalable, auditable brand architecture.</p>
-        <p class="outcome-industry">FinTech — Series B</p>
+        <p class="outcome-industry">FinTech -Series B</p>
       </div>
       <div class="outcome-card">
         <p class="outcome-problem">Spreadsheets and gut-feel reporting</p>
         <p class="outcome-metric">Reporting lag: 14 days → real-time</p>
         <p class="outcome-desc">Unified dashboards with leading indicators replaced monthly spreadsheet reviews with live performance governance.</p>
-        <p class="outcome-industry">Industrial IoT — Mid-Market</p>
+        <p class="outcome-industry">Industrial IoT -Mid-Market</p>
       </div>
       <div class="outcome-card">
         <p class="outcome-problem">Founder consuming 40–60% of bandwidth</p>
         <p class="outcome-metric">Founder growth time: 55% → 12%</p>
         <p class="outcome-desc">Operating model install transferred decision-making authority to documented governance structures, freeing founder capacity for product and strategy.</p>
-        <p class="outcome-industry">B2B Marketplace — 22 FTE</p>
+        <p class="outcome-industry">B2B Marketplace -22 FTE</p>
       </div>
     </div>
 
@@ -1551,7 +1637,7 @@ ul, ol {
         <p class="form-step-label">QUESTION 2 OF 8</p>
         <h3 class="form-question">What does your current growth system look like?</h3>
         <div class="form-options">
-          <button class="form-option" data-value="Founder-led">Founder-led — I drive most of it</button>
+          <button class="form-option" data-value="Founder-led">Founder-led -I drive most of it</button>
           <button class="form-option" data-value="Freelancers">Freelancers and contractors</button>
           <button class="form-option" data-value="Internal">Internal marketing team</button>
           <button class="form-option" data-value="Outsourced">Outsourced to an external partner</button>
@@ -1566,10 +1652,10 @@ ul, ol {
         <p class="form-step-label">QUESTION 3 OF 8</p>
         <h3 class="form-question">What's the primary growth challenge right now?</h3>
         <div class="form-options">
-          <button class="form-option" data-value="Pipeline">Pipeline — not enough qualified opportunities</button>
-          <button class="form-option" data-value="Messaging">Messaging — unclear or inconsistent positioning</button>
-          <button class="form-option" data-value="Ops">Ops — too many manual processes</button>
-          <button class="form-option" data-value="Measurement">Measurement — no visibility into what's working</button>
+          <button class="form-option" data-value="Pipeline">Pipeline -not enough qualified opportunities</button>
+          <button class="form-option" data-value="Messaging">Messaging -unclear or inconsistent positioning</button>
+          <button class="form-option" data-value="Ops">Ops -too many manual processes</button>
+          <button class="form-option" data-value="Measurement">Measurement -no visibility into what's working</button>
         </div>
         <div class="form-nav">
           <button class="form-continue" onclick="nextStep()">Continue →</button>
@@ -1581,9 +1667,9 @@ ul, ol {
         <p class="form-step-label">QUESTION 4 OF 8</p>
         <h3 class="form-question">Do you have a documented operating model for growth?</h3>
         <div class="form-options">
-          <button class="form-option" data-value="Yes">Yes — documented and followed</button>
-          <button class="form-option" data-value="No">No — nothing formal</button>
-          <button class="form-option" data-value="Partially">Partially — some processes documented</button>
+          <button class="form-option" data-value="Yes">Yes -documented and followed</button>
+          <button class="form-option" data-value="No">No -nothing formal</button>
+          <button class="form-option" data-value="Partially">Partially -some processes documented</button>
         </div>
         <div class="form-nav">
           <button class="form-continue" onclick="nextStep()">Continue →</button>
@@ -1595,9 +1681,9 @@ ul, ol {
         <p class="form-step-label">QUESTION 5 OF 8</p>
         <h3 class="form-question">How are campaigns currently planned and executed?</h3>
         <div class="form-options">
-          <button class="form-option" data-value="Ad hoc">Ad hoc — reactive, no consistent process</button>
-          <button class="form-option" data-value="Calendar">Calendar — planned monthly or quarterly</button>
-          <button class="form-option" data-value="Systemised">Systemised — structured workflow with governance</button>
+          <button class="form-option" data-value="Ad hoc">Ad hoc -reactive, no consistent process</button>
+          <button class="form-option" data-value="Calendar">Calendar -planned monthly or quarterly</button>
+          <button class="form-option" data-value="Systemised">Systemised -structured workflow with governance</button>
         </div>
         <div class="form-nav">
           <button class="form-continue" onclick="nextStep()">Continue →</button>
@@ -1679,7 +1765,7 @@ ul, ol {
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>We understand. Most agencies sell execution hours without system accountability. Our model is different — we install an operating model with documented governance, measurable outcomes at every phase, and a defined exit. You own the system. There is no dependency on us to keep it running. If we haven't built something your team can operate independently by week 12, we haven't done our job.</p>
+        <p>We understand. Most agencies sell execution hours without system accountability. Our model is different -we install an operating model with documented governance, measurable outcomes at every phase, and a defined exit. You own the system. There is no dependency on us to keep it running. If we haven't built something your team can operate independently by week 12, we haven't done our job.</p>
       </div>
     </div>
 
@@ -1689,7 +1775,7 @@ ul, ol {
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>You can — and eventually you should. The operating model we install is designed to be run by your team. The question is whether you have the 12 weeks and system design expertise to build it from scratch while simultaneously running the business. Most founders find that bringing in a specialist to design and install the system, then handing it over, is faster and more reliable than building it in parallel with everything else.</p>
+        <p>You can -and eventually you should. The operating model we install is designed to be run by your team. The question is whether you have the 12 weeks and system design expertise to build it from scratch while simultaneously running the business. Most founders find that bringing in a specialist to design and install the system, then handing it over, is faster and more reliable than building it in parallel with everything else.</p>
       </div>
     </div>
 
@@ -1699,7 +1785,7 @@ ul, ol {
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>If your conversion infrastructure, follow-up systems, and pipeline governance aren't built to handle and convert leads at scale, more leads will just expose the gaps faster. We've seen companies triple their lead volume only to see close rates drop because the operating model couldn't absorb the increase. We start with the system — then scale the inputs. The leads follow the architecture, not the other way around.</p>
+        <p>If your conversion infrastructure, follow-up systems, and pipeline governance aren't built to handle and convert leads at scale, more leads will just expose the gaps faster. We've seen companies triple their lead volume only to see close rates drop because the operating model couldn't absorb the increase. We start with the system -then scale the inputs. The leads follow the architecture, not the other way around.</p>
       </div>
     </div>
 
@@ -1709,7 +1795,7 @@ ul, ol {
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>Every automation we install comes with governance — approval workflows, escalation rules, and human-in-the-loop checkpoints where they matter. We don't replace judgement with automation. We use automation to eliminate repetitive manual steps so your team can focus their judgement where it creates the most value. Data handling follows your existing compliance requirements and we document every integration point.</p>
+        <p>Every automation we install comes with governance -approval workflows, escalation rules, and human-in-the-loop checkpoints where they matter. We don't replace judgement with automation. We use automation to eliminate repetitive manual steps so your team can focus their judgement where it creates the most value. Data handling follows your existing compliance requirements and we document every integration point.</p>
       </div>
     </div>
 
@@ -1719,7 +1805,7 @@ ul, ol {
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>A strategy consultant gives you a document. A fractional CMO gives you part-time oversight. Neither gives you a functioning system. We design, build, and install the operating model — then hand over a live, documented, measurable growth function your team can run. The output isn't a strategy deck. It's infrastructure — campaigns running, automations live, dashboards reporting, governance in place, and team playbooks locked in.</p>
+        <p>A strategy consultant gives you a document. A fractional CMO gives you part-time oversight. Neither gives you a functioning system. We design, build, and install the operating model -then hand over a live, documented, measurable growth function your team can run. The output isn't a strategy deck. It's infrastructure -campaigns running, automations live, dashboards reporting, governance in place, and team playbooks locked in.</p>
       </div>
     </div>
   </div>
@@ -1735,17 +1821,66 @@ ul, ol {
   </div>
 </section>
 
+<!-- ====== CONTACT ====== -->
+<div class="container"><hr class="section-rule"></div>
+<section class="section" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="contact-left">
+        <p class="label">CONTACT</p>
+        <h2 class="heading-section">Get in touch.</h2>
+        <p class="body-text">Have a question or want to start a conversation? Reach out directly or send us a message.</p>
+        <div class="contact-channels">
+          <div class="contact-channel">
+            <svg class="contact-channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+            <a href="mailto:info@optiflows.com.au">info@optiflows.com.au</a>
+          </div>
+          <div class="contact-channel">
+            <svg class="contact-channel-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+            <a href="https://www.linkedin.com/company/14484279" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+          </div>
+        </div>
+      </div>
+      <div class="contact-form">
+        <p class="label">SEND A MESSAGE</p>
+        <div id="contactFormFields">
+          <div class="form-input-group">
+            <label for="contactName">Name</label>
+            <input type="text" id="contactName" placeholder="Your name">
+          </div>
+          <div class="form-input-group">
+            <label for="contactEmail">Email</label>
+            <input type="email" id="contactEmail" placeholder="you@company.com">
+          </div>
+          <div class="form-input-group">
+            <label for="contactMessage">Message</label>
+            <textarea id="contactMessage" placeholder="How can we help?"></textarea>
+          </div>
+          <button class="form-continue" id="contactSubmitBtn" onclick="submitContactForm()">Send Message →</button>
+        </div>
+        <div class="contact-form-thankyou" id="contactThankyou">
+          <p>Thanks for reaching out. We'll get back to you shortly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ====== FOOTER ====== -->
 <div class="container"><hr class="section-rule"></div>
 <footer class="footer">
   <div class="container footer-inner">
     <p class="footer-copy">© 2026 Optiflows</p>
+    <div class="footer-links">
+      <a href="mailto:info@optiflows.com.au">info@optiflows.com.au</a>
+      <a href="https://www.linkedin.com/company/14484279" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
   </div>
 </footer>
 
 <script>
 /* ============================================
-   OPTIFLOWS — Interactive JavaScript
+   OPTIFLOWS -Interactive JavaScript
    ============================================ */
 
 // --- Mobile Menu ---
@@ -1849,12 +1984,51 @@ async function submitForm() {
     } else {
       btn.disabled = false;
       btn.textContent = 'Submit Application →';
-      alert('Something went wrong — please try again or email james.richmond@optiflows.com.au directly.');
+      alert('Something went wrong -please try again or email james.richmond@optiflows.com.au directly.');
     }
   } catch (err) {
     btn.disabled = false;
     btn.textContent = 'Submit Application →';
-    alert('Something went wrong — please try again or email james.richmond@optiflows.com.au directly.');
+    alert('Something went wrong -please try again or email james.richmond@optiflows.com.au directly.');
+  }
+}
+
+// --- Contact Form ---
+async function submitContactForm() {
+  const name = document.getElementById('contactName').value.trim();
+  const email = document.getElementById('contactEmail').value.trim();
+  const message = document.getElementById('contactMessage').value.trim();
+  if (!name || !email || !message) return;
+
+  const btn = document.getElementById('contactSubmitBtn');
+  btn.disabled = true;
+  btn.textContent = 'Sending…';
+
+  try {
+    const body = new FormData();
+    body.append('_subject', 'Optiflows contact form');
+    body.append('name', name);
+    body.append('email', email);
+    body.append('message', message);
+
+    const response = await fetch('https://formspree.io/f/meelyrkd', {
+      method: 'POST',
+      body: body,
+      headers: { 'Accept': 'application/json' }
+    });
+
+    if (response.ok) {
+      document.getElementById('contactFormFields').style.display = 'none';
+      document.getElementById('contactThankyou').style.display = 'block';
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Send Message →';
+      alert('Something went wrong - please email info@optiflows.com.au directly.');
+    }
+  } catch (err) {
+    btn.disabled = false;
+    btn.textContent = 'Send Message →';
+    alert('Something went wrong - please email info@optiflows.com.au directly.');
   }
 }
 
