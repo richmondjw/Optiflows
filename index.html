@@ -37,20 +37,22 @@
   --font-body: 'Switzer', 'Helvetica Neue', Helvetica, sans-serif;
   --font-display: 'Switzer', 'Helvetica Neue', Helvetica, sans-serif;
 
-  /* Type Scale */
-  --text-hero: clamp(3rem, 7vw, 6.5rem);
-  --text-3xl: clamp(2.5rem, 5vw, 4.5rem);
-  --text-2xl: clamp(1.5rem, 3vw, 2.25rem);
-  --text-xl: clamp(1.25rem, 2vw, 1.75rem);
-  --text-lg: clamp(1.1rem, 1.5vw, 1.375rem);
-  --text-base: clamp(0.95rem, 1vw, 1.0625rem);
-  --text-sm: clamp(0.85rem, 0.9vw, 0.9375rem);
-  --text-xs: clamp(0.7rem, 0.75vw, 0.8125rem);
+  /* Type Scale — disciplined, editorial */
+  --text-hero: clamp(2.75rem, 5vw, 4rem);      /* 44–64px */
+  --text-3xl: clamp(2rem, 4vw, 3rem);           /* 32–48px */
+  --text-2xl: clamp(1.5rem, 2.5vw, 2rem);       /* 24–32px */
+  --text-xl: clamp(1.2rem, 1.8vw, 1.5rem);      /* 19–24px */
+  --text-lg: clamp(1.05rem, 1.3vw, 1.1875rem);  /* 17–19px */
+  --text-base: clamp(0.9375rem, 1vw, 1rem);     /* 15–16px */
+  --text-sm: clamp(0.8125rem, 0.9vw, 0.875rem); /* 13–14px */
+  --text-xs: clamp(0.6875rem, 0.75vw, 0.75rem); /* 11–12px */
 
-  /* Spacing */
-  --section-padding: clamp(5rem, 10vw, 10rem);
-  --container-max: 1200px;
-  --grid-gap: clamp(2rem, 4vw, 4rem);
+  /* Spacing — generous, architectural */
+  --section-padding: clamp(6.25rem, 10vw, 7.5rem);   /* 100–120px */
+  --section-padding-hero: clamp(8.75rem, 14vw, 10rem); /* 140–160px */
+  --container-max: 1140px;
+  --grid-gap: clamp(2.5rem, 4vw, 4rem);               /* 40–64px */
+  --card-padding: clamp(2rem, 3vw, 2.5rem);            /* 32–40px */
 }
 
 /* --- RESET --- */
@@ -105,8 +107,8 @@ ul, ol {
 .container {
   max-width: var(--container-max);
   margin: 0 auto;
-  padding-left: clamp(1.5rem, 4vw, 3rem);
-  padding-right: clamp(1.5rem, 4vw, 3rem);
+  padding-left: clamp(1.5rem, 5vw, 4rem);
+  padding-right: clamp(1.5rem, 5vw, 4rem);
 }
 
 /* --- SECTION --- */
@@ -126,24 +128,25 @@ ul, ol {
   font-size: var(--text-xs);
   font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0.14em;
   color: var(--color-text-faint);
+  margin-bottom: 0.25rem;
 }
 
 .heading-section {
   font-size: var(--text-2xl);
   font-weight: 400;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
-  line-height: 1.15;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
   color: var(--color-text);
 }
 
 .body-text {
   font-size: var(--text-base);
   font-weight: 400;
-  line-height: 1.65;
-  max-width: 60ch;
+  line-height: 1.7;
+  max-width: 540px;
   color: var(--color-text-muted);
 }
 
@@ -160,7 +163,7 @@ ul, ol {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 72px;
 }
 
 .nav-wordmark {
@@ -247,22 +250,22 @@ ul, ol {
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: clamp(6rem, 12vw, 10rem);
-  padding-bottom: clamp(6rem, 12vw, 12rem);
+  padding-top: var(--section-padding-hero);
+  padding-bottom: var(--section-padding-hero);
 }
 
 .hero-content {
-  max-width: 900px;
+  max-width: 680px;
 }
 
 .hero-headline {
   font-family: var(--font-display);
   font-size: var(--text-hero);
   font-weight: 300;
-  line-height: 1.0;
-  letter-spacing: -0.02em;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
   color: var(--color-text);
-  margin-bottom: clamp(2rem, 4vw, 3rem);
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .hero-headline .accent-underline {
@@ -277,10 +280,10 @@ ul, ol {
 .hero-subtext {
   font-size: var(--text-lg);
   font-weight: 300;
-  line-height: 1.55;
+  line-height: 1.6;
   color: var(--color-text-muted);
-  max-width: 56ch;
-  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+  max-width: 540px;
+  margin-bottom: clamp(2.5rem, 4vw, 3rem);
 }
 
 .cta-button {
@@ -290,8 +293,8 @@ ul, ol {
   font-family: var(--font-body);
   font-size: var(--text-sm);
   font-weight: 500;
-  letter-spacing: 0.02em;
-  padding: 1rem 2rem;
+  letter-spacing: 0.04em;
+  padding: 1.0625rem 2.25rem;
   border-radius: 0;
   border: none;
   cursor: pointer;
@@ -313,8 +316,8 @@ ul, ol {
 /* --- THE GAP --- */
 .gap-grid {
   display: grid;
-  grid-template-columns: 40% 1fr;
-  gap: var(--grid-gap);
+  grid-template-columns: 5fr 5fr;
+  gap: clamp(3rem, 6vw, 5rem);
   align-items: start;
 }
 
@@ -344,10 +347,14 @@ ul, ol {
 
 .gap-body p {
   font-size: var(--text-base);
-  line-height: 1.65;
+  line-height: 1.7;
   color: var(--color-text-muted);
-  max-width: 55ch;
-  margin-bottom: 1.25rem;
+  max-width: 480px;
+  margin-bottom: 1.5rem;
+}
+
+.gap-body p:last-child {
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -358,7 +365,7 @@ ul, ol {
 
 /* --- TWO LOOPS --- */
 .loops-intro {
-  margin-bottom: clamp(3rem, 5vw, 5rem);
+  margin-bottom: clamp(3rem, 5vw, 4rem);
 }
 
 .loops-intro .heading-section {
@@ -371,11 +378,11 @@ ul, ol {
 .loops-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--grid-gap);
+  gap: clamp(1.5rem, 3vw, 2.5rem);
 }
 
 .loop-panel {
-  padding: 2rem;
+  padding: var(--card-padding);
   border: 1px solid var(--color-divider);
 }
 
@@ -419,7 +426,7 @@ ul, ol {
 
 /* --- ENGAGEMENT --- */
 .engagement-intro {
-  margin-bottom: clamp(3rem, 5vw, 5rem);
+  margin-bottom: clamp(3rem, 5vw, 3.75rem);
 }
 
 .engagement-intro .heading-section {
@@ -427,6 +434,10 @@ ul, ol {
   margin-bottom: 1.25rem;
   text-transform: none;
   letter-spacing: -0.01em;
+}
+
+.engagement-intro .body-text {
+  max-width: 540px;
 }
 
 /* Phase progress line */
@@ -518,7 +529,7 @@ ul, ol {
 }
 
 .phase {
-  padding: clamp(1.5rem, 2vw, 2.5rem);
+  padding: var(--card-padding);
   border-right: 1px solid var(--color-divider);
 }
 
@@ -595,7 +606,7 @@ ul, ol {
 .deliverables-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 1.5rem 3rem;
+  gap: 1.25rem 4rem;
 }
 
 .deliverable-item {
@@ -642,8 +653,9 @@ ul, ol {
 }
 
 .proof-dashboard {
-  margin-bottom: clamp(3rem, 5vw, 4rem);
+  margin-bottom: clamp(3rem, 5vw, 3.75rem);
   border: 1px solid var(--color-divider);
+  background: var(--color-surface-2);
 }
 
 .proof-dashboard img {
@@ -658,12 +670,12 @@ ul, ol {
 }
 
 .outcome-card {
-  padding: 2rem 2rem 2rem 0;
+  padding: var(--card-padding) var(--card-padding) var(--card-padding) 0;
   border-top: 1px solid var(--color-divider);
 }
 
 .outcome-card:nth-child(odd) {
-  padding-right: 2rem;
+  padding-right: var(--card-padding);
 }
 
 .outcome-problem {
@@ -706,8 +718,8 @@ ul, ol {
 /* --- DIAGNOSTIC --- */
 .diagnostic-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--grid-gap);
+  grid-template-columns: 5fr 5fr;
+  gap: clamp(3rem, 6vw, 5rem);
   align-items: start;
 }
 
@@ -740,7 +752,7 @@ ul, ol {
 }
 
 .diagnostic-investment {
-  padding: clamp(2rem, 3vw, 3rem);
+  padding: var(--card-padding);
   background: var(--color-surface-2);
 }
 
@@ -1059,8 +1071,8 @@ ul, ol {
 /* --- CONTACT --- */
 .contact-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--grid-gap);
+  grid-template-columns: 5fr 5fr;
+  gap: clamp(3rem, 6vw, 5rem);
   align-items: start;
 }
 
@@ -1101,7 +1113,7 @@ ul, ol {
 }
 
 .contact-form {
-  padding: clamp(2rem, 3vw, 3rem);
+  padding: var(--card-padding);
   background: var(--color-surface);
 }
 
@@ -1137,7 +1149,7 @@ ul, ol {
 /* --- FOOTER --- */
 .footer {
   border-top: 1px solid var(--color-divider);
-  padding: 2rem 0;
+  padding: 2.5rem 0;
 }
 
 .footer-inner {
