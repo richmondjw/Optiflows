@@ -1,0 +1,15 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__Claude_Preview__preview_start",
+      "Bash(where python)",
+      "Bash(git -C /c/PKM/optiflows remote -v)",
+      "Bash(git -C /c/PKM/optiflows status)",
+      "Bash(git -C /c/PKM/optiflows log --oneline -3)",
+      "Bash(git -C /c/PKM/optiflows add index.html images/Optiflows_Logo_White.png images/Optiflows_Logo_BLK.png)",
+      "Bash(git -C /c/PKM/optiflows ls-files --others --exclude-standard images/)",
+      "Bash(git -C /c/PKM/optiflows ls-files images/)",
+      "Bash(git -C:*)"
+    ]
+  }
+}

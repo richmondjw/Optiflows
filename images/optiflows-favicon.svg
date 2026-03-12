@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 64 64" fill="none">
+  <!-- Optiflows Favicon -->
+  <rect width="64" height="64" rx="12" fill="#2A7C7F"/>
+  <path d="M20 54 L20 28 Q20 16 32 16 Q44 16 44 28 L44 54" stroke="#FFFFFF" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M12 54 L12 24 Q12 9 32 9 Q52 9 52 24 L52 54" stroke="#FFFFFF" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.5"/>
+  <path d="M4 54 L4 20 Q4 2 32 2 Q60 2 60 20 L60 54" stroke="#FFFFFF" stroke-width="2.2" stroke-linecap="round" fill="none" opacity="0.22"/>
+  <circle cx="32" cy="36" r="4" fill="#FFFFFF"/>
+</svg>

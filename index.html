@@ -1,0 +1,1761 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<!--
+ ____                 _           _ _
+|  _ \ ___ _ __ _ __ | | _____  _(_) |_ _   _
+| |_) / _ \ '__| '_ \| |/ _ \ \/ / | __| | | |
+|  __/  __/ |  | |_) | |  __/>  <| | |_| |_| |
+|_|   \___|_|  | .__/|_|\___/_/\_\_|\__|\__, |
+               |_|                      |___/
+  ____                            _
+ / ___|___  _ __ ___  _ __  _   _| |_ ___ _ __
+| |   / _ \| '_ ` _ \| '_ \| | | | __/ _ \ '__|
+| |__| (_) | | | | | | |_) | |_| | ||  __/ |
+ \____\___/|_| |_| |_| .__/ \__,_|\__\___|_|
+                      |_|
+
+Built with Perplexity Computer — https://www.perplexity.ai/computer
+-->
+<meta name="generator" content="Perplexity Computer">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Optiflows — Growth Operating Model Install</title>
+<meta name="description" content="We redesign how growth work happens. A 12-week operating model install for founder-led B2B companies.">
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link href="https://api.fontshare.com/v2/css?f[]=switzer@100,200,300,400,500,600,700&display=swap" rel="stylesheet">
+<style>
+/* ============================================
+   OPTIFLOWS — TATE MODERN MUSEUM AESTHETIC
+   Single typeface: Switzer (neo-grotesk)
+   Light mode only. Gallery-grade restraint.
+   ============================================ */
+
+/* --- CUSTOM PROPERTIES --- */
+:root {
+  /* Colors — Deep Teal System: modern systems-engineering authority */
+  --color-bg: #FFFFFF;
+  --color-surface: #F4F5F6;   /* blue-grey cooled surface */
+  --color-surface-2: #EAECEE; /* cooled secondary surface */
+  --color-text: #1C2127;      /* deep charcoal — cooler than pure black */
+  --color-text-muted: #5A6370; /* slate-grey body text */
+  --color-text-faint: #8B939E; /* blue-tinted faint */
+  --color-divider: #DDE0E4;   /* cooled divider */
+  --color-border: #C8CDD3;    /* cooled border */
+  --color-accent: #0D7377;    /* deep teal — authority, systems, precision */
+  --color-accent-hover: #095558; /* darker teal on hover */
+  --color-text-inverse: #FFFFFF;
+  --color-outcome: #0D7377;   /* teal — achievement reads as systems mastery */
+  --color-outcome-bg: #EFF7F7; /* barely-there teal tint */
+  --color-bottleneck: #7A828D; /* cooled slate grey — constraint, friction */
+  --color-bottleneck-light: #A8AEB6; /* lighter slate */
+
+  /* Typography */
+  --font-body: 'Switzer', 'Helvetica Neue', Helvetica, sans-serif;
+  --font-display: 'Switzer', 'Helvetica Neue', Helvetica, sans-serif;
+
+  /* Type Scale */
+  --text-hero: clamp(3rem, 7vw, 6.5rem);
+  --text-3xl: clamp(2.5rem, 5vw, 4.5rem);
+  --text-2xl: clamp(1.5rem, 3vw, 2.25rem);
+  --text-xl: clamp(1.25rem, 2vw, 1.75rem);
+  --text-lg: clamp(1.1rem, 1.5vw, 1.375rem);
+  --text-base: clamp(0.95rem, 1vw, 1.0625rem);
+  --text-sm: clamp(0.85rem, 0.9vw, 0.9375rem);
+  --text-xs: clamp(0.7rem, 0.75vw, 0.8125rem);
+
+  /* Spacing */
+  --section-padding: clamp(5rem, 10vw, 10rem);
+  --container-max: 1200px;
+  --grid-gap: clamp(2rem, 4vw, 4rem);
+}
+
+/* --- RESET --- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: 1.65;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* --- CONTAINER --- */
+.container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding-left: clamp(1.5rem, 4vw, 3rem);
+  padding-right: clamp(1.5rem, 4vw, 3rem);
+}
+
+/* --- SECTION --- */
+.section {
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
+}
+
+.section-rule {
+  border: none;
+  border-top: 1px solid var(--color-divider);
+  margin: 0;
+}
+
+/* --- TYPOGRAPHY UTILITIES --- */
+.label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-faint);
+}
+
+.heading-section {
+  font-size: var(--text-2xl);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  line-height: 1.15;
+  color: var(--color-text);
+}
+
+.body-text {
+  font-size: var(--text-base);
+  font-weight: 400;
+  line-height: 1.65;
+  max-width: 60ch;
+  color: var(--color-text-muted);
+}
+
+/* --- NAVIGATION --- */
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--color-bg);
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.nav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.nav-wordmark {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: var(--color-text);
+}
+
+.nav-links {
+  display: flex;
+  gap: 2.5rem;
+  align-items: center;
+}
+
+.nav-links a {
+  font-size: var(--text-xs);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  transition: color 200ms;
+}
+
+.nav-links a:hover {
+  color: var(--color-accent);
+}
+
+.nav-hamburger {
+  display: none;
+  width: 28px;
+  height: 20px;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 100%;
+  height: 1px;
+  background: var(--color-text);
+}
+
+.nav-mobile-menu {
+  display: none;
+  flex-direction: column;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--color-divider);
+  background: var(--color-bg);
+}
+
+.nav-mobile-menu a {
+  font-size: var(--text-sm);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-muted);
+  padding: 0.75rem 0;
+  transition: color 200ms;
+}
+
+.nav-mobile-menu a:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .nav-hamburger {
+    display: flex;
+  }
+  .nav-mobile-menu.is-open {
+    display: flex;
+  }
+}
+
+/* --- HERO --- */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: clamp(6rem, 12vw, 10rem);
+  padding-bottom: clamp(6rem, 12vw, 12rem);
+}
+
+.hero-content {
+  max-width: 900px;
+}
+
+.hero-headline {
+  font-family: var(--font-display);
+  font-size: var(--text-hero);
+  font-weight: 300;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: var(--color-text);
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.hero-headline .accent-underline {
+  display: inline;
+  background-image: linear-gradient(var(--color-accent), var(--color-accent));
+  background-size: 100% 2px;
+  background-position: 0 92%;
+  background-repeat: no-repeat;
+  padding-bottom: 4px;
+}
+
+.hero-subtext {
+  font-size: var(--text-lg);
+  font-weight: 300;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+  max-width: 56ch;
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+}
+
+.cta-button {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 1rem 2rem;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  transition: background 200ms;
+  text-decoration: none;
+}
+
+.cta-button:hover {
+  background: var(--color-accent-hover);
+}
+
+.cta-disclaimer {
+  margin-top: 1rem;
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  letter-spacing: 0.02em;
+}
+
+/* --- THE GAP --- */
+.gap-grid {
+  display: grid;
+  grid-template-columns: 40% 1fr;
+  gap: var(--grid-gap);
+  align-items: start;
+}
+
+.gap-stat-number {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 200;
+  line-height: 1.0;
+  color: var(--color-text);
+  margin-bottom: 0.75rem;
+}
+
+.gap-stat-text {
+  font-size: var(--text-base);
+  font-style: italic;
+  color: var(--color-text-muted);
+  max-width: 30ch;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.gap-stat-source {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  letter-spacing: 0.02em;
+}
+
+.gap-body p {
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  max-width: 55ch;
+  margin-bottom: 1.25rem;
+}
+
+@media (max-width: 768px) {
+  .gap-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- TWO LOOPS --- */
+.loops-intro {
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.loops-intro .heading-section {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.loops-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--grid-gap);
+}
+
+.loop-panel {
+  padding: 2rem;
+  border: 1px solid var(--color-divider);
+}
+
+.loop-title {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-faint);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.loop-svg-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.loop-svg-container svg {
+  width: 100%;
+  max-width: 320px;
+  height: auto;
+}
+
+.loop-caption {
+  font-size: var(--text-sm);
+  font-style: italic;
+  color: var(--color-text-muted);
+  text-align: center;
+  max-width: 36ch;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .loops-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- ENGAGEMENT --- */
+.engagement-intro {
+  margin-bottom: clamp(3rem, 5vw, 5rem);
+}
+
+.engagement-intro .heading-section {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+/* Phase progress line */
+.phase-progress {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(2rem, 3vw, 3rem);
+  gap: 0;
+}
+
+.phase-progress-node {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+  position: relative;
+}
+
+.phase-progress-node.node-1 {
+  border: 1.5px solid var(--color-divider);
+  color: var(--color-text-faint);
+  background: var(--color-bg);
+}
+
+.phase-progress-node.node-2 {
+  border: 1.5px solid var(--color-text-muted);
+  color: var(--color-text-muted);
+  background: var(--color-bg);
+}
+
+.phase-progress-node.node-3 {
+  border: 1.5px solid var(--color-outcome);
+  color: var(--color-outcome);
+  background: var(--color-outcome-bg);
+}
+
+.phase-progress-line {
+  height: 1.5px;
+  flex: 1;
+  max-width: 200px;
+  position: relative;
+}
+
+.phase-progress-line.line-1 {
+  background: linear-gradient(to right, var(--color-divider), var(--color-text-muted));
+}
+
+.phase-progress-line.line-2 {
+  background: linear-gradient(to right, var(--color-text-muted), var(--color-outcome));
+}
+
+.phase-progress-label {
+  position: absolute;
+  bottom: calc(100% + 8px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--color-text-faint);
+  white-space: nowrap;
+}
+
+@media (max-width: 768px) {
+  .phase-progress-line {
+    max-width: 80px;
+  }
+  .phase-progress-node {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.phases-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 0;
+  border-left: 1px solid var(--color-divider);
+  margin-bottom: clamp(4rem, 6vw, 6rem);
+}
+
+.phase {
+  padding: clamp(1.5rem, 2vw, 2.5rem);
+  border-right: 1px solid var(--color-divider);
+}
+
+.phase-number {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 200;
+  color: var(--color-text-faint);
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+.phase-weeks {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-faint);
+  margin-bottom: 0.5rem;
+}
+
+.phase-title {
+  font-size: var(--text-lg);
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 1rem;
+}
+
+.phase-desc {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--color-text-muted);
+  margin-bottom: 1.25rem;
+  max-width: 40ch;
+}
+
+.phase-deliverables {
+  list-style: none;
+}
+
+.phase-deliverables li {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  padding: 0.35rem 0;
+  border-bottom: 1px solid var(--color-divider);
+  letter-spacing: 0.01em;
+}
+
+.phase-deliverables li:last-child {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .phases-grid {
+    grid-template-columns: 1fr;
+    border-left: none;
+    border-top: 1px solid var(--color-divider);
+  }
+  .phase {
+    border-right: none;
+    border-bottom: 1px solid var(--color-divider);
+    padding: 2rem 0;
+  }
+}
+
+.deliverables-heading {
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  max-width: 50ch;
+}
+
+.deliverables-list {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem 3rem;
+}
+
+.deliverable-item {
+  display: flex;
+  gap: 1rem;
+  align-items: baseline;
+}
+
+.deliverable-number {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--color-text-faint);
+  letter-spacing: 0.05em;
+  flex-shrink: 0;
+}
+
+.deliverable-text {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .deliverables-list {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- PROOF --- */
+.proof-section {
+  background: var(--color-surface);
+}
+
+.proof-intro {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.proof-intro .heading-section {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.proof-dashboard {
+  margin-bottom: clamp(3rem, 5vw, 4rem);
+  border: 1px solid var(--color-divider);
+}
+
+.proof-dashboard img {
+  width: 100%;
+  display: block;
+}
+
+.outcome-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 0;
+}
+
+.outcome-card {
+  padding: 2rem 2rem 2rem 0;
+  border-top: 1px solid var(--color-divider);
+}
+
+.outcome-card:nth-child(odd) {
+  padding-right: 2rem;
+}
+
+.outcome-problem {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  text-decoration: line-through;
+  margin-bottom: 0.75rem;
+}
+
+.outcome-metric {
+  font-size: var(--text-lg);
+  font-weight: 500;
+  color: var(--color-outcome);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.outcome-desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+  max-width: 45ch;
+}
+
+.outcome-industry {
+  font-size: var(--text-xs);
+  font-style: italic;
+  color: var(--color-text-faint);
+}
+
+.proof-disclaimer {
+  margin-top: clamp(2rem, 3vw, 3rem);
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  max-width: 65ch;
+  line-height: 1.6;
+}
+
+/* --- DIAGNOSTIC --- */
+.diagnostic-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--grid-gap);
+  align-items: start;
+}
+
+.diagnostic-left .heading-section {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.diagnostic-bullets {
+  margin-top: 1.5rem;
+}
+
+.diagnostic-bullets li {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  padding: 0.6rem 0;
+  border-bottom: 1px solid var(--color-divider);
+  line-height: 1.5;
+  padding-left: 1rem;
+  position: relative;
+}
+
+.diagnostic-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--color-text-faint);
+}
+
+.diagnostic-investment {
+  padding: clamp(2rem, 3vw, 3rem);
+  background: var(--color-surface-2);
+}
+
+.diagnostic-investment .label {
+  margin-bottom: 1rem;
+}
+
+.diagnostic-investment p {
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  margin-bottom: 1rem;
+  max-width: 45ch;
+}
+
+.diagnostic-investment .price-range {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 300;
+  color: var(--color-text);
+  margin-bottom: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .diagnostic-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- FORM --- */
+.form-section .heading-section {
+  margin-top: 1rem;
+  margin-bottom: 1.25rem;
+  text-transform: none;
+  letter-spacing: -0.01em;
+  max-width: 38ch;
+}
+
+.form-social-proof {
+  font-size: var(--text-sm);
+  color: var(--color-text-faint);
+  margin-bottom: clamp(2.5rem, 4vw, 4rem);
+  font-style: italic;
+}
+
+/* Progress Bar */
+.form-progress {
+  display: flex;
+  gap: 4px;
+  margin-bottom: 2.5rem;
+}
+
+.form-progress-segment {
+  height: 2px;
+  flex: 1;
+  background: var(--color-divider);
+  transition: background 200ms;
+}
+
+.form-progress-segment.active {
+  background: var(--color-text);
+}
+
+/* Question */
+.form-step {
+  display: none;
+}
+
+.form-step.active {
+  display: block;
+}
+
+.form-step-label {
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: var(--color-text-faint);
+  margin-bottom: 1.5rem;
+}
+
+.form-question {
+  font-size: var(--text-xl);
+  font-weight: 400;
+  color: var(--color-text);
+  margin-bottom: 2rem;
+  max-width: 45ch;
+  line-height: 1.35;
+}
+
+/* Options */
+.form-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.form-option {
+  display: block;
+  width: 100%;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  background: var(--color-bg);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  text-align: left;
+  cursor: pointer;
+  transition: border-color 200ms, color 200ms;
+}
+
+.form-option:hover {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+.form-option.selected {
+  border-color: var(--color-text);
+  color: var(--color-text);
+}
+
+/* Text inputs */
+.form-input-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-input-group label {
+  display: block;
+  font-size: var(--text-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-text-faint);
+  margin-bottom: 0.5rem;
+}
+
+.form-input-group input,
+.form-input-group textarea {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0;
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  color: var(--color-text);
+  background: var(--color-bg);
+  outline: none;
+  transition: border-color 200ms;
+}
+
+.form-input-group input:focus,
+.form-input-group textarea:focus {
+  border-color: var(--color-text);
+}
+
+.form-input-group textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.form-inputs-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 768px) {
+  .form-options {
+    grid-template-columns: 1fr;
+  }
+  .form-inputs-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Continue button */
+.form-nav {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: 1rem;
+}
+
+.form-continue {
+  display: inline-block;
+  background: var(--color-text);
+  color: var(--color-text-inverse);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.875rem 2rem;
+  border-radius: 0;
+  border: none;
+  cursor: pointer;
+  transition: opacity 200ms;
+}
+
+.form-continue:hover {
+  opacity: 0.85;
+}
+
+.form-submit {
+  background: var(--color-accent);
+}
+
+.form-submit:hover {
+  background: var(--color-accent-hover);
+  opacity: 1;
+}
+
+/* Thank you */
+.form-thankyou {
+  display: none;
+  text-align: center;
+  padding: 4rem 0;
+}
+
+.form-thankyou .heading-section {
+  margin-bottom: 1rem;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.form-thankyou p {
+  font-size: var(--text-base);
+  color: var(--color-text-muted);
+  max-width: 45ch;
+  margin: 0 auto;
+}
+
+/* --- FAQ --- */
+.faq-intro {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.faq-intro .heading-section {
+  margin-top: 1rem;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+.faq-item {
+  border-bottom: 1px solid var(--color-divider);
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1.5rem 0;
+  background: none;
+  border: none;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  font-weight: 400;
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+  gap: 1rem;
+}
+
+.faq-question:hover {
+  color: var(--color-accent);
+}
+
+.faq-icon {
+  font-size: var(--text-lg);
+  font-weight: 300;
+  color: var(--color-text-faint);
+  flex-shrink: 0;
+  line-height: 1;
+  transition: transform 200ms;
+}
+
+.faq-item.open .faq-icon {
+  transform: rotate(45deg);
+}
+
+.faq-answer {
+  display: none;
+  padding-bottom: 1.5rem;
+}
+
+.faq-item.open .faq-answer {
+  display: block;
+}
+
+.faq-answer p {
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  color: var(--color-text-muted);
+  max-width: 60ch;
+}
+
+/* --- FINAL CTA --- */
+.final-cta {
+  text-align: center;
+}
+
+.final-cta .label {
+  margin-bottom: 1rem;
+}
+
+.final-cta .heading-section {
+  margin-bottom: 2rem;
+  text-transform: none;
+  letter-spacing: -0.01em;
+}
+
+/* --- FOOTER --- */
+.footer {
+  border-top: 1px solid var(--color-divider);
+  padding: 2rem 0;
+}
+
+.footer-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-copy {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  letter-spacing: 0.02em;
+}
+
+.footer-attr a {
+  font-size: var(--text-xs);
+  color: var(--color-text-faint);
+  letter-spacing: 0.02em;
+  transition: color 200ms;
+}
+
+.footer-attr a:hover {
+  color: var(--color-accent);
+}
+
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: center;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- ====== NAVIGATION ====== -->
+<nav class="nav">
+  <div class="container nav-inner">
+    <a href="#" class="nav-wordmark">OPTIFLOWS</a>
+    <div class="nav-links">
+      <a href="#engagement">Engagement</a>
+      <a href="#proof">Proof</a>
+      <a href="#apply">Apply</a>
+    </div>
+    <button class="nav-hamburger" aria-label="Toggle menu" onclick="toggleMobileMenu()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </div>
+  <div class="container">
+    <div class="nav-mobile-menu" id="mobileMenu">
+      <a href="#engagement" onclick="closeMobileMenu()">Engagement</a>
+      <a href="#proof" onclick="closeMobileMenu()">Proof</a>
+      <a href="#apply" onclick="closeMobileMenu()">Apply</a>
+    </div>
+  </div>
+</nav>
+
+<!-- ====== HERO ====== -->
+<section class="hero section">
+  <div class="container">
+    <div class="hero-content">
+      <h1 class="hero-headline">We Install the System Behind <span class="accent-underline">Growth.</span></h1>
+      <p class="hero-subtext">Most founder-led B2B companies don't have a marketing problem. They have an operating model problem. We design and install the system that fixes it.</p>
+      <a href="#apply" class="cta-button">Book a 30 Minute Growth Operating Model Audit →</a>
+      <p class="cta-disclaimer">No retainer. No pitch.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== THE GAP ====== -->
+<div class="container"><hr class="section-rule"></div>
+<section class="section" id="gap">
+  <div class="container">
+    <div class="gap-grid">
+      <div class="gap-left">
+        <p class="label">THE GAP</p>
+        <div style="margin-top: 2rem;">
+          <p class="gap-stat-number">78%</p>
+          <p class="gap-stat-text">of companies with product-market fit still fail to scale</p>
+          <p class="gap-stat-source">McKinsey research across 3,164 Series A companies.</p>
+        </div>
+      </div>
+      <div class="gap-body">
+        <p>They have a product customers want. They have revenue. They have ambition. But the way growth work happens inside their company — the handoffs, the dependencies, the founder as single point of approval — creates a ceiling that talent and budget alone cannot break through.</p>
+        <p>The gap is not strategy. It is not creative. It is not media spend. The gap is the operating model — the invisible system of governance, workflows, and accountability that determines whether any growth investment compounds or collapses.</p>
+        <p>We exist to close that gap. Not with more campaigns, more tools, or more headcount. With a system design that makes growth work predictable, measurable, and independent of any single person.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TWO LOOPS ====== -->
+<div class="container"><hr class="section-rule"></div>
+<section class="section" id="loops">
+  <div class="container">
+    <div class="loops-intro">
+      <p class="label">SYSTEM INSIGHT</p>
+      <h2 class="heading-section">Two loops. One breaks you. One builds you.</h2>
+      <p class="body-text">Every founder-led company runs on one of two loops. The first keeps the founder at the centre of every decision. The second builds a self-reinforcing system that compounds. The difference is not effort — it is architecture.</p>
+    </div>
+    <div class="loops-grid">
+      <div class="loop-panel">
+        <p class="loop-title">THE FOUNDER BOTTLENECK LOOP</p>
+        <div class="loop-svg-container">
+          <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Founder node: disproportionately large, centre of gravity -->
+            <circle cx="160" cy="110" r="22" fill="#F0F1F3" stroke="var(--color-bottleneck, #7A828D)" stroke-width="1.5"/>
+            <circle cx="160" cy="110" r="4" fill="#C45A3C"/><!-- warm amber-red overload indicator — single stress signal -->
+            <text x="160" y="76" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="9" font-weight="500" letter-spacing="0.1em" fill="#7A828D">FOUNDER</text>
+
+            <!-- Peripheral nodes: small, starved, distant -->
+            <circle cx="52" cy="60" r="3" fill="#A8AEB6"/>
+            <text x="52" y="50" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="7" font-weight="400" letter-spacing="0.06em" fill="#A8AEB6">STRATEGY</text>
+
+            <circle cx="268" cy="60" r="3" fill="#A8AEB6"/>
+            <text x="268" y="50" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="7" font-weight="400" letter-spacing="0.06em" fill="#A8AEB6">CAMPAIGNS</text>
+
+            <circle cx="36" cy="170" r="3" fill="#A8AEB6"/>
+            <text x="36" y="190" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="7" font-weight="400" letter-spacing="0.06em" fill="#A8AEB6">APPROVAL</text>
+
+            <circle cx="284" cy="170" r="3" fill="#A8AEB6"/>
+            <text x="284" y="190" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="7" font-weight="400" letter-spacing="0.06em" fill="#A8AEB6">REPORTING</text>
+
+            <circle cx="160" cy="230" r="3" fill="#A8AEB6"/>
+            <text x="160" y="250" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="7" font-weight="400" letter-spacing="0.06em" fill="#A8AEB6">EXECUTION</text>
+
+            <!-- Converging lines: thicken toward founder, pressure effect -->
+            <line x1="55" y1="62" x2="140" y2="100" stroke="#A8AEB6" stroke-width="0.75"/>
+            <line x1="140" y1="100" x2="146" y2="104" stroke="#7A828D" stroke-width="1.5"/>
+
+            <line x1="265" y1="62" x2="180" y2="100" stroke="#A8AEB6" stroke-width="0.75"/>
+            <line x1="180" y1="100" x2="174" y2="104" stroke="#7A828D" stroke-width="1.5"/>
+
+            <line x1="39" y1="168" x2="142" y2="118" stroke="#A8AEB6" stroke-width="0.75"/>
+            <line x1="142" y1="118" x2="145" y2="116" stroke="#7A828D" stroke-width="1.5"/>
+
+            <line x1="281" y1="168" x2="178" y2="118" stroke="#A8AEB6" stroke-width="0.75"/>
+            <line x1="178" y1="118" x2="175" y2="116" stroke="#7A828D" stroke-width="1.5"/>
+
+            <line x1="160" y1="227" x2="160" y2="136" stroke="#A8AEB6" stroke-width="0.75"/>
+            <line x1="160" y1="136" x2="160" y2="132" stroke="#7A828D" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <p class="loop-caption">Every decision routes through the founder. Throughput is capped by one person's bandwidth.</p>
+      </div>
+      <div class="loop-panel" style="border-color: var(--color-outcome); border-width: 1px;">
+        <p class="loop-title" style="color: var(--color-outcome);">THE OPERATING MODEL LOOP</p>
+        <div class="loop-svg-container">
+          <svg viewBox="0 0 320 260" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Subtle teal tint inside the loop path -->
+            <polygon points="160,52 50,148 90,220 230,220 270,148" fill="#EFF7F7" stroke="none"/>
+
+            <!-- Equal-sized nodes: distributed authority -->
+            <circle cx="160" cy="46" r="5" fill="#0D7377"/>
+            <text x="160" y="30" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="8" font-weight="500" letter-spacing="0.08em" fill="#0D7377">GOVERNANCE</text>
+
+            <circle cx="50" cy="148" r="5" fill="#0D7377"/>
+            <text x="32" y="136" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="8" font-weight="500" letter-spacing="0.08em" fill="#0D7377">PLAN</text>
+
+            <circle cx="90" cy="224" r="5" fill="#0D7377"/>
+            <text x="90" y="248" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="8" font-weight="500" letter-spacing="0.08em" fill="#0D7377">BUILD</text>
+
+            <circle cx="230" cy="224" r="5" fill="#0D7377"/>
+            <text x="230" y="248" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="8" font-weight="500" letter-spacing="0.08em" fill="#0D7377">MEASURE</text>
+
+            <circle cx="270" cy="148" r="5" fill="#0D7377"/>
+            <text x="290" y="136" text-anchor="middle" font-family="'Switzer', sans-serif" font-size="8" font-weight="500" letter-spacing="0.08em" fill="#0D7377">OPTIMISE</text>
+
+            <!-- Curved flow paths with teal accent -->
+            <path d="M152,50 Q90,80 55,143" stroke="#0D7377" stroke-width="1.5" fill="none"/>
+            <path d="M53,155 Q60,195 86,220" stroke="#0D7377" stroke-width="1.5" fill="none"/>
+            <path d="M96,226 Q160,238 224,226" stroke="#0D7377" stroke-width="1.5" fill="none"/>
+            <path d="M234,220 Q260,195 267,155" stroke="#0D7377" stroke-width="1.5" fill="none"/>
+            <path d="M265,143 Q230,80 168,50" stroke="#0D7377" stroke-width="1.5" fill="none"/>
+
+            <!-- Directional arrowheads -->
+            <polygon points="55,143 62,138 58,147" fill="#0D7377"/>
+            <polygon points="86,220 87,211 92,219" fill="#0D7377"/>
+            <polygon points="224,226 218,221 218,230" fill="#0D7377"/>
+            <polygon points="267,155 261,149 265,158" fill="#0D7377"/>
+            <polygon points="168,50 174,55 166,55" fill="#0D7377"/>
+          </svg>
+        </div>
+        <p class="loop-caption">A self-reinforcing cycle where each phase informs the next. The system compounds without founder dependency.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ENGAGEMENT ====== -->
+<div class="container"><hr class="section-rule"></div>
+<section class="section" id="engagement">
+  <div class="container">
+    <div class="engagement-intro">
+      <p class="label">ENGAGEMENT</p>
+      <h2 class="heading-section">A 12 week build.</h2>
+      <p class="body-text">Three phases. Each with defined deliverables, measurable outcomes, and clear governance. This is a units-based delivery model — not a retainer, not a project with scope creep.</p>
+    </div>
+
+    <!-- Phase progress visual -->
+    <div class="phase-progress">
+      <div class="phase-progress-node node-1">
+        <span class="phase-progress-label">DESIGN</span>
+        01
+      </div>
+      <div class="phase-progress-line line-1"></div>
+      <div class="phase-progress-node node-2">
+        <span class="phase-progress-label">BUILD</span>
+        02
+      </div>
+      <div class="phase-progress-line line-2"></div>
+      <div class="phase-progress-node node-3">
+        <span class="phase-progress-label">LOCK</span>
+        03
+      </div>
+    </div>
+
+    <div class="phases-grid">
+      <div class="phase">
+        <p class="phase-number">01</p>
+        <p class="phase-weeks">WEEKS 1–3</p>
+        <h3 class="phase-title">Design</h3>
+        <p class="phase-desc">We map the future-state operating model, define governance structures, and architect the system your growth function will run on.</p>
+        <ul class="phase-deliverables">
+          <li>Growth operating model blueprint</li>
+          <li>Channel and audience architecture</li>
+          <li>Messaging framework and voice system</li>
+          <li>Tech stack audit and integration map</li>
+          <li>KPI framework with leading indicators</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <p class="phase-number">02</p>
+        <p class="phase-weeks">WEEKS 4–8</p>
+        <h3 class="phase-title">Build &amp; Run</h3>
+        <p class="phase-desc">We build the infrastructure, launch initial units of work, and begin generating data against the model. Execution is live, not theoretical.</p>
+        <ul class="phase-deliverables">
+          <li>Campaign builds across defined channels</li>
+          <li>Automation sequences and nurture flows</li>
+          <li>Content production and distribution</li>
+          <li>CRM and pipeline architecture</li>
+          <li>Weekly performance reporting</li>
+        </ul>
+      </div>
+      <div class="phase">
+        <p class="phase-number">03</p>
+        <p class="phase-weeks">WEEKS 9–12</p>
+        <h3 class="phase-title">Optimise &amp; Lock</h3>
+        <p class="phase-desc">We optimise based on real performance data, lock in the operating model, and prepare for handover or ongoing governance.</p>
+        <ul class="phase-deliverables">
+          <li>Performance optimisation across all units</li>
+          <li>Operating model documentation</li>
+          <li>Team playbooks and SOPs</li>
+          <li>Governance cadence and review structure</li>
+          <li>Transition plan (internal or retained)</li>
+        </ul>
+      </div>
+    </div>
+
+    <h3 class="deliverables-heading">What you'll have at the end of 12 weeks.</h3>
+    <div class="deliverables-list">
+      <div class="deliverable-item">
+        <span class="deliverable-number">01</span>
+        <span class="deliverable-text">A documented growth operating model your team can run without founder dependency</span>
+      </div>
+      <div class="deliverable-item">
+        <span class="deliverable-number">02</span>
+        <span class="deliverable-text">Live campaigns generating measurable pipeline across multiple channels</span>
+      </div>
+      <div class="deliverable-item">
+        <span class="deliverable-number">03</span>
+        <span class="deliverable-text">Automation infrastructure that eliminates manual handoffs and follow-up gaps</span>
+      </div>
+      <div class="deliverable-item">
+        <span class="deliverable-number">04</span>
+        <span class="deliverable-text">A reporting dashboard with leading indicators, not just lagging vanity metrics</span>
+      </div>
+      <div class="deliverable-item">
+        <span class="deliverable-number">05</span>
+        <span class="deliverable-text">Team playbooks and governance cadence that lock the system in place permanently</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROOF ====== -->
+<div class="container"><hr class="section-rule"></div>
+<section class="section proof-section" id="proof">
+  <div class="container">
+    <div class="proof-intro">
+      <p class="label">PROOF</p>
+      <h2 class="heading-section">Results, not theory.</h2>
+      <p class="body-text">20 years of operating model design across HPE, Telstra, Semtech, and 40+ founder-led companies. Every outcome below was delivered through system design — not heroics.</p>
+    </div>
+
+    <div class="proof-dashboard">
+      <img src="dashboard-mockup.png" alt="Growth operating model dashboard showing pipeline metrics, channel performance, and conversion data" loading="lazy">
+    </div>
+
+    <div class="outcome-grid">
+      <div class="outcome-card">
+        <p class="outcome-problem">Referral-dependent pipeline</p>
+        <p class="outcome-metric">Pipeline source diversity: 15% → 65%</p>
+        <p class="outcome-desc">Replaced single-channel dependency with a multi-source pipeline architecture generating qualified opportunities from four distinct channels.</p>
+        <p class="outcome-industry">B2B SaaS — Series A</p>
+      </div>
+      <div class="outcome-card">
+        <p class="outcome-problem">Manual follow-up delayed by hours</p>
+        <p class="outcome-metric">Response time: 4.2 hours → 8 minutes</p>
+        <p class="outcome-desc">Automation sequences eliminated manual handoffs between marketing-qualified signals and sales follow-up across the entire funnel.</p>
+        <p class="outcome-industry">Professional Services — 30 FTE</p>
+      </div>
+      <div class="outcome-card">
+        <p class="outcome-problem">Messaging that drifts by person</p>
+        <p class="outcome-metric">Message consistency score: 34% → 91%</p>
+        <p class="outcome-desc">A voice system and content governance framework replaced ad hoc messaging with a scalable, auditable brand architecture.</p>
+        <p class="outcome-industry">FinTech — Series B</p>
+      </div>
+      <div class="outcome-card">
+        <p class="outcome-problem">Spreadsheets and gut-feel reporting</p>
+        <p class="outcome-metric">Reporting lag: 14 days → real-time</p>
+        <p class="outcome-desc">Unified dashboards with leading indicators replaced monthly spreadsheet reviews with live performance governance.</p>
+        <p class="outcome-industry">Industrial IoT — Mid-Market</p>
+      </div>
+      <div class="outcome-card">
+        <p class="outcome-problem">Founder consuming 40–60% of bandwidth</p>
+        <p class="outcome-metric">Founder growth time: 55% → 12%</p>
+        <p class="outcome-desc">Operating model install transferred decision-making authority to documented governance structures, freeing founder capacity for product and strategy.</p>
+        <p class="outcome-industry">B2B Marketplace — 22 FTE</p>
+      </div>
+    </div>
+
+    <p class="proof-disclaimer">All metrics are from real engagements. Company names withheld under NDA. Results vary by organisation maturity, market conditions, and implementation commitment. Past performance does not guarantee future outcomes.</p>
+  </div>
+</section>
+
+<!-- ====== DIAGNOSTIC ====== -->
+<div class="container"><hr class="section-rule"></div>
+<section class="section" id="diagnostic">
+  <div class="container">
+    <div class="diagnostic-grid">
+      <div class="diagnostic-left">
+        <p class="label">START HERE</p>
+        <h2 class="heading-section">Start with a 30 minute architecture session.</h2>
+        <p class="body-text">This is not a sales call. It is a structured conversation where we map your growth operating model and identify the highest-leverage design changes.</p>
+        <ul class="diagnostic-bullets">
+          <li>A clear picture of your future-state growth architecture</li>
+          <li>The 2–3 structural constraints limiting your scale</li>
+          <li>A prioritised action plan you can execute with or without us</li>
+          <li>An honest assessment of whether an operating model install is the right next step</li>
+        </ul>
+      </div>
+      <div class="diagnostic-investment">
+        <p class="label">CAPACITY</p>
+        <p>We work with 4–6 companies at a time. This ensures every engagement receives full system design attention, not fractional oversight.</p>
+        <p>The audit itself is free and carries no obligation.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FORM ====== -->
+<div class="container"><hr class="section-rule"></div>
+<section class="section form-section" id="apply">
+  <div class="container">
+    <p class="label">APPLY FOR YOUR AUDIT</p>
+    <h2 class="heading-section">We do not work with every company. This helps us decide if there is a fit.</h2>
+    <p class="form-social-proof">127 founders have completed this audit in the last 12 months.</p>
+
+    <div id="formWizard">
+      <!-- Progress bar -->
+      <div class="form-progress" id="formProgress">
+        <div class="form-progress-segment active"></div>
+        <div class="form-progress-segment"></div>
+        <div class="form-progress-segment"></div>
+        <div class="form-progress-segment"></div>
+        <div class="form-progress-segment"></div>
+        <div class="form-progress-segment"></div>
+        <div class="form-progress-segment"></div>
+        <div class="form-progress-segment"></div>
+      </div>
+
+      <!-- Step 1 -->
+      <div class="form-step active" data-step="1">
+        <p class="form-step-label">QUESTION 1 OF 8</p>
+        <h3 class="form-question">How many people work in your company?</h3>
+        <div class="form-options">
+          <button class="form-option" data-value="1-5">1–5</button>
+          <button class="form-option" data-value="6-15">6–15</button>
+          <button class="form-option" data-value="16-50">16–50</button>
+          <button class="form-option" data-value="50+">50+</button>
+        </div>
+        <div class="form-nav">
+          <button class="form-continue" onclick="nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="form-step" data-step="2">
+        <p class="form-step-label">QUESTION 2 OF 8</p>
+        <h3 class="form-question">What does your current growth system look like?</h3>
+        <div class="form-options">
+          <button class="form-option" data-value="Founder-led">Founder-led — I drive most of it</button>
+          <button class="form-option" data-value="Freelancers">Freelancers and contractors</button>
+          <button class="form-option" data-value="Internal">Internal marketing team</button>
+          <button class="form-option" data-value="Outsourced">Outsourced to an external partner</button>
+        </div>
+        <div class="form-nav">
+          <button class="form-continue" onclick="nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="form-step" data-step="3">
+        <p class="form-step-label">QUESTION 3 OF 8</p>
+        <h3 class="form-question">What's the primary growth challenge right now?</h3>
+        <div class="form-options">
+          <button class="form-option" data-value="Pipeline">Pipeline — not enough qualified opportunities</button>
+          <button class="form-option" data-value="Messaging">Messaging — unclear or inconsistent positioning</button>
+          <button class="form-option" data-value="Ops">Ops — too many manual processes</button>
+          <button class="form-option" data-value="Measurement">Measurement — no visibility into what's working</button>
+        </div>
+        <div class="form-nav">
+          <button class="form-continue" onclick="nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="form-step" data-step="4">
+        <p class="form-step-label">QUESTION 4 OF 8</p>
+        <h3 class="form-question">Do you have a documented operating model for growth?</h3>
+        <div class="form-options">
+          <button class="form-option" data-value="Yes">Yes — documented and followed</button>
+          <button class="form-option" data-value="No">No — nothing formal</button>
+          <button class="form-option" data-value="Partially">Partially — some processes documented</button>
+        </div>
+        <div class="form-nav">
+          <button class="form-continue" onclick="nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 5 -->
+      <div class="form-step" data-step="5">
+        <p class="form-step-label">QUESTION 5 OF 8</p>
+        <h3 class="form-question">How are campaigns currently planned and executed?</h3>
+        <div class="form-options">
+          <button class="form-option" data-value="Ad hoc">Ad hoc — reactive, no consistent process</button>
+          <button class="form-option" data-value="Calendar">Calendar — planned monthly or quarterly</button>
+          <button class="form-option" data-value="Systemised">Systemised — structured workflow with governance</button>
+        </div>
+        <div class="form-nav">
+          <button class="form-continue" onclick="nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 6 -->
+      <div class="form-step" data-step="6">
+        <p class="form-step-label">QUESTION 6 OF 8</p>
+        <h3 class="form-question">What does success look like in 12 months?</h3>
+        <div class="form-input-group">
+          <label for="successVision">Describe your ideal outcome</label>
+          <textarea id="successVision" placeholder="Be specific about revenue targets, team structure, systems, or capabilities you want in place…"></textarea>
+        </div>
+        <div class="form-nav">
+          <button class="form-continue" onclick="nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 7 -->
+      <div class="form-step" data-step="7">
+        <p class="form-step-label">QUESTION 7 OF 8</p>
+        <h3 class="form-question">Tell us about you.</h3>
+        <div class="form-inputs-row">
+          <div class="form-input-group">
+            <label for="companyName">Company Name</label>
+            <input type="text" id="companyName" placeholder="Your company">
+          </div>
+          <div class="form-input-group">
+            <label for="yourName">Your Name</label>
+            <input type="text" id="yourName" placeholder="Full name">
+          </div>
+        </div>
+        <div class="form-nav">
+          <button class="form-continue" onclick="nextStep()">Continue →</button>
+        </div>
+      </div>
+
+      <!-- Step 8 -->
+      <div class="form-step" data-step="8">
+        <p class="form-step-label">QUESTION 8 OF 8</p>
+        <h3 class="form-question">How should we reach you?</h3>
+        <div class="form-inputs-row">
+          <div class="form-input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@company.com">
+          </div>
+          <div class="form-input-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="+61 ...">
+          </div>
+        </div>
+        <div class="form-nav">
+          <button class="form-continue form-submit" onclick="submitForm()">Submit Application →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Thank you -->
+    <div class="form-thankyou" id="formThankyou">
+      <h3 class="heading-section">Application received.</h3>
+      <p>We review every submission within 48 hours. If there's a fit, we'll schedule your 30-minute architecture session directly.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FAQ ====== -->
+<div class="container"><hr class="section-rule"></div>
+<section class="section" id="faq">
+  <div class="container">
+    <div class="faq-intro">
+      <p class="label">FAQ</p>
+      <h2 class="heading-section">Five questions, answered directly.</h2>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>We've been burned by agencies before.</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>We understand. Most agencies sell execution hours without system accountability. Our model is different — we install an operating model with documented governance, measurable outcomes at every phase, and a defined exit. You own the system. There is no dependency on us to keep it running. If we haven't built something your team can operate independently by week 12, we haven't done our job.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>Can't we handle this internally?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>You can — and eventually you should. The operating model we install is designed to be run by your team. The question is whether you have the 12 weeks and system design expertise to build it from scratch while simultaneously running the business. Most founders find that bringing in a specialist to design and install the system, then handing it over, is faster and more reliable than building it in parallel with everything else.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>We just need more leads.</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>If your conversion infrastructure, follow-up systems, and pipeline governance aren't built to handle and convert leads at scale, more leads will just expose the gaps faster. We've seen companies triple their lead volume only to see close rates drop because the operating model couldn't absorb the increase. We start with the system — then scale the inputs. The leads follow the architecture, not the other way around.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>How do we trust automation with our brand and customer data?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Every automation we install comes with governance — approval workflows, escalation rules, and human-in-the-loop checkpoints where they matter. We don't replace judgement with automation. We use automation to eliminate repetitive manual steps so your team can focus their judgement where it creates the most value. Data handling follows your existing compliance requirements and we document every integration point.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span>How is this different from a strategy consultant or fractional CMO?</span>
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>A strategy consultant gives you a document. A fractional CMO gives you part-time oversight. Neither gives you a functioning system. We design, build, and install the operating model — then hand over a live, documented, measurable growth function your team can run. The output isn't a strategy deck. It's infrastructure — campaigns running, automations live, dashboards reporting, governance in place, and team playbooks locked in.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== FINAL CTA ====== -->
+<div class="container"><hr class="section-rule"></div>
+<section class="section final-cta">
+  <div class="container">
+    <p class="label">NEXT STEP</p>
+    <h2 class="heading-section" style="margin-top: 1rem; margin-bottom: 2rem;">Start with a 30 minute architecture session.</h2>
+    <a href="#apply" class="cta-button">Book a 30 Minute Growth Operating Model Audit →</a>
+  </div>
+</section>
+
+<!-- ====== FOOTER ====== -->
+<div class="container"><hr class="section-rule"></div>
+<footer class="footer">
+  <div class="container footer-inner">
+    <p class="footer-copy">© 2026 Optiflows</p>
+    <p class="footer-attr"><a href="https://www.perplexity.ai/computer" target="_blank" rel="noopener noreferrer">Created with Perplexity Computer</a></p>
+  </div>
+</footer>
+
+<script>
+/* ============================================
+   OPTIFLOWS — Interactive JavaScript
+   ============================================ */
+
+// --- Mobile Menu ---
+function toggleMobileMenu() {
+  document.getElementById('mobileMenu').classList.toggle('is-open');
+}
+
+function closeMobileMenu() {
+  document.getElementById('mobileMenu').classList.remove('is-open');
+}
+
+// --- Form Wizard ---
+const TOTAL_STEPS = 8;
+let currentStep = 1;
+const formData = {};
+
+function updateProgress() {
+  const segments = document.querySelectorAll('.form-progress-segment');
+  segments.forEach((seg, i) => {
+    seg.classList.toggle('active', i < currentStep);
+  });
+}
+
+function showStep(step) {
+  document.querySelectorAll('.form-step').forEach(el => el.classList.remove('active'));
+  const target = document.querySelector(`.form-step[data-step="${step}"]`);
+  if (target) target.classList.add('active');
+  updateProgress();
+}
+
+// Option selection
+document.querySelectorAll('.form-option').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const parent = this.closest('.form-options');
+    parent.querySelectorAll('.form-option').forEach(b => b.classList.remove('selected'));
+    this.classList.add('selected');
+  });
+});
+
+function nextStep() {
+  const stepEl = document.querySelector(`.form-step[data-step="${currentStep}"]`);
+
+  // Gather data
+  if (currentStep <= 5) {
+    const selected = stepEl.querySelector('.form-option.selected');
+    if (!selected) return; // require selection
+    formData[`q${currentStep}`] = selected.dataset.value;
+  } else if (currentStep === 6) {
+    const val = document.getElementById('successVision').value.trim();
+    if (!val) return;
+    formData.successVision = val;
+  } else if (currentStep === 7) {
+    const company = document.getElementById('companyName').value.trim();
+    const name = document.getElementById('yourName').value.trim();
+    if (!company || !name) return;
+    formData.companyName = company;
+    formData.yourName = name;
+  }
+
+  if (currentStep < TOTAL_STEPS) {
+    currentStep++;
+    showStep(currentStep);
+  }
+}
+
+function submitForm() {
+  const emailVal = document.getElementById('email').value.trim();
+  const phoneVal = document.getElementById('phone').value.trim();
+  if (!emailVal) return;
+  formData.email = emailVal;
+  formData.phone = phoneVal;
+
+  // Hide wizard, show thank you
+  document.getElementById('formWizard').style.display = 'none';
+  document.getElementById('formThankyou').style.display = 'block';
+
+  // Log form data (in production, send to API)
+  console.log('Form submitted:', formData);
+}
+
+// --- FAQ Accordion ---
+function toggleFaq(btn) {
+  const item = btn.closest('.faq-item');
+  item.classList.toggle('open');
+}
+</script>
+
+</body>
+</html>
