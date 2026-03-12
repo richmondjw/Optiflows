@@ -295,15 +295,17 @@ ul, ol {
   font-weight: 500;
   letter-spacing: 0.04em;
   padding: 1.0625rem 2.25rem;
-  border-radius: 0;
+  border-radius: 28px;
   border: none;
   cursor: pointer;
-  transition: background 200ms;
+  transition: background 200ms, box-shadow 200ms;
   text-decoration: none;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
 .cta-button:hover {
   background: var(--color-accent-hover);
+  box-shadow: 0 2px 8px rgba(13,115,119,0.25);
 }
 
 .cta-disclaimer {
@@ -384,6 +386,8 @@ ul, ol {
 .loop-panel {
   padding: var(--card-padding);
   border: 1px solid var(--color-divider);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 
 .loop-title {
@@ -483,10 +487,11 @@ ul, ol {
 }
 
 .phase-progress-line {
-  height: 1.5px;
+  height: 3px;
   flex: 1;
   max-width: 200px;
   position: relative;
+  border-radius: 1.5px;
 }
 
 .phase-progress-line.line-1 {
@@ -573,13 +578,15 @@ ul, ol {
 .phase-deliverables li {
   font-size: var(--text-xs);
   color: var(--color-text-muted);
-  padding: 0.35rem 0;
-  border-bottom: 1px solid var(--color-divider);
+  padding: 0.5rem 0.75rem;
+  margin-bottom: 0.25rem;
+  background: var(--color-surface);
+  border-radius: 6px;
   letter-spacing: 0.01em;
 }
 
 .phase-deliverables li:last-child {
-  border-bottom: none;
+  margin-bottom: 0;
 }
 
 @media (max-width: 768px) {
@@ -656,6 +663,8 @@ ul, ol {
   margin-bottom: clamp(3rem, 5vw, 3.75rem);
   border: 1px solid var(--color-divider);
   background: var(--color-surface-2);
+  border-radius: 16px;
+  overflow: hidden;
 }
 
 .proof-dashboard img {
@@ -754,6 +763,7 @@ ul, ol {
 .diagnostic-investment {
   padding: var(--card-padding);
   background: var(--color-surface-2);
+  border-radius: 12px;
 }
 
 .diagnostic-investment .label {
@@ -806,14 +816,15 @@ ul, ol {
 }
 
 .form-progress-segment {
-  height: 2px;
+  height: 4px;
   flex: 1;
   background: var(--color-divider);
+  border-radius: 2px;
   transition: background 200ms;
 }
 
 .form-progress-segment.active {
-  background: var(--color-text);
+  background: var(--color-accent);
 }
 
 /* Question */
@@ -855,25 +866,28 @@ ul, ol {
   display: block;
   width: 100%;
   padding: 1rem 1.25rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0;
+  border: 1.5px solid var(--color-divider);
+  border-radius: 8px;
   background: var(--color-bg);
   font-family: var(--font-body);
   font-size: var(--text-sm);
   color: var(--color-text-muted);
   text-align: left;
   cursor: pointer;
-  transition: border-color 200ms, color 200ms;
+  transition: border-color 200ms, color 200ms, background 200ms, box-shadow 200ms;
 }
 
 .form-option:hover {
-  border-color: var(--color-text);
+  border-color: var(--color-accent);
   color: var(--color-text);
+  background: var(--color-outcome-bg);
 }
 
 .form-option.selected {
-  border-color: var(--color-text);
+  border-color: var(--color-accent);
   color: var(--color-text);
+  background: var(--color-outcome-bg);
+  box-shadow: 0 0 0 1px var(--color-accent);
 }
 
 /* Text inputs */
@@ -895,19 +909,21 @@ ul, ol {
 .form-input-group textarea {
   width: 100%;
   padding: 0.875rem 1rem;
-  border: 1px solid var(--color-border);
-  border-radius: 0;
+  border: 1.5px solid var(--color-divider);
+  border-radius: 8px;
   font-family: var(--font-body);
   font-size: var(--text-sm);
   color: var(--color-text);
-  background: var(--color-bg);
+  background: var(--color-surface);
   outline: none;
-  transition: border-color 200ms;
+  transition: border-color 200ms, background 200ms, box-shadow 200ms;
 }
 
 .form-input-group input:focus,
 .form-input-group textarea:focus {
-  border-color: var(--color-text);
+  border-color: var(--color-accent);
+  background: var(--color-bg);
+  box-shadow: 0 0 0 3px rgba(13,115,119,0.1);
 }
 
 .form-input-group textarea {
@@ -946,14 +962,16 @@ ul, ol {
   font-weight: 500;
   letter-spacing: 0.02em;
   padding: 0.875rem 2rem;
-  border-radius: 0;
+  border-radius: 28px;
   border: none;
   cursor: pointer;
-  transition: opacity 200ms;
+  transition: opacity 200ms, box-shadow 200ms;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
 .form-continue:hover {
   opacity: 0.85;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
 .form-submit {
@@ -963,6 +981,7 @@ ul, ol {
 .form-submit:hover {
   background: var(--color-accent-hover);
   opacity: 1;
+  box-shadow: 0 2px 8px rgba(13,115,119,0.25);
 }
 
 /* Thank you */
@@ -1000,7 +1019,15 @@ ul, ol {
 }
 
 .faq-item {
-  border-bottom: 1px solid var(--color-divider);
+  border: 1px solid var(--color-divider);
+  border-radius: 10px;
+  margin-bottom: 0.75rem;
+  padding: 0 1.25rem;
+  transition: box-shadow 200ms;
+}
+
+.faq-item:hover {
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 
 .faq-question {
@@ -1115,6 +1142,8 @@ ul, ol {
 .contact-form {
   padding: var(--card-padding);
   background: var(--color-surface);
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
 }
 
 .contact-form .label {
@@ -1123,6 +1152,11 @@ ul, ol {
 
 .contact-form .form-input-group {
   margin-bottom: 1.25rem;
+}
+
+.contact-form .form-input-group input,
+.contact-form .form-input-group textarea {
+  background: var(--color-bg);
 }
 
 .contact-form textarea {
@@ -1226,17 +1260,20 @@ ul, ol {
   font-family: var(--font-body);
   font-size: var(--text-base);
   padding: 0.75rem 1rem;
-  border: 1px solid var(--color-border);
-  background: var(--color-bg);
+  border: 1.5px solid var(--color-divider);
+  border-radius: 8px;
+  background: var(--color-surface);
   color: var(--color-text);
   text-align: center;
   letter-spacing: 0.1em;
   outline: none;
-  transition: border-color 200ms;
+  transition: border-color 200ms, background 200ms, box-shadow 200ms;
 }
 
 .password-gate-inner input:focus {
   border-color: var(--color-accent);
+  background: var(--color-bg);
+  box-shadow: 0 0 0 3px rgba(13,115,119,0.1);
 }
 
 .password-gate-inner input.error {
@@ -1254,12 +1291,15 @@ ul, ol {
   letter-spacing: 0.02em;
   padding: 0.85rem 2rem;
   border: none;
+  border-radius: 28px;
   cursor: pointer;
-  transition: background 200ms;
+  transition: background 200ms, box-shadow 200ms;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
 }
 
 .password-gate-inner button:hover {
   background: var(--color-accent-hover);
+  box-shadow: 0 2px 8px rgba(13,115,119,0.25);
 }
 
 .site-content.locked {
