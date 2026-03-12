@@ -1101,9 +1101,98 @@ ul, ol {
     text-align: center;
   }
 }
+/* --- PASSWORD GATE --- */
+.password-gate {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.password-gate.hidden {
+  display: none;
+}
+
+.password-gate-inner {
+  text-align: center;
+  max-width: 360px;
+  padding: 2rem;
+}
+
+.password-gate-inner .nav-wordmark {
+  display: block;
+  margin-bottom: 2.5rem;
+}
+
+.password-gate-inner p {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.password-gate-inner input {
+  width: 100%;
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--color-border);
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-align: center;
+  letter-spacing: 0.1em;
+  outline: none;
+  transition: border-color 200ms;
+}
+
+.password-gate-inner input:focus {
+  border-color: var(--color-accent);
+}
+
+.password-gate-inner input.error {
+  border-color: #c0392b;
+}
+
+.password-gate-inner button {
+  width: 100%;
+  margin-top: 1rem;
+  background: var(--color-accent);
+  color: var(--color-text-inverse);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  padding: 0.85rem 2rem;
+  border: none;
+  cursor: pointer;
+  transition: background 200ms;
+}
+
+.password-gate-inner button:hover {
+  background: var(--color-accent-hover);
+}
+
+.site-content.locked {
+  display: none;
+}
 </style>
 </head>
 <body>
+
+<!-- ====== PASSWORD GATE ====== -->
+<div id="passwordGate" class="password-gate">
+  <div class="password-gate-inner">
+    <span class="nav-wordmark">OPTIFLOWS</span>
+    <p>Enter password to continue</p>
+    <input type="password" id="passwordInput" placeholder="Password" autocomplete="off" autofocus>
+    <button onclick="checkPassword()">Enter</button>
+  </div>
+</div>
+
+<div id="siteContent" class="site-content locked">
 
 <!-- ====== NAVIGATION ====== -->
 <nav class="nav">
@@ -1755,6 +1844,42 @@ function toggleFaq(btn) {
   const item = btn.closest('.faq-item');
   item.classList.toggle('open');
 }
+</script>
+
+</div><!-- /siteContent -->
+
+<script>
+// --- Password Gate ---
+const SITE_PASS = '1xlx1';
+const PASS_KEY = 'optiflows_authed';
+
+function checkPassword() {
+  const input = document.getElementById('passwordInput');
+  if (input.value === SITE_PASS) {
+    sessionStorage.setItem(PASS_KEY, '1');
+    unlockSite();
+  } else {
+    input.classList.add('error');
+    input.value = '';
+    input.placeholder = 'Incorrect password';
+    setTimeout(() => { input.classList.remove('error'); input.placeholder = 'Password'; }, 1500);
+  }
+}
+
+function unlockSite() {
+  document.getElementById('passwordGate').classList.add('hidden');
+  document.getElementById('siteContent').classList.remove('locked');
+}
+
+// Auto-unlock if already authed this session
+if (sessionStorage.getItem(PASS_KEY) === '1') {
+  unlockSite();
+}
+
+// Allow Enter key
+document.getElementById('passwordInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkPassword();
+});
 </script>
 
 </body>
