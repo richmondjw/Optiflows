@@ -178,11 +178,13 @@ ul, ol {
 }
 
 .nav-wordmark {
-  font-size: var(--text-sm);
-  font-weight: 500;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--color-text);
+  display: flex;
+  align-items: center;
+}
+
+.nav-wordmark img {
+  height: 56px;
+  width: auto;
 }
 
 .nav-links {
@@ -1185,7 +1187,7 @@ ul, ol {
 <!-- ====== PASSWORD GATE ====== -->
 <div id="passwordGate" class="password-gate">
   <div class="password-gate-inner">
-    <span class="nav-wordmark">OPTIFLOWS</span>
+    <span class="nav-wordmark"><img src="images/Optiflows_Logo_BLK.svg" alt="Optiflows"></span>
     <p>Enter password to continue</p>
     <input type="password" id="passwordInput" placeholder="Password" autocomplete="off" autofocus>
     <button onclick="checkPassword()">Enter</button>
@@ -1197,7 +1199,7 @@ ul, ol {
 <!-- ====== NAVIGATION ====== -->
 <nav class="nav">
   <div class="container nav-inner">
-    <a href="#" class="nav-wordmark">OPTIFLOWS</a>
+    <a href="#" class="nav-wordmark"><img src="images/Optiflows_Logo_BLK.svg" alt="Optiflows"></a>
     <div class="nav-links">
       <a href="#engagement">Engagement</a>
       <a href="#proof">Proof</a>
