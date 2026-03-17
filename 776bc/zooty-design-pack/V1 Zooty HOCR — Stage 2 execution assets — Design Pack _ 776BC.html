@@ -1,0 +1,3475 @@
+<!DOCTYPE html>
+<!-- saved from url=(0072)http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html -->
+<html lang="en"><plasmo-csui id="ff-overlay-container"><template shadowrootmode="open"><style>#plasmo-shadow-container > div {
+  pointer-events: none !important;
+  background: none !important;
+  position: fixed !important;
+  inset: 0 !important;
+}
+
+.main_top_container_ff {
+  width: 400px;
+}
+
+.popup_container_wrapper_ff {
+  background-color: #fff;
+}
+
+.popup_container_wrapper_ff * {
+  font-family: PoppinsRegular;
+}
+
+.popup_container_wrapper_ff img {
+  background-color: #0000;
+}
+
+.popup_container_ff {
+  box-shadow: 0 5px 20px #1e1e2212;
+}
+
+.popup_div_ff {
+  box-sizing: border-box;
+  background-color: #fff;
+  width: 100%;
+  padding: 24px;
+}
+
+.main_component_ff {
+  width: 100%;
+  padding-bottom: 0 !important;
+}
+
+.popup_top_icon_div_ff {
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+  display: flex;
+}
+
+.popup_top_icon_div_ff .btn_canvas_ff {
+  display: inline-flex;
+}
+
+.popup_top_icon_div_ff .ff_popup_top_image {
+  z-index: 0;
+  width: 100%;
+  height: auto;
+  position: absolute;
+  inset: 0 0 auto;
+}
+
+.popup_top_icon_btn_ff {
+  cursor: pointer;
+  z-index: 1;
+  background: none;
+  border: none;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  font-size: 20px;
+  display: inline-flex;
+}
+
+.popup_top_icon_btn_ff img {
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.popup_top_icon_btn_ff:focus {
+  outline: none;
+}
+
+.dot_ff {
+  background-color: red;
+  border-radius: 50%;
+  width: 15px;
+  height: 15px;
+}
+
+.dot_ff-top-right {
+  position: absolute;
+  top: 33%;
+  right: 16px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dot_ff {
+    animation: none;
+  }
+}
+
+.topbar_cross_icon_ff {
+  cursor: pointer;
+  background: #eaeaea;
+  border: 2px solid #fff;
+  border-radius: 50%;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 20px;
+  height: 20px;
+  padding: 0;
+  display: flex;
+}
+
+.topbar_cross_icon_ff img {
+  width: 12px;
+  height: 12px;
+}
+
+.btn_canvas_ff .topbar_detail_submit_btn_ff {
+  cursor: pointer;
+  color: #6e75ff;
+  background: #f0f0ff;
+  border: none;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  min-width: 108px;
+  min-height: 40px;
+  margin: 0;
+  padding: 10px 30px;
+  font-family: PoppinsRegular;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  display: flex;
+}
+
+.btn_canvas_ff .topbar_detail_submit_btn_ff:hover {
+  box-shadow: none;
+  color: #fff;
+  cursor: pointer;
+  background: #6e75ff;
+  border: none;
+  outline: none;
+}
+
+.btn_canvas_ff .topbar_detail_okay_btn_ff {
+  cursor: pointer;
+  color: #555;
+  background: #eee;
+  border: none;
+  border-radius: 5px;
+  justify-content: center;
+  align-items: center;
+  min-width: 108px;
+  min-height: 40px;
+  margin: 0;
+  padding: 10px 30px;
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 20px;
+  display: flex;
+}
+
+.btn_canvas_ff .topbar_detail_okay_btn_ff:hover, .btn_canvas_ff .topbar_detail_okay_btn_ff:focus {
+  box-shadow: none;
+  color: #eee;
+  cursor: pointer;
+  background: #555;
+  border: none;
+  outline: none;
+}
+
+.btn_canvas_ff .topbar_detail_submit_btn_ff:disabled, .btn_canvas_ff .topbar_detail_okay_btn_ff:disabled {
+  color: #696969 !important;
+  background-color: #d3d3d3 !important;
+}
+
+.spaced_icon_ff {
+  margin-left: 5px;
+  background-color: #0000 !important;
+}
+
+.toggle_btn_ff {
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0 18px;
+  display: flex;
+  position: relative;
+}
+
+.create_notification_container_ff {
+  cursor: auto;
+  box-sizing: border-box;
+  z-index: 99999;
+  pointer-events: initial;
+  background-color: #fff;
+  border: none;
+  border-radius: 8px;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 512px;
+  margin-top: 16px;
+  padding: 24px;
+  position: absolute;
+  inset: 20px 100px auto auto;
+  box-shadow: 0 0 10px;
+}
+
+plasmo-csui#ff-overlay-container, plasmo-csui#real-time-panel {
+  z-index: 999;
+  pointer-events: none;
+  position: absolute;
+  inset: 0;
+}
+
+.ff_input_container {
+  background: none;
+  border: none;
+  border-radius: 4px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: -webkit-fill-available;
+  display: flex;
+}
+
+.ff_input_container .input_input {
+  resize: none;
+  background: none;
+  border: 1px solid #f2f4f7;
+  border-radius: 8px;
+  width: -webkit-fill-available;
+  height: 20px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 20px;
+  box-shadow: none !important;
+  color: #475467 !important;
+  padding: 8px 16px !important;
+  font-family: Roboto !important;
+  font-size: 14px !important;
+}
+
+.ff_input_container .input_input:focus-visible {
+  outline: none;
+}
+
+.ff_input_container .input_label {
+  letter-spacing: -.01em;
+  color: #101828;
+  background-color: #0000;
+  padding-bottom: 8px;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 20px;
+}
+
+.ff_input_container .input_description {
+  letter-spacing: -.01em;
+  color: #878f97;
+  background-color: #0000;
+  margin: 0;
+  padding-bottom: 8px;
+  font-family: Roboto;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+}
+
+.input_icon_container {
+  border: 1px solid #f2f4f7;
+  border-radius: 8px;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  width: -webkit-fill-available;
+  padding-left: 16px;
+  display: flex;
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.input_icon_container .input_input {
+  border: none;
+  padding-left: 0 !important;
+}
+
+.ff_select_container {
+  background: none;
+  border: none;
+  border-radius: 4px;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: -webkit-fill-available;
+  display: flex;
+  position: relative;
+}
+
+.ff_select_option_list_container {
+  z-index: 1;
+  background: #fff;
+  border: 1px solid #f2f4f7;
+  border-top: 0;
+  border-radius: 0 0 8px 8px;
+  width: -webkit-fill-available;
+  max-height: 80px;
+  margin: 0;
+  padding: 10px;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  overflow-y: scroll;
+}
+
+.ff_select_option_list {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  overflow-x: hidden;
+}
+
+.ff_select_option_item {
+  color: #475467;
+  text-overflow: ellipsis;
+  cursor: pointer;
+  align-self: stretch;
+  align-items: center;
+  gap: 8px;
+  min-height: 16px;
+  padding: 8px;
+  display: flex;
+  overflow: hidden;
+}
+
+.ff_select_option_item:hover, .ff_select_option_item:focus {
+  background: #f9fafb;
+  border-radius: 8px;
+}
+
+.ff_select_option_item span {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  background: none;
+  overflow: hidden;
+}
+
+.ff_select_search {
+  border-bottom-right-radius: 0 !important;
+  border-bottom-left-radius: 0 !important;
+}
+
+.ff_select_dropdown_container {
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 55px;
+  display: flex;
+  position: relative;
+}
+
+.topbar_heading_box_ff {
+  flex-direction: row;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.topbar_icon_ff {
+  justify-content: center;
+  align-items: center;
+  margin-right: 10px;
+  display: flex;
+}
+
+.topbar_middle_icon_ff {
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1rem;
+  display: flex;
+}
+
+.topbar_detail_head_ff {
+  text-align: left;
+  letter-spacing: -.01em;
+  color: #22262a;
+  border: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: PoppinsRegular;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  font-family: PoppinsMedium !important;
+}
+
+.topbar_detail_body_ff {
+  letter-spacing: 0;
+  align-items: flex-start;
+  margin: 16px 0 17px;
+  padding: 0;
+  display: flex;
+}
+
+.topbar_detail_para_ff {
+  width: 100%;
+  margin: 0;
+}
+
+.topbar_detail_para_ff .topbar_detail_text {
+  color: #484f56;
+  letter-spacing: -.01em;
+  margin: 0;
+  padding: 0;
+  font-family: PoppinsRegular;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+}
+
+.topbar_detail_para_ff .topbar_detail_text_last {
+  color: #878f97;
+  letter-spacing: -.01em;
+  margin: 0;
+  padding-top: 8px;
+  padding-bottom: 2px;
+  font-family: PoppinsRegular;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 18px;
+}
+
+.topbar_detail_static_arrow_ff {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.topbar_detail_static_arrow_ff img {
+  width: 24px;
+  height: 26px;
+  display: inline;
+}
+
+.topbar_detail_btns_ff {
+  justify-content: space-between;
+  width: 100%;
+  display: flex;
+}
+
+.narrow_btns_ff {
+  width: 70% !important;
+}
+
+.review_btns_ff {
+  gap: 1rem;
+  justify-content: flex-start !important;
+  width: 70% !important;
+}
+
+.topbar_detail_submit_btn_ff, .topbar_detail_okay_btn_ff {
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: 150px;
+  overflow: hidden;
+}
+
+.dot_ff {
+  border-radius: 50%;
+  flex-shrink: 0;
+  justify-content: center;
+  align-items: center;
+  width: 8px;
+  height: 8px;
+  display: flex;
+}
+
+.success_dot_ff {
+  background-color: #12b76a !important;
+}
+
+.warning_dot_ff {
+  background-color: #f08c00 !important;
+}
+
+.error_dot_ff {
+  background-color: red !important;
+}
+
+.large_dot_ff {
+  width: 12px !important;
+  height: 12px !important;
+}
+
+.medium_dot_ff {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.small_dot_ff {
+  width: 6px !important;
+  height: 6px !important;
+}
+
+</style><div id="plasmo-shadow-container" style="z-index: 2147483647; position: relative;"><div id="plasmo-overlay-0" class="plasmo-csui-container" style="display: flex; position: absolute; top: 0px; left: 0px;"></div></div></template></plasmo-csui><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V1 Zooty HOCR — Stage 2 execution assets — Design Pack | 776BC</title>
+<style>
+/* ═══════════════════════════════════════════════════
+   776BC DESIGN PACK — Generated Asset Review
+   ═══════════════════════════════════════════════════ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Mono:wght@300;400;500&family=Outfit:wght@200;300;400;600;700&display=swap');
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #07070a;
+  --near-black: #0c0c10;
+  --dark: #111118;
+  --panel: #16161e;
+  --card: #1a1b24;
+  --border: #242530;
+  --border-mid: #2e2f3d;
+  --border-light: #3a3b4d;
+  --muted: #4e4f62;
+  --secondary: #8a8b9e;
+  --text: #b8b8ca;
+  --light: #d4d4e2;
+  --white: #ececf0;
+  --accent: #c8a44e;
+  --accent-dim: rgba(200, 164, 78, 0.25);
+  --accent-glow: rgba(200, 164, 78, 0.08);
+  --brief-accent: #5c9a6e;
+  --brief-dim: rgba(92, 154, 110, 0.2);
+  --design-accent: #c8a44e;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { scroll-behavior: smooth; font-size: 16px; -webkit-font-smoothing: antialiased; }
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px;
+}
+
+::selection { background: var(--accent); color: var(--black); }
+a { color: inherit; text-decoration: none; }
+
+/* ── Top Bar ─────────────────────────────────── */
+
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(7, 7, 10, 0.92);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  padding: 0 clamp(16px, 3vw, 48px);
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.topbar__left { display: flex; align-items: center; gap: 16px; }
+
+.topbar__logo {
+  height: 22px;
+  width: auto;
+  display: block;
+  filter: brightness(1.1);
+}
+
+.topbar__brand {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+}
+
+.topbar__sep { width: 1px; height: 16px; background: var(--border-mid); }
+
+.topbar__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.topbar__right { display: flex; align-items: center; gap: 16px; }
+
+.topbar__badge {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border: 1px solid var(--border-mid);
+  color: var(--secondary);
+}
+
+/* ── Hero ─────────────────────────────────────── */
+
+.pack-hero {
+  padding: clamp(40px, 6vh, 80px) clamp(16px, 3vw, 48px);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+  overflow: hidden;
+}
+
+.pack-hero__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200, 164, 78, 0.015) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 164, 78, 0.015) 1px, transparent 1px);
+  background-size: 80px 80px;
+  mask-image: radial-gradient(ellipse 60% 60% at 50% 50%, black 20%, transparent 70%);
+}
+
+.pack-hero__content { position: relative; }
+
+.pack-hero__logo {
+  height: 36px;
+  width: auto;
+  display: block;
+  margin-bottom: 20px;
+  filter: brightness(1.1);
+}
+
+.pack-hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+  opacity: 0.8;
+}
+
+.pack-hero__title {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.pack-hero__meta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.pack-hero__meta-item {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.pack-hero__meta-item strong { color: var(--secondary); font-weight: 400; }
+
+.pack-hero__tags {
+  display: flex;
+  gap: 6px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.pack-hero__tag {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  color: var(--muted);
+}
+
+.pack-hero__deps {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.pack-hero__dep-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.pack-hero__dep-id {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  padding: 2px 8px;
+  border: 1px solid var(--brief-dim);
+  color: var(--brief-accent);
+}
+
+/* ── Side Navigation ─────────────────────────── */
+
+.layout {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  min-height: calc(100vh - 52px);
+}
+
+.nav {
+  position: sticky;
+  top: 52px;
+  height: calc(100vh - 52px);
+  overflow-y: auto;
+  border-right: 1px solid var(--border);
+  padding: 24px 0;
+  background: var(--near-black);
+}
+
+.nav__heading {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  padding: 0 20px;
+  margin-bottom: 12px;
+}
+
+.nav__group {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 14px 20px 6px;
+  opacity: 0.6;
+}
+
+.nav__group:first-child { padding-top: 0; }
+
+.nav__link {
+  display: block;
+  padding: 6px 20px;
+  font-size: 11px;
+  color: var(--secondary);
+  transition: color 0.15s, background 0.15s;
+  border-left: 2px solid transparent;
+  line-height: 1.4;
+}
+
+.nav__link:hover {
+  color: var(--white);
+  background: var(--accent-glow);
+  border-left-color: var(--accent);
+}
+
+.nav__link--brief {
+  color: var(--brief-accent);
+  border-left-color: var(--brief-dim);
+}
+
+.nav__link--brief:hover {
+  background: rgba(92, 154, 110, 0.06);
+  border-left-color: var(--brief-accent);
+}
+
+.nav__count {
+  display: block;
+  padding: 6px 20px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  margin-top: 16px;
+  border-top: 1px solid var(--border);
+  padding-top: 16px;
+}
+
+/* ── Main Content ────────────────────────────── */
+
+.main { padding: 0; }
+
+/* ── Section ─────────────────────────────────── */
+
+.section { border-bottom: 1px solid var(--border); }
+
+/* Design asset sections get a gold top accent */
+.section--design { border-left: 2px solid var(--accent); }
+.section--design .section__header { background: rgba(200, 164, 78, 0.03); }
+
+/* Brief sections get a green accent */
+.section--brief { border-left: 2px solid var(--brief-accent); }
+.section--brief .section__header { background: rgba(92, 154, 110, 0.03); }
+
+.section__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 20px clamp(16px, 3vw, 40px);
+  background: var(--near-black);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 52px;
+  z-index: 10;
+}
+
+.section__number {
+  font-family: var(--font-mono);
+  font-size: 20px;
+  font-weight: 300;
+  color: var(--accent);
+  opacity: 0.5;
+  min-width: 36px;
+}
+
+.section__meta { flex: 1; min-width: 0; }
+
+.section__title {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--white);
+  text-transform: capitalize;
+  margin-bottom: 2px;
+}
+
+.section__info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  flex-wrap: wrap;
+}
+
+.section__tier-badge {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  padding: 1px 6px;
+  border-radius: 2px;
+}
+
+.section__tier-badge--0 {
+  background: rgba(200, 164, 78, 0.12);
+  color: var(--accent);
+  border: 1px solid rgba(200, 164, 78, 0.25);
+}
+
+.section__tier-badge--1 {
+  background: rgba(92, 130, 196, 0.1);
+  color: #7a9ed4;
+  border: 1px solid rgba(92, 130, 196, 0.2);
+}
+
+.section__tier-badge--2 {
+  background: rgba(92, 154, 110, 0.1);
+  color: var(--brief-accent);
+  border: 1px solid var(--brief-dim);
+}
+
+.section__tier-badge--3 {
+  background: rgba(138, 139, 158, 0.08);
+  color: var(--secondary);
+  border: 1px solid var(--border-mid);
+}
+
+.section__tier-badge--4 {
+  background: rgba(138, 139, 158, 0.05);
+  color: var(--muted);
+  border: 1px solid var(--border);
+}
+
+.section__dot { opacity: 0.4; }
+
+.section__source {
+  font-size: 9px;
+  letter-spacing: 0.06em;
+  padding: 1px 6px;
+  border: 1px solid var(--brief-dim);
+  color: var(--brief-accent);
+  margin-left: 4px;
+}
+
+.section__content {
+  padding: clamp(16px, 3vw, 40px);
+}
+
+/* ── Markdown Rendering ──────────────────────── */
+
+.section__markdown {
+  max-width: 760px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: var(--text);
+}
+
+.section__markdown h1 {
+  font-size: 24px;
+  font-weight: 600;
+  color: var(--white);
+  margin: 32px 0 16px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--border);
+}
+
+.section__markdown h1:first-child { margin-top: 0; }
+
+.section__markdown h2 {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--white);
+  margin: 28px 0 12px;
+}
+
+.section__markdown h3 {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--light);
+  margin: 24px 0 8px;
+}
+
+.section__markdown p { margin: 12px 0; }
+.section__markdown strong { color: var(--white); font-weight: 500; }
+.section__markdown em { color: var(--accent); font-style: normal; }
+.section__markdown ul, .section__markdown ol { padding-left: 20px; margin: 12px 0; }
+.section__markdown li { margin: 6px 0; color: var(--text); }
+.section__markdown li::marker { color: var(--accent); }
+.section__markdown hr { border: none; height: 1px; background: var(--border); margin: 28px 0; }
+
+.section__markdown code {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  background: var(--panel);
+  padding: 2px 6px;
+  border-radius: 3px;
+  color: var(--accent);
+}
+
+.section__markdown blockquote {
+  border-left: 2px solid var(--accent);
+  padding-left: 16px;
+  margin: 16px 0;
+  color: var(--secondary);
+  font-style: italic;
+}
+
+.section__markdown table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  font-size: 13px;
+}
+
+.section__markdown th {
+  text-align: left;
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 1px solid var(--border-mid);
+  font-weight: 500;
+}
+
+.section__markdown td {
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* ── HTML Preview ────────────────────────────── */
+
+.section__preview-frame {
+  border: 1px solid var(--border-mid);
+  border-radius: 4px;
+  overflow: hidden;
+  background: #fff;
+}
+
+.section__preview-frame--hero {
+  border-color: rgba(200, 164, 78, 0.2);
+  box-shadow: 0 4px 32px rgba(0,0,0,0.3);
+}
+
+.section__iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  display: block;
+}
+
+.section__iframe--hero {
+  height: 720px;
+}
+
+.section__preview-actions {
+  margin-top: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+/* ── Image ───────────────────────────────────── */
+
+.section__image {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  display: inline-block;
+}
+
+.section__image img { display: block; max-width: 100%; height: auto; }
+
+/* ── Package ─────────────────────────────────── */
+
+.section__package {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px;
+  border: 1px dashed var(--border-mid);
+  border-radius: 4px;
+  color: var(--secondary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+}
+
+.section__package-icon { font-size: 20px; color: var(--accent); }
+
+/* ── Buttons ─────────────────────────────────── */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+  text-decoration: none;
+  flex-shrink: 0;
+}
+
+.btn--small {
+  padding: 6px 14px;
+  font-size: 9px;
+  border: 1px solid var(--border-mid);
+  background: transparent;
+  color: var(--secondary);
+}
+
+.btn--small:hover { border-color: var(--accent); color: var(--accent); }
+
+.btn--ghost {
+  border: 1px solid var(--border-light);
+  background: transparent;
+  color: var(--secondary);
+}
+
+.btn--ghost:hover { border-color: var(--accent); color: var(--white); }
+
+/* ── Footer ──────────────────────────────────── */
+
+.pack-footer {
+  padding: 32px clamp(16px, 3vw, 48px);
+  border-top: 1px solid var(--border);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.pack-footer__logo {
+  height: 20px;
+  width: auto;
+  display: block;
+  opacity: 0.5;
+  transition: opacity 0.2s;
+}
+
+.pack-footer__logo:hover { opacity: 0.8; }
+
+.pack-footer__brand {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  opacity: 0.5;
+}
+
+.pack-footer__generated {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--muted);
+}
+
+/* ── Accordion (Approved Briefs) ──────────────── */
+
+.accordion {
+  border-bottom: 1px solid var(--border);
+  background: var(--near-black);
+}
+
+.accordion__trigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px clamp(16px, 3vw, 40px);
+  background: none;
+  border: none;
+  border-left: 2px solid var(--brief-accent);
+  cursor: pointer;
+  color: var(--text);
+  font-family: var(--font-display);
+  transition: background 0.15s;
+}
+
+.accordion__trigger:hover { background: rgba(92, 154, 110, 0.04); }
+
+.accordion__icon {
+  font-size: 10px;
+  color: var(--brief-accent);
+  transition: transform 0.2s;
+  display: inline-block;
+}
+
+.accordion--open .accordion__icon { transform: rotate(90deg); }
+
+.accordion__label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  color: var(--brief-accent);
+}
+
+.accordion__count {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  padding: 1px 6px;
+  background: var(--brief-dim);
+  color: var(--brief-accent);
+  border-radius: 2px;
+}
+
+.accordion__deps {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--muted);
+  margin-left: auto;
+}
+
+.accordion__expand-hint {
+  font-family: var(--font-mono);
+  font-size: 8px;
+  color: var(--muted);
+  letter-spacing: 0.06em;
+  opacity: 0.6;
+}
+
+.accordion--open .accordion__expand-hint { display: none; }
+
+.accordion__body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease;
+}
+
+.accordion--open .accordion__body {
+  max-height: 5000px;
+}
+
+.accordion__item {
+  border-top: 1px solid var(--border);
+}
+
+.accordion__item-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px clamp(16px, 3vw, 40px) 12px calc(clamp(16px, 3vw, 40px) + 12px);
+}
+
+.accordion__item-title {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--light);
+  text-transform: capitalize;
+  min-width: 160px;
+}
+
+.accordion__item-content {
+  padding: 0 clamp(16px, 3vw, 40px) 24px calc(clamp(16px, 3vw, 40px) + 12px);
+}
+
+/* ── Edit Mode ───────────────────────────────── */
+
+.nav__edit-btn {
+  display: block;
+  margin: 16px 20px 0;
+  padding: 8px 14px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  background: none;
+  border: 1px solid var(--border-mid);
+  cursor: pointer;
+  transition: all 0.15s;
+  text-align: center;
+}
+
+.nav__edit-btn:hover { border-color: var(--accent); color: var(--accent); }
+.nav__edit-btn--active { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
+
+/* Drag handle — hidden until edit mode */
+.section__drag-handle {
+  display: none;
+  font-size: 14px;
+  color: var(--muted);
+  cursor: grab;
+  padding: 4px 8px;
+  user-select: none;
+  flex-shrink: 0;
+  transition: color 0.15s;
+}
+
+.section__drag-handle:hover { color: var(--accent); }
+.section__drag-handle:active { cursor: grabbing; }
+
+/* Delete button — hidden until edit mode */
+.section__delete-btn {
+  display: none;
+  font-size: 18px;
+  color: var(--muted);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px 10px;
+  flex-shrink: 0;
+  transition: color 0.15s;
+  font-family: var(--font-display);
+  line-height: 1;
+}
+
+.section__delete-btn:hover { color: #e5534b; }
+
+/* Edit mode active */
+body.edit-mode .section__drag-handle { display: block; }
+body.edit-mode .section__delete-btn { display: block; }
+body.edit-mode .section { transition: opacity 0.2s, transform 0.2s; }
+body.edit-mode .section[draggable="true"] { cursor: grab; }
+
+/* Drag states */
+.section.dragging {
+  opacity: 0.4;
+  background: var(--accent-glow);
+}
+
+.section.drag-over {
+  border-top: 2px solid var(--accent);
+}
+
+/* Deleted section fade-out */
+.section.deleting {
+  opacity: 0;
+  transform: translateX(40px);
+  max-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+  border: none;
+  transition: all 0.3s ease;
+}
+
+/* ── Responsive ──────────────────────────────── */
+
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  .nav { display: none; }
+  .section__header { position: relative; top: auto; }
+  .section__iframe--hero { height: 500px; }
+}
+</style>
+<style>
+  .imageye-selected {
+    outline: 2px solid black !important;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
+  }
+</style><style>@font-face { font-family: DMSans; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/DMSans-Regular.ttf'); }@font-face { font-family: PoppinsMedium; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Poppins-Medium.otf'); }@font-face { font-family: PoppinsRegular; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Poppins-Regular.otf'); }@font-face { font-family: Roboto; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Roboto-Regular.ttf'); }@font-face { font-family: Inter; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Inter-VariableFont_opsz,wght.ttf'); }</style></head>
+<body cz-shortcut-listen="true">
+
+<!-- Top Bar -->
+<header class="topbar">
+  <div class="topbar__left">
+    <img src="data:image/png;base64,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" alt="776BC" class="topbar__logo">
+    <div class="topbar__sep"></div>
+    <span class="topbar__label">Design Pack</span>
+  </div>
+  <div class="topbar__right">
+    <span class="topbar__badge">TASK-0008</span>
+    <span class="topbar__badge">14 assets</span>
+  </div>
+</header>
+
+<!-- Pack Hero -->
+<div class="pack-hero">
+  <div class="pack-hero__grid"></div>
+  <div class="pack-hero__content">
+    <div class="pack-hero__eyebrow">TASK-0008 — Design Pack</div>
+    <h1 class="pack-hero__title">V1 Zooty HOCR — Stage 2 execution assets</h1>
+    <div class="pack-hero__meta">
+      <span class="pack-hero__meta-item">Agent: <strong>Calliope + Apollo</strong></span>
+      <span class="pack-hero__meta-item">Updated: <strong>2026-03-17</strong></span>
+      <span class="pack-hero__meta-item">Assets: <strong>14</strong></span>
+      <span class="pack-hero__meta-item">Design Assets: <strong>4</strong></span>
+      <span class="pack-hero__meta-item">Documents: <strong>6</strong></span>
+    </div>
+    <div class="pack-hero__tags"><span class="pack-hero__tag">v1-zooty</span><span class="pack-hero__tag">hocr</span><span class="pack-hero__tag">campaign</span><span class="pack-hero__tag">content</span><span class="pack-hero__tag">execution</span><span class="pack-hero__tag">776bc</span></div>
+    <div class="pack-hero__deps">
+      <span class="pack-hero__dep-label">Includes briefs from:</span>
+      <span class="pack-hero__dep-id">TASK-0007</span>
+    </div>
+  </div>
+</div>
+
+<!-- Layout -->
+<div class="layout">
+  <nav class="nav">
+    <div class="nav__heading">Contents</div>
+    <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#briefs-accordion" class="nav__link nav__link--brief">▸ Approved Briefs (1)</a>
+<div class="nav__group">Design Assets</div>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-0" class="nav__link">◈ v1 zooty landing page</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-1" class="nav__link">◈ v1 zooty landing</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-2" class="nav__link">◈ v1 zooty email series</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-3" class="nav__link">◈ v1 zooty social content</a>
+<div class="nav__group">Images</div>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-4" class="nav__link">▨ bc logo gold large</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-5" class="nav__link">▨ bc logo gold</a>
+<div class="nav__group">Documents</div>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-6" class="nav__link">▪ campaign landing page copy</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-7" class="nav__link">▪ launch email series</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-8" class="nav__link">▪ social media content</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-9" class="nav__link">▪ short form video concepts</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-10" class="nav__link">▪ the line hero film brief</a>
+<div class="nav__group">Packages</div>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-11" class="nav__link">◆ v1 zooty landing</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-12" class="nav__link">◆ v1 zooty email series</a>
+
+    <div class="nav__count">14 deliverables</div>
+    <button class="nav__edit-btn" onclick="toggleEditMode()" id="editToggle">✎ Edit Mode</button>
+  </nav>
+
+  <main class="main" id="mainContent">
+    
+    <div class="accordion" id="briefs-accordion">
+      <button class="accordion__trigger" onclick="this.parentElement.classList.toggle(&#39;accordion--open&#39;)">
+        <span class="accordion__icon">▶</span>
+        <span class="accordion__label">Approved Briefs</span>
+        <span class="accordion__count">1</span>
+        <span class="accordion__deps">TASK-0007</span>
+        <span class="accordion__expand-hint">Click to expand</span>
+      </button>
+      <div class="accordion__body">
+        
+      <div class="accordion__item">
+        <div class="accordion__item-header">
+          <span class="accordion__item-title">stage 1 v1 zooty hocr strategy</span>
+          <span class="section__info" style="flex:1">
+            <span class="section__source">TASK-0007</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">12.8 KB</span>
+          </span>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0007/stage-1-v1-zooty-hocr-strategy.md?download=1" download="" class="btn btn--small">Download</a>
+        </div>
+        <div class="accordion__item-content">
+          <div class="section__markdown"><h1>V1 Zooty Men's — HOCR Launch Strategy</h1>
+<h2>Stage 1: Strategic Marketing Plan for Leadership Approval</h2>
+<p><strong>Prepared by:</strong> Strategos (Orchestrator) with Athena (Strategy) + Argus (Research)
+<strong>Date:</strong> 2026-03-17
+<strong>Status:</strong> DRAFT — Awaiting Cameron / Leadership Approval
+<strong>Task:</strong> TASK-0007</p>
+<hr>
+<h2>1. Executive Summary</h2>
+<p>The V1 Zooty Men's is 776BC's first product designed explicitly for the North American competitive rowing market, launched around the Head of the Charles Regatta — the single largest and most culturally significant rowing event in the United States.</p>
+<p>This is not a product launch. It is a market-entry moment.</p>
+<p>The strategy positions the V1 Zooty as the performance garment that treats rowing with the same engineering precision that GT and Formula One bring to motorsport. The athlete is the driver. The Zooty is the machine. 776BC is the team behind both.</p>
+<p><strong>Core bet:</strong> Own the visual identity of HOCR 2026 through a product that elite rowers want to be seen in — not because it is fashionable, but because it signals that the wearer takes the craft seriously.</p>
+<hr>
+<h2>2. Product Positioning</h2>
+<h3>Positioning Statement</h3>
+<p>For competitive male rowers in North America who demand gear engineered with the same precision they bring to their training, the V1 Zooty is the performance garment built by a two-time Olympian's brand that treats rowing like a high-performance discipline — not a recreational sport.</p>
+<h3>Creative Territory: "Engineered for the Start Line"</h3>
+<p>The V1 Zooty borrows its design philosophy from GT and Formula One racing:</p>
+<ul>
+<li><strong>Speed</strong> — aerodynamic construction, zero-drag seaming, form-hugging fit</li>
+<li><strong>Precision</strong> — every panel placement informed by the rowing stroke cycle</li>
+<li><strong>Elite engineering</strong> — materials and construction at the level the sport deserves</li>
+<li><strong>Competitive identity</strong> — wearing it is a statement about who you are and how you train</li>
+</ul>
+<p>This is not "sportswear inspired by motorsport aesthetics." This is the shared principle: when fractions matter, everything is engineered.</p>
+<h3>What the V1 Zooty Is Not</h3>
+<ul>
+<li>Not lifestyle. Not fashion-forward. Not for the athlete who trains casually.</li>
+<li>Not discount-positioned. Not urgency-sold.</li>
+<li>Not a generic rowing unisuit with a new name.</li>
+</ul>
+<h3>Naming Note</h3>
+<p>"V1 Zooty" follows 776BC naming conventions. "V1" signals first generation — with built-in architecture for future iterations. "Zooty" is a rowing-native term (the zootsuit/unisuit), reclaimed and elevated.</p>
+<hr>
+<h2>3. Target Audience</h2>
+<h3>Primary: The HOCR Competitor</h3>
+<p><strong>Profile:</strong> Male, 22–35, competitive club or collegiate rower in the Northeast US. Rows at a club like Community Rowing Inc., Riverside Boat Club, or a collegiate programme. Trains 5–6 days/week. Has raced HOCR before or is preparing for his first entry. Takes the sport seriously enough to invest in kit that performs.</p>
+<p><strong>Psychographic:</strong> Metric-driven. Knows his 2k erg score to the tenth of a second. Respects brands with genuine athletic pedigree. Sceptical of brands that market to rowers without understanding the sport. Values function, durability, and credibility over aesthetics.</p>
+<p><strong>Current wardrobe:</strong> JL Racing, Boathouse Sports, generic club-issued kit. Has heard of 776BC through Australian rowing connections or international coverage. Does not yet own any 776BC product.</p>
+<p><strong>Entry point:</strong> HOCR event activation, targeted digital campaign, word-of-mouth from 776BC-sponsored athletes.</p>
+<h3>Secondary: The Adam Archetype (Next-Gen)</h3>
+<p>The 17-year-old competitive male rower (Adam persona) whose entire identity revolves around his erg score and his dream of rowing at Harvard. His parents invest in his development. He wears 776BC unisuits on-water already. The V1 Zooty extends that relationship into his aspirational race-day wardrobe.</p>
+<h3>Tertiary: Marcus Crossover</h3>
+<p>The 30-year-old former collegiate rower now in finance/tech who still rows at a masters level and enters HOCR with his old crew. He has spending power ($120K+), appreciates premium product, and responds to brands with authentic athletic heritage.</p>
+<hr>
+<h2>4. Campaign Concept</h2>
+<h3>Campaign Name: <strong>"Built for the Line"</strong></h3>
+<p>"The Line" operates on three levels:</p>
+<ol>
+<li><strong>The start line</strong> — where everything you have prepared for is tested</li>
+<li><strong>The racing line</strong> — the optimal path through the course (borrowed from motorsport)</li>
+<li><strong>The line between preparation and performance</strong> — the moment where training becomes racing</li>
+</ol>
+<h3>Narrative Arc</h3>
+<p><strong>Phase 1 — Preparation (8 weeks before HOCR)</strong>
+Content theme: the work that happens before the start line. Training footage, erg sessions, early mornings. The V1 Zooty is present but not centred — it is part of the athlete's world.</p>
+<p><strong>Phase 2 — Reveal (4 weeks before HOCR)</strong>
+Product launch. The V1 Zooty is formally introduced through a hero content piece (short film or longform article). The GT/F1 engineering parallel is made explicit. Pre-orders open.</p>
+<p><strong>Phase 3 — Race Week (HOCR event week)</strong>
+On-the-ground activation at HOCR. Athletes wearing the V1 Zooty. Real-time content from the Charles River. The product is no longer being sold — it is being worn by people who matter.</p>
+<p><strong>Phase 4 — Aftermath (2 weeks post-HOCR)</strong>
+Race recaps, athlete stories, performance data. Community content from athletes who wore the V1 Zooty at HOCR. UGC amplification.</p>
+<h3>Hero Content Piece</h3>
+<p>A short film (3–5 minutes): <strong>"The Line"</strong></p>
+<p>Concept: Follow 2–3 competitive rowers through their HOCR preparation. Early mornings on the Charles. Erg sessions in the boathouse. Equipment checks. The V1 Zooty is their race-day armour. The film draws the parallel between F1 pre-race preparation and rowing pre-race preparation — both are high-precision disciplines where margins are measured in fractions.</p>
+<p>The film positions the athlete as the driver and 776BC as the engineering team. The brand is the guide, not the hero.</p>
+<hr>
+<h2>5. Channel Strategy</h2>
+<h3>Owned Channels</h3>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Role</th>
+<th>Content Type</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>776bc.com</strong></td>
+<td>Product hub + campaign landing page</td>
+<td>V1 Zooty PDP, "Built for the Line" campaign page, pre-order flow</td>
+</tr>
+<tr>
+<td><strong>Email (Klaviyo)</strong></td>
+<td>Launch sequence + nurture</td>
+<td>4-part launch email series, segmented by rowing interest</td>
+</tr>
+<tr>
+<td><strong>Instagram</strong></td>
+<td>Primary social — awareness + community</td>
+<td>Reels (athlete training), carousels (product engineering), stories (BTS)</td>
+</tr>
+<tr>
+<td><strong>TikTok</strong></td>
+<td>Discovery + virality</td>
+<td>Short-form training content, erg footage, race-day prep</td>
+</tr>
+<tr>
+<td><strong>YouTube</strong></td>
+<td>Hero content home</td>
+<td>"The Line" short film, athlete features, product deep-dive</td>
+</tr>
+</tbody></table>
+<h3>Earned Channels</h3>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Approach</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Rowing media</strong> (row2k, Rowing News)</td>
+<td>Seed product with editors 6 weeks pre-HOCR. Offer Cameron for interview.</td>
+</tr>
+<tr>
+<td><strong>Collegiate rowing networks</strong></td>
+<td>Seed V1 Zooty with 3–5 influential collegiate rowers for organic wear</td>
+</tr>
+<tr>
+<td><strong>Podcast circuit</strong></td>
+<td>Mercantile Radio episode on the V1 Zooty design philosophy. Pitch Cameron to US rowing podcasts (Ready All Row, Rowing Chat)</td>
+</tr>
+</tbody></table>
+<h3>Paid Channels</h3>
+<table>
+<thead>
+<tr>
+<th>Channel</th>
+<th>Budget Allocation</th>
+<th>Creative</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Meta (IG + FB)</strong></td>
+<td>50% of paid budget</td>
+<td>Athlete-in-training creative (proven 7.11x ROAS with ECHO format)</td>
+</tr>
+<tr>
+<td><strong>YouTube pre-roll</strong></td>
+<td>25% of paid budget</td>
+<td>15-second cut of "The Line" film targeting rowing + endurance audiences</td>
+</tr>
+<tr>
+<td><strong>Google Shopping</strong></td>
+<td>15% of paid budget</td>
+<td>Product-focused, high-intent capture</td>
+</tr>
+<tr>
+<td><strong>TikTok Spark Ads</strong></td>
+<td>10% of paid budget</td>
+<td>Boost organic athlete content</td>
+</tr>
+</tbody></table>
+<p><strong>Targeting:</strong> Males 18–40, interests: rowing, Head of the Charles, competitive endurance sport, Concept2, Strava. Geo: Northeast US (MA, CT, NY, PA, NJ), with secondary reach to West Coast rowing markets (WA, CA).</p>
+<h3>Event Activation</h3>
+<p><strong>HOCR On-Ground Presence:</strong></p>
+<ul>
+<li>776BC TRAILER pop-up at the regatta venue (Eliot Bridge / Weeks Footbridge area)</li>
+<li>V1 Zooty available for purchase on-site</li>
+<li>Athlete meet-and-greet (Cameron if available, or 776BC-sponsored US-based rowers)</li>
+<li>Photo activation: "The Line" branded backdrop for race-day photos</li>
+<li>Free MOTION movement analysis demos (ties back to MOTION technology platform)</li>
+</ul>
+<hr>
+<h2>6. Launch Sequencing</h2>
+<table>
+<thead>
+<tr>
+<th>Week</th>
+<th>Phase</th>
+<th>Key Actions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>W-8</strong></td>
+<td>Preparation</td>
+<td>Seed product with media + athletes. Begin "dark" training content (no product reveal).</td>
+</tr>
+<tr>
+<td><strong>W-6</strong></td>
+<td>Build</td>
+<td>Teaser content — close-up details, engineering parallels. "Something is coming."</td>
+</tr>
+<tr>
+<td><strong>W-4</strong></td>
+<td>Reveal</td>
+<td>Product launch. Hero film drops. Pre-orders open. Launch email series begins. Paid media activates.</td>
+</tr>
+<tr>
+<td><strong>W-3</strong></td>
+<td>Amplify</td>
+<td>Athlete seeding content goes live. Earned media coverage. Podcast appearances.</td>
+</tr>
+<tr>
+<td><strong>W-2</strong></td>
+<td>Countdown</td>
+<td>Race-week countdown content. HOCR-specific messaging. Event logistics for TRAILER.</td>
+</tr>
+<tr>
+<td><strong>W-0</strong></td>
+<td>HOCR Week</td>
+<td>On-ground activation. Real-time social content. Product available on-site.</td>
+</tr>
+<tr>
+<td><strong>W+1</strong></td>
+<td>Aftermath</td>
+<td>Race recaps. Athlete stories. UGC amplification.</td>
+</tr>
+<tr>
+<td><strong>W+2</strong></td>
+<td>Sustain</td>
+<td>Performance data. Community content. Retargeting campaign to site visitors.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. Media Engine Asset Cascade</h2>
+<p>Following the 776BC media operating model — one hero input generates multiple derivative assets:</p>
+<h3>Hero Input: "The Line" Short Film</h3>
+<table>
+<thead>
+<tr>
+<th>Derivative</th>
+<th>Channel</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Full film (3–5 min)</td>
+<td>YouTube</td>
+<td>Video</td>
+</tr>
+<tr>
+<td>60-second cut</td>
+<td>Instagram Reels, TikTok</td>
+<td>Video</td>
+</tr>
+<tr>
+<td>15-second cut</td>
+<td>YouTube pre-roll, Meta ads</td>
+<td>Video</td>
+</tr>
+<tr>
+<td>3x quote cards from athletes</td>
+<td>Instagram Stories, carousel</td>
+<td>Static</td>
+</tr>
+<tr>
+<td>Behind-the-scenes reel</td>
+<td>TikTok, Stories</td>
+<td>Video</td>
+</tr>
+<tr>
+<td>Longform article: "Why we built the V1 Zooty"</td>
+<td>Blog, newsletter</td>
+<td>Written</td>
+</tr>
+<tr>
+<td>Podcast episode: Cameron on the design philosophy</td>
+<td>Mercantile Radio, Spotify</td>
+<td>Audio</td>
+</tr>
+<tr>
+<td>Email excerpt: "Built for the Line"</td>
+<td>Klaviyo</td>
+<td>Written</td>
+</tr>
+<tr>
+<td>Product photography set</td>
+<td>PDP, ads, social</td>
+<td>Static</td>
+</tr>
+</tbody></table>
+<p><strong>Total estimated assets from one hero shoot: 15–20 unique pieces</strong></p>
+<hr>
+<h2>8. KPIs and Success Metrics</h2>
+<h3>Awareness</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hero film views (YouTube + social)</td>
+<td>50,000 in first 30 days</td>
+</tr>
+<tr>
+<td>Social impressions (campaign period)</td>
+<td>500,000+</td>
+</tr>
+<tr>
+<td>Earned media mentions</td>
+<td>5+ (row2k, Rowing News, podcasts)</td>
+</tr>
+<tr>
+<td>Email list growth (rowing segment)</td>
+<td>+1,000 subscribers</td>
+</tr>
+</tbody></table>
+<h3>Consideration</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Campaign landing page visits</td>
+<td>10,000</td>
+</tr>
+<tr>
+<td>Product page views</td>
+<td>5,000</td>
+</tr>
+<tr>
+<td>Email open rate (launch series)</td>
+<td>35%+</td>
+</tr>
+<tr>
+<td>Time on site (campaign page)</td>
+<td>&gt;2 minutes avg</td>
+</tr>
+</tbody></table>
+<h3>Conversion</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pre-order units (W-4 to W-0)</td>
+<td>200</td>
+</tr>
+<tr>
+<td>HOCR event sales</td>
+<td>100 units</td>
+</tr>
+<tr>
+<td>First 60-day total units</td>
+<td>500</td>
+</tr>
+<tr>
+<td>Paid media ROAS</td>
+<td>3.5x+ (benchmark: ECHO at 7.11x)</td>
+</tr>
+</tbody></table>
+<h3>Community</h3>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Target</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>UGC posts featuring V1 Zooty at HOCR</td>
+<td>50+</td>
+</tr>
+<tr>
+<td>Athlete seeding: public wears/mentions</td>
+<td>10+ athletes</td>
+</tr>
+<tr>
+<td>TRAILER event foot traffic</td>
+<td>500+ visitors across race weekend</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>9. Risk Register</h2>
+<table>
+<thead>
+<tr>
+<th>Risk</th>
+<th>Likelihood</th>
+<th>Impact</th>
+<th>Mitigation</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Product delivery delay (misses HOCR)</td>
+<td>Medium</td>
+<td>Critical</td>
+<td>Build 2-week buffer into production timeline. Have backup plan for pre-order-only launch if product is delayed.</td>
+</tr>
+<tr>
+<td>Low awareness in US market (brand unknown)</td>
+<td>High</td>
+<td>High</td>
+<td>Over-index on earned media and athlete seeding. Cameron's Olympic credentials open doors.</td>
+</tr>
+<tr>
+<td>HOCR weather disruption</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Prepare indoor/sheltered TRAILER setup. Weather-agnostic content plan.</td>
+</tr>
+<tr>
+<td>Competitor launches at HOCR</td>
+<td>Low</td>
+<td>Medium</td>
+<td>Differentiation is strong (no competitor has Olympic founder + patented MOTION tech). Stay on-brand.</td>
+</tr>
+<tr>
+<td>GT/F1 aesthetic misread as "not rowing"</td>
+<td>Medium</td>
+<td>Medium</td>
+<td>Ensure all creative features rowing context prominently. The parallel is engineering precision, not motorsport lifestyle.</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>10. Budget Framework (Indicative)</h2>
+<table>
+<thead>
+<tr>
+<th>Category</th>
+<th>Estimated Range</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Hero content production ("The Line" film)</td>
+<td>$5,000–15,000</td>
+</tr>
+<tr>
+<td>Paid media (8-week campaign)</td>
+<td>$10,000–25,000</td>
+</tr>
+<tr>
+<td>HOCR event activation (TRAILER, logistics)</td>
+<td>$5,000–10,000</td>
+</tr>
+<tr>
+<td>Athlete seeding (product gifting)</td>
+<td>$2,000–5,000</td>
+</tr>
+<tr>
+<td>Earned media outreach</td>
+<td>Internal (Hermes agent)</td>
+</tr>
+<tr>
+<td><strong>Total estimated range</strong></td>
+<td><strong>$22,000–55,000</strong></td>
+</tr>
+</tbody></table>
+<p><em>Note: Budget ranges are indicative. Final figures require Cameron/leadership input on production ambition and paid media commitment.</em></p>
+<hr>
+<h2>11. Approval Gate</h2>
+<p>This Stage 1 document requires leadership approval before proceeding to Stage 2 execution.</p>
+<p><strong>Decision required:</strong></p>
+<ol>
+<li>Approve campaign concept ("Built for the Line") — Y/N</li>
+<li>Approve GT/F1 engineering creative territory — Y/N</li>
+<li>Approve launch sequencing and HOCR timeline — Y/N</li>
+<li>Approve indicative budget range — Y/N</li>
+<li>Confirm hero content format (short film vs. longform article vs. both) — preference</li>
+<li>Confirm athlete seeding list — who should receive product?</li>
+</ol>
+<p><strong>Once approved, Stage 2 produces:</strong></p>
+<ul>
+<li>Campaign landing page copy</li>
+<li>4-part launch email series</li>
+<li>Social media content concepts (captions, short-form video scripts, static tile briefs)</li>
+<li>"The Line" film creative brief</li>
+</ul>
+<hr>
+<p><em>Prepared by Strategos. Strategy by Athena. Research by Argus. Brand compliance pending (Themis gate on Stage 2 execution assets).</em></p>
+</div>
+        </div>
+      </div>
+      </div>
+    </div>
+    
+    <section class="section section--design" id="section-0" draggable="false" data-section-idx="0">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">01</div>
+        <div class="section__meta">
+          <h2 class="section__title">v1 zooty landing page</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">v1-zooty-landing-page.html</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">37.5 KB</span>
+            
+          </div>
+        </div>
+        
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__preview-frame section__preview-frame--hero">
+          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/v1-zooty-landing-page.html" title="v1 zooty landing page" class="section__iframe section__iframe--hero"></iframe>
+        </div>
+        <div class="section__preview-actions">
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html?download=1" download="" class="btn btn--small">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--design" id="section-1" draggable="false" data-section-idx="1">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">02</div>
+        <div class="section__meta">
+          <h2 class="section__title">v1 zooty landing</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">v1-zooty-landing/index.html</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">38.2 KB</span>
+            
+          </div>
+        </div>
+        
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__preview-frame section__preview-frame--hero">
+          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/index.html" title="v1 zooty landing" class="section__iframe section__iframe--hero"></iframe>
+        </div>
+        <div class="section__preview-actions">
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html?download=1" download="" class="btn btn--small">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--design" id="section-2" draggable="false" data-section-idx="2">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">03</div>
+        <div class="section__meta">
+          <h2 class="section__title">v1 zooty email series</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">v1-zooty-email-series/index.html</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">50.3 KB</span>
+            
+          </div>
+        </div>
+        
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__preview-frame section__preview-frame--hero">
+          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/index(1).html" title="v1 zooty email series" class="section__iframe section__iframe--hero"></iframe>
+        </div>
+        <div class="section__preview-actions">
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-email-series/index.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-email-series/index.html?download=1" download="" class="btn btn--small">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--design" id="section-3" draggable="false" data-section-idx="3">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">04</div>
+        <div class="section__meta">
+          <h2 class="section__title">v1 zooty social content</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">v1-zooty-social-content.html</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">33.7 KB</span>
+            
+          </div>
+        </div>
+        
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__preview-frame section__preview-frame--hero">
+          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/v1-zooty-social-content.html" title="v1 zooty social content" class="section__iframe section__iframe--hero"></iframe>
+        </div>
+        <div class="section__preview-actions">
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-social-content.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-social-content.html?download=1" download="" class="btn btn--small">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section-4" draggable="false" data-section-idx="4">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">05</div>
+        <div class="section__meta">
+          <h2 class="section__title">bc logo gold large</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--1">Image</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">776bc-logo-gold-large.png</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">29.2 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/776bc-logo-gold-large.png?download=1" download="" class="btn btn--small">Download</a>
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__image">
+          <img src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/776bc-logo-gold-large.png" alt="bc logo gold large">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section-5" draggable="false" data-section-idx="5">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">06</div>
+        <div class="section__meta">
+          <h2 class="section__title">bc logo gold</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--1">Image</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">776bc-logo-gold.png</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">4.7 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/776bc-logo-gold.png?download=1" download="" class="btn btn--small">Download</a>
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__image">
+          <img src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/776bc-logo-gold.png" alt="bc logo gold">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section-6" draggable="false" data-section-idx="6">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">07</div>
+        <div class="section__meta">
+          <h2 class="section__title">campaign landing page copy</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--3">Document</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">01-campaign-landing-page-copy.md</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">4.4 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/01-campaign-landing-page-copy.md?download=1" download="" class="btn btn--small">Download</a>
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        <div class="section__markdown"><h1>V1 Zooty Men's — Campaign Landing Page Copy</h1>
+<h2>"Built for the Line"</h2>
+<p><strong>Prepared by:</strong> Calliope (Content Agent)
+<strong>Task:</strong> TASK-0008
+<strong>Date:</strong> 2026-03-17
+<strong>Format:</strong> Web copy — 776bc.com/built-for-the-line</p>
+<hr>
+<h2>Hero Section</h2>
+<p><strong>Headline:</strong>
+Built for the Line.</p>
+<p><strong>Subhead:</strong>
+The V1 Zooty Men's. Engineered with the same precision you bring to the start.</p>
+<p><strong>Hero CTA:</strong>
+Pre-Order Now</p>
+<p><strong>Hero Visual Direction:</strong> Full-bleed athlete image — rower at the catch position on the Charles River, early morning light, wearing V1 Zooty. Shot from water level. Product visible but not centred. The athlete is centred.</p>
+<hr>
+<h2>Section 1: The Engineering Parallel</h2>
+<p><strong>Section Headline:</strong>
+When fractions define the outcome, everything is engineered.</p>
+<p><strong>Body:</strong>
+In Formula One, a tenth of a second separates first from forgotten. In rowing, it is no different. The stroke. The catch. The drive. Every movement calibrated, every margin earned.</p>
+<p>The V1 Zooty was built with that same discipline. Not designed in a marketing studio. Engineered by a two-time Olympian's brand that understands what athletes need when the margins close and the stakes rise.</p>
+<p>Zero-drag seaming. Aerodynamic panel construction informed by the rowing stroke cycle. Compression architecture that supports without restricting. Every element serves the movement.</p>
+<p>This is not sportswear inspired by motorsport. This is the shared principle: precision in pursuit of performance.</p>
+<hr>
+<h2>Section 2: Product Feature Grid</h2>
+<p><strong>Section Headline:</strong>
+The Details That Earn Their Place</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Detail</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Panel construction</strong></td>
+<td>Mapped to the rowing stroke cycle — each panel placement follows the body's movement path through catch, drive, and recovery</td>
+</tr>
+<tr>
+<td><strong>Zero-drag seaming</strong></td>
+<td>Flatlock construction eliminates friction at every contact point</td>
+</tr>
+<tr>
+<td><strong>Compression fit</strong></td>
+<td>Graduated compression supports core and legs without restricting the hip angle at the catch</td>
+</tr>
+<tr>
+<td><strong>Fabric</strong></td>
+<td>Lightweight performance fabric with four-way stretch and moisture management</td>
+</tr>
+<tr>
+<td><strong>Design language</strong></td>
+<td>GT-inspired visual identity — bold, clean, unmistakably 776BC</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>Section 3: Who It Is For</h2>
+<p><strong>Section Headline:</strong>
+For the athlete who earns the start line.</p>
+<p><strong>Body:</strong>
+You do not row for applause. You row because the alternative — standing still — is something you cannot accept.</p>
+<p>You know your 2k to the tenth. You know the split you need for the next level. You train before the sun comes up because the Charles will not wait and neither will you.</p>
+<p>The V1 Zooty was built for that athlete. Not for the weekend paddler. Not for the athlete who wants to look the part. For the one who is the part.</p>
+<p>This is race-day armour for rowers who treat their craft with the seriousness it deserves.</p>
+<hr>
+<h2>Section 4: The HOCR Moment</h2>
+<p><strong>Section Headline:</strong>
+Head of the Charles 2026. The proving ground.</p>
+<p><strong>Body:</strong>
+The Head of the Charles is the largest and most storied rowing event in the United States. Three miles on the Charles River. Thousands of competitors. One chance to prove what you have built across months of preparation.</p>
+<p>776BC will be there. The V1 Zooty will be on the athletes who earned their places at the start line. And our TRAILER will be on the ground — come find us at the course.</p>
+<p><strong>CTA:</strong>
+Pre-Order the V1 Zooty</p>
+<hr>
+<h2>Section 5: Brand Authority</h2>
+<p><strong>Section Headline:</strong>
+Built by athletes. Tested by Olympians.</p>
+<p><strong>Body:</strong>
+776BC was founded by Cameron McKenzie-McHarg — two-time Olympic rower for Australia. The brand exists because Cameron saw a gap: rowing deserved the same engineering precision that every other elite sport takes for granted.</p>
+<p>The V1 Zooty is the product of that conviction. Every seam, every panel, every material choice was informed by decades of competitive experience and the demands of athletes who push their bodies to the limit.</p>
+<p>This is not marketing. This is pedigree.</p>
+<hr>
+<h2>Section 6: Pre-Order CTA Block</h2>
+<p><strong>Headline:</strong>
+Pre-orders open. Limited first run.</p>
+<p><strong>Body:</strong>
+The V1 Zooty Men's is available for pre-order now. First production run is limited. Secure yours before HOCR.</p>
+<p><strong>Primary CTA:</strong>
+Pre-Order — $XXX</p>
+<p><strong>Secondary CTA:</strong>
+Join the 776BC crew for launch updates</p>
+<p><strong>Trust signals:</strong></p>
+<ul>
+<li>Free shipping on orders over $150</li>
+<li>30-day fit guarantee</li>
+<li>Designed in Melbourne. Built for the world.</li>
+</ul>
+<hr>
+<h2>Footer / Campaign Sign-Off</h2>
+<p><strong>Tagline:</strong>
+776BC. Built for the Line.</p>
+<hr>
+<p><em>Calliope (Content Agent) — Awaiting Themis compliance review before delivery.</em></p>
+</div>
+      </div>
+    </section>
+
+    <section class="section" id="section-7" draggable="false" data-section-idx="7">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">08</div>
+        <div class="section__meta">
+          <h2 class="section__title">launch email series</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--3">Document</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">02-launch-email-series.md</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">5.1 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/02-launch-email-series.md?download=1" download="" class="btn btn--small">Download</a>
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        <div class="section__markdown"><h1>V1 Zooty Men's — 4-Part Launch Email Series</h1>
+<h2>"Built for the Line" Campaign — Klaviyo Sequence</h2>
+<p><strong>Prepared by:</strong> Calliope (Content Agent)
+<strong>Task:</strong> TASK-0008
+<strong>Date:</strong> 2026-03-17
+<strong>Platform:</strong> Klaviyo
+<strong>Segment:</strong> Male, rowing interest, US-focused (priority: Northeast)</p>
+<hr>
+<h2>Email 1: The Teaser (W-4)</h2>
+<p><strong>Subject Line:</strong> Something is being built.
+<strong>Preview Text:</strong> For the athletes who earn the start line.</p>
+<p><strong>Body:</strong></p>
+<p>You do not train for applause.</p>
+<p>You train because the work is the point. Because the erg does not lie. Because somewhere between the 500-metre mark and the finish, you find out who you actually are.</p>
+<p>We have been building something for athletes like you. Something engineered with the same precision you bring to your stroke. Something built for the moment when preparation meets the start line.</p>
+<p>It is coming.</p>
+<p><strong>CTA:</strong> Get notified first</p>
+<p><strong>Visual Direction:</strong> Dark, moody image. Close-up of hands gripping an erg handle. No product visible. Atmosphere only. 776BC logo minimal.</p>
+<p><strong>Send Conditions:</strong> All subscribers in rowing segment. Schedule 4 weeks before HOCR.</p>
+<hr>
+<h2>Email 2: The Product Reveal (W-3)</h2>
+<p><strong>Subject Line:</strong> Built for the Line. Introducing the V1 Zooty.
+<strong>Preview Text:</strong> Engineered by Olympians. Built for the Charles.</p>
+<p><strong>Body:</strong></p>
+<p>This is the V1 Zooty Men's.</p>
+<p>776BC's first garment designed specifically for the competitive North American rower. Built by a two-time Olympian's brand. Engineered with the same precision that GT racing brings to the track.</p>
+<p><strong>Zero-drag seaming.</strong> Flatlock construction that eliminates friction at every contact point.</p>
+<p><strong>Stroke-mapped panels.</strong> Every panel follows the body's path through catch, drive, and recovery.</p>
+<p><strong>Graduated compression.</strong> Support that works with your hip angle, not against it.</p>
+<p><strong>GT-inspired design.</strong> Bold, clean, unmistakably 776BC.</p>
+<p>The V1 Zooty is not sportswear with a story. It is engineering with a purpose. Built for the athlete who knows that when fractions define the outcome, everything must be precise.</p>
+<p>Pre-orders are open now. First production run is limited.</p>
+<p><strong>CTA:</strong> Pre-Order the V1 Zooty</p>
+<p><strong>Visual Direction:</strong> Product hero shot — V1 Zooty flat-lay on dark surface with dramatic side lighting. Clean, editorial. Second image: athlete on-water wearing the Zooty, mid-drive.</p>
+<p><strong>Send Conditions:</strong> 1 week after Email 1. Full rowing segment + engaged non-purchasers.</p>
+<hr>
+<h2>Email 3: The HOCR Countdown (W-1)</h2>
+<p><strong>Subject Line:</strong> 7 days to the Line.
+<strong>Preview Text:</strong> Head of the Charles is next week. Are you ready?</p>
+<p><strong>Body:</strong></p>
+<p>One week.</p>
+<p>Seven days between you and the start line at the Head of the Charles. Seven days between all the work you have done and the three miles that will test every metre of it.</p>
+<p>We will be there. The 776BC TRAILER will be on-course — come find us near Eliot Bridge. The V1 Zooty will be available on-site. And our athletes will be racing in it.</p>
+<p>If you have pre-ordered, your Zooty ships this week. If you have not — this is the moment.</p>
+<p>HOCR is the proving ground. The V1 Zooty is the armour. The work was always yours.</p>
+<p><strong>CTA:</strong> Pre-Order before HOCR</p>
+<p><strong>Secondary CTA:</strong> Find us at the Charles — event details</p>
+<p><strong>Visual Direction:</strong> Cinematic still from "The Line" film — rowers walking to the dock at dawn, V1 Zooty visible. Wide shot, atmospheric. Lower third: "HOCR 2026 — 7 DAYS."</p>
+<p><strong>Send Conditions:</strong> 7 days before HOCR. Priority send to openers of Emails 1 and 2.</p>
+<hr>
+<h2>Email 4: Race Week (W-0)</h2>
+<p><strong>Subject Line:</strong> The Line.
+<strong>Preview Text:</strong> Built for this moment.</p>
+<p><strong>Body:</strong></p>
+<p>Today is the day.</p>
+<p>Not the day the product launches. Not the day the campaign peaks. The day you race.</p>
+<p>Somewhere along the Charles River this morning, an athlete laced into a V1 Zooty and walked to the dock knowing that everything — every 5am erg session, every interval, every early morning when the boathouse was cold and the water was colder — was preparation for this.</p>
+<p>We built the V1 Zooty for athletes like that. Athletes who treat their craft with the seriousness it deserves. Athletes who earn the start line.</p>
+<p>If you are at HOCR — find us at the TRAILER. We want to meet you.</p>
+<p>If you are watching from home — the V1 Zooty is available now. Race day or training day, it was built to perform.</p>
+<p><strong>CTA:</strong> Shop the V1 Zooty</p>
+<p><strong>Secondary CTA:</strong> Follow HOCR live — @776bc</p>
+<p><strong>Visual Direction:</strong> Race-day content. Athlete on the Charles mid-race, wearing V1 Zooty. Crew behind. Crowd on the bridges. Energy. Movement. Real.</p>
+<p><strong>Send Conditions:</strong> Morning of HOCR Day 1 (Saturday). Full segment. High-priority send.</p>
+<hr>
+<h2>Series Technical Notes</h2>
+<p><strong>Klaviyo Configuration:</strong></p>
+<ul>
+<li>Flow type: Campaign series (not automation flow)</li>
+<li>Segment: <code>rowing_male_US</code> + <code>rowing_interest_all</code></li>
+<li>Exclusion: Suppress purchasers of V1 Zooty after Email 2 (move to post-purchase flow)</li>
+<li>UTM: <code>utm_campaign=built-for-the-line&amp;utm_medium=email&amp;utm_content=email-{1|2|3|4}</code></li>
+<li>A/B test: Subject lines on Email 2 (product name vs. benefit-led)</li>
+</ul>
+<p><strong>Compliance:</strong></p>
+<ul>
+<li>Unsubscribe link in footer (Klaviyo default)</li>
+<li>Physical address in footer</li>
+<li>No false urgency ("only X left") — 776BC does not use scarcity manipulation</li>
+</ul>
+<hr>
+<p><em>Calliope (Content Agent) — Awaiting Themis compliance review before delivery.</em></p>
+</div>
+      </div>
+    </section>
+
+    <section class="section" id="section-8" draggable="false" data-section-idx="8">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">09</div>
+        <div class="section__meta">
+          <h2 class="section__title">social media content</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--3">Document</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">03-social-media-content.md</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">7.6 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/03-social-media-content.md?download=1" download="" class="btn btn--small">Download</a>
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        <div class="section__markdown"><h1>V1 Zooty Men's — Social Media Content Concepts</h1>
+<h2>Instagram Captions + TikTok Concepts + Static Tile Briefs</h2>
+<p><strong>Prepared by:</strong> Calliope (Content Agent) + Apollo (Media Agent)
+<strong>Task:</strong> TASK-0008
+<strong>Date:</strong> 2026-03-17
+<strong>Campaign:</strong> "Built for the Line"</p>
+<hr>
+<h2>Instagram Captions</h2>
+<h3>Caption 1 — Teaser Phase (W-6)</h3>
+<p><strong>Visual:</strong> Close-up of fabric detail, partially obscured. Dramatic lighting. No full product reveal.</p>
+<p><strong>Caption:</strong>
+When fractions define the outcome, everything is engineered.</p>
+<p>Something is coming.</p>
+<p>#776BC #BuiltForTheLine</p>
+<hr>
+<h3>Caption 2 — Product Reveal (W-4)</h3>
+<p><strong>Visual:</strong> Product hero shot — V1 Zooty on athlete, standing on dock, Charles River behind. Dawn light.</p>
+<p><strong>Caption:</strong>
+Introducing the V1 Zooty Men's.</p>
+<p>Engineered by a two-time Olympian's brand. Zero-drag seaming. Stroke-mapped panel construction. Graduated compression that works with the hip angle at the catch — not against it.</p>
+<p>Built for the athlete who treats rowing like the high-performance discipline it is.</p>
+<p>Pre-orders open now. Link in bio.</p>
+<p>#776BC #V1Zooty #BuiltForTheLine #HOCR2026 #Rowing</p>
+<hr>
+<h3>Caption 3 — Athlete Training (W-3)</h3>
+<p><strong>Visual:</strong> Reel/carousel — athlete training sequence. Erg pulls, weight room, on-water drills. V1 Zooty visible in on-water shots.</p>
+<p><strong>Caption:</strong>
+5:14am. Boathouse is cold. Water will be colder.</p>
+<p>But the work between now and the start line will not wait. And it will not do itself.</p>
+<p>The V1 Zooty was built for athletes who show up before the sun does.</p>
+<p>#776BC #BuiltForTheLine #HeadOfTheCharles #EarnTheStartLine</p>
+<hr>
+<h3>Caption 4 — Engineering Parallel (W-3)</h3>
+<p><strong>Visual:</strong> Split-screen carousel. Left: F1 car detail (wheel, aero). Right: V1 Zooty detail (seaming, panels). Same angles, same precision.</p>
+<p><strong>Caption:</strong>
+In Formula One, a tenth of a second separates first from forgotten.</p>
+<p>In rowing, the margins are the same. Different discipline. Same principle: when performance is measured in fractions, engineering is everything.</p>
+<p>The V1 Zooty. Precision for the start line.</p>
+<p>#776BC #V1Zooty #BuiltForTheLine #Performance #Engineering</p>
+<hr>
+<h3>Caption 5 — HOCR Countdown (W-1)</h3>
+<p><strong>Visual:</strong> Cinematic still — Charles River at dawn. Rowing shells on the water. Text overlay: "7 DAYS."</p>
+<p><strong>Caption:</strong>
+Seven days to the Line.</p>
+<p>Head of the Charles 2026. Three miles on the Charles River. The largest rowing event in the United States. And the proving ground for the V1 Zooty.</p>
+<p>Find us at the TRAILER. Come race in what was built for you.</p>
+<p>#776BC #HOCR2026 #BuiltForTheLine #HeadOfTheCharles #V1Zooty</p>
+<hr>
+<h3>Caption 6 — Race Day (W-0)</h3>
+<p><strong>Visual:</strong> Race-day photography — crew at the start, V1 Zooty visible. Bridges packed with spectators. Real, not staged.</p>
+<p><strong>Caption:</strong>
+The Line.</p>
+<p>Not the finish line. Not the marketing line. The line between every session that built you and the three miles that test it.</p>
+<p>Today, it is drawn on the Charles.</p>
+<p>#776BC #BuiltForTheLine #HOCR2026 #RaceDay</p>
+<hr>
+<h3>Caption 7 — Post-Race / Community (W+1)</h3>
+<p><strong>Visual:</strong> UGC-style montage — athletes post-race, medals, crews together, V1 Zooty worn and used. Real. Gritty.</p>
+<p><strong>Caption:</strong>
+Not for the photo.
+Not for the gram.
+For the three miles that mattered.</p>
+<p>Every athlete who raced in a V1 Zooty at HOCR this weekend — you earned it.</p>
+<p>Tag us in your race-day shots. We want to see your Line.</p>
+<p>#776BC #V1Zooty #HOCR2026 #BuiltForTheLine #RowingCommunity</p>
+<hr>
+<h2>TikTok Concepts</h2>
+<h3>TikTok 1 — "What 5am Looks Like" (W-4)</h3>
+<p><strong>Format:</strong> 15–30 seconds. POV / cinematic.
+<strong>Hook (first 2 seconds):</strong> Black screen. Alarm sound. "5:14am."
+<strong>Sequence:</strong> Quick cuts — athlete getting dressed in the dark, car headlights, boathouse door opening, cold breath on the dock, oars hitting water. V1 Zooty visible in the on-water shots.
+<strong>Text overlay:</strong> "Built for the athletes who show up before the sun does."
+<strong>Audio:</strong> Lo-fi ambient / natural sounds (oars, water, breathing). No music.
+<strong>CTA:</strong> "V1 Zooty. Link in bio."
+<strong>Hashtags:</strong> #776BC #5amclub #rowing #HOCR #BuiltForTheLine</p>
+<hr>
+<h3>TikTok 2 — "The Erg Knows" (W-3)</h3>
+<p><strong>Format:</strong> 15 seconds. Static camera, single take.
+<strong>Setup:</strong> Athlete seated on erg. Still. Staring at the monitor. Then pulls. Hard. The split drops. Holds it.
+<strong>Text overlay (timed):</strong></p>
+<ul>
+<li>0s: "The erg doesn't care about your excuses."</li>
+<li>5s: "It doesn't care about your bad day."</li>
+<li>8s: "It only cares about the work."</li>
+<li>12s: "V1 Zooty. Built for athletes who do the work."
+<strong>Audio:</strong> Erg chain sound only. Raw.
+<strong>CTA:</strong> Comment hook: "Drop your 2k PB below."</li>
+</ul>
+<hr>
+<h3>TikTok 3 — "F1 vs. Rowing — Same Precision" (W-3)</h3>
+<p><strong>Format:</strong> 30 seconds. Split-screen comparison.
+<strong>Concept:</strong> Side-by-side cuts between F1 pre-race preparation and rowing pre-race preparation. Helmet check / cox box check. Tyre change / rigger adjustment. Pit lane / boat launch. Grid walk / dock walk.
+<strong>Text overlay:</strong> "Different sport. Same engineering. Same margins."
+<strong>End card:</strong> V1 Zooty product shot. "Built for the Line."
+<strong>Audio:</strong> Trending sound or engine/water hybrid edit.
+<strong>CTA:</strong> "Which sport has tighter margins? Comment."</p>
+<hr>
+<h3>TikTok 4 — "HOCR Race Day" (W-0, real-time)</h3>
+<p><strong>Format:</strong> 60 seconds. Documentary style, shot on-site.
+<strong>Sequence:</strong> Day-of footage — sunrise on the Charles, TRAILER setup, athletes arriving, warm-ups, V1 Zooty close-ups on real competitors, start sequence, racing, finish, crew celebrations.
+<strong>Text overlay:</strong> "Head of the Charles 2026. The biggest rowing event in the US. And the debut of the V1 Zooty."
+<strong>Audio:</strong> Natural sound mix — crowd, coxswains, oars, cheering.
+<strong>CTA:</strong> "776BC TRAILER is on the course. Come find us."</p>
+<hr>
+<h2>Static Tile Creative Briefs</h2>
+<h3>Tile 1 — Product Feature Tile</h3>
+<p><strong>Format:</strong> 1080x1080, dark background.
+<strong>Layout:</strong> V1 Zooty product shot (45-degree angle), annotated with feature callouts using clean leader lines.
+<strong>Callouts:</strong></p>
+<ul>
+<li>"Zero-drag flatlock seaming"</li>
+<li>"Stroke-mapped panel construction"</li>
+<li>"Graduated compression"</li>
+<li>"Four-way stretch performance fabric"
+<strong>Bottom bar:</strong> "V1 Zooty Men's — Pre-order now" | 776BC logo
+<strong>Colour palette:</strong> Charcoal background, white text, accent from V1 Zooty colourway.</li>
+</ul>
+<hr>
+<h3>Tile 2 — Quote Tile</h3>
+<p><strong>Format:</strong> 1080x1080, split composition.
+<strong>Layout:</strong> Left half: atmospheric photo of rower on water at dawn (desaturated). Right half: solid dark panel with quote.
+<strong>Quote:</strong> "When fractions define the outcome, everything is engineered."
+<strong>Attribution:</strong> 776BC — Built for the Line
+<strong>Footer:</strong> 776BC logo, minimal.</p>
+<hr>
+<h3>Tile 3 — Countdown Tile</h3>
+<p><strong>Format:</strong> 1080x1080, bold typographic.
+<strong>Layout:</strong> Large number centred (countdown: "7", "3", "1", "RACE DAY"). Background: blurred Charles River.
+<strong>Text below number:</strong> "days to the Line"
+<strong>Footer:</strong> "HOCR 2026 | V1 Zooty" | 776BC logo
+<strong>Usage:</strong> Post one per countdown milestone. Consistent format builds anticipation.</p>
+<hr>
+<h3>Tile 4 — Athlete Card</h3>
+<p><strong>Format:</strong> 1080x1350 (portrait), editorial.
+<strong>Layout:</strong> Full-height athlete portrait wearing V1 Zooty. Name, club, and event overlaid at bottom.
+<strong>Example text:</strong></p>
+<ul>
+<li>"JAKE MORRISON"</li>
+<li>"Riverside Boat Club"</li>
+<li>"HOCR 2026 — M1x"
+<strong>Footer:</strong> 776BC logo + "Built for the Line"
+<strong>Usage:</strong> Series of 3–5 athletes. Each gets their own tile. Posted as carousel or individual posts during seeding phase.</li>
+</ul>
+<hr>
+<h3>Tile 5 — HOCR Event Tile</h3>
+<p><strong>Format:</strong> 1080x1080, informational.
+<strong>Layout:</strong> Map/illustration of HOCR course with 776BC TRAILER location marked.
+<strong>Text:</strong> "Find us at the Charles. TRAILER on-course near Eliot Bridge."
+<strong>Details:</strong> "V1 Zooty available on-site | MOTION movement demos | Meet the team"
+<strong>Footer:</strong> "HOCR 2026 | Oct [dates]" | 776BC logo
+<strong>Usage:</strong> Posted W-1 and W-0. Saved to Stories highlights.</p>
+<hr>
+<p><em>Calliope + Apollo — Awaiting Themis compliance review before delivery.</em></p>
+</div>
+      </div>
+    </section>
+
+    <section class="section" id="section-9" draggable="false" data-section-idx="9">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">10</div>
+        <div class="section__meta">
+          <h2 class="section__title">short form video concepts</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--3">Document</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">04-short-form-video-concepts.md</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">7.3 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/04-short-form-video-concepts.md?download=1" download="" class="btn btn--small">Download</a>
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        <div class="section__markdown"><h1>V1 Zooty Men's — Short-Form Video Concepts</h1>
+<h2>15-Second and 60-Second Cuts for Paid + Organic</h2>
+<p><strong>Prepared by:</strong> Apollo (Media Agent) + Calliope (Content Agent)
+<strong>Task:</strong> TASK-0008
+<strong>Date:</strong> 2026-03-17
+<strong>Campaign:</strong> "Built for the Line"</p>
+<hr>
+<h2>Concept 1: "Fractions" — 15-Second Paid Ad</h2>
+<p><strong>Objective:</strong> Awareness. Introduce the V1 Zooty through the engineering precision narrative.
+<strong>Placement:</strong> YouTube pre-roll, Meta (IG + FB), TikTok Spark Ad.
+<strong>Aspect ratios:</strong> 9:16 (primary), 1:1, 16:9</p>
+<h3>Script</h3>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Visual</th>
+<th>Audio</th>
+<th>Text Overlay</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0–2s</td>
+<td>Extreme close-up: hands on erg handle, knuckles white</td>
+<td>Silence, then one sharp erg pull sound</td>
+<td>—</td>
+</tr>
+<tr>
+<td>2–5s</td>
+<td>Quick cuts: panel stitching on V1 Zooty, F1 wheel nut, rowing blade entering water</td>
+<td>Mechanical precision sounds — clicks, fabric stretch</td>
+<td>"When fractions define the outcome"</td>
+</tr>
+<tr>
+<td>5–9s</td>
+<td>Athlete in V1 Zooty walking to the dock. Dawn. Charles River visible. Slow, deliberate.</td>
+<td>Ambient: footsteps on wood, distant water</td>
+<td>"Everything is engineered."</td>
+</tr>
+<tr>
+<td>9–12s</td>
+<td>Athlete seated in shell, V1 Zooty visible. Looks forward. Ready position.</td>
+<td>Building low tone</td>
+<td>—</td>
+</tr>
+<tr>
+<td>12–15s</td>
+<td>Product shot: V1 Zooty on dark background. Logo.</td>
+<td>Tone resolves</td>
+<td>"V1 Zooty. Built for the Line. 776BC."</td>
+</tr>
+</tbody></table>
+<h3>Production Notes</h3>
+<ul>
+<li>No voiceover. Text and image carry the message.</li>
+<li>Pacing: controlled. Not frenetic. Mirrors the calm precision of pre-race preparation.</li>
+<li>Product appears naturally — worn, not displayed.</li>
+<li>End card holds for 3 seconds minimum for brand recognition.</li>
+</ul>
+<hr>
+<h2>Concept 2: "5:14am" — 60-Second Brand Film Cut</h2>
+<p><strong>Objective:</strong> Consideration. Build emotional connection through the daily training narrative.
+<strong>Placement:</strong> Instagram Reels, TikTok organic, YouTube Shorts.
+<strong>Aspect ratio:</strong> 9:16</p>
+<h3>Script</h3>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Visual</th>
+<th>Audio</th>
+<th>Text Overlay</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0–3s</td>
+<td>Black screen. Phone alarm. Hand reaches to silence it.</td>
+<td>Alarm buzzing, silence</td>
+<td>"5:14am"</td>
+</tr>
+<tr>
+<td>3–8s</td>
+<td>Athlete dresses in the dark. Pulls on training gear. Grabs bag. Door closes.</td>
+<td>Fabric rustling, door click, car engine</td>
+<td>—</td>
+</tr>
+<tr>
+<td>8–14s</td>
+<td>Car headlights on empty road. Boathouse exterior in pre-dawn blue. Door slides open.</td>
+<td>Engine hum, gravel, metal door</td>
+<td>"Before the sun."</td>
+</tr>
+<tr>
+<td>14–22s</td>
+<td>Inside boathouse: erg warm-up. Split monitor visible. Athlete pulls. Breath visible in the cold.</td>
+<td>Erg chain rhythmic, breathing</td>
+<td>"Before the excuses."</td>
+</tr>
+<tr>
+<td>22–30s</td>
+<td>On the water: shell slides into the river. Blade catches. Early light on water. Athlete in V1 Zooty.</td>
+<td>Oar locks, water sounds, natural</td>
+<td>"Before anyone is watching."</td>
+</tr>
+<tr>
+<td>30–38s</td>
+<td>Training montage: erg intervals, weights, on-water drills. V1 Zooty visible throughout. Intensity builds.</td>
+<td>Layered sounds: erg, weights, water, breathing — building</td>
+<td>"The work."</td>
+</tr>
+<tr>
+<td>38–45s</td>
+<td>Athlete alone on the water. Clean, rhythmic stroke. Sun fully up now. Calm.</td>
+<td>All sounds drop to water only</td>
+<td>"The work is the point."</td>
+</tr>
+<tr>
+<td>45–52s</td>
+<td>Athlete carries shell back to boathouse. Done. Walks past camera. V1 Zooty detail visible.</td>
+<td>Footsteps, boat on rack, silence</td>
+<td>—</td>
+</tr>
+<tr>
+<td>52–57s</td>
+<td>Product shot: V1 Zooty. Clean. Dark background.</td>
+<td>Low tone</td>
+<td>"V1 Zooty Men's"</td>
+</tr>
+<tr>
+<td>57–60s</td>
+<td>End card: 776BC logo. Campaign tagline.</td>
+<td>Tone resolves</td>
+<td>"Built for the Line. 776BC."</td>
+</tr>
+</tbody></table>
+<h3>Production Notes</h3>
+<ul>
+<li>Voiceover: None. The silence and natural sounds are the point.</li>
+<li>Tone: Quiet determination. Not hype. Not epic. Just real.</li>
+<li>Colour grade: Cool and desaturated in pre-dawn sequences, warming as the sun rises.</li>
+<li>The athlete is anonymous — could be anyone who does the work.</li>
+<li>V1 Zooty appears naturally, never held up or featured artificially.</li>
+</ul>
+<hr>
+<h2>Concept 3: "Same Margins" — 30-Second Split-Screen</h2>
+<p><strong>Objective:</strong> Awareness. The GT/F1 engineering parallel made visual.
+<strong>Placement:</strong> YouTube pre-roll (skippable), Instagram Reels, Meta paid.
+<strong>Aspect ratios:</strong> 9:16, 1:1</p>
+<h3>Script</h3>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Visual</th>
+<th>Audio</th>
+<th>Text Overlay</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0–5s</td>
+<td>Split-screen: F1 pit crew checking tyre pressure / Rower checking rigger height</td>
+<td>Mechanical sounds — ratchets, clicks</td>
+<td>"Different sport."</td>
+</tr>
+<tr>
+<td>5–10s</td>
+<td>Split-screen: F1 driver lowering visor / Rower adjusting foot plate</td>
+<td>Click, strap tension</td>
+<td>"Same precision."</td>
+</tr>
+<tr>
+<td>10–15s</td>
+<td>Split-screen: F1 car on grid, engine idle / Rowing shell at start line, crew ready position</td>
+<td>Engine idle, water lapping</td>
+<td>"Same margins."</td>
+</tr>
+<tr>
+<td>15–20s</td>
+<td>Split-screen: Green light, car launches / Start call, crew explodes off the line</td>
+<td>ENGINE ROAR / COX CALL — explosive</td>
+<td>—</td>
+</tr>
+<tr>
+<td>20–25s</td>
+<td>Full screen: Athlete rowing at race pace, V1 Zooty visible. Power. Rhythm. Precision.</td>
+<td>Water and oar sounds, rhythmic</td>
+<td>"When fractions define the outcome."</td>
+</tr>
+<tr>
+<td>25–30s</td>
+<td>Product shot + end card.</td>
+<td>Clean tone</td>
+<td>"V1 Zooty. Built for the Line. 776BC."</td>
+</tr>
+</tbody></table>
+<h3>Production Notes</h3>
+<ul>
+<li>The split-screen is the hook. It must be visually tight — same angles, same framing, same energy.</li>
+<li>F1 footage: sourced from stock/licensed archive (no specific team branding visible).</li>
+<li>The merge at 20s — going from split to full rowing — is the emotional pivot. It says: this sport deserves the same respect.</li>
+<li>Fast-paced but not chaotic. Precision, not frenzy.</li>
+</ul>
+<hr>
+<h2>Concept 4: "Drop Your 2k" — 15-Second Community Hook</h2>
+<p><strong>Objective:</strong> Engagement. Conversation starter that builds community and drives profile visits.
+<strong>Placement:</strong> TikTok organic, Instagram Reels.
+<strong>Aspect ratio:</strong> 9:16</p>
+<h3>Script</h3>
+<table>
+<thead>
+<tr>
+<th>Time</th>
+<th>Visual</th>
+<th>Audio</th>
+<th>Text Overlay</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>0–3s</td>
+<td>Athlete sits down on erg. Stares at monitor. Sets 2000m.</td>
+<td>Erg fan spin-up</td>
+<td>"The erg doesn't lie."</td>
+</tr>
+<tr>
+<td>3–8s</td>
+<td>Pulls. Hard. Monitor shows split dropping. Face shows effort.</td>
+<td>Chain sound, breathing</td>
+<td>—</td>
+</tr>
+<tr>
+<td>8–12s</td>
+<td>Close-up of monitor: split time settling. Athlete maintains.</td>
+<td>Rhythmic chain</td>
+<td>"What's your 2k?"</td>
+</tr>
+<tr>
+<td>12–15s</td>
+<td>Athlete finishes. Leans forward. V1 Zooty detail visible.</td>
+<td>Silence, heavy breathing</td>
+<td>"Drop it below. 776BC."</td>
+</tr>
+</tbody></table>
+<h3>Production Notes</h3>
+<ul>
+<li>This is a community piece, not a product ad. The product is incidental.</li>
+<li>The value is the conversation: rowers love comparing erg scores.</li>
+<li>Comment-driven engagement drives algorithm. Pin a comment: "Our founder Cameron pulled a 6:08 at the Olympics. What's yours?"</li>
+<li>Raw, unpolished aesthetic. iPhone-quality is intentional.</li>
+</ul>
+<hr>
+<h2>Cross-Concept Production Notes</h2>
+<p><strong>Talent:</strong> 2–3 male rowers, age 22–35, competitive club level. Diverse. Competitive rowers with proper technique — not models. Must row with clean form on camera.</p>
+<p><strong>Locations:</strong></p>
+<ul>
+<li>Primary: Charles River + boathouse (Cambridge/Boston). Pre-dawn and golden hour.</li>
+<li>Secondary: Indoor erg room / weight room. Any high-quality boathouse interior.</li>
+</ul>
+<p><strong>Wardrobe:</strong> V1 Zooty (on-water), 776BC training apparel (gym/erg shots). No competitor branding visible.</p>
+<p><strong>Music/Audio:</strong> No licensed music. Natural sound design throughout. The silence is a deliberate brand choice — 776BC does not need a beat drop to earn attention.</p>
+<p><strong>Colour grade:</strong> Desaturated cool tones (pre-dawn), warming to natural (golden hour). Never oversaturated. Never filtered.</p>
+<p><strong>Total deliverable count from this brief:</strong> 4 video concepts across 6+ placements, yielding an estimated 8–10 rendered assets with format variants.</p>
+<hr>
+<p><em>Apollo + Calliope — Awaiting Themis compliance review before delivery.</em></p>
+</div>
+      </div>
+    </section>
+
+    <section class="section" id="section-10" draggable="false" data-section-idx="10">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">11</div>
+        <div class="section__meta">
+          <h2 class="section__title">the line hero film brief</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--3">Document</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">05-the-line-hero-film-brief.md</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">11.1 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/05-the-line-hero-film-brief.md?download=1" download="" class="btn btn--small">Download</a>
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        <div class="section__markdown"><h1>"The Line" — Hero Film Creative Brief</h1>
+<h2>V1 Zooty Men's HOCR Campaign — Flagship Content Piece</h2>
+<p><strong>Prepared by:</strong> Apollo (Media Agent)
+<strong>Task:</strong> TASK-0008
+<strong>Date:</strong> 2026-03-17
+<strong>Campaign:</strong> "Built for the Line"
+<strong>Format:</strong> Short documentary film, 3–5 minutes</p>
+<hr>
+<h2>1. Creative Vision</h2>
+<p>"The Line" is a short documentary following 2–3 competitive rowers through their preparation for the Head of the Charles Regatta. It draws a visual and thematic parallel between the precision engineering of Formula One racing and the precision discipline of competitive rowing.</p>
+<p>The film is not a product advertisement. It is a story about what it means to prepare — to engineer yourself, your crew, and your equipment for a moment where fractions of a second matter. The V1 Zooty exists within the film as part of the athletes' world. It is race-day armour, not a product feature.</p>
+<p><strong>Core thesis:</strong> The line between preparation and performance is where athletes are made. 776BC builds for that line.</p>
+<hr>
+<h2>2. Narrative Structure</h2>
+<h3>Act 1 — The Work (0:00–1:30)</h3>
+<p><strong>Theme:</strong> Preparation is invisible. The work happens before anyone is watching.</p>
+<p><strong>Sequences:</strong></p>
+<ul>
+<li>Pre-dawn. Alarm at 5:14am. Athlete 1 wakes. Gets dressed in the dark.</li>
+<li>Drive to the boathouse. Empty roads. Headlights.</li>
+<li>Boathouse interior. Cold. Erg warm-up. Split monitor glowing. Breath visible.</li>
+<li>Athlete 2 introduced: weight room. Deadlifts. Controlled power.</li>
+<li>Athlete 3 introduced: rigging a shell. Checking measurements with a ruler. Precision.</li>
+<li>On-water: first strokes of the day. Mist on the Charles. The shell glides.</li>
+</ul>
+<p><strong>Tone:</strong> Quiet. Intimate. The audience is witnessing something private.</p>
+<p><strong>Audio:</strong> Natural sound only. No music. Erg chain. Oar locks. Water. Breathing. Footsteps.</p>
+<p><strong>V1 Zooty presence:</strong> Minimal. Seen briefly as athletes change in the boathouse. On-water shots show it naturally.</p>
+<hr>
+<h3>Act 2 — The Precision (1:30–3:00)</h3>
+<p><strong>Theme:</strong> The engineering parallel. Rowing and motorsport share a principle: when margins are measured in fractions, everything must be precise.</p>
+<p><strong>Sequences:</strong></p>
+<ul>
+<li>Intercut: F1 archival footage (pre-race preparation) with rowing preparation. Same framing. Same angles:<ul>
+<li>Mechanic checking tyre pressure / Rower checking rigger height</li>
+<li>Driver adjusting mirrors / Cox adjusting microphone</li>
+<li>Pit crew rehearsal / Crew rowing drills — timing, synchronisation</li>
+<li>Car on the grid / Shell at the start line</li>
+</ul>
+</li>
+<li>Close-ups: V1 Zooty fabric detail, seaming, panel construction — intercut with technical precision shots.</li>
+<li>Athlete interview fragments (voice only, over footage):<ul>
+<li>"People think rowing is just pulling. It is not. Every degree at the catch matters. Every centimetre of slide. Every fraction of timing between eight people."</li>
+<li>"The gear has to work with you. You cannot afford anything that fights the movement."</li>
+</ul>
+</li>
+</ul>
+<p><strong>Tone:</strong> Building. The pace increases. The parallel becomes undeniable.</p>
+<p><strong>Audio:</strong> Natural sounds layered with a building low-frequency tone. Still no music. The rhythm of rowing provides the tempo.</p>
+<p><strong>V1 Zooty presence:</strong> Medium. Product detail shots intercut naturally with the engineering sequences. Not hero-lit. Shot like a component being inspected.</p>
+<hr>
+<h3>Act 3 — The Line (3:00–4:30)</h3>
+<p><strong>Theme:</strong> The moment. All preparation converges at the start line.</p>
+<p><strong>Sequences:</strong></p>
+<ul>
+<li>HOCR race morning. The Charles River at dawn. Crowds gathering on bridges.</li>
+<li>Athletes arrive at the venue. Quiet focus. Final preparations.</li>
+<li>Athlete 1 puts on the V1 Zooty. Pulls it on like armour. Zips up. Looks in the mirror — or does not. Just moves to the dock.</li>
+<li>Crew carries the shell to the water. Focused. Silent.</li>
+<li>The start sequence: marshalling, alignment, countdown.</li>
+<li>The race. Full power. The Charles. Bridges passing overhead. Crowds cheering.</li>
+<li>Quick cuts: all three athletes in their moments — single, pair, eight. All in V1 Zooty. All racing.</li>
+<li>The finish. Exhaustion. Hands on knees. A nod between crew members.</li>
+</ul>
+<p><strong>Tone:</strong> Release. Everything the film built toward is expressed in the race.</p>
+<p><strong>Audio:</strong> The start builds from silence to full natural sound — coxswain calls, oar strikes, crowd noise, breathing. Then the finish: silence again. Just water.</p>
+<p><strong>V1 Zooty presence:</strong> Full. This is the payoff. The product is on the athletes in their defining moment. Not featured — worn. The distinction matters.</p>
+<hr>
+<h3>Closing Card (4:30–5:00)</h3>
+<p><strong>Visual:</strong> Slow fade from water to black. Athlete walking away from the dock, shell on shoulder, V1 Zooty visible. Shot from behind.</p>
+<p><strong>Text on screen:</strong></p>
+<ul>
+<li>"Built for the Line."</li>
+<li>"V1 Zooty Men's — 776bc.com"</li>
+<li>776BC logo</li>
+</ul>
+<p><strong>Audio:</strong> Water sounds fade to silence.</p>
+<hr>
+<h2>3. Shot List — Key Frames</h2>
+<table>
+<thead>
+<tr>
+<th>#</th>
+<th>Description</th>
+<th>Framing</th>
+<th>Location</th>
+<th>Time of Day</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>Alarm clock / phone screen showing 5:14am</td>
+<td>Close-up</td>
+<td>Bedroom</td>
+<td>Pre-dawn</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Athlete pulling on training clothes in dark</td>
+<td>Medium</td>
+<td>Bedroom</td>
+<td>Pre-dawn</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Car headlights on empty road</td>
+<td>Wide</td>
+<td>Road to boathouse</td>
+<td>Pre-dawn</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Boathouse exterior in blue pre-dawn light</td>
+<td>Wide</td>
+<td>Boathouse</td>
+<td>Pre-dawn</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Hands on erg handle, first pull</td>
+<td>Close-up</td>
+<td>Boathouse</td>
+<td>Pre-dawn</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Erg monitor: split time dropping</td>
+<td>Insert</td>
+<td>Boathouse</td>
+<td>Pre-dawn</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Breath visible in cold boathouse air</td>
+<td>Close-up</td>
+<td>Boathouse</td>
+<td>Pre-dawn</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Athlete deadlifting — controlled power</td>
+<td>Medium-low</td>
+<td>Gym</td>
+<td>Morning</td>
+</tr>
+<tr>
+<td>9</td>
+<td>Rigger adjustment with ruler/tool</td>
+<td>Extreme close-up</td>
+<td>Boat bay</td>
+<td>Morning</td>
+</tr>
+<tr>
+<td>10</td>
+<td>First strokes on the Charles, mist</td>
+<td>Wide</td>
+<td>Charles River</td>
+<td>Dawn</td>
+</tr>
+<tr>
+<td>11</td>
+<td>Oar entering water — clean catch</td>
+<td>Slow-motion close-up</td>
+<td>Charles River</td>
+<td>Dawn</td>
+</tr>
+<tr>
+<td>12</td>
+<td>V1 Zooty fabric detail — seaming</td>
+<td>Macro</td>
+<td>Controlled</td>
+<td>—</td>
+</tr>
+<tr>
+<td>13</td>
+<td>V1 Zooty panel construction detail</td>
+<td>Macro</td>
+<td>Controlled</td>
+<td>—</td>
+</tr>
+<tr>
+<td>14</td>
+<td>F1 tyre check / Rigger check (split)</td>
+<td>Medium matched</td>
+<td>Archive + boat bay</td>
+<td>—</td>
+</tr>
+<tr>
+<td>15</td>
+<td>F1 grid / Shell at start (split)</td>
+<td>Wide matched</td>
+<td>Archive + river</td>
+<td>—</td>
+</tr>
+<tr>
+<td>16</td>
+<td>Athlete voice interview — over footage</td>
+<td>Audio only</td>
+<td>—</td>
+<td>—</td>
+</tr>
+<tr>
+<td>17</td>
+<td>HOCR race morning — Charles at dawn</td>
+<td>Wide</td>
+<td>Charles River / bridges</td>
+<td>Dawn</td>
+</tr>
+<tr>
+<td>18</td>
+<td>Athlete putting on V1 Zooty</td>
+<td>Medium</td>
+<td>Boathouse / tent</td>
+<td>Morning</td>
+</tr>
+<tr>
+<td>19</td>
+<td>Crew carrying shell to water</td>
+<td>Wide</td>
+<td>Dock</td>
+<td>Morning</td>
+</tr>
+<tr>
+<td>20</td>
+<td>Start sequence — marshalling</td>
+<td>Wide</td>
+<td>Charles River</td>
+<td>Race time</td>
+</tr>
+<tr>
+<td>21</td>
+<td>Full-power racing — bridges overhead</td>
+<td>Tracking / wide</td>
+<td>Charles River</td>
+<td>Race time</td>
+</tr>
+<tr>
+<td>22</td>
+<td>Coxswain calling — intensity</td>
+<td>Close-up</td>
+<td>In shell</td>
+<td>Race time</td>
+</tr>
+<tr>
+<td>23</td>
+<td>Athlete 1 mid-race — V1 Zooty visible</td>
+<td>Medium-close</td>
+<td>Charles River</td>
+<td>Race time</td>
+</tr>
+<tr>
+<td>24</td>
+<td>Finish — exhaustion, hands on knees</td>
+<td>Medium</td>
+<td>Dock / finish</td>
+<td>Race time</td>
+</tr>
+<tr>
+<td>25</td>
+<td>Nod between crew members</td>
+<td>Close-up</td>
+<td>Dock</td>
+<td>Post-race</td>
+</tr>
+<tr>
+<td>26</td>
+<td>Athlete walking away with shell on shoulder</td>
+<td>Wide, from behind</td>
+<td>Dock</td>
+<td>Post-race</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>4. Talent Requirements</h2>
+<table>
+<thead>
+<tr>
+<th>Role</th>
+<th>Spec</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Athlete 1</strong></td>
+<td>Male, 24–30, single sculler. Competitive. Real rower with clean technique.</td>
+<td>Primary character — followed through the full narrative arc.</td>
+</tr>
+<tr>
+<td><strong>Athlete 2</strong></td>
+<td>Male, 22–28, sweep rower (pair or eight).</td>
+<td>Introduced in Act 1 (gym). Seen racing in Act 3.</td>
+</tr>
+<tr>
+<td><strong>Athlete 3</strong></td>
+<td>Male, 28–35, coxswain or experienced rower.</td>
+<td>The "precision" character — rigging, setup, attention to detail.</td>
+</tr>
+<tr>
+<td><strong>Background crew</strong></td>
+<td>4–8 male rowers for eight/four shots</td>
+<td>Real club rowers. Must row in sync.</td>
+</tr>
+<tr>
+<td><strong>Coxswain</strong></td>
+<td>Experienced cox for race sequences</td>
+<td>Real voice, real calls. Not scripted.</td>
+</tr>
+</tbody></table>
+<p><strong>Casting approach:</strong> Source from competitive Boston-area rowing clubs — Community Rowing Inc., Riverside Boat Club, Cambridge Boat Club, or collegiate programmes. 776BC-sponsored athletes preferred if available in the region.</p>
+<hr>
+<h2>5. Location Requirements</h2>
+<table>
+<thead>
+<tr>
+<th>Location</th>
+<th>Requirement</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Charles River</strong></td>
+<td>Water access for filming from safety boat + drone</td>
+<td>Pre-dawn and race-day permits required</td>
+</tr>
+<tr>
+<td><strong>Boathouse interior</strong></td>
+<td>Erg room, boat bay, rigging area</td>
+<td>CRI or Riverside preferred — large, photogenic</td>
+</tr>
+<tr>
+<td><strong>Gym / weight room</strong></td>
+<td>Clean, functional space. Not commercial gym.</td>
+<td>On-site at boathouse or nearby athletic facility</td>
+</tr>
+<tr>
+<td><strong>HOCR venue</strong></td>
+<td>Event accreditation for course-side filming</td>
+<td>Media credentials required well in advance</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>6. Technical Specifications</h2>
+<table>
+<thead>
+<tr>
+<th>Element</th>
+<th>Spec</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Camera</strong></td>
+<td>Cinema camera (RED, ARRI, or Sony FX6). 4K minimum.</td>
+</tr>
+<tr>
+<td><strong>Lenses</strong></td>
+<td>Primes preferred — 24mm, 35mm, 85mm. Zooms for race-day flexibility.</td>
+</tr>
+<tr>
+<td><strong>Drone</strong></td>
+<td>Licensed drone operator for river wide shots. HOCR airspace restrictions apply.</td>
+</tr>
+<tr>
+<td><strong>Safety boat</strong></td>
+<td>Chase boat for on-water filming. Must not interfere with training or racing.</td>
+</tr>
+<tr>
+<td><strong>Colour grade</strong></td>
+<td>Cool desaturated pre-dawn, warming to natural. Never oversaturated.</td>
+</tr>
+<tr>
+<td><strong>Audio</strong></td>
+<td>Production sound mixer for location audio. Shotgun mic + lavs for interview fragments.</td>
+</tr>
+<tr>
+<td><strong>Deliverable formats</strong></td>
+<td>Master: 4K ProRes. Exports: 16:9 (YouTube), 9:16 (Reels/TikTok/Shorts), 1:1 (feed).</td>
+</tr>
+</tbody></table>
+<hr>
+<h2>7. Derivative Asset Plan</h2>
+<p>From the hero shoot, the following assets are extracted:</p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>Format</th>
+<th>Channel</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Full film (3–5 min)</td>
+<td>16:9 video</td>
+<td>YouTube</td>
+</tr>
+<tr>
+<td>60-second cut</td>
+<td>9:16 video</td>
+<td>Instagram Reels, TikTok</td>
+</tr>
+<tr>
+<td>15-second cut ("Fractions")</td>
+<td>9:16 + 1:1 video</td>
+<td>YouTube pre-roll, Meta ads</td>
+</tr>
+<tr>
+<td>30-second cut ("Same Margins")</td>
+<td>9:16 + 1:1 video</td>
+<td>Reels, Meta ads</td>
+</tr>
+<tr>
+<td>3x athlete quote cards</td>
+<td>1080x1080 static</td>
+<td>Instagram feed, Stories</td>
+</tr>
+<tr>
+<td>Behind-the-scenes reel</td>
+<td>9:16 video</td>
+<td>TikTok, Stories</td>
+</tr>
+<tr>
+<td>Stills (10–15 selects)</td>
+<td>High-res JPEG</td>
+<td>Web, email, press</td>
+</tr>
+<tr>
+<td>Audio interview excerpts</td>
+<td>MP3</td>
+<td>Mercantile Radio, podcast</td>
+</tr>
+<tr>
+<td>Email hero image</td>
+<td>600px wide</td>
+<td>Klaviyo</td>
+</tr>
+</tbody></table>
+<p><strong>Total estimated assets from hero shoot: 20+ unique pieces.</strong></p>
+<hr>
+<h2>8. Timeline</h2>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Timing</th>
+<th>Activity</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Pre-production</strong></td>
+<td>W-10 to W-8</td>
+<td>Casting, location scouting, permits, F1 footage licensing</td>
+</tr>
+<tr>
+<td><strong>Principal photography — training</strong></td>
+<td>W-8 to W-6</td>
+<td>Pre-dawn and training sequences (Acts 1 + 2)</td>
+</tr>
+<tr>
+<td><strong>Product shoot</strong></td>
+<td>W-6</td>
+<td>Macro/detail shots of V1 Zooty (controlled studio)</td>
+</tr>
+<tr>
+<td><strong>Edit — rough cut</strong></td>
+<td>W-5</td>
+<td>Assembly of Acts 1 + 2 with placeholder Act 3</td>
+</tr>
+<tr>
+<td><strong>HOCR filming</strong></td>
+<td>W-0</td>
+<td>Race-day sequences (Act 3). Real-time. One chance.</td>
+</tr>
+<tr>
+<td><strong>Final edit</strong></td>
+<td>W+1</td>
+<td>Full film assembly, colour grade, sound design</td>
+</tr>
+<tr>
+<td><strong>Delivery</strong></td>
+<td>W+2</td>
+<td>Master + all derivative formats delivered</td>
+</tr>
+</tbody></table>
+<p><strong>Note:</strong> The film releases W+2 as the campaign capstone, with 15s and 60s cuts released earlier (W-4 and W-1) using Acts 1 and 2 footage.</p>
+<hr>
+<h2>9. Budget Estimate</h2>
+<table>
+<thead>
+<tr>
+<th>Line Item</th>
+<th>Estimate</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Director / DP (2 shoot days + HOCR)</td>
+<td>$3,000–6,000</td>
+</tr>
+<tr>
+<td>Camera + grip package (3 days)</td>
+<td>$1,500–3,000</td>
+</tr>
+<tr>
+<td>Drone operator (2 days)</td>
+<td>$1,000–2,000</td>
+</tr>
+<tr>
+<td>Safety boat rental (2 days)</td>
+<td>$500–1,000</td>
+</tr>
+<tr>
+<td>Sound recordist</td>
+<td>$500–1,000</td>
+</tr>
+<tr>
+<td>Edit + colour + sound design</td>
+<td>$2,000–4,000</td>
+</tr>
+<tr>
+<td>F1 archival footage licensing</td>
+<td>$500–1,500</td>
+</tr>
+<tr>
+<td>Talent stipend / product gifting</td>
+<td>$500–1,000</td>
+</tr>
+<tr>
+<td>Travel / logistics</td>
+<td>$500–1,000</td>
+</tr>
+<tr>
+<td><strong>Total</strong></td>
+<td><strong>$10,000–20,500</strong></td>
+</tr>
+</tbody></table>
+<p><em>Aligns with Stage 1 budget framework ($5,000–15,000 hero content, with upside for production ambition).</em></p>
+<hr>
+<p><em>Apollo (Media Agent) — Awaiting Themis compliance review before delivery.</em></p>
+</div>
+      </div>
+    </section>
+
+    <section class="section" id="section-11" draggable="false" data-section-idx="11">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">12</div>
+        <div class="section__meta">
+          <h2 class="section__title">v1 zooty landing</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--4">Package</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">v1-zooty-landing.zip</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">211.2 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing.zip?download=1" download="" class="btn btn--small">Download</a>
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__package">
+          <span class="section__package-icon">◆</span>
+          <span class="section__package-label">Standalone package — 211.2 KB</span>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing.zip?download=1" download="" class="btn btn--small" style="margin-left:auto">Download ZIP</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section-12" draggable="false" data-section-idx="12">
+      <div class="section__header">
+        <span class="section__drag-handle" title="Drag to reorder">☰</span>
+        <div class="section__number">13</div>
+        <div class="section__meta">
+          <h2 class="section__title">v1 zooty email series</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--4">Package</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">v1-zooty-email-series.zip</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">212.1 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-email-series.zip?download=1" download="" class="btn btn--small">Download</a>
+        <button class="section__delete-btn" title="Remove from pack">×</button>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__package">
+          <span class="section__package-icon">◆</span>
+          <span class="section__package-label">Standalone package — 212.1 KB</span>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-email-series.zip?download=1" download="" class="btn btn--small" style="margin-left:auto">Download ZIP</a>
+        </div>
+      </div>
+    </section>
+  </main>
+</div>
+
+<!-- Footer -->
+<footer class="pack-footer">
+  <img src="data:image/png;base64,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" alt="776BC" class="pack-footer__logo">
+  <span class="pack-footer__generated">Generated 2026-03-17</span>
+</footer>
+
+<script>
+/* ── Edit Mode: Drag & Drop + Delete ── */
+let editMode = false;
+
+function toggleEditMode() {
+  editMode = !editMode;
+  document.body.classList.toggle('edit-mode', editMode);
+  const btn = document.getElementById('editToggle');
+  btn.classList.toggle('nav__edit-btn--active', editMode);
+  btn.textContent = editMode ? '✓ Done Editing' : '✎ Edit Mode';
+
+  // Toggle draggable on sections
+  document.querySelectorAll('#mainContent > .section').forEach(s => {
+    s.setAttribute('draggable', editMode ? 'true' : 'false');
+  });
+}
+
+// Drag & drop
+let dragEl = null;
+
+document.addEventListener('dragstart', (e) => {
+  const section = e.target.closest('.section');
+  if (!section || !editMode) return;
+  dragEl = section;
+  section.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+});
+
+document.addEventListener('dragend', (e) => {
+  if (dragEl) dragEl.classList.remove('dragging');
+  document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+  dragEl = null;
+  renumber();
+});
+
+document.addEventListener('dragover', (e) => {
+  e.preventDefault();
+  if (!editMode || !dragEl) return;
+  const section = e.target.closest('.section');
+  if (!section || section === dragEl) return;
+  e.dataTransfer.dropEffect = 'move';
+  document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
+  section.classList.add('drag-over');
+});
+
+document.addEventListener('drop', (e) => {
+  e.preventDefault();
+  if (!editMode || !dragEl) return;
+  const target = e.target.closest('.section');
+  if (!target || target === dragEl) return;
+  target.classList.remove('drag-over');
+  const main = document.getElementById('mainContent');
+  const rect = target.getBoundingClientRect();
+  const midY = rect.top + rect.height / 2;
+  if (e.clientY < midY) {
+    main.insertBefore(dragEl, target);
+  } else {
+    main.insertBefore(dragEl, target.nextSibling);
+  }
+  renumber();
+});
+
+// Delete
+document.addEventListener('click', (e) => {
+  const btn = e.target.closest('.section__delete-btn');
+  if (!btn || !editMode) return;
+  const section = btn.closest('.section');
+  if (!section) return;
+  section.classList.add('deleting');
+  setTimeout(() => { section.remove(); renumber(); }, 300);
+});
+
+// Renumber sections after reorder/delete
+function renumber() {
+  const sections = document.querySelectorAll('#mainContent > .section');
+  sections.forEach((s, i) => {
+    const num = s.querySelector('.section__number');
+    if (num) num.textContent = String(i + 1).padStart(2, '0');
+  });
+  // Update nav count
+  const countEl = document.querySelector('.nav__count');
+  if (countEl) countEl.textContent = sections.length + ' deliverable' + (sections.length !== 1 ? 's' : '');
+}
+</script>
+
+
+</body></html>
