@@ -1547,6 +1547,27 @@ a { color: inherit; text-decoration: none; }
 </style><style>@font-face { font-family: DMSans; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/DMSans-Regular.ttf'); }@font-face { font-family: PoppinsMedium; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Poppins-Medium.otf'); }@font-face { font-family: PoppinsRegular; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Poppins-Regular.otf'); }@font-face { font-family: Roboto; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Roboto-Regular.ttf'); }@font-face { font-family: Inter; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Inter-VariableFont_opsz,wght.ttf'); }</style></head>
 <body cz-shortcut-listen="true">
 
+<!-- ═══════════════ PASSWORD GATE ═══════════════ -->
+<div id="passwordGate" style="position:fixed;inset:0;z-index:99999;background:#1C2127;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif;">
+  <div style="text-align:center;max-width:360px;padding:2rem;">
+    <h1 style="font-size:1.25rem;font-weight:500;letter-spacing:0.04em;margin-bottom:1.5rem;color:#8B939E;">Enter password to continue</h1>
+    <input type="password" id="gatePw" placeholder="Password" autofocus style="width:100%;padding:0.75rem 1rem;border:1px solid #5A6370;border-radius:8px;background:transparent;color:#fff;font-size:1rem;text-align:center;letter-spacing:0.1em;outline:none;">
+    <p id="gateErr" style="color:#E05252;font-size:0.85rem;margin-top:0.75rem;opacity:0;">Incorrect password</p>
+  </div>
+</div>
+<script>
+(function(){
+  var gate=document.getElementById('passwordGate');
+  if(sessionStorage.getItem('776bc_auth')==='1'){gate.style.display='none';return;}
+  document.getElementById('gatePw').addEventListener('keydown',function(e){
+    if(e.key==='Enter'){
+      if(this.value==='776'){sessionStorage.setItem('776bc_auth','1');gate.style.display='none';}
+      else{document.getElementById('gateErr').style.opacity='1';this.value='';}
+    }
+  });
+})();
+</script>
+
 <!-- ═══════════════ NAVIGATION ═══════════════ -->
 <nav class="nav">
   <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html#" class="nav__logo"><img src="./V1 Zooty Men&#39;s — Built for the Line _ 776BC_files/776BC_Primary_Logo_Gold_52b49fce-356c-4b4b-9edb-ccdc172e189e_500x.png" alt="776BC" class="nav__logo-img"></a>
