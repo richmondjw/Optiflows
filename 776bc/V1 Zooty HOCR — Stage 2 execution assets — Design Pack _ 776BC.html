@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- saved from url=(0072)http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html -->
+<!-- saved from url=(0082)http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-3 -->
 <html lang="en"><plasmo-csui id="ff-overlay-container"><template shadowrootmode="open"><style>#plasmo-shadow-container > div {
   pointer-events: none !important;
   background: none !important;
@@ -797,16 +797,6 @@ a { color: inherit; text-decoration: none; }
   border-left-color: var(--accent);
 }
 
-.nav__link--brief {
-  color: var(--brief-accent);
-  border-left-color: var(--brief-dim);
-}
-
-.nav__link--brief:hover {
-  background: rgba(92, 154, 110, 0.06);
-  border-left-color: var(--brief-accent);
-}
-
 .nav__count {
   display: block;
   padding: 6px 20px;
@@ -1139,187 +1129,6 @@ a { color: inherit; text-decoration: none; }
   color: var(--muted);
 }
 
-/* ── Accordion (Approved Briefs) ──────────────── */
-
-.accordion {
-  border-bottom: 1px solid var(--border);
-  background: var(--near-black);
-}
-
-.accordion__trigger {
-  width: 100%;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 16px clamp(16px, 3vw, 40px);
-  background: none;
-  border: none;
-  border-left: 2px solid var(--brief-accent);
-  cursor: pointer;
-  color: var(--text);
-  font-family: var(--font-display);
-  transition: background 0.15s;
-}
-
-.accordion__trigger:hover { background: rgba(92, 154, 110, 0.04); }
-
-.accordion__icon {
-  font-size: 10px;
-  color: var(--brief-accent);
-  transition: transform 0.2s;
-  display: inline-block;
-}
-
-.accordion--open .accordion__icon { transform: rotate(90deg); }
-
-.accordion__label {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  color: var(--brief-accent);
-}
-
-.accordion__count {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  padding: 1px 6px;
-  background: var(--brief-dim);
-  color: var(--brief-accent);
-  border-radius: 2px;
-}
-
-.accordion__deps {
-  font-family: var(--font-mono);
-  font-size: 9px;
-  color: var(--muted);
-  margin-left: auto;
-}
-
-.accordion__expand-hint {
-  font-family: var(--font-mono);
-  font-size: 8px;
-  color: var(--muted);
-  letter-spacing: 0.06em;
-  opacity: 0.6;
-}
-
-.accordion--open .accordion__expand-hint { display: none; }
-
-.accordion__body {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease;
-}
-
-.accordion--open .accordion__body {
-  max-height: 5000px;
-}
-
-.accordion__item {
-  border-top: 1px solid var(--border);
-}
-
-.accordion__item-header {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px clamp(16px, 3vw, 40px) 12px calc(clamp(16px, 3vw, 40px) + 12px);
-}
-
-.accordion__item-title {
-  font-size: 13px;
-  font-weight: 500;
-  color: var(--light);
-  text-transform: capitalize;
-  min-width: 160px;
-}
-
-.accordion__item-content {
-  padding: 0 clamp(16px, 3vw, 40px) 24px calc(clamp(16px, 3vw, 40px) + 12px);
-}
-
-/* ── Edit Mode ───────────────────────────────── */
-
-.nav__edit-btn {
-  display: block;
-  margin: 16px 20px 0;
-  padding: 8px 14px;
-  font-family: var(--font-mono);
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--secondary);
-  background: none;
-  border: 1px solid var(--border-mid);
-  cursor: pointer;
-  transition: all 0.15s;
-  text-align: center;
-}
-
-.nav__edit-btn:hover { border-color: var(--accent); color: var(--accent); }
-.nav__edit-btn--active { border-color: var(--accent); color: var(--accent); background: var(--accent-glow); }
-
-/* Drag handle — hidden until edit mode */
-.section__drag-handle {
-  display: none;
-  font-size: 14px;
-  color: var(--muted);
-  cursor: grab;
-  padding: 4px 8px;
-  user-select: none;
-  flex-shrink: 0;
-  transition: color 0.15s;
-}
-
-.section__drag-handle:hover { color: var(--accent); }
-.section__drag-handle:active { cursor: grabbing; }
-
-/* Delete button — hidden until edit mode */
-.section__delete-btn {
-  display: none;
-  font-size: 18px;
-  color: var(--muted);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 4px 10px;
-  flex-shrink: 0;
-  transition: color 0.15s;
-  font-family: var(--font-display);
-  line-height: 1;
-}
-
-.section__delete-btn:hover { color: #e5534b; }
-
-/* Edit mode active */
-body.edit-mode .section__drag-handle { display: block; }
-body.edit-mode .section__delete-btn { display: block; }
-body.edit-mode .section { transition: opacity 0.2s, transform 0.2s; }
-body.edit-mode .section[draggable="true"] { cursor: grab; }
-
-/* Drag states */
-.section.dragging {
-  opacity: 0.4;
-  background: var(--accent-glow);
-}
-
-.section.drag-over {
-  border-top: 2px solid var(--accent);
-}
-
-/* Deleted section fade-out */
-.section.deleting {
-  opacity: 0;
-  transform: translateX(40px);
-  max-height: 0;
-  overflow: hidden;
-  padding: 0;
-  margin: 0;
-  border: none;
-  transition: all 0.3s ease;
-}
-
 /* ── Responsive ──────────────────────────────── */
 
 @media (max-width: 800px) {
@@ -1354,6 +1163,7 @@ body.edit-mode .section[draggable="true"] { cursor: grab; }
 <div class="pack-hero">
   <div class="pack-hero__grid"></div>
   <div class="pack-hero__content">
+    <img src="data:image/png;base64,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" alt="776BC" class="pack-hero__logo">
     <div class="pack-hero__eyebrow">TASK-0008 — Design Pack</div>
     <h1 class="pack-hero__title">V1 Zooty HOCR — Stage 2 execution assets</h1>
     <div class="pack-hero__meta">
@@ -1375,53 +1185,209 @@ body.edit-mode .section[draggable="true"] { cursor: grab; }
 <div class="layout">
   <nav class="nav">
     <div class="nav__heading">Contents</div>
-    <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#briefs-accordion" class="nav__link nav__link--brief">▸ Approved Briefs (1)</a>
-<div class="nav__group">Design Assets</div>
-            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-0" class="nav__link">◈ v1 zooty landing page</a>
-            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-1" class="nav__link">◈ v1 zooty landing</a>
-            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-2" class="nav__link">◈ v1 zooty email series</a>
+    <div class="nav__group">Design Assets</div>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-0" class="nav__link">◈ v1 zooty email series</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-1" class="nav__link">◈ v1 zooty landing page</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-2" class="nav__link">◈ v1 zooty landing</a>
             <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-3" class="nav__link">◈ v1 zooty social content</a>
 <div class="nav__group">Images</div>
             <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-4" class="nav__link">▨ bc logo gold large</a>
             <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-5" class="nav__link">▨ bc logo gold</a>
+<div class="nav__group">Approved Briefs</div>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-6" class="nav__link">▸ stage 1 v1 zooty hocr strategy</a>
 <div class="nav__group">Documents</div>
-            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-6" class="nav__link">▪ campaign landing page copy</a>
-            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-7" class="nav__link">▪ launch email series</a>
-            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-8" class="nav__link">▪ social media content</a>
-            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-9" class="nav__link">▪ short form video concepts</a>
-            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-10" class="nav__link">▪ the line hero film brief</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-7" class="nav__link">▪ campaign landing page copy</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-8" class="nav__link">▪ launch email series</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-9" class="nav__link">▪ social media content</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-10" class="nav__link">▪ short form video concepts</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-11" class="nav__link">▪ the line hero film brief</a>
 <div class="nav__group">Packages</div>
-            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-11" class="nav__link">◆ v1 zooty landing</a>
             <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-12" class="nav__link">◆ v1 zooty email series</a>
+            <a href="http://localhost:3001/api/deliverables/review/TASK-0008/design-pack.html#section-13" class="nav__link">◆ v1 zooty landing</a>
 
     <div class="nav__count">14 deliverables</div>
-    <button class="nav__edit-btn" onclick="toggleEditMode()" id="editToggle">✎ Edit Mode</button>
   </nav>
 
-  <main class="main" id="mainContent">
+  <main class="main">
     
-    <div class="accordion" id="briefs-accordion">
-      <button class="accordion__trigger" onclick="this.parentElement.classList.toggle(&#39;accordion--open&#39;)">
-        <span class="accordion__icon">▶</span>
-        <span class="accordion__label">Approved Briefs</span>
-        <span class="accordion__count">1</span>
-        <span class="accordion__deps">TASK-0007</span>
-        <span class="accordion__expand-hint">Click to expand</span>
-      </button>
-      <div class="accordion__body">
+    <section class="section section--design" id="section-0">
+      <div class="section__header">
+        <div class="section__number">01</div>
+        <div class="section__meta">
+          <h2 class="section__title">v1 zooty email series</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">v1-zooty-email-series/index.html</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">50.3 KB</span>
+            
+          </div>
+        </div>
         
-      <div class="accordion__item">
-        <div class="accordion__item-header">
-          <span class="accordion__item-title">stage 1 v1 zooty hocr strategy</span>
-          <span class="section__info" style="flex:1">
-            <span class="section__source">TASK-0007</span>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__preview-frame section__preview-frame--hero">
+          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/index.html" title="v1 zooty email series" class="section__iframe section__iframe--hero"></iframe>
+        </div>
+        <div class="section__preview-actions">
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-email-series/index.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-email-series/index.html?download=1" download="" class="btn btn--small">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--design" id="section-1">
+      <div class="section__header">
+        <div class="section__number">02</div>
+        <div class="section__meta">
+          <h2 class="section__title">v1 zooty landing page</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">v1-zooty-landing-page.html</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">37.5 KB</span>
+            
+          </div>
+        </div>
+        
+      </div>
+      <div class="section__content">
+        
+        <div class="section__preview-frame section__preview-frame--hero">
+          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/v1-zooty-landing-page.html" title="v1 zooty landing page" class="section__iframe section__iframe--hero"></iframe>
+        </div>
+        <div class="section__preview-actions">
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html?download=1" download="" class="btn btn--small">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--design" id="section-2">
+      <div class="section__header">
+        <div class="section__number">03</div>
+        <div class="section__meta">
+          <h2 class="section__title">v1 zooty landing</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">v1-zooty-landing/index.html</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">38.2 KB</span>
+            
+          </div>
+        </div>
+        
+      </div>
+      <div class="section__content">
+        
+        <div class="section__preview-frame section__preview-frame--hero">
+          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/index(1).html" title="v1 zooty landing" class="section__iframe section__iframe--hero"></iframe>
+        </div>
+        <div class="section__preview-actions">
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html?download=1" download="" class="btn btn--small">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--design" id="section-3">
+      <div class="section__header">
+        <div class="section__number">04</div>
+        <div class="section__meta">
+          <h2 class="section__title">v1 zooty social content</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">v1-zooty-social-content.html</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">33.7 KB</span>
+            
+          </div>
+        </div>
+        
+      </div>
+      <div class="section__content">
+        
+        <div class="section__preview-frame section__preview-frame--hero">
+          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/v1-zooty-social-content.html" title="v1 zooty social content" class="section__iframe section__iframe--hero"></iframe>
+        </div>
+        <div class="section__preview-actions">
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-social-content.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-social-content.html?download=1" download="" class="btn btn--small">Download</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section-4">
+      <div class="section__header">
+        <div class="section__number">05</div>
+        <div class="section__meta">
+          <h2 class="section__title">bc logo gold large</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--1">Image</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">776bc-logo-gold-large.png</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">29.2 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/776bc-logo-gold-large.png?download=1" download="" class="btn btn--small">Download</a>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__image">
+          <img src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/776bc-logo-gold-large.png" alt="bc logo gold large">
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section-5">
+      <div class="section__header">
+        <div class="section__number">06</div>
+        <div class="section__meta">
+          <h2 class="section__title">bc logo gold</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--1">Image</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">776bc-logo-gold.png</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">4.7 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/776bc-logo-gold.png?download=1" download="" class="btn btn--small">Download</a>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__image">
+          <img src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/776bc-logo-gold.png" alt="bc logo gold">
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--brief" id="section-6">
+      <div class="section__header">
+        <div class="section__number">07</div>
+        <div class="section__meta">
+          <h2 class="section__title">stage 1 v1 zooty hocr strategy</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--2">Approved Brief</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">stage-1-v1-zooty-hocr-strategy.md</span>
             <span class="section__dot">·</span>
             <span class="section__size">12.8 KB</span>
-          </span>
-          <a href="http://localhost:3001/api/deliverables/review/TASK-0007/stage-1-v1-zooty-hocr-strategy.md?download=1" download="" class="btn btn--small">Download</a>
+            <span class="section__source">TASK-0007</span>
+          </div>
         </div>
-        <div class="accordion__item-content">
-          <div class="section__markdown"><h1>V1 Zooty Men's — HOCR Launch Strategy</h1>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0007/stage-1-v1-zooty-hocr-strategy.md?download=1" download="" class="btn btn--small">Download</a>
+      </div>
+      <div class="section__content">
+        <div class="section__markdown"><h1>V1 Zooty Men's — HOCR Launch Strategy</h1>
 <h2>Stage 1: Strategic Marketing Plan for Leadership Approval</h2>
 <p><strong>Prepared by:</strong> Strategos (Orchestrator) with Athena (Strategy) + Argus (Research)
 <strong>Date:</strong> 2026-03-17
@@ -1892,187 +1858,12 @@ Race recaps, athlete stories, performance data. Community content from athletes 
 <hr>
 <p><em>Prepared by Strategos. Strategy by Athena. Research by Argus. Brand compliance pending (Themis gate on Stage 2 execution assets).</em></p>
 </div>
-        </div>
-      </div>
-      </div>
-    </div>
-    
-    <section class="section section--design" id="section-0" draggable="false" data-section-idx="0">
-      <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">01</div>
-        <div class="section__meta">
-          <h2 class="section__title">v1 zooty landing page</h2>
-          <div class="section__info">
-            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
-            <span class="section__dot">·</span>
-            <span class="section__file">v1-zooty-landing-page.html</span>
-            <span class="section__dot">·</span>
-            <span class="section__size">37.5 KB</span>
-            
-          </div>
-        </div>
-        
-        <button class="section__delete-btn" title="Remove from pack">×</button>
-      </div>
-      <div class="section__content">
-        
-        <div class="section__preview-frame section__preview-frame--hero">
-          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/v1-zooty-landing-page.html" title="v1 zooty landing page" class="section__iframe section__iframe--hero"></iframe>
-        </div>
-        <div class="section__preview-actions">
-          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
-          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html?download=1" download="" class="btn btn--small">Download</a>
-        </div>
       </div>
     </section>
 
-    <section class="section section--design" id="section-1" draggable="false" data-section-idx="1">
+    <section class="section" id="section-7">
       <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">02</div>
-        <div class="section__meta">
-          <h2 class="section__title">v1 zooty landing</h2>
-          <div class="section__info">
-            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
-            <span class="section__dot">·</span>
-            <span class="section__file">v1-zooty-landing/index.html</span>
-            <span class="section__dot">·</span>
-            <span class="section__size">38.2 KB</span>
-            
-          </div>
-        </div>
-        
-        <button class="section__delete-btn" title="Remove from pack">×</button>
-      </div>
-      <div class="section__content">
-        
-        <div class="section__preview-frame section__preview-frame--hero">
-          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/index.html" title="v1 zooty landing" class="section__iframe section__iframe--hero"></iframe>
-        </div>
-        <div class="section__preview-actions">
-          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
-          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html?download=1" download="" class="btn btn--small">Download</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--design" id="section-2" draggable="false" data-section-idx="2">
-      <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">03</div>
-        <div class="section__meta">
-          <h2 class="section__title">v1 zooty email series</h2>
-          <div class="section__info">
-            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
-            <span class="section__dot">·</span>
-            <span class="section__file">v1-zooty-email-series/index.html</span>
-            <span class="section__dot">·</span>
-            <span class="section__size">50.3 KB</span>
-            
-          </div>
-        </div>
-        
-        <button class="section__delete-btn" title="Remove from pack">×</button>
-      </div>
-      <div class="section__content">
-        
-        <div class="section__preview-frame section__preview-frame--hero">
-          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/index(1).html" title="v1 zooty email series" class="section__iframe section__iframe--hero"></iframe>
-        </div>
-        <div class="section__preview-actions">
-          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-email-series/index.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
-          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-email-series/index.html?download=1" download="" class="btn btn--small">Download</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--design" id="section-3" draggable="false" data-section-idx="3">
-      <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">04</div>
-        <div class="section__meta">
-          <h2 class="section__title">v1 zooty social content</h2>
-          <div class="section__info">
-            <span class="section__tier-badge section__tier-badge--0">Design Asset</span>
-            <span class="section__dot">·</span>
-            <span class="section__file">v1-zooty-social-content.html</span>
-            <span class="section__dot">·</span>
-            <span class="section__size">33.7 KB</span>
-            
-          </div>
-        </div>
-        
-        <button class="section__delete-btn" title="Remove from pack">×</button>
-      </div>
-      <div class="section__content">
-        
-        <div class="section__preview-frame section__preview-frame--hero">
-          <iframe src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/v1-zooty-social-content.html" title="v1 zooty social content" class="section__iframe section__iframe--hero"></iframe>
-        </div>
-        <div class="section__preview-actions">
-          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-social-content.html" target="_blank" class="btn btn--ghost">Open Full Preview →</a>
-          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-social-content.html?download=1" download="" class="btn btn--small">Download</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="section-4" draggable="false" data-section-idx="4">
-      <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">05</div>
-        <div class="section__meta">
-          <h2 class="section__title">bc logo gold large</h2>
-          <div class="section__info">
-            <span class="section__tier-badge section__tier-badge--1">Image</span>
-            <span class="section__dot">·</span>
-            <span class="section__file">776bc-logo-gold-large.png</span>
-            <span class="section__dot">·</span>
-            <span class="section__size">29.2 KB</span>
-            
-          </div>
-        </div>
-        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/776bc-logo-gold-large.png?download=1" download="" class="btn btn--small">Download</a>
-        <button class="section__delete-btn" title="Remove from pack">×</button>
-      </div>
-      <div class="section__content">
-        
-        <div class="section__image">
-          <img src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/776bc-logo-gold-large.png" alt="bc logo gold large">
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="section-5" draggable="false" data-section-idx="5">
-      <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">06</div>
-        <div class="section__meta">
-          <h2 class="section__title">bc logo gold</h2>
-          <div class="section__info">
-            <span class="section__tier-badge section__tier-badge--1">Image</span>
-            <span class="section__dot">·</span>
-            <span class="section__file">776bc-logo-gold.png</span>
-            <span class="section__dot">·</span>
-            <span class="section__size">4.7 KB</span>
-            
-          </div>
-        </div>
-        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/776bc-logo-gold.png?download=1" download="" class="btn btn--small">Download</a>
-        <button class="section__delete-btn" title="Remove from pack">×</button>
-      </div>
-      <div class="section__content">
-        
-        <div class="section__image">
-          <img src="./V1 Zooty HOCR — Stage 2 execution assets — Design Pack _ 776BC_files/776bc-logo-gold.png" alt="bc logo gold">
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="section-6" draggable="false" data-section-idx="6">
-      <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">07</div>
+        <div class="section__number">08</div>
         <div class="section__meta">
           <h2 class="section__title">campaign landing page copy</h2>
           <div class="section__info">
@@ -2085,7 +1876,6 @@ Race recaps, athlete stories, performance data. Community content from athletes 
           </div>
         </div>
         <a href="http://localhost:3001/api/deliverables/review/TASK-0008/01-campaign-landing-page-copy.md?download=1" download="" class="btn btn--small">Download</a>
-        <button class="section__delete-btn" title="Remove from pack">×</button>
       </div>
       <div class="section__content">
         <div class="section__markdown"><h1>V1 Zooty Men's — Campaign Landing Page Copy</h1>
@@ -2196,10 +1986,9 @@ Join the 776BC crew for launch updates</p>
       </div>
     </section>
 
-    <section class="section" id="section-7" draggable="false" data-section-idx="7">
+    <section class="section" id="section-8">
       <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">08</div>
+        <div class="section__number">09</div>
         <div class="section__meta">
           <h2 class="section__title">launch email series</h2>
           <div class="section__info">
@@ -2212,7 +2001,6 @@ Join the 776BC crew for launch updates</p>
           </div>
         </div>
         <a href="http://localhost:3001/api/deliverables/review/TASK-0008/02-launch-email-series.md?download=1" download="" class="btn btn--small">Download</a>
-        <button class="section__delete-btn" title="Remove from pack">×</button>
       </div>
       <div class="section__content">
         <div class="section__markdown"><h1>V1 Zooty Men's — 4-Part Launch Email Series</h1>
@@ -2301,10 +2089,9 @@ Join the 776BC crew for launch updates</p>
       </div>
     </section>
 
-    <section class="section" id="section-8" draggable="false" data-section-idx="8">
+    <section class="section" id="section-9">
       <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">09</div>
+        <div class="section__number">10</div>
         <div class="section__meta">
           <h2 class="section__title">social media content</h2>
           <div class="section__info">
@@ -2317,7 +2104,6 @@ Join the 776BC crew for launch updates</p>
           </div>
         </div>
         <a href="http://localhost:3001/api/deliverables/review/TASK-0008/03-social-media-content.md?download=1" download="" class="btn btn--small">Download</a>
-        <button class="section__delete-btn" title="Remove from pack">×</button>
       </div>
       <div class="section__content">
         <div class="section__markdown"><h1>V1 Zooty Men's — Social Media Content Concepts</h1>
@@ -2477,10 +2263,9 @@ For the three miles that mattered.</p>
       </div>
     </section>
 
-    <section class="section" id="section-9" draggable="false" data-section-idx="9">
+    <section class="section" id="section-10">
       <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">10</div>
+        <div class="section__number">11</div>
         <div class="section__meta">
           <h2 class="section__title">short form video concepts</h2>
           <div class="section__info">
@@ -2493,7 +2278,6 @@ For the three miles that mattered.</p>
           </div>
         </div>
         <a href="http://localhost:3001/api/deliverables/review/TASK-0008/04-short-form-video-concepts.md?download=1" download="" class="btn btn--small">Download</a>
-        <button class="section__delete-btn" title="Remove from pack">×</button>
       </div>
       <div class="section__content">
         <div class="section__markdown"><h1>V1 Zooty Men's — Short-Form Video Concepts</h1>
@@ -2763,10 +2547,9 @@ For the three miles that mattered.</p>
       </div>
     </section>
 
-    <section class="section" id="section-10" draggable="false" data-section-idx="10">
+    <section class="section" id="section-11">
       <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">11</div>
+        <div class="section__number">12</div>
         <div class="section__meta">
           <h2 class="section__title">the line hero film brief</h2>
           <div class="section__info">
@@ -2779,7 +2562,6 @@ For the three miles that mattered.</p>
           </div>
         </div>
         <a href="http://localhost:3001/api/deliverables/review/TASK-0008/05-the-line-hero-film-brief.md?download=1" download="" class="btn btn--small">Download</a>
-        <button class="section__delete-btn" title="Remove from pack">×</button>
       </div>
       <div class="section__content">
         <div class="section__markdown"><h1>"The Line" — Hero Film Creative Brief</h1>
@@ -3322,37 +3104,8 @@ For the three miles that mattered.</p>
       </div>
     </section>
 
-    <section class="section" id="section-11" draggable="false" data-section-idx="11">
+    <section class="section" id="section-12">
       <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
-        <div class="section__number">12</div>
-        <div class="section__meta">
-          <h2 class="section__title">v1 zooty landing</h2>
-          <div class="section__info">
-            <span class="section__tier-badge section__tier-badge--4">Package</span>
-            <span class="section__dot">·</span>
-            <span class="section__file">v1-zooty-landing.zip</span>
-            <span class="section__dot">·</span>
-            <span class="section__size">211.2 KB</span>
-            
-          </div>
-        </div>
-        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing.zip?download=1" download="" class="btn btn--small">Download</a>
-        <button class="section__delete-btn" title="Remove from pack">×</button>
-      </div>
-      <div class="section__content">
-        
-        <div class="section__package">
-          <span class="section__package-icon">◆</span>
-          <span class="section__package-label">Standalone package — 211.2 KB</span>
-          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing.zip?download=1" download="" class="btn btn--small" style="margin-left:auto">Download ZIP</a>
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="section-12" draggable="false" data-section-idx="12">
-      <div class="section__header">
-        <span class="section__drag-handle" title="Drag to reorder">☰</span>
         <div class="section__number">13</div>
         <div class="section__meta">
           <h2 class="section__title">v1 zooty email series</h2>
@@ -3366,7 +3119,6 @@ For the three miles that mattered.</p>
           </div>
         </div>
         <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-email-series.zip?download=1" download="" class="btn btn--small">Download</a>
-        <button class="section__delete-btn" title="Remove from pack">×</button>
       </div>
       <div class="section__content">
         
@@ -3374,6 +3126,32 @@ For the three miles that mattered.</p>
           <span class="section__package-icon">◆</span>
           <span class="section__package-label">Standalone package — 212.1 KB</span>
           <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-email-series.zip?download=1" download="" class="btn btn--small" style="margin-left:auto">Download ZIP</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="section-13">
+      <div class="section__header">
+        <div class="section__number">14</div>
+        <div class="section__meta">
+          <h2 class="section__title">v1 zooty landing</h2>
+          <div class="section__info">
+            <span class="section__tier-badge section__tier-badge--4">Package</span>
+            <span class="section__dot">·</span>
+            <span class="section__file">v1-zooty-landing.zip</span>
+            <span class="section__dot">·</span>
+            <span class="section__size">211.2 KB</span>
+            
+          </div>
+        </div>
+        <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing.zip?download=1" download="" class="btn btn--small">Download</a>
+      </div>
+      <div class="section__content">
+        
+        <div class="section__package">
+          <span class="section__package-icon">◆</span>
+          <span class="section__package-label">Standalone package — 211.2 KB</span>
+          <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing.zip?download=1" download="" class="btn btn--small" style="margin-left:auto">Download ZIP</a>
         </div>
       </div>
     </section>
@@ -3385,91 +3163,6 @@ For the three miles that mattered.</p>
   <img src="data:image/png;base64,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" alt="776BC" class="pack-footer__logo">
   <span class="pack-footer__generated">Generated 2026-03-17</span>
 </footer>
-
-<script>
-/* ── Edit Mode: Drag & Drop + Delete ── */
-let editMode = false;
-
-function toggleEditMode() {
-  editMode = !editMode;
-  document.body.classList.toggle('edit-mode', editMode);
-  const btn = document.getElementById('editToggle');
-  btn.classList.toggle('nav__edit-btn--active', editMode);
-  btn.textContent = editMode ? '✓ Done Editing' : '✎ Edit Mode';
-
-  // Toggle draggable on sections
-  document.querySelectorAll('#mainContent > .section').forEach(s => {
-    s.setAttribute('draggable', editMode ? 'true' : 'false');
-  });
-}
-
-// Drag & drop
-let dragEl = null;
-
-document.addEventListener('dragstart', (e) => {
-  const section = e.target.closest('.section');
-  if (!section || !editMode) return;
-  dragEl = section;
-  section.classList.add('dragging');
-  e.dataTransfer.effectAllowed = 'move';
-});
-
-document.addEventListener('dragend', (e) => {
-  if (dragEl) dragEl.classList.remove('dragging');
-  document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
-  dragEl = null;
-  renumber();
-});
-
-document.addEventListener('dragover', (e) => {
-  e.preventDefault();
-  if (!editMode || !dragEl) return;
-  const section = e.target.closest('.section');
-  if (!section || section === dragEl) return;
-  e.dataTransfer.dropEffect = 'move';
-  document.querySelectorAll('.drag-over').forEach(el => el.classList.remove('drag-over'));
-  section.classList.add('drag-over');
-});
-
-document.addEventListener('drop', (e) => {
-  e.preventDefault();
-  if (!editMode || !dragEl) return;
-  const target = e.target.closest('.section');
-  if (!target || target === dragEl) return;
-  target.classList.remove('drag-over');
-  const main = document.getElementById('mainContent');
-  const rect = target.getBoundingClientRect();
-  const midY = rect.top + rect.height / 2;
-  if (e.clientY < midY) {
-    main.insertBefore(dragEl, target);
-  } else {
-    main.insertBefore(dragEl, target.nextSibling);
-  }
-  renumber();
-});
-
-// Delete
-document.addEventListener('click', (e) => {
-  const btn = e.target.closest('.section__delete-btn');
-  if (!btn || !editMode) return;
-  const section = btn.closest('.section');
-  if (!section) return;
-  section.classList.add('deleting');
-  setTimeout(() => { section.remove(); renumber(); }, 300);
-});
-
-// Renumber sections after reorder/delete
-function renumber() {
-  const sections = document.querySelectorAll('#mainContent > .section');
-  sections.forEach((s, i) => {
-    const num = s.querySelector('.section__number');
-    if (num) num.textContent = String(i + 1).padStart(2, '0');
-  });
-  // Update nav count
-  const countEl = document.querySelector('.nav__count');
-  if (countEl) countEl.textContent = sections.length + ' deliverable' + (sections.length !== 1 ? 's' : '');
-}
-</script>
 
 
 </body></html>

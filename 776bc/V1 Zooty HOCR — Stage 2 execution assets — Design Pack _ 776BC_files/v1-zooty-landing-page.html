@@ -1,527 +1,12 @@
 <!DOCTYPE html>
 <!-- saved from url=(0082)http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html -->
-<html lang="en"><plasmo-csui id="ff-overlay-container"><template shadowrootmode="open"><style>#plasmo-shadow-container > div {
-  pointer-events: none !important;
-  background: none !important;
-  position: fixed !important;
-  inset: 0 !important;
-}
-
-.main_top_container_ff {
-  width: 400px;
-}
-
-.popup_container_wrapper_ff {
-  background-color: #fff;
-}
-
-.popup_container_wrapper_ff * {
-  font-family: PoppinsRegular;
-}
-
-.popup_container_wrapper_ff img {
-  background-color: #0000;
-}
-
-.popup_container_ff {
-  box-shadow: 0 5px 20px #1e1e2212;
-}
-
-.popup_div_ff {
-  box-sizing: border-box;
-  background-color: #fff;
-  width: 100%;
-  padding: 24px;
-}
-
-.main_component_ff {
-  width: 100%;
-  padding-bottom: 0 !important;
-}
-
-.popup_top_icon_div_ff {
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 16px;
-  display: flex;
-}
-
-.popup_top_icon_div_ff .btn_canvas_ff {
-  display: inline-flex;
-}
-
-.popup_top_icon_div_ff .ff_popup_top_image {
-  z-index: 0;
-  width: 100%;
-  height: auto;
-  position: absolute;
-  inset: 0 0 auto;
-}
-
-.popup_top_icon_btn_ff {
-  cursor: pointer;
-  z-index: 1;
-  background: none;
-  border: none;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  font-size: 20px;
-  display: inline-flex;
-}
-
-.popup_top_icon_btn_ff img {
-  justify-content: center;
-  align-items: center;
-  width: 100%;
-  height: 100%;
-  display: flex;
-}
-
-.popup_top_icon_btn_ff:focus {
-  outline: none;
-}
-
-.dot_ff {
-  background-color: red;
-  border-radius: 50%;
-  width: 15px;
-  height: 15px;
-}
-
-.dot_ff-top-right {
-  position: absolute;
-  top: 33%;
-  right: 16px;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .dot_ff {
-    animation: none;
-  }
-}
-
-.topbar_cross_icon_ff {
-  cursor: pointer;
-  background: #eaeaea;
-  border: 2px solid #fff;
-  border-radius: 50%;
-  flex-shrink: 0;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 20px;
-  padding: 0;
-  display: flex;
-}
-
-.topbar_cross_icon_ff img {
-  width: 12px;
-  height: 12px;
-}
-
-.btn_canvas_ff .topbar_detail_submit_btn_ff {
-  cursor: pointer;
-  color: #6e75ff;
-  background: #f0f0ff;
-  border: none;
-  border-radius: 5px;
-  justify-content: center;
-  align-items: center;
-  min-width: 108px;
-  min-height: 40px;
-  margin: 0;
-  padding: 10px 30px;
-  font-family: PoppinsRegular;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  display: flex;
-}
-
-.btn_canvas_ff .topbar_detail_submit_btn_ff:hover {
-  box-shadow: none;
-  color: #fff;
-  cursor: pointer;
-  background: #6e75ff;
-  border: none;
-  outline: none;
-}
-
-.btn_canvas_ff .topbar_detail_okay_btn_ff {
-  cursor: pointer;
-  color: #555;
-  background: #eee;
-  border: none;
-  border-radius: 5px;
-  justify-content: center;
-  align-items: center;
-  min-width: 108px;
-  min-height: 40px;
-  margin: 0;
-  padding: 10px 30px;
-  font-size: 14px;
-  font-weight: 600;
-  line-height: 20px;
-  display: flex;
-}
-
-.btn_canvas_ff .topbar_detail_okay_btn_ff:hover, .btn_canvas_ff .topbar_detail_okay_btn_ff:focus {
-  box-shadow: none;
-  color: #eee;
-  cursor: pointer;
-  background: #555;
-  border: none;
-  outline: none;
-}
-
-.btn_canvas_ff .topbar_detail_submit_btn_ff:disabled, .btn_canvas_ff .topbar_detail_okay_btn_ff:disabled {
-  color: #696969 !important;
-  background-color: #d3d3d3 !important;
-}
-
-.spaced_icon_ff {
-  margin-left: 5px;
-  background-color: #0000 !important;
-}
-
-.toggle_btn_ff {
-  justify-content: center;
-  align-items: center;
-  padding: 6px 0 18px;
-  display: flex;
-  position: relative;
-}
-
-.create_notification_container_ff {
-  cursor: auto;
-  box-sizing: border-box;
-  z-index: 99999;
-  pointer-events: initial;
-  background-color: #fff;
-  border: none;
-  border-radius: 8px;
-  flex-direction: column;
-  align-items: flex-start;
-  width: 512px;
-  margin-top: 16px;
-  padding: 24px;
-  position: absolute;
-  inset: 20px 100px auto auto;
-  box-shadow: 0 0 10px;
-}
-
-plasmo-csui#ff-overlay-container, plasmo-csui#real-time-panel {
-  z-index: 999;
-  pointer-events: none;
-  position: absolute;
-  inset: 0;
-}
-
-.ff_input_container {
-  background: none;
-  border: none;
-  border-radius: 4px;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: -webkit-fill-available;
-  display: flex;
-}
-
-.ff_input_container .input_input {
-  resize: none;
-  background: none;
-  border: 1px solid #f2f4f7;
-  border-radius: 8px;
-  width: -webkit-fill-available;
-  height: 20px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: 20px;
-  box-shadow: none !important;
-  color: #475467 !important;
-  padding: 8px 16px !important;
-  font-family: Roboto !important;
-  font-size: 14px !important;
-}
-
-.ff_input_container .input_input:focus-visible {
-  outline: none;
-}
-
-.ff_input_container .input_label {
-  letter-spacing: -.01em;
-  color: #101828;
-  background-color: #0000;
-  padding-bottom: 8px;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: 20px;
-}
-
-.ff_input_container .input_description {
-  letter-spacing: -.01em;
-  color: #878f97;
-  background-color: #0000;
-  margin: 0;
-  padding-bottom: 8px;
-  font-family: Roboto;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-}
-
-.input_icon_container {
-  border: 1px solid #f2f4f7;
-  border-radius: 8px;
-  justify-content: flex-start;
-  align-items: center;
-  gap: 8px;
-  width: -webkit-fill-available;
-  padding-left: 16px;
-  display: flex;
-  border-bottom-right-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-}
-
-.input_icon_container .input_input {
-  border: none;
-  padding-left: 0 !important;
-}
-
-.ff_select_container {
-  background: none;
-  border: none;
-  border-radius: 4px;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-start;
-  width: -webkit-fill-available;
-  display: flex;
-  position: relative;
-}
-
-.ff_select_option_list_container {
-  z-index: 1;
-  background: #fff;
-  border: 1px solid #f2f4f7;
-  border-top: 0;
-  border-radius: 0 0 8px 8px;
-  width: -webkit-fill-available;
-  max-height: 80px;
-  margin: 0;
-  padding: 10px;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  overflow-y: scroll;
-}
-
-.ff_select_option_list {
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  overflow-x: hidden;
-}
-
-.ff_select_option_item {
-  color: #475467;
-  text-overflow: ellipsis;
-  cursor: pointer;
-  align-self: stretch;
-  align-items: center;
-  gap: 8px;
-  min-height: 16px;
-  padding: 8px;
-  display: flex;
-  overflow: hidden;
-}
-
-.ff_select_option_item:hover, .ff_select_option_item:focus {
-  background: #f9fafb;
-  border-radius: 8px;
-}
-
-.ff_select_option_item span {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  background: none;
-  overflow: hidden;
-}
-
-.ff_select_search {
-  border-bottom-right-radius: 0 !important;
-  border-bottom-left-radius: 0 !important;
-}
-
-.ff_select_dropdown_container {
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  width: 100%;
-  margin-top: 10px;
-  margin-bottom: 55px;
-  display: flex;
-  position: relative;
-}
-
-.topbar_heading_box_ff {
-  flex-direction: row;
-  flex-shrink: 0;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-}
-
-.topbar_icon_ff {
-  justify-content: center;
-  align-items: center;
-  margin-right: 10px;
-  display: flex;
-}
-
-.topbar_middle_icon_ff {
-  justify-content: flex-start;
-  align-items: center;
-  margin-bottom: 1rem;
-  display: flex;
-}
-
-.topbar_detail_head_ff {
-  text-align: left;
-  letter-spacing: -.01em;
-  color: #22262a;
-  border: none;
-  width: 100%;
-  margin: 0;
-  padding: 0;
-  font-family: PoppinsRegular;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 24px;
-  font-family: PoppinsMedium !important;
-}
-
-.topbar_detail_body_ff {
-  letter-spacing: 0;
-  align-items: flex-start;
-  margin: 16px 0 17px;
-  padding: 0;
-  display: flex;
-}
-
-.topbar_detail_para_ff {
-  width: 100%;
-  margin: 0;
-}
-
-.topbar_detail_para_ff .topbar_detail_text {
-  color: #484f56;
-  letter-spacing: -.01em;
-  margin: 0;
-  padding: 0;
-  font-family: PoppinsRegular;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 21px;
-}
-
-.topbar_detail_para_ff .topbar_detail_text_last {
-  color: #878f97;
-  letter-spacing: -.01em;
-  margin: 0;
-  padding-top: 8px;
-  padding-bottom: 2px;
-  font-family: PoppinsRegular;
-  font-size: 13px;
-  font-weight: 500;
-  line-height: 18px;
-}
-
-.topbar_detail_static_arrow_ff {
-  position: absolute;
-  top: 24px;
-  right: 24px;
-}
-
-.topbar_detail_static_arrow_ff img {
-  width: 24px;
-  height: 26px;
-  display: inline;
-}
-
-.topbar_detail_btns_ff {
-  justify-content: space-between;
-  width: 100%;
-  display: flex;
-}
-
-.narrow_btns_ff {
-  width: 70% !important;
-}
-
-.review_btns_ff {
-  gap: 1rem;
-  justify-content: flex-start !important;
-  width: 70% !important;
-}
-
-.topbar_detail_submit_btn_ff, .topbar_detail_okay_btn_ff {
-  white-space: nowrap;
-  text-overflow: ellipsis;
-  max-width: 150px;
-  overflow: hidden;
-}
-
-.dot_ff {
-  border-radius: 50%;
-  flex-shrink: 0;
-  justify-content: center;
-  align-items: center;
-  width: 8px;
-  height: 8px;
-  display: flex;
-}
-
-.success_dot_ff {
-  background-color: #12b76a !important;
-}
-
-.warning_dot_ff {
-  background-color: #f08c00 !important;
-}
-
-.error_dot_ff {
-  background-color: red !important;
-}
-
-.large_dot_ff {
-  width: 12px !important;
-  height: 12px !important;
-}
-
-.medium_dot_ff {
-  width: 10px !important;
-  height: 10px !important;
-}
-
-.small_dot_ff {
-  width: 6px !important;
-  height: 6px !important;
-}
-
-</style><div id="plasmo-shadow-container" style="z-index: 2147483647; position: relative;"><div id="plasmo-overlay-0" class="plasmo-csui-container" style="display: flex; position: absolute; top: -7.6e-06px; left: 0px;"></div></div></template></plasmo-csui><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>V1 Zooty Men's — Built for the Line | 776BC</title>
 <link rel="preconnect" href="https://fonts.googleapis.com/">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link href="./V1 Zooty Men&#39;s — Built for the Line _ 776BC_files/css2" rel="stylesheet">
+<link href="./css2" rel="stylesheet">
 <style>
 /* ═══════════════════════════════════════════════════════
    776BC — V1 ZOOTY "BUILT FOR THE LINE"
@@ -1539,38 +1024,12 @@ a { color: inherit; text-decoration: none; }
   .footer { flex-direction: column; gap: 16px; text-align: center; }
 }
 </style>
-<style>
-  .imageye-selected {
-    outline: 2px solid black !important;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5) !important;
-  }
-</style><style>@font-face { font-family: DMSans; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/DMSans-Regular.ttf'); }@font-face { font-family: PoppinsMedium; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Poppins-Medium.otf'); }@font-face { font-family: PoppinsRegular; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Poppins-Regular.otf'); }@font-face { font-family: Roboto; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Roboto-Regular.ttf'); }@font-face { font-family: Inter; src: url('chrome-extension://meimoidfecamngeoanhnpdjjdcefoldn/assets/fonts/Inter-VariableFont_opsz,wght.ttf'); }</style></head>
-<body cz-shortcut-listen="true">
-
-<!-- ═══════════════ PASSWORD GATE ═══════════════ -->
-<div id="passwordGate" style="position:fixed;inset:0;z-index:99999;background:#1C2127;display:flex;align-items:center;justify-content:center;font-family:system-ui,sans-serif;">
-  <div style="text-align:center;max-width:360px;padding:2rem;">
-    <h1 style="font-size:1.25rem;font-weight:500;letter-spacing:0.04em;margin-bottom:1.5rem;color:#8B939E;">Enter password to continue</h1>
-    <input type="password" id="gatePw" placeholder="Password" autofocus style="width:100%;padding:0.75rem 1rem;border:1px solid #5A6370;border-radius:8px;background:transparent;color:#fff;font-size:1rem;text-align:center;letter-spacing:0.1em;outline:none;">
-    <p id="gateErr" style="color:#E05252;font-size:0.85rem;margin-top:0.75rem;opacity:0;">Incorrect password</p>
-  </div>
-</div>
-<script>
-(function(){
-  var gate=document.getElementById('passwordGate');
-  if(sessionStorage.getItem('776bc_auth')==='1'){gate.style.display='none';return;}
-  document.getElementById('gatePw').addEventListener('keydown',function(e){
-    if(e.key==='Enter'){
-      if(this.value==='776'){sessionStorage.setItem('776bc_auth','1');gate.style.display='none';}
-      else{document.getElementById('gateErr').style.opacity='1';this.value='';}
-    }
-  });
-})();
-</script>
+</head>
+<body>
 
 <!-- ═══════════════ NAVIGATION ═══════════════ -->
 <nav class="nav">
-  <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html#" class="nav__logo"><img src="./V1 Zooty Men&#39;s — Built for the Line _ 776BC_files/776BC_Primary_Logo_Gold_52b49fce-356c-4b4b-9edb-ccdc172e189e_500x.png" alt="776BC" class="nav__logo-img"></a>
+  <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html#" class="nav__logo"><img src="./776BC_Primary_Logo_Gold_52b49fce-356c-4b4b-9edb-ccdc172e189e_500x.png" alt="776BC" class="nav__logo-img"></a>
   <div class="nav__links">
     <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html#engineering" class="nav__link">Engineering</a>
     <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html#specs" class="nav__link">Specs</a>
@@ -1686,9 +1145,9 @@ a { color: inherit; text-decoration: none; }
 <!-- ═══════════════ SPECIFICATIONS ═══════════════ -->
 <section class="section" id="specs">
   <div class="features">
-    <div class="section__label reveal visible">Section 02 — Specifications</div>
-    <h2 class="section__heading reveal reveal-delay-1 visible">The details that earn their place.</h2>
-    <div class="spec-grid reveal reveal-delay-2 visible">
+    <div class="section__label reveal">Section 02 — Specifications</div>
+    <h2 class="section__heading reveal reveal-delay-1">The details that earn their place.</h2>
+    <div class="spec-grid reveal reveal-delay-2">
       <div class="spec-row">
         <div class="spec-row__label">Panel Construction</div>
         <div class="spec-row__value">Mapped to the rowing stroke cycle — each panel placement follows the body's movement path through catch, drive, and recovery.</div>
@@ -1718,17 +1177,17 @@ a { color: inherit; text-decoration: none; }
 <!-- ═══════════════ ATHLETE ═══════════════ -->
 <section class="section">
   <div class="athlete">
-    <div class="section__label reveal visible" style="justify-content:center">Section 03 — The Athlete</div>
+    <div class="section__label reveal" style="justify-content:center">Section 03 — The Athlete</div>
     <div style="height:32px"></div>
-    <div class="athlete__quote reveal reveal-delay-1 visible">
+    <div class="athlete__quote reveal reveal-delay-1">
       For the athlete who earns the start line.
     </div>
-    <div class="section__body reveal reveal-delay-2 visible">
+    <div class="section__body reveal reveal-delay-2">
       <p>You do not row for applause. You row because the alternative — standing still — is something you cannot accept.</p>
       <p>You know your 2k to the tenth. You know the split you need for the next level. You train before the sun comes up because the Charles will not wait and neither will you.</p>
       <p>The V1 Zooty was built for that athlete. Not for the weekend paddler. Not for the athlete who wants to look the part. For the one who is the part.</p>
     </div>
-    <div class="athlete__armour reveal reveal-delay-3 visible">Race-day armour</div>
+    <div class="athlete__armour reveal reveal-delay-3">Race-day armour</div>
   </div>
 </section>
 
@@ -1737,7 +1196,7 @@ a { color: inherit; text-decoration: none; }
 <!-- ═══════════════ HOCR ═══════════════ -->
 <section class="section" id="hocr">
   <div class="hocr">
-    <div class="hocr__card reveal visible">
+    <div class="hocr__card reveal">
       <div class="hocr__info">
         <div class="hocr__event-name">Head of the Charles 2026</div>
         <h2 class="hocr__title">The proving ground.</h2>
@@ -1797,15 +1256,15 @@ a { color: inherit; text-decoration: none; }
 <section class="section">
   <div class="authority">
     <div>
-      <div class="section__label reveal visible">Section 05 — Pedigree</div>
-      <h2 class="section__heading reveal reveal-delay-1 visible">Built by athletes.<br>Tested by Olympians.</h2>
-      <div class="section__body reveal reveal-delay-2 visible">
+      <div class="section__label reveal">Section 05 — Pedigree</div>
+      <h2 class="section__heading reveal reveal-delay-1">Built by athletes.<br>Tested by Olympians.</h2>
+      <div class="section__body reveal reveal-delay-2">
         <p>776BC was founded by Cameron McKenzie-McHarg — two-time Olympic rower for Australia. The brand exists because Cameron saw a gap: rowing deserved the same engineering precision that every other elite sport takes for granted.</p>
         <p>The V1 Zooty is the product of that conviction. Every seam, every panel, every material choice was informed by decades of competitive experience and the demands of athletes who push their bodies to the limit.</p>
         <p>This is not marketing. This is pedigree.</p>
       </div>
     </div>
-    <div class="authority__creds reveal reveal-delay-3 visible">
+    <div class="authority__creds reveal reveal-delay-3">
       <div class="authority__credential">
         <div class="authority__icon">
           <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
@@ -1838,9 +1297,9 @@ a { color: inherit; text-decoration: none; }
 <section id="preorder">
   <div class="section__divider"></div>
   <div class="preorder">
-    <div class="preorder__rule reveal visible"></div>
-    <h2 class="preorder__heading reveal reveal-delay-1 visible">Pre-orders open.<br>Limited first run.</h2>
-    <p class="preorder__sub reveal reveal-delay-2 visible">The V1 Zooty Men's is available for pre-order now. First production run is limited. Secure yours before HOCR.</p>
+    <div class="preorder__rule reveal"></div>
+    <h2 class="preorder__heading reveal reveal-delay-1">Pre-orders open.<br>Limited first run.</h2>
+    <p class="preorder__sub reveal reveal-delay-2">The V1 Zooty Men's is available for pre-order now. First production run is limited. Secure yours before HOCR.</p>
     <div class="preorder__actions reveal reveal-delay-3">
       <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html#" class="btn btn--primary">Pre-Order the V1 Zooty</a>
       <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing-page.html#" class="btn btn--ghost">Join for Updates</a>
@@ -1855,7 +1314,7 @@ a { color: inherit; text-decoration: none; }
 
 <!-- ═══════════════ FOOTER ═══════════════ -->
 <footer class="footer">
-  <div class="footer__brand"><img src="./V1 Zooty Men&#39;s — Built for the Line _ 776BC_files/776BC_Primary_Logo_Gold_52b49fce-356c-4b4b-9edb-ccdc172e189e_500x.png" alt="776BC" class="footer__logo-img"></div>
+  <div class="footer__brand"><img src="./776BC_Primary_Logo_Gold_52b49fce-356c-4b4b-9edb-ccdc172e189e_500x.png" alt="776BC" class="footer__logo-img"></div>
   <div class="footer__tagline">Built for the Line.</div>
 </footer>
 
