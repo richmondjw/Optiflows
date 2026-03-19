@@ -3219,136 +3219,7 @@ a { color: inherit; text-decoration: none; }
 
 }
 
-/* ── AI Explainer ─────────────────────────────── */
-.ai-explainer {
-  position: relative;
-  padding: 28px 32px 24px;
-  margin: 0 auto 72px;
-  max-width: 680px;
-  background: linear-gradient(165deg, rgba(200,164,78,0.06) 0%, rgba(168,136,58,0.08) 35%, rgba(127,179,211,0.07) 65%, rgba(200,164,78,0.04) 100%);
-  backdrop-filter: blur(28px) saturate(1.3);
-  -webkit-backdrop-filter: blur(28px) saturate(1.3);
-  border: 1px solid rgba(255,255,255,0.12);
-  border-radius: 18px;
-  box-shadow: inset 0 1px 0 rgba(255,255,255,0.14), inset 0 -1px 0 rgba(255,255,255,0.03), 0 6px 24px rgba(0,0,0,0.15), 0 2px 6px rgba(0,0,0,0.08);
-  overflow: hidden;
-  z-index: 1;
-}
-.ai-explainer::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(200,164,78,0.45) 15%, rgba(168,136,58,0.55) 35%, rgba(127,179,211,0.40) 50%, rgba(168,136,58,0.55) 65%, rgba(200,164,78,0.45) 85%, transparent 100%);
-  background-size: 200% 100%;
-  animation: shimmerBorder 5s ease-in-out infinite alternate;
-  z-index: 3;
-}
-.ai-explainer::after {
-  content: '';
-  position: absolute;
-  top: -50%; left: -50%;
-  width: 200%; height: 200%;
-  background: conic-gradient(from 0deg, transparent 0deg, rgba(200,164,78,0.04) 60deg, rgba(168,136,58,0.06) 120deg, rgba(127,179,211,0.05) 180deg, rgba(168,136,58,0.04) 240deg, rgba(200,164,78,0.03) 300deg, transparent 360deg);
-  animation: holoSpin 14s linear infinite;
-  pointer-events: none;
-  z-index: 0;
-}
-@keyframes shimmerBorder {
-  0% { background-position: 100% 0; }
-  100% { background-position: -100% 0; }
-}
-@keyframes holoSpin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
-}
-.ai-explainer-inner {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: 24px;
-}
-.ai-explainer-icon {
-  width: 44px; height: 44px;
-  flex-shrink: 0;
-  border-radius: 12px;
-  background: linear-gradient(135deg, rgba(200,164,78,0.14), rgba(168,136,58,0.16), rgba(127,179,211,0.12));
-  border: 1px solid rgba(255,255,255,0.10);
-  display: flex; align-items: center; justify-content: center;
-  box-shadow: 0 0 20px rgba(200,164,78,0.08);
-}
-.ai-explainer-icon svg {
-  width: 20px; height: 20px;
-  opacity: 0.75;
-}
-.ai-explainer-body {
-  flex: 1;
-  min-width: 0;
-}
-.ai-explainer-title {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 1.8px;
-  text-transform: uppercase;
-  color: rgba(200,164,78,0.60);
-  margin-bottom: 4px;
-}
-.ai-explainer-sub {
-  font-size: 13px;
-  color: var(--secondary);
-  line-height: 1.5;
-}
-.ai-explainer-btn {
-  font-family: var(--font-mono);
-  font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 1.5px;
-  text-transform: uppercase;
-  color: var(--black);
-  background: linear-gradient(135deg, #c8a44e, #a8883a, #d4b45a);
-  border: 1px solid rgba(200,164,78,0.5);
-  border-radius: 12px;
-  padding: 12px 24px;
-  cursor: pointer;
-  flex-shrink: 0;
-  transition: all 0.3s var(--ease-out);
-  white-space: nowrap;
-  position: relative;
-  z-index: 2;
-  box-shadow: 0 0 16px rgba(200,164,78,0.25), 0 2px 8px rgba(0,0,0,0.3);
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-.ai-explainer-btn:hover {
-  background: linear-gradient(135deg, #d4b45a, #c8a44e, #e0c46e);
-  border-color: rgba(212,180,90,0.6);
-  box-shadow: 0 0 28px rgba(200,164,78,0.35), 0 4px 12px rgba(0,0,0,0.3);
-  transform: translateY(-1px);
-}
-.ai-explainer-btn:active {
-  transform: scale(0.97) translateY(0);
-}
-.ai-explainer-btn .btn-arrow {
-  display: inline-block;
-  animation: nudge 1.5s ease-in-out infinite;
-}
-@keyframes nudge {
-  0%, 100% { transform: translateX(0); }
-  50% { transform: translateX(4px); }
-}
-.ai-explainer-btn.copied {
-  background: linear-gradient(135deg, rgba(74,222,128,0.15), rgba(74,222,128,0.08));
-  border-color: rgba(74,222,128,0.25);
-  color: rgba(74,222,128,0.80);
-}
-@media (max-width: 640px) {
-  .ai-explainer { padding: 20px; margin-bottom: 48px; }
-  .ai-explainer-inner { flex-direction: column; text-align: center; gap: 16px; }
-  .ai-explainer-icon { display: none; }
-}
+
 </style>
 
 <style id="gate-styles">
@@ -3488,27 +3359,6 @@ a { color: inherit; text-decoration: none; }
     <span class="hero__scroll-line"></span>
   </div>
 </section>
-
-<!-- ═══════════════ AI EXPLAINER ═══════════════ -->
-<div class="ai-explainer reveal">
-  <div class="ai-explainer-inner">
-    <div class="ai-explainer-icon">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="color:var(--accent)">
-        <path d="M12 2a4 4 0 0 1 4 4v1a3 3 0 0 1 3 3v1a2 2 0 0 1-2 2h-1l-1 7h-6l-1-7H7a2 2 0 0 1-2-2v-1a3 3 0 0 1 3-3V6a4 4 0 0 1 4-4z"/>
-        <circle cx="9" cy="9" r="0.5" fill="currentColor"/>
-        <circle cx="15" cy="9" r="0.5" fill="currentColor"/>
-      </svg>
-    </div>
-    <div class="ai-explainer-body">
-      <div class="ai-explainer-title">AI Report Explainer</div>
-      <div class="ai-explainer-sub">Get a plain-English breakdown of this report &mdash; paste the prompt into ChatGPT or Claude for insights tailored to your business.</div>
-    </div>
-    <button id="aiCopyBtn" class="ai-explainer-btn" onclick="copyAiPrompt()">
-      <span id="aiCopyLabel">Copy Prompt</span>
-      <span class="btn-arrow">&rarr;</span>
-    </button>
-  </div>
-</div>
 
 <!-- ═══════════════ PART 1 ═══════════════ -->
 <div class="part-header reveal">
@@ -4837,37 +4687,6 @@ window.addEventListener('scroll', () => {
     toc.classList.remove('visible');
   }
 });
-
-// ── AI Explainer copy ──
-function copyAiPrompt() {
-  var sections = document.querySelectorAll('#siteContent .section');
-  var md = '';
-  sections.forEach(function(sec) {
-    var headings = sec.querySelectorAll('h2, h3');
-    headings.forEach(function(h) {
-      var prefix = h.tagName === 'H2' ? '## ' : '### ';
-      md += prefix + h.textContent.trim() + '\n\n';
-    });
-    var blocks = sec.querySelectorAll('.section__body, .finding-card, .convergence-card, .agent-card, .pilot-card, .spec-grid, .principle-block, .adv-item, .risk-item, p:not(.gate-error)');
-    blocks.forEach(function(b) {
-      var txt = b.textContent.trim().replace(/\s+/g, ' ');
-      if (txt.length > 0) md += txt + '\n\n';
-    });
-  });
-
-  var prompt = 'You are a strategic advisor reviewing a comprehensive media operating model report for 776BC, an Australian high-performance rowing apparel brand founded by three-time Olympic gold medallist Drew Ginn. The report synthesises research across brand strategy, content marketing, AI-powered media operations, and competitive benchmarking.\n\nHere is the full report content:\n\n' + md + '\nPlease provide a clear, strategic summary of this report. Structure your response as:\n\n1. **Executive Summary** — A 3-4 sentence overview of the report\'s core thesis and most important findings.\n\n2. **Key Strategic Insights** — The 5-6 most important findings or recommendations. For each, explain what it means and why it matters for 776BC\'s growth.\n\n3. **The AI Operating Model** — Summarise how 776BC proposes to use AI agents, what the architecture looks like, and what makes this approach distinctive vs. competitors.\n\n4. **Competitive Position** — What does the competitive analysis reveal? Where is 776BC strong and where are the gaps?\n\n5. **Recommended Next Steps** — Based on the pilot recommendations, what should the team prioritise in the next 90 days? What are the quick wins vs. longer-term plays?\n\n6. **Questions to Consider** — What 3-5 strategic questions should the 776BC leadership team discuss after reading this report?\n\nKeep the tone professional, data-grounded, and forward-looking. Use specific details from the report. Write for a non-technical audience who wants to understand the business implications.';
-
-  navigator.clipboard.writeText(prompt).then(function() {
-    var btn = document.getElementById('aiCopyBtn');
-    var label = document.getElementById('aiCopyLabel');
-    btn.classList.add('copied');
-    label.textContent = 'Copied!';
-    setTimeout(function() {
-      btn.classList.remove('copied');
-      label.textContent = 'Copy Prompt';
-    }, 2500);
-  });
-}
 
 // ── TOC collapse/expand toggle ──
 const tocToggle = document.getElementById('toc-toggle');
