@@ -2170,6 +2170,67 @@ a { color: inherit; text-decoration: none; }
   margin-top: 48px;
 }
 
+/* ── Accordion / Collapsible ──────────────────────── */
+
+.accordion {
+  border: 1px solid var(--border);
+  margin-top: 24px;
+}
+
+.accordion__trigger {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: 20px 24px;
+  background: var(--near-black);
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-display);
+  transition: background 0.3s;
+}
+
+.accordion__trigger:hover {
+  background: var(--panel);
+}
+
+.accordion__trigger-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.accordion__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+}
+
+.accordion__title {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--white);
+}
+
+.accordion__icon {
+  font-family: var(--font-mono);
+  font-size: 18px;
+  color: var(--accent);
+  transition: transform 0.3s var(--ease-snap);
+  flex-shrink: 0;
+}
+
+.accordion[open] .accordion__icon {
+  transform: rotate(45deg);
+}
+
+.accordion__body {
+  padding: 24px;
+  border-top: 1px solid var(--border);
+}
+
 /* ── Footer ───────────────────────────────────────── */
 
 .footer {
@@ -2229,93 +2290,917 @@ a { color: inherit; text-decoration: none; }
 
 /* ── Print Stylesheet ─────────────────────────────── */
 
+/* ═══════════════════════════════════════════════════════
+   PRINT / PDF STYLESHEET
+   Premium executive report — Swiss editorial precision
+   High-contrast ink on white, 776BC gold as refined accent
+   ═══════════════════════════════════════════════════════ */
+
 @media print {
-  * { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+  /* ── Global Reset & Foundation ─────────────────────── */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  html {
+    font-size: 11pt;
+  }
+
+  body {
+    background: #fff !important;
+    color: #1a1a1a !important;
+    font-size: 10pt;
+    line-height: 1.55;
+    overflow: visible;
+  }
+
   body::before { display: none !important; }
-  .nav, .toc, #progress, .hero__scanline, .hero__grid-bg,
-  .hero__gradient, .hero__marker, .hero__scroll { display: none !important; }
-  body { background: white !important; color: #111; font-size: 9pt; line-height: 1.45; overflow: visible; }
-  html { font-size: 12px; }
-  .reveal { opacity: 1 !important; transform: none !important; }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    transition: none !important;
+  }
+
   img, svg { max-width: 100% !important; }
-  h2, h3 { page-break-after: avoid; }
-  p, li { orphans: 3; widows: 3; }
-  @page { size: A4 portrait; margin: 18mm 14mm 20mm 14mm; }
-  .hero { min-height: auto !important; height: auto !important; padding: 60px 20px 40px !important; page-break-after: always; background: white !important; }
-  .hero__content { position: relative; }
-  .hero__eyebrow { color: #8b7332; font-size: 8pt; }
-  .hero__eyebrow::before { background: #8b7332; }
-  .hero__headline { font-size: 32pt !important; color: #111; line-height: 1.1; }
-  .hero__headline em { color: #8b7332; }
-  .hero__sub { color: #444; font-size: 10pt; margin-top: 12px; }
-  .hero__stats { margin-top: 32px; gap: 0; }
-  .hero__stat { border-left-color: #ccc; padding: 8px 16px; }
-  .hero__stat-val { color: #111; font-size: 16pt; }
-  .hero__stat-label { color: #666; font-size: 7pt; }
-  .part-header { page-break-before: always; page-break-after: avoid; padding: 40px 20px 20px !important; min-height: auto !important; background: white !important; }
+  h2, h3, h4 { page-break-after: avoid; }
+  p, li, .adv-item, .num-item { orphans: 3; widows: 3; }
+
+  /* No CSS @page margins — Playwright handles margins externally */
+
+  /* ── Hide Screen-Only Elements ──────────────────────── */
+  .nav,
+  .toc,
+  #progress,
+  .hero__scanline,
+  .hero__grid-bg,
+  .hero__gradient,
+  .hero__marker,
+  .hero__scroll,
+  .metric__grid,
+  .metric__cross,
+  .metric__circle {
+    display: none !important;
+  }
+
+  /* ── Hero / Title Page ──────────────────────────────── */
+  .hero {
+    min-height: auto !important;
+    height: auto !important;
+    padding: 48px 0 36px !important;
+    page-break-after: always;
+    background: #fff !important;
+  }
+
+  .hero__content {
+    position: relative;
+  }
+
+  .hero__eyebrow {
+    color: #8b7332;
+    font-size: 9pt;
+  }
+  .hero__eyebrow::before {
+    background: #8b7332;
+  }
+
+  .hero__headline {
+    font-size: 30pt !important;
+    color: #111 !important;
+    line-height: 1.1;
+  }
+  .hero__headline em {
+    color: #8b7332 !important;
+  }
+
+  .hero__sub {
+    color: #333 !important;
+    font-size: 11pt;
+    margin-top: 14px;
+  }
+
+  .hero__stats {
+    margin-top: 28px;
+    gap: 24px;
+  }
+
+  .hero__stat {
+    border-left-color: #ccc;
+    padding: 6px 16px;
+  }
+  .hero__stat-val {
+    color: #111 !important;
+    font-size: 18pt;
+  }
+  .hero__stat-label {
+    color: #555 !important;
+    font-size: 8pt;
+  }
+
+  /* ── Part Headers ───────────────────────────────────── */
+  .part-header {
+    page-break-before: always;
+    page-break-after: avoid;
+    padding: 36px 0 16px !important;
+    min-height: auto !important;
+    background: #fff !important;
+  }
   .part-header__grid { display: none !important; }
-  .part-header__num { color: #ddd; font-size: 36pt; }
-  .part-header__title { color: #111; font-size: 22pt; }
-  .part-header__sub { color: #8b7332; font-size: 9pt; }
-  .section { padding: 16px 0 !important; page-break-inside: auto; }
-  .section__inner { max-width: none; padding: 0 4px; }
-  .section__heading { color: #111; font-size: 16pt; margin-bottom: 8px; page-break-after: avoid; }
-  .section__label { color: #8b7332; font-size: 7pt; page-break-after: avoid; }
-  .section__label::before { border-color: #8b7332; }
-  .section__divider { background: #ccc; margin-bottom: 8px; }
-  .section__divider::after { background: #8b7332; }
-  .section__body { color: #333; font-size: 9pt; }
-  .pullquote { color: #111; font-size: 12pt; line-height: 1.4; margin: 16px 0; padding: 0 12px; page-break-inside: avoid; }
-  .pullquote::before { background: #8b7332; top: -12px; }
-  .findings { grid-template-columns: 1fr !important; gap: 10px !important; margin: 14px 0 !important; }
-  .finding { border-color: #ccc; background: #f9f9f9; padding: 14px 16px !important; page-break-inside: avoid; }
-  .finding__stream { color: #8b7332; font-size: 7pt; margin-bottom: 4px; }
-  .finding__title { color: #111; font-size: 10pt; margin-bottom: 6px; }
-  .finding__text { color: #333; font-size: 8.5pt; line-height: 1.45; }
-  .callout { background: #f9f9f9; border-color: #ccc; padding: 16px !important; margin: 14px 0 !important; page-break-inside: avoid; }
-  .callout::before { background: #8b7332; }
-  .callout__label { color: #8b7332; font-size: 7pt; margin-bottom: 6px; }
-  .callout__text { color: #222; font-size: 9pt; line-height: 1.5; }
-  .spec-grid { border-color: #bbb !important; margin-top: 12px !important; font-size: 8pt; page-break-inside: auto; }
-  .spec-header { background: #f0f0f0 !important; border-bottom-color: #bbb; }
-  .spec-header__cell { color: #555 !important; border-color: #bbb !important; padding: 6px 8px !important; font-size: 6.5pt !important; }
-  .spec-row { border-color: #ccc !important; page-break-inside: avoid; }
-  .spec-row__cell { color: #222 !important; border-color: #ccc !important; padding: 5px 8px !important; font-size: 7.5pt !important; line-height: 1.35; }
-  .spec-row__cell--label { color: #555 !important; font-size: 7pt !important; }
-  .spec-row__cell--label::before { background: #8b7332; width: 3px; height: 3px; }
-  .spec-row--highlight { background: #faf6ed !important; }
-  .badge { border: 1px solid currentColor; font-size: 6.5pt !important; padding: 1px 5px !important; background: transparent !important; }
-  .metrics { grid-template-columns: repeat(4, 1fr) !important; gap: 10px !important; margin: 14px 0 !important; }
-  .metric { border-color: #ccc; aspect-ratio: auto !important; padding: 16px 12px !important; page-break-inside: avoid; }
-  .metric__grid { display: none !important; }
-  .metric__val { color: #8b7332; font-size: 18pt; }
-  .metric__unit { color: #666; font-size: 7pt; }
-  .conv-card { background: #f9f9f9 !important; border-color: #ccc; padding: 14px 16px !important; page-break-inside: avoid; }
-  .conv-card::before { display: none; }
-  .conv-card__title { color: #111; font-size: 10pt; }
-  .conv-card__stream { color: #333; border-color: #ccc; font-size: 7.5pt; }
-  .conv-card__insight { background: #faf6ed; border-color: #8b7332; color: #8b7332; font-size: 8pt; }
-  .arch-layer { background: #f9f9f9; border-color: #ccc; page-break-inside: avoid; }
-  .agent-card { background: #f9f9f9; border-color: #ccc; padding: 12px 14px !important; page-break-inside: avoid; }
-  .agent-card__name { color: #111; font-size: 10pt; }
-  .agent-card--dimmed { opacity: 0.7; }
-  .pilot-card { background: #f9f9f9; border-color: #ccc; padding: 14px 16px !important; page-break-inside: avoid; }
-  .pilot-card__name { color: #111; font-size: 11pt; }
-  .econ-card { background: #f9f9f9; border-color: #ccc; padding: 16px !important; page-break-inside: avoid; }
-  .econ-card--old .econ-card__val { color: #c00; }
-  .econ-card--new .econ-card__val { color: #8b7332; }
-  .footer { border-color: #ccc; padding: 16px 0 !important; }
-  .footer__tagline { color: #666; font-size: 8pt; }
+
+  .part-header__num {
+    color: #e0d5c0;
+    font-size: 42pt;
+  }
+  .part-header__title {
+    color: #111 !important;
+    font-size: 22pt;
+  }
+  .part-header__sub {
+    color: #8b7332 !important;
+    font-size: 9pt;
+  }
+
+  /* ── Sections ───────────────────────────────────────── */
+  .section {
+    padding: 20px 0 16px !important;
+    page-break-inside: auto;
+  }
+
+  .section:has(> .section__inner > .subsection__title:first-child) {
+    padding-top: 12px !important;
+    padding-bottom: 12px !important;
+  }
+
+  .section__inner {
+    max-width: none;
+    padding: 0;
+  }
+
+  .section__divider {
+    background: #ccc;
+    margin-bottom: 12px;
+  }
+  .section__divider::after {
+    background: #8b7332;
+  }
+
+  .section__label {
+    color: #8b7332 !important;
+    font-size: 8pt;
+    page-break-after: avoid;
+  }
+  .section__label::before {
+    border-color: #8b7332 !important;
+  }
+
+  .section__heading {
+    color: #111 !important;
+    font-size: 18pt;
+    margin-bottom: 10px;
+    page-break-after: avoid;
+  }
+
+  .section__body {
+    color: #2a2a2a !important;
+    font-size: 10pt;
+    line-height: 1.6;
+    max-width: none;
+  }
+  .section__body p + p {
+    margin-top: 0.8em;
+  }
+
+  /* ── Subsection Titles ──────────────────────────────── */
+  .subsection {
+    margin-top: 28px;
+  }
+
+  .subsection__title {
+    color: #1a1a1a !important;
+    font-size: 13pt;
+    margin-bottom: 10px;
+    page-break-after: avoid;
+  }
+  .subsection__title::before {
+    background: #8b7332 !important;
+  }
+
+  * + .subsection__title {
+    margin-top: 24px;
+  }
+
+  /* ── Spec Grid (Tables) ─────────────────────────────── */
+  .spec-grid {
+    border-color: #bbb !important;
+    margin: 14px 0 20px !important;
+    page-break-inside: auto;
+  }
+
+  .spec-header {
+    background: #f5f2eb !important;
+    border-bottom-color: #bbb !important;
+  }
+  .spec-header__cell {
+    color: #5a4d30 !important;
+    border-color: #bbb !important;
+    padding: 7px 10px !important;
+    font-size: 7.5pt !important;
+  }
+
+  .spec-row {
+    border-color: #d0d0d0 !important;
+    page-break-inside: avoid;
+  }
+  .spec-row__cell {
+    color: #1a1a1a !important;
+    border-color: #d0d0d0 !important;
+    padding: 7px 10px !important;
+    font-size: 9pt !important;
+    line-height: 1.45;
+  }
+  .spec-row__cell--label {
+    color: #3d3222 !important;
+    font-size: 8.5pt !important;
+  }
+  .spec-row__cell--label::before {
+    background: #8b7332 !important;
+    width: 4px;
+    height: 4px;
+  }
+  .spec-row__cell--num {
+    color: #555 !important;
+  }
+  .spec-row__cell--muted {
+    color: #555 !important;
+  }
+  .spec-row--highlight {
+    background: #faf6ed !important;
+  }
+
+  /* Grid variants — force sensible column ratios for A4 */
+  .grid-priority .spec-header,
+  .grid-priority .spec-row {
+    grid-template-columns: 30px 140px repeat(5, 1fr) 70px !important;
+  }
+  .grid-priority .spec-row__cell,
+  .grid-priority .spec-header__cell {
+    padding: 5px 6px !important;
+    font-size: 7.5pt !important;
+  }
+
+  .grid-channel .spec-header,
+  .grid-channel .spec-row {
+    grid-template-columns: 80px 1fr 80px 1fr 90px !important;
+  }
+  .grid-channel .spec-row__cell,
+  .grid-channel .spec-header__cell {
+    padding: 5px 8px !important;
+    font-size: 8pt !important;
+  }
+
+  .grid-agents .spec-header,
+  .grid-agents .spec-row {
+    grid-template-columns: 60px 100px 1fr 1fr 1fr !important;
+  }
+  .grid-agents .spec-row__cell,
+  .grid-agents .spec-header__cell {
+    padding: 5px 6px !important;
+    font-size: 7.5pt !important;
+  }
+
+  .grid-trust .spec-header,
+  .grid-trust .spec-row {
+    grid-template-columns: 40px 80px 1fr 1fr 1fr !important;
+  }
+
+  /* ── Badges ─────────────────────────────────────────── */
+  .badge {
+    border: 1px solid currentColor !important;
+    font-size: 7pt !important;
+    padding: 1px 6px !important;
+    background: transparent !important;
+    color: #555 !important;
+  }
+  .badge--int { color: #2d6a2d !important; }
+  .badge--ext { color: #2d5a7a !important; }
+  .badge--synth { color: #8b7332 !important; }
+  .badge--stream-a { color: #8b7332 !important; }
+  .badge--stream-b { color: #2d5a7a !important; }
+  .badge--stream-c { color: #3d5a80 !important; }
+  .badge--tier1 { color: #8b7332 !important; border-color: #8b7332 !important; }
+  .badge--tier2 { color: #666 !important; }
+  .badge--tier3 { color: #888 !important; }
+  .badge--high, .badge--very-high { color: #2d6a2d !important; }
+  .badge--medium { color: #8b6914 !important; }
+  .badge--low, .badge--very-low, .badge--critical { color: #a02020 !important; }
+  .badge--current { color: #8b7332 !important; }
+  .badge--target { color: #2d5a7a !important; }
+
+  /* ── Pull Quote ─────────────────────────────────────── */
+  .pullquote {
+    color: #111 !important;
+    font-size: 14pt;
+    line-height: 1.35;
+    margin: 20px 0 !important;
+    padding: 0 16px;
+    max-width: none;
+    page-break-inside: avoid;
+  }
+  .pullquote::before {
+    background: #8b7332 !important;
+    top: -10px;
+  }
+
+  /* ── Finding Cards ──────────────────────────────────── */
+  .findings {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+    margin: 16px 0 !important;
+  }
+  .finding {
+    border-color: #ccc !important;
+    background: #fafafa !important;
+    padding: 16px 18px !important;
+    page-break-inside: avoid;
+  }
+  .finding::before {
+    /* Keep the coloured left bar for visual coding */
+  }
+  .finding--a::before { background: #8b7332 !important; }
+  .finding--b::before { background: #3d6e94 !important; }
+  .finding--c::before { background: #3d5a80 !important; }
+
+  .finding__stream {
+    color: #8b7332 !important;
+    font-size: 8pt;
+    margin-bottom: 4px;
+  }
+  .finding--b .finding__stream { color: #3d6e94 !important; }
+  .finding--c .finding__stream { color: #3d5a80 !important; }
+
+  .finding__title {
+    color: #111 !important;
+    font-size: 11pt;
+    margin-bottom: 6px;
+  }
+  .finding__text {
+    color: #2a2a2a !important;
+    font-size: 9.5pt;
+    line-height: 1.5;
+  }
+
+  /* ── Callout Box ────────────────────────────────────── */
+  .callout {
+    background: #faf8f3 !important;
+    border-color: #c8b882 !important;
+    padding: 18px 20px !important;
+    margin: 18px 0 !important;
+    max-width: none;
+    page-break-inside: avoid;
+  }
+  .callout::before {
+    background: #8b7332 !important;
+  }
+  .callout__label {
+    color: #8b7332 !important;
+    font-size: 8pt;
+    margin-bottom: 8px;
+  }
+  .callout__text {
+    color: #1a1a1a !important;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+
+  /* ── Metric Cards ───────────────────────────────────── */
+  .metrics {
+    grid-template-columns: repeat(4, 1fr) !important;
+    gap: 12px !important;
+    margin: 16px 0 !important;
+  }
+  .metric {
+    border-color: #ccc !important;
+    aspect-ratio: auto !important;
+    padding: 18px 12px !important;
+    background: #fafafa !important;
+    page-break-inside: avoid;
+  }
+  .metric__label-tl {
+    color: #555 !important;
+    position: static;
+    font-size: 8pt;
+    margin-bottom: 2px;
+  }
+  .metric__label-br {
+    color: #8b7332 !important;
+    position: static;
+    font-size: 8pt;
+    margin-top: 2px;
+  }
+  .metric__data {
+    position: static;
+  }
+  .metric__val {
+    color: #8b7332 !important;
+    font-size: 20pt;
+  }
+  .metric__unit {
+    color: #555 !important;
+    font-size: 8pt;
+  }
+
+  /* ── Convergence Cards ──────────────────────────────── */
+  .convergence-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+    margin: 16px 0 !important;
+  }
+  .conv-card {
+    background: #fafafa !important;
+    border-color: #ccc !important;
+    padding: 16px 18px !important;
+    page-break-inside: avoid;
+  }
+  .conv-card::before { display: none !important; }
+  .conv-card__tags {
+    margin-bottom: 10px;
+  }
+  .conv-card__title {
+    color: #111 !important;
+    font-size: 11pt;
+    margin-bottom: 10px;
+  }
+  .conv-card__streams {
+    margin-bottom: 12px;
+  }
+  .conv-card__stream {
+    color: #2a2a2a !important;
+    border-color: #ccc !important;
+    font-size: 9pt;
+  }
+  .conv-card__stream strong {
+    color: #111 !important;
+  }
+  .conv-card__insight {
+    background: #faf6ed !important;
+    border-color: #8b7332 !important;
+    color: #6b5928 !important;
+    font-size: 9pt;
+  }
+
+  /* ── Advantages List ────────────────────────────────── */
+  .adv-list {
+    margin: 16px 0 !important;
+  }
+  .adv-item {
+    color: #1a1a1a !important;
+    font-size: 10pt;
+    line-height: 1.55;
+  }
+  .adv-item::before {
+    border-color: #8b7332 !important;
+  }
+  .adv-item strong {
+    color: #111 !important;
+  }
+  .constraint-item::before {
+    border-color: #a02020 !important;
+  }
+
+  /* ── Numbered List ──────────────────────────────────── */
+  .num-list {
+    margin: 16px 0 !important;
+    gap: 12px;
+  }
+  .num-item__n {
+    color: #8b7332 !important;
+    font-size: 10pt;
+  }
+  .num-item__title {
+    color: #111 !important;
+    font-size: 10pt;
+  }
+  .num-item__evidence {
+    color: #444 !important;
+    font-size: 9pt;
+  }
+
+  /* ── Tier Badges ────────────────────────────────────── */
+  .tiers {
+    margin: 16px 0 !important;
+    gap: 20px;
+  }
+  .tier__label {
+    color: #8b7332 !important;
+    font-size: 8pt;
+  }
+  .tier__item {
+    color: #1a1a1a !important;
+    border-color: #bbb !important;
+    font-size: 9pt;
+    padding: 4px 10px;
+  }
+  .tier--1 .tier__item {
+    border-color: #8b7332 !important;
+    color: #5a4d30 !important;
+    background: #faf6ed !important;
+  }
+  .tier--2 .tier__item {
+    color: #1a1a1a !important;
+  }
+  .tier--3 .tier__item {
+    color: #555 !important;
+  }
+  .tier__desc {
+    color: #444 !important;
+    font-size: 9pt;
+  }
+
+  /* ── Architecture Diagram ───────────────────────────── */
+  .arch-diagram {
+    margin: 20px auto !important;
+    max-width: 500px;
+    page-break-inside: avoid;
+  }
+  .arch-layer {
+    background: #fafafa !important;
+    border-color: #bbb !important;
+    padding: 20px !important;
+    page-break-inside: avoid;
+  }
+  .arch-layer::after {
+    height: 2px;
+  }
+  .arch-layer--intel::after { background: #8b7332 !important; }
+  .arch-layer--brain::after { background: #3d6e94 !important; }
+  .arch-layer--engine::after { background: #3d5a80 !important; }
+
+  .arch-layer__name {
+    font-size: 9pt;
+  }
+  .arch-layer--intel .arch-layer__name { color: #8b7332 !important; }
+  .arch-layer--brain .arch-layer__name { color: #3d6e94 !important; }
+  .arch-layer--engine .arch-layer__name { color: #3d5a80 !important; }
+
+  .arch-layer__tech {
+    color: #111 !important;
+    font-size: 14pt;
+  }
+  .arch-layer__desc {
+    color: #333 !important;
+    font-size: 9pt;
+  }
+
+  .arch-arrow {
+    background: #bbb !important;
+  }
+  .arch-arrow::after {
+    border-color: #bbb !important;
+  }
+
+  /* ── Kanban Diagram ─────────────────────────────────── */
+  .kanban-diagram {
+    margin: 16px 0 !important;
+    page-break-inside: avoid;
+  }
+  .kanban-col {
+    border-color: #bbb !important;
+    padding: 10px 8px !important;
+  }
+  .kanban-col__name {
+    color: #333 !important;
+    font-size: 8pt;
+  }
+  .kanban-arrow {
+    color: #999 !important;
+  }
+
+  /* ── Agent Cards ────────────────────────────────────── */
+  .agent-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 14px !important;
+    margin: 16px 0 !important;
+  }
+  .agent-card {
+    background: #fafafa !important;
+    border-color: #ccc !important;
+    padding: 14px 16px !important;
+    page-break-inside: avoid;
+  }
+  .agent-card::before {
+    background: linear-gradient(90deg, #8b7332, transparent 50%) !important;
+  }
+  .agent-card--dimmed {
+    opacity: 0.65 !important;
+  }
+  .agent-card--dimmed::before {
+    background: linear-gradient(90deg, #999, transparent 50%) !important;
+  }
+  .agent-card__id {
+    color: #8b7332 !important;
+    font-size: 8pt;
+  }
+  .agent-card__name {
+    color: #111 !important;
+    font-size: 11pt;
+  }
+  .agent-card__role-title {
+    color: #444 !important;
+    font-size: 9pt;
+  }
+  .agent-card__field-label {
+    color: #666 !important;
+    font-size: 8pt;
+  }
+  .agent-card__field-value {
+    color: #1a1a1a !important;
+    font-size: 9pt;
+  }
+
+  /* ── Pilot Cards ────────────────────────────────────── */
+  .pilot-grid {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+    margin: 18px 0 !important;
+  }
+  .pilot-card {
+    background: #fafafa !important;
+    border-color: #ccc !important;
+    padding: 18px 20px !important;
+    page-break-inside: avoid;
+  }
+  .pilot-card::before {
+    background: linear-gradient(90deg, #8b7332, transparent 60%) !important;
+  }
+  .pilot-card__num {
+    color: #ddd !important;
+    font-size: 32pt;
+  }
+  .pilot-card__name {
+    color: #111 !important;
+    font-size: 14pt;
+  }
+  .pilot-card__obj {
+    color: #333 !important;
+    font-size: 10pt;
+  }
+  .pilot-card__sub {
+    color: #8b7332 !important;
+    font-size: 8pt;
+  }
+  .pilot-card__outcome {
+    color: #1a1a1a !important;
+    font-size: 9pt;
+  }
+  .pilot-card__outcome::before {
+    background: #8b7332 !important;
+  }
+  .pilot-card__step {
+    color: #333 !important;
+    font-size: 9pt;
+  }
+  .pilot-card__step-week {
+    color: #8b7332 !important;
+    font-size: 8pt;
+  }
+
+  /* ── Economic Comparison ────────────────────────────── */
+  .econ-compare {
+    margin: 18px 0 !important;
+    max-width: none;
+    page-break-inside: avoid;
+  }
+  .econ-card {
+    background: #fafafa !important;
+    border-color: #ccc !important;
+    padding: 18px !important;
+    page-break-inside: avoid;
+  }
+  .econ-card::before { height: 2px; }
+  .econ-card--old::before { background: #a02020 !important; }
+  .econ-card--new::before { background: #8b7332 !important; }
+
+  .econ-card__label {
+    color: #444 !important;
+    font-size: 8pt;
+  }
+  .econ-card--old .econ-card__val {
+    color: #a02020 !important;
+    text-decoration-color: rgba(160, 32, 32, 0.4) !important;
+  }
+  .econ-card--new .econ-card__val {
+    color: #8b7332 !important;
+  }
+  .econ-card__desc {
+    color: #555 !important;
+    font-size: 9pt;
+  }
+
+  .econ-arrow {
+    color: #8b7332 !important;
+  }
+
+  .econ-reduction {
+    margin: 14px 0 20px !important;
+  }
+  .econ-reduction__val {
+    color: #8b7332 !important;
+    font-size: 28pt;
+  }
+  .econ-reduction__label {
+    color: #444 !important;
+    font-size: 9pt;
+  }
+
+  /* ── Stat Summary ───────────────────────────────────── */
+  .stat-summary {
+    color: #444 !important;
+    font-size: 9pt;
+  }
+  .stat-summary::before {
+    background: #8b7332 !important;
+  }
+  .stat-summary strong {
+    color: #8b7332 !important;
+  }
+
+  /* ── Elite Differentiators ──────────────────────────── */
+  .elite-detail {
+    margin: 16px 0 !important;
+  }
+  .elite-detail__item {
+    border-color: #ddd !important;
+    padding: 8px 0;
+  }
+  .elite-detail__num {
+    color: #8b7332 !important;
+    font-size: 8pt;
+  }
+  .elite-detail__title {
+    color: #111 !important;
+    font-size: 10pt;
+  }
+  .elite-detail__insight {
+    color: #333 !important;
+    font-size: 9pt;
+  }
+  .elite-detail__insight strong {
+    color: #111 !important;
+  }
+
+  /* ── Maturity Bar ───────────────────────────────────── */
+  .maturity-bar {
+    margin: 16px 0 !important;
+    max-width: none;
+    page-break-inside: avoid;
+  }
+  .maturity-bar__track {
+    border-color: #bbb !important;
+    height: 36px;
+  }
+  .maturity-bar__segment {
+    border-color: #bbb !important;
+    color: #555 !important;
+    background: #f5f5f5 !important;
+    font-size: 8pt;
+  }
+  .maturity-bar__segment--current {
+    background: #faf6ed !important;
+    color: #8b7332 !important;
+    border-color: #8b7332 !important;
+  }
+  .maturity-bar__segment--target {
+    background: #eef4f8 !important;
+    color: #3d6e94 !important;
+  }
+  .maturity-bar__segment--dim {
+    opacity: 0.5;
+  }
+  .maturity-bar__label {
+    color: #555 !important;
+    font-size: 7.5pt;
+  }
+
+  /* ── Memory Tiers ───────────────────────────────────── */
+  .memory-tiers {
+    margin: 16px 0 !important;
+    max-width: none;
+    page-break-inside: avoid;
+  }
+  .memory-tier {
+    background: #fafafa !important;
+    border-color: #ccc !important;
+    padding: 14px 18px !important;
+  }
+  .memory-tier:last-child {
+    border-bottom: 1px solid #ccc !important;
+  }
+  .memory-tier__label {
+    color: #8b7332 !important;
+    font-size: 8pt;
+  }
+  .memory-tier__name {
+    color: #111 !important;
+    font-size: 11pt;
+  }
+  .memory-tier__desc {
+    color: #333 !important;
+    font-size: 9pt;
+  }
+  .memory-tier--1::before { background: #888 !important; }
+  .memory-tier--2::before { background: #3d6e94 !important; }
+  .memory-tier--3::before { background: #8b7332 !important; }
+  .memory-tier--4::before { background: #6b5928 !important; }
+
+  /* ── Flow Diagram ───────────────────────────────────── */
+  .flow-diagram {
+    margin: 16px 0 !important;
+    page-break-inside: avoid;
+  }
+  .flow-node {
+    background: #fafafa !important;
+    border-color: #bbb !important;
+    padding: 12px 14px !important;
+    min-width: 100px;
+  }
+  .flow-node::before {
+    background: #8b7332 !important;
+  }
+  .flow-node__num {
+    color: #8b7332 !important;
+    font-size: 8pt;
+  }
+  .flow-node__name {
+    color: #111 !important;
+    font-size: 9pt;
+  }
+  .flow-node__desc {
+    color: #555 !important;
+    font-size: 8pt;
+  }
+  .flow-arrow {
+    color: #999 !important;
+  }
+
+  /* ── Principle Block ────────────────────────────────── */
+  .principle-block {
+    background: #faf8f3 !important;
+    border-color: #ccc !important;
+    border-left: 3px solid #8b7332 !important;
+    padding: 16px 20px !important;
+    margin: 14px 0 !important;
+    page-break-inside: avoid;
+  }
+  .principle-block__text {
+    color: #1a1a1a !important;
+    font-size: 10pt;
+  }
+  .principle-block__source {
+    color: #666 !important;
+    font-size: 8pt;
+  }
+
+  /* ── Footnote & Context ─────────────────────────────── */
+  .footnote {
+    color: #555 !important;
+    font-size: 9pt;
+  }
+  .context-comment {
+    color: #444 !important;
+    font-size: 9pt;
+    border-left-color: #ccc !important;
+  }
+
+  /* ── Footer ─────────────────────────────────────────── */
+  .footer {
+    border-color: #ccc !important;
+    padding: 16px 0 !important;
+  }
+  .footer__logo-img {
+    opacity: 1 !important;
+  }
+  .footer__tagline {
+    color: #555 !important;
+    font-size: 8pt;
+  }
+
+  /* ── Page Break Controls ────────────────────────────── */
+  /* Part breaks — each part starts on a new page */
+  .part-header { page-break-before: always; }
+
+  /* Major sections start on new pages */
   #s3a { page-break-before: always; }
   #s3b { page-break-before: always; }
   #s3c { page-break-before: always; }
-  #s4 { page-break-before: always; }
-  #s5 { page-break-before: always; }
-  #s8 { page-break-before: always; }
+  #s4  { page-break-before: always; }
+  #s5  { page-break-before: always; }
+  #s8  { page-break-before: always; }
   #s81 { page-break-before: always; }
   #s82 { page-break-before: always; }
   #s83 { page-break-before: always; }
-  #s9 { page-break-before: always; }
+  #s9  { page-break-before: always; }
   #s10 { page-break-before: always; }
   #s11 { page-break-before: always; }
   #s12 { page-break-before: always; }
@@ -2323,6 +3208,7 @@ a { color: inherit; text-decoration: none; }
   #appA { page-break-before: always; }
   #appB { page-break-before: always; }
   #appC { page-break-before: always; }
+
 }
 </style>
 
@@ -2478,8 +3364,15 @@ a { color: inherit; text-decoration: none; }
 <section class="section" id="s1">
   <div class="section__inner reveal">
     <div class="section__divider"></div>
-    <div class="section__label">Section 1.0</div>
-    <h2 class="section__heading">Research Objectives Audit</h2>
+    <details class="accordion" id="accordion-s1">
+      <summary class="accordion__trigger">
+        <div class="accordion__trigger-left">
+          <span class="accordion__label">Section 1.0</span>
+          <span class="accordion__title">Research Objectives Audit</span>
+        </div>
+        <span class="accordion__icon">+</span>
+      </summary>
+      <div class="accordion__body">
     <div class="section__body">
       <p>The Research Strategy Proposal defined the scope as a three-week research architecture for the 776BC Media &amp; Communications Operating Model Design Phase. Below is an audit of every stated objective against what the research delivered.</p>
     </div>
@@ -2516,6 +3409,8 @@ a { color: inherit; text-decoration: none; }
     <div class="stat-summary reveal reveal-delay-2">
       <strong>18 of 20</strong> objectives answered through Streams A, B, and C. The remaining 2 are the purpose of this report.
     </div>
+      </div><!-- .accordion__body -->
+    </details>
   </div>
 </section>
 
@@ -3807,7 +4702,7 @@ if (tocToggle && toc) {
   }
   document.getElementById('gatePw').addEventListener('keydown', function(e) {
     if (e.key === 'Enter') {
-      if (this.value === '776') {
+      if (this.value === '776BC') {
         sessionStorage.setItem(KEY, '1');
         document.getElementById('passwordGate').style.display = 'none';
         document.getElementById('siteContent').style.display = 'block';
