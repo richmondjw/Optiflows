@@ -773,7 +773,12 @@ a { color: inherit; text-decoration: none; }
 /* V2 additional grid variants */
 .grid-intel-findings .spec-header,
 .grid-intel-findings .spec-row {
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 140px 80px;
+}
+
+.grid-intel-gap .spec-header,
+.grid-intel-gap .spec-row {
+  grid-template-columns: 160px 1fr 1fr;
 }
 
 .grid-intel-build .spec-header,
@@ -2281,6 +2286,9 @@ a { color: inherit; text-decoration: none; }
 
 @media (max-width: 700px) {
   .nav__links { display: none; }
+  .spec-header, .spec-row { grid-template-columns: 1fr !important; }
+  .spec-header { display: none; }
+  .spec-row__cell--label { font-weight: 500; color: var(--accent); }
   .metrics { grid-template-columns: 1fr; }
   .spec-row__cell { font-size: 11px; padding: 10px 14px; }
   .spec-header__cell { padding: 10px 14px; }
@@ -4006,7 +4014,7 @@ a { color: inherit; text-decoration: none; }
         <div class="spec-header__cell">Technology</div>
         <div class="spec-header__cell">Why (Evidence)</div>
       </div>
-      <div class="spec-row"><div class="spec-row__cell spec-row__cell--label">Intelligence</div><div class="spec-row__cell">Obsidian</div><div class="spec-row__cell">283 files, YAML frontmatter, wiki-links. REST API for programmatic access. No vector DB needed at pilot scale. The vault compounds over time &mdash; this is the moat.</div></div>
+      <div class="spec-row"><div class="spec-row__cell spec-row__cell--label">Intelligence</div><div class="spec-row__cell">Obsidian</div><div class="spec-row__cell">YAML frontmatter, wiki-links. REST API for programmatic access. No vector DB needed at pilot scale. The vault compounds over time &mdash; this is the moat.</div></div>
       <div class="spec-row"><div class="spec-row__cell spec-row__cell--label">Agentic Brain</div><div class="spec-row__cell">Claude Code</div><div class="spec-row__cell">Agent configs as vault folders. File access, web search, tool use, iterative reasoning. Progressive trust model. Cost-optimised triage: Sonnet for most, Haiku for volume, Opus for quality-critical.</div></div>
       <div class="spec-row"><div class="spec-row__cell spec-row__cell--label">Workflow Engine</div><div class="spec-row__cell">n8n</div><div class="spec-row__cell">1,145+ integrations, visual builder, self-hosted for data sovereignty. Handles deterministic parts so Claude handles creative parts.</div></div>
     </div>
@@ -4077,19 +4085,19 @@ a { color: inherit; text-decoration: none; }
 
     <h3 class="subsection__title">What Exists Today vs. What Must Be Built</h3>
     <div class="section__body"><p>The research vault that produced this report demonstrates the structural <em>pattern</em> &mdash; markdown files with YAML frontmatter, wiki-links, evidence tags, and a deliberate folder taxonomy. But the production brand intelligence layer does not yet exist. Building it is the foundational pilot deliverable.</p></div>
-    <div class="spec-grid grid-intel-gap reveal reveal-delay-1" style="grid-template-columns: 1fr 1fr 1fr;">
-      <div class="spec-header" style="grid-template-columns: 1fr 1fr 1fr;">
+    <div class="spec-grid grid-intel-gap reveal reveal-delay-1">
+      <div class="spec-header">
         <div class="spec-header__cell">Component</div>
         <div class="spec-header__cell">Current State</div>
         <div class="spec-header__cell">What Must Be Built</div>
       </div>
-      <div class="spec-row" style="grid-template-columns: 1fr 1fr 1fr;"><div class="spec-row__cell spec-row__cell--label">Voice DNA</div><div class="spec-row__cell">Exists in AI Brand Kit as source document</div><div class="spec-row__cell">Machine-readable format: tone parameters, authority markers, energy calibration, voice boundaries, anti-patterns</div></div>
-      <div class="spec-row" style="grid-template-columns: 1fr 1fr 1fr;"><div class="spec-row__cell spec-row__cell--label">Emotive Copy Framework</div><div class="spec-row__cell">Exists as source document</div><div class="spec-row__cell">Structured principles with examples that agents can reference at generation time</div></div>
-      <div class="spec-row" style="grid-template-columns: 1fr 1fr 1fr;"><div class="spec-row__cell spec-row__cell--label">Product Knowledge</div><div class="spec-row__cell">Scattered across shareholder reports, website, internal docs</div><div class="spec-row__cell">Consolidated canonical folder with structured entries per product/collection</div></div>
-      <div class="spec-row" style="grid-template-columns: 1fr 1fr 1fr;"><div class="spec-row__cell spec-row__cell--label">Content Exemplars</div><div class="spec-row__cell">Some exist informally</div><div class="spec-row__cell">Deliberately curated: approved posts, emails, product copy tagged by platform, pillar, and voice score</div></div>
-      <div class="spec-row" style="grid-template-columns: 1fr 1fr 1fr;"><div class="spec-row__cell spec-row__cell--label">Platform Guidelines</div><div class="spec-row__cell">Not formalised</div><div class="spec-row__cell">Per-platform rules: format, length, tone variation, hashtag conventions, CTA patterns</div></div>
-      <div class="spec-row" style="grid-template-columns: 1fr 1fr 1fr;"><div class="spec-row__cell spec-row__cell--label">Growth Thesis</div><div class="spec-row__cell">Exists in research documents</div><div class="spec-row__cell">Single reference file that agents read when building briefs</div></div>
-      <div class="spec-row" style="grid-template-columns: 1fr 1fr 1fr;"><div class="spec-row__cell spec-row__cell--label">Competitive Intel</div><div class="spec-row__cell">Exists across Stream A research</div><div class="spec-row__cell">Living competitive landscape document</div></div>
+      <div class="spec-row"><div class="spec-row__cell spec-row__cell--label">Voice DNA</div><div class="spec-row__cell">Exists in AI Brand Kit as source document</div><div class="spec-row__cell">Machine-readable format: tone parameters, authority markers, energy calibration, voice boundaries, anti-patterns</div></div>
+      <div class="spec-row"><div class="spec-row__cell spec-row__cell--label">Emotive Copy Framework</div><div class="spec-row__cell">Exists as source document</div><div class="spec-row__cell">Structured principles with examples that agents can reference at generation time</div></div>
+      <div class="spec-row"><div class="spec-row__cell spec-row__cell--label">Product Knowledge</div><div class="spec-row__cell">Scattered across shareholder reports, website, internal docs</div><div class="spec-row__cell">Consolidated canonical folder with structured entries per product/collection</div></div>
+      <div class="spec-row"><div class="spec-row__cell spec-row__cell--label">Content Exemplars</div><div class="spec-row__cell">Some exist informally</div><div class="spec-row__cell">Deliberately curated: approved posts, emails, product copy tagged by platform, pillar, and voice score</div></div>
+      <div class="spec-row"><div class="spec-row__cell spec-row__cell--label">Platform Guidelines</div><div class="spec-row__cell">Not formalised</div><div class="spec-row__cell">Per-platform rules: format, length, tone variation, hashtag conventions, CTA patterns</div></div>
+      <div class="spec-row"><div class="spec-row__cell spec-row__cell--label">Growth Thesis</div><div class="spec-row__cell">Exists in research documents</div><div class="spec-row__cell">Single reference file that agents read when building briefs</div></div>
+      <div class="spec-row"><div class="spec-row__cell spec-row__cell--label">Competitive Intel</div><div class="spec-row__cell">Exists across Stream A research</div><div class="spec-row__cell">Living competitive landscape document</div></div>
     </div>
 
     <h3 class="subsection__title">How to Build It</h3>
