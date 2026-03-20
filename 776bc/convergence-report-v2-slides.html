@@ -1,0 +1,1884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>776BC — Convergence Report v4 — Slide Deck</title>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&family=DM+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #0a0a0a;
+  --near-black: #111111;
+  --dark: #141414;
+  --panel: #1a1a1a;
+  --border: #222222;
+  --border-light: #2a2a2a;
+  --muted: #555555;
+  --secondary: #888888;
+  --text: #cccccc;
+  --light: #e0e0e0;
+  --white: #f0f0f0;
+  --accent: #c8a44e;
+  --accent-dim: #a8883a;
+  --accent-glow: rgba(200,164,78,0.12);
+  --accent-bright: #dbb85c;
+  --frost: #7fb3d3;
+  --green: #4ade80;
+  --green-dim: rgba(74,222,128,0.10);
+  --amber: #f59e0b;
+  --red: #ef4444;
+  --red-dim: rgba(239,68,68,0.08);
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --slide-transition: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+html { font-size: 16px; -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.6;
+  overflow: hidden;
+  height: 100vh;
+  width: 100vw;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px;
+}
+
+::selection { background: var(--accent); color: var(--black); }
+
+/* ── Slide Engine ─────────────────────────────── */
+
+.deck {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 60px 100px;
+  opacity: 0;
+  transform: translateX(60px);
+  transition: opacity var(--slide-transition), transform var(--slide-transition);
+  pointer-events: none;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: var(--border-light) transparent;
+}
+
+.slide::-webkit-scrollbar { width: 4px; }
+.slide::-webkit-scrollbar-track { background: transparent; }
+.slide::-webkit-scrollbar-thumb { background: var(--border-light); border-radius: 2px; }
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+  pointer-events: auto;
+  z-index: 2;
+}
+
+.slide.prev {
+  opacity: 0;
+  transform: translateX(-60px);
+}
+
+/* ── Progress & Nav ───────────────────────────── */
+
+.progress-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-bright));
+  transition: width 0.5s var(--ease-out);
+  z-index: 100;
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.slide-counter {
+  position: fixed;
+  top: 32px;
+  right: 40px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  z-index: 100;
+}
+
+.slide-counter .current { color: var(--accent); font-weight: 500; }
+
+.nav-hint {
+  position: fixed;
+  bottom: 28px;
+  right: 40px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.2px;
+  color: var(--muted);
+  z-index: 100;
+  opacity: 0.5;
+  transition: opacity 0.3s;
+}
+
+.logo-mark {
+  position: fixed;
+  top: 32px;
+  left: 40px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 3px;
+  color: var(--accent-dim);
+  z-index: 100;
+}
+
+/* ── Typography ───────────────────────────────── */
+
+.slide-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: all 0.5s var(--ease-out) 0.15s;
+}
+
+.slide-title {
+  font-size: clamp(2rem, 4.5vw, 4rem);
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--white);
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.6s var(--ease-out) 0.2s;
+}
+
+.slide-title em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.slide-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.25rem);
+  font-weight: 300;
+  color: var(--secondary);
+  line-height: 1.5;
+  max-width: 700px;
+  margin-bottom: 40px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all 0.5s var(--ease-out) 0.3s;
+}
+
+.slide-body {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: all 0.5s var(--ease-out) 0.35s;
+}
+
+.active .slide-eyebrow,
+.active .slide-title,
+.active .slide-subtitle,
+.active .slide-body { opacity: 1; transform: translateY(0); }
+
+.section-num {
+  font-family: var(--font-mono);
+  font-size: 80px;
+  font-weight: 300;
+  color: var(--border);
+  line-height: 1;
+  position: absolute;
+  right: 80px;
+  bottom: 80px;
+  z-index: 0;
+}
+
+/* ── Stats Row ────────────────────────────────── */
+
+.stats-row {
+  display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.stat-block {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.active .stat-block { opacity: 1; transform: translateY(0); }
+.active .stat-block:nth-child(1) { transition: all 0.5s var(--ease-out) 0.4s; }
+.active .stat-block:nth-child(2) { transition: all 0.5s var(--ease-out) 0.5s; }
+.active .stat-block:nth-child(3) { transition: all 0.5s var(--ease-out) 0.6s; }
+.active .stat-block:nth-child(4) { transition: all 0.5s var(--ease-out) 0.7s; }
+.active .stat-block:nth-child(5) { transition: all 0.5s var(--ease-out) 0.8s; }
+.active .stat-block:nth-child(6) { transition: all 0.5s var(--ease-out) 0.9s; }
+
+.stat-val {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-val.white { color: var(--white); }
+.stat-val.frost { color: var(--frost); }
+.stat-val.green { color: var(--green); }
+.stat-val.red { color: var(--red); }
+
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Data Cards ───────────────────────────────── */
+
+.card-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 8px;
+}
+
+.card-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+.card-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+
+.data-card {
+  background: var(--dark);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.active .data-card { opacity: 1; transform: translateY(0); }
+.active .data-card:nth-child(1) { transition: all 0.4s var(--ease-out) 0.35s; }
+.active .data-card:nth-child(2) { transition: all 0.4s var(--ease-out) 0.42s; }
+.active .data-card:nth-child(3) { transition: all 0.4s var(--ease-out) 0.49s; }
+.active .data-card:nth-child(4) { transition: all 0.4s var(--ease-out) 0.56s; }
+.active .data-card:nth-child(5) { transition: all 0.4s var(--ease-out) 0.63s; }
+.active .data-card:nth-child(6) { transition: all 0.4s var(--ease-out) 0.7s; }
+
+.data-card__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  margin-bottom: 8px;
+}
+
+.data-card__val {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+
+.data-card__desc {
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+.data-card--accent { border-color: rgba(200,164,78,0.25); background: linear-gradient(135deg, rgba(200,164,78,0.06), var(--dark)); }
+.data-card--frost { border-color: rgba(127,179,211,0.20); }
+.data-card--green { border-color: rgba(74,222,128,0.15); }
+.data-card--red { border-color: rgba(239,68,68,0.15); }
+
+/* ── Tables ───────────────────────────────────── */
+
+.slide-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  margin-top: 8px;
+}
+
+.slide-table th {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+}
+
+.slide-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  color: var(--text);
+  vertical-align: top;
+}
+
+.slide-table tr:last-child td { border-bottom: none; }
+.slide-table td:first-child { color: var(--light); font-weight: 400; }
+
+.slide-table td.accent { color: var(--accent); font-weight: 600; }
+.slide-table td.green { color: var(--green); }
+.slide-table td.red { color: var(--red); }
+.slide-table td.frost { color: var(--frost); }
+.slide-table td.mono { font-family: var(--font-mono); font-size: 12px; }
+
+/* ── Convergence Cards ────────────────────────── */
+
+.conv-card {
+  background: var(--dark);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 20px 24px;
+  margin-bottom: 12px;
+  opacity: 0;
+  transform: translateX(-12px);
+}
+
+.active .conv-card { opacity: 1; transform: translateX(0); }
+.active .conv-card:nth-child(1) { transition: all 0.4s var(--ease-out) 0.3s; }
+.active .conv-card:nth-child(2) { transition: all 0.4s var(--ease-out) 0.4s; }
+.active .conv-card:nth-child(3) { transition: all 0.4s var(--ease-out) 0.5s; }
+.active .conv-card:nth-child(4) { transition: all 0.4s var(--ease-out) 0.6s; }
+.active .conv-card:nth-child(5) { transition: all 0.4s var(--ease-out) 0.7s; }
+.active .conv-card:nth-child(6) { transition: all 0.4s var(--ease-out) 0.8s; }
+
+.conv-card__streams {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 6px;
+}
+
+.conv-card__title {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 6px;
+}
+
+.conv-card__insight {
+  font-size: 13px;
+  color: var(--secondary);
+  line-height: 1.5;
+}
+
+/* ── Quote Block ──────────────────────────────── */
+
+.slide-quote {
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  font-weight: 300;
+  color: var(--light);
+  line-height: 1.5;
+  max-width: 750px;
+  border-left: 3px solid var(--accent);
+  padding-left: 28px;
+  margin: 20px 0;
+  opacity: 0;
+  transform: translateX(-12px);
+}
+
+.active .slide-quote { opacity: 1; transform: translateX(0); transition: all 0.6s var(--ease-out) 0.3s; }
+
+.slide-quote strong { color: var(--accent); font-weight: 600; }
+
+/* ── Bullet List ──────────────────────────────── */
+
+.slide-list {
+  list-style: none;
+  margin-top: 8px;
+}
+
+.slide-list li {
+  position: relative;
+  padding: 8px 0 8px 20px;
+  font-size: 15px;
+  color: var(--text);
+  line-height: 1.5;
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.slide-list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 16px;
+  width: 6px;
+  height: 6px;
+  border-radius: 1px;
+  background: var(--accent);
+  transform: rotate(45px);
+}
+
+.active .slide-list li { opacity: 1; transform: translateY(0); }
+.active .slide-list li:nth-child(1) { transition: all 0.4s var(--ease-out) 0.35s; }
+.active .slide-list li:nth-child(2) { transition: all 0.4s var(--ease-out) 0.42s; }
+.active .slide-list li:nth-child(3) { transition: all 0.4s var(--ease-out) 0.49s; }
+.active .slide-list li:nth-child(4) { transition: all 0.4s var(--ease-out) 0.56s; }
+.active .slide-list li:nth-child(5) { transition: all 0.4s var(--ease-out) 0.63s; }
+.active .slide-list li:nth-child(6) { transition: all 0.4s var(--ease-out) 0.7s; }
+.active .slide-list li:nth-child(7) { transition: all 0.4s var(--ease-out) 0.77s; }
+.active .slide-list li:nth-child(8) { transition: all 0.4s var(--ease-out) 0.84s; }
+
+.slide-list li strong { color: var(--white); font-weight: 500; }
+
+/* ── Architecture Diagram ─────────────────────── */
+
+.arch-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  max-width: 600px;
+  margin-top: 16px;
+}
+
+.arch-layer {
+  padding: 22px 28px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.active .arch-layer { opacity: 1; transform: translateY(0); }
+.active .arch-layer:nth-child(1) { transition: all 0.5s var(--ease-out) 0.35s; }
+.active .arch-layer:nth-child(2) { transition: all 0.5s var(--ease-out) 0.5s; }
+.active .arch-layer:nth-child(3) { transition: all 0.5s var(--ease-out) 0.65s; }
+
+.arch-layer--gold {
+  background: linear-gradient(135deg, rgba(200,164,78,0.10), rgba(200,164,78,0.04));
+  border-color: rgba(200,164,78,0.25);
+}
+.arch-layer--frost {
+  background: linear-gradient(135deg, rgba(127,179,211,0.08), rgba(127,179,211,0.03));
+  border-color: rgba(127,179,211,0.20);
+}
+.arch-layer--green {
+  background: linear-gradient(135deg, rgba(74,222,128,0.06), rgba(74,222,128,0.02));
+  border-color: rgba(74,222,128,0.15);
+}
+
+.arch-layer__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.arch-layer--gold .arch-layer__label { color: var(--accent); }
+.arch-layer--frost .arch-layer__label { color: var(--frost); }
+.arch-layer--green .arch-layer__label { color: var(--green); }
+
+.arch-layer__title { font-size: 18px; font-weight: 600; color: var(--white); }
+.arch-layer__desc { font-size: 13px; color: var(--secondary); margin-top: 4px; }
+
+.arch-connector {
+  text-align: center;
+  color: var(--muted);
+  font-size: 18px;
+  line-height: 1;
+  padding: 4px 0;
+  opacity: 0;
+}
+.active .arch-connector { opacity: 0.4; transition: all 0.3s var(--ease-out) 0.45s; }
+
+/* ── Agent Roster ─────────────────────────────── */
+
+.agent-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+.agent-chip {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: var(--dark);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.active .agent-chip { opacity: 1; transform: translateY(0); }
+.active .agent-chip:nth-child(1) { transition: all 0.3s var(--ease-out) 0.3s; }
+.active .agent-chip:nth-child(2) { transition: all 0.3s var(--ease-out) 0.35s; }
+.active .agent-chip:nth-child(3) { transition: all 0.3s var(--ease-out) 0.4s; }
+.active .agent-chip:nth-child(4) { transition: all 0.3s var(--ease-out) 0.45s; }
+.active .agent-chip:nth-child(5) { transition: all 0.3s var(--ease-out) 0.5s; }
+.active .agent-chip:nth-child(6) { transition: all 0.3s var(--ease-out) 0.55s; }
+.active .agent-chip:nth-child(7) { transition: all 0.3s var(--ease-out) 0.6s; }
+.active .agent-chip:nth-child(8) { transition: all 0.3s var(--ease-out) 0.65s; }
+.active .agent-chip:nth-child(9) { transition: all 0.3s var(--ease-out) 0.7s; }
+.active .agent-chip:nth-child(10) { transition: all 0.3s var(--ease-out) 0.75s; }
+.active .agent-chip:nth-child(11) { transition: all 0.3s var(--ease-out) 0.8s; }
+
+.agent-chip__id {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--accent);
+  white-space: nowrap;
+  min-width: 44px;
+}
+
+.agent-chip__name {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--light);
+}
+
+.agent-chip__model {
+  margin-left: auto;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.agent-chip--foundation { border-color: rgba(200,164,78,0.20); }
+.agent-chip--t1 { border-color: rgba(74,222,128,0.15); }
+.agent-chip--t2 { border-color: rgba(127,179,211,0.15); }
+.agent-chip--t3 { border-color: rgba(255,255,255,0.06); }
+
+/* ── Tier Label ───────────────────────────────── */
+
+.tier-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border-radius: 4px;
+  display: inline-block;
+  margin-bottom: 8px;
+}
+
+.tier-label--gold { color: var(--accent); background: var(--accent-glow); }
+.tier-label--green { color: var(--green); background: var(--green-dim); }
+.tier-label--frost { color: var(--frost); background: rgba(127,179,211,0.10); }
+.tier-label--red { color: var(--red); background: var(--red-dim); }
+
+/* ── Compare Bars ─────────────────────────────── */
+
+.compare-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+  opacity: 0;
+  transform: translateX(-10px);
+}
+
+.active .compare-row { opacity: 1; transform: translateX(0); }
+.active .compare-row:nth-child(1) { transition: all 0.4s var(--ease-out) 0.35s; }
+.active .compare-row:nth-child(2) { transition: all 0.4s var(--ease-out) 0.42s; }
+.active .compare-row:nth-child(3) { transition: all 0.4s var(--ease-out) 0.49s; }
+.active .compare-row:nth-child(4) { transition: all 0.4s var(--ease-out) 0.56s; }
+.active .compare-row:nth-child(5) { transition: all 0.4s var(--ease-out) 0.63s; }
+.active .compare-row:nth-child(6) { transition: all 0.4s var(--ease-out) 0.7s; }
+.active .compare-row:nth-child(7) { transition: all 0.4s var(--ease-out) 0.77s; }
+
+.compare-label {
+  font-size: 13px;
+  color: var(--light);
+  min-width: 160px;
+  font-weight: 400;
+}
+
+.compare-bars {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.compare-bar {
+  height: 20px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition: width 0.8s var(--ease-out);
+}
+
+.compare-bar--current {
+  background: rgba(255,255,255,0.06);
+  color: var(--secondary);
+}
+
+.compare-bar--target {
+  background: linear-gradient(90deg, rgba(200,164,78,0.20), rgba(200,164,78,0.08));
+  color: var(--accent);
+}
+
+/* ── Title Slide Special ──────────────────────── */
+
+.slide--title {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 60px;
+}
+
+.slide--title .slide-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  max-width: 900px;
+}
+
+.slide--title .slide-subtitle {
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.title-rule {
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+  margin: 24px auto;
+  opacity: 0;
+  transform: scaleX(0);
+}
+
+.active .title-rule { opacity: 1; transform: scaleX(1); transition: all 0.6s var(--ease-out) 0.35s; }
+
+.title-meta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--muted);
+  margin-top: 8px;
+  opacity: 0;
+}
+
+.active .title-meta { opacity: 1; transition: opacity 0.5s var(--ease-out) 0.5s; }
+
+/* ── Section Divider Slide ────────────────────── */
+
+.slide--divider {
+  justify-content: center;
+  align-items: flex-start;
+  padding: 80px 100px;
+}
+
+.divider-num {
+  font-family: var(--font-mono);
+  font-size: clamp(4rem, 10vw, 8rem);
+  font-weight: 100;
+  color: var(--border);
+  line-height: 1;
+  margin-bottom: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.active .divider-num { opacity: 1; transform: translateY(0); transition: all 0.6s var(--ease-out) 0.15s; }
+
+.divider-title {
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
+  font-weight: 700;
+  color: var(--white);
+  letter-spacing: -0.01em;
+  opacity: 0;
+  transform: translateY(16px);
+}
+
+.active .divider-title { opacity: 1; transform: translateY(0); transition: all 0.5s var(--ease-out) 0.25s; }
+
+.divider-sub {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  color: var(--muted);
+  margin-top: 12px;
+  opacity: 0;
+}
+
+.active .divider-sub { opacity: 1; transition: opacity 0.5s var(--ease-out) 0.4s; }
+
+/* ── Two-column layout ────────────────────────── */
+
+.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.two-col--wide-left { grid-template-columns: 1.3fr 1fr; }
+.two-col--wide-right { grid-template-columns: 1fr 1.3fr; }
+
+/* ── Pill tags ────────────────────────────────── */
+
+.pill {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  margin-right: 4px;
+}
+
+.pill--a { color: var(--accent); background: var(--accent-glow); }
+.pill--b { color: var(--frost); background: rgba(127,179,211,0.10); }
+.pill--c { color: var(--green); background: var(--green-dim); }
+.pill--high { color: var(--green); background: var(--green-dim); }
+.pill--med { color: var(--amber); background: rgba(245,158,11,0.10); }
+.pill--low { color: var(--red); background: var(--red-dim); }
+
+/* ── Closing slide ────────────────────────────── */
+
+.slide--close {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.close-cta {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  padding: 14px 32px;
+  border: 1px solid rgba(200,164,78,0.30);
+  border-radius: 8px;
+  margin-top: 32px;
+  display: inline-block;
+  opacity: 0;
+}
+
+.active .close-cta { opacity: 1; transition: opacity 0.5s var(--ease-out) 0.5s; }
+
+/* ── Responsive ───────────────────────────────── */
+
+@media (max-width: 900px) {
+  .slide { padding: 40px 32px; }
+  .card-grid.cols-2, .card-grid.cols-3 { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; gap: 24px; }
+  .agent-grid { grid-template-columns: 1fr; }
+  .stats-row { gap: 24px; }
+  .section-num { display: none; }
+  .compare-label { min-width: 100px; font-size: 12px; }
+}
+
+/* ── Print ────────────────────────────────────── */
+
+@media print {
+  body { overflow: visible; height: auto; }
+  .slide { position: relative; opacity: 1; transform: none; pointer-events: auto; page-break-after: always; min-height: 100vh; }
+  .slide.prev { opacity: 1; transform: none; }
+  .progress-bar, .slide-counter, .nav-hint, .logo-mark { display: none; }
+  .slide-eyebrow, .slide-title, .slide-subtitle, .slide-body,
+  .stat-block, .data-card, .conv-card, .slide-quote, .slide-list li,
+  .arch-layer, .arch-connector, .agent-chip, .compare-row,
+  .divider-num, .divider-title, .divider-sub, .title-rule, .title-meta,
+  .close-cta { opacity: 1 !important; transform: none !important; }
+}
+
+/* ── Password Gate ────────────────────────────── */
+
+#passwordGate {
+  position: fixed; inset: 0; z-index: 99999;
+  background: #0a0a0a;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Outfit', sans-serif;
+}
+#passwordGate .gate-box { text-align: center; max-width: 360px; padding: 2rem; }
+#passwordGate h1 { font-size: 1.25rem; font-weight: 500; letter-spacing: 0.04em; margin-bottom: 1.5rem; color: #666; }
+#passwordGate input {
+  width: 100%; padding: 0.75rem 1rem;
+  border: 1px solid #2a2a2a; border-radius: 8px;
+  background: transparent; color: #f5f5f5;
+  font-family: 'Outfit', sans-serif; font-size: 1rem;
+  text-align: center; letter-spacing: 0.1em;
+  outline: none; transition: border-color 0.2s;
+}
+#passwordGate input:focus { border-color: #c8a44e; }
+#passwordGate input::placeholder { color: #444; }
+#passwordGate .gate-error { color: #ef4444; font-size: 0.85rem; margin-top: 0.75rem; opacity: 0; transition: opacity 0.2s; }
+#passwordGate .gate-error.show { opacity: 1; }
+#siteContent { display: none; }
+</style>
+</head>
+<body>
+
+<div id="passwordGate">
+  <div class="gate-box">
+    <h1>Enter password to continue</h1>
+    <input type="password" id="gatePw" placeholder="Password" autofocus>
+    <p class="gate-error" id="gateErr">Incorrect password</p>
+  </div>
+</div>
+
+<div id="siteContent">
+
+<div class="logo-mark">776BC</div>
+<div class="slide-counter"><span class="current" id="slideNum">01</span> / <span id="slideTotal">28</span></div>
+<div class="progress-bar" id="progressBar"></div>
+<div class="nav-hint" id="navHint">ARROW KEYS TO NAVIGATE</div>
+
+<div class="deck" id="deck">
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 1 — TITLE -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide slide--title active" data-slide="1">
+  <div class="slide-eyebrow">776BC Intelligence &middot; Research Deliverable</div>
+  <div class="slide-title">Media Operating<br><em>Model</em></div>
+  <div class="title-rule"></div>
+  <div class="slide-subtitle">Research Synthesis &amp; Pilot Recommendations &mdash; Convergence Report v4</div>
+  <div class="stats-row" style="justify-content:center">
+    <div class="stat-block">
+      <div class="stat-val">20</div>
+      <div class="stat-label">Objectives</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-val">3</div>
+      <div class="stat-label">Streams</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-val">22</div>
+      <div class="stat-label">Brands Benchmarked</div>
+    </div>
+    <div class="stat-block">
+      <div class="stat-val">67</div>
+      <div class="stat-label">AI Patterns</div>
+    </div>
+  </div>
+  <div class="title-meta">OPTIFLOWS CONSULTING &middot; MARCH 2026</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 2 — RESEARCH AUDIT -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="2">
+  <div class="slide-eyebrow">Research Audit</div>
+  <div class="slide-title">20 of 20 <em>Answered</em></div>
+  <div class="slide-subtitle">Every stated objective from the Research Strategy Proposal has been resolved through Streams A, B, and C. The remaining two — convergence synthesis and stakeholder-ready recommendations — are the purpose of this report.</div>
+  <div class="slide-body">
+    <div class="stats-row">
+      <div class="stat-block">
+        <div class="stat-val frost">8</div>
+        <div class="stat-label">Stream A</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-val green">6</div>
+        <div class="stat-label">Stream B</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-val">4</div>
+        <div class="stat-label">Stream C</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-val white">2</div>
+        <div class="stat-label">This Report</div>
+      </div>
+    </div>
+  </div>
+  <div class="section-num">01</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 3 — EXECUTIVE SUMMARY -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="3">
+  <div class="slide-eyebrow">Executive Summary</div>
+  <div class="slide-title">The Thesis</div>
+  <div class="slide-body">
+    <div class="slide-quote">
+      776BC sits in a category with <strong>no editorial-standard competition</strong>, a founder with irreplaceable credibility, the largest owned audience infrastructure in rowing apparel, and a 4-person team operating without the systems architecture to match its ambitions. <strong>The gap is not creative. It is not strategic. It is architectural.</strong>
+    </div>
+    <div class="card-grid cols-3" style="margin-top:28px">
+      <div class="data-card data-card--accent">
+        <div class="data-card__label">Stream A</div>
+        <div class="data-card__val">Opportunity</div>
+        <div class="data-card__desc">Content desert. Zero editorial competition. HYROX +266% YoY. Structural whitespace on TikTok, LinkedIn, Strava.</div>
+      </div>
+      <div class="data-card data-card--frost">
+        <div class="data-card__label">Stream B</div>
+        <div class="data-card__val">Blueprint</div>
+        <div class="data-card__desc">Founder-operator + AI production is the dominant model. 3-5 person AI team = 15-25 person traditional team.</div>
+      </div>
+      <div class="data-card data-card--green">
+        <div class="data-card__label">Stream C</div>
+        <div class="data-card__val">Technology</div>
+        <div class="data-card__desc">67 patterns catalogued, 63% production-deployed. 91% cost reduction ($2.6M to $242K/yr).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 4 — DIVIDER: PART 1 -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide slide--divider" data-slide="4">
+  <div class="divider-num">01</div>
+  <div class="divider-title">Convergence Report</div>
+  <div class="divider-sub">RESEARCH AUDIT &middot; STREAM SYNTHESIS &middot; STRATEGIC POSITION</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 5 — STREAM A: THE DESERT -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="5">
+  <div class="slide-eyebrow">Stream A &mdash; Market &amp; Attention</div>
+  <div class="slide-title">The Content <em>Desert</em></div>
+  <div class="slide-subtitle">No rowing brand operates at editorial standard. The market is wide open.</div>
+  <div class="slide-body">
+    <div class="card-grid cols-3">
+      <div class="data-card">
+        <div class="data-card__label">HYROX Search</div>
+        <div class="data-card__val" style="color:var(--accent)">3.9M</div>
+        <div class="data-card__desc">Monthly searches, +233-266% YoY. Zero branded content supply.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card__label">Hybrid Athlete</div>
+        <div class="data-card__val" style="color:var(--frost)">+23%</div>
+        <div class="data-card__desc">YoY growth. 19K monthly searches in rowing crossover category.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card__label">Market Size</div>
+        <div class="data-card__val" style="color:var(--white)">$111B</div>
+        <div class="data-card__desc">Global gym apparel (2025). Premium athleisure: fastest-growing at 10.5% CAGR.</div>
+      </div>
+    </div>
+  </div>
+  <div class="section-num">A</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 6 — STREAM A: PLATFORM MAP -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="6">
+  <div class="slide-eyebrow">Stream A &mdash; Platform Density</div>
+  <div class="slide-title">Channel <em>Whitespace</em></div>
+  <div class="slide-body">
+    <table class="slide-table">
+      <thead><tr><th>Platform</th><th>Competition</th><th>776BC</th><th>Opportunity</th></tr></thead>
+      <tbody>
+        <tr><td>Instagram</td><td>Low &mdash; all 5 rowing competitors = ~72K combined</td><td class="mono">31.1K</td><td>Reels-first; +36% reach vs carousel</td></tr>
+        <tr><td>TikTok</td><td class="accent">Zero &mdash; no rowing brand present</td><td class="mono">2.9K</td><td>Pure whitespace. First-mover.</td></tr>
+        <tr><td>YouTube</td><td>Low &mdash; Dark Horse Rowing ceiling: 320K</td><td class="mono">416</td><td>Creator partnerships</td></tr>
+        <tr><td>LinkedIn</td><td class="accent">Zero &mdash; no rowing founder</td><td class="mono">N/A</td><td>Cameron as first rowing founder voice</td></tr>
+        <tr><td>Email</td><td>776BC leads category</td><td class="mono">95.9K</td><td>50.4% suppression = activation opportunity</td></tr>
+        <tr><td>Podcast</td><td>Fragmented; no dominant show</td><td class="mono">Active</td><td>Only rowing brand with structured podcast</td></tr>
+        <tr><td>Strava</td><td class="accent">Zero brand activation</td><td class="mono">N/A</td><td>Most grouped sport on Strava</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 7 — STREAM B: THE BLUEPRINT -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="7">
+  <div class="slide-eyebrow">Stream B &mdash; Operator Benchmarking</div>
+  <div class="slide-title">The Founder-Operator <em>Model</em></div>
+  <div class="slide-body">
+    <div class="slide-quote">
+      A <strong>3-5 person AI-augmented team</strong> can now match the output of a <strong>15-25 person traditional media team</strong> from 2022. Founder time is the bottleneck &mdash; not content volume.
+    </div>
+    <table class="slide-table" style="margin-top:24px">
+      <thead><tr><th>Operator</th><th>Output</th><th>Team</th><th>Ratio</th><th>Revenue</th></tr></thead>
+      <tbody>
+        <tr><td>776BC (current)</td><td>5-15/wk</td><td>4 FTE</td><td class="mono">1:2-3</td><td>&mdash;</td></tr>
+        <tr><td>Rowing competitors</td><td>2-5/wk</td><td>Unknown</td><td class="mono">~1:1</td><td>&mdash;</td></tr>
+        <tr><td>Best-in-class DTC</td><td class="accent">50-70/wk</td><td>Varies</td><td class="accent mono">1:10-12</td><td>&mdash;</td></tr>
+        <tr><td>Matt Gray</td><td class="accent">200+/mo</td><td>3-5 (AI)</td><td class="accent mono">1:26-28</td><td>$264K/mo</td></tr>
+        <tr><td>Alex Hormozi</td><td class="accent">450/wk</td><td>10-15</td><td class="accent mono">1:30-70</td><td>&mdash;</td></tr>
+        <tr><td>Nick Bare / BPN</td><td>Multi</td><td>N/S</td><td>&mdash;</td><td class="green">$50M ARR</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="section-num">B</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 8 — STREAM B: PATTERNS -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="8">
+  <div class="slide-eyebrow">Stream B &mdash; Patterns</div>
+  <div class="slide-title">Universal &amp; <em>Elite</em></div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div>
+        <div class="tier-label tier-label--frost">5 Universal Patterns (16-20/22)</div>
+        <ul class="slide-list">
+          <li><strong>Multi-Platform Derivative Cascade</strong> &mdash; single input, systematic repurposing</li>
+          <li><strong>Seasonal Calendar Locking</strong> &mdash; content pegged to events and launches</li>
+          <li><strong>Owned Audience Primacy</strong> &mdash; social acquires; email retains</li>
+          <li><strong>Visual Identity System</strong> &mdash; consistent language across formats</li>
+          <li><strong>Batch Production</strong> &mdash; record in batches, distribute systematically</li>
+        </ul>
+      </div>
+      <div>
+        <div class="tier-label tier-label--gold">5 Elite Differentiators (3-7/22)</div>
+        <ul class="slide-list">
+          <li><strong>Content Waterfall</strong> &mdash; 200+ pcs/mo at 1:26-28 ratio. Rarest. Largest multiplier.</li>
+          <li><strong>AI Avatar / Dubbing</strong> &mdash; frontier capability. Single founder to non-English markets.</li>
+          <li><strong>Newsletter-First</strong> &mdash; email as primary channel. 776BC's 95K = largest in rowing.</li>
+          <li><strong>Executive-as-Media</strong> &mdash; Cameron is underleveraged. 10/22 brands: founder outperforms.</li>
+          <li><strong>Organic-to-Paid Bridge</strong> &mdash; proven winners amplified via paid. Compounding loop.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 9 — STREAM C: THE TECHNOLOGY -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="9">
+  <div class="slide-eyebrow">Stream C &mdash; AI Architecture</div>
+  <div class="slide-title">Production <em>Ready</em></div>
+  <div class="slide-subtitle">The technology works. The gap is architectural, not technological.</div>
+  <div class="slide-body">
+    <div class="card-grid cols-2" style="max-width:700px">
+      <div class="data-card data-card--accent">
+        <div class="data-card__label">Patterns Catalogued</div>
+        <div class="data-card__val">67</div>
+        <div class="data-card__desc">63% production-deployed. 33% commercial. 3% vendor. 1% hypothetical.</div>
+      </div>
+      <div class="data-card data-card--green">
+        <div class="data-card__label">Cost Reduction</div>
+        <div class="data-card__val">91%</div>
+        <div class="data-card__desc">$2.6M traditional to $242K AI-augmented. Per year.</div>
+      </div>
+      <div class="data-card data-card--red">
+        <div class="data-card__label">Failure Rate</div>
+        <div class="data-card__val">80%</div>
+        <div class="data-card__desc">Multi-agent pilots that fail within 6 months. Governance gaps, not tech.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card__label">MIT 2025</div>
+        <div class="data-card__val">95%</div>
+        <div class="data-card__desc">Of generative AI pilots yield no business impact. The gap is architectural.</div>
+      </div>
+    </div>
+  </div>
+  <div class="section-num">C</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 10 — CONVERGENCE PATTERNS -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="10">
+  <div class="slide-eyebrow">Cross-Stream Synthesis</div>
+  <div class="slide-title">6 Convergence <em>Patterns</em></div>
+  <div class="slide-body">
+    <div class="conv-card">
+      <div class="conv-card__streams"><span class="pill pill--a">A</span><span class="pill pill--b">B</span><span class="pill pill--c">C</span></div>
+      <div class="conv-card__title">Content Desert &times; Founder-Operator &times; AI Production</div>
+      <div class="conv-card__insight">776BC can become the first editorial-standard rowing brand. Competitive window is open now.</div>
+    </div>
+    <div class="conv-card">
+      <div class="conv-card__streams"><span class="pill pill--a">A</span><span class="pill pill--c">C</span></div>
+      <div class="conv-card__title">TikTok Whitespace &times; Video Derivative Readiness</div>
+      <div class="conv-card__insight">Launch TikTok-first short-form from hero content. Zero-competition channel.</div>
+    </div>
+    <div class="conv-card">
+      <div class="conv-card__streams"><span class="pill pill--a">A</span><span class="pill pill--b">B</span><span class="pill pill--c">C</span></div>
+      <div class="conv-card__title">Email Activation &times; Brand Memory</div>
+      <div class="conv-card__insight">95.9K profiles, 50.4% suppressed. AI-personalised reactivation via intelligence layer.</div>
+    </div>
+    <div class="conv-card">
+      <div class="conv-card__streams"><span class="pill pill--a">A</span><span class="pill pill--b">B</span></div>
+      <div class="conv-card__title">JL Racing Migration &times; Content Velocity</div>
+      <div class="conv-card__insight">Quality collapse creating time-sensitive switching demand. Velocity to 20-35/wk captures it.</div>
+    </div>
+    <div class="conv-card">
+      <div class="conv-card__streams"><span class="pill pill--a">A</span><span class="pill pill--b">B</span><span class="pill pill--c">C</span></div>
+      <div class="conv-card__title">Hybrid Athlete &times; Category Expansion &times; Motion 2.0</div>
+      <div class="conv-card__insight">Motion 2.0 is the product anchor. HYROX +266% YoY, 3.9M searches, zero branded supply.</div>
+    </div>
+    <div class="conv-card">
+      <div class="conv-card__streams"><span class="pill pill--b">B</span><span class="pill pill--c">C</span></div>
+      <div class="conv-card__title">Memory Before Agents &times; Obsidian &times; Competitive Moat</div>
+      <div class="conv-card__insight">The intelligence layer is the moat. Structured knowledge compounds. Competitors cannot replicate it.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 11 — STRATEGIC POSITION -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="11">
+  <div class="slide-eyebrow">Strategic Position</div>
+  <div class="slide-title">776BC <em>Today</em></div>
+  <div class="slide-body">
+    <div class="card-grid cols-3">
+      <div class="data-card">
+        <div class="data-card__label">H1 FY26 Revenue</div>
+        <div class="data-card__val" style="color:var(--green)">+33%</div>
+        <div class="data-card__desc">vs H1 FY25. +2.8% above budget. Online +65% YoY.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card__label">Paid Media ROAS</div>
+        <div class="data-card__val" style="color:var(--accent)">7.9x</div>
+        <div class="data-card__desc">Blended ROAS. ~$1.1K spend to $8.9K revenue (Jan 2026).</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card__label">Cash Position</div>
+        <div class="data-card__val" style="color:var(--white)">$2.26M</div>
+        <div class="data-card__desc">Net cash H1 FY26. Q2 positive bottom line.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card__label">Content Team</div>
+        <div class="data-card__val" style="color:var(--frost)">4</div>
+        <div class="data-card__desc">Sam, Meg, Mim, Alex. No AI augmentation systems.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card__label">Email Database</div>
+        <div class="data-card__val" style="color:var(--accent)">95.9K</div>
+        <div class="data-card__desc">Largest in rowing apparel. 50.4% suppressed.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card__label">Revenue Mix</div>
+        <div class="data-card__val" style="color:var(--white)">70/30</div>
+        <div class="data-card__desc">Teamwear / DTC. US market: 6-7% (target: 25%).</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 12 — ADVANTAGES & CONSTRAINTS -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="12">
+  <div class="slide-eyebrow">Strategic Position</div>
+  <div class="slide-title">Advantages &amp; <em>Constraints</em></div>
+  <div class="slide-body">
+    <div class="two-col">
+      <div>
+        <div class="tier-label tier-label--green">Structural Advantages</div>
+        <ul class="slide-list">
+          <li><strong>Founder Credibility</strong> &mdash; Cameron: 2x Olympian, Beijing Silver. Most underleveraged asset.</li>
+          <li><strong>Content Desert</strong> &mdash; first to editorial standard = category-defining "for a generation."</li>
+          <li><strong>Owned Audience</strong> &mdash; largest email database in rowing apparel.</li>
+          <li><strong>JL Racing Window</strong> &mdash; quality collapse = time-sensitive switching demand.</li>
+          <li><strong>Product IP</strong> &mdash; Motion 2.0: world-first patented visual coaching system.</li>
+          <li><strong>Growth Trajectory</strong> &mdash; H1 FY26: online +65%, events +45%. Margins trending up.</li>
+        </ul>
+      </div>
+      <div>
+        <div class="tier-label tier-label--red">Structural Constraints</div>
+        <ul class="slide-list">
+          <li><strong>Cash</strong> &mdash; $2.26M net. NPAT -10.5% below budget H1. Profitability forecast FY27.</li>
+          <li><strong>Team</strong> &mdash; 4-person content team without scalable production systems.</li>
+          <li><strong>Channel Underdevelopment</strong> &mdash; TikTok (2.9K), YouTube (416), LinkedIn inactive.</li>
+          <li><strong>Email Suppression</strong> &mdash; 50.4% unreachable profiles.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 13 — GAP ANALYSIS -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="13">
+  <div class="slide-eyebrow">Gap Analysis</div>
+  <div class="slide-title">Confidence <em>Matrix</em></div>
+  <div class="slide-body">
+    <table class="slide-table">
+      <thead><tr><th>Area</th><th>Confidence</th><th>Evidence</th></tr></thead>
+      <tbody>
+        <tr><td>Content desert opportunity</td><td><span class="pill pill--high">HIGH</span></td><td>Quantified across search, social, competitor, community (A+B)</td></tr>
+        <tr><td>Founder-operator model effectiveness</td><td><span class="pill pill--high">HIGH</span></td><td>Validated across 22 brands with specific metrics (B)</td></tr>
+        <tr><td>AI content generation readiness</td><td><span class="pill pill--high">HIGH</span></td><td>63% production-deployed patterns (C)</td></tr>
+        <tr><td>Economic case (91% cost reduction)</td><td><span class="pill pill--med">MEDIUM</span></td><td>Aggregate industry data, not 776BC-specific (C)</td></tr>
+        <tr><td>3-5 AI team = 15-25 traditional</td><td><span class="pill pill--med">MEDIUM</span></td><td>Pattern observed but context-dependent (B+C)</td></tr>
+        <tr><td>Motion 2.0 as expansion vehicle</td><td><span class="pill pill--med">MEDIUM</span></td><td>Search demand proven; product-market fit untested (A)</td></tr>
+        <tr><td>Signal intelligence platform</td><td><span class="pill pill--low">LOW</span></td><td>Architecture defined; no production case at scale (C)</td></tr>
+        <tr><td>Performance feedback loops</td><td><span class="pill pill--low">V. LOW</span></td><td>No production evidence at any scale (C)</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 14 — DIVIDER: PART 2 -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide slide--divider" data-slide="14">
+  <div class="divider-num">02</div>
+  <div class="divider-title">Future State Velocity Model</div>
+  <div class="divider-sub">THE NORTH STAR &middot; BENCHMARKS &middot; THE GAP</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 15 — 12-MONTH TARGET -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="15">
+  <div class="slide-eyebrow">12-Month Target State</div>
+  <div class="slide-title">The <em>Velocity Gap</em></div>
+  <div class="slide-subtitle">The gap is 15-35 additional pieces per week. This is the number the operating system must deliver.</div>
+  <div class="slide-body">
+    <div class="compare-row">
+      <div class="compare-label">Content velocity</div>
+      <div class="compare-bars">
+        <div class="compare-bar compare-bar--current" style="width:25%">5-15/wk</div>
+        <div class="compare-bar compare-bar--target" style="width:75%">30-40/wk &mdash; 3-5x</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-label">Derivative ratio</div>
+      <div class="compare-bars">
+        <div class="compare-bar compare-bar--current" style="width:20%">1:2-3</div>
+        <div class="compare-bar compare-bar--target" style="width:70%">1:8-12 &mdash; 4-5x</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-label">Active channels</div>
+      <div class="compare-bars">
+        <div class="compare-bar compare-bar--current" style="width:40%">3-4</div>
+        <div class="compare-bar compare-bar--target" style="width:85%">7-8 &mdash; 2x</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-label">Instagram</div>
+      <div class="compare-bars">
+        <div class="compare-bar compare-bar--current" style="width:35%">31.1K</div>
+        <div class="compare-bar compare-bar--target" style="width:70%">60-80K &mdash; 2-2.5x</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-label">TikTok</div>
+      <div class="compare-bars">
+        <div class="compare-bar compare-bar--current" style="width:12%">2.9K</div>
+        <div class="compare-bar compare-bar--target" style="width:60%">15-30K &mdash; 5-10x</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-label">Email suppression</div>
+      <div class="compare-bars">
+        <div class="compare-bar compare-bar--current" style="width:50%">50.4%</div>
+        <div class="compare-bar compare-bar--target" style="width:33%">30-35%</div>
+      </div>
+    </div>
+    <div class="compare-row">
+      <div class="compare-label">AI maturity</div>
+      <div class="compare-bars">
+        <div class="compare-bar compare-bar--current" style="width:15%">Level 1</div>
+        <div class="compare-bar compare-bar--target" style="width:50%">Level 2-3</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 16 — DIVIDER: PART 3 -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide slide--divider" data-slide="16">
+  <div class="divider-num">03</div>
+  <div class="divider-title">Architecture</div>
+  <div class="divider-sub">THE SIMPLEST STACK THAT WORKS</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 17 — THREE-LAYER ARCHITECTURE -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="17">
+  <div class="slide-eyebrow">Architecture</div>
+  <div class="slide-title">Three <em>Layers</em></div>
+  <div class="slide-subtitle">Start simple, add complexity only when proven necessary.</div>
+  <div class="slide-body">
+    <div class="arch-stack">
+      <div class="arch-layer arch-layer--gold">
+        <div class="arch-layer__label">Layer 1: Intelligence</div>
+        <div class="arch-layer__title">Obsidian</div>
+        <div class="arch-layer__desc">The Vault = The Moat. Brand memory, agent configs, research, content library. REST API for access. Compounds over time.</div>
+      </div>
+      <div class="arch-connector">&darr;</div>
+      <div class="arch-layer arch-layer--frost">
+        <div class="arch-layer__label">Layer 2: Agentic Brain</div>
+        <div class="arch-layer__title">Claude Code</div>
+        <div class="arch-layer__desc">Agent configs as vault folders. File access, web search, tool use, iterative reasoning. Cost-optimised triage: Sonnet / Haiku / Opus.</div>
+      </div>
+      <div class="arch-connector">&darr;</div>
+      <div class="arch-layer arch-layer--green">
+        <div class="arch-layer__label">Layer 3: Workflow Engine</div>
+        <div class="arch-layer__title">n8n</div>
+        <div class="arch-layer__desc">1,145+ integrations. Deterministic workflows: content waterfall, podcast pipeline, email sequences, social publishing.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 18 — INTELLIGENCE LAYER -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="18">
+  <div class="slide-eyebrow">The Intelligence Layer</div>
+  <div class="slide-title">Why It's <em>The Moat</em></div>
+  <div class="slide-body">
+    <div class="slide-quote" style="margin-bottom:24px">
+      Models are commoditised. What cannot be replicated is <strong>accumulated organisational knowledge, deliberately structured for AI consumption.</strong>
+    </div>
+    <ul class="slide-list">
+      <li><strong>It compounds.</strong> Every approved piece becomes a new exemplar. Every edit teaches the system. Over 12 months: thousands of curated artefacts competitors cannot replicate.</li>
+      <li><strong>It is brand-specific.</strong> A generic AI can write about rowing. Only an AI with 776BC's intelligence layer can write <em>as</em> 776BC.</li>
+      <li><strong>It improves every agent simultaneously.</strong> One knowledge update improves ten outputs.</li>
+      <li><strong>It survives technology changes.</strong> Switch the model, keep the knowledge. This is why "memory before agents" is foundational.</li>
+      <li><strong>It turns knowledge into capability.</strong> The intelligence layer is not documentation &mdash; it is operationalisation.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 19 — DESIGN PRINCIPLES -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="19">
+  <div class="slide-eyebrow">Architecture</div>
+  <div class="slide-title">Design <em>Principles</em></div>
+  <div class="slide-body">
+    <div class="card-grid cols-2" style="max-width:750px">
+      <div class="data-card data-card--accent">
+        <div class="data-card__val" style="font-size:1.1rem">"Safety is architecture, not prompting."</div>
+        <div class="data-card__desc" style="margin-top:8px">An agent that <em>cannot</em> access a file is safer than an agent <em>told</em> not to access it.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card__val" style="font-size:1.1rem">"Design for failure, not success."</div>
+        <div class="data-card__desc" style="margin-top:8px">44% of multi-agent failures are system design issues. Every agent must have explicit failure handling.</div>
+      </div>
+      <div class="data-card">
+        <div class="data-card__val" style="font-size:1.1rem">"Curate memory, don't accumulate it."</div>
+        <div class="data-card__desc" style="margin-top:8px">Raw logs are noise. Strategic forgetting is a feature. Bulk import = most common failure mode.</div>
+      </div>
+      <div class="data-card data-card--accent">
+        <div class="data-card__val" style="font-size:1.1rem">"Ship the simplest system that teaches you something."</div>
+        <div class="data-card__desc" style="margin-top:8px">One agent, one task, one real content piece will teach more than any amount of upfront architecture.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 20 — MISSION CONTROL -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="20">
+  <div class="slide-eyebrow">Mission Control MVP</div>
+  <div class="slide-title">Two Layers, <em>One Truth</em></div>
+  <div class="slide-body">
+    <div class="two-col" style="max-width:800px">
+      <div>
+        <div class="tier-label tier-label--frost">Team Layer &mdash; Obsidian</div>
+        <ul class="slide-list">
+          <li>Content Pipeline Kanban Board</li>
+          <li>Brand Memory Files</li>
+          <li>Agent Configs</li>
+          <li>Content Notes (YAML frontmatter)</li>
+        </ul>
+      </div>
+      <div>
+        <div class="tier-label tier-label--gold">Leadership Layer &mdash; Web Dashboard</div>
+        <ul class="slide-list">
+          <li>Pipeline Board (visual)</li>
+          <li>Weekly Output Summary</li>
+          <li>Voice Quality Monitor</li>
+          <li>Review Queue</li>
+          <li>System Health</li>
+        </ul>
+      </div>
+    </div>
+    <div class="slide-quote" style="margin-top:24px; font-size:1rem; max-width:600px">
+      The vault is the source of truth. The dashboard is the window. <strong>No database. No sync. No duplication.</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 21 — TRUST LADDER -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="21">
+  <div class="slide-eyebrow">Agent Governance</div>
+  <div class="slide-title">The Trust <em>Ladder</em></div>
+  <div class="slide-body">
+    <table class="slide-table" style="max-width:800px">
+      <thead><tr><th>Level</th><th>Name</th><th>Agent Does</th><th>Team Does</th></tr></thead>
+      <tbody>
+        <tr><td class="mono accent">1</td><td>Intern</td><td>Observe and report</td><td>Approve every action</td></tr>
+        <tr><td class="mono accent">2</td><td>Junior</td><td>Recommend actions</td><td>Approve before execution</td></tr>
+        <tr><td class="mono accent">3</td><td>Senior</td><td>Act and notify</td><td>Review after execution</td></tr>
+        <tr><td class="mono accent">4</td><td>Principal</td><td>Autonomous within domain</td><td>Strategic oversight only</td></tr>
+      </tbody>
+    </table>
+    <ul class="slide-list" style="margin-top:20px; max-width:700px">
+      <li><strong>Start every new agent at Level 1.</strong> Kate reviews every derivative.</li>
+      <li><strong>Promote on demonstrated reliability.</strong> 50+ outputs scoring 75+ with minimal edits.</li>
+      <li><strong>Demote on significant incidents.</strong> Increase oversight until trust is re-established.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 22 — AGENT ROSTER -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="22">
+  <div class="slide-eyebrow">Agent Architecture</div>
+  <div class="slide-title">The <em>Roster</em></div>
+  <div class="slide-body">
+    <div class="agent-grid">
+      <div class="agent-chip agent-chip--foundation">
+        <div class="agent-chip__id">AG-00</div>
+        <div class="agent-chip__name">Pipeline Orchestrator</div>
+        <div class="agent-chip__model">Sonnet</div>
+      </div>
+      <div class="agent-chip agent-chip--t1">
+        <div class="agent-chip__id">AG-01</div>
+        <div class="agent-chip__name">Content Transformer</div>
+        <div class="agent-chip__model">Sonnet &rarr; Haiku</div>
+      </div>
+      <div class="agent-chip agent-chip--t1">
+        <div class="agent-chip__id">AG-02</div>
+        <div class="agent-chip__name">Podcast Alchemist</div>
+        <div class="agent-chip__model">Sonnet</div>
+      </div>
+      <div class="agent-chip agent-chip--t1">
+        <div class="agent-chip__id">AG-03</div>
+        <div class="agent-chip__name">Social Content Creator</div>
+        <div class="agent-chip__model">Haiku</div>
+      </div>
+      <div class="agent-chip agent-chip--t1">
+        <div class="agent-chip__id">AG-04</div>
+        <div class="agent-chip__name">Email Composer</div>
+        <div class="agent-chip__model">Sonnet</div>
+      </div>
+      <div class="agent-chip agent-chip--t2">
+        <div class="agent-chip__id">AG-05</div>
+        <div class="agent-chip__name">Voice Guardian</div>
+        <div class="agent-chip__model">Sonnet / Opus</div>
+      </div>
+      <div class="agent-chip agent-chip--t2">
+        <div class="agent-chip__id">AG-06</div>
+        <div class="agent-chip__name">Brief Builder</div>
+        <div class="agent-chip__model">Sonnet</div>
+      </div>
+      <div class="agent-chip agent-chip--t2">
+        <div class="agent-chip__id">AG-07</div>
+        <div class="agent-chip__name">Research Scout</div>
+        <div class="agent-chip__model">Sonnet</div>
+      </div>
+      <div class="agent-chip agent-chip--t3">
+        <div class="agent-chip__id">AG-08</div>
+        <div class="agent-chip__name">Campaign Conductor</div>
+        <div class="agent-chip__model">Sonnet</div>
+      </div>
+      <div class="agent-chip agent-chip--t3">
+        <div class="agent-chip__id">AG-09</div>
+        <div class="agent-chip__name">Distribution Router</div>
+        <div class="agent-chip__model">Haiku</div>
+      </div>
+      <div class="agent-chip agent-chip--t3">
+        <div class="agent-chip__id">AG-10</div>
+        <div class="agent-chip__name">Signal Watcher</div>
+        <div class="agent-chip__model">Sonnet</div>
+      </div>
+    </div>
+    <div style="display:flex; gap:16px; margin-top:16px; opacity:0" class="slide-body">
+      <span class="tier-label tier-label--gold">Foundation</span>
+      <span class="tier-label tier-label--green">Tier 1: Velocity</span>
+      <span class="tier-label tier-label--frost">Tier 2: Quality</span>
+      <span class="tier-label" style="color:var(--muted);background:rgba(255,255,255,0.04)">Tier 3: Infrastructure</span>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 23 — DIVIDER: PART 4 -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide slide--divider" data-slide="23">
+  <div class="divider-num">04</div>
+  <div class="divider-title">Pilot Recommendations</div>
+  <div class="divider-sub">TWO PILOTS &middot; FOUR WEEKS &middot; MOTION 2.0</div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 24 — PILOT 1 -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="24">
+  <div class="slide-eyebrow">Pilot 1 &mdash; Weeks 1-2</div>
+  <div class="slide-title">Content <em>Waterfall</em></div>
+  <div class="slide-subtitle">The Derivative Engine. Closes the largest portion of the velocity gap.</div>
+  <div class="slide-body">
+    <div class="two-col--wide-left two-col">
+      <div>
+        <div class="slide-quote" style="font-size:1rem; margin-bottom:20px">
+          Cameron records 1 hero video &rarr; AG-00 orchestrates &rarr; Brief Builder enriches &rarr; Content Transformer produces 8-12 derivatives &rarr; Voice Guardian scores &rarr; Kate reviews.
+        </div>
+        <ul class="slide-list">
+          <li>Build intelligence layer first (voice DNA, copy framework, exemplars)</li>
+          <li>Build Mission Control MVP (Kanban + dashboard)</li>
+          <li>Build AG-01, AG-05, AG-06, AG-00</li>
+          <li>Test with real Motion 2.0 content</li>
+          <li>n8n workflow for publishing</li>
+        </ul>
+      </div>
+      <div>
+        <div class="tier-label tier-label--gold">Measurable Outcomes</div>
+        <div class="card-grid" style="gap:10px; margin-top:8px">
+          <div class="data-card" style="padding:16px">
+            <div class="data-card__label">Derivative Ratio</div>
+            <div class="data-card__val" style="font-size:1.5rem">1:8+</div>
+          </div>
+          <div class="data-card" style="padding:16px">
+            <div class="data-card__label">Voice Score</div>
+            <div class="data-card__val" style="font-size:1.5rem; color:var(--green)">75+</div>
+          </div>
+          <div class="data-card" style="padding:16px">
+            <div class="data-card__label">Time to Approved</div>
+            <div class="data-card__val" style="font-size:1.5rem; color:var(--frost)">&lt; 2hrs</div>
+          </div>
+          <div class="data-card" style="padding:16px">
+            <div class="data-card__label">Weekly Output</div>
+            <div class="data-card__val" style="font-size:1.5rem">16-24</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 25 — PILOT 2 -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="25">
+  <div class="slide-eyebrow">Pilot 2 &mdash; Weeks 2-4</div>
+  <div class="slide-title">Podcast <em>Pipeline</em></div>
+  <div class="slide-subtitle">The Movement as Content Engine. Zero additional founder time.</div>
+  <div class="slide-body">
+    <div class="two-col--wide-left two-col">
+      <div>
+        <div class="slide-quote" style="font-size:1rem; margin-bottom:20px">
+          1 episode &rarr; show notes + 5-8 social clips + newsletter segment + blog post + social posts. Activates the email channel.
+        </div>
+        <ul class="slide-list">
+          <li>Build AG-02 (Podcast Alchemist)</li>
+          <li>Build AG-04 (Email Composer)</li>
+          <li>Process one episode through the full pipeline</li>
+          <li>Draft first reactivation email sequence</li>
+          <li>n8n: transcript &rarr; derivatives &rarr; approval &rarr; publish</li>
+        </ul>
+      </div>
+      <div>
+        <div class="tier-label tier-label--frost">Measurable Outcomes</div>
+        <div class="card-grid" style="gap:10px; margin-top:8px">
+          <div class="data-card" style="padding:16px">
+            <div class="data-card__label">Derivatives / Episode</div>
+            <div class="data-card__val" style="font-size:1.5rem">8-12</div>
+          </div>
+          <div class="data-card" style="padding:16px">
+            <div class="data-card__label">Newsletter</div>
+            <div class="data-card__val" style="font-size:1.5rem; color:var(--green)">Tracked</div>
+          </div>
+          <div class="data-card" style="padding:16px">
+            <div class="data-card__label">SEO Blog</div>
+            <div class="data-card__val" style="font-size:1.5rem; color:var(--frost)">Published</div>
+          </div>
+          <div class="data-card" style="padding:16px">
+            <div class="data-card__label">Founder Time</div>
+            <div class="data-card__val" style="font-size:1.5rem; color:var(--accent)">Zero</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 26 — COMBINED OUTCOMES -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="26">
+  <div class="slide-eyebrow">End of Week 4</div>
+  <div class="slide-title">Combined <em>Outcomes</em></div>
+  <div class="slide-body">
+    <table class="slide-table">
+      <thead><tr><th>Metric</th><th>Before</th><th>After</th></tr></thead>
+      <tbody>
+        <tr><td>Derivative ratio</td><td class="mono">1:2-3</td><td class="accent mono">1:8-12</td></tr>
+        <tr><td>Weekly content output</td><td class="mono">5-15</td><td class="accent mono">20-30</td></tr>
+        <tr><td>Active channels</td><td class="mono">3-4</td><td class="accent mono">5-6</td></tr>
+        <tr><td>Brand voice consistency</td><td>Ad hoc</td><td class="green">Scored (75+ threshold)</td></tr>
+        <tr><td>Brand memory</td><td>Not built</td><td class="green">Structured &amp; validated</td></tr>
+        <tr><td>Mission Control</td><td>None</td><td class="green">Operational (Kanban + Dashboard)</td></tr>
+        <tr><td>Agent configs</td><td class="mono">0</td><td class="accent mono">5-8</td></tr>
+        <tr><td>n8n workflows</td><td class="mono">0</td><td class="accent mono">2-3</td></tr>
+        <tr><td>Email reactivation</td><td>Not started</td><td class="frost">First sequence drafted</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 27 — INVESTMENT -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="27">
+  <div class="slide-eyebrow">Investment Summary</div>
+  <div class="slide-title">The <em>Cost</em></div>
+  <div class="slide-body">
+    <div class="two-col" style="max-width:850px">
+      <div>
+        <table class="slide-table">
+          <thead><tr><th>Component</th><th>Cost</th></tr></thead>
+          <tbody>
+            <tr><td>Obsidian</td><td class="green">Free</td></tr>
+            <tr><td>Obsidian plugins</td><td class="green">Free</td></tr>
+            <tr><td>Mission Control</td><td class="mono">Free &ndash; $20/mo</td></tr>
+            <tr><td>Claude Code</td><td class="mono">Usage-based</td></tr>
+            <tr><td>n8n</td><td class="mono">$20/mo</td></tr>
+            <tr><td>Castmagic</td><td class="mono">$25-50/mo</td></tr>
+            <tr><td>OpusClip</td><td class="mono">$25-50/mo</td></tr>
+            <tr><td style="color:var(--accent); font-weight:600">Total infrastructure</td><td class="accent mono" style="font-weight:600">~$50-140/mo + Claude</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <div class="tier-label tier-label--gold">Model Triage</div>
+        <div class="data-card" style="margin-top:8px; padding:16px">
+          <div class="data-card__desc">
+            <strong style="color:var(--white)">Not every task needs the frontier model.</strong><br><br>
+            <span style="color:var(--accent)">Opus</span> &mdash; Quality-critical: voice calibration, strategy<br>
+            <span style="color:var(--frost)">Sonnet</span> &mdash; Daily driver: content, briefs, orchestration<br>
+            <span style="color:var(--green)">Haiku</span> &mdash; High-volume: formatting, classification<br><br>
+            Industry split: 70% lightweight / 20% mid / 10% frontier = <strong style="color:var(--accent)">60-80% cost reduction</strong>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 28 — RISK REGISTER -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="28">
+  <div class="slide-eyebrow">Risk Register</div>
+  <div class="slide-title">Key <em>Risks</em></div>
+  <div class="slide-body">
+    <table class="slide-table" style="max-width:850px">
+      <thead><tr><th>Risk</th><th style="width:80px">Likelihood</th><th style="width:70px">Impact</th><th>Mitigation</th></tr></thead>
+      <tbody>
+        <tr><td>Brand voice degradation at scale</td><td><span class="pill pill--med">MED</span></td><td><span class="pill pill--low">HIGH</span></td><td>Voice Guardian + human review + Trust Ladder</td></tr>
+        <tr><td>Founder time bottleneck</td><td><span class="pill pill--low">HIGH</span></td><td><span class="pill pill--low">HIGH</span></td><td>Batch recording; derivatives decouple founder from output</td></tr>
+        <tr><td>Over-engineering before validation</td><td><span class="pill pill--med">MED</span></td><td><span class="pill pill--low">HIGH</span></td><td>Simplest stack first; add only when proven necessary</td></tr>
+        <tr><td>Agent swarm by default</td><td><span class="pill pill--high">LOW</span></td><td><span class="pill pill--low">HIGH</span></td><td>More agents &ne; better. Keep to pilot roster.</td></tr>
+        <tr><td>Silent agent failure</td><td><span class="pill pill--med">MED</span></td><td><span class="pill pill--low">HIGH</span></td><td>Explicit failure handling, escalation paths, timeouts</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 29 — WHAT SUCCESS LOOKS LIKE -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide" data-slide="29">
+  <div class="slide-eyebrow">What Success Looks Like</div>
+  <div class="slide-title">Kate &amp; Cam <em>Can Say</em></div>
+  <div class="slide-body">
+    <ul class="slide-list" style="max-width:750px">
+      <li>"I can see how the system takes Cameron's content and turns it into a week's worth of posts &mdash; <strong>and they sound like us.</strong>"</li>
+      <li>"The podcast is now producing <strong>10x more value</strong> than before, without any extra work."</li>
+      <li>"I can open the dashboard and see exactly what's in the pipeline &mdash; <strong>without opening Obsidian or asking anyone.</strong>"</li>
+      <li>"I understand how Obsidian, Claude Code, and n8n work together &mdash; <strong>and I can see where this goes next.</strong>"</li>
+      <li>"I can see how the brand memory gets stronger over time &mdash; <strong>every correction feeds back into the system.</strong>"</li>
+    </ul>
+    <div class="slide-quote" style="margin-top:32px; font-size:1rem">
+      <strong>"This is grounded in evidence. We understand the design choices."</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ════════════════════════════════════════════════════ -->
+<!-- SLIDE 30 — CLOSING -->
+<!-- ════════════════════════════════════════════════════ -->
+<div class="slide slide--close" data-slide="30">
+  <div class="slide-eyebrow">The Strategic Imperative</div>
+  <div class="slide-title">Build the AI-native media<br>operating system.<br>Launch with <em>Motion 2.0</em>.</div>
+  <div class="slide-subtitle" style="text-align:center">July 20, 2026</div>
+  <div class="title-rule"></div>
+  <div class="close-cta">Optiflows Consulting &middot; March 2026</div>
+</div>
+
+</div><!-- /deck -->
+</div><!-- /siteContent -->
+
+<script>
+(function() {
+  // Password gate
+  var KEY = '776bc_convergence_auth';
+  if (sessionStorage.getItem(KEY) === '1') {
+    document.getElementById('passwordGate').style.display = 'none';
+    document.getElementById('siteContent').style.display = 'block';
+  }
+  document.getElementById('gatePw').addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') {
+      if (this.value === '776') {
+        sessionStorage.setItem(KEY, '1');
+        document.getElementById('passwordGate').style.display = 'none';
+        document.getElementById('siteContent').style.display = 'block';
+      } else {
+        document.getElementById('gateErr').classList.add('show');
+        this.value = '';
+      }
+    }
+  });
+
+  // Slide engine
+  var slides = document.querySelectorAll('.slide');
+  var total = slides.length;
+  var current = 0;
+  var isAnimating = false;
+
+  document.getElementById('slideTotal').textContent = total < 10 ? '0' + total : total;
+
+  function goTo(n) {
+    if (n < 0 || n >= total || n === current || isAnimating) return;
+    isAnimating = true;
+
+    var dir = n > current ? 1 : -1;
+    var prev = slides[current];
+    var next = slides[n];
+
+    prev.classList.remove('active');
+    prev.classList.add(dir > 0 ? 'prev' : '');
+    if (dir < 0) {
+      prev.style.transform = 'translateX(60px)';
+      prev.style.opacity = '0';
+    }
+
+    next.style.transform = dir > 0 ? 'translateX(60px)' : 'translateX(-60px)';
+    next.style.opacity = '0';
+    next.offsetHeight; // force reflow
+
+    requestAnimationFrame(function() {
+      next.classList.add('active');
+      next.classList.remove('prev');
+      next.style.transform = '';
+      next.style.opacity = '';
+      next.scrollTop = 0;
+    });
+
+    current = n;
+    var num = current + 1;
+    document.getElementById('slideNum').textContent = num < 10 ? '0' + num : num;
+    document.getElementById('progressBar').style.width = ((num / total) * 100) + '%';
+
+    setTimeout(function() {
+      isAnimating = false;
+      prev.classList.remove('prev');
+    }, 650);
+  }
+
+  // Keyboard
+  document.addEventListener('keydown', function(e) {
+    if (document.getElementById('passwordGate').style.display !== 'none' &&
+        document.getElementById('siteContent').style.display !== 'block') return;
+    if (e.key === 'ArrowRight' || e.key === ' ' || e.key === 'ArrowDown') {
+      e.preventDefault();
+      goTo(current + 1);
+    } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
+      e.preventDefault();
+      goTo(current - 1);
+    } else if (e.key === 'Home') {
+      e.preventDefault();
+      goTo(0);
+    } else if (e.key === 'End') {
+      e.preventDefault();
+      goTo(total - 1);
+    }
+  });
+
+  // Touch
+  var touchStartX = 0;
+  var touchStartY = 0;
+  document.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+  }, { passive: true });
+
+  document.addEventListener('touchend', function(e) {
+    var dx = e.changedTouches[0].clientX - touchStartX;
+    var dy = e.changedTouches[0].clientY - touchStartY;
+    if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 50) {
+      if (dx < 0) goTo(current + 1);
+      else goTo(current - 1);
+    }
+  }, { passive: true });
+
+  // Click sides
+  document.addEventListener('click', function(e) {
+    if (document.getElementById('passwordGate').style.display !== 'none' &&
+        document.getElementById('siteContent').style.display !== 'block') return;
+    var x = e.clientX / window.innerWidth;
+    if (e.target.tagName === 'A' || e.target.tagName === 'BUTTON' || e.target.tagName === 'INPUT') return;
+    if (x > 0.75) goTo(current + 1);
+    else if (x < 0.25) goTo(current - 1);
+  });
+
+  // Hide nav hint after first interaction
+  var hintEl = document.getElementById('navHint');
+  function hideHint() {
+    if (hintEl) { hintEl.style.opacity = '0'; }
+    document.removeEventListener('keydown', hideHint);
+    document.removeEventListener('touchstart', hideHint);
+  }
+  document.addEventListener('keydown', hideHint);
+  document.addEventListener('touchstart', hideHint);
+
+  // Init progress bar
+  document.getElementById('progressBar').style.width = ((1 / total) * 100) + '%';
+})();
+</script>
+
+</body>
+</html>
