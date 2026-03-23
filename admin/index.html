@@ -675,8 +675,9 @@ Paragraph text. **Bold** and *italic* work.
         </div>
 
         <div class="btn-row">
-          <button class="btn btn-primary" onclick="generatePreview()">Preview</button>
+          <button class="btn btn-primary" onclick="saveMetadata()">Save Metadata</button>
           <button class="btn btn-secondary" onclick="publishPost()">Publish to Site</button>
+          <button class="btn btn-ghost" onclick="generatePreview()">Preview</button>
           <button class="btn btn-ghost" onclick="downloadPost()">Download HTML</button>
         </div>
       </div>
@@ -853,7 +854,7 @@ Paragraph text. **Bold** and *italic* work.
           '<div class="post-excerpt-text">' + escapeHTML(post.excerpt || '') + '</div>' +
         '</div>' +
         '<div class="post-category">' + escapeHTML(post.category) + '</div>' +
-        '<div class="post-date">' + (post.date || '') + '</div>' +
+        '<div class="post-date"><input type="date" value="' + (post.date || '') + '" data-idx="' + index + '" onchange="updateDate(this)" style="border:1px solid transparent;background:transparent;font-family:inherit;font-size:inherit;color:inherit;padding:2px 4px;border-radius:4px;cursor:pointer;width:110px;" onfocus="this.style.borderColor=\'var(--mid-teal)\'" onblur="this.style.borderColor=\'transparent\'"></div>' +
         '<div class="post-featured">' +
           '<button class="featured-toggle ' + (post.featured ? 'on' : '') + '" data-idx="' + index + '" onclick="toggleFeatured(' + index + ')">' +
             '<svg width="12" height="12" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
@@ -901,15 +902,22 @@ Paragraph text. **Bold** and *italic* work.
 
     var item = posts.splice(dragIndex, 1)[0];
     posts.splice(dropIndex, 0, item);
-    markDirty();
+    autoSave();
     renderPostList();
   }
 
   // ── Toggle Featured ──
   window.toggleFeatured = function(idx) {
     posts[idx].featured = !posts[idx].featured;
-    markDirty();
+    autoSave();
     renderPostList();
+  };
+
+  // ── Update Date inline ──
+  window.updateDate = function(input) {
+    var idx = parseInt(input.dataset.idx);
+    posts[idx].date = input.value;
+    autoSave();
   };
 
   // ── Delete ──
@@ -956,10 +964,9 @@ Paragraph text. **Bold** and *italic* work.
     });
   }
 
-  // ── Mark dirty / Save ──
-  function markDirty() {
-    dirty = true;
-    document.getElementById('saveBar').classList.add('visible');
+  // ── Auto-save (replaces old markDirty/save bar pattern) ──
+  function autoSave() {
+    saveManifestThen(function() { showToast('Saved'); });
   }
 
   window.saveManifest = function() {
@@ -1173,6 +1180,43 @@ Paragraph text. **Bold** and *italic* work.
     a.click();
     URL.revokeObjectURL(a.href);
     showToast('Downloaded ' + (slug || 'post') + '.html');
+  };
+
+  // ── Save Metadata (no markdown required) ──
+  window.saveMetadata = function() {
+    if (!token) { showToast('Connect to GitHub first'); return; }
+
+    var title = document.getElementById('ed_title').value.trim();
+    var slug = document.getElementById('ed_slug').value.trim();
+    var cat = getEditorCategory();
+    var dateVal = document.getElementById('ed_date').value;
+    var excerpt = document.getElementById('ed_excerpt').value.trim();
+    var featured = document.getElementById('ed_featured').value === 'true';
+    var md = document.getElementById('ed_markdown').value;
+
+    if (!title || !slug) { showToast('Title and slug required'); return; }
+
+    var idx = posts.findIndex(function(p) { return p.slug === slug; });
+    var entry = {
+      slug: slug,
+      title: title,
+      excerpt: excerpt || title,
+      category: cat,
+      date: dateVal,
+      readTime: md.trim() ? readTime(md) : (idx >= 0 ? posts[idx].readTime : '1 min'),
+      featured: featured
+    };
+
+    if (idx >= 0) {
+      posts[idx] = entry;
+    } else {
+      posts.unshift(entry);
+    }
+
+    saveManifestThen(function() {
+      showToast('Metadata saved');
+      renderPostList();
+    });
   };
 
   // ── Publish ──
