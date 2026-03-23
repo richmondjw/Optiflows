@@ -763,7 +763,10 @@ document.getElementById('passwordInput').addEventListener('keydown', function(e)
 
     fetch(CRM_ENDPOINT, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBrcnZveHZzd2NnaHNoZmJ0eHR4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyNDMwMDAsImV4cCI6MjA4OTgxOTAwMH0.CHvpce8dr83jtl99aonC3jVuxDUOjD1v4KXbPNu-avU'
+      },
       body: JSON.stringify(payload)
     })
     .then(function(res) {
