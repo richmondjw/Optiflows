@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Admin — Optiflows</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<style>
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap');
+
+:root {
+  --electric-teal: #66FFE0;
+  --mid-teal: #0A6E6E;
+  --dark-teal: #053D3D;
+  --light-interface: #E0FFF6;
+  --mist-teal: #B8E8E0;
+  --dark-grey: #1A1A1A;
+  --mid-grey: #6F6F6F;
+  --light-grey: #DDD;
+  --very-light-grey: #F7F7F7;
+  --white: #FFFFFF;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--very-light-grey);
+  color: var(--dark-grey);
+  line-height: 1.5;
+}
+
+/* ── Layout ── */
+.admin-header {
+  background: var(--dark-teal);
+  color: var(--white);
+  padding: 20px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.admin-header h1 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.admin-header .back-link {
+  color: var(--mist-teal);
+  text-decoration: none;
+  font-family: "Space Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+.admin-header .back-link:hover { color: var(--electric-teal); }
+
+.admin-body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  min-height: calc(100vh - 62px);
+}
+
+@media (max-width: 1024px) {
+  .admin-body { grid-template-columns: 1fr; }
+}
+
+/* ── Editor Panel ── */
+.editor {
+  padding: 32px;
+  overflow-y: auto;
+  max-height: calc(100vh - 62px);
+  background: var(--white);
+  border-right: 1px solid var(--light-grey);
+}
+
+.field {
+  margin-bottom: 20px;
+}
+
+.field label {
+  display: block;
+  font-family: "Space Mono", monospace;
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--mid-teal);
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+  font-family: "General Sans", sans-serif;
+  font-size: 0.95rem;
+  color: var(--dark-grey);
+  background: var(--white);
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  border-color: var(--mid-teal);
+}
+
+.field textarea {
+  font-family: "Space Mono", monospace;
+  font-size: 0.85rem;
+  line-height: 1.6;
+  resize: vertical;
+}
+
+.field-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.field-row-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 16px;
+}
+
+.field .hint {
+  font-size: 0.75rem;
+  color: var(--mid-grey);
+  margin-top: 4px;
+}
+
+/* ── Buttons ── */
+.btn-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 10px 24px;
+  border: none;
+  border-radius: 5px;
+  font-family: "Space Mono", monospace;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 400;
+}
+
+.btn-primary {
+  background: var(--dark-teal);
+  color: var(--white);
+}
+.btn-primary:hover { background: var(--mid-teal); }
+
+.btn-secondary {
+  background: var(--light-interface);
+  color: var(--dark-teal);
+  border: 1px solid var(--mist-teal);
+}
+.btn-secondary:hover { background: var(--mist-teal); }
+
+.btn-ghost {
+  background: transparent;
+  color: var(--mid-teal);
+  border: 1px solid var(--light-grey);
+}
+.btn-ghost:hover { border-color: var(--mid-teal); }
+
+/* ── Toast ── */
+.toast {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  background: var(--dark-teal);
+  color: var(--white);
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: all 0.3s;
+  pointer-events: none;
+  z-index: 999;
+}
+.toast.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Preview Panel ── */
+.preview-panel {
+  overflow-y: auto;
+  max-height: calc(100vh - 62px);
+  background: var(--very-light-grey);
+}
+
+.preview-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  color: var(--mid-grey);
+  font-size: 0.9rem;
+  padding: 32px;
+  text-align: center;
+}
+
+.preview-frame {
+  background: var(--white);
+  margin: 24px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+}
+
+/* ── Manifest Output ── */
+.manifest-output {
+  margin-top: 20px;
+  display: none;
+}
+
+.manifest-output pre {
+  background: var(--very-light-grey);
+  border: 1px solid var(--light-grey);
+  padding: 16px;
+  border-radius: 8px;
+  font-family: "Space Mono", monospace;
+  font-size: 0.8rem;
+  line-height: 1.6;
+  overflow-x: auto;
+  color: var(--dark-grey);
+}
+
+/* ── Section divider ── */
+.divider {
+  border: none;
+  border-top: 1px solid var(--light-grey);
+  margin: 28px 0;
+}
+</style>
+</head>
+<body>
+
+<div class="admin-header">
+  <h1>
+    <svg width="24" height="24" viewBox="0 0 32 32" fill="none">
+      <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5" fill="none"/>
+      <path d="M8 16h16" stroke="currentColor" stroke-width="1.5"/>
+      <path d="M16 8v16" stroke="currentColor" stroke-width="1.5"/>
+      <circle cx="16" cy="16" r="4" fill="#66FFE0" stroke="none"/>
+    </svg>
+    Blog Admin
+  </h1>
+  <a href="../blog/" class="back-link">Back to blog</a>
+</div>
+
+<div class="admin-body">
+
+  <!-- ════ EDITOR ════ -->
+  <div class="editor">
+
+    <div class="field">
+      <label>Title</label>
+      <input type="text" id="title" placeholder="Why your operating model is the bottleneck">
+    </div>
+
+    <div class="field">
+      <label>Subtitle</label>
+      <input type="text" id="subtitle" placeholder="A one-line hook beneath the title">
+    </div>
+
+    <div class="field-row">
+      <div class="field">
+        <label>Category</label>
+        <select id="category">
+          <option value="Systems Thinking">Systems Thinking</option>
+          <option value="Knowledge Systems">Knowledge Systems</option>
+          <option value="Operating Models">Operating Models</option>
+          <option value="Growth">Growth</option>
+          <option value="Methodology">Methodology</option>
+          <option value="Custom">Custom...</option>
+        </select>
+      </div>
+      <div class="field" id="customCategoryField" style="display:none;">
+        <label>Custom Category</label>
+        <input type="text" id="customCategory" placeholder="Enter category name">
+      </div>
+    </div>
+
+    <div class="field-row-3">
+      <div class="field">
+        <label>Date</label>
+        <input type="date" id="date">
+      </div>
+      <div class="field">
+        <label>Slug</label>
+        <input type="text" id="slug" placeholder="auto-generated-from-title">
+        <div class="hint">Auto-fills from title. Edit to override.</div>
+      </div>
+      <div class="field">
+        <label>Featured</label>
+        <select id="featured">
+          <option value="false">No</option>
+          <option value="true">Yes</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>Excerpt</label>
+      <input type="text" id="excerpt" placeholder="1-2 sentence summary for the blog grid card">
+    </div>
+
+    <hr class="divider">
+
+    <div class="field">
+      <label>Markdown Content</label>
+      <textarea id="markdown" rows="28" placeholder="Paste your markdown here...
+
+## Section Title
+
+Paragraph text goes here. **Bold** and *italic* work.
+
+> Blockquote becomes a callout box.
+
+- List item one
+- List item two
+
+| Column A | Column B |
+|----------|----------|
+| Data     | Data     |
+
+```
+Code blocks work too
+```"></textarea>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn-primary" onclick="generate()">Generate Post</button>
+      <button class="btn btn-secondary" onclick="downloadHTML()">Download HTML</button>
+      <button class="btn btn-ghost" onclick="copyManifest()">Copy Manifest Entry</button>
+    </div>
+
+    <div class="manifest-output" id="manifestOutput">
+      <div class="field">
+        <label>Manifest Entry (add to posts/manifest.json)</label>
+        <pre id="manifestJSON"></pre>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════ PREVIEW ════ -->
+  <div class="preview-panel" id="previewPanel">
+    <div class="preview-empty" id="previewEmpty">
+      Fill in the fields and click <strong>Generate Post</strong> to preview.
+    </div>
+  </div>
+
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+(function() {
+  'use strict';
+
+  // ── Auto-slug from title ──
+  var titleEl = document.getElementById('title');
+  var slugEl = document.getElementById('slug');
+  var slugManual = false;
+
+  slugEl.addEventListener('input', function() { slugManual = true; });
+
+  titleEl.addEventListener('input', function() {
+    if (!slugManual || !slugEl.value) {
+      slugEl.value = titleEl.value
+        .toLowerCase()
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '');
+      slugManual = false;
+    }
+  });
+
+  // ── Auto-fill today's date ──
+  var dateEl = document.getElementById('date');
+  var today = new Date();
+  dateEl.value = today.toISOString().split('T')[0];
+
+  // ── Custom category toggle ──
+  var catEl = document.getElementById('category');
+  var customField = document.getElementById('customCategoryField');
+
+  catEl.addEventListener('change', function() {
+    customField.style.display = catEl.value === 'Custom' ? '' : 'none';
+  });
+
+  // ── Toast ──
+  function showToast(msg) {
+    var t = document.getElementById('toast');
+    t.textContent = msg;
+    t.classList.add('show');
+    setTimeout(function() { t.classList.remove('show'); }, 2500);
+  }
+
+  // ── Get category value ──
+  function getCategory() {
+    if (catEl.value === 'Custom') {
+      return document.getElementById('customCategory').value || 'Uncategorised';
+    }
+    return catEl.value;
+  }
+
+  // ── Estimate read time ──
+  function readTime(text) {
+    var words = text.trim().split(/\s+/).length;
+    var mins = Math.max(1, Math.round(words / 220));
+    return mins + ' min';
+  }
+
+  // ── Format date for display ──
+  function formatDateDisplay(dateStr) {
+    var d = new Date(dateStr + 'T00:00:00');
+    return d.toLocaleDateString('en-AU', { day: 'numeric', month: 'short', year: 'numeric' });
+  }
+
+  // ── The full post CSS (matches existing posts) ──
+  var POST_CSS = [
+    '@import url(\'https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap\');',
+    '@import url(\'https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap\');',
+    '',
+    ':root {',
+    '  --of-electric-teal: #66FFE0;',
+    '  --of-mid-teal: #0A6E6E;',
+    '  --of-dark-teal: #053D3D;',
+    '  --of-light-interface: #E0FFF6;',
+    '  --of-mist-teal: #B8E8E0;',
+    '  --of-dark-grey: #1A1A1A;',
+    '  --of-mid-grey: #6F6F6F;',
+    '  --of-light-grey: #DDD;',
+    '  --of-very-light-grey: #F7F7F7;',
+    '  --of-white: #FFFFFF;',
+    '  --of-radius-std: 15px;',
+    '  --of-radius-sm: 5px;',
+    '  --of-radius-lg: 25px;',
+    '}',
+    '',
+    '* { margin: 0; padding: 0; box-sizing: border-box; }',
+    'html { scroll-behavior: smooth; }',
+    '',
+    'body {',
+    '  font-family: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;',
+    '  color: var(--of-dark-grey);',
+    '  line-height: 1.7;',
+    '  font-size: 16px;',
+    '  background: var(--of-white);',
+    '  -webkit-font-smoothing: antialiased;',
+    '  -moz-osx-font-smoothing: grayscale;',
+    '}',
+    '',
+    '::selection { background: var(--of-dark-teal); color: var(--of-white); }',
+    '::-webkit-scrollbar { width: 8px; }',
+    '::-webkit-scrollbar-track { background: var(--of-very-light-grey); }',
+    '::-webkit-scrollbar-thumb { background: var(--of-mist-teal); border-radius: 4px; }',
+    '::-webkit-scrollbar-thumb:hover { background: var(--of-mid-teal); }',
+    '',
+    '.top-bar { height: 4px; background: var(--of-electric-teal); width: 100%; }',
+    '',
+    '.header {',
+    '  background: var(--of-dark-teal);',
+    '  color: var(--of-white);',
+    '  padding: 5rem 2rem 4rem;',
+    '  text-align: center;',
+    '  display: flex;',
+    '  flex-direction: column;',
+    '  align-items: center;',
+    '  justify-content: center;',
+    '}',
+    '.header .logo-mark { margin-bottom: 1.5rem; }',
+    '.header h1 { font-family: "General Sans", -apple-system, sans-serif; font-size: 3em; font-weight: 600; letter-spacing: -0.03em; margin-bottom: 0.6rem; color: var(--of-white); }',
+    '.header .subtitle { color: var(--of-electric-teal); font-size: 1.2rem; font-weight: 500; letter-spacing: 0.01em; }',
+    '.header .meta { color: var(--of-mist-teal); font-family: "Space Mono", monospace; font-size: 0.7em; margin-top: 1.5rem; text-transform: uppercase; letter-spacing: 3px; font-weight: 400; }',
+    '',
+    '.container { max-width: 1100px; margin: 0 auto; padding: 4rem 64px 5rem; }',
+    '.section-alt { background: var(--of-very-light-grey); }',
+    '.section-white { background: var(--of-white); }',
+    '.section-alt .container, .section-white .container { padding-top: 3rem; padding-bottom: 3rem; }',
+    '',
+    '.bluf { background: var(--of-light-interface); border-left: 3px solid var(--of-mid-teal); padding: 2rem 2.5rem; margin-bottom: 72px; border-radius: 4px var(--of-radius-std) var(--of-radius-std) 4px; font-size: 1.05rem; line-height: 1.8; color: var(--of-dark-grey); }',
+    '.bluf strong { color: var(--of-mid-teal); font-weight: 600; }',
+    '',
+    '.pretitle { font-family: "Space Mono", monospace; font-size: 0.75rem; text-transform: uppercase; color: var(--of-mid-teal); letter-spacing: 2px; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem; margin-top: 72px; }',
+    '.pretitle .square { display: inline-block; width: 7px; height: 7px; background: var(--of-electric-teal); flex-shrink: 0; }',
+    '.pretitle:first-child, .bluf + .pretitle { margin-top: 0; }',
+    '',
+    'h2 { font-family: "General Sans", -apple-system, sans-serif; font-size: 1.75em; font-weight: 500; color: var(--of-dark-teal); margin-bottom: 1.2rem; padding-bottom: 0.6rem; border-bottom: 1px solid var(--of-light-grey); letter-spacing: -0.02em; }',
+    'h3 { font-family: "General Sans", -apple-system, sans-serif; font-size: 1.1rem; font-weight: 600; color: var(--of-mid-teal); margin-top: 2rem; margin-bottom: 0.8rem; letter-spacing: -0.01em; }',
+    '',
+    'p { margin-bottom: 1.2rem; color: var(--of-dark-grey); }',
+    'strong { color: var(--of-dark-grey); font-weight: 600; }',
+    'em { color: var(--of-dark-grey); font-style: italic; }',
+    'a { color: var(--of-mid-teal); text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 2px; }',
+    'a:hover { color: var(--of-dark-teal); }',
+    '',
+    'code { background: var(--of-light-interface); border: 1px solid var(--of-mist-teal); padding: 0.15rem 0.55rem; border-radius: 6px; font-size: 0.88em; font-family: "Space Mono", monospace; color: var(--of-mid-teal); }',
+    'pre { background: var(--of-very-light-grey); border: 1px solid var(--of-light-grey); color: var(--of-dark-grey); padding: 1.5rem 2rem; border-radius: var(--of-radius-std); overflow-x: auto; margin: 1.5rem 0; font-size: 0.88rem; line-height: 1.7; font-family: "Space Mono", monospace; }',
+    'pre code { background: none; border: none; padding: 0; color: inherit; font-size: inherit; }',
+    '',
+    'ul, ol { margin: 1rem 0 1.5rem 1.5rem; color: var(--of-dark-grey); }',
+    'li { margin-bottom: 0.5rem; }',
+    'li strong { color: var(--of-dark-grey); }',
+    '',
+    '.callout { background: var(--of-light-interface); border-left: 3px solid var(--of-mid-teal); border-radius: 4px var(--of-radius-std) var(--of-radius-std) 4px; padding: 2rem 2.5rem; margin: 2rem 0; }',
+    '.callout p { margin-bottom: 0; }',
+    '',
+    '.table-wrap { border-radius: var(--of-radius-std); overflow: hidden; border: 1px solid var(--of-light-grey); margin: 1.5rem 0; }',
+    'table { width: 100%; border-collapse: collapse; font-size: 0.92rem; background: var(--of-white); }',
+    'th { background: var(--of-dark-teal); color: var(--of-white); padding: 0.9rem 1.2rem; text-align: left; font-family: "Space Mono", monospace; font-weight: 700; font-size: 0.7em; text-transform: uppercase; letter-spacing: 2px; border-bottom: none; }',
+    'td { padding: 0.75rem 1.2rem; border-bottom: 1px solid var(--of-light-grey); color: var(--of-dark-grey); }',
+    'td:first-child { font-weight: 500; }',
+    'tr:last-child td { border-bottom: none; }',
+    'tbody tr:nth-child(even) { background: var(--of-very-light-grey); }',
+    'tbody tr:nth-child(odd) { background: var(--of-white); }',
+    '',
+    '.pull-quote { font-size: 1.35rem; font-weight: 600; color: var(--of-dark-teal); line-height: 1.5; margin: 2.5rem 0; padding: 0 1rem; border-left: 3px solid var(--of-electric-teal); }',
+    '',
+    '.back-to-blog { display: inline-flex; align-items: center; gap: 8px; font-family: "Space Mono", monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; color: var(--of-mid-teal); text-decoration: none; margin-bottom: 2rem; }',
+    '.back-to-blog:hover { color: var(--of-dark-teal); }',
+    '',
+    '.footer { background: var(--of-dark-teal); text-align: center; padding: 2.5rem 2rem; color: var(--of-mist-teal); font-family: "Space Mono", monospace; font-size: 0.8rem; letter-spacing: 2.5px; text-transform: uppercase; font-weight: 400; }',
+    '.footer a { color: var(--of-mist-teal); text-decoration: none; display: block; margin-top: 0.75rem; font-size: 0.7rem; letter-spacing: 1.5px; opacity: 0.7; }',
+    '.footer a:hover { opacity: 1; color: var(--of-electric-teal); }',
+    '',
+    '@media (max-width: 768px) {',
+    '  .header { padding: 4rem 40px 3rem; }',
+    '  .header h1 { font-size: 2.2em; }',
+    '  .container { padding: 3rem 40px 4rem; }',
+    '  .section-alt .container, .section-white .container { padding: 2.5rem 40px; }',
+    '  h2 { font-size: 1.5em; }',
+    '  .pretitle { margin-top: 56px; }',
+    '  .bluf { padding: 1.5rem 2rem; margin-bottom: 56px; }',
+    '  table { font-size: 0.85rem; }',
+    '  th, td { padding: 0.6rem 0.8rem; }',
+    '  .pull-quote { font-size: 1.15rem; }',
+    '}',
+    '',
+    '@media (max-width: 480px) {',
+    '  .header { padding: 3rem 24px 2.5rem; }',
+    '  .header h1 { font-size: 1.75em; }',
+    '  .header .subtitle { font-size: 1rem; }',
+    '  .container { padding: 2rem 16px 3rem; }',
+    '  .section-alt .container, .section-white .container { padding: 2rem 16px; }',
+    '  h2 { font-size: 1.3em; }',
+    '  .pretitle { margin-top: 48px; font-size: 0.65rem; }',
+    '  .bluf { padding: 1.2rem; margin-bottom: 48px; border-radius: 4px 10px 10px 4px; }',
+    '  .callout { padding: 1.2rem; border-radius: 4px 10px 10px 4px; }',
+    '  pre { padding: 1rem 1.2rem; font-size: 0.82rem; }',
+    '  .table-wrap { display: block; overflow-x: auto; border-radius: 10px; }',
+    '  table { font-size: 0.8rem; }',
+    '  th, td { padding: 0.5rem 0.6rem; white-space: nowrap; }',
+    '  .footer { padding: 2rem 1rem; font-size: 0.7rem; }',
+    '  .pull-quote { font-size: 1.05rem; margin: 2rem 0; }',
+    '}'
+  ].join('\n');
+
+  // ── Configure marked ──
+  marked.setOptions({
+    breaks: false,
+    gfm: true,
+    headerIds: false,
+    mangle: false
+  });
+
+  // ── Custom renderer ──
+  var renderer = new marked.Renderer();
+  var sectionCounter = 0;
+
+  renderer.heading = function(text, level) {
+    if (typeof text === 'object' && text.text) text = text.text;
+    if (typeof level === 'undefined' && typeof text === 'object') level = text.depth;
+
+    if (level === 2) {
+      sectionCounter++;
+      var num = sectionCounter < 10 ? '0' + sectionCounter : '' + sectionCounter;
+      var parts = text.split(' / ');
+      var pretitleText, headingText;
+      if (parts.length === 2) {
+        pretitleText = parts[0].trim();
+        headingText = parts[1].trim();
+      } else {
+        pretitleText = num + ' / ' + text.split('.')[0].replace(/[^A-Za-z\s]/g,'').trim().substring(0, 30);
+        headingText = text;
+      }
+      return '<div class="pretitle"><span class="square"></span> ' + pretitleText + '</div>\n<h2>' + headingText + '</h2>\n';
+    }
+    if (level === 3) {
+      return '<h3>' + text + '</h3>\n';
+    }
+    return '<h' + level + '>' + text + '</h' + level + '>\n';
+  };
+
+  renderer.blockquote = function(body) {
+    if (typeof body === 'object' && body.text) body = body.text;
+    var clean = body.replace(/<\/?p>/g, '').trim();
+    if (clean.length > 120) {
+      return '<div class="callout">\n<p>' + clean + '</p>\n</div>\n';
+    }
+    return '<div class="pull-quote">' + clean + '</div>\n';
+  };
+
+  renderer.table = function(header, body) {
+    if (typeof header === 'object') {
+      var rows = header.rows || [];
+      var hdr = header.header || [];
+      var headerHtml = '<tr>' + hdr.map(function(cell) {
+        return '<th>' + cell.text + '</th>';
+      }).join('') + '</tr>';
+      var bodyHtml = rows.map(function(row) {
+        return '<tr>' + row.map(function(cell) {
+          return '<td>' + cell.text + '</td>';
+        }).join('') + '</tr>';
+      }).join('\n');
+      return '<div class="table-wrap"><table>\n<thead>' + headerHtml + '</thead>\n<tbody>' + bodyHtml + '</tbody>\n</table></div>\n';
+    }
+    return '<div class="table-wrap"><table>\n<thead>' + header + '</thead>\n<tbody>' + body + '</tbody>\n</table></div>\n';
+  };
+
+  marked.use({ renderer: renderer });
+
+  // ── Store generated HTML ──
+  var generatedHTML = '';
+
+  // ── Generate ──
+  window.generate = function() {
+    var title = titleEl.value.trim();
+    var sub = document.getElementById('subtitle').value.trim();
+    var cat = getCategory();
+    var dateVal = dateEl.value;
+    var md = document.getElementById('markdown').value;
+
+    if (!title) { showToast('Title is required'); return; }
+    if (!md.trim()) { showToast('Paste some markdown content'); return; }
+
+    sectionCounter = 0;
+    var bodyHTML = marked.parse(md);
+
+    var postHTML = '<!DOCTYPE html>\n<html lang="en">\n<head>\n'
+      + '<meta charset="UTF-8">\n'
+      + '<meta name="viewport" content="width=device-width, initial-scale=1.0">\n'
+      + '<title>' + escapeHTML(title) + ' — Optiflows</title>\n'
+      + '<style>\n' + POST_CSS + '\n</style>\n'
+      + '</head>\n<body>\n\n'
+      + '<div class="top-bar"></div>\n\n'
+      + '<div class="header">\n'
+      + '  <div class="logo-mark">\n'
+      + '    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">\n'
+      + '      <circle cx="20" cy="20" r="18" stroke="#66FFE0" stroke-width="2" fill="none"/>\n'
+      + '      <line x1="14" y1="20" x2="26" y2="20" stroke="#66FFE0" stroke-width="2"/>\n'
+      + '      <line x1="20" y1="14" x2="20" y2="26" stroke="#66FFE0" stroke-width="2"/>\n'
+      + '    </svg>\n'
+      + '  </div>\n'
+      + '  <h1>' + escapeHTML(title) + '</h1>\n'
+      + (sub ? '  <div class="subtitle">' + escapeHTML(sub) + '</div>\n' : '')
+      + '  <div class="meta">' + escapeHTML(cat) + ' &mdash; ' + formatDateDisplay(dateVal) + ' &mdash; ' + readTime(md) + ' read</div>\n'
+      + '</div>\n\n'
+      + '<section class="section-white">\n<div class="container">\n\n'
+      + '<a href="../" class="back-to-blog">&larr; All articles</a>\n\n'
+      + bodyHTML
+      + '\n</div>\n</section>\n\n'
+      + '<div class="footer">\n'
+      + '  OptiFlows Pty Ltd &mdash; optiflows.com.au\n'
+      + '</div>\n\n'
+      + '</body>\n</html>';
+
+    generatedHTML = postHTML;
+
+    // Show preview
+    var panel = document.getElementById('previewPanel');
+    var empty = document.getElementById('previewEmpty');
+    if (empty) empty.remove();
+
+    panel.innerHTML = '<div class="preview-frame"><iframe id="previewIframe" style="width:100%;border:none;min-height:800px;" sandbox="allow-same-origin"></iframe></div>';
+
+    var iframe = document.getElementById('previewIframe');
+    iframe.srcdoc = postHTML;
+    iframe.onload = function() {
+      iframe.style.height = iframe.contentDocument.documentElement.scrollHeight + 'px';
+    };
+
+    // Show manifest
+    var manifestEl = document.getElementById('manifestOutput');
+    manifestEl.style.display = '';
+    document.getElementById('manifestJSON').textContent = JSON.stringify({
+      slug: slugEl.value || 'untitled',
+      title: title,
+      excerpt: document.getElementById('excerpt').value.trim() || title,
+      category: cat,
+      date: dateVal,
+      readTime: readTime(md),
+      featured: document.getElementById('featured').value === 'true'
+    }, null, 2);
+
+    showToast('Post generated');
+  };
+
+  // ── Download HTML ──
+  window.downloadHTML = function() {
+    if (!generatedHTML) { showToast('Generate a post first'); return; }
+    var slug = slugEl.value || 'untitled';
+    var blob = new Blob([generatedHTML], { type: 'text/html' });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = slug + '.html';
+    a.click();
+    URL.revokeObjectURL(a.href);
+    showToast('Downloaded ' + slug + '.html');
+  };
+
+  // ── Copy manifest entry ──
+  window.copyManifest = function() {
+    var json = document.getElementById('manifestJSON');
+    if (!json || !json.textContent) { showToast('Generate a post first'); return; }
+    navigator.clipboard.writeText(json.textContent).then(function() {
+      showToast('Manifest entry copied');
+    });
+  };
+
+  // ── Escape HTML ──
+  function escapeHTML(str) {
+    return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+  }
+
+})();
+</script>
+</body>
+</html>
