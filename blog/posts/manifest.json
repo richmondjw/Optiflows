@@ -27,6 +27,15 @@
     "featured": false
   },
   {
+    "slug": "agentic-pkm-the-missing-layer",
+    "title": "Agentic PKM: the missing layer in your knowledge stack",
+    "excerpt": "Personal knowledge management has been static for decades. Folders, tags, search. The architecture hasn't changed since the filing cabinet. Agentic systems change the equation entirely.",
+    "category": "Knowledge Systems",
+    "date": "2026-03-15",
+    "readTime": "8 min",
+    "featured": false
+  },
+  {
     "slug": "the-12-week-installation-model",
     "title": "Why we install in 12 weeks — and why nothing takes longer",
     "excerpt": "Fixed scope is not a constraint. It is the design. Parkinson's Law says work expands to fill the time available. We compress the time. The work compresses with it.",
