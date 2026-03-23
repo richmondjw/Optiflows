@@ -89,6 +89,168 @@
   background: var(--mid-teal, #0A6E6E);
 }
 .site-content.locked { display: none; }
+
+/* --- LEAD FORM --- */
+.CTAPanel--form {
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  text-align: center;
+}
+.CTAPanel-formWrap {
+  width: 100%;
+  max-width: 560px;
+}
+.LeadStep { display: none; }
+.LeadStep.active { display: block; }
+.LeadStep-title {
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: var(--font-size-xx-small, 0.75rem);
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--dark-teal, #053D3D);
+  margin-bottom: 20px;
+}
+.IntentCards {
+  display: flex;
+  gap: 12px;
+}
+.IntentCard {
+  flex: 1;
+  padding: 24px 16px;
+  background: rgba(255,255,255,0.75);
+  border: 1.5px solid rgba(5, 61, 61, 0.15);
+  border-radius: var(--border-radius, 15px);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+  text-align: center;
+}
+.IntentCard:hover {
+  border-color: var(--mid-teal, #0A6E6E);
+  background: rgba(255,255,255,0.95);
+  transform: translateY(-2px);
+}
+.IntentCard-icon {
+  font-size: 1.75rem;
+  margin-bottom: 10px;
+  display: block;
+}
+.IntentCard-label {
+  font-family: var(--font-primary, 'General Sans', sans-serif);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  color: var(--dark-teal, #053D3D);
+  line-height: 1.3;
+}
+.IntentCard-desc {
+  font-family: var(--font-primary, 'General Sans', sans-serif);
+  font-size: 0.8125rem;
+  color: var(--mid-grey, #6f6f6f);
+  margin-top: 6px;
+  line-height: 1.35;
+}
+.LeadForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+}
+.LeadForm-label {
+  display: block;
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: var(--font-size-xx-small, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--dark-teal, #053D3D);
+  margin-bottom: 4px;
+}
+.LeadForm-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 1.5px solid rgba(5, 61, 61, 0.15);
+  border-radius: var(--border-radius-small, 5px);
+  background: rgba(255,255,255,0.75);
+  color: var(--black, #0c0c0c);
+  font-family: var(--font-primary, 'General Sans', sans-serif);
+  font-size: 0.9375rem;
+  outline: none;
+  transition: border-color 0.2s;
+  box-sizing: border-box;
+}
+.LeadForm-input:focus {
+  border-color: var(--mid-teal, #0A6E6E);
+  background: rgba(255,255,255,0.95);
+}
+.LeadForm-textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+.LeadForm-field { margin-bottom: 2px; }
+.LeadForm-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: var(--font-size-xx-small, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--mid-teal, #0A6E6E);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin-bottom: 16px;
+  transition: color 0.2s;
+}
+.LeadForm-back:hover { color: var(--dark-teal, #053D3D); }
+.Button--formSubmit {
+  width: 100%;
+  margin-top: 6px;
+  justify-content: center;
+}
+.LeadForm-trust {
+  font-family: var(--font-primary, 'General Sans', sans-serif);
+  font-size: 0.8125rem;
+  color: var(--mid-grey, #6f6f6f);
+  text-align: center;
+  margin-top: 4px;
+}
+.LeadForm-status {
+  font-family: var(--font-mono, 'Space Mono', monospace);
+  font-size: var(--font-size-xx-small, 0.75rem);
+  text-align: center;
+  margin: 0;
+  min-height: 1.2em;
+}
+.LeadForm-status.success { color: var(--mid-teal, #0A6E6E); }
+.LeadForm-status.error { color: #E05252; }
+.LeadForm-success {
+  text-align: center;
+  padding: 40px 20px;
+}
+.LeadForm-success-icon {
+  font-size: 2.5rem;
+  margin-bottom: 16px;
+  display: block;
+}
+.LeadForm-success-title {
+  font-family: var(--font-primary, 'General Sans', sans-serif);
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark-teal, #053D3D);
+  margin-bottom: 8px;
+}
+.LeadForm-success-text {
+  font-family: var(--font-primary, 'General Sans', sans-serif);
+  font-size: 0.9375rem;
+  color: var(--mid-grey, #6f6f6f);
+  line-height: 1.5;
+}
+@media (max-width: 600px) {
+  .IntentCards { flex-direction: column; }
+  .IntentCard { padding: 20px 16px; }
+}
 </style>
 </head>
 <body>
@@ -134,7 +296,7 @@
     </nav>
 
     <div class="Header-actions">
-      <a href="mailto:hello@optiflows.com" class="Button Button--filled"><span>Enquire</span></a>
+      <a href="#start" class="Button Button--filled"><span>Enquire</span></a>
       <a href="#start" class="Button Button--ne"><span>Start</span></a>
     </div>
 
@@ -152,7 +314,7 @@
   <a href="./growth.html" class="MobileMenu-link">Growth</a>
   <a href="./blog/" class="MobileMenu-link">Thinking</a>
   <a href="#engines" class="MobileMenu-link">Engines</a>
-  <a href="mailto:hello@optiflows.com" class="Button Button--filled Button--large" style="margin-top: 16px;"><span>Enquire</span></a>
+  <a href="#start" class="Button Button--filled Button--large" style="margin-top: 16px;"><span>Enquire</span></a>
   <a href="#start" class="Button Button--large"><span>Start</span></a>
 </div>
 
@@ -337,14 +499,72 @@
 <!-- ======================== START / CTA ======================== -->
 <section class="Section" id="start">
   <div class="Section-inner" style="padding: 40px 0;">
-    <div class="CTAPanel animate-div">
+    <div class="CTAPanel CTAPanel--form animate-div">
       <div>
         <div class="CTAPanel-brand">Optiflows</div>
         <p class="CTAPanel-sub">Growth Operating Model. Installed in 12 weeks.</p>
       </div>
-      <div class="CTAPanel-right">
-        <a href="mailto:hello@optiflows.com" class="Button"><span>Book a Growth Audit</span></a>
-        <a href="./index.html" class="Button Button--noArrow"><span>Operating Model</span></a>
+      <div class="CTAPanel-formWrap">
+
+        <!-- STEP 1: Intent -->
+        <div class="LeadStep active" id="leadStep1">
+          <p class="LeadStep-title">What are you looking for?</p>
+          <div class="IntentCards">
+            <div class="IntentCard" data-intent="growth_audit">
+              <span class="IntentCard-icon">&#9650;</span>
+              <div class="IntentCard-label">Growth Audit</div>
+              <div class="IntentCard-desc">Diagnose what is blocking pipeline and revenue</div>
+            </div>
+            <div class="IntentCard" data-intent="operating_model_audit">
+              <span class="IntentCard-icon">&#9881;</span>
+              <div class="IntentCard-label">Operating Model Audit</div>
+              <div class="IntentCard-desc">Diagnose bottlenecks in how your company runs</div>
+            </div>
+            <div class="IntentCard" data-intent="general_enquiry">
+              <span class="IntentCard-icon">&#9993;</span>
+              <div class="IntentCard-label">General Enquiry</div>
+              <div class="IntentCard-desc">Ask a question or start a conversation</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- STEP 2: Contact details -->
+        <div class="LeadStep" id="leadStep2">
+          <button type="button" class="LeadForm-back" id="leadBackBtn">&#8592; Back</button>
+          <form id="leadForm" class="LeadForm" autocomplete="on">
+            <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
+            <input type="hidden" name="inquiry_type" id="leadIntent" value="">
+            <div class="LeadForm-field">
+              <label class="LeadForm-label" for="lf-name">Your name</label>
+              <input type="text" name="full_name" id="lf-name" required class="LeadForm-input" autocomplete="name">
+            </div>
+            <div class="LeadForm-field">
+              <label class="LeadForm-label" for="lf-email">Work email</label>
+              <input type="email" name="email" id="lf-email" required class="LeadForm-input" autocomplete="email">
+            </div>
+            <div class="LeadForm-field">
+              <label class="LeadForm-label" for="lf-company">Company</label>
+              <input type="text" name="company_name" id="lf-company" required class="LeadForm-input" autocomplete="organization">
+            </div>
+            <div class="LeadForm-field">
+              <label class="LeadForm-label" for="lf-message">Message <span style="text-transform:none;letter-spacing:0;font-family:var(--font-primary,'General Sans',sans-serif);color:var(--mid-grey,#6f6f6f)">(optional)</span></label>
+              <textarea name="message" id="lf-message" rows="3" class="LeadForm-input LeadForm-textarea"></textarea>
+            </div>
+            <button type="submit" class="Button Button--filled Button--formSubmit" id="leadSubmitBtn"><span>Book a Conversation</span></button>
+            <p class="LeadForm-trust">We respond within 24 hours. No spam, ever.</p>
+            <p class="LeadForm-status" id="leadFormStatus"></p>
+          </form>
+        </div>
+
+        <!-- STEP 3: Success -->
+        <div class="LeadStep" id="leadStep3">
+          <div class="LeadForm-success">
+            <span class="LeadForm-success-icon">&#10003;</span>
+            <div class="LeadForm-success-title">Thank you</div>
+            <p class="LeadForm-success-text">We have received your enquiry and will be in touch within 24 hours.<br>In the meantime, explore our <a href="./blog/" style="color:var(--mid-teal,#0A6E6E)">latest thinking</a>.</p>
+          </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -418,6 +638,108 @@ if (sessionStorage.getItem(PASS_KEY) === '1') {
 document.getElementById('passwordInput').addEventListener('keydown', function(e) {
   if (e.key === 'Enter') checkPassword();
 });
+
+// --- Two-Step Lead Form ---
+(function() {
+  var CRM_ENDPOINT = 'https://pkrvoxvswcghshfbtxtx.supabase.co/functions/v1/crm-submit-lead';
+
+  var step1 = document.getElementById('leadStep1');
+  var step2 = document.getElementById('leadStep2');
+  var step3 = document.getElementById('leadStep3');
+  var form = document.getElementById('leadForm');
+  var intentInput = document.getElementById('leadIntent');
+  var backBtn = document.getElementById('leadBackBtn');
+  var submitBtn = document.getElementById('leadSubmitBtn');
+  var status = document.getElementById('leadFormStatus');
+  var messageField = document.getElementById('lf-message');
+
+  if (!step1 || !form) return;
+
+  var messagePlaceholders = {
+    growth_audit: 'What does your growth pipeline look like today?',
+    operating_model_audit: 'What operational bottleneck is costing you the most right now?',
+    general_enquiry: 'What would you like to know?'
+  };
+
+  function showStep(n) {
+    step1.className = 'LeadStep' + (n === 1 ? ' active' : '');
+    step2.className = 'LeadStep' + (n === 2 ? ' active' : '');
+    step3.className = 'LeadStep' + (n === 3 ? ' active' : '');
+  }
+
+  var cards = step1.querySelectorAll('.IntentCard');
+  for (var i = 0; i < cards.length; i++) {
+    cards[i].addEventListener('click', function() {
+      var intent = this.getAttribute('data-intent');
+      intentInput.value = intent;
+      messageField.placeholder = messagePlaceholders[intent] || '';
+      showStep(2);
+      document.getElementById('lf-name').focus();
+    });
+  }
+
+  backBtn.addEventListener('click', function() {
+    showStep(1);
+  });
+
+  function getUtm() {
+    var params = new URLSearchParams(window.location.search);
+    return {
+      utm_source: params.get('utm_source') || '',
+      utm_medium: params.get('utm_medium') || '',
+      utm_campaign: params.get('utm_campaign') || '',
+      utm_term: params.get('utm_term') || '',
+      utm_content: params.get('utm_content') || ''
+    };
+  }
+
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
+    status.textContent = '';
+    status.className = 'LeadForm-status';
+    submitBtn.disabled = true;
+    submitBtn.querySelector('span').textContent = 'Sending...';
+
+    var fd = new FormData(form);
+    var fullName = (fd.get('full_name') || '').trim();
+    var utm = getUtm();
+
+    var payload = {
+      form_name: fd.get('inquiry_type') || 'website',
+      source_page: window.location.pathname,
+      full_name: fullName,
+      email: fd.get('email'),
+      company_name: fd.get('company_name'),
+      message: fd.get('message'),
+      inquiry_type: fd.get('inquiry_type'),
+      honeypot: fd.get('honeypot'),
+      utm_source: utm.utm_source,
+      utm_medium: utm.utm_medium,
+      utm_campaign: utm.utm_campaign,
+      utm_term: utm.utm_term,
+      utm_content: utm.utm_content
+    };
+
+    fetch(CRM_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    })
+    .then(function(res) {
+      if (!res.ok) throw new Error('Request failed');
+      return res.json();
+    })
+    .then(function() {
+      showStep(3);
+    })
+    .catch(function() {
+      status.textContent = 'Something went wrong. Please email hello@optiflows.com directly.';
+      status.className = 'LeadForm-status error';
+      submitBtn.querySelector('span').textContent = 'Book a Conversation';
+      submitBtn.disabled = false;
+    });
+  });
+})();
 </script>
 </body>
 </html>

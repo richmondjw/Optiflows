@@ -2,87 +2,10 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>776BC Demo</title>
-<link href="https://api.fontshare.com/v2/css?f[]=switzer@400,500,600&display=swap" rel="stylesheet">
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body {
-  font-family: 'Switzer', sans-serif;
-  background: #1C2127;
-  color: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 100vh;
-}
-.gate {
-  text-align: center;
-  max-width: 360px;
-  padding: 2rem;
-}
-.gate h1 {
-  font-size: 1.25rem;
-  font-weight: 500;
-  letter-spacing: 0.04em;
-  margin-bottom: 1.5rem;
-  color: #8B939E;
-}
-.gate input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1px solid #5A6370;
-  border-radius: 8px;
-  background: transparent;
-  color: #FFFFFF;
-  font-family: 'Switzer', sans-serif;
-  font-size: 1rem;
-  text-align: center;
-  letter-spacing: 0.1em;
-  outline: none;
-  transition: border-color 0.2s;
-}
-.gate input:focus {
-  border-color: #0D7377;
-}
-.gate input::placeholder {
-  color: #5A6370;
-}
-.error {
-  color: #E05252;
-  font-size: 0.85rem;
-  margin-top: 0.75rem;
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.error.show { opacity: 1; }
-</style>
+<meta http-equiv="refresh" content="0;url=convergence-report-v3.html">
+<title>Redirecting...</title>
 </head>
 <body>
-<div class="gate">
-  <h1>Enter password to continue</h1>
-  <input type="password" id="pw" placeholder="Password" autofocus>
-  <p class="error" id="err">Incorrect password</p>
-</div>
-<script>
-(function() {
-  var target = "V1%20Zooty%20HOCR%20%E2%80%94%20Stage%202%20execution%20assets%20%E2%80%94%20Design%20Pack%20_%20776BC.html";
-  if (sessionStorage.getItem('776bc_auth') === '1') {
-    window.location.replace(target);
-    return;
-  }
-  document.getElementById('pw').addEventListener('keydown', function(e) {
-    if (e.key === 'Enter') {
-      if (this.value === '776') {
-        sessionStorage.setItem('776bc_auth', '1');
-        window.location.replace(target);
-      } else {
-        document.getElementById('err').classList.add('show');
-        this.value = '';
-      }
-    }
-  });
-})();
-</script>
+<p>Redirecting to <a href="convergence-report-v3.html">convergence-report-v3.html</a>...</p>
 </body>
 </html>
