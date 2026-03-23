@@ -1,21 +1,30 @@
 [
   {
+    "slug": "intro-agentic-pkm",
+    "title": "Introduction to Agentic PKM",
+    "excerpt": "Most companies have brand messaging across too many places. AI tools cannot reliably access it. Structured markdown files with consistent formatting are already machine-readable — no vector database required.",
+    "category": "Knowledge Systems",
+    "date": "2026-03-23",
+    "readTime": "8 min",
+    "featured": true
+  },
+  {
+    "slug": "designing-company-pkm",
+    "title": "Designing a Company PKM",
+    "excerpt": "A practical guide to building your brand memory vault. Start simple — structured folders, consistent frontmatter, and clear naming give AI agents everything they need to retrieve and use your brand knowledge.",
+    "category": "Knowledge Systems",
+    "date": "2026-03-23",
+    "readTime": "12 min",
+    "featured": true
+  },
+  {
     "slug": "why-your-operating-model-is-the-bottleneck",
     "title": "Why your operating model is the bottleneck — not your team",
     "excerpt": "Most scaling companies blame execution. They hire more people. Buy more tools. Run more standups. None of it works because the coordination model itself is broken.",
     "category": "Systems Thinking",
     "date": "2026-03-20",
     "readTime": "6 min",
-    "featured": true
-  },
-  {
-    "slug": "agentic-pkm-the-missing-layer",
-    "title": "Agentic PKM: the missing layer in your knowledge stack",
-    "excerpt": "Personal knowledge management has been static for decades. Folders, tags, search. The architecture hasn't changed since the filing cabinet. Agentic systems change the equation entirely.",
-    "category": "Knowledge Systems",
-    "date": "2026-03-15",
-    "readTime": "8 min",
-    "featured": true
+    "featured": false
   },
   {
     "slug": "the-12-week-installation-model",
