@@ -1,0 +1,187 @@
+/* ================================================================
+   OPTIFLOWS — BASE.CSS
+   Firmus-derived design system. Light-mode first.
+   General Sans + Space Mono. Teal palette.
+   ================================================================ */
+
+/* --- Font Loading --- */
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap');
+
+/* --- Reset --- */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body, html {
+  height: 100%;
+  max-width: 100vw;
+}
+
+body {
+  line-height: 1.3;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol { list-style: none; }
+
+/* --- Design Tokens --- */
+:root {
+  /* Core palette — teal replaces firmus green */
+  --black: #0c0c0c;
+  --white: #ffffff;
+  --electric-teal: #66FFE0;
+  --mid-teal: #0A6E6E;
+  --dark-teal: #053D3D;
+  --interface-teal: #66FFE0;
+  --light-interface-teal: #E0FFF6;
+  --mist-teal: #B8E8E0;
+
+  /* Neutrals */
+  --grey: #eff0f2;
+  --mid-grey: #6f6f6f;
+  --dark-grey: #1a1a1a;
+  --light-grey: #ddd;
+  --very-light-grey: #f7f7f7;
+  --bright-grey: #d1d2d3;
+
+  /* Fonts */
+  --font-primary: "General Sans", "General Sans Fallback", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Space Mono", "Courier New", monospace;
+
+  /* Type scale — firmus-derived clamp values */
+  --font-size-xxxx-large: clamp(2.5rem, 0.69vw + 2.28rem, 3rem);
+  --font-size-xxx-large: clamp(2.25rem, 0.69vw + 2.03rem, 2.75rem);
+  --font-size-xx-large: clamp(2rem, 0.69vw + 1.78rem, 2.5rem);
+  --font-size-x-large: clamp(1.5rem, 0.69vw + 1.28rem, 2rem);
+  --font-size-large: clamp(1.25rem, 0.35vw + 1.14rem, 1.5rem);
+  --font-size-medium: clamp(1.125rem, 0.17vw + 1.07rem, 1.25rem);
+  --font-size-body: clamp(1rem, .17vw + .95rem, 1.13rem);
+  --font-size-small: clamp(0.875rem, 0.17vw + 0.82rem, 1rem);
+  --font-size-x-small: 0.875rem;
+  --font-size-xx-small: 0.75rem;
+  --font-size-label: 0.6875rem;
+
+  /* Layout */
+  --max-width: 1480px;
+  --main-max-width: 1520px;
+  --container-padding: 20px;
+  --section-gap: 80px;
+  --border-radius: 15px;
+  --border-radius-small: 5px;
+  --border-radius-large: 25px;
+
+  /* Motion */
+  --easeInOut: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-smooth: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+@media (min-width: 1260px) {
+  :root {
+    --container-padding: 80px;
+  }
+}
+
+@media (max-width: 1024px) {
+  :root {
+    --section-gap: 50px;
+  }
+}
+
+/* --- Base Typography --- */
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  font-weight: 400;
+  line-height: 1.3;
+  color: var(--black);
+  background-color: var(--white);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-primary);
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  color: var(--dark-teal);
+}
+
+p {
+  color: var(--mid-grey);
+  line-height: 1.5;
+}
+
+/* --- Main container --- */
+main {
+  max-width: var(--main-max-width);
+  margin: 0 auto;
+}
+
+/* --- Scroll reveal --- */
+.animate-div {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--easeInOut), transform 0.5s var(--easeInOut);
+}
+
+.animate-div.Visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* --- Reduced motion --- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto; }
+  .animate-div { opacity: 1; transform: none; }
+}
+
+/* --- Selection --- */
+::selection {
+  background: var(--dark-teal);
+  color: var(--white);
+}
+
+:focus-visible {
+  outline: 2px solid var(--mid-teal);
+  outline-offset: 2px;
+}
+
+/* --- Scrollbar --- */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--white); }
+::-webkit-scrollbar-thumb { background: var(--bright-grey); border-radius: 3px; }
