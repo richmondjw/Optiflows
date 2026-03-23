@@ -21,20 +21,35 @@
   }
   requestAnimationFrame(raf);
 
-  // ——— Scroll Reveal (IntersectionObserver, firmus-style) ———
+  // ——— Scroll Reveal (staggered, firmus-style) ———
   var animateElements = document.querySelectorAll('.animate-div');
+  var revealQueue = [];
+  var revealTimer = null;
+
+  function flushRevealQueue() {
+    revealQueue.forEach(function (el, i) {
+      setTimeout(function () {
+        el.classList.add('Visible');
+      }, i * 120);
+    });
+    revealQueue = [];
+    revealTimer = null;
+  }
 
   if ('IntersectionObserver' in window) {
     var observer = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
         if (entry.isIntersecting) {
-          entry.target.classList.add('Visible');
+          revealQueue.push(entry.target);
           observer.unobserve(entry.target);
+          if (!revealTimer) {
+            revealTimer = requestAnimationFrame(flushRevealQueue);
+          }
         }
       });
     }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px'
+      threshold: 0.08,
+      rootMargin: '0px 0px -60px 0px'
     });
 
     animateElements.forEach(function (el) { observer.observe(el); });
