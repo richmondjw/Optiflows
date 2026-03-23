@@ -734,12 +734,6 @@ Paragraph text. **Bold** and *italic* work.
   var dirty = false;
   var editingSlug = null; // null = new, string = editing existing
 
-  // ── Init ──
-  if (token) {
-    document.getElementById('ghToken').value = '••••••••';
-    connect();
-  }
-
   // ── Toast ──
   function showToast(msg) {
     var t = document.getElementById('toast');
@@ -1269,6 +1263,12 @@ Paragraph text. **Bold** and *italic* work.
       dirty = false;
       document.getElementById('saveBar').classList.remove('visible');
     });
+  }
+
+  // ── Init (must be after all function definitions) ──
+  if (token) {
+    document.getElementById('ghToken').value = '••••••••';
+    connect();
   }
 
 })();
