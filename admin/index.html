@@ -720,7 +720,15 @@ Paragraph text. **Bold** and *italic* work.
   var MANIFEST_PATH = 'blog/posts/manifest.json';
   var POSTS_DIR = 'blog/posts';
 
-  var token = localStorage.getItem('gh_token') || '';
+  // Check URL hash for token (e.g. /admin/#token=ghp_xxx) — never committed, never sent to server
+  var hashToken = '';
+  if (location.hash.indexOf('#token=') === 0) {
+    hashToken = location.hash.substring(7);
+    localStorage.setItem('gh_token', hashToken);
+    history.replaceState(null, '', location.pathname); // strip hash from URL bar
+  }
+
+  var token = hashToken || localStorage.getItem('gh_token') || '';
   var posts = [];
   var manifestSha = '';
   var dirty = false;
