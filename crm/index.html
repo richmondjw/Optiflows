@@ -11,5 +11,16 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Restore SPA route from GitHub Pages 404 redirect
+      (function() {
+        var params = new URLSearchParams(window.location.search);
+        var p = params.get('p');
+        if (p) {
+          var q = params.get('q') || '';
+          window.history.replaceState(null, '', '/crm' + p + q + window.location.hash);
+        }
+      })();
+    </script>
   </body>
 </html>
