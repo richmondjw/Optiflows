@@ -1,0 +1,2884 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Peninsula Insider V4 — Your Complete Guide to Mornington Peninsula</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400;1,600&family=Inter:wght@300;400;500;600&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&display=swap');
+
+    /* ===== RESET & TOKENS ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+
+    :root {
+      --cream:      #FAF8F5;
+      --navy:       #1C2A3A;
+      --sage:       #6B7F5E;
+      --terra:      #C4714A;
+      --white:      #FFFFFF;
+      --border:     #E8E4DF;
+      --gold:       #B8975A;
+      --sage-light: #EEF2EB;
+      --navy-light: #EEF1F5;
+      --terra-light:#FBF0EB;
+      --navy-mid:   #2E4057;
+      --text-muted: #6B6B6B;
+      --nav-h:      68px;
+      --radius:     12px;
+      --shadow:     0 2px 12px rgba(28,42,58,0.08);
+      --shadow-lg:  0 8px 32px rgba(28,42,58,0.14);
+    }
+
+    body {
+      font-family: 'Inter', system-ui, sans-serif;
+      background-color: var(--cream);
+      color: var(--navy);
+      line-height: 1.75;
+      font-size: 1rem;
+      -webkit-font-smoothing: antialiased;
+      padding-top: var(--nav-h);
+    }
+
+    img { max-width: 100%; display: block; }
+    a { color: var(--terra); text-decoration: none; transition: color .2s; }
+    a:hover { color: var(--gold); }
+    p { margin-bottom: 1rem; }
+    ul { padding-left: 1.5rem; margin-bottom: 1rem; }
+    li { margin-bottom: 0.4rem; }
+
+    /* ===== TYPOGRAPHY ===== */
+    h1, h2, h3, h4 { font-family: 'Playfair Display', Georgia, serif; line-height: 1.2; }
+    h1 { font-size: clamp(2.8rem, 7vw, 5.5rem); font-weight: 900; }
+    h2 { font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 700; color: var(--navy); margin-bottom: 0.5rem; }
+    h3 { font-size: clamp(1.15rem, 2.5vw, 1.45rem); font-weight: 600; color: var(--navy); margin-bottom: 0.75rem; }
+    h4 { font-size: 1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+    .label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+
+    /* ===== LAYOUT ===== */
+    .container { max-width: 1080px; margin: 0 auto; padding: 0 clamp(1rem, 4vw, 2.5rem); }
+    .section { padding: clamp(3rem, 7vw, 6rem) 0; }
+    .section--alt { background-color: #F3F0EB; }
+
+    /* ===== DECORATIVE DIVIDER ===== */
+    .section-eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .section-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      color: var(--border);
+      line-height: 1;
+      flex-shrink: 0;
+      user-select: none;
+    }
+    .section-label-wrap { display: flex; flex-direction: column; gap: 0.25rem; }
+    .section-label { font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra); }
+    .section-title-line { width: 40px; height: 3px; background: var(--gold); border-radius: 2px; }
+
+    /* Pull quote */
+    .pull-quote {
+      border-left: 4px solid var(--gold);
+      padding: 1.25rem 1.75rem;
+      margin: 2.5rem 0;
+      background: var(--white);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      box-shadow: var(--shadow);
+    }
+    .pull-quote p {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+      font-style: italic;
+      color: var(--navy);
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    /* Insider tip */
+    .insider-tip {
+      background: var(--sage-light);
+      border-left: 4px solid var(--gold);
+      border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.25rem 1.5rem;
+      margin: 2rem 0;
+    }
+    .insider-tip-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .insider-tip p { font-size: 0.95rem; color: #3a4a38; margin: 0; }
+
+    /* April highlight */
+    .april-highlight {
+      background: linear-gradient(135deg, var(--terra), #A85C3A);
+      color: #FAF8F5;
+      padding: 1.5rem 1.75rem;
+      border-radius: var(--radius);
+      margin: 2rem 0;
+    }
+    .april-highlight-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      opacity: 0.85;
+      margin-bottom: 0.5rem;
+    }
+    .april-highlight p { margin: 0; font-size: 0.95rem; opacity: 0.95; }
+
+    /* ===== NAVIGATION ===== */
+    .nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 1000;
+      height: var(--nav-h);
+      background: rgba(28, 42, 58, 0.97);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: background .3s;
+    }
+    .nav-inner {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--terra);
+      white-space: nowrap;
+      font-weight: 600;
+    }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.25rem;
+      list-style: none;
+    }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(250,248,245,0.7);
+      padding: 0.4rem 0.65rem;
+      border-radius: 6px;
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--terra);
+      background: rgba(196,113,74,0.12);
+    }
+    /* Hamburger */
+    .nav-hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      padding: 8px;
+      border: none;
+      background: none;
+    }
+    .nav-hamburger span {
+      display: block;
+      width: 24px;
+      height: 2px;
+      background: rgba(250,248,245,0.85);
+      border-radius: 2px;
+      transition: transform .3s, opacity .3s;
+    }
+    .nav-hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-hamburger.open span:nth-child(2) { opacity: 0; }
+    .nav-hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    /* Mobile nav */
+    .nav-mobile {
+      display: none;
+      position: fixed;
+      top: var(--nav-h);
+      left: 0;
+      right: 0;
+      background: rgba(28,42,58,0.98);
+      padding: 1.25rem 1.5rem 1.5rem;
+      z-index: 999;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-mobile.open { display: block; }
+    .nav-mobile a {
+      display: block;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(250,248,245,0.8);
+      padding: 0.75rem 0;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      transition: color .2s;
+    }
+    .nav-mobile a:hover { color: var(--terra); }
+    .nav-mobile a:last-child { border-bottom: none; }
+
+
+    /* ===== WALKS SECTION ===== */
+    .walks-filter-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+      align-items: center;
+    }
+    .filter-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-right: 0.5rem;
+    }
+    .filter-btn {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.4rem 1.1rem;
+      border-radius: 20px;
+      border: 2px solid var(--border);
+      background: var(--white);
+      color: var(--navy);
+      cursor: pointer;
+      transition: all .2s;
+    }
+    .filter-btn:hover { background: var(--cream); }
+    .filter-btn.active     { background: var(--navy); color: var(--cream); border-color: var(--navy); }
+    .filter-btn.active-easy     { background: #2E7D32; border-color: #2E7D32; color: #fff; }
+    .filter-btn.active-moderate { background: #E65100; border-color: #E65100; color: #fff; }
+    .filter-btn.active-hard     { background: #B71C1C; border-color: #B71C1C; color: #fff; }
+    .badge--easy     { background: #E8F5E9; color: #2E7D32; }
+    .badge--moderate { background: #FFF3E0; color: #E65100; }
+    .badge--hard     { background: #FFEBEE; color: #B71C1C; }
+    .walk-meta {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      margin-bottom: 0.75rem;
+    }
+    .walk-meta-item {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+    }
+    .walk-hero {
+      background: linear-gradient(135deg, #1a3a2a 0%, #2c5040 50%, #1C2A3A 100%);
+      color: var(--cream);
+      border-radius: var(--radius);
+      padding: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .walk-hero::after {
+      content: '🥾';
+      position: absolute;
+      right: 2.5rem;
+      top: 1.5rem;
+      font-size: 6rem;
+      opacity: 0.1;
+      line-height: 1;
+    }
+    .walk-hero .wh-badge {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+      background: rgba(107,127,94,0.35); border: 1px solid rgba(107,127,94,0.5);
+      color: #a8c8a0; padding: 0.3rem 0.8rem; border-radius: 20px;
+      display: inline-block; margin-bottom: 1rem;
+    }
+    .walk-hero h3 { color: #fff; font-size: clamp(1.5rem, 3vw, 2.2rem); margin-bottom: 0.35rem; }
+    .walk-hero .wh-sub {
+      font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: rgba(250,248,245,0.55); margin-bottom: 1.25rem;
+    }
+    .walk-hero p { color: rgba(250,248,245,0.88); font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .wh-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 1.25rem; }
+    .wh-tag {
+      font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 500;
+      background: rgba(107,127,94,0.2); border: 1px solid rgba(107,127,94,0.35);
+      color: var(--cream); padding: 0.3rem 0.85rem; border-radius: 20px;
+    }
+    /* ===== WHAT'S ON SECTION ===== */
+    .events-featured-grid {
+      display: grid; grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem; margin-bottom: 2.5rem;
+    }
+    .event-featured-card {
+      border-radius: var(--radius); padding: 2rem;
+      position: relative; overflow: hidden;
+      box-shadow: var(--shadow-lg); color: var(--cream);
+    }
+    .event-featured-card--music  { background: linear-gradient(135deg, #1C2A3A 0%, #2E1A47 100%); }
+    .event-featured-card--racing { background: linear-gradient(135deg, #3a1a0a 0%, #C4714A 100%); }
+    .event-featured-card .efc-date {
+      font-family: 'DM Sans', sans-serif; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      background: rgba(255,255,255,0.15); padding: 0.3rem 0.8rem; border-radius: 20px;
+      display: inline-block; margin-bottom: 1rem; color: rgba(250,248,245,0.9);
+    }
+    .event-featured-card h3 { color: #fff; font-size: clamp(1.3rem, 2.5vw, 1.8rem); margin-bottom: 0.5rem; }
+    .event-featured-card .efc-venue {
+      font-family: 'DM Sans', sans-serif; font-size: 0.75rem;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: rgba(250,248,245,0.55); margin-bottom: 1rem;
+    }
+    .event-featured-card p { color: rgba(250,248,245,0.88); font-size: 0.92rem; line-height: 1.65; margin-bottom: 0; }
+    .efc-artists { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .efc-artist-tag {
+      font-family: 'DM Sans', sans-serif; font-size: 0.75rem; font-weight: 500;
+      background: rgba(255,255,255,0.12); border: 1px solid rgba(255,255,255,0.18);
+      color: rgba(250,248,245,0.9); padding: 0.25rem 0.7rem; border-radius: 20px;
+    }
+    .events-section-label {
+      font-family: 'DM Sans', sans-serif; font-size: 0.7rem; font-weight: 700;
+      letter-spacing: 0.18em; text-transform: uppercase; color: var(--terra);
+      margin-bottom: 1rem; margin-top: 2.5rem;
+      display: flex; align-items: center; gap: 0.75rem;
+    }
+    .events-section-label::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+    .events-list { display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem; }
+    .event-row {
+      display: grid; grid-template-columns: 90px 1fr auto;
+      gap: 1rem; align-items: start;
+      background: var(--white); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1rem 1.25rem;
+      box-shadow: var(--shadow); transition: transform .2s;
+    }
+    .event-row:hover { transform: translateX(4px); }
+    .event-date-pill {
+      font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.04em; color: var(--terra); background: var(--terra-light);
+      border-radius: 8px; padding: 0.45rem 0.6rem; text-align: center; line-height: 1.4;
+    }
+    .event-row-title {
+      font-family: 'Playfair Display', serif; font-size: 1rem;
+      font-weight: 700; color: var(--navy); margin-bottom: 0.2rem;
+    }
+    .event-row-location {
+      font-family: 'DM Sans', sans-serif; font-size: 0.72rem; font-weight: 500;
+      letter-spacing: 0.08em; text-transform: uppercase; color: var(--sage); margin-bottom: 0.4rem;
+    }
+    .event-row-desc { font-size: 0.88rem; color: #444; line-height: 1.6; }
+    .event-row-type {
+      font-family: 'DM Sans', sans-serif; font-size: 0.65rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      padding: 0.22rem 0.65rem; border-radius: 20px; white-space: nowrap; align-self: flex-start;
+    }
+    .type--market  { background: var(--sage-light); color: var(--sage); }
+    .type--music   { background: var(--navy-light); color: var(--navy); }
+    .type--arts    { background: #F5F0E8; color: #8A7240; }
+    .type--wellness{ background: #EEF8F0; color: #2E7D32; }
+    .type--family  { background: var(--terra-light); color: #b05030; }
+    .type--nature  { background: var(--sage-light); color: var(--sage); }
+    .type--anzac   { background: #F5F0E8; color: #8A7240; }
+    .markets-table-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    .markets-table { width: 100%; border-collapse: collapse; font-size: 0.9rem; }
+    .markets-table th {
+      font-family: 'DM Sans', sans-serif; font-size: 0.68rem; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase; color: var(--navy);
+      background: var(--sage-light); padding: 0.7rem 1rem; text-align: left;
+      border-bottom: 2px solid var(--border);
+    }
+    .markets-table td { padding: 0.7rem 1rem; border-bottom: 1px solid var(--border); color: #333; }
+    .markets-table tr:last-child td { border-bottom: none; }
+    .markets-table tr:hover td { background: var(--cream); }
+    .markets-table td:first-child { font-weight: 600; color: var(--terra); white-space: nowrap; }
+    .updated-note {
+      display: flex; align-items: center; gap: 0.75rem;
+      background: var(--navy); color: var(--cream);
+      border-radius: var(--radius); padding: 1rem 1.5rem; margin-top: 2rem;
+      font-family: 'DM Sans', sans-serif; font-size: 0.85rem;
+    }
+    .updated-note .un-pulse {
+      width: 10px; height: 10px; background: var(--terra); border-radius: 50%;
+      flex-shrink: 0; animation: un-pulse 2s ease-in-out infinite;
+    }
+    @keyframes un-pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50% { opacity: 0.45; transform: scale(0.8); }
+    }
+    @media (max-width: 768px) {
+      .events-featured-grid { grid-template-columns: 1fr; }
+      .event-row { grid-template-columns: 72px 1fr; }
+      .event-row-type { display: none; }
+      .walk-hero::after { display: none; }
+    }
+
+    /* ===== BACK TO TOP ===== */
+    .back-to-top {
+      position: fixed;
+      bottom: 2rem;
+      right: 2rem;
+      width: 48px;
+      height: 48px;
+      background: var(--terra);
+      color: #fff;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(196,113,74,0.4);
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .3s, transform .3s;
+      z-index: 900;
+      font-size: 1.1rem;
+    }
+    .back-to-top.visible { opacity: 1; transform: translateY(0); }
+    .back-to-top:hover { background: var(--gold); }
+
+    /* ===== SCROLL ANCHOR OFFSET ===== */
+    section[id], div[id] {
+      scroll-margin-top: var(--nav-h);
+    }
+
+    /* ===== HERO ===== */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 3rem 1.5rem 5rem;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(160deg, #0d1923 0%, var(--navy) 30%, #2c4038 65%, #3D5A3E 100%);
+    }
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 80% 60% at 30% 40%, rgba(107,127,94,0.25) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 70% at 75% 70%, rgba(184,151,90,0.15) 0%, transparent 55%);
+      animation: heroShimmer 12s ease-in-out infinite alternate;
+    }
+    @keyframes heroShimmer {
+      from { opacity: 0.6; transform: scale(1); }
+      to   { opacity: 1;   transform: scale(1.04); }
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.025'%3E%3Cpath d='M40 40L0 0h80zM0 80h80L40 40z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+      opacity: 0.5;
+    }
+    .hero-content { position: relative; z-index: 2; max-width: 820px; }
+    .hero-eyebrow {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--terra);
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.75rem;
+    }
+    .hero-eyebrow::before, .hero-eyebrow::after {
+      content: '';
+      display: block;
+      width: 30px;
+      height: 1px;
+      background: var(--terra);
+      opacity: 0.6;
+    }
+    .hero h1 {
+      color: var(--cream);
+      margin-bottom: 1.5rem;
+      text-shadow: 0 2px 24px rgba(0,0,0,0.4);
+    }
+    .hero h1 em { color: var(--terra); font-style: italic; }
+    .hero-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      font-weight: 300;
+      color: rgba(250,248,245,0.8);
+      max-width: 580px;
+      margin: 0 auto 2.5rem;
+      letter-spacing: 0.02em;
+      line-height: 1.7;
+    }
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      justify-content: center;
+      margin-bottom: 3.5rem;
+    }
+    .hero-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(255,255,255,0.15);
+      color: rgba(250,248,245,0.9);
+      padding: 0.35rem 1rem;
+      border-radius: 20px;
+      letter-spacing: 0.03em;
+    }
+    .hero-scroll {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(250,248,245,0.5);
+      animation: bounce 2s ease-in-out infinite;
+    }
+    .hero-scroll span {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+    }
+    .hero-scroll-arrow {
+      width: 20px;
+      height: 20px;
+      border-right: 2px solid rgba(250,248,245,0.4);
+      border-bottom: 2px solid rgba(250,248,245,0.4);
+      transform: rotate(45deg);
+      margin-top: -6px;
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50%       { transform: translateY(8px); }
+    }
+
+    /* ===== OVERVIEW GRID ===== */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    .overview-item {
+      text-align: center;
+      padding: 1.75rem 1rem;
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      transition: transform .25s, box-shadow .25s;
+    }
+    .overview-item:hover { transform: translateY(-3px); box-shadow: var(--shadow-lg); }
+    .overview-icon { font-size: 1.9rem; margin-bottom: 0.75rem; }
+    .overview-item h4 {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 0.35rem;
+    }
+    .overview-item p { font-size: 0.82rem; color: var(--text-muted); margin: 0; line-height: 1.5; }
+
+    /* ===== CARD GRID ===== */
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      transition: transform .25s, box-shadow .25s;
+    }
+    .card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+    .card-accent {
+      height: 4px;
+      width: 100%;
+      flex-shrink: 0;
+    }
+    .card-accent--winery  { background: var(--sage); }
+    .card-accent--dining  { background: var(--terra); }
+    .card-accent--beach   { background: var(--navy); }
+    .card-accent--default { background: var(--gold); }
+    .card-accent--activity{ background: var(--sage); }
+    .card-body {
+      padding: 1.4rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .card-emoji { font-size: 1.5rem; margin-bottom: 0.6rem; line-height: 1; }
+    .card-badge {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.65rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 0.75rem;
+      align-self: flex-start;
+    }
+    .badge--winery  { background: var(--sage-light); color: var(--sage); }
+    .badge--dining  { background: var(--terra-light); color: #b05030; }
+    .badge--beach   { background: var(--navy-light); color: var(--navy); }
+    .badge--default { background: #F5F0E8; color: #8A7240; }
+    .badge--activity{ background: var(--sage-light); color: var(--sage); }
+    .badge--featured { background: var(--terra); color: #fff; }
+
+    .card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.2rem;
+    }
+    .card-location {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--sage);
+      margin-bottom: 0.85rem;
+    }
+    .card-desc {
+      font-size: 0.9rem;
+      color: #444;
+      line-height: 1.65;
+      flex: 1;
+      margin-bottom: 0;
+    }
+    .card-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      display: inline-block;
+      background: var(--cream);
+      color: var(--navy);
+      border: 1px solid var(--border);
+      padding: 0.2rem 0.6rem;
+      border-radius: 4px;
+      margin-top: 1rem;
+      align-self: flex-start;
+    }
+    .card-tip {
+      margin-top: 0.85rem;
+      padding-top: 0.85rem;
+      border-top: 1px solid var(--border);
+      font-size: 0.83rem;
+      color: #4a5e3d;
+      line-height: 1.55;
+    }
+    .card-tip strong {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+
+    /* Featured card */
+    .card--featured { border-color: var(--terra); border-width: 2px; }
+
+    /* Stars */
+    .card-stars { color: var(--gold); font-size: 0.85rem; margin-bottom: 0.5rem; letter-spacing: 0.05em; }
+
+    /* ===== JACKALOPE FEATURE ===== */
+    .jackalope-feature {
+      background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+      color: var(--cream);
+      border-radius: var(--radius);
+      padding: clamp(2rem, 5vw, 3rem);
+      margin-bottom: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-lg);
+    }
+    .jackalope-feature::after {
+      content: '🐰';
+      position: absolute;
+      right: 2.5rem;
+      top: 2rem;
+      font-size: 4rem;
+      opacity: 0.15;
+      transform: rotate(-10deg);
+    }
+    .jackalope-feature .jk-badge {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      background: rgba(196,113,74,0.3);
+      border: 1px solid rgba(196,113,74,0.5);
+      color: var(--terra);
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+    .jackalope-feature h3 {
+      color: #fff;
+      font-size: clamp(1.5rem, 3vw, 2.2rem);
+      margin-bottom: 0.35rem;
+    }
+    .jackalope-feature .jk-sub {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(250,248,245,0.55);
+      margin-bottom: 1.25rem;
+    }
+    .jackalope-feature p { color: rgba(250,248,245,0.88); font-size: 0.95rem; margin-bottom: 0.75rem; }
+    .jk-features {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1.25rem;
+    }
+    .jk-feature-tag {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      background: rgba(196,113,74,0.18);
+      border: 1px solid rgba(196,113,74,0.3);
+      color: var(--cream);
+      padding: 0.3rem 0.85rem;
+      border-radius: 20px;
+    }
+
+    /* ===== TIER LABEL ===== */
+    .tier-section { margin-bottom: 3rem; }
+    .tier-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+    .tier-label {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      padding: 0.35rem 1rem;
+      border-radius: 4px;
+    }
+    .tier-label--special  { background: var(--navy); color: var(--cream); }
+    .tier-label--casual   { background: var(--sage); color: var(--cream); }
+    .tier-label--breakfast{ background: var(--gold); color: var(--cream); }
+
+    /* ===== BEACH TYPE BADGE ===== */
+    .beach-type-badge {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.22rem 0.65rem;
+      border-radius: 20px;
+      display: inline-block;
+      margin-bottom: 0.6rem;
+    }
+    .beach-type--bay   { background: var(--navy-light); color: var(--navy); }
+    .beach-type--ocean { background: var(--terra-light); color: #b05030; }
+
+    /* ===== ITINERARY ===== */
+    .itinerary-day {
+      margin-bottom: 3.5rem;
+    }
+    .itinerary-day-header {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .itinerary-day-icon { font-size: 1.75rem; flex-shrink: 0; }
+    .itinerary-day-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.3rem, 3vw, 1.75rem);
+      font-weight: 700;
+      color: var(--navy);
+    }
+    .itinerary-day-subtitle {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+    /* Timeline */
+    .timeline { position: relative; padding-left: 2.5rem; }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--border);
+      border-radius: 1px;
+    }
+    .timeline-item {
+      position: relative;
+      margin-bottom: 1.5rem;
+    }
+    .timeline-dot {
+      position: absolute;
+      left: -2.5rem;
+      top: 1rem;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 2px solid var(--white);
+      box-shadow: 0 0 0 2px var(--border);
+      margin-left: 6px;
+    }
+    .timeline-dot--morning   { background: #F0C060; box-shadow: 0 0 0 2px #F0C060; }
+    .timeline-dot--afternoon { background: var(--terra); box-shadow: 0 0 0 2px var(--terra); }
+    .timeline-dot--evening   { background: var(--navy-mid); box-shadow: 0 0 0 2px var(--navy-mid); }
+    .timeline-card {
+      background: var(--white);
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1.25rem 1.4rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .timeline-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+    .timeline-time {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+    .timeline-time--morning   { color: #C8962A; }
+    .timeline-time--afternoon { color: var(--terra); }
+    .timeline-time--evening   { color: var(--navy-mid); }
+    .timeline-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .timeline-desc {
+      font-size: 0.9rem;
+      color: #4a4a4a;
+      line-height: 1.65;
+      margin: 0;
+    }
+
+    /* ===== SECTION HEADER (sticky) ===== */
+    .section-header-sticky {
+      position: sticky;
+      top: var(--nav-h);
+      z-index: 100;
+      background: var(--cream);
+      padding: 0.75rem 0;
+      margin-bottom: 2rem;
+      border-bottom: 2px solid var(--border);
+    }
+    .section-header-sticky.dark { background: #F3F0EB; }
+
+    /* ===== FOOTER ===== */
+    footer {
+      background: var(--navy);
+      color: rgba(250,248,245,0.6);
+      padding: 3.5rem 1.5rem 2.5rem;
+    }
+    .footer-inner {
+      max-width: 1080px;
+      margin: 0 auto;
+    }
+    .footer-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-style: italic;
+      font-weight: 600;
+      color: var(--terra);
+      margin-bottom: 0.35rem;
+    }
+    .footer-tagline {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.85rem;
+      color: rgba(250,248,245,0.55);
+      margin-bottom: 2rem;
+    }
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .footer-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(250,248,245,0.5);
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--terra); }
+    .footer-bottom {
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.78rem;
+      color: rgba(250,248,245,0.35);
+      line-height: 1.7;
+    }
+
+    /* ===== RESPONSIVE ===== */
+    @media (max-width: 900px) {
+      .card-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 640px) {
+      .card-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .timeline { padding-left: 2rem; }
+      .timeline::before { left: 7px; }
+      .timeline-dot { left: -2rem; margin-left: 3px; }
+      .section-number { font-size: 2.5rem; }
+      .hero-tags { gap: 0.4rem; }
+    }
+    @media (max-width: 400px) {
+      .overview-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ===== NAVIGATION ===== -->
+<nav class="nav" id="nav">
+  <div class="container nav-inner">
+    <span class="nav-brand">The Peninsula Insider</span>
+    <ul class="nav-links">
+      <li><a href="#whats-on">What's On</a></li>
+      <li><a href="#stay">Stay</a></li>
+      <li><a href="#eat">Eat</a></li>
+      <li><a href="#wine">Wine</a></li>
+      <li><a href="#do">Do</a></li>
+      <li><a href="#walks">Walks</a></li>
+      <li><a href="#beaches">Beaches</a></li>
+      <li><a href="#gems">Hidden Gems</a></li>
+      <li><a href="#april">April</a></li>
+      <li><a href="#itinerary">Itinerary</a></li>
+    </ul>
+    <button class="nav-hamburger" id="hamburger" type="button" aria-label="Toggle navigation" aria-expanded="false" aria-controls="navMobile">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="nav-mobile" id="navMobile">
+  <a href="#whats-on" onclick="closeMenu()">What's On</a>
+  <a href="#stay" onclick="closeMenu()">Stay</a>
+  <a href="#eat" onclick="closeMenu()">Eat</a>
+  <a href="#wine" onclick="closeMenu()">Wine</a>
+  <a href="#do" onclick="closeMenu()">Do</a>
+  <a href="#walks" onclick="closeMenu()">Walks</a>
+  <a href="#beaches" onclick="closeMenu()">Beaches</a>
+  <a href="#gems" onclick="closeMenu()">Hidden Gems</a>
+  <a href="#april" onclick="closeMenu()">April</a>
+  <a href="#itinerary" onclick="closeMenu()">Itinerary</a>
+</div>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ===== HERO ===== -->
+<div class="hero" id="top">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Victoria's Most Coveted Escape</div>
+    <h1>The Peninsula <em>Insider</em></h1>
+    <p class="hero-sub">Your complete local's guide to Mornington Peninsula — where world-class wine, wild surf, hot springs, and long lunches collide.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">🍷 World-class Pinot Noir</span>
+      <span class="hero-tag">♨️ Natural Hot Springs</span>
+      <span class="hero-tag">🏖️ Bay &amp; Ocean Beaches</span>
+      <span class="hero-tag">🌿 Red Hill Hinterland</span>
+      <span class="hero-tag">🍽️ Outstanding Dining</span>
+      <span class="hero-tag">🐇 Jackalope Hotel</span>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll to explore</span>
+      <div class="hero-scroll-arrow"></div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== SECTION 1: OVERVIEW ===== -->
+<section class="section" id="overview">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="section-number">01</span>
+      <div class="section-label-wrap">
+        <span class="section-label">The Peninsula</span>
+        <h2>What Makes It Special</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; font-size:1.05rem; line-height:1.85;">Just 90 minutes south-east of Melbourne, the Mornington Peninsula is where city life dissolves into something far more indulgent. It's a place of contradictions that somehow all work: wild surf beaches on one side, calm bay swimming on the other; rustic farm stalls five minutes from Michelin-calibre restaurants; a booming wine region that rivals anything in the country, yet remains stubbornly un-touristy at its heart.</p>
+
+    <p style="max-width:760px;">The peninsula stretches roughly 100km from Frankston down to Portsea, with the Red Hill hinterland rising in the middle — the spiritual home of its wine country. Over 200 wineries occupy the cool-climate slopes, most specialising in Chardonnay and Pinot Noir, and many with outstanding restaurants attached. Add natural geothermal hot springs, sculptural parks, wild coastal walks, brilliant markets, and some of Victoria's most interesting accommodation — and you have one of Australia's finest weekend destinations, full stop.</p>
+
+    <div class="pull-quote">
+      <p>"The secret the locals keep: the peninsula rewards those who slow down. Don't try to rush through four wineries in an afternoon. Book a long lunch, sit in the sun, let time dissolve. That's how the Peninsula is meant to be experienced."</p>
+    </div>
+
+    <div class="overview-grid">
+      <div class="overview-item">
+        <div class="overview-icon">🍷</div>
+        <h4>200+ Wineries</h4>
+        <p>Mainly Chardonnay &amp; Pinot Noir in a cool maritime climate</p>
+      </div>
+      <div class="overview-item">
+        <div class="overview-icon">♨️</div>
+        <h4>Hot Springs</h4>
+        <p>70+ geothermal bathing experiences at Fingal</p>
+      </div>
+      <div class="overview-item">
+        <div class="overview-icon">🏖️</div>
+        <h4>Dual Coastline</h4>
+        <p>Protected bay beaches + wild ocean surf beaches</p>
+      </div>
+      <div class="overview-item">
+        <div class="overview-icon">🍽️</div>
+        <h4>World-class Dining</h4>
+        <p>From winery hatted restaurants to hidden farm tables</p>
+      </div>
+      <div class="overview-item">
+        <div class="overview-icon">🌿</div>
+        <h4>Red Hill Market</h4>
+        <p>Victoria's finest artisan market, first Saturday monthly</p>
+      </div>
+      <div class="overview-item">
+        <div class="overview-icon">🚗</div>
+        <h4>90 min from Melbourne</h4>
+        <p>Via Nepean Hwy or EastLink — no ferries required</p>
+      </div>
+    </div>
+
+    <div class="april-highlight">
+      <div class="april-highlight-label">🍂 April Highlight</div>
+      <p>April is arguably the Peninsula's best month. The summer crowds have gone, the mornings are crisp and golden, autumn colours are appearing in the vineyards, and the dining scene is in full swing. Expect perfect long-lunch weather — cool enough for red wine in the afternoon, warm enough to eat outside at midday.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== SECTION 2: WHAT'S ON ===== -->
+<section class="section section--alt" id="whats-on">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="section-number">02</span>
+      <div class="section-label-wrap">
+        <span class="section-label">April 2026</span>
+        <h2>What's On</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; margin-bottom:2rem;">April 2026 is a big month on the Peninsula — Easter long weekend, an all-Australian outdoor music festival headlined by Paul Kelly, ANZAC Day, markets every weekend, and the arts scene in full swing. Here's everything, in order.</p>
+
+    <div class="events-featured-grid">
+      <div class="event-featured-card event-featured-card--music">
+        <div class="efc-date">&#127925; Saturday 11 April &middot; 1pm&#x2013;9:30pm</div>
+        <h3>Red Hot Summer Tour</h3>
+        <div class="efc-venue">&#128205; Mornington Racecourse &middot; 320 Racecourse Rd</div>
+        <p>Iconic all-Australian outdoor music festival. Gates 1pm, Paul Kelly headlines 8pm&#x2013;9:30pm. A full autumn evening of exceptional live music under the Peninsula sky &#x2014; one of the unmissable events of the season.</p>
+        <div class="efc-artists">
+          <span class="efc-artist-tag">Paul Kelly</span>
+          <span class="efc-artist-tag">Missy Higgins</span>
+          <span class="efc-artist-tag">The Cruel Sea</span>
+          <span class="efc-artist-tag">The Cat Empire</span>
+          <span class="efc-artist-tag">Kasey Chambers</span>
+          <span class="efc-artist-tag">Jess Hitchcock</span>
+        </div>
+      </div>
+      <div class="event-featured-card event-featured-card--racing">
+        <div class="efc-date">&#127943; Easter Saturday &middot; 19 April 2026</div>
+        <h3>Mornington Cup + Easterland</h3>
+        <div class="efc-venue">&#128205; Mornington Racecourse</div>
+        <p>Three events in one: horse racing on Cup Day, the Easterland family zone (Easter egg hunt $30, carnival rides, Paw Patrol &amp; Cocomelon live shows), and The Distillery Room pop-up with Bass &amp; Flinders, JimmyRum, and Chief&#x27;s Son. Racing, rum, and rides.</p>
+        <div class="efc-artists">
+          <span class="efc-artist-tag">Horse Racing</span>
+          <span class="efc-artist-tag">Easterland Family Zone</span>
+          <span class="efc-artist-tag">The Distillery Room</span>
+          <span class="efc-artist-tag">Food Trucks</span>
+          <span class="efc-artist-tag">Lawn Picnics</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="events-section-label">&#128197; Full April Calendar</div>
+    <div class="events-list">
+
+      <div class="event-row">
+        <div class="event-date-pill">Sat<br>4 Apr</div>
+        <div>
+          <div class="event-row-title">Hill &amp; Ridge Community Market</div>
+          <div class="event-row-location">&#128205; Red Hill &middot; 9am&#x2013;2pm</div>
+          <div class="event-row-desc">The beloved Red Hill hinterland market. Local produce, artisan goods, food vendors. Autumn harvest at peak &#x2014; chestnuts, quince, mushrooms, local cheeses.</div>
+        </div>
+        <span class="event-row-type type--market">Market</span>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date-pill">Sat<br>4 Apr</div>
+        <div>
+          <div class="event-row-title">Point Nepean Portsea Market</div>
+          <div class="event-row-location">&#128205; Portsea &middot; From 9am</div>
+          <div class="event-row-desc">Makers and artisan market near Point Nepean National Park. Pair with a morning walk through the park for a perfect Saturday.</div>
+        </div>
+        <span class="event-row-type type--market">Market</span>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date-pill">2&#x2013;19<br>Apr</div>
+        <div>
+          <div class="event-row-title">School Holidays at Dromana 3 Drive-In</div>
+          <div class="event-row-location">&#128205; Dromana Drive-In</div>
+          <div class="event-row-desc">One of Australia&#x27;s last operating drive-in cinemas, running full school holiday programming. A genuinely nostalgic Peninsula experience &#x2014; bring a car full of snacks.</div>
+        </div>
+        <span class="event-row-type type--family">Family</span>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date-pill">Mon<br>6 Apr</div>
+        <div>
+          <div class="event-row-title">Mt Martha South Beach Market</div>
+          <div class="event-row-location">&#128205; Mt Martha House Lawn &middot; From 10am</div>
+          <div class="event-row-desc">Easter Monday coastal market on the lawn of Mt Martha House with bay views. A relaxed, scenic way to wrap the Easter long weekend.</div>
+        </div>
+        <span class="event-row-type type--market">Market</span>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date-pill">Fri<br>10 Apr</div>
+        <div>
+          <div class="event-row-title">Soul Night Market</div>
+          <div class="event-row-location">&#128205; Sorrento Beach &middot; From 5pm</div>
+          <div class="event-row-desc">Atmospheric evening market on the Sorrento beachfront. Food, local makers, and music at sunset &#x2014; perfect Friday night opener before the Red Hot Summer Tour the next day.</div>
+        </div>
+        <span class="event-row-type type--market">Night Market</span>
+      </div>
+
+      <div class="event-row" style="border-left: 3px solid var(--navy-mid);">
+        <div class="event-date-pill" style="background: var(--navy-light); color: var(--navy);">Sat<br>11 Apr</div>
+        <div>
+          <div class="event-row-title">&#11088; Red Hot Summer Tour at Mornington Racecourse</div>
+          <div class="event-row-location">&#128205; Mornington Racecourse &middot; 1pm&#x2013;9:30pm</div>
+          <div class="event-row-desc">Paul Kelly &middot; Missy Higgins &middot; The Cruel Sea &middot; The Cat Empire &middot; Kasey Chambers &middot; Jess Hitchcock. Gates 1pm, Paul Kelly headlines 8pm. Book now &#x2014; this sells out.</div>
+        </div>
+        <span class="event-row-type type--music">Music</span>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date-pill">Sun<br>12 Apr</div>
+        <div>
+          <div class="event-row-title">Mornington Racecourse Market</div>
+          <div class="event-row-location">&#128205; Mornington Racecourse &middot; From 9am</div>
+          <div class="event-row-desc">One of the Peninsula&#x27;s biggest markets with hundreds of stalls &#x2014; fresh produce, clothing, homewares, antiques, and street food. A Sunday institution.</div>
+        </div>
+        <span class="event-row-type type--market">Market</span>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date-pill">Sat<br>18 Apr</div>
+        <div>
+          <div class="event-row-title">Emu Plains Market</div>
+          <div class="event-row-location">&#128205; Emu Plains &middot; 9am&#x2013;2pm</div>
+          <div class="event-row-desc">Community market in a relaxed rural setting. Local growers, crafts, and Peninsula produce.</div>
+        </div>
+        <span class="event-row-type type--market">Market</span>
+      </div>
+
+      <div class="event-row" style="border-left: 3px solid var(--terra);">
+        <div class="event-date-pill" style="background: var(--terra-light); color: #b05030;">Sat<br>19 Apr</div>
+        <div>
+          <div class="event-row-title">&#11088; Mornington Cup + Easterland (Easter Saturday)</div>
+          <div class="event-row-location">&#128205; Mornington Racecourse</div>
+          <div class="event-row-desc">Horse racing + Easterland family zone (Easter egg hunt $30, carnival rides, live shows) + The Distillery Room (Bass &amp; Flinders, JimmyRum, Chief&#x27;s Son tastings). Something for everyone.</div>
+        </div>
+        <span class="event-row-type type--family">Racing + Easter</span>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date-pill">Sat<br>25 Apr</div>
+        <div>
+          <div class="event-row-title">ANZAC Day Dawn Services &amp; Marches</div>
+          <div class="event-row-location">&#128205; Multiple Peninsula locations &middot; From 6am</div>
+          <div class="event-row-desc">Dawn services and marches at Balnarring (9:30am), Crib Point (6am dawn/11am), Dromana (6am/9:30am), Flinders (10am), Hastings (6am/11am), Mornington, and more.</div>
+        </div>
+        <span class="event-row-type type--anzac">ANZAC Day</span>
+      </div>
+
+      <div class="event-row">
+        <div class="event-date-pill">Sat<br>25 Apr</div>
+        <div>
+          <div class="event-row-title">Meet The Makers Market at Hawkes Farm</div>
+          <div class="event-row-location">&#128205; Hawkes Farm &middot; 10am&#x2013;2pm</div>
+          <div class="event-row-desc">Artisan market showcasing Peninsula makers, producers, and creatives. A thoughtful post-dawn-service outing on ANZAC Day.</div>
+        </div>
+        <span class="event-row-type type--market">Market</span>
+      </div>
+
+    </div>
+
+    <div class="events-section-label">&#128722; Markets at a Glance &#x2014; April 2026</div>
+    <div class="markets-table-wrap">
+      <table class="markets-table">
+        <thead>
+          <tr><th>Date</th><th>Market</th><th>Location</th><th>Time</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Sat 4 Apr</td><td>Hill &amp; Ridge Community Market</td><td>Red Hill</td><td>9am&#x2013;2pm</td></tr>
+          <tr><td>Sat 4 Apr</td><td>Point Nepean Portsea Market</td><td>Portsea</td><td>From 9am</td></tr>
+          <tr><td>Mon 6 Apr (Easter Mon)</td><td>Mt Martha South Beach Market</td><td>Mt Martha House Lawn</td><td>From 10am</td></tr>
+          <tr><td>Fri 10 Apr</td><td>Soul Night Market</td><td>Sorrento Beach</td><td>From 5pm</td></tr>
+          <tr><td>Sun 12 Apr</td><td>Mornington Racecourse Market</td><td>Mornington</td><td>From 9am</td></tr>
+          <tr><td>Sat 18 Apr</td><td>Emu Plains Market</td><td>Emu Plains</td><td>9am&#x2013;2pm</td></tr>
+          <tr><td>Sat 25 Apr (ANZAC Day)</td><td>Meet The Makers at Hawkes Farm</td><td>Mornington Peninsula</td><td>10am&#x2013;2pm</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="events-section-label">&#127912; Art &amp; Exhibitions &#x2014; On Now in April</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-accent card-accent--default"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#128444;&#65039;</div>
+          <span class="card-badge badge--default">Until 31 May 2026</span>
+          <div class="card-title">New Wave 26</div>
+          <div class="card-location">Mornington Peninsula Regional Gallery &middot; 11am&#x2013;4pm</div>
+          <p class="card-desc">Contemporary group exhibition at the MPRG showcasing emerging and mid-career artists across diverse practices. Free entry. Running alongside the Michael Vale solo show &#x2014; two exhibitions in one visit.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--default"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127912;</div>
+          <span class="card-badge badge--default">Until 31 May 2026</span>
+          <div class="card-title">Michael Vale Exhibition</div>
+          <div class="card-location">Mornington Peninsula Regional Gallery &middot; 11am&#x2013;4pm</div>
+          <p class="card-desc">Solo exhibition by Michael Vale running alongside New Wave 26 at the MPRG. Plan at least two hours to do both exhibitions justice. The gallery caf&#233; is worth a visit too.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--dining"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#10024;</div>
+          <span class="card-badge badge--dining">&#9888;&#65039; Closes 19 April</span>
+          <div class="card-title">&#x2018;Enchantment&#x2019; Trio Exhibition</div>
+          <div class="card-location">Lander-Se Gallery &middot; 11am&#x2013;4pm (weekdays by appt)</div>
+          <p class="card-desc">Three artists exploring enchantment as theme. Closes Easter Saturday 19 April &#x2014; last chance to catch it. If you&#x27;re visiting before Easter, put this on the list.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#128161;</div>
+          <span class="card-badge badge--activity">Ongoing</span>
+          <div class="card-title">Light &amp; Vision: A Multiform Exhibition</div>
+          <div class="card-location">Dromana Creative Hub &amp; Gallery (closed Tue/Wed)</div>
+          <p class="card-desc">Multi-medium art exhibition exploring light and vision at the Dromana Creative Hub. Pair with a morning bay walk and coffee for a lovely Dromana day.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="events-section-label">&#127807; Wellness &amp; Nature &#x2014; Ongoing Throughout April</div>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127807;</div>
+          <span class="card-badge badge--winery">Free &middot; Daily from 11am</span>
+          <div class="card-title">Free Australian Garden Walk</div>
+          <div class="card-location">Royal Botanic Gardens Cranbourne</div>
+          <p class="card-desc">Free guided walk through the award-winning Australian Garden &#x2014; stunning in autumn colour. Daily from 11am. The Explorer &amp; Kids Explorer Bus (daily 10am&#x2013;4pm) is perfect for families throughout April.</p>
+          <div class="card-tip"><strong>Insider Tip</strong>April is one of the best months at RBGC. The native planting palette glows in autumn light. Combine with a picnic for a brilliant free half-day.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#9832;&#65039;</div>
+          <span class="card-badge badge--activity">Book Ahead</span>
+          <div class="card-title">Peninsula Hot Springs &#x2014; Body Clay Ritual</div>
+          <div class="card-location">Peninsula Hot Springs, Fingal</div>
+          <p class="card-desc">Signature wellness ritual using thermal clay from the springs. Weekdays 12pm &amp; 2pm; Weekends 10:30am, 12pm, 1pm &amp; 3pm. School holiday family version Friday&#x2013;Monday at 11am.</p>
+          <div class="card-tip"><strong>Insider Tip</strong>Book the Body Clay Ritual before your hot springs session &#x2014; it dramatically deepens the bathing experience and is one of the things first-timers universally wish they&#x27;d known about.</div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#128293;</div>
+          <span class="card-badge badge--activity">Book Ahead</span>
+          <div class="card-title">Peninsula Hot Springs &#x2014; Fire &amp; Ice Workshop</div>
+          <div class="card-location">Peninsula Hot Springs, Fingal</div>
+          <p class="card-desc">Expert-guided hot-cold contrast therapy: sauna + cold plunge. Science-backed wellness that boosts circulation, immunity, and reduces inflammation. Weekdays 10:30am, 4pm &amp; 5pm; Weekends 12pm, 2pm, 4pm &amp; 5pm. Add to any bathing session.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="updated-note">
+      <div class="un-pulse"></div>
+      <span><strong>Updated daily</strong> &#x2014; check back for the latest events, new additions, and any cancellations. All times and dates confirmed as of 2 April 2026.</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SECTION 3: WHERE TO STAY ===== -->
+<section class="section section--alt" id="stay">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="section-number">03</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Accommodation</span>
+        <h2>Where to Stay</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <!-- Jackalope Feature -->
+    <div class="jackalope-feature">
+      <div class="jk-badge">⭐ Top Pick — Our Recommendation</div>
+      <h3>Jackalope Hotel</h3>
+      <div class="jk-sub">Merricks North · Merricks North Road</div>
+      <p>There's nowhere on the Peninsula — or arguably in regional Victoria — quite like Jackalope. This design-forward luxury hotel sits in the middle of the 11-hectare Willow Creek Vineyard, surrounded by working vines with views across rolling hills to the bay. The aesthetic is striking and bold: dark steel, dramatic interiors, unexpected art installations, and that iconic taxidermied jackalope behind the bar.</p>
+      <p>The 46 rooms and suites are among the most considered in regional Australia — floor-to-ceiling windows framing vineyard views, deep soaking tubs, custom furnishings, and a level of service that hits that rare sweet spot between warm and effortlessly attentive. Wake to mist over the vines. Don't rush anywhere.</p>
+      <p>The hotel anchors two exceptional dining experiences: the fine-dining <strong>Doot Doot Doot</strong> (one of the peninsula's best special-occasion tables) and the more casual <strong>Rare Hare</strong> (long communal tables, woodfired cooking, Willow Creek wine by the glass). Both deserve bookings.</p>
+      <div class="jk-features">
+        <span class="jk-feature-tag">46 rooms &amp; suites</span>
+        <span class="jk-feature-tag">Vineyard views</span>
+        <span class="jk-feature-tag">Two restaurants</span>
+        <span class="jk-feature-tag">Pool</span>
+        <span class="jk-feature-tag">Spa</span>
+        <span class="jk-feature-tag">Art installations</span>
+        <span class="jk-feature-tag">Willow Creek cellar door</span>
+      </div>
+    </div>
+
+    <div class="insider-tip">
+      <div class="insider-tip-label">📍 Insider Tip</div>
+      <p>Book Doot Doot Doot for Saturday dinner before you even confirm your Jackalope room booking — it fills weeks in advance. If you can't get a Doot Doot Doot reservation, Rare Hare next door is a worthy backup and has more spontaneous charm.</p>
+    </div>
+
+    <h3 style="margin-top:2.5rem; margin-bottom: 1.25rem;">Other Excellent Options</h3>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-accent card-accent--default"></div>
+        <div class="card-body">
+          <div class="card-emoji">🏡</div>
+          <span class="card-badge badge--default">Luxury Winery Stay</span>
+          <div class="card-title">Port Phillip Estate</div>
+          <div class="card-location">Red Hill South</div>
+          <p class="card-desc">Stunning winery accommodation with king suites overlooking the vines. Arguably the most beautiful property on the peninsula, with an outstanding restaurant attached. The views from the terrace are simply unfair.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--default"></div>
+        <div class="card-body">
+          <div class="card-emoji">🌹</div>
+          <span class="card-badge badge--default">Country House</span>
+          <div class="card-title">Lindenderry at Red Hill</div>
+          <div class="card-location">Red Hill</div>
+          <p class="card-desc">A gracious country house hotel set in a heritage garden. More traditional in style, with generous rooms, a fire-lit sitting room, and the kind of quiet comfort you can genuinely decompress into.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍇</div>
+          <span class="card-badge badge--winery">Vineyard Villa</span>
+          <div class="card-title">Crittenden Estate Villas</div>
+          <div class="card-location">Dromana</div>
+          <p class="card-desc">Self-contained vineyard villas right in the winery estate. Wake up, wander down for breakfast at the restaurant, spend the morning at the cellar door. The private-feeling grounds make it feel like you have the whole place to yourself.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🌊</div>
+          <span class="card-badge badge--winery">Lake Views</span>
+          <div class="card-title">Stillwater at Crittenden</div>
+          <div class="card-location">Dromana</div>
+          <p class="card-desc">Part of the Crittenden Estate, these beautifully appointed lakeside villas combine seclusion with easy access to the winery restaurant, cellar door and gardens.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">⚓</div>
+          <span class="card-badge badge--beach">Coastal Village</span>
+          <div class="card-title">Sorrento &amp; Portsea B&amp;Bs</div>
+          <div class="card-location">Sorrento / Portsea</div>
+          <p class="card-desc">For couples wanting a coastal base, Sorrento's heritage guesthouses and boutique B&amp;Bs offer charm and proximity to the best bayside beach towns. Walk to the ferry, dinner, and the Back Beach from here.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">♨️</div>
+          <span class="card-badge badge--activity">Eco / Wellness</span>
+          <div class="card-title">Peninsula Hot Springs Glamping</div>
+          <div class="card-location">Fingal</div>
+          <p class="card-desc">Eco lodges and glamping pods set within the hot springs precinct. Wake up, walk 30 seconds to the Spa Dreaming Centre. Uniquely immersive — and surprisingly special for a wellness-focused overnight.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 4: WHERE TO EAT ===== -->
+<section class="section" id="eat">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="section-number">04</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Dining</span>
+        <h2>Where to Eat</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; margin-bottom:2rem;">The peninsula's dining scene has undergone a quiet revolution over the past decade. The combination of extraordinary local produce — seafood, dairy, lamb, vegetables from rich volcanic soils — and a highly competitive wine country environment has pushed restaurant quality well above what you'd expect for a regional area.</p>
+
+    <!-- Special Occasion -->
+    <div class="tier-section">
+      <div class="tier-header">
+        <span class="tier-label tier-label--special">✨ Special Occasion</span>
+      </div>
+      <div class="card-grid">
+        <div class="card card--featured">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--featured">Jackalope Hotel</span>
+            <div class="card-title">Doot Doot Doot</div>
+            <div class="card-location">Merricks North</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Jackalope's headline fine diner is theatrical, indulgent, and genuinely excellent. Chef delivers a menu built around exceptional local produce with a commitment to seasonality and wine pairing. Caviar features. Long degustation format. One of the peninsula's true bucket-list meals.</p>
+            <span class="card-tag">Degustation · Book Months Ahead</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Fine Dining</span>
+            <div class="card-title">Laura at Point Leo Estate</div>
+            <div class="card-location">Merricks</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Chef Josep Espuga's European-leaning fine diner sits within the remarkable Point Leo Estate — a working winery and 16-acre sculpture park. Among the very finest tables on the peninsula. The view from the terrace as you finish lunch is simply spectacular.</p>
+            <span class="card-tag">Fine Dining · Sculpture Park</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Hatted</span>
+            <div class="card-title">Ten Minutes by Tractor</div>
+            <div class="card-location">Main Ridge</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Elegant, produce-driven dishes matched with the winery's award-winning cellar. The dining combines silver service with genuine country warmth — it never feels stuffy. The views over vineyards and bushland are as good as any in the region.</p>
+            <span class="card-tag">Hatted · Silver Service</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Italian · Farm-to-Table</span>
+            <div class="card-title">Tedesca Osteria</div>
+            <div class="card-location">Red Hill</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Chef Brigitte Hafner and wine director James Broadway's intimate 30-seater feels like the most brilliant dinner party you've ever attended. Rustic, honest Italian-inflected cooking from exceptional local produce. One of the most purely enjoyable meals on the peninsula.</p>
+            <span class="card-tag">Italian · 30 seats only</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Winery Restaurant</span>
+            <div class="card-title">Paringa Estate Restaurant</div>
+            <div class="card-location">Red Hill South</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Set on a winery with some of the oldest vines on the peninsula, Paringa's restaurant has grown its own considerable reputation. Polished, confident cooking with outstanding matched wines from their estate. The outdoor terrace in autumn is divine.</p>
+            <span class="card-tag">Winery Restaurant · Hatted</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍽️</div>
+            <span class="card-badge badge--dining">Views · Estate</span>
+            <div class="card-title">Port Phillip Estate</div>
+            <div class="card-location">Red Hill South</div>
+            <div class="card-stars">★★★★★</div>
+            <p class="card-desc">Some of the finest food, wine and views on the entire peninsula. The restaurant commands panoramic views over the estate and Port Phillip Bay beyond — the visual payoff alone is worth the visit. The cooking is confident and local-produce focused.</p>
+            <span class="card-tag">Views · Estate Dining</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insider-tip">
+      <div class="insider-tip-label">📍 Insider Tip</div>
+      <p>For a special occasion meal at the right price point: Laura at Point Leo combines extraordinary quality with a slightly more accessible format than Doot Doot Doot — and the sculpture park walk before or after makes it a genuinely complete experience rather than just dinner.</p>
+    </div>
+
+    <!-- Casual -->
+    <div class="tier-section">
+      <div class="tier-header">
+        <span class="tier-label tier-label--casual">🌿 Casual &amp; Relaxed</span>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🔥</div>
+            <span class="card-badge badge--dining">Share Plates</span>
+            <div class="card-title">Rare Hare</div>
+            <div class="card-location">Merricks North (Jackalope)</div>
+            <p class="card-desc">Long communal tables, woodfired cooking, share plates and Willow Creek wines by the glass. The vibe is convivial, the food is genuinely excellent. Saturday lunch here is one of the great peninsula pleasures.</p>
+            <span class="card-tag">Woodfired · Share Plates</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌿</div>
+            <span class="card-badge badge--winery">Gardens · Winery</span>
+            <div class="card-title">Montalto</div>
+            <div class="card-location">Red Hill South</div>
+            <p class="card-desc">Seven vineyards, more than 30 acres of vines, and a restaurant that delivers confident, produce-driven cooking alongside excellent estate wines. The gardens and sculpture trail are an added bonus — wander before or after lunch.</p>
+            <span class="card-tag">Gardens · Sculpture Trail</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍷</div>
+            <span class="card-badge badge--winery">Views · Wine</span>
+            <div class="card-title">Polperro Winery</div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Panoramic views of vines and native trees, clean modern interiors, and a share-plate menu that draws from all directions with genuine skill. One of the peninsula's quintessential long-lunch venues.</p>
+            <span class="card-tag">Share Plates · Views</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--beach"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌊</div>
+            <span class="card-badge badge--beach">Mediterranean</span>
+            <div class="card-title">Martha's Table</div>
+            <div class="card-location">Safety Beach</div>
+            <p class="card-desc">Marine-hued dining room, casual aperitivo bar and in-house provedore — this handsome all-in-one brings Mediterranean living to the marina. One of the more beautiful rooms on the peninsula.</p>
+            <span class="card-tag">Marina Setting</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍖</div>
+            <span class="card-badge badge--dining">American BBQ</span>
+            <div class="card-title">Red Gum BBQ</div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Rolled up sleeves, airy warehouse, picnic tables and excellent American BBQ: pulled pork, beef brisket, smoked chicken. A rollicking antidote to the fancy winery restaurant circuit.</p>
+            <span class="card-tag">BBQ · Casual · Hearty</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥐</div>
+            <span class="card-badge badge--dining">French Bistro</span>
+            <div class="card-title">Bistro Elba</div>
+            <div class="card-location">Sorrento</div>
+            <p class="card-desc">Beach-y, artfully dilapidated French bistro with twice-baked cheese soufflé, gin-cured ocean trout and a wine list of small emerging French producers. The kind of place that feels like a lucky find every time.</p>
+            <span class="card-tag">French · Sorrento</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Breakfast -->
+    <div class="tier-section">
+      <div class="tier-header">
+        <span class="tier-label tier-label--breakfast">☕ Breakfast &amp; Brunch</span>
+      </div>
+      <div class="card-grid">
+        <div class="card">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🌅</div>
+            <span class="card-badge badge--winery">Brunch · Winery</span>
+            <div class="card-title">Foxey's Hangout</div>
+            <div class="card-location">Red Hill</div>
+            <p class="card-desc">Laidback, sunny, spacious — set on a lovely estate with an open kitchen and outdoor deck. Easy-drinking wines and a generous brunch menu. One of the most relaxed morning spots in the hinterland.</p>
+            <span class="card-tag">Outdoors · Relaxed</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🥞</div>
+            <span class="card-badge badge--dining">French · Crepes</span>
+            <div class="card-title">Ouest France Bistro</div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">Once a creperie, now a charming French bistro bringing Brittany to the peninsula. Classic dishes, Breton specialties and excellent coffee in a small, intimate setting. Look for the blue-and-white awning.</p>
+            <span class="card-tag">French · Breton</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--winery"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍾</div>
+            <span class="card-badge badge--winery">Cellar Door</span>
+            <div class="card-title">Yabby Lake Cellar Door</div>
+            <div class="card-location">Tuerong</div>
+            <p class="card-desc">Opens for tastings from mid-morning and the relaxed restaurant does excellent two- or three-course lunches. Arrive early, taste the single-vineyard chardonnay before lunch — one of the peninsula's most consistent wine experiences.</p>
+            <span class="card-tag">Early Lunch · Single Vineyard</span>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-accent card-accent--dining"></div>
+          <div class="card-body">
+            <div class="card-emoji">🍝</div>
+            <span class="card-badge badge--dining">Italian</span>
+            <div class="card-title">Mr Vincenzo's</div>
+            <div class="card-location">Mornington</div>
+            <p class="card-desc">1970s Italian vibes, large-format pastas, and a genuinely fun atmosphere. Ideal for a laid-back late morning or early lunch when you want something hearty and characterful.</p>
+            <span class="card-tag">Italian · Character</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="april-highlight">
+      <div class="april-highlight-label">🍂 April Highlight</div>
+      <p>April is truffle season in Victoria — several peninsula restaurants and producers incorporate fresh local truffles into their menus from late April. Ask your restaurant about seasonal truffle features when booking.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 5: WINERIES ===== -->
+<section class="section section--alt" id="wine">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="section-number">05</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Wine Country</span>
+        <h2>Cellar Doors &amp; Wineries</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; margin-bottom:2rem;">The Mornington Peninsula is one of Australia's most exciting wine regions — not for volume, but for quality and character. The cool maritime climate produces Chardonnay and Pinot Noir of genuine elegance. Most estates are small, family-run, and proud of it. This is wine country where the winemaker might pour your tasting themselves.</p>
+
+    <div class="insider-tip">
+      <div class="insider-tip-label">📍 Insider Tip</div>
+      <p>The general rule on the peninsula: don't try to visit more than three cellar doors in a day, or you'll rush through all of them and remember none. Pick two or three, arrive relaxed, and let the conversation happen. The best cellar door experiences feel more like visiting a friend who happens to make excellent wine.</p>
+    </div>
+
+    <div class="card-grid">
+      <div class="card card--featured">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍷</div>
+          <span class="card-badge badge--featured">Must Visit</span>
+          <div class="card-title">Ten Minutes by Tractor</div>
+          <div class="card-location">Main Ridge</div>
+          <div class="card-stars">★★★★★</div>
+          <p class="card-desc">Three separate vineyards — Wallis, McCutcheon and Judd — each produce distinct single-vineyard expressions. The cellar door experience is one of the most complete on the peninsula. Exceptional Chardonnay and Pinot Noir. Try the Wallis Chardonnay if you can.</p>
+          <span class="card-tag">Premium · Single Vineyard</span>
+        </div>
+      </div>
+      <div class="card card--featured">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🗿</div>
+          <span class="card-badge badge--featured">Must Visit</span>
+          <div class="card-title">Pt Leo Estate</div>
+          <div class="card-location">Merricks</div>
+          <div class="card-stars">★★★★★</div>
+          <p class="card-desc">More than just a winery — a 16-acre outdoor sculpture park featuring works from over 60 Australian and international artists, plus the fine-dining Laura restaurant. The estate Chardonnay, Pinot Gris, Pinot Noir and Shiraz are all excellent.</p>
+          <span class="card-tag">Sculpture Park · Full Experience</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍷</div>
+          <span class="card-badge badge--winery">Old Vines</span>
+          <div class="card-title">Paringa Estate</div>
+          <div class="card-location">Red Hill South</div>
+          <p class="card-desc">Some of the peninsula's oldest vines and a winemaking philosophy that prioritises restraint and complexity. The estate Pinot Noir is benchmark peninsula wine — structured, long, genuinely exciting. One of the most important estates in the region.</p>
+          <span class="card-tag">Old Vines · Benchmark Pinot</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🌿</div>
+          <span class="card-badge badge--winery">Gardens</span>
+          <div class="card-title">Montalto</div>
+          <div class="card-location">Red Hill South</div>
+          <p class="card-desc">Seven vineyards spread across what was supposed to be a retirement project. The gardens and sculpture trail are as impressive as the wines. Walk the grounds, taste the single-vineyard Chardonnays, and stay for lunch.</p>
+          <span class="card-tag">Gardens · Seven Vineyards</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍶</div>
+          <span class="card-badge badge--winery">Natural · Unusual</span>
+          <div class="card-title">Quealy Winemakers</div>
+          <div class="card-location">Balnarring</div>
+          <p class="card-desc">An intimate, lo-fi cellar door run by two peninsula pioneers who were experimenting with skin-contact wines and obscure Italian varieties long before anyone else. Brilliant Pinot Grigio, Friulano, Malvasia. One of the most interesting tastings in the region.</p>
+          <span class="card-tag">Natural · Italian Varieties</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🥂</div>
+          <span class="card-badge badge--winery">Single Vineyard</span>
+          <div class="card-title">Yabby Lake</div>
+          <div class="card-location">Tuerong</div>
+          <p class="card-desc">Since 1998, Yabby Lake has built a reputation for outstanding single-vineyard and single-block expressions. The Chardonnay here is among the finest on the peninsula — precise, textural, and genuinely exciting.</p>
+          <span class="card-tag">Outstanding Chardonnay</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍷</div>
+          <span class="card-badge badge--winery">Pinot Grigio Pioneer</span>
+          <div class="card-title">T'Gallant Vineyard</div>
+          <div class="card-location">Main Ridge</div>
+          <p class="card-desc">Known for its Pinot Grigio (T'Gallant essentially pioneered the variety in Australia), this is one of the most accessible and family-friendly winery experiences on the peninsula. Italian-style dining, large shaded outdoor space, real character.</p>
+          <span class="card-tag">Family Friendly</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🌾</div>
+          <span class="card-badge badge--winery">Historic</span>
+          <div class="card-title">Moorooduc Estate</div>
+          <div class="card-location">Moorooduc</div>
+          <p class="card-desc">One of the oldest vineyards on the peninsula. Owner Richard McIntyre is genuinely one of the country's elder statesmen of low-intervention wine philosophy. Excellent Chardonnay and Pinot Noir. The peninsula's wine scene has been serious for a very long time.</p>
+          <span class="card-tag">Historic · Low-intervention</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insider-tip" style="margin-top:2rem;">
+      <div class="insider-tip-label">📍 Insider Tip</div>
+      <p>The Red Hill Hinterland Triangle — Paringa, Montalto, and Polperro — are all within a few minutes of each other and make an ideal afternoon loop. Park the car at one, do a proper tasting, have lunch, then walk or drive to the next. Three hours, three perspectives on Red Hill Pinot Noir.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 6: THINGS TO DO ===== -->
+<section class="section" id="do">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="section-number">06</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Experiences</span>
+        <h2>Things to Do</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <h3 style="margin-bottom:1rem;">♨️ Wellness &amp; Hot Springs</h3>
+
+    <div class="card-grid" style="margin-bottom:0;">
+      <div class="card" style="grid-column: 1 / -1; max-width: 100%;">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body" style="flex-direction:row; gap:1.5rem; flex-wrap:wrap;">
+          <div style="flex:1; min-width:220px;">
+            <div class="card-emoji">♨️</div>
+            <span class="card-badge badge--activity">Wellness · Must Do</span>
+            <div class="card-title">Peninsula Hot Springs</div>
+            <div class="card-location">Fingal (near Rye)</div>
+          </div>
+          <div style="flex:2; min-width:260px;">
+            <p class="card-desc">Australia's original natural hot springs, drawing geothermal mineral water from deep underground. There are over 70 globally-inspired bathing experiences across two main areas: the family-friendly <strong>Bath House</strong> and the adults-only <strong>Spa Dreaming Centre</strong>. The Spa Dreaming Centre is the one to book for couples — quieter, more immersive, with cave pools, hilltop spas, and an unhurried atmosphere.</p>
+            <p class="card-desc"><strong>Don't miss:</strong> The hilltop pool at the Spa Dreaming Centre at sunset — one of the most genuinely beautiful spots on the peninsula. Bring a robe and stay until the stars come out.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insider-tip">
+      <div class="insider-tip-label">📍 Insider Tip</div>
+      <p>Book the Spa Dreaming Centre (adults-only) rather than the standard Bath House — especially for couples. It's the premium experience, quieter, and genuinely worth the extra cost. Sessions run in set time blocks, so book the late-afternoon slot to catch the sunset from the hilltop pool.</p>
+    </div>
+
+    <h3 style="margin-top:2.5rem; margin-bottom:1rem;">🎨 Arts &amp; Sculpture</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">🗿</div>
+          <span class="card-badge badge--activity">Must Do · Free</span>
+          <div class="card-title">Pt Leo Estate Sculpture Park</div>
+          <div class="card-location">Merricks</div>
+          <p class="card-desc">A 16-acre outdoor gallery with over 60 works from major Australian and international artists — including pieces by Antony Gormley, Emily Floyd, and Marcus Tatton. Free to wander with a wine in hand. One of the best things to do on the peninsula. Allow at least 2 hours.</p>
+          <span class="card-tag">Free with estate visit · 2hrs</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🌳</div>
+          <span class="card-badge badge--winery">Art · Gardens</span>
+          <div class="card-title">Montalto Sculpture Trail</div>
+          <div class="card-location">Red Hill South</div>
+          <p class="card-desc">A gentler sculpture walk through the Montalto vineyard and gardens. Pairs perfectly with lunch at the restaurant. A curated collection that changes periodically — ask the cellar door team what's new when you visit.</p>
+          <span class="card-tag">Gardens · Art · Wine</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--dining"></div>
+        <div class="card-body">
+          <div class="card-emoji">🛒</div>
+          <span class="card-badge badge--dining">First Saturday Monthly</span>
+          <div class="card-title">Red Hill Market</div>
+          <div class="card-location">Red Hill Showgrounds</div>
+          <p class="card-desc">Victoria's finest artisan market, held the first Saturday of each month. Over 200 stalls of handmade arts and crafts, gourmet food, plants, artisan produce, and local creativity. Arrive early for the best selection and parking.</p>
+          <span class="card-tag">Arrive by 9am</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="april-highlight">
+      <div class="april-highlight-label">🍂 April Highlight</div>
+      <p>The Red Hill Market in April is particularly special — stallholders often have autumn produce (preserves, mushrooms, quince, chestnuts) and the cooler morning temperatures make the browsing genuinely pleasant without the summer heat. Arrive before 9am for parking.</p>
+    </div>
+
+    <h3 style="margin-top:2.5rem; margin-bottom:1rem;">🥾 Walking &amp; Outdoors</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">🏛️</div>
+          <span class="card-badge badge--beach">Easy–Medium · 4km</span>
+          <div class="card-title">Cape Schanck Lighthouse Walk</div>
+          <div class="card-location">Cape Schanck</div>
+          <p class="card-desc">One of the most dramatic coastal walks in Victoria — the trail leads to the historic lighthouse at the southern tip of the peninsula, with extraordinary views over Bass Strait. The boardwalk out to the headland and Pulpit Rock is genuinely vertiginous. 4km return, allow 1.5 hours.</p>
+          <span class="card-tag">Views · National Park Entry</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">🚲</div>
+          <span class="card-badge badge--beach">Heritage · Cycling</span>
+          <div class="card-title">Point Nepean National Park</div>
+          <div class="card-location">Portsea</div>
+          <p class="card-desc">A former defence installation at the very tip of the peninsula, now a national park with extraordinary history and stunning views from Fort Nepean. Hire a bike or take the shuttle — cycling through the dune scrub is a genuine delight.</p>
+          <span class="card-tag">Heritage · 10km each way</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">🏖️</div>
+          <span class="card-badge badge--beach">Secret · Wild</span>
+          <div class="card-title">Bushrangers Bay Walk</div>
+          <div class="card-location">Cape Schanck area</div>
+          <p class="card-desc">A shorter but spectacular walk through coastal heathland to a secluded ocean beach. The wildness of the Bass Strait coastline here — towering cliffs, sea caves, roaring surf — feels genuinely remote. One of the peninsula's best-kept secrets. 5km return.</p>
+          <span class="card-tag">Wild Coast · 5km · Secret Beach</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🚵</div>
+          <span class="card-badge badge--winery">Cycling</span>
+          <div class="card-title">Red Hill Hinterland Cycling</div>
+          <div class="card-location">Red Hill</div>
+          <p class="card-desc">The rolling hills of the Red Hill hinterland are exceptional cycling territory. Dedicated bike trails connect wineries and farms through beautiful farmland. A brilliant way to link a cellar door or two without worrying about driving.</p>
+          <span class="card-tag">Cycling · Winery Hopping</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem; margin-bottom:1rem;">🐬 Water Activities</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">⛴️</div>
+          <span class="card-badge badge--beach">Scenic · 40 min</span>
+          <div class="card-title">Sorrento Ferry</div>
+          <div class="card-location">Sorrento to Queenscliff</div>
+          <p class="card-desc">The iconic car and passenger ferry crossing Port Phillip Bay from Sorrento to Queenscliff. The crossing takes about 40 minutes and often encounters dolphins and seals. A genuinely lovely way to experience the bay.</p>
+          <span class="card-tag">Scenic Crossing</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">🦭</div>
+          <span class="card-badge badge--beach">Snorkel · Wildlife</span>
+          <div class="card-title">Sea Search Encounters</div>
+          <div class="card-location">Portsea / Sorrento</div>
+          <p class="card-desc">Snorkelling and scuba trips to swim with the resident seals at Chinaman's Hat and the incredible sponge garden reef systems along the heads. The sponge gardens here are extraordinary — vivid purples, oranges, and reds. Bookings essential.</p>
+          <span class="card-tag">Snorkel · Seals · Sponge Gardens</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===== SECTION 7: WALKS & TRAILS ===== -->
+<section class="section" id="walks">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="section-number">07</span>
+      <div class="section-label-wrap">
+        <span class="section-label">On Foot</span>
+        <h2>Walks &amp; Trails</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; margin-bottom:2rem;">The Peninsula has over 100 walking tracks ranging from 30-minute clifftop strolls to serious multi-day expeditions. Two national parks bookend the tip &#x2014; Point Nepean to the north and Mornington Peninsula National Park to the south &#x2014; and the vast Greens Bush reserve connects them via the iconic Two Bays Walking Track. April is ideal: the light is extraordinary, the crowds are gone, and wildflowers are beginning to emerge.</p>
+
+    <!-- Featured Walk Hero -->
+    <div class="walk-hero">
+      <div class="wh-badge">&#11088; Featured Walk &#x2014; Most Spectacular</div>
+      <h3>Bushrangers Bay via Cape Schanck</h3>
+      <div class="wh-sub">Mornington Peninsula National Park &middot; Moderate &middot; 6km return &middot; ~2 hours</div>
+      <p>Follow the Bushrangers Bay Track from the eastern carpark at Cape Schanck to witness some of the most dramatic coastal scenery near Melbourne. The track reaches Bushrangers Bay &#x2014; a pristine sandy beach formed where Main Creek meets the sea, framed by spectacular basalt cliffs. Standing on those dark volcanic platforms with Bass Strait crashing in is genuinely breathtaking.</p>
+      <p>The Cape Schanck Lighthouse stands at the trailhead &#x2014; Australia&#x27;s oldest operational lightstation on the Peninsula, and worth exploring before or after the walk. The extension north toward Greens Bush passes through shady banksia groves with sweeping views.</p>
+      <div class="wh-tags">
+        <span class="wh-tag">&#128336; ~2 hours return</span>
+        <span class="wh-tag">&#128205; Cape Schanck Lighthouse carpark</span>
+        <span class="wh-tag">&#127780;&#65039; Best: morning light</span>
+        <span class="wh-tag">&#128293; No dogs (National Park)</span>
+        <span class="wh-tag">&#127774; Watch for snakes in warm weather</span>
+        <span class="wh-tag">&#128065;&#65039; Basalt cliffs &middot; Bass Strait views</span>
+      </div>
+    </div>
+
+    <div class="insider-tip">
+      <div class="insider-tip-label">&#128204; Insider Tip</div>
+      <p>Arrive at Cape Schanck by 8am in April for spectacular golden-hour light over the basalt platforms. Bring a telephoto lens if you have one &#x2014; the seabirds and rock formations reward it. The lighthouse opens from 10am if you want a guided tour.</p>
+    </div>
+
+    <!-- Filter Bar -->
+    <div class="walks-filter-bar">
+      <span class="filter-label">Filter by difficulty:</span>
+      <button class="filter-btn active" onclick="filterWalks('all', this)">All</button>
+      <button class="filter-btn" onclick="filterWalks('easy', this)">&#x1F7E2; Easy</button>
+      <button class="filter-btn" onclick="filterWalks('moderate', this)">&#x1F7E0; Moderate</button>
+      <button class="filter-btn" onclick="filterWalks('hard', this)">&#x1F534; Hard / Epic</button>
+    </div>
+
+    <!-- Walk Cards -->
+    <div class="card-grid" id="walks-grid">
+
+      <div class="card" data-difficulty="hard">
+        <div class="card-accent" style="background: linear-gradient(90deg, #2c5040, #1C2A3A);"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127966;</div>
+          <span class="card-badge badge--hard">Hard / Epic</span>
+          <div class="card-title">Two Bays Walking Track</div>
+          <div class="card-location">Dromana to Cape Schanck &middot; 26km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 8&#x2013;10 hours (full)</span>
+            <span class="walk-meta-item">&#128205; Dromana Foreshore or Arthurs Seat</span>
+            <span class="walk-meta-item">&#128293; No dogs</span>
+          </div>
+          <p class="card-desc">The Peninsula&#x27;s signature long-distance trail, linking Port Phillip Bay at Dromana with Bass Strait at Cape Schanck. Passes through Arthurs Seat State Park, Greens Bush (largest remnant bushland), and Mornington Peninsula National Park. Grasstrees over 200 years old, fern gullies, coastal banksia, panoramic bay views. A true bucket-list Peninsula walk &#x2014; can be split into sections over multiple visits. Look for the Blue Wren symbol on track markers.</p>
+          <div class="card-tip"><strong>Insider Tip</strong>You don&#x27;t have to walk the whole thing. The Greens Bush section (accessed near Cape Schanck) is among the most rewarding 8.9km of the trail &#x2014; eucalypt forest, grasstrees, and birdlife without the full-day commitment.</div>
+        </div>
+      </div>
+
+      <div class="card" data-difficulty="moderate">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127758;</div>
+          <span class="card-badge badge--moderate">Moderate</span>
+          <div class="card-title">Coastal Walk: Cape Schanck to London Bridge</div>
+          <div class="card-location">Mornington Peninsula National Park &middot; 26km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; Full day</span>
+            <span class="walk-meta-item">&#128205; Cape Schanck east carpark</span>
+            <span class="walk-meta-item">&#128293; No dogs</span>
+          </div>
+          <p class="card-desc">The spectacular clifftop traverse from Cape Schanck to London Bridge along the wild Bass Strait coast. Ocean views, hidden coves, rugged cliffs, tidal rock pools, and dense coastal scrub. Orange markers indicate through-track direction. Check tides before setting off &#x2014; some sections involve beach crossings.</p>
+          <div class="card-tip"><strong>Insider Tip</strong>The Bay of Islands and St Paul&#x27;s detours are unmissable. Even doing the first 5km from Cape Schanck gives you some of the best scenery on the whole track.</div>
+        </div>
+      </div>
+
+      <div class="card" data-difficulty="moderate">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127799;</div>
+          <span class="card-badge badge--moderate">Moderate</span>
+          <div class="card-title">Lifesaving Track</div>
+          <div class="card-location">Portsea Area &middot; 11km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 3&#x2013;4 hours</span>
+            <span class="walk-meta-item">&#128205; Portsea Ocean Beach</span>
+            <span class="walk-meta-item">&#128293; No dogs (National Park)</span>
+          </div>
+          <p class="card-desc">Built in the 1890s after two devastating shipwrecks, this historic 11km clifftop track provides access to the remote coastline. Multiple lookouts with breathtaking views down the coast &#x2014; Bay of Islands, St Paul&#x27;s, Koonya Ocean Beach. Detours to Diamond Bay and Jubilee Point are well worth the extra steps.</p>
+        </div>
+      </div>
+
+      <div class="card" data-difficulty="easy">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#9968;&#65039;</div>
+          <span class="card-badge badge--easy">Easy</span>
+          <div class="card-title">Summit Circuit Walk &#x2014; Arthurs Seat</div>
+          <div class="card-location">Arthurs Seat State Park &middot; 1.8km circuit</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 1 hour</span>
+            <span class="walk-meta-item">&#128205; Seawinds Gardens carpark</span>
+            <span class="walk-meta-item">&#128293; No dogs (State Park)</span>
+          </div>
+          <p class="card-desc">The ideal short summit walk for most visitors &#x2014; this loop guides you to major points of interest including Seawinds Gardens, the Matthew Flinders Cairn, William Ricketts sculptures, lookouts with bay-to-ocean views, and the Seawinds Nursery Indigenous Garden. Moderately formed track with some steps. Spectacular autumn colouring in April.</p>
+          <div class="card-tip"><strong>Insider Tip</strong>Go early on a clear autumn morning &#x2014; from the summit you can sometimes see all the way to the You Yangs and the CBD on the other side of the bay. On a really clear day, even the Dandenong Ranges appear.</div>
+        </div>
+      </div>
+
+      <div class="card" data-difficulty="easy">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127750;</div>
+          <span class="card-badge badge--easy">Easy</span>
+          <div class="card-title">Farnsworth Track</div>
+          <div class="card-location">Point Nepean area &middot; 1.5km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 30&#x2013;45 min one way</span>
+            <span class="walk-meta-item">&#128205; London Bridge or Portsea Ocean Beach</span>
+            <span class="walk-meta-item">&#128021; Dogs not permitted</span>
+          </div>
+          <p class="card-desc">A short, accessible clifftop link between Portsea Ocean Beach and London Bridge. Walk one way and return along the beach for a scenic circuit. Dramatic cliff views over Bass Strait with minimal effort &#x2014; perfect for families or visitors who want ocean scenery without a full hike.</p>
+        </div>
+      </div>
+
+      <div class="card" data-difficulty="easy">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127814;</div>
+          <span class="card-badge badge--easy">Easy</span>
+          <div class="card-title">Coppins Track</div>
+          <div class="card-location">Point Nepean area &middot; 4km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 1.5&#x2013;2 hours one way</span>
+            <span class="walk-meta-item">&#128205; Sorrento Ocean Beach</span>
+            <span class="walk-meta-item">&#128021; Dogs not permitted</span>
+          </div>
+          <p class="card-desc">From Sorrento Ocean Beach, this clifftop walk winds 4km to Diamond Bay through coastal heathland and historic landscape. The track traces a hundred years of local history &#x2014; look for interpretive signage about the area&#x27;s military and quarantine history. Diamond Bay is a peaceful destination well off the tourist radar.</p>
+          <div class="card-tip"><strong>Insider Tip</strong>Walk out to Diamond Bay in the morning when the light hits the bay from the east. Pack morning tea and sit on the clifftop &#x2014; you&#x27;ll have it largely to yourself on a weekday.</div>
+        </div>
+      </div>
+
+      <div class="card" data-difficulty="moderate">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127795;</div>
+          <span class="card-badge badge--moderate">Moderate</span>
+          <div class="card-title">Greens Bush &#x2014; Two Bays Section</div>
+          <div class="card-location">Greens Bush &middot; 8.9km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 3&#x2013;4 hours</span>
+            <span class="walk-meta-item">&#128205; Baldry Crossing (Rogers Rd)</span>
+            <span class="walk-meta-item">&#128021; No dogs (National Park)</span>
+          </div>
+          <p class="card-desc">The most rewarding section of the Two Bays Walking Track &#x2014; threading through Greens Bush, the largest remnant bushland on the Peninsula. Ancient grasstrees (some 200+ years old), pockets of tea-tree alive with birds, fern gullies, and open eucalypt forest. Excellent for birdwatching &#x2014; Superb Fairywren, Eastern Yellow Robin, and Eastern Spinebill all common here.</p>
+          <div class="card-tip"><strong>Insider Tip</strong>Bicycles are not permitted in Greens Bush &#x2014; which means it&#x27;s genuinely quiet. Wildlife is more active in the mornings and around dusk. Carry water: no taps along the trail.</div>
+        </div>
+      </div>
+
+      <div class="card" data-difficulty="easy">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127794;</div>
+          <span class="card-badge badge--easy">Easy</span>
+          <div class="card-title">Baldrys Short Circuit &#x2014; Greens Bush</div>
+          <div class="card-location">Greens Bush &middot; 1.6km circuit</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 30&#x2013;45 min</span>
+            <span class="walk-meta-item">&#128205; Baldry Crossing</span>
+            <span class="walk-meta-item">&#128021; No dogs</span>
+          </div>
+          <p class="card-desc">A short but rewarding circuit through eucalypt forest dominated by Peppermint, Messmate, and Manna Gum. Perfect for families or anyone wanting a genuine nature immersion without the physical commitment. The birdlife in the understory is exceptional in autumn.</p>
+        </div>
+      </div>
+
+      <div class="card" data-difficulty="moderate">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127754;</div>
+          <span class="card-badge badge--moderate">Moderate</span>
+          <div class="card-title">OT Dam Circuit &#x2014; Arthurs Seat</div>
+          <div class="card-location">Arthurs Seat State Park &middot; 3km circuit</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; ~2 hours</span>
+            <span class="walk-meta-item">&#128205; Arthurs Seat Rd near Main Creek Rd</span>
+            <span class="walk-meta-item">&#128021; No dogs</span>
+          </div>
+          <p class="card-desc">Views of the historic OT Dam &#x2014; constructed by the OT company to water their crops, now sitting in a deep gully surrounded by native forest. A quiet, contemplative walk through diverse native vegetation with some moderately steep sections. Under-the-radar compared to the summit walks.</p>
+        </div>
+      </div>
+
+      <div class="card" data-difficulty="easy">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#127964;</div>
+          <span class="card-badge badge--easy">Easy &#128021;</span>
+          <div class="card-title">Mornington Peninsula Foreshore Walk</div>
+          <div class="card-location">Mornington to Mount Martha &middot; 7km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; 1.5&#x2013;2 hours one way</span>
+            <span class="walk-meta-item">&#128205; Mornington Main Beach carpark</span>
+            <span class="walk-meta-item">&#128021; Dogs welcome (on lead)</span>
+          </div>
+          <p class="card-desc">The most dog-friendly significant walk on the Peninsula &#x2014; the coastal foreshore path between Mornington and Mount Martha offers sweeping views of Port Phillip Bay, heritage bathing boxes, clifftop lookouts, and quiet beaches. A perfect long morning walk followed by coffee in Mornington village.</p>
+          <div class="card-tip"><strong>Insider Tip</strong>This is one of the few Peninsula walks where dogs are genuinely welcome. Arrive early on a weekday morning for the classic Melbourne &#x27;suburb meets the sea&#x27; atmosphere at its finest.</div>
+        </div>
+      </div>
+
+      <div class="card" data-difficulty="easy">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#128703;</div>
+          <span class="card-badge badge--easy">Easy &#128021;</span>
+          <div class="card-title">Sorrento to Blairgowrie Foreshore</div>
+          <div class="card-location">Sorrento &middot; ~3km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; ~1 hour one way</span>
+            <span class="walk-meta-item">&#128205; Sorrento Ocean Beach carpark</span>
+            <span class="walk-meta-item">&#128021; Dogs permitted in some sections</span>
+          </div>
+          <p class="card-desc">A relaxed foreshore stroll along the sheltered back beach between Sorrento and Blairgowrie. Calm bay waters to one side, heritage cottages and tea-tree scrub to the other. Extremely accessible, great for all fitness levels, and a lovely way to explore Sorrento without driving. Return via the village for coffee and pastries.</p>
+        </div>
+      </div>
+
+      <div class="card" data-difficulty="moderate">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">&#128009;</div>
+          <span class="card-badge badge--moderate">Moderate</span>
+          <div class="card-title">Fingal Beach Track</div>
+          <div class="card-location">Mornington Peninsula National Park &middot; 3km one way</div>
+          <div class="walk-meta">
+            <span class="walk-meta-item">&#128336; ~1.5 hours one way</span>
+            <span class="walk-meta-item">&#128205; Fingal Picnic Area</span>
+            <span class="walk-meta-item">&#128021; No dogs (National Park)</span>
+          </div>
+          <p class="card-desc">From the Fingal Picnic Area, this 3km track threads through dense ti-tree to stunning lookouts over Bass Strait. The contrast between enclosed coastal scrub and the sudden open ocean views is dramatic. Less visited than the Cape Schanck tracks &#x2014; feels genuinely remote despite being close to Peninsula Hot Springs.</p>
+          <div class="card-tip"><strong>Insider Tip</strong>Combine with a Peninsula Hot Springs session at the end of the walk &#x2014; about 10 minutes&#x27; drive from the Fingal trailhead to the springs. The most rewarding walk-and-spa combination on the Peninsula.</div>
+        </div>
+      </div>
+
+    </div><!-- /walks-grid -->
+
+    <div class="insider-tip" style="margin-top:2.5rem;">
+      <div class="insider-tip-label">&#128204; Peninsula Walking &#x2014; Key Rules</div>
+      <p><strong>Dogs:</strong> Not permitted in Mornington Peninsula National Park or Arthurs Seat State Park. Dogs are welcome at some coastal foreshore walks (Mornington, Sorrento foreshore). Always check signage.<br>
+      <strong>Snakes:</strong> Eastern Browns and Tiger Snakes are present in all bushland areas. Stick to the track, wear closed shoes, and give any snakes plenty of space.<br>
+      <strong>Water:</strong> No drinking water taps on most bush tracks. Carry at least 1L per person for any walk over 2 hours.<br>
+      <strong>Tides:</strong> Some coastal sections are tidal. Check Bureau of Meteorology before any beach traverse.</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- ===== SECTION 8: BEACHES ===== -->
+<section class="section section--alt" id="beaches">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="section-number">08</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Coast &amp; Sea</span>
+        <h2>Best Beaches</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; margin-bottom:2rem;">The peninsula has two fundamentally different coastlines. The <strong>Port Phillip Bay side</strong> offers calm, warm, family-friendly beaches with shallow water and gentle conditions. The <strong>Bass Strait (ocean) side</strong> is wild, powerful, and achingly beautiful — dramatic surf, towering cliffs, and a raw energy that feels completely different. Both are worth experiencing.</p>
+
+    <h3 style="margin-bottom:1.25rem;">Bay Beaches — Calm &amp; Swimming</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--bay">Port Phillip Bay</span>
+          <div class="card-emoji">🏖️</div>
+          <div class="card-title">Sorrento Front Beach</div>
+          <div class="card-location">Sorrento</div>
+          <p class="card-desc">The classic peninsula bay beach — calm, clear, shallow water with the iconic wooden bathing boxes. Great for a morning swim or afternoon wander. The village of Sorrento immediately behind means excellent coffee and lunch options within walking distance.</p>
+          <span class="card-tag">Swimming · Bathing Boxes · Village</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--bay">Port Phillip Bay</span>
+          <div class="card-emoji">🏖️</div>
+          <div class="card-title">Portsea Front Beach</div>
+          <div class="card-location">Portsea</div>
+          <p class="card-desc">Slightly less busy than Sorrento but equally lovely. The private pier and white sand give it a genuine Hamptons feel on a sunny autumn morning. Weekday visits in April are essentially deserted.</p>
+          <span class="card-tag">Quiet in April · Pier · Clear Water</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--bay">Port Phillip Bay</span>
+          <div class="card-emoji">🏖️</div>
+          <div class="card-title">Dromana Beach</div>
+          <div class="card-location">Dromana</div>
+          <p class="card-desc">A long, gentle arc of sand near the midpoint of the peninsula. Excellent access, calm conditions, and close to the Dromana/Rosebud dining and shopping strip. A good base beach if you're staying in the upper peninsula.</p>
+          <span class="card-tag">Accessible · Long Stretch</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--bay">Port Phillip Bay</span>
+          <div class="card-emoji">🌊</div>
+          <div class="card-title">Safety Beach</div>
+          <div class="card-location">Safety Beach</div>
+          <p class="card-desc">The peninsula's most reliably calm swimming beach — the name is accurate. Shallow, warm water even by April standards, with Martha's Table nearby for post-swim aperitivo. Good for an early morning walk along the long, flat shoreline.</p>
+          <span class="card-tag">Swimming · Safe for All</span>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem; margin-bottom:1.25rem;">Ocean Beaches — Wild &amp; Dramatic</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-accent" style="height:4px;background:var(--terra);"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--ocean">Bass Strait Ocean</span>
+          <div class="card-emoji">🌊</div>
+          <div class="card-title">Gunnamatta Ocean Beach</div>
+          <div class="card-location">Gunnamatta</div>
+          <p class="card-desc">Long, wild, and remote-feeling despite being accessible. Powerful surf, huge skies, and almost no one in April. Not for swimming (strong rips), but extraordinary for walking and watching the power of Bass Strait. Surfers love the consistent beach break.</p>
+          <span class="card-tag">Walking · Surfing · Wild · No Swimming</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent" style="height:4px;background:var(--terra);"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--ocean">Bass Strait Ocean</span>
+          <div class="card-emoji">🏔️</div>
+          <div class="card-title">Sorrento Back Beach</div>
+          <div class="card-location">Sorrento (ocean side)</div>
+          <p class="card-desc">Just a few kilometres from the calm front beach, the back beach is a completely different world — dramatic limestone cliffs, powerful surf, and an atmosphere of genuine wildness. Walk the clifftop track south toward London Bridge rock formation.</p>
+          <span class="card-tag">Clifftop Walk · Wild · No Swimming</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent" style="height:4px;background:var(--terra);"></div>
+        <div class="card-body">
+          <span class="beach-type-badge beach-type--ocean">Bass Strait Ocean</span>
+          <div class="card-emoji">💨</div>
+          <div class="card-title">Rye Ocean Beach</div>
+          <div class="card-location">Rye</div>
+          <p class="card-desc">Near the Peninsula Hot Springs and great to combine with a springs visit. Wide, exposed beach with dune backing. In April it's nearly empty. Excellent for a brisk morning walk and bracing sea air.</p>
+          <span class="card-tag">Near Hot Springs · Walk</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insider-tip">
+      <div class="insider-tip-label">📍 Insider Tip</div>
+      <p>In April, the bay beaches are still warm enough for a morning dip — the water temperature lags behind the air by a few weeks after summer. The ocean beaches are spectacular but genuinely dangerous for swimming year-round due to rips. Never swim at Back Beach or Gunnamatta without surf lifesaving supervision.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 9: HIDDEN GEMS ===== -->
+<section class="section" id="gems">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="section-number">09</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Off the Beaten Track</span>
+        <h2>Hidden Gems &amp; Insider Picks</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; margin-bottom:2rem;">These are the places locals mention quietly, the ones that don't feature prominently in the tourist brochures but define what makes the peninsula feel special to those who really know it.</p>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🚂</div>
+          <span class="card-badge badge--winery">Natural Wines</span>
+          <div class="card-title">Nazaaray Estate</div>
+          <div class="card-location">Flinders</div>
+          <p class="card-desc">What this tiny winery lacks in size it more than makes up for in character. The quaint guesthouses are made from reconverted 1930s train carriages. The wines — naturally fermented with wild yeast — are genuinely idiosyncratic and fascinating. A visit feels like discovering something private.</p>
+          <span class="card-tag">Train Carriage Stay · Natural Wines</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🌱</div>
+          <span class="card-badge badge--winery">Low-waste</span>
+          <div class="card-title">Allis Wine Bar</div>
+          <div class="card-location">Main Ridge</div>
+          <p class="card-desc">The low-waste, low-key sibling of Ten Minutes by Tractor's fine dining operation. Small plates, garden-harvested ingredients, a thoughtful wine list, and genuinely good conversation. The kind of find that feels like your own discovery.</p>
+          <span class="card-tag">Small Plates · Local · Thoughtful</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--dining"></div>
+        <div class="card-body">
+          <div class="card-emoji">🌾</div>
+          <span class="card-badge badge--dining">Regenerative Farm</span>
+          <div class="card-title">Barragunda Dining</div>
+          <div class="card-location">Cape Schanck</div>
+          <p class="card-desc">Set on a 1000-acre regenerative farm estate, chef Simone Watts's diner is one of the peninsula's most compelling new voices. Genuinely farm-to-table in the most literal sense. Not widely publicised; deeply worth seeking out.</p>
+          <span class="card-tag">New Voice · Farm-to-Table</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">🗺️</div>
+          <span class="card-badge badge--beach">Secret Beach</span>
+          <div class="card-title">Bushrangers Bay</div>
+          <div class="card-location">Cape Schanck</div>
+          <p class="card-desc">A hidden ocean beach accessed via a 2.5km walk through coastal heathland from Cape Schanck. Almost nobody goes here even in summer. In April it's completely deserted. Dramatic rock formations, sea caves, and the raw power of the Southern Ocean.</p>
+          <span class="card-tag">Secret Beach · 2.5km walk</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--dining"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍛</div>
+          <span class="card-badge badge--dining">Sri Lankan · Unusual</span>
+          <div class="card-title">Many Little</div>
+          <div class="card-location">Red Hill South</div>
+          <p class="card-desc">Sri Lankan flavours and techniques meet European wine bar ambience in this unique spot from the Polperro winery team. Curry leaves, tamarind chutney, pickled lime — rotating alongside natural wines and small producers. Completely unexpected, works brilliantly.</p>
+          <span class="card-tag">Natural Wine · Creative</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--dining"></div>
+        <div class="card-body">
+          <div class="card-emoji">🎵</div>
+          <span class="card-badge badge--dining">Live Music · Heritage</span>
+          <div class="card-title">The Bay Hotel Mornington</div>
+          <div class="card-location">Mornington</div>
+          <p class="card-desc">A vibrant gastropub in a heritage-listed former bank — sit in the main bar, catch live music in the upstairs bandroom, or book a private dinner in the building's old vault. One of the most characterful venues in the peninsula towns.</p>
+          <span class="card-tag">Local Institution</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insider-tip">
+      <div class="insider-tip-label">📍 Insider Tip</div>
+      <p>The peninsula's best-kept food secret: the farm gates and provedores dotted along Mornington–Flinders Road and throughout the Red Hill hinterland. Look for handmade signs for local eggs, heritage vegetables, honey, and seasonal produce. This is where peninsula chefs shop on weekday mornings.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 10: APRIL ===== -->
+<section class="section section--alt" id="april">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="section-number">10</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Seasonal Guide</span>
+        <h2>April on the Peninsula</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; margin-bottom:2rem;">Locals will tell you April is the secret best time to visit — and they're not wrong. The summer hordes have retreated to the city, but the weather is often still glorious: cool, crisp mornings giving way to mild, golden afternoons. The vineyards are in full autumn colour, restaurants are less rushed and more attentive, and you can actually get a table at places that were booked out all January.</p>
+
+    <div class="overview-grid">
+      <div class="overview-item">
+        <div class="overview-icon">🍂</div>
+        <h4>Autumn Vineyards</h4>
+        <p>Reds and golds across the vines — particularly beautiful in Red Hill and Main Ridge</p>
+      </div>
+      <div class="overview-item">
+        <div class="overview-icon">🌡️</div>
+        <h4>Weather</h4>
+        <p>Average 14–19°C in April. Mornings crisp, afternoons mild. Occasional showers add to the atmosphere</p>
+      </div>
+      <div class="overview-item">
+        <div class="overview-icon">🦞</div>
+        <h4>Seafood Season</h4>
+        <p>Abalone, crayfish, squid — autumn is one of the best times for peninsula seafood</p>
+      </div>
+      <div class="overview-item">
+        <div class="overview-icon">🍄</div>
+        <h4>Truffle &amp; Mushroom</h4>
+        <p>Late April sees Victorian truffles and wild mushrooms on menus throughout the region</p>
+      </div>
+      <div class="overview-item">
+        <div class="overview-icon">🏪</div>
+        <h4>Quieter Crowd</h4>
+        <p>Post-Easter, the peninsula's tourism pressure eases dramatically — more intimate experiences</p>
+      </div>
+      <div class="overview-item">
+        <div class="overview-icon">♨️</div>
+        <h4>Hot Springs Perfect</h4>
+        <p>The geothermal pools feel even more indulgent against cool autumn air — the contrast is extraordinary</p>
+      </div>
+    </div>
+
+    <h3 style="margin-top:2.5rem; margin-bottom:1.25rem;">What's On in April 2026</h3>
+
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">♨️</div>
+          <span class="card-badge badge--activity">School Holidays · Book Ahead</span>
+          <div class="card-title">April Holidays at Peninsula Hot Springs</div>
+          <div class="card-location">Peninsula Hot Springs, Fingal</div>
+          <p class="card-desc">The strongest verified April programming on the Peninsula right now. Highlights include guided sound bathing sessions on 4 and 11 April, Bathe in Cinema nights on 9 and 16 April, live music across the holiday period, and Family Body Clay sessions from Friday to Monday at 11am during the holidays (excluding 3 April). Holiday hours are extended, with the Bath House from 5am and the Amphitheatre from 7am over Easter.</p>
+          <span class="card-tag">Wellness · Family · Live Music</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">🎶</div>
+          <span class="card-badge badge--activity">Sundays from 12pm</span>
+          <div class="card-title">Sunday Sessions at Peninsula Hot Springs</div>
+          <div class="card-location">Bath House Cafe / Amphitheatre, Fingal</div>
+          <p class="card-desc">A reliable recurring "what's on" pick rather than a one-off event. Acoustic sets continue through April and are included with the bathing experience, weather permitting. Artists listed for the month include The Warrains, Tim McMillan, and Simon Hudson.</p>
+          <span class="card-tag">Recurring · Included with Bathing</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍷</div>
+          <span class="card-badge badge--winery">New Cellar Door Pick</span>
+          <div class="card-title">Polperro Winery Cellar Door</div>
+          <div class="card-location">Red Hill South</div>
+          <p class="card-desc">An intimate cellar door showcasing both Polperro and Even Keel wines. Open Wednesday to Sunday, 11am–5pm, and easy to add to a low-fuss Red Hill tasting route without overplanning.</p>
+          <span class="card-tag">Walk-ins Welcome</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🧀</div>
+          <span class="card-badge badge--winery">Daily Tastings</span>
+          <div class="card-title">Quealy Winemakers</div>
+          <div class="card-location">Balnarring / Merricks</div>
+          <p class="card-desc">Open daily from 10am–5pm for tastings, with pre-bookable cheese plates that make it an easy tasting-plus-snack stop. A strong option for a flexible weekday wine route.</p>
+          <span class="card-tag">Daily · Cheese Plates</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="april-highlight">
+      <div class="april-highlight-label">🍂 April Highlight</div>
+      <p>Right now, the safest event-led planning bet is Peninsula Hot Springs rather than markets. Their April program is clearly verified, while Red Hill Market timing should be manually re-checked before publishing an exact date. If you want one polished autumn day out, pair a hot springs session with one or two Red Hill cellar doors and keep the rest flexible.</p>
+    </div>
+
+    <h3 style="margin-top:2.5rem; margin-bottom:1.25rem;">Getting There &amp; Around</h3>
+    <div class="card-grid">
+      <div class="card">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">🚗</div>
+          <span class="card-badge badge--activity">Recommended</span>
+          <div class="card-title">By Car from Melbourne</div>
+          <div class="card-location">~90 minutes</div>
+          <p class="card-desc"><strong>Via EastLink + Frankston Freeway:</strong> The fastest option. Melbourne CBD to Mornington is typically 75–90 minutes; to Red Hill 90–100 minutes; to Sorrento/Portsea around 100–110 minutes. Allow extra time on Friday afternoons.<br><br><strong>Via Nepean Highway:</strong> Slower but more scenic through Bayside suburbs.</p>
+          <span class="card-tag">Car · Flexible</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--beach"></div>
+        <div class="card-body">
+          <div class="card-emoji">⛴️</div>
+          <span class="card-badge badge--beach">Scenic · Car Ferry</span>
+          <div class="card-title">By Ferry from Melbourne</div>
+          <div class="card-location">Port Melbourne to Sorrento</div>
+          <p class="card-desc">The Searoad ferry connects Port Melbourne to Sorrento (~2 hours). A scenic alternative to driving, and you arrive by sea into Sorrento — a spectacular way to begin the weekend. Book in advance, especially for peak weekends.</p>
+          <span class="card-tag">Scenic · ~2hrs</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--activity"></div>
+        <div class="card-body">
+          <div class="card-emoji">🗺️</div>
+          <span class="card-badge badge--activity">Car Essential</span>
+          <div class="card-title">Getting Around</div>
+          <div class="card-location">Hire / Drive</div>
+          <p class="card-desc">A car is essentially essential on the peninsula — public transport is limited. If you're planning serious wine tasting, consider hiring a dedicated driver or using a wine tour operator. Several excellent ones operate from Mornington.</p>
+          <span class="card-tag">Driver Options Available</span>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-accent card-accent--winery"></div>
+        <div class="card-body">
+          <div class="card-emoji">🍷</div>
+          <span class="card-badge badge--winery">Driver Included</span>
+          <div class="card-title">Wine Tour Operators</div>
+          <div class="card-location">Region-wide</div>
+          <p class="card-desc">Several operators offer guided cellar door tours, meaning the driver problem solves itself. Small-group tours (4–8 people) typically include 3–4 cellar doors and lunch. Highly recommended if wine is the main agenda.</p>
+          <span class="card-tag">Curated · Insider Access</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="insider-tip">
+      <div class="insider-tip-label">📍 Insider Tip</div>
+      <p>If you're staying at Jackalope, book a wine tour operator for Saturday afternoon cellar door hopping — this way you both get to properly taste rather than one person always driving. The Jackalope concierge can arrange this. It's one of those small upgrades that completely changes the experience.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SECTION 11: ITINERARY ===== -->
+<section class="section" id="itinerary">
+  <div class="container">
+    <div class="section-eyebrow">
+      <span class="section-number">11</span>
+      <div class="section-label-wrap">
+        <span class="section-label">Your Weekend</span>
+        <h2>Sample Couples Weekend Itinerary</h2>
+        <div class="section-title-line"></div>
+      </div>
+    </div>
+
+    <p style="max-width:760px; margin-bottom:3rem;">Based at Jackalope Hotel, Merricks North. April 19–20. Designed for relaxed indulgence — not trying to do everything, but doing the best things properly.</p>
+
+    <!-- Day 1 -->
+    <div class="itinerary-day">
+      <div class="itinerary-day-header">
+        <span class="itinerary-day-icon">🌅</span>
+        <div>
+          <div class="itinerary-day-title">Saturday — Arrival &amp; Immersion</div>
+          <div class="itinerary-day-subtitle">April 19 · Drive in · Long lunch · Doot Doot Doot</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--morning"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--morning">8:00 – 9:30 · Morning</div>
+            <div class="timeline-title">Drive from Melbourne</div>
+            <p class="timeline-desc">Leave Melbourne by 8am to beat weekend traffic on the Nepean or EastLink. Put on a good podcast or playlist. Arrival on the Peninsula by ~9:30 with a quiet Saturday morning ahead of you.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--morning"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--morning">9:30 – 11:00 · Morning</div>
+            <div class="timeline-title">Red Hill Market or Morning Wander at Sorrento</div>
+            <p class="timeline-desc">If the market is on — go. It's the best way to arrive into the peninsula's food culture. Stock up on local provisions, grab excellent coffee, browse without a plan. If not a market Saturday: drive to Sorrento, walk the Back Beach clifftops, feel the sea air, have coffee at a village café.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--morning"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--morning">11:30 – 12:00 · Late Morning</div>
+            <div class="timeline-title">Cellar Door — Yabby Lake or Moorooduc Estate</div>
+            <p class="timeline-desc">A focused, unhurried tasting before lunch. Both have exceptional single-vineyard Chardonnay and are within easy reach of the lunch destination. Don't rush — let the conversation about the wine happen.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--afternoon"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--afternoon">12:30 – 3:30 · Afternoon</div>
+            <div class="timeline-title">Long Lunch at Paringa Estate or Montalto</div>
+            <p class="timeline-desc">Book the three-course lunch. Order the matched wines. Eat slowly. Let the afternoon arrive around you. This is the peninsula's primary offering and both venues do it beautifully. The autumn light through the vineyard windows at 3pm is something to remember.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--afternoon"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--afternoon">4:00 – 5:00 · Afternoon</div>
+            <div class="timeline-title">Check In — Jackalope Hotel</div>
+            <p class="timeline-desc">Arrive at Jackalope and take the time to actually settle in. Walk the vineyard. Have a glass of Willow Creek Chardonnay on the terrace. Don't immediately check your phone.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--afternoon"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--afternoon">5:30 – 6:30 · Late Afternoon</div>
+            <div class="timeline-title">Pt Leo Estate Sculpture Walk</div>
+            <p class="timeline-desc">A 20-minute drive to Point Leo for the golden-hour sculpture walk. The late afternoon light turns the artwork and vineyards extraordinary. Free with estate entry. Combine with a glass of wine at the cellar door as the sun drops.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--evening"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--evening">7:30 – 10:00 · Evening</div>
+            <div class="timeline-title">Dinner at Doot Doot Doot</div>
+            <p class="timeline-desc">The headline special-occasion meal. Theatrical, indulgent, and committed to the best local produce. Caviar, matched wines, the whole experience. This is what the hotel is partly famous for — let it be extraordinary.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--evening"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--evening">Late Evening</div>
+            <div class="timeline-title">Nightcap at the Jackalope Bar</div>
+            <p class="timeline-desc">The bar is as designed and considered as everything else in the hotel. Order something interesting from the cocktail list. Look out at the dark vineyard. That's a Saturday evening done right.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Day 2 -->
+    <div class="itinerary-day">
+      <div class="itinerary-day-header">
+        <span class="itinerary-day-icon">🌿</span>
+        <div>
+          <div class="itinerary-day-title">Sunday — Slow Morning &amp; Wellness</div>
+          <div class="itinerary-day-subtitle">April 20 · Hot Springs · Lunch · Cellar door · Home</div>
+        </div>
+      </div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--morning"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--morning">7:30 – 9:00 · Morning</div>
+            <div class="timeline-title">Slow Morning at Jackalope</div>
+            <p class="timeline-desc">Breakfast at the hotel — or in the vineyard if the morning is kind. Resist the urge to plan. Walk through the vines with a coffee. The mist at dawn over the Willow Creek Vineyard is one of those scenes you remember.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--morning"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--morning">10:00 – 13:00 · Morning</div>
+            <div class="timeline-title">Peninsula Hot Springs — Spa Dreaming Centre</div>
+            <p class="timeline-desc">Book the adults-only Spa Dreaming Centre session (book in advance). The 3-hour bathing experience moves through cave pools, outdoor geothermal pools, steam rooms and — the highlight — the hilltop infinity pool with views across the peninsula. Add a couples massage treatment.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--afternoon"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--afternoon">13:30 – 15:30 · Afternoon</div>
+            <div class="timeline-title">Lunch at Rare Hare or Polperro</div>
+            <p class="timeline-desc">A more casual but still excellent lunch. Rare Hare has the advantage of being right at the hotel — woodfired cooking, share plates, Willow Creek wines. Or drive 15 minutes to Polperro for the panoramic vineyard views and a similarly relaxed share-plate format.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--afternoon"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--afternoon">15:30 – 16:30 · Afternoon</div>
+            <div class="timeline-title">Final Cellar Door — Quealy Winemakers or T'Gallant</div>
+            <p class="timeline-desc">A parting glass before heading home. Quealy is small and personal — Kathleen Quealy will often pour the tastings herself. T'Gallant is more festive and easy-going. Either way, pick up a case for the road.</p>
+          </div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-dot timeline-dot--evening"></div>
+          <div class="timeline-card">
+            <div class="timeline-time timeline-time--evening">17:00 – 18:30 · Evening</div>
+            <div class="timeline-title">Drive Back to Melbourne</div>
+            <p class="timeline-desc">Leave by 5pm to beat the Sunday evening traffic surge. Put on something relaxed. Debrief on the weekend. Plan the next one.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="insider-tip">
+      <div class="insider-tip-label">📍 The Most Important Tip</div>
+      <p>Resist the temptation to over-schedule. The Peninsula reveals itself to those who slow down. If you find yourself lingering over lunch until 4pm because the conversation is good and the wine is extraordinary — that IS the plan working. Don't rush to the next thing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">The Peninsula Insider</div>
+    <div class="footer-tagline">Crafted with care for the Peninsula · Your complete local's guide to Mornington Peninsula, Victoria</div>
+    <div class="footer-links">
+      <a href="#whats-on">What's On</a>
+      <a href="#stay">Where to Stay</a>
+      <a href="#eat">Where to Eat</a>
+      <a href="#wine">Wine Country</a>
+      <a href="#do">Things to Do</a>
+      <a href="#walks">Walks &amp; Trails</a>
+      <a href="#beaches">Beaches</a>
+      <a href="#gems">Hidden Gems</a>
+      <a href="#april">April</a>
+      <a href="#itinerary">Itinerary</a>
+    </div>
+    <div class="footer-bottom">
+      <p>Compiled April 2026 · Information current at time of writing — always confirm bookings and opening hours directly with venues.</p>
+      <p style="margin-top:0.5rem;">Mornington Peninsula acknowledges the Bunurong/BoonWurrung people, the Traditional Custodians of these lands and waters.</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ===== JAVASCRIPT ===== -->
+<script>
+
+  // Walks difficulty filter
+  window.filterWalks = function(difficulty, btn) {
+    const cards = document.querySelectorAll('#walks-grid .card');
+    cards.forEach(card => {
+      if (difficulty === 'all' || card.dataset.difficulty === difficulty) {
+        card.style.display = '';
+      } else {
+        card.style.display = 'none';
+      }
+    });
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('active', 'active-easy', 'active-moderate', 'active-hard');
+    });
+    btn.classList.add('active');
+    if (difficulty !== 'all') btn.classList.add('active-' + difficulty);
+  };
+
+  // Hamburger menu
+  const hamburger = document.getElementById('hamburger');
+  const navMobile = document.getElementById('navMobile');
+
+  // FIX: expose closeMenu on window so inline onclick="closeMenu()" handlers work reliably
+  window.closeMenu = function() {
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    navMobile.classList.remove('open');
+  };
+
+  hamburger.addEventListener('click', function(e) {
+    e.stopPropagation(); // prevent outside-click handler firing on same event
+    const isOpen = navMobile.classList.contains('open');
+    if (isOpen) {
+      window.closeMenu();
+    } else {
+      hamburger.classList.add('open');
+      hamburger.setAttribute('aria-expanded', 'true');
+      navMobile.classList.add('open');
+    }
+  });
+
+  // Close mobile nav on outside click (stopPropagation on button prevents race)
+  document.addEventListener('click', function(e) {
+    if (navMobile.classList.contains('open') &&
+        !navMobile.contains(e.target) &&
+        !hamburger.contains(e.target)) {
+      window.closeMenu();
+    }
+  });
+
+  // Back to top
+  const backToTop = document.getElementById('backToTop');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTop.classList.add('visible');
+    } else {
+      backToTop.classList.remove('visible');
+    }
+  });
+
+  // Active nav highlighting
+  const navLinks = document.querySelectorAll('.nav-links a');
+  const navH = parseInt(getComputedStyle(document.documentElement).getPropertyValue('--nav-h')) || 68;
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const id = entry.target.getAttribute('id');
+        navLinks.forEach(link => {
+          link.classList.remove('active');
+          if (link.getAttribute('href') === '#' + id) {
+            link.classList.add('active');
+          }
+        });
+      }
+    });
+  }, {
+    rootMargin: `-${navH}px 0px -60% 0px`,
+    threshold: 0
+  });
+
+  document.querySelectorAll('section[id]').forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
