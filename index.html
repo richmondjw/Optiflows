@@ -259,18 +259,6 @@
   .IntentCards { flex-direction: column; }
   .IntentCard { padding: 20px 16px; }
 }
-/* --- PASSWORD GATE --- */
-.password-gate { position: fixed; inset: 0; z-index: 9999; background: var(--white, #ffffff); display: flex; align-items: center; justify-content: center; flex-direction: column; }
-.password-gate.hidden { display: none; }
-.password-gate-inner { text-align: center; max-width: 360px; padding: 2rem; }
-.password-gate-inner .gate-brand { font-family: var(--font-primary, 'General Sans', sans-serif); font-weight: 600; font-size: 1.25rem; color: var(--dark-teal, #053D3D); letter-spacing: -0.02em; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 2.5rem; }
-.password-gate-inner p { font-size: var(--font-size-small, 0.875rem); color: var(--mid-grey, #6f6f6f); margin-bottom: 1.5rem; }
-.password-gate-inner input { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--light-grey, #ddd); border-radius: var(--border-radius-small, 5px); background: transparent; color: var(--black, #0c0c0c); font-family: var(--font-primary, 'General Sans', sans-serif); font-size: 1rem; text-align: center; letter-spacing: 0.1em; outline: none; transition: border-color 0.2s; }
-.password-gate-inner input:focus { border-color: var(--mid-teal, #0A6E6E); }
-.password-gate-inner input.error { border-color: #E05252; }
-.password-gate-inner button { display: inline-block; margin-top: 1rem; padding: 0.6rem 2rem; font-family: var(--font-mono, 'Space Mono', monospace); font-size: var(--font-size-xx-small, 0.75rem); font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white, #ffffff); background: var(--dark-teal, #053D3D); border: none; border-radius: var(--border-radius-small, 5px); cursor: pointer; transition: background 0.2s; }
-.password-gate-inner button:hover { background: var(--mid-teal, #0A6E6E); }
-.site-content.locked { display: none; }
 </style>
 </head>
 <body>
@@ -343,12 +331,12 @@
   <div class="Hero-outer">
     <div class="Hero-main">
       <div class="Hero-titleCont animate-div">
-        <div class="PreTitle" style="margin-bottom:18px">For Growing Businesses</div>
+        <div class="PreTitle">For Growing Businesses</div>
         <h1 class="Hero-title">AI operating systems for businesses where work still depends on people holding it together.</h1>
       </div>
       <div class="Hero-copy animate-div">
         <p class="Hero-copyText">OptiFlows installs practical agent systems that reduce coordination drag, speed up follow-up, and stop value leaking between handoffs.</p>
-        <p class="Hero-copyText" style="margin-top:12px;opacity:0.78">Built for businesses where growth has outpaced the operating system, and too much execution still relies on inboxes, meetings, memory, and manual follow-up.</p>
+        <p class="Hero-copyText Hero-copyText--sub">Built for businesses where growth has outpaced the operating system, and too much execution still relies on inboxes, meetings, memory, and manual follow-up.</p>
       </div>
       <div class="Hero-buttons animate-div">
         <a href="#start" class="Button"><span>Start a Conversation</span></a>
@@ -404,7 +392,7 @@
   <div class="Section-inner">
     <div class="PreTitle animate-div">The System</div>
     <h2 class="Section-heading animate-div">We do not optimise work. We redesign how it moves.</h2>
-    <p class="Section-subheading animate-div" style="margin-bottom: 40px;">Most consultants recommend. Most agencies execute. Both stop when they leave. Optiflows installs infrastructure. The system runs autonomously.</p>
+    <p class="Section-subheading animate-div">Most consultants recommend. Most agencies execute. Both stop when they leave. Optiflows installs infrastructure. The system runs autonomously.</p>
 
     <div class="ContrastPair animate-div">
       <div class="ContrastPair-side">
@@ -417,7 +405,7 @@
       </div>
     </div>
 
-    <div class="CardGrid animate-div" style="margin-top: 30px;">
+    <div class="CardGrid animate-div">
       <div class="Card">
         <div class="Card-title">Design</div>
         <p class="Card-body">Map every decision, handoff, and dependency. Identify the bottlenecks. Architect the replacement system.</p>
@@ -558,7 +546,7 @@
 
 <!-- ======================== START / CTA ======================== -->
 <section class="Section" id="start">
-  <div class="Section-inner" style="padding: 40px 0;">
+  <div class="Section-inner">
     <div class="CTAPanel CTAPanel--form animate-div">
       <div>
         <div class="CTAPanel-brand">Optiflows</div>
