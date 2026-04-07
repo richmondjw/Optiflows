@@ -259,11 +259,41 @@
   .IntentCards { flex-direction: column; }
   .IntentCard { padding: 20px 16px; }
 }
+/* --- PASSWORD GATE --- */
+.password-gate { position: fixed; inset: 0; z-index: 9999; background: var(--white, #ffffff); display: flex; align-items: center; justify-content: center; flex-direction: column; }
+.password-gate.hidden { display: none; }
+.password-gate-inner { text-align: center; max-width: 360px; padding: 2rem; }
+.password-gate-inner .gate-brand { font-family: var(--font-primary, 'General Sans', sans-serif); font-weight: 600; font-size: 1.25rem; color: var(--dark-teal, #053D3D); letter-spacing: -0.02em; display: flex; align-items: center; justify-content: center; gap: 10px; margin-bottom: 2.5rem; }
+.password-gate-inner p { font-size: var(--font-size-small, 0.875rem); color: var(--mid-grey, #6f6f6f); margin-bottom: 1.5rem; }
+.password-gate-inner input { width: 100%; padding: 0.75rem 1rem; border: 1px solid var(--light-grey, #ddd); border-radius: var(--border-radius-small, 5px); background: transparent; color: var(--black, #0c0c0c); font-family: var(--font-primary, 'General Sans', sans-serif); font-size: 1rem; text-align: center; letter-spacing: 0.1em; outline: none; transition: border-color 0.2s; }
+.password-gate-inner input:focus { border-color: var(--mid-teal, #0A6E6E); }
+.password-gate-inner input.error { border-color: #E05252; }
+.password-gate-inner button { display: inline-block; margin-top: 1rem; padding: 0.6rem 2rem; font-family: var(--font-mono, 'Space Mono', monospace); font-size: var(--font-size-xx-small, 0.75rem); font-weight: 400; letter-spacing: 0.08em; text-transform: uppercase; color: var(--white, #ffffff); background: var(--dark-teal, #053D3D); border: none; border-radius: var(--border-radius-small, 5px); cursor: pointer; transition: background 0.2s; }
+.password-gate-inner button:hover { background: var(--mid-teal, #0A6E6E); }
+.site-content.locked { display: none; }
 </style>
 </head>
 <body>
 
-<div id="siteContent" class="site-content">
+<!-- ====== PASSWORD GATE ====== -->
+<div id="passwordGate" class="password-gate">
+  <div class="password-gate-inner">
+    <div class="gate-brand">
+      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5" fill="none"/>
+        <path d="M8 16h16" stroke="currentColor" stroke-width="1.5"/>
+        <path d="M16 8v16" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="16" cy="16" r="4" fill="#66FFE0" stroke="none"/>
+      </svg>
+      <span>Optiflows</span>
+    </div>
+    <p>Enter password to continue</p>
+    <input type="password" id="passwordInput" placeholder="Password" autocomplete="off" autofocus>
+    <button onclick="checkPassword()">Enter</button>
+  </div>
+</div>
+
+<div id="siteContent" class="site-content locked">
 
 <!-- ======================== HEADER ======================== -->
 <header class="Header" id="header">
@@ -637,6 +667,32 @@
 
 <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
 <script src="./app.js" defer></script>
+<script>
+// --- Password Gate ---
+var SITE_PASS = '1xlx1';
+var PASS_KEY = 'optiflows_authed';
+function checkPassword() {
+  var input = document.getElementById('passwordInput');
+  if (input.value === SITE_PASS) {
+    sessionStorage.setItem(PASS_KEY, '1');
+    unlockSite();
+  } else {
+    input.classList.add('error');
+    input.value = '';
+    input.placeholder = 'Incorrect password';
+    setTimeout(function() { input.classList.remove('error'); input.placeholder = 'Password'; }, 1500);
+  }
+}
+function unlockSite() {
+  document.getElementById('passwordGate').classList.add('hidden');
+  document.getElementById('siteContent').classList.remove('locked');
+}
+if (sessionStorage.getItem(PASS_KEY) === '1') { unlockSite(); }
+document.getElementById('passwordInput').addEventListener('keydown', function(e) {
+  if (e.key === 'Enter') checkPassword();
+});
+</script>
+
 <script>
 // --- Two-Step Lead Form ---
 (function() {
