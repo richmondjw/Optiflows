@@ -1,3 +1,7 @@
+// ========================================================================
+// THE PENINSULA INSIDER — Shared JavaScript
+// ========================================================================
+
 // ===== HAMBURGER MENU =====
 const hamburger = document.getElementById('hamburger');
 const navMobile = document.getElementById('navMobile');
@@ -6,6 +10,7 @@ window.closeMenu = function() {
   hamburger.classList.remove('open');
   hamburger.setAttribute('aria-expanded', 'false');
   navMobile.classList.remove('open');
+  document.body.style.overflow = '';
 };
 
 hamburger.addEventListener('click', function(e) {
@@ -17,6 +22,7 @@ hamburger.addEventListener('click', function(e) {
     hamburger.classList.add('open');
     hamburger.setAttribute('aria-expanded', 'true');
     navMobile.classList.add('open');
+    document.body.style.overflow = 'hidden';
   }
 });
 
@@ -28,72 +34,75 @@ document.addEventListener('click', function(e) {
   }
 });
 
+// ===== NAV SCROLL EFFECT =====
+const nav = document.getElementById('nav');
+let lastScroll = 0;
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 50) {
+    nav.classList.add('scrolled');
+  } else {
+    nav.classList.remove('scrolled');
+  }
+  lastScroll = window.scrollY;
+}, { passive: true });
+
 // ===== BACK TO TOP =====
 const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 400) {
+window.addEventListener('scroll', function() {
+  if (window.scrollY > 600) {
     backToTop.classList.add('visible');
   } else {
     backToTop.classList.remove('visible');
   }
-});
+}, { passive: true });
 
-// ===== ACTIVE NAV (pathname-based for multi-page) =====
+// ===== SCROLL REVEAL =====
 (function() {
-  const path = window.location.pathname.split('/').pop() || 'index.html';
-  const hash = window.location.hash;
+  const reveals = document.querySelectorAll('.reveal');
+  if (!reveals.length) return;
 
-  const pageMap = {
-    'whats-on.html': ['whats-on.html', 'whats-on.html#april'],
-    'stay.html': ['stay.html'],
-    'eat.html': ['eat.html'],
-    'wine.html': ['wine.html'],
-    'explore.html': ['explore.html', 'explore.html#do', 'explore.html#walks', 'explore.html#beaches', 'explore.html#gems'],
-    'itinerary.html': ['itinerary.html']
-  };
+  const observer = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -40px 0px'
+  });
 
-  document.querySelectorAll('.nav-dropdown a, .nav-mobile a').forEach(link => {
-    const href = link.getAttribute('href');
+  reveals.forEach(function(el) { observer.observe(el); });
+})();
+
+// ===== ACTIVE NAV (pathname-based) =====
+(function() {
+  var path = window.location.pathname.split('/').pop() || 'index.html';
+  document.querySelectorAll('.nav-dropdown a, .nav-mobile a').forEach(function(link) {
+    var href = link.getAttribute('href');
     if (!href) return;
-    const linkPage = href.split('#')[0] || 'index.html';
-    const isCurrentPage = linkPage === path || (path === '' && linkPage === 'index.html');
-    if (isCurrentPage) {
-      link.classList.add('active');
-      const parentLi = link.closest('li');
+    var linkPage = href.split('#')[0] || 'index.html';
+    if (linkPage === path) {
+      link.style.color = 'var(--dark)';
+      var parentLi = link.closest('li');
       if (parentLi) {
-        const trigger = parentLi.querySelector('.nav-group-trigger');
-        if (trigger) trigger.style.color = 'var(--terra)';
+        var trigger = parentLi.querySelector('.nav-group-trigger');
+        if (trigger) trigger.style.color = 'var(--dark)';
       }
     }
   });
 })();
 
-// ===== GENERIC FILTER =====
-window.filterCards = function(containerId, dataAttr, value, filterBarId) {
-  const container = document.getElementById(containerId);
-  if (!container) return;
-  container.querySelectorAll('[data-' + dataAttr + ']').forEach(el => {
-    el.style.display = (value === 'all' || el.dataset[toCamelCase(dataAttr)] === value) ? '' : 'none';
-  });
-  if (filterBarId) {
-    document.querySelectorAll('#' + filterBarId + ' .filter-btn').forEach(b => b.classList.remove('active'));
-    event.target.classList.add('active');
-  }
-};
-
-function toCamelCase(str) {
-  return str.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
-}
-
 // ===== COLLAPSIBLE TIERS =====
-document.querySelectorAll('.tier-section').forEach((section, i) => {
-  const header = section.querySelector('.tier-header');
+document.querySelectorAll('.tier-section').forEach(function(section, i) {
+  var header = section.querySelector('.tier-header');
   if (!header) return;
   if (i > 0) {
     section.classList.add('collapsed');
     header.classList.add('collapsed');
   }
-  header.addEventListener('click', () => {
+  header.addEventListener('click', function() {
     section.classList.toggle('collapsed');
     header.classList.toggle('collapsed');
   });
@@ -101,26 +110,26 @@ document.querySelectorAll('.tier-section').forEach((section, i) => {
 
 // ===== CROSS-PAGE SEARCH =====
 (function() {
-  const overlay = document.getElementById('searchOverlay');
-  const input = document.getElementById('searchInput');
-  const resultsEl = document.getElementById('searchResults');
-  const trigger = document.getElementById('searchTrigger');
-  let activeIdx = -1;
-  let searchIndex = null;
+  var overlay = document.getElementById('searchOverlay');
+  var input = document.getElementById('searchInput');
+  var resultsEl = document.getElementById('searchResults');
+  var trigger = document.getElementById('searchTrigger');
+  var activeIdx = -1;
+  var searchIndex = null;
 
   function loadIndex() {
     if (searchIndex) return Promise.resolve(searchIndex);
-    const base = document.querySelector('script[src*="shared.js"]');
-    const jsPath = base ? base.src.replace('shared.js', 'search-index.json') : 'js/search-index.json';
+    var base = document.querySelector('script[src*="shared.js"]');
+    var jsPath = base ? base.src.replace('shared.js', 'search-index.json') : 'js/search-index.json';
     return fetch(jsPath)
-      .then(r => r.json())
-      .then(data => { searchIndex = data; return data; })
-      .catch(() => { searchIndex = []; return []; });
+      .then(function(r) { return r.json(); })
+      .then(function(data) { searchIndex = data; return data; })
+      .catch(function() { searchIndex = []; return []; });
   }
 
   function highlightMatch(text, query) {
     if (!query) return text;
-    const escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    var escaped = query.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     return text.replace(new RegExp('(' + escaped + ')', 'gi'), '<mark>$1</mark>');
   }
 
@@ -132,10 +141,10 @@ document.querySelectorAll('.tier-section').forEach((section, i) => {
       return;
     }
     if (!searchIndex) return;
-    const q = query.toLowerCase();
-    const matches = searchIndex.filter(item =>
-      (item.title + ' ' + item.location + ' ' + item.desc + ' ' + (item.badge || '')).toLowerCase().includes(q)
-    );
+    var q = query.toLowerCase();
+    var matches = searchIndex.filter(function(item) {
+      return (item.title + ' ' + item.location + ' ' + item.desc + ' ' + (item.badge || '')).toLowerCase().indexOf(q) !== -1;
+    });
 
     if (matches.length === 0) {
       resultsEl.setAttribute('data-no-results', '');
@@ -143,27 +152,27 @@ document.querySelectorAll('.tier-section').forEach((section, i) => {
     }
     resultsEl.removeAttribute('data-no-results');
 
-    const groups = {};
-    matches.forEach(m => {
+    var groups = {};
+    matches.forEach(function(m) {
       if (!groups[m.section]) groups[m.section] = [];
       groups[m.section].push(m);
     });
 
-    Object.keys(groups).forEach(section => {
-      const label = document.createElement('div');
+    Object.keys(groups).forEach(function(section) {
+      var label = document.createElement('div');
       label.className = 'search-group-label';
       label.textContent = section;
       resultsEl.appendChild(label);
 
-      groups[section].forEach(m => {
-        const div = document.createElement('div');
+      groups[section].forEach(function(m) {
+        var div = document.createElement('div');
         div.className = 'search-result';
         div.innerHTML = '<span class="search-result-icon">' + (m.emoji || '') + '</span>'
           + '<div class="search-result-text">'
           + '<div class="search-result-title">' + highlightMatch(m.title, query) + '</div>'
           + '<div class="search-result-meta">' + highlightMatch(m.location || '', query) + '</div>'
           + '</div>';
-        div.addEventListener('click', () => goTo(m));
+        div.addEventListener('click', function() { goTo(m); });
         resultsEl.appendChild(div);
       });
     });
@@ -171,10 +180,10 @@ document.querySelectorAll('.tier-section').forEach((section, i) => {
 
   function goTo(item) {
     closeSearch();
-    const target = item.page + (item.anchor ? '#' + item.anchor : '');
-    const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+    var target = item.page + (item.anchor ? '#' + item.anchor : '');
+    var currentPage = window.location.pathname.split('/').pop() || 'index.html';
     if (item.page === currentPage) {
-      const el = document.getElementById(item.anchor);
+      var el = document.getElementById(item.anchor);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
         highlightEl(el);
@@ -185,24 +194,23 @@ document.querySelectorAll('.tier-section').forEach((section, i) => {
   }
 
   function highlightEl(el) {
-    el.style.outline = '3px solid var(--terra)';
-    el.style.outlineOffset = '4px';
-    el.style.borderRadius = 'var(--radius)';
-    el.style.transition = 'outline-color .8s';
-    setTimeout(() => {
+    el.style.outline = '2px solid var(--gold)';
+    el.style.outlineOffset = '6px';
+    el.style.transition = 'outline-color 1s';
+    setTimeout(function() {
       el.style.outlineColor = 'transparent';
-      setTimeout(() => { el.style.outline = ''; el.style.outlineOffset = ''; }, 800);
-    }, 1500);
+      setTimeout(function() { el.style.outline = ''; el.style.outlineOffset = ''; }, 1000);
+    }, 2000);
   }
 
   function openSearch() {
-    loadIndex().then(() => {
+    loadIndex().then(function() {
       overlay.classList.add('open');
       input.value = '';
       resultsEl.innerHTML = '';
       resultsEl.removeAttribute('data-no-results');
       activeIdx = -1;
-      setTimeout(() => input.focus(), 50);
+      setTimeout(function() { input.focus(); }, 50);
     });
   }
 
@@ -213,9 +221,9 @@ document.querySelectorAll('.tier-section').forEach((section, i) => {
   }
 
   function navigateResults(dir) {
-    const items = resultsEl.querySelectorAll('.search-result');
+    var items = resultsEl.querySelectorAll('.search-result');
     if (!items.length) return;
-    items.forEach(i => i.classList.remove('active'));
+    items.forEach(function(i) { i.classList.remove('active'); });
     activeIdx += dir;
     if (activeIdx < 0) activeIdx = items.length - 1;
     if (activeIdx >= items.length) activeIdx = 0;
@@ -224,21 +232,21 @@ document.querySelectorAll('.tier-section').forEach((section, i) => {
   }
 
   trigger.addEventListener('click', openSearch);
-  overlay.addEventListener('click', (e) => { if (e.target === overlay) closeSearch(); });
-  input.addEventListener('input', () => search(input.value));
-  input.addEventListener('keydown', (e) => {
+  overlay.addEventListener('click', function(e) { if (e.target === overlay) closeSearch(); });
+  input.addEventListener('input', function() { search(input.value); });
+  input.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') { closeSearch(); e.preventDefault(); }
     if (e.key === 'ArrowDown') { navigateResults(1); e.preventDefault(); }
     if (e.key === 'ArrowUp') { navigateResults(-1); e.preventDefault(); }
     if (e.key === 'Enter') {
-      const items = resultsEl.querySelectorAll('.search-result');
+      var items = resultsEl.querySelectorAll('.search-result');
       if (activeIdx >= 0 && items[activeIdx]) items[activeIdx].click();
       else if (items.length) items[0].click();
       e.preventDefault();
     }
   });
 
-  document.addEventListener('keydown', (e) => {
+  document.addEventListener('keydown', function(e) {
     if ((e.key === '/' || (e.metaKey && e.key === 'k') || (e.ctrlKey && e.key === 'k')) && !overlay.classList.contains('open')) {
       if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') return;
       e.preventDefault();
@@ -247,15 +255,15 @@ document.querySelectorAll('.tier-section').forEach((section, i) => {
     if (e.key === 'Escape' && overlay.classList.contains('open')) closeSearch();
   });
 
-  // On page load, check for hash and highlight target element
+  // Hash scroll highlight on page load
   if (window.location.hash) {
-    const id = window.location.hash.slice(1);
-    setTimeout(() => {
-      const el = document.getElementById(id);
+    var id = window.location.hash.slice(1);
+    setTimeout(function() {
+      var el = document.getElementById(id);
       if (el) {
         el.scrollIntoView({ behavior: 'smooth', block: 'center' });
         highlightEl(el);
       }
-    }, 300);
+    }, 400);
   }
 })();
