@@ -9,7 +9,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..800;1,9..144,300..800&family=Space+Mono:wght@400;700&family=Inter:wght@300..600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Space+Mono:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
   /* ====================================================
@@ -32,7 +32,7 @@
     --accent: #d6ff4b;   /* electric lime — "the system is alive" */
     --accent-ink: #0b0b0b;
 
-    --serif: 'Fraunces', Georgia, serif;
+    --serif: 'Cormorant Garamond', Georgia, serif;
     --sans: 'Inter', -apple-system, sans-serif;
     --mono: 'Space Mono', monospace;
   }
@@ -179,11 +179,12 @@
 
   .hero-title {
     font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(48px, 10.5vw, 176px);
-    line-height: 1.02;
-    letter-spacing: -0.035em;
+    font-weight: 500;
+    font-size: clamp(52px, 9vw, 132px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
     margin: 80px 0 0;
+    max-width: 10.5ch;
     position: relative;
     z-index: 2;
     opacity: 0;
@@ -192,13 +193,17 @@
   }
   .hero-title em {
     font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
   }
   @keyframes heroIn {
     to { opacity: 1; transform: translateY(0); }
   }
   @media (max-width: 720px) {
-    .hero-title { font-size: clamp(44px, 12vw, 80px); line-height: 1.05; }
+    .hero-title {
+      font-size: clamp(42px, 11vw, 72px);
+      line-height: 1.0;
+      max-width: 9.5ch;
+    }
   }
 
   .hero-bottom {
@@ -312,23 +317,23 @@
   }
   .editorial-head {
     font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(36px, 5.6vw, 84px);
-    line-height: 1.06;
-    letter-spacing: -0.025em;
+    font-weight: 500;
+    font-size: clamp(34px, 5vw, 72px);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
     margin: 0 0 32px;
   }
   .editorial-head em {
     font-style: italic;
-    font-weight: 300;
+    font-weight: 400;
   }
   .lede {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(17px, 1.5vw, 20px);
-    line-height: 1.55;
-    max-width: 540px;
-    opacity: 0.85;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: clamp(17px, 1.35vw, 19px);
+    line-height: 1.65;
+    max-width: 560px;
+    opacity: 0.78;
   }
 
   /* ---------- STAT STACK ---------- */
@@ -439,9 +444,9 @@
   }
   .contrast-text {
     font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(20px, 2.3vw, 28px);
-    line-height: 1.32;
+    font-weight: 400;
+    font-size: clamp(22px, 2vw, 30px);
+    line-height: 1.2;
     max-width: 480px;
     margin: 0;
   }
@@ -483,11 +488,11 @@
   .card-num .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
   .card-title {
     font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(32px, 3.6vw, 52px);
-    line-height: 1;
+    font-weight: 500;
+    font-size: clamp(30px, 3vw, 44px);
+    line-height: 1.02;
     margin: 0 0 20px;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.01em;
   }
   .card-title em { font-style: italic; font-weight: 300; }
   .card-body {
@@ -526,11 +531,11 @@
   }
   .phase-name {
     font-family: var(--serif);
-    font-weight: 300;
-    font-size: clamp(42px, 5.4vw, 80px);
+    font-weight: 500;
+    font-size: clamp(40px, 4.6vw, 64px);
     line-height: 1.0;
     margin: 0;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.015em;
   }
   .phase-name em { font-style: italic; }
   .phase-desc {
@@ -571,12 +576,12 @@
   }
   .principle-title {
     font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(22px, 2.6vw, 34px);
-    line-height: 1.1;
+    font-weight: 500;
+    font-size: clamp(22px, 2.2vw, 30px);
+    line-height: 1.12;
     flex: 1;
     margin: 0;
-    letter-spacing: -0.015em;
+    letter-spacing: -0.01em;
   }
   .principle-title em { font-style: italic; font-weight: 300; }
   .principle-toggle {
@@ -596,13 +601,13 @@
     padding-top: 20px;
   }
   .principle-body p {
-    font-family: var(--serif);
-    font-weight: 300;
-    font-size: 19px;
-    line-height: 1.45;
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 1.7;
     margin: 0;
-    opacity: 0.85;
-    max-width: 540px;
+    opacity: 0.8;
+    max-width: 560px;
   }
 
   /* ---------- CTA BLOCK ---------- */
@@ -628,12 +633,12 @@
   }
   .cta-head {
     font-family: var(--serif);
-    font-weight: 400;
-    font-size: clamp(48px, 8vw, 140px);
-    line-height: 1.02;
-    letter-spacing: -0.035em;
+    font-weight: 500;
+    font-size: clamp(48px, 7vw, 110px);
+    line-height: 0.98;
+    letter-spacing: -0.02em;
     margin: 0 0 50px;
-    max-width: 14ch;
+    max-width: 12ch;
     position: relative;
     z-index: 2;
   }
@@ -773,7 +778,7 @@
 
     <h1 class="hero-title">
       The operating system<br>
-      your company <em>is&nbsp;missing.</em>
+      your company is missing.
     </h1>
 
     <div class="hero-bottom">
@@ -817,7 +822,7 @@
           The business<br>
           is still<br>
           coordinated<br>
-          <em>manually.</em>
+          manually.
         </h2>
         <p class="lede reveal">
           One person holds it together. Workflows, approvals, decisions — all routing through the same place. That works early. It breaks at scale. The company grows. The system does not.
@@ -853,7 +858,7 @@
 
     <h2 class="editorial-head reveal" style="max-width: 18ch;">
       We do not optimise work.<br>
-      We redesign <em>how it moves.</em>
+      We redesign how it moves.
     </h2>
     <p class="lede reveal" style="margin-top: 32px;">
       Most consultants recommend. Most agencies execute. Both stop when they leave. Optiflows installs infrastructure. The system runs autonomously.
@@ -907,7 +912,7 @@
       <h2 class="editorial-head reveal">
         Designed.<br>
         Built.<br>
-        <em>Piloted.</em>
+        Piloted.
       </h2>
       <p class="lede reveal">
         Every engagement follows the same 12-week cadence. No ambiguity. No scope creep. No retainers. You know exactly what you are getting and when.
@@ -948,7 +953,7 @@
         <h2 class="editorial-head reveal">
           Five rules<br>
           that shape every<br>
-          <em>operating model.</em>
+          operating model.
         </h2>
         <p class="lede reveal" style="margin-top: 24px;">
           The non-negotiables. They show up in every engagement, every build, every handover.
@@ -1022,7 +1027,7 @@
 
     <h2 class="cta-head reveal">
       Install the<br>
-      system <em>that stays.</em>
+      system that stays.
     </h2>
 
     <div class="cta-row reveal">
