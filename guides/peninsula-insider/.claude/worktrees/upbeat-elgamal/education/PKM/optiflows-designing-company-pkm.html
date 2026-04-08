@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Designing a Company PKM</title>
+<style>
+  @import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --electric-teal: #66FFE0;
+    --mid-teal: #0A6E6E;
+    --dark-teal: #053D3D;
+    --light-teal: #E0FFF6;
+    --mist-teal: #B8E8E0;
+    --dark-grey: #1A1A1A;
+    --mid-grey: #6F6F6F;
+    --light-grey: #DDD;
+    --very-light-grey: #F7F7F7;
+    --white: #FFFFFF;
+    --radius-lg: 25px;
+    --radius-md: 15px;
+    --radius-sm: 5px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--dark-grey);
+    line-height: 1.7;
+    font-size: 16px;
+    background: var(--white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--dark-teal);
+    color: var(--white);
+  }
+
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--very-light-grey);
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--mist-teal);
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--mid-teal);
+  }
+
+  /* Top bar */
+  .top-bar {
+    height: 4px;
+    background: var(--electric-teal);
+    width: 100%;
+  }
+
+  /* Header */
+  .header {
+    background: var(--dark-teal);
+    color: var(--white);
+    padding: 80px 64px 72px;
+    text-align: center;
+    position: relative;
+  }
+
+  .header-logo {
+    margin-bottom: 1.2rem;
+  }
+
+  .header h1 {
+    font-size: 3em;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 0.6rem;
+    color: var(--white);
+    font-family: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .header .subtitle {
+    color: var(--electric-teal);
+    font-size: 1.15rem;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .header .meta {
+    color: var(--mist-teal);
+    font-size: 0.7em;
+    margin-top: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    font-family: "Space Mono", "Courier New", monospace;
+  }
+
+  /* Container */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 72px 64px 96px;
+  }
+
+  /* Pre-title pattern */
+  .pre-title {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 0.5rem;
+    margin-top: 72px;
+  }
+
+  .pre-title-square {
+    width: 7px;
+    height: 7px;
+    background: var(--electric-teal);
+    display: inline-block;
+    flex-shrink: 0;
+  }
+
+  .pre-title-text {
+    font-family: "Space Mono", "Courier New", monospace;
+    text-transform: uppercase;
+    color: var(--mid-teal);
+    font-size: 0.75rem;
+    font-weight: 400;
+    letter-spacing: 1.5px;
+  }
+
+  /* BLUF */
+  .bluf {
+    background: var(--light-teal);
+    border-left: 3px solid var(--mid-teal);
+    padding: 32px 36px;
+    margin-bottom: 72px;
+    border-radius: 4px 15px 15px 4px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--dark-grey);
+  }
+
+  .bluf strong {
+    color: var(--mid-teal);
+    font-weight: 600;
+  }
+
+  /* Headings */
+  h2 {
+    font-size: 1.75em;
+    font-weight: 500;
+    color: var(--dark-teal);
+    margin-top: 0;
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--light-grey);
+    letter-spacing: -0.02em;
+    font-family: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: var(--mid-teal);
+    margin-top: 2rem;
+    margin-bottom: 0.7rem;
+    letter-spacing: -0.01em;
+    font-family: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  /* Body text */
+  p {
+    margin-bottom: 1rem;
+    color: var(--dark-grey);
+  }
+
+  strong {
+    color: var(--dark-grey);
+    font-weight: 600;
+  }
+
+  /* Code */
+  code {
+    background: var(--light-teal);
+    border: 1px solid var(--mist-teal);
+    padding: 0.15rem 0.5rem;
+    border-radius: 6px;
+    font-size: 0.88em;
+    font-family: "Space Mono", "Courier New", monospace;
+    color: var(--mid-teal);
+  }
+
+  pre {
+    background: var(--very-light-grey);
+    border: 1px solid var(--light-grey);
+    color: var(--dark-grey);
+    padding: 24px 28px;
+    border-radius: var(--radius-md);
+    overflow-x: auto;
+    margin: 1.4rem 0;
+    font-size: 0.86rem;
+    line-height: 1.65;
+  }
+
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  /* Lists */
+  ul, ol {
+    margin: 0.8rem 0 1.4rem 1.5rem;
+    color: var(--dark-grey);
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  li strong {
+    color: var(--dark-grey);
+  }
+
+  /* Step cards */
+  .step {
+    background: var(--white);
+    border: 1px solid var(--light-grey);
+    border-radius: 15px;
+    padding: 28px 32px;
+    margin: 20px 0;
+    transition: border-color 0.2s ease;
+  }
+
+  .step:hover {
+    border-color: var(--mist-teal);
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--mid-teal);
+    color: white;
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 0.85rem;
+    margin-right: 0.6rem;
+    font-family: "Space Mono", "Courier New", monospace;
+  }
+
+  .step-title {
+    font-weight: 600;
+    color: var(--dark-grey);
+    font-size: 1.08rem;
+    letter-spacing: -0.01em;
+    font-family: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+
+  .step p {
+    color: var(--dark-grey);
+  }
+
+  /* Callouts */
+  .callout {
+    background: var(--light-teal);
+    border-left: 3px solid var(--mid-teal);
+    border-radius: 4px 15px 15px 4px;
+    padding: 24px 28px;
+    margin: 1.8rem 0;
+  }
+
+  .callout-green {
+    background: var(--light-teal);
+    border-left: 3px solid var(--mid-teal);
+  }
+
+  .callout-title {
+    font-weight: 600;
+    color: var(--mid-teal);
+    margin-bottom: 0.5rem;
+    font-size: 0.95rem;
+    letter-spacing: -0.01em;
+  }
+
+  .callout-green .callout-title {
+    color: var(--mid-teal);
+  }
+
+  .callout p {
+    color: var(--dark-grey);
+    margin-bottom: 0;
+  }
+
+  /* Template blocks */
+  .template-block {
+    background: var(--white);
+    border: 1px solid var(--light-grey);
+    border-radius: 15px;
+    margin: 1.8rem 0;
+    overflow: hidden;
+  }
+
+  .template-header {
+    background: var(--dark-teal);
+    color: var(--electric-teal);
+    padding: 14px 24px;
+    font-weight: 600;
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Space Mono", "Courier New", monospace;
+  }
+
+  .template-body {
+    padding: 20px 24px;
+    background: var(--white);
+  }
+
+  .template-body pre {
+    background: var(--very-light-grey);
+    border: 1px solid var(--light-grey);
+    color: var(--dark-grey);
+    margin: 0;
+    font-size: 0.84rem;
+  }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    margin: 1.4rem 0;
+    font-size: 0.92rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--light-grey);
+  }
+
+  th {
+    background: var(--dark-teal);
+    color: var(--white);
+    padding: 12px 20px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 0.72em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-family: "Space Mono", "Courier New", monospace;
+  }
+
+  td {
+    padding: 12px 20px;
+    border-bottom: 1px solid var(--light-grey);
+    color: var(--dark-grey);
+    background: var(--white);
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tr:nth-child(even) td {
+    background: var(--very-light-grey);
+  }
+
+  td strong {
+    color: var(--dark-grey);
+  }
+
+  /* Diagram boxes */
+  .diagram-box {
+    background: var(--very-light-grey);
+    border: 1px solid var(--light-grey);
+    border-radius: 15px;
+    padding: 24px 28px;
+    margin: 1.4rem 0;
+  }
+
+  .diagram-caption {
+    font-family: "Space Mono", "Courier New", monospace;
+    text-transform: uppercase;
+    color: var(--mid-grey);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+  }
+
+  /* Footer */
+  .footer {
+    background: var(--dark-teal);
+    text-align: center;
+    padding: 40px 64px;
+    color: var(--mist-teal);
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 400;
+    font-family: "Space Mono", "Courier New", monospace;
+    margin-top: 0;
+  }
+
+  .footer a {
+    color: var(--mist-teal);
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    color: var(--electric-teal);
+  }
+
+  .footer-attribution {
+    margin-top: 12px;
+    font-size: 0.85em;
+    letter-spacing: 1.5px;
+  }
+
+  .footer-attribution a {
+    color: var(--mist-teal);
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+
+  .footer-attribution a:hover {
+    opacity: 1;
+    color: var(--electric-teal);
+  }
+
+  /* Responsive: Tablet */
+  @media (max-width: 768px) {
+    .header {
+      padding: 60px 40px 56px;
+    }
+
+    .header h1 {
+      font-size: 2.2em;
+    }
+
+    .container {
+      padding: 48px 40px 72px;
+    }
+
+    .bluf {
+      padding: 24px 28px;
+    }
+
+    .pre-title {
+      margin-top: 56px;
+    }
+
+    h2 {
+      font-size: 1.5em;
+    }
+
+    .step {
+      padding: 24px 28px;
+    }
+
+    .footer {
+      padding: 32px 40px;
+    }
+
+    table {
+      font-size: 0.88rem;
+    }
+
+    th, td {
+      padding: 10px 14px;
+    }
+  }
+
+  /* Responsive: Mobile */
+  @media (max-width: 480px) {
+    .header {
+      padding: 48px 24px 40px;
+    }
+
+    .header h1 {
+      font-size: 1.8em;
+    }
+
+    .header .subtitle {
+      font-size: 1rem;
+    }
+
+    .container {
+      padding: 32px 16px 56px;
+    }
+
+    .bluf {
+      padding: 20px 20px;
+      font-size: 0.98rem;
+      border-radius: 4px 14px 14px 4px;
+    }
+
+    .pre-title {
+      margin-top: 48px;
+    }
+
+    h2 {
+      font-size: 1.35em;
+    }
+
+    h3 {
+      font-size: 1.05rem;
+    }
+
+    .step {
+      padding: 20px 20px;
+      border-radius: 14px;
+    }
+
+    .template-block {
+      border-radius: 14px;
+    }
+
+    .template-header {
+      padding: 12px 16px;
+      font-size: 0.75rem;
+      letter-spacing: 1.5px;
+    }
+
+    .template-body {
+      padding: 16px;
+    }
+
+    .template-body pre {
+      font-size: 0.78rem;
+      padding: 16px;
+    }
+
+    pre {
+      padding: 16px 18px;
+      font-size: 0.82rem;
+      border-radius: 10px;
+    }
+
+    .callout {
+      padding: 20px 20px;
+      border-radius: 4px 14px 14px 4px;
+    }
+
+    .footer {
+      padding: 28px 16px;
+      font-size: 0.65em;
+    }
+
+    table {
+      font-size: 0.84rem;
+    }
+
+    th, td {
+      padding: 8px 10px;
+    }
+
+    th {
+      font-size: 0.68em;
+      letter-spacing: 1.5px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<div class="header">
+  <div class="header-logo">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="18" stroke="#66FFE0" stroke-width="2" fill="none"/>
+      <line x1="14" y1="20" x2="26" y2="20" stroke="#66FFE0" stroke-width="2"/>
+      <line x1="20" y1="14" x2="20" y2="26" stroke="#66FFE0" stroke-width="2"/>
+    </svg>
+  </div>
+  <h1>Designing a Company PKM</h1>
+  <div class="subtitle">A practical guide to building your brand memory vault</div>
+  <div class="meta">OptiFlows — March 2026</div>
+</div>
+
+<div class="container">
+
+<div class="bluf">
+<strong>Bottom line:</strong> Build an Obsidian vault with five folders: definitions (atomic brand concepts), rules (brand guidelines as actionable statements), playbooks (campaign narratives, messaging frameworks), proof (case studies, evidence), and voice (exemplar content). Use consistent frontmatter on every file. Link between files using <code>[[wikilinks]]</code>. Point Claude Code at the vault. Your brand memory system is live in an afternoon.
+</div>
+
+<div class="pre-title">
+  <span class="pre-title-square"></span>
+  <span class="pre-title-text">Structure</span>
+</div>
+<h2>The vault structure</h2>
+
+<p>Start simple. You can add complexity later, but you cannot undo complexity easily. Here is the recommended structure:</p>
+
+<pre><code>company-brand/
++-- CLAUDE.md                    # Instructions for Claude Code
++-- definitions/                 # Atomic brand concepts
+|   +-- brand-positioning.md
+|   +-- brand-voice.md
+|   +-- messaging-pillars.md
+|   +-- core-product.md
+|   +-- target-audience.md
+|   +-- ...
++-- rules/                       # Brand guidelines as rules
+|   +-- lead-with-reliability.md
+|   +-- define-jargon-inline.md
+|   +-- enterprise-tone.md
+|   +-- ...
++-- playbooks/                   # Campaign and messaging frameworks
+|   +-- campaign-narrative-primary.md
+|   +-- messaging-framework.md
+|   +-- linkedin-content-guide.md
+|   +-- ...
++-- proof/                       # Case studies and evidence
+|   +-- case-study-enterprise.md
+|   +-- case-study-smb.md
+|   +-- testimonials.md
+|   +-- ...
++-- voice/                       # Brand voice examples
+|   +-- exemplar-linkedin-post.md
+|   +-- exemplar-sales-email.md
+|   +-- exemplar-website-copy.md
+|   +-- ...
+</code></pre>
+
+<p>Five folders. That is it. Each serves a distinct purpose in the pipeline from raw brand knowledge to AI-generated content.</p>
+
+<div class="pre-title">
+  <span class="pre-title-square"></span>
+  <span class="pre-title-text">Content Types</span>
+</div>
+<h2>The five content types</h2>
+
+<h3>1. Definitions</h3>
+
+<p>One concept per file. The atomic unit of brand knowledge. Each definition answers: "What is this thing, precisely, in our company's context?"</p>
+
+<div class="template-block">
+<div class="template-header">Template: definitions/brand-voice.md</div>
+<div class="template-body">
+<pre><code>---
+tags: [definition]
+description: "Brand voice characteristics and tone guidelines"
+---
+
+**brand-voice** - [Company] speaks with technical authority and
+practical warmth. Enterprise-grade expertise delivered without
+corporate stuffiness.
+
+## characteristics
+
+- **Technically precise**: use correct terminology, cite specific
+  standards and specifications
+- **Practically grounded**: every claim connects to a real-world
+  outcome the reader cares about
+- **Confident, not aggressive**: state facts, do not oversell.
+  The product speaks for itself
+- **Warm where appropriate**: acknowledge the human behind the
+  technical decision
+
+## tone by context
+
+| Context          | Tone                              |
+|------------------|-----------------------------------|
+| Website copy     | Authoritative, concise            |
+| LinkedIn posts   | Conversational, insight-led       |
+| Sales materials  | Confident, benefit-focused        |
+| Strategy decks   | Data-first, recommendation-clear  |
+| Internal docs    | Direct, action-oriented           |
+
+## related
+
+[[messaging-pillars]] | [[enterprise-tone]]</code></pre>
+</div>
+</div>
+
+<p>Notice the structure: YAML frontmatter with a description, a bold one-line definition, then detailed notes. The description lets Claude Code scan the file without reading the whole thing. The definition gives the quick answer. The notes give the depth.</p>
+
+<h3>2. Rules</h3>
+
+<p>Actionable guidelines derived from definitions. Sentence-format filenames. These are the "always" and "never" statements that keep messaging consistent.</p>
+
+<div class="template-block">
+<div class="template-header">Template: rules/lead-with-reliability.md</div>
+<div class="template-body">
+<pre><code>---
+tags: [rule]
+description: "When addressing enterprise prospects, lead with
+  reliability and uptime data before features"
+---
+
+**Lead with reliability data when addressing enterprise prospects.**
+
+Enterprise buyers making infrastructure decisions care about
+uptime before features. Every piece of content targeting this
+audience should open with reliability metrics, SLA commitments,
+or uptime case studies before discussing technical capabilities.
+
+## why
+
+Enterprise deployments fail when the underlying service is
+unreliable. The cost of downtime is measured in thousands per
+hour. Reliability is not a feature - it is the prerequisite.
+
+## applies to
+
+- [[core-product]] landing pages
+- [[target-audience]] campaign copy
+- Enterprise sales materials
+- LinkedIn posts targeting operations managers
+
+## source
+
+[[brand-positioning]] | [[case-study-enterprise]]</code></pre>
+</div>
+</div>
+
+<h3>3. Playbooks</h3>
+
+<p>Operational documents that weave definitions and rules into a coherent strategy for a specific purpose. These are your campaign narratives, messaging frameworks, and content guides.</p>
+
+<div class="template-block">
+<div class="template-header">Template: playbooks/campaign-narrative-primary.md</div>
+<div class="template-body">
+<pre><code>---
+tags: [playbook]
+description: "Campaign narrative for primary product vertical -
+  messaging framework, audience segments, key messages"
+---
+
+## audience
+
+[Describe the ideal customer profile - role, industry,
+pain points, decision-making context]
+
+## narrative arc
+
+1. **The problem**: [pain point your audience experiences]
+2. **The cost**: every [time unit] of [problem] costs real
+   money (quantify with [[case-study-enterprise]] data)
+3. **The shift**: [your solution] eliminates [root cause]
+4. **Your role**: [positioning statement]
+   (reference [[brand-positioning]])
+5. **Proof**: [metrics, client results, guarantees]
+
+## key messages
+
+- Primary: "[one-sentence value proposition]"
+- Supporting: "[proof point with specific numbers]"
+- Supporting: "[differentiator with evidence]"
+
+## messaging by channel
+
+| Channel   | Hook style          | CTA                    |
+|-----------|---------------------|------------------------|
+| LinkedIn  | Insight/stat lead   | "See how [client] did it" |
+| Website   | Problem-solution    | "Talk to our team"     |
+| Email     | Case study lead     | "Get the full report"  |
+
+## voice
+
+Follow [[brand-voice]] and [[enterprise-tone]].
+Lead with [[lead-with-reliability]].</code></pre>
+</div>
+</div>
+
+<h3>4. Proof</h3>
+
+<p>Case studies, testimonials, data points - the evidence that supports your claims. Each proof file is a structured record that agents and humans can reference.</p>
+
+<div class="template-block">
+<div class="template-header">Template: proof/case-study-enterprise.md</div>
+<div class="template-body">
+<pre><code>---
+tags: [proof, case-study]
+description: "Case study - enterprise client deployment,
+  performance metrics, and ROI data"
+---
+
+## client
+
+[Company name or anonymised reference]
+
+## challenge
+
+[Describe the client's situation before your solution -
+specific pain points, scale, constraints]
+
+## solution
+
+[What you deployed, how it was structured, what made it
+different from alternatives]
+
+## results
+
+- [Key metric 1]: [X]% improvement over [time period]
+- [Key metric 2]: [X]% vs previous solution
+- [Key metric 3]: [X] weeks for [X] sites
+- [Key metric 4]: [X]% reduction in [pain point]
+
+## quotable
+
+"[Direct quote from client contact]"
+- [Name], [Title], [Company]
+
+## referenced by
+
+[[campaign-narrative-primary]] | [[lead-with-reliability]]</code></pre>
+</div>
+</div>
+
+<h3>5. Voice exemplars</h3>
+
+<p>Real examples of your brand voice done well. These serve as reference points for both humans writing copy and AI agents generating content.</p>
+
+<div class="template-block">
+<div class="template-header">Template: voice/exemplar-linkedin-post.md</div>
+<div class="template-body">
+<pre><code>---
+tags: [voice, exemplar]
+description: "Example LinkedIn post demonstrating brand voice -
+  insight-led, data-grounded, conversational"
+---
+
+## the post
+
+[Paste a real LinkedIn post that represents your voice well]
+
+## why this works
+
+- Opens with a contrarian insight (not a product pitch)
+- Uses specific numbers that demonstrate authority
+- Conversational tone without being casual
+- No hard sell - the expertise IS the sell
+- Follows [[brand-voice]] and [[lead-with-reliability]]
+
+## context
+
+Posted [date]. [X] impressions, [X] engagements, [X]%
+engagement rate.</code></pre>
+</div>
+</div>
+
+<div class="pre-title">
+  <span class="pre-title-square"></span>
+  <span class="pre-title-text">Agent Config</span>
+</div>
+<h2>The CLAUDE.md file</h2>
+
+<p>This is the most important file in the vault. It tells Claude Code what the vault is, how it is structured, and how to use it. Place it at the root of the vault.</p>
+
+<div class="template-block">
+<div class="template-header">CLAUDE.md</div>
+<div class="template-body">
+<pre><code># [Company] Brand Memory
+
+This vault contains [Company]'s brand positioning,
+messaging frameworks, and voice guidelines. It is structured
+for both human browsing (Obsidian) and AI traversal
+(Claude Code).
+
+## Structure
+
+- `definitions/` - Atomic brand concepts (one per file)
+- `rules/` - Brand guidelines as actionable statements
+- `playbooks/` - Campaign narratives and messaging frameworks
+- `proof/` - Case studies, testimonials, data points
+- `voice/` - Example content demonstrating brand voice
+
+## How to use this vault
+
+1. Every file has YAML frontmatter with a `description` field.
+   Read descriptions before opening files to find what you need.
+2. Files link to each other with [[wikilinks]].
+   Follow links to gather context.
+3. When generating content, always reference:
+   - The relevant playbook for the campaign/channel
+   - `brand-voice.md` for tone
+   - At least one proof file for evidence
+4. Never generate messaging that contradicts a rule file.
+5. When in doubt about positioning, `brand-positioning.md`
+   is the source of truth.
+
+## Writing rules
+
+- Technical accuracy is non-negotiable
+- Every claim must be supportable by a proof file
+- Use specific numbers over vague qualifiers
+- Lead with the reader's problem, not our solution</code></pre>
+</div>
+</div>
+
+<div class="callout-green callout">
+<div class="callout-title">Why CLAUDE.md matters</div>
+<p>When you run Claude Code inside the vault folder, it reads CLAUDE.md automatically. This file is the agent's orientation - it tells Claude what the vault is and how to work with it. Without it, the agent treats the vault as a generic folder of files. With it, the agent understands the structure and follows the conventions you have set.</p>
+</div>
+
+<div class="pre-title">
+  <span class="pre-title-square"></span>
+  <span class="pre-title-text">Conventions</span>
+</div>
+<h2>Frontmatter conventions</h2>
+
+<p>Every file in the vault should have YAML frontmatter. At minimum:</p>
+
+<pre><code>---
+tags: [definition]
+description: "One line explaining what this file contains"
+---</code></pre>
+
+<p>The <code>description</code> field is the most important. It lets Claude Code scan the vault efficiently - reading a one-line description is much faster than reading the entire file. Good descriptions are specific enough that the agent can decide relevance without opening the file.</p>
+
+<table>
+<tbody><tr><th>Bad description</th><th>Good description</th></tr>
+<tr><td>"Brand stuff"</td><td>"Brand voice characteristics and tone guidelines for enterprise and technical content"</td></tr>
+<tr><td>"Product"</td><td>"Core product positioning - why we lead with availability over cost"</td></tr>
+<tr><td>"Campaign"</td><td>"Campaign narrative for primary vertical - audience, key messages, channel strategy"</td></tr>
+</tbody></table>
+
+<div class="pre-title">
+  <span class="pre-title-square"></span>
+  <span class="pre-title-text">Linking</span>
+</div>
+<h2>Wikilinks</h2>
+
+<p>Link between files using <code>[[filename]]</code> syntax (without the .md extension). Links serve three purposes:</p>
+
+<ol>
+<li><strong>For you</strong> - Obsidian renders clickable links and shows backlinks, making the vault browsable</li>
+<li><strong>For the agent</strong> - links are paths to follow. When Claude reads a playbook that references <code>[[brand-voice]]</code>, it knows to read that file for tone guidance</li>
+<li><strong>For structure</strong> - links encode relationships. A rule that applies to <code>[[core-product]]</code> and <code>[[target-audience]]</code> tells you (and the agent) where that rule is relevant</li>
+</ol>
+
+<div class="callout">
+<div class="callout-title">The linking discipline</div>
+<p>Every definition should link to related definitions. Every rule should link to the definitions it derives from and the playbooks it applies to. Every playbook should link to the rules it follows and the proof it references. Every proof file should link back to the playbooks and rules that reference it. This creates a graph where the agent can start anywhere and navigate to everything relevant.</p>
+</div>
+
+<div class="pre-title">
+  <span class="pre-title-square"></span>
+  <span class="pre-title-text">Build Guide</span>
+</div>
+<h2>Building the vault - step by step</h2>
+
+<div class="step">
+<span class="step-number">1</span>
+<span class="step-title">Start with what exists</span>
+<p style="margin-top:0.8rem">Gather your existing brand assets: strategy decks, messaging documents, campaign plans, website copy, sales materials. Do not worry about getting everything. Start with the 10 most important documents.</p>
+</div>
+
+<div class="step">
+<span class="step-number">2</span>
+<span class="step-title">Extract definitions</span>
+<p style="margin-top:0.8rem">Read through your existing materials and pull out the atomic concepts. Each concept becomes one file in <code>definitions/</code>. Brand positioning, messaging pillars, value propositions, product narratives, audience segments - one file each. Use the template above.</p>
+</div>
+
+<div class="step">
+<span class="step-number">3</span>
+<span class="step-title">Write the rules</span>
+<p style="margin-top:0.8rem">From your brand guidelines, extract the "always" and "never" statements. "Always lead with reliability for enterprise audiences." "Never use 'cutting-edge' without specifying what it cuts." These go in <code>rules/</code>. Link each rule back to the definitions it comes from.</p>
+</div>
+
+<div class="step">
+<span class="step-number">4</span>
+<span class="step-title">Build playbooks from campaigns</span>
+<p style="margin-top:0.8rem">Your existing campaign plans and messaging frameworks become playbooks. Restructure them to follow the template: audience, narrative arc, key messages, channel strategy, voice references. Link to the definitions and rules they use.</p>
+</div>
+
+<div class="step">
+<span class="step-number">5</span>
+<span class="step-title">Add proof points</span>
+<p style="margin-top:0.8rem">Case studies, testimonials, performance data - structured as individual files in <code>proof/</code>. These are the evidence that every claim references. Even rough internal data is better than no data.</p>
+</div>
+
+<div class="step">
+<span class="step-number">6</span>
+<span class="step-title">Collect voice exemplars</span>
+<p style="margin-top:0.8rem">Find 5-10 pieces of content that represent your voice done well. LinkedIn posts, emails, website copy. Add them to <code>voice/</code> with annotations explaining why they work. These become the reference standard for AI-generated content.</p>
+</div>
+
+<div class="step">
+<span class="step-number">7</span>
+<span class="step-title">Write CLAUDE.md</span>
+<p style="margin-top:0.8rem">Use the template above. Customise it for your company's specific conventions and priorities. This file makes the vault agent-ready.</p>
+</div>
+
+<div class="step">
+<span class="step-number">8</span>
+<span class="step-title">Test with Claude Code</span>
+<p style="margin-top:0.8rem">Open Claude Code in the vault folder. Ask it to generate a LinkedIn post about your core product. See if it finds the right definitions, follows the right rules, references the right proof points, and matches the voice exemplars. Iterate on the vault structure based on what it gets right and wrong.</p>
+</div>
+
+<div class="pre-title">
+  <span class="pre-title-square"></span>
+  <span class="pre-title-text">Integration</span>
+</div>
+<h2>Integration patterns</h2>
+
+<p>Once the vault exists, there are several ways to use it with AI tools:</p>
+
+<h3>Direct use with Claude Code</h3>
+<p>Open Claude Code in the vault directory. It reads CLAUDE.md automatically and has access to all files. Ask it to generate content, review drafts against brand guidelines, or check messaging consistency. This is the simplest and most powerful pattern.</p>
+
+<h3>Skills for repeatable workflows</h3>
+<p>Once you find yourself asking Claude Code to do the same thing repeatedly ("generate a LinkedIn post following our voice guidelines"), you can encode that as a skill - a SKILL.md file that gives Claude a precise workflow to follow. The third document in this series covers skills in detail.</p>
+
+<h3>Team access</h3>
+<p>Store the vault on a shared drive (Google Drive, OneDrive, Dropbox). Team members open it with Obsidian for browsing and with Claude Code for AI-assisted content generation. Everyone works from the same source of truth.</p>
+
+<div class="callout-green callout">
+<div class="callout-title">What about the RAG approach?</div>
+<p>You can always add embeddings later if needed. The markdown files you create for the agentic PKM are perfectly valid input for an ingestion pipeline. Starting with structured files gives you the option of both approaches - direct agent traversal now, vector search later if the vault grows beyond 200+ files. Starting with the RAG pipeline gives you only one approach and locks you into maintaining the pipeline infrastructure from day one.</p>
+</div>
+
+<div class="pre-title">
+  <span class="pre-title-square"></span>
+  <span class="pre-title-text">Timeline</span>
+</div>
+<h2>How long this takes</h2>
+
+<table>
+<tbody><tr><th>Step</th><th>Time estimate</th></tr>
+<tr><td>Install Obsidian + create vault</td><td>30 minutes</td></tr>
+<tr><td>Extract and write 10-15 core definitions</td><td>2-3 hours</td></tr>
+<tr><td>Write 5-8 brand rules</td><td>1-2 hours</td></tr>
+<tr><td>Restructure 3-5 playbooks from existing materials</td><td>2-3 hours</td></tr>
+<tr><td>Add proof points and voice exemplars</td><td>1-2 hours</td></tr>
+<tr><td>Write CLAUDE.md and test</td><td>1 hour</td></tr>
+<tr><td><strong>Total</strong></td><td><strong>Half a day to a full day</strong></td></tr>
+</tbody></table>
+
+<p>After the initial setup, maintenance is just writing and linking new files as your brand evolves. No pipeline to monitor, no embeddings to regenerate, no infrastructure to maintain.</p>
+
+</div>
+
+<div class="footer">
+  OptiFlows Pty Ltd — optiflows.com.au
+</div>
+
+</body>
+</html>

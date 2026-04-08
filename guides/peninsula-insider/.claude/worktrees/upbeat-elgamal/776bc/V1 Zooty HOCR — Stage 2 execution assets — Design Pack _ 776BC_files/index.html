@@ -1,0 +1,1402 @@
+<!DOCTYPE html>
+<!-- saved from url=(0083)http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>V1 Zooty Men's — Built for the Line | 776BC</title>
+<style>
+/* ── Local Font Faces ──────────────────────────────── */
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('fonts/outfit-200.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('fonts/outfit-300.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('fonts/outfit-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('fonts/outfit-800.ttf') format('truetype');
+  font-weight: 500 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('fonts/dm-mono-300.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('fonts/dm-mono-400.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'DM Mono';
+  src: url('fonts/dm-mono-500.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+/* ═══════════════════════════════════════════════════════
+   776BC — V1 ZOOTY "BUILT FOR THE LINE"
+   Campaign Landing Page
+   ═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --black: #0a0a0a;
+  --near-black: #111111;
+  --dark: #161616;
+  --panel: #1a1a1a;
+  --border: #2a2a2a;
+  --border-light: #333333;
+  --muted: #666666;
+  --secondary: #999999;
+  --text: #d4d4d4;
+  --light: #e8e8e8;
+  --white: #f5f5f5;
+  --accent: #c8a44e;
+  --accent-dim: #a8883a;
+  --accent-glow: rgba(200, 164, 78, 0.15);
+  --red-subtle: #8b3a3a;
+  --font-display: 'Outfit', sans-serif;
+  --font-mono: 'DM Mono', monospace;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-snap: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background: var(--black);
+  color: var(--text);
+  font-family: var(--font-display);
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 200px;
+}
+
+::selection {
+  background: var(--accent);
+  color: var(--black);
+}
+
+a { color: inherit; text-decoration: none; }
+
+/* ── Animations ─────────────────────────────────── */
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideRight {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
+@keyframes revealText {
+  from { clip-path: inset(0 100% 0 0); }
+  to { clip-path: inset(0 0% 0 0); }
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes scanline {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes drawLine {
+  from { stroke-dashoffset: 1000; }
+  to { stroke-dashoffset: 0; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ── Navigation ─────────────────────────────────── */
+
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 clamp(24px, 4vw, 64px);
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  animation: fadeIn 1s var(--ease-out);
+}
+
+.nav__logo {
+  display: flex;
+  align-items: center;
+}
+
+.nav__logo-img {
+  height: 28px;
+  width: auto;
+  opacity: 0.95;
+  transition: opacity 0.3s;
+}
+
+.nav__logo:hover .nav__logo-img {
+  opacity: 1;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.nav__link {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--secondary);
+  transition: color 0.3s;
+}
+
+.nav__link:hover { color: var(--white); }
+
+.nav__cta {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 8px 20px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  transition: all 0.3s var(--ease-snap);
+}
+
+.nav__cta:hover {
+  background: var(--accent);
+  color: var(--black);
+}
+
+/* ── Hero ───────────────────────────────────────── */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(24px, 4vw, 64px);
+  padding-top: 120px;
+  padding-bottom: clamp(48px, 8vh, 120px);
+  overflow: hidden;
+}
+
+.hero__grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200, 164, 78, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 164, 78, 0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 50%, black 30%, transparent 70%);
+}
+
+.hero__gradient {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 50% 50% at 75% 40%, rgba(200, 164, 78, 0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 40% at 20% 70%, rgba(200, 164, 78, 0.03) 0%, transparent 70%);
+}
+
+.hero__scanline {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent-dim), transparent);
+  opacity: 0.15;
+  animation: scanline 8s linear infinite;
+}
+
+.hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  animation: fadeUp 1s var(--ease-out) 0.3s both;
+}
+
+.hero__eyebrow::before {
+  content: '';
+  width: 40px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.hero__headline {
+  font-size: clamp(52px, 10vw, 120px);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  margin-bottom: 32px;
+  animation: fadeUp 1s var(--ease-out) 0.5s both;
+}
+
+.hero__headline em {
+  font-style: normal;
+  color: var(--accent);
+}
+
+.hero__sub {
+  font-size: clamp(16px, 2vw, 22px);
+  font-weight: 200;
+  line-height: 1.6;
+  color: var(--secondary);
+  max-width: 560px;
+  margin-bottom: 48px;
+  animation: fadeUp 1s var(--ease-out) 0.7s both;
+}
+
+.hero__actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  animation: fadeUp 1s var(--ease-out) 0.9s both;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  padding: 16px 36px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.4s var(--ease-snap);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn--primary {
+  background: var(--accent);
+  color: var(--black);
+  font-weight: 500;
+}
+
+.btn--primary::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s;
+}
+
+.btn--primary:hover::after {
+  transform: translateX(100%);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 0 40px var(--accent-glow), 0 0 80px rgba(200, 164, 78, 0.08);
+  transform: translateY(-1px);
+}
+
+.btn--ghost {
+  background: transparent;
+  border: 1px solid var(--border-light);
+  color: var(--secondary);
+}
+
+.btn--ghost:hover {
+  border-color: var(--accent-dim);
+  color: var(--white);
+}
+
+.hero__scroll {
+  position: absolute;
+  bottom: 32px;
+  right: clamp(24px, 4vw, 64px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: fadeIn 1s var(--ease-out) 1.5s both;
+}
+
+.hero__scroll-text {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+  writing-mode: vertical-rl;
+}
+
+.hero__scroll-line {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, var(--accent-dim), transparent);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* ── Measurement marker (decorative) ────────────── */
+
+.hero__marker {
+  position: absolute;
+  top: 50%;
+  right: clamp(24px, 8vw, 160px);
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  animation: fadeIn 1.5s var(--ease-out) 1.2s both;
+}
+
+.hero__marker-tick {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hero__marker-line {
+  width: 20px;
+  height: 1px;
+  background: var(--border-light);
+}
+
+.hero__marker-line--long {
+  width: 40px;
+  background: var(--accent-dim);
+}
+
+.hero__marker-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+}
+
+/* ── Section shared ─────────────────────────────── */
+
+.section {
+  padding: clamp(64px, 10vh, 140px) clamp(24px, 4vw, 64px);
+  position: relative;
+}
+
+.section__divider {
+  width: 100%;
+  height: 1px;
+  background: var(--border);
+  position: relative;
+}
+
+.section__divider::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 120px;
+  height: 1px;
+  background: var(--accent-dim);
+}
+
+.section__label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section__label::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--accent-dim);
+  transform: rotate(45deg);
+  flex-shrink: 0;
+}
+
+.section__heading {
+  font-size: clamp(28px, 4vw, 52px);
+  font-weight: 600;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  color: var(--white);
+  margin-bottom: 32px;
+}
+
+.section__body {
+  font-size: clamp(15px, 1.2vw, 18px);
+  line-height: 1.8;
+  color: var(--secondary);
+  max-width: 640px;
+}
+
+.section__body p + p {
+  margin-top: 1.4em;
+}
+
+/* ── Engineering Section ────────────────────────── */
+
+.engineering {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 120px);
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.engineering__visual {
+  position: relative;
+  aspect-ratio: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blueprint {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border: 1px solid var(--border);
+}
+
+.blueprint__grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(200, 164, 78, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 164, 78, 0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.blueprint__cross {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.blueprint__cross::before,
+.blueprint__cross::after {
+  content: '';
+  position: absolute;
+  background: var(--accent-dim);
+}
+
+.blueprint__cross::before {
+  width: 1px;
+  height: 80px;
+  left: 0;
+  top: -40px;
+}
+
+.blueprint__cross::after {
+  width: 80px;
+  height: 1px;
+  top: 0;
+  left: -40px;
+}
+
+.blueprint__circle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+  border: 1px solid var(--border-light);
+  border-radius: 50%;
+}
+
+.blueprint__circle--sm {
+  width: 120px;
+  height: 120px;
+  border-color: var(--accent-dim);
+  opacity: 0.5;
+}
+
+.blueprint__label-tl {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--muted);
+  letter-spacing: 0.1em;
+}
+
+.blueprint__label-br {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--accent-dim);
+  letter-spacing: 0.1em;
+}
+
+.blueprint__data {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.blueprint__data-val {
+  font-family: var(--font-mono);
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 300;
+  color: var(--accent);
+  letter-spacing: -0.02em;
+}
+
+.blueprint__data-unit {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+.blueprint__annotation {
+  position: absolute;
+  font-family: var(--font-mono);
+  font-size: 9px;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.blueprint__annotation::before {
+  content: '';
+  width: 16px;
+  height: 1px;
+  background: var(--border-light);
+}
+
+.blueprint__annotation--r1 { top: 30%; right: 16px; }
+.blueprint__annotation--r2 { top: 55%; right: 16px; }
+.blueprint__annotation--l1 { bottom: 30%; left: 16px; flex-direction: row-reverse; }
+.blueprint__annotation--l1::before { order: 2; }
+
+/* ── Features Spec Grid ─────────────────────────── */
+
+.features {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.spec-grid {
+  display: grid;
+  gap: 0;
+  margin-top: 48px;
+  border: 1px solid var(--border);
+}
+
+.spec-row {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  border-bottom: 1px solid var(--border);
+  transition: background 0.3s;
+}
+
+.spec-row:last-child { border-bottom: none; }
+
+.spec-row:hover {
+  background: rgba(200, 164, 78, 0.03);
+}
+
+.spec-row__label {
+  padding: 24px 28px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  border-right: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.spec-row__label::before {
+  content: '';
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  margin-top: 4px;
+  flex-shrink: 0;
+}
+
+.spec-row__value {
+  padding: 24px 28px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+/* ── Athlete Section ────────────────────────────── */
+
+.athlete {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.athlete .section__body {
+  max-width: 100%;
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: var(--text);
+  font-weight: 300;
+  line-height: 1.9;
+}
+
+.athlete__quote {
+  font-size: clamp(20px, 3vw, 36px);
+  font-weight: 200;
+  line-height: 1.4;
+  color: var(--white);
+  margin-bottom: 48px;
+  letter-spacing: -0.01em;
+  position: relative;
+  padding: 0 20px;
+}
+
+.athlete__quote::before {
+  content: '';
+  position: absolute;
+  top: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.athlete__armour {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  margin-top: 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.athlete__armour::before,
+.athlete__armour::after {
+  content: '';
+  width: 24px;
+  height: 1px;
+  background: var(--border-light);
+}
+
+/* ── HOCR Section ───────────────────────────────── */
+
+.hocr {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.hocr__card {
+  background: var(--panel);
+  border: 1px solid var(--border);
+  padding: clamp(40px, 5vw, 80px);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 4vw, 80px);
+  position: relative;
+  overflow: hidden;
+}
+
+.hocr__card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), transparent 60%);
+}
+
+.hocr__info {}
+
+.hocr__event-name {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 20px;
+}
+
+.hocr__title {
+  font-size: clamp(24px, 3vw, 40px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+  margin-bottom: 24px;
+}
+
+.hocr__desc {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--secondary);
+  margin-bottom: 36px;
+}
+
+.hocr__stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.hocr__stat {
+  border-left: 1px solid var(--border);
+  padding-left: 16px;
+}
+
+.hocr__stat-val {
+  font-family: var(--font-mono);
+  font-size: clamp(24px, 3vw, 36px);
+  font-weight: 300;
+  color: var(--white);
+  letter-spacing: -0.02em;
+}
+
+.hocr__stat-label {
+  font-family: var(--font-mono);
+  font-size: 9px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.hocr__map {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.hocr__map-svg {
+  width: 100%;
+  max-width: 400px;
+  opacity: 0.9;
+}
+
+/* ── Authority Section ──────────────────────────── */
+
+.authority {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(40px, 6vw, 120px);
+  align-items: center;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.authority__credential {
+  border: 1px solid var(--border);
+  padding: 40px;
+  position: relative;
+}
+
+.authority__credential::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent-dim), transparent 50%);
+}
+
+.authority__icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid var(--accent-dim);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.authority__icon svg {
+  width: 24px;
+  height: 24px;
+  stroke: var(--accent);
+  fill: none;
+  stroke-width: 1.5;
+}
+
+.authority__cred-title {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--accent-dim);
+  margin-bottom: 8px;
+}
+
+.authority__cred-value {
+  font-size: 18px;
+  color: var(--white);
+  font-weight: 400;
+}
+
+.authority__cred-desc {
+  font-size: 13px;
+  color: var(--muted);
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.authority__creds {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* ── Pre-Order CTA ──────────────────────────────── */
+
+.preorder {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: clamp(80px, 12vh, 160px) clamp(24px, 4vw, 64px);
+}
+
+.preorder__rule {
+  width: 60px;
+  height: 2px;
+  background: var(--accent);
+  margin: 0 auto 40px;
+}
+
+.preorder__heading {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  margin-bottom: 20px;
+}
+
+.preorder__sub {
+  font-size: 16px;
+  color: var(--secondary);
+  margin-bottom: 48px;
+  line-height: 1.7;
+}
+
+.preorder__actions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-bottom: 48px;
+}
+
+.preorder__trust {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+.preorder__trust-item {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.preorder__trust-item::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border: 1px solid var(--accent-dim);
+  transform: rotate(45deg);
+}
+
+/* ── Footer ─────────────────────────────────────── */
+
+.footer {
+  border-top: 1px solid var(--border);
+  padding: 40px clamp(24px, 4vw, 64px);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer__brand {
+  display: flex;
+  align-items: center;
+}
+
+.footer__logo-img {
+  height: 22px;
+  width: auto;
+  opacity: 0.5;
+}
+
+.footer__tagline {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Responsive ─────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .engineering { grid-template-columns: 1fr; }
+  .engineering__visual { max-width: 400px; margin: 0 auto; }
+  .hocr__card { grid-template-columns: 1fr; }
+  .hocr__map { display: none; }
+  .authority { grid-template-columns: 1fr; }
+  .spec-row { grid-template-columns: 140px 1fr; }
+  .hero__marker { display: none; }
+  .nav__links { display: none; }
+}
+
+@media (max-width: 600px) {
+  .spec-row { grid-template-columns: 1fr; }
+  .spec-row__label { border-right: none; border-bottom: 1px solid var(--border); padding: 16px 20px; }
+  .spec-row__value { padding: 16px 20px; }
+  .hocr__stats { grid-template-columns: 1fr; }
+  .preorder__actions { flex-direction: column; align-items: center; }
+  .preorder__trust { flex-direction: column; align-items: center; }
+  .footer { flex-direction: column; gap: 16px; text-align: center; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════════ NAVIGATION ═══════════════ -->
+<nav class="nav">
+  <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html#" class="nav__logo"><img src="./776bc-logo.png" alt="776BC" class="nav__logo-img"></a>
+  <div class="nav__links">
+    <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html#engineering" class="nav__link">Engineering</a>
+    <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html#specs" class="nav__link">Specs</a>
+    <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html#hocr" class="nav__link">HOCR 2026</a>
+    <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html#preorder" class="nav__cta">Pre-Order</a>
+  </div>
+</nav>
+
+<!-- ═══════════════ HERO ═══════════════ -->
+<section class="hero">
+  <div class="hero__grid-bg"></div>
+  <div class="hero__gradient"></div>
+  <div class="hero__scanline"></div>
+
+  <div class="hero__marker" aria-hidden="true">
+    <div class="hero__marker-tick">
+      <span class="hero__marker-label">0.00</span>
+      <span class="hero__marker-line hero__marker-line--long"></span>
+    </div>
+    <div class="hero__marker-tick">
+      <span class="hero__marker-line"></span>
+    </div>
+    <div class="hero__marker-tick">
+      <span class="hero__marker-line"></span>
+    </div>
+    <div class="hero__marker-tick">
+      <span class="hero__marker-label">0.03</span>
+      <span class="hero__marker-line hero__marker-line--long"></span>
+    </div>
+    <div class="hero__marker-tick">
+      <span class="hero__marker-line"></span>
+    </div>
+    <div class="hero__marker-tick">
+      <span class="hero__marker-line"></span>
+    </div>
+    <div class="hero__marker-tick">
+      <span class="hero__marker-label">0.06</span>
+      <span class="hero__marker-line hero__marker-line--long"></span>
+    </div>
+    <div class="hero__marker-tick">
+      <span class="hero__marker-line"></span>
+    </div>
+    <div class="hero__marker-tick">
+      <span class="hero__marker-line"></span>
+    </div>
+    <div class="hero__marker-tick">
+      <span class="hero__marker-label">0.09</span>
+      <span class="hero__marker-line hero__marker-line--long"></span>
+    </div>
+    <div class="hero__marker-tick">
+      <span class="hero__marker-line"></span>
+    </div>
+    <div class="hero__marker-tick">
+      <span class="hero__marker-label">SEC</span>
+      <span class="hero__marker-line hero__marker-line--long"></span>
+    </div>
+  </div>
+
+  <div class="hero__content">
+    <div class="hero__eyebrow">V1 Zooty Men's</div>
+    <h1 class="hero__headline">Built for<br>the <em>Line.</em></h1>
+    <p class="hero__sub">Engineered with the same precision you bring to the start. The V1 Zooty Men's by 776BC.</p>
+    <div class="hero__actions">
+      <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html#preorder" class="btn btn--primary">Pre-Order Now</a>
+      <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html#engineering" class="btn btn--ghost">Explore</a>
+    </div>
+  </div>
+
+  <div class="hero__scroll">
+    <span class="hero__scroll-text">Scroll</span>
+    <span class="hero__scroll-line"></span>
+  </div>
+</section>
+
+<!-- ═══════════════ DIVIDER ═══════════════ -->
+<div class="section__divider"></div>
+
+<!-- ═══════════════ ENGINEERING ═══════════════ -->
+<section class="section" id="engineering">
+  <div class="engineering">
+    <div>
+      <div class="section__label reveal">Section 01 — Engineering</div>
+      <h2 class="section__heading reveal reveal-delay-1">When fractions define the outcome, everything is engineered.</h2>
+      <div class="section__body reveal reveal-delay-2">
+        <p>In Formula One, a tenth of a second separates first from forgotten. In rowing, it is no different. The stroke. The catch. The drive. Every movement calibrated, every margin earned.</p>
+        <p>The V1 Zooty was built with that same discipline. Not designed in a marketing studio. Engineered by a two-time Olympian's brand that understands what athletes need when the margins close and the stakes rise.</p>
+        <p>Zero-drag seaming. Aerodynamic panel construction informed by the rowing stroke cycle. Compression architecture that supports without restricting. Every element serves the movement.</p>
+        <p>This is not sportswear inspired by motorsport. This is the shared principle: precision in pursuit of performance.</p>
+      </div>
+    </div>
+    <div class="engineering__visual reveal reveal-delay-3">
+      <div class="blueprint">
+        <div class="blueprint__grid"></div>
+        <div class="blueprint__cross"></div>
+        <div class="blueprint__circle"></div>
+        <div class="blueprint__circle blueprint__circle--sm"></div>
+        <span class="blueprint__label-tl">776BC / STROKE CYCLE MAPPING</span>
+        <span class="blueprint__label-br">V1-Z-MEN-001</span>
+        <div class="blueprint__data">
+          <div class="blueprint__data-val">0.03<span style="font-size:0.5em">s</span></div>
+          <div class="blueprint__data-unit">margin of difference</div>
+        </div>
+        <span class="blueprint__annotation blueprint__annotation--r1">ZERO-DRAG SEAM</span>
+        <span class="blueprint__annotation blueprint__annotation--r2">PANEL BOUNDARY</span>
+        <span class="blueprint__annotation blueprint__annotation--l1">COMPRESSION ZONE</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section__divider"></div>
+
+<!-- ═══════════════ SPECIFICATIONS ═══════════════ -->
+<section class="section" id="specs">
+  <div class="features">
+    <div class="section__label reveal">Section 02 — Specifications</div>
+    <h2 class="section__heading reveal reveal-delay-1">The details that earn their place.</h2>
+    <div class="spec-grid reveal reveal-delay-2">
+      <div class="spec-row">
+        <div class="spec-row__label">Panel Construction</div>
+        <div class="spec-row__value">Mapped to the rowing stroke cycle — each panel placement follows the body's movement path through catch, drive, and recovery.</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-row__label">Zero-Drag Seaming</div>
+        <div class="spec-row__value">Flatlock construction eliminates friction at every contact point. No seam fights the stroke.</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-row__label">Compression Fit</div>
+        <div class="spec-row__value">Graduated compression supports core and legs without restricting the hip angle at the catch.</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-row__label">Fabric</div>
+        <div class="spec-row__value">Lightweight performance fabric with four-way stretch and moisture management. Built to endure hundreds of sessions.</div>
+      </div>
+      <div class="spec-row">
+        <div class="spec-row__label">Design Language</div>
+        <div class="spec-row__value">GT-inspired visual identity — bold, clean, unmistakably 776BC. Every design element serves the movement.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section__divider"></div>
+
+<!-- ═══════════════ ATHLETE ═══════════════ -->
+<section class="section">
+  <div class="athlete">
+    <div class="section__label reveal" style="justify-content:center">Section 03 — The Athlete</div>
+    <div style="height:32px"></div>
+    <div class="athlete__quote reveal reveal-delay-1">
+      For the athlete who earns the start line.
+    </div>
+    <div class="section__body reveal reveal-delay-2">
+      <p>You do not row for applause. You row because the alternative — standing still — is something you cannot accept.</p>
+      <p>You know your 2k to the tenth. You know the split you need for the next level. You train before the sun comes up because the Charles will not wait and neither will you.</p>
+      <p>The V1 Zooty was built for that athlete. Not for the weekend paddler. Not for the athlete who wants to look the part. For the one who is the part.</p>
+    </div>
+    <div class="athlete__armour reveal reveal-delay-3">Race-day armour</div>
+  </div>
+</section>
+
+<div class="section__divider"></div>
+
+<!-- ═══════════════ HOCR ═══════════════ -->
+<section class="section" id="hocr">
+  <div class="hocr">
+    <div class="hocr__card reveal">
+      <div class="hocr__info">
+        <div class="hocr__event-name">Head of the Charles 2026</div>
+        <h2 class="hocr__title">The proving ground.</h2>
+        <p class="hocr__desc">The Head of the Charles is the largest and most storied rowing event in the United States. Three miles on the Charles River. Thousands of competitors. One chance to prove what you have built across months of preparation.</p>
+        <p class="hocr__desc">776BC will be there. The V1 Zooty will be on the athletes who earned their places at the start line. And our TRAILER will be on the ground — come find us at the course.</p>
+        <div class="hocr__stats">
+          <div class="hocr__stat">
+            <div class="hocr__stat-val">3</div>
+            <div class="hocr__stat-label">Miles</div>
+          </div>
+          <div class="hocr__stat">
+            <div class="hocr__stat-val">11K+</div>
+            <div class="hocr__stat-label">Athletes</div>
+          </div>
+          <div class="hocr__stat">
+            <div class="hocr__stat-val">1</div>
+            <div class="hocr__stat-label">Chance</div>
+          </div>
+        </div>
+      </div>
+      <div class="hocr__map">
+        <!-- Stylised course representation -->
+        <svg class="hocr__map-svg" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect x="0.5" y="0.5" width="399" height="399" stroke="#2a2a2a"></rect>
+          <line x1="0" y1="200" x2="400" y2="200" stroke="#1a1a1a"></line>
+          <line x1="200" y1="0" x2="200" y2="400" stroke="#1a1a1a"></line>
+          <!-- Course path -->
+          <path d="M 60 340 Q 80 280 120 240 Q 160 200 200 180 Q 260 150 300 100 Q 330 70 350 60" stroke="#c8a44e" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.6"></path>
+          <!-- Start marker -->
+          <circle cx="60" cy="340" r="6" fill="none" stroke="#c8a44e" stroke-width="1"></circle>
+          <circle cx="60" cy="340" r="2" fill="#c8a44e"></circle>
+          <text x="75" y="344" fill="#666" font-family="DM Mono, monospace" font-size="8" letter-spacing="0.1em">START</text>
+          <!-- Eliot Bridge marker -->
+          <circle cx="200" cy="180" r="4" fill="none" stroke="#c8a44e" stroke-width="1"></circle>
+          <text x="210" y="175" fill="#c8a44e" font-family="DM Mono, monospace" font-size="7" letter-spacing="0.1em">TRAILER</text>
+          <text x="210" y="186" fill="#666" font-family="DM Mono, monospace" font-size="7" letter-spacing="0.05em">ELIOT BRIDGE</text>
+          <!-- Finish marker -->
+          <circle cx="350" cy="60" r="6" fill="none" stroke="#c8a44e" stroke-width="1"></circle>
+          <circle cx="350" cy="60" r="2" fill="#c8a44e"></circle>
+          <text x="310" y="50" fill="#666" font-family="DM Mono, monospace" font-size="8" letter-spacing="0.1em">FINISH</text>
+          <!-- Distance markers -->
+          <text x="100" y="270" fill="#333" font-family="DM Mono, monospace" font-size="7">MILE 1</text>
+          <text x="220" y="155" fill="#333" font-family="DM Mono, monospace" font-size="7">MILE 2</text>
+          <text x="310" y="85" fill="#333" font-family="DM Mono, monospace" font-size="7">MILE 3</text>
+          <!-- Grid label -->
+          <text x="12" y="18" fill="#333" font-family="DM Mono, monospace" font-size="7" letter-spacing="0.1em">CHARLES RIVER / BOSTON, MA</text>
+          <text x="280" y="392" fill="#2a2a2a" font-family="DM Mono, monospace" font-size="7" letter-spacing="0.1em">HOCR COURSE MAP</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="section__divider"></div>
+
+<!-- ═══════════════ AUTHORITY ═══════════════ -->
+<section class="section">
+  <div class="authority">
+    <div>
+      <div class="section__label reveal">Section 05 — Pedigree</div>
+      <h2 class="section__heading reveal reveal-delay-1">Built by athletes.<br>Tested by Olympians.</h2>
+      <div class="section__body reveal reveal-delay-2">
+        <p>776BC was founded by Cameron McKenzie-McHarg — two-time Olympic rower for Australia. The brand exists because Cameron saw a gap: rowing deserved the same engineering precision that every other elite sport takes for granted.</p>
+        <p>The V1 Zooty is the product of that conviction. Every seam, every panel, every material choice was informed by decades of competitive experience and the demands of athletes who push their bodies to the limit.</p>
+        <p>This is not marketing. This is pedigree.</p>
+      </div>
+    </div>
+    <div class="authority__creds reveal reveal-delay-3">
+      <div class="authority__credential">
+        <div class="authority__icon">
+          <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 3"></path></svg>
+        </div>
+        <div class="authority__cred-title">Olympic Heritage</div>
+        <div class="authority__cred-value">Two-time Olympic rower</div>
+        <div class="authority__cred-desc">Founded by Cameron McKenzie-McHarg, who competed for Australia at the highest level of the sport.</div>
+      </div>
+      <div class="authority__credential">
+        <div class="authority__icon">
+          <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"></path><path d="M2 17l10 5 10-5"></path><path d="M2 12l10 5 10-5"></path></svg>
+        </div>
+        <div class="authority__cred-title">Patented Technology</div>
+        <div class="authority__cred-value">MOTION visual marker system</div>
+        <div class="authority__cred-desc">Developed with the Victorian Institute of Sport. No competitor can replicate it.</div>
+      </div>
+      <div class="authority__credential">
+        <div class="authority__icon">
+          <svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <div class="authority__cred-title">Community Depth</div>
+        <div class="authority__cred-value">Clubs, colleges, national teams</div>
+        <div class="authority__cred-desc">Embedded in the rowing community from elite to grassroots. Trusted because earned.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ PRE-ORDER ═══════════════ -->
+<section id="preorder">
+  <div class="section__divider"></div>
+  <div class="preorder">
+    <div class="preorder__rule reveal"></div>
+    <h2 class="preorder__heading reveal reveal-delay-1">Pre-orders open.<br>Limited first run.</h2>
+    <p class="preorder__sub reveal reveal-delay-2">The V1 Zooty Men's is available for pre-order now. First production run is limited. Secure yours before HOCR.</p>
+    <div class="preorder__actions reveal reveal-delay-3">
+      <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html#" class="btn btn--primary">Pre-Order the V1 Zooty</a>
+      <a href="http://localhost:3001/api/deliverables/review/TASK-0008/v1-zooty-landing/index.html#" class="btn btn--ghost">Join for Updates</a>
+    </div>
+    <div class="preorder__trust reveal reveal-delay-4">
+      <span class="preorder__trust-item">Free shipping over $150</span>
+      <span class="preorder__trust-item">30-day fit guarantee</span>
+      <span class="preorder__trust-item">Designed in Melbourne</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="footer">
+  <div class="footer__brand"><img src="./776bc-logo.png" alt="776BC" class="footer__logo-img"></div>
+  <div class="footer__tagline">Built for the Line.</div>
+</footer>
+
+<!-- ═══════════════ SCROLL REVEAL ═══════════════ -->
+<script>
+(function() {
+  const els = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+  els.forEach(el => observer.observe(el));
+})();
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    e.preventDefault();
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+
+
+
+</body></html>
