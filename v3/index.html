@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OptiFlows — Build the New. Don't Optimise the Old.</title>
+<meta name="description" content="OptiFlows builds AI-native operating architectures for Australian SMBs. Compound Architecture methodology. Practitioner-built. Working systems in 7 weeks.">
+<meta property="og:title" content="OptiFlows — AI-Native Operating Architecture for SMBs">
+<meta property="og:description" content="We build the AI-native operations your business doesn't have yet — so every month you compound advantage your competitors can't copy.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://www.optiflows.com.au">
+<meta property="og:image" content="https://www.optiflows.com.au/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="OptiFlows — Build the New. Don't Optimise the Old.">
+<meta name="twitter:description" content="AI-native operating architecture for Australian SMBs. Practitioner-built. Working systems in 7 weeks.">
+<link rel="canonical" href="https://www.optiflows.com.au">
+
+<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap">
+
+<style>
+:root {
+  --black: #0c0c0c;
+  --white: #ffffff;
+  --electric-teal: #66FFE0;
+  --mid-teal: #0A6E6E;
+  --dark-teal: #053D3D;
+  --interface-teal: #66FFE0;
+  --light-interface-teal: #E0FFF6;
+  --mist-teal: #B8E8E0;
+  --grey: #eff0f2;
+  --mid-grey: #6f6f6f;
+  --dark-grey: #1a1a1a;
+  --light-grey: #ddd;
+  --very-light-grey: #f7f7f7;
+  --bright-grey: #d1d2d3;
+
+  --font-primary: "General Sans", "General Sans Fallback", -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: "Space Mono", "Courier New", monospace;
+
+  --font-size-xxxx-large: clamp(2.75rem, 3.5vw + 1.5rem, 6rem);
+  --font-size-xxx-large: clamp(2.25rem, 2.2vw + 1.4rem, 4rem);
+  --font-size-xx-large: clamp(1.875rem, 1.4vw + 1.35rem, 2.75rem);
+  --font-size-large: clamp(1.25rem, 0.45vw + 1.1rem, 1.5rem);
+  --font-size-body: clamp(1rem, .17vw + .95rem, 1.13rem);
+  --font-size-small: clamp(0.875rem, 0.17vw + 0.82rem, 1rem);
+  --font-size-xx-small: 0.75rem;
+
+  --max-width: 1480px;
+  --container-padding: 20px;
+  --border-radius: 15px;
+  --border-radius-small: 5px;
+  --border-radius-large: 25px;
+  --easeInOut: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (min-width: 1260px) {
+  :root { --container-padding: 80px; }
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  line-height: 1.35;
+  color: var(--black);
+  background: var(--white);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; text-decoration: none; }
+p { color: var(--mid-grey); line-height: 1.58; margin: 0; }
+h1,h2,h3,h4 { margin: 0; color: var(--dark-teal); font-weight: 600; letter-spacing: -0.03em; }
+
+/* ─── Animations ─── */
+.animate-div {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.animate-div.Visible { opacity: 1; transform: translateY(0); }
+
+/* ─── Header ─── */
+.Header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  padding: 0 var(--container-padding);
+  border-bottom: 1px solid transparent;
+  transition: all 0.3s var(--easeInOut);
+}
+.Header.scrolled { border-bottom-color: var(--light-grey); }
+.Header-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.Header-logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--dark-teal);
+  letter-spacing: -0.02em;
+}
+.Header-nav {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.Header-navLink {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--dark-teal);
+  transition: color 0.2s ease;
+}
+.Header-navLink:hover { color: var(--mid-teal); }
+@media (max-width: 860px) {
+  .Header-nav { display: none; }
+}
+
+main { padding-top: 70px; }
+
+/* ─── Button ─── */
+.Button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 16px;
+  border: 1px solid var(--dark-teal);
+  border-radius: var(--border-radius-small);
+  background: var(--white);
+  color: var(--dark-teal);
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.Button:hover { background: var(--dark-teal); color: var(--interface-teal); }
+.Button--filled {
+  background: var(--interface-teal);
+  border-color: var(--interface-teal);
+}
+.Button--filled:hover {
+  background: var(--dark-teal);
+  border-color: var(--dark-teal);
+}
+.Button > span::after {
+  content: "→";
+  display: inline-flex;
+  padding-left: 8px;
+  translate: 0 -1px;
+  transition: translate 0.3s var(--easeInOut);
+}
+.Button:hover > span::after { translate: 4px -1px; }
+.Button--noArrow > span::after { display: none; }
+
+/* ─── PreTitle ─── */
+.PreTitle {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mid-grey);
+  margin-bottom: 20px;
+}
+.PreTitle::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: var(--mid-teal);
+  display: inline-block;
+  flex-shrink: 0;
+}
+
+/* ─── Hero ─── */
+.Hero {
+  padding: 40px var(--container-padding) 0;
+}
+.Hero-outer {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+.Hero-main {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  grid-template-rows: auto 1fr auto;
+  gap: 32px 40px;
+  border-radius: var(--border-radius-large);
+  background:
+    radial-gradient(120% 80% at 85% 10%, rgba(102,255,224,0.35) 0%, rgba(102,255,224,0) 55%),
+    linear-gradient(160deg, #EEFFFA 0%, #DAF6ED 55%, #C9EFE3 100%);
+  border: 1px solid rgba(5, 61, 61, 0.06);
+  overflow: hidden;
+  padding: 72px 72px 64px;
+  min-height: 460px;
+}
+.Hero-title {
+  font-size: var(--font-size-xxxx-large);
+  line-height: 1.02;
+  max-width: 14ch;
+}
+.Hero-copy {
+  max-width: 420px;
+  justify-self: end;
+  border-left: 1px solid rgba(5, 61, 61, 0.12);
+  padding-left: 32px;
+  padding-top: 12px;
+}
+.Hero-copyText + .Hero-copyText { margin-top: 14px; }
+.Hero-copyText--sub { font-size: var(--font-size-small); }
+.Hero-buttons {
+  display: flex;
+  gap: 12px;
+  grid-column: 1 / 3;
+}
+@media (max-width: 900px) {
+  .Hero-main {
+    grid-template-columns: 1fr;
+    padding: 44px 24px 32px;
+    gap: 24px;
+  }
+  .Hero-copy {
+    justify-self: start;
+    border-left: 0;
+    border-top: 1px solid rgba(5, 61, 61, 0.12);
+    padding-left: 0;
+    padding-top: 20px;
+  }
+  .Hero-buttons { grid-column: auto; flex-wrap: wrap; }
+}
+
+/* ─── Section ─── */
+.Section { padding: 100px var(--container-padding); }
+.Section-inner { max-width: var(--max-width); margin: 0 auto; }
+.Section--grey { background: var(--grey); }
+.Section--mistTeal { background: linear-gradient(180deg, #F2FFFB 0%, #DDF7F0 100%); }
+.Section--dark {
+  background: linear-gradient(160deg, var(--dark-teal) 0%, #0B5C5C 100%);
+}
+.Section--dark h2,
+.Section--dark h3,
+.Section--dark .PreTitle,
+.Section--dark .Section-heading { color: var(--white); }
+.Section--dark p,
+.Section--dark .Section-subheading { color: rgba(255,255,255,0.75); }
+.Section--dark .PreTitle { color: var(--interface-teal); }
+.Section--dark .PreTitle::before { background: var(--interface-teal); }
+.Section-heading {
+  font-size: var(--font-size-xxx-large);
+  line-height: 1.04;
+  max-width: 16ch;
+  margin-bottom: 20px;
+}
+.Section-subheading {
+  font-size: var(--font-size-large);
+  line-height: 1.6;
+  max-width: 760px;
+}
+
+/* ─── Stat Bar ─── */
+.StatBar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 32px;
+  padding: 18px 24px;
+  background: rgba(5, 61, 61, 0.06);
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(5, 61, 61, 0.08);
+  max-width: 640px;
+}
+.StatBar-number {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-large);
+  font-weight: 700;
+  color: var(--mid-teal);
+  line-height: 1;
+  flex-shrink: 0;
+}
+.StatBar-text {
+  font-size: var(--font-size-small);
+  color: var(--mid-grey);
+  line-height: 1.5;
+}
+
+/* ─── Problem Grid / Signals ─── */
+.ProblemGrid,
+.TwoCol {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .ProblemGrid,
+  .TwoCol { grid-template-columns: 1fr; }
+}
+.SignalList {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 16px;
+}
+.Signal {
+  display: grid;
+  grid-template-columns: 48px 1fr;
+  gap: 18px;
+  padding: 22px;
+  border-radius: var(--border-radius);
+  background: var(--very-light-grey);
+  border: 1px solid rgba(5, 61, 61, 0.08);
+}
+.Signal-index {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  color: var(--mid-teal);
+}
+.Signal-title {
+  font-size: 1.1rem;
+  margin-bottom: 4px;
+}
+.Signal-text { font-size: var(--font-size-small); }
+
+/* ─── Contrast Pair ─── */
+.ContrastPair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 34px;
+}
+@media (max-width: 900px) { .ContrastPair { grid-template-columns: 1fr; } }
+.ContrastPair-side {
+  padding: 32px;
+  border-radius: var(--border-radius);
+  background: var(--white);
+  border: 1px solid rgba(5, 61, 61, 0.08);
+}
+.ContrastPair-side--muted {
+  background: var(--grey);
+  border-color: var(--bright-grey);
+}
+.ContrastPair-side--muted .ContrastPair-label { color: var(--mid-grey); }
+.ContrastPair-side--muted .ContrastPair-listItem { color: var(--mid-grey); }
+.ContrastPair-side--highlight {
+  background: var(--dark-teal);
+  color: var(--white);
+  border-color: var(--dark-teal);
+}
+.ContrastPair-side--highlight .ContrastPair-label { color: var(--interface-teal); }
+.ContrastPair-side--highlight .ContrastPair-listItem { color: var(--white); }
+.ContrastPair-label {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mid-grey);
+  margin-bottom: 16px;
+}
+.ContrastPair-text {
+  font-size: var(--font-size-large);
+  line-height: 1.55;
+}
+.ContrastPair-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.ContrastPair-listItem {
+  font-size: var(--font-size-body);
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+}
+.ContrastPair-listItem::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 8px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+}
+.ContrastPair-side--muted .ContrastPair-listItem::before {
+  background: var(--bright-grey);
+}
+.ContrastPair-side--highlight .ContrastPair-listItem::before {
+  background: var(--interface-teal);
+}
+
+/* ─── Flywheel ─── */
+.Flywheel {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2px;
+  margin-top: 40px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+@media (max-width: 900px) {
+  .Flywheel { grid-template-columns: 1fr; }
+}
+.Flywheel-engine {
+  background: var(--white);
+  padding: 32px 28px;
+  position: relative;
+}
+.Flywheel-engine::after {
+  content: "→";
+  position: absolute;
+  right: -8px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  color: var(--mid-teal);
+  z-index: 2;
+}
+.Flywheel-engine:last-child::after {
+  content: "↻";
+  right: auto;
+  left: 50%;
+  top: auto;
+  bottom: -4px;
+  transform: translateX(-50%);
+  font-size: 1.1rem;
+  color: var(--interface-teal);
+  display: none;
+}
+@media (max-width: 900px) {
+  .Flywheel-engine::after {
+    right: auto;
+    left: 50%;
+    top: auto;
+    bottom: -8px;
+    transform: translateX(-50%);
+    content: "↓";
+  }
+  .Flywheel-engine:last-child::after { display: none; }
+}
+.Flywheel-index {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mid-teal);
+  margin-bottom: 8px;
+}
+.Flywheel-name {
+  font-size: var(--font-size-xx-large);
+  color: var(--dark-teal);
+  margin-bottom: 4px;
+}
+.Flywheel-time {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  color: var(--mid-grey);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 12px;
+}
+.Flywheel-desc {
+  font-size: var(--font-size-small);
+  line-height: 1.55;
+}
+.Flywheel-loop {
+  margin-top: 20px;
+  text-align: center;
+}
+.Flywheel-loopLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mid-teal);
+  padding: 8px 16px;
+  border: 1px solid rgba(10, 110, 110, 0.2);
+  border-radius: 20px;
+  background: rgba(10, 110, 110, 0.04);
+}
+
+/* ─── Card Grid ─── */
+.CardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-top: 28px;
+}
+@media (max-width: 900px) { .CardGrid { grid-template-columns: 1fr; } }
+.Card {
+  background: var(--white);
+  border: 1px solid rgba(5, 61, 61, 0.08);
+  border-radius: var(--border-radius);
+  padding: 28px;
+}
+.Card-title {
+  font-size: var(--font-size-xx-large);
+  margin-bottom: 12px;
+}
+.Card-body { font-size: var(--font-size-small); line-height: 1.55; }
+
+/* ─── Founder ─── */
+.Founder {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+@media (max-width: 900px) {
+  .Founder { grid-template-columns: 1fr; gap: 32px; }
+}
+.Founder-story {
+  font-size: var(--font-size-large);
+  line-height: 1.65;
+  color: var(--mid-grey);
+}
+.Founder-story strong { color: var(--dark-teal); font-weight: 600; }
+.Founder-creds {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+.Founder-cred {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 16px 20px;
+  border-radius: var(--border-radius);
+  background: rgba(5, 61, 61, 0.04);
+  border: 1px solid rgba(5, 61, 61, 0.06);
+  font-size: var(--font-size-small);
+  color: var(--dark-teal);
+  line-height: 1.45;
+}
+.Founder-credIcon {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  color: var(--mid-teal);
+  flex-shrink: 0;
+  padding-top: 2px;
+}
+
+/* ─── Accordion ─── */
+.Accordion { display: grid; gap: 12px; }
+.Accordion-item {
+  border: 1px solid rgba(5, 61, 61, 0.08);
+  border-radius: var(--border-radius);
+  background: rgba(255,255,255,0.75);
+  overflow: hidden;
+}
+.Accordion-question {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 24px;
+  cursor: pointer;
+}
+.Accordion-question span:first-child {
+  font-size: var(--font-size-large);
+  color: var(--dark-teal);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+.Accordion-icon {
+  font-family: var(--font-mono);
+  font-size: 1.25rem;
+  color: var(--mid-teal);
+  transition: transform 0.2s ease;
+}
+.Accordion-item.active .Accordion-icon { transform: rotate(45deg); }
+.Accordion-answer {
+  display: none;
+  padding: 0 24px 22px;
+}
+.Accordion-item.active .Accordion-answer { display: block; }
+.Accordion-answerText { font-size: var(--font-size-small); line-height: 1.55; }
+
+/* ─── CTA Panel ─── */
+.CTAPanel {
+  background: linear-gradient(140deg, var(--dark-teal) 0%, #0B5C5C 100%);
+  color: var(--white);
+  border-radius: var(--border-radius-large);
+  padding: 52px 48px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 28px;
+  align-items: center;
+}
+@media (max-width: 900px) {
+  .CTAPanel { grid-template-columns: 1fr; padding: 36px 28px; }
+}
+.CTAPanel-brand {
+  font-size: var(--font-size-xx-large);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 8px;
+  letter-spacing: -0.03em;
+}
+.CTAPanel-sub { color: rgba(255,255,255,0.75); max-width: 48ch; line-height: 1.55; }
+.CTAPanel-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+/* ─── Footer ─── */
+.Footer {
+  padding: 40px var(--container-padding) 60px;
+  border-top: 1px solid var(--light-grey);
+  background: var(--white);
+}
+.Footer-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+.Footer-note {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--mid-grey);
+}
+@media (max-width: 900px) {
+  .Footer-inner { flex-direction: column; align-items: flex-start; }
+}
+
+::selection { background: var(--dark-teal); color: var(--white); }
+</style>
+</head>
+<body>
+
+<!-- ═══════════════════ HEADER ═══════════════════ -->
+<header class="Header" id="header">
+  <div class="Header-inner">
+    <a href="/" class="Header-logo">OptiFlows</a>
+    <nav class="Header-nav">
+      <a href="#how-it-works" class="Header-navLink">How It Works</a>
+      <a href="#methodology" class="Header-navLink">Methodology</a>
+      <a href="#results" class="Header-navLink">Results</a>
+      <a href="#about" class="Header-navLink">About</a>
+      <a href="#start" class="Button Button--filled Button--noArrow"><span>Book Audit</span></a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ═══════════════════ 1. HERO ═══════════════════ -->
+<section class="Hero" id="hero">
+  <div class="Hero-outer">
+    <div class="Hero-main">
+      <div class="Hero-titleCont animate-div">
+        <div class="PreTitle">AI-Native Operations</div>
+        <h1 class="Hero-title">Build the new. Don't optimise the old.</h1>
+      </div>
+      <div class="Hero-copy animate-div">
+        <p class="Hero-copyText">We build the AI-native operations your business doesn't have yet — so every month you compound advantage your competitors can't copy.</p>
+        <p class="Hero-copyText Hero-copyText--sub">Practitioner-built operating architecture for Australian founders and ops leaders ready to stop patching and start building.</p>
+      </div>
+      <div class="Hero-buttons animate-div">
+        <a href="#start" class="Button Button--filled"><span>Book an Operating Model Audit</span></a>
+        <a href="#how-it-works" class="Button Button--noArrow"><span>See how it works</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 2. PROBLEM DIAGNOSIS ═══════════════════ -->
+<section class="Section" id="how-it-works">
+  <div class="Section-inner">
+    <div class="ProblemGrid">
+      <div class="ProblemGrid-copy">
+        <div class="PreTitle animate-div">The Problem</div>
+        <h2 class="Section-heading animate-div">Your business grew. Your operating model didn't.</h2>
+        <p class="Section-subheading animate-div">You bought the tools. You hired the people. But work still moves through inboxes, memory, and manual coordination. Growth created complexity. Nobody architected how it all fits together.</p>
+        <div class="StatBar animate-div">
+          <div class="StatBar-number">66%</div>
+          <div class="StatBar-text">of Australian SMBs use AI. Only 5% have it working as a system. The rest have expensive tools and the same bottlenecks.</div>
+        </div>
+      </div>
+      <div class="ProblemGrid-signals">
+        <ul class="SignalList animate-div">
+          <li class="Signal">
+            <div class="Signal-index">01</div>
+            <div class="Signal-body">
+              <h3 class="Signal-title">Tool sprawl, no architecture</h3>
+              <p class="Signal-text">Twelve SaaS subscriptions. None of them talk to each other. Your team is the integration layer.</p>
+            </div>
+          </li>
+          <li class="Signal">
+            <div class="Signal-index">02</div>
+            <div class="Signal-body">
+              <h3 class="Signal-title">Manual coordination tax</h3>
+              <p class="Signal-text">Every handoff needs a human to chase it. Decisions wait on whoever has the context in their head.</p>
+            </div>
+          </li>
+          <li class="Signal">
+            <div class="Signal-index">03</div>
+            <div class="Signal-body">
+              <h3 class="Signal-title">Growth is the bottleneck</h3>
+              <p class="Signal-text">Revenue went up. Headcount went up. But the founder is still the routing layer for every decision that matters.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 3. BEFORE / AFTER ═══════════════════ -->
+<section class="Section Section--grey" id="results">
+  <div class="Section-inner">
+    <div class="PreTitle animate-div">The Shift</div>
+    <h2 class="Section-heading animate-div">From coordination drag to compounding advantage.</h2>
+    <p class="Section-subheading animate-div">Most businesses try to fix operations by adding people or tools. We build the architecture that makes both work harder.</p>
+
+    <div class="ContrastPair animate-div">
+      <div class="ContrastPair-side ContrastPair-side--muted">
+        <div class="ContrastPair-label">Before — How it usually works</div>
+        <ul class="ContrastPair-list">
+          <li class="ContrastPair-listItem">Decisions route through one person's inbox</li>
+          <li class="ContrastPair-listItem">Follow-ups depend on someone remembering</li>
+          <li class="ContrastPair-listItem">AI tools bolted onto broken processes</li>
+          <li class="ContrastPair-listItem">Consultants leave a deck. Nothing changes.</li>
+          <li class="ContrastPair-listItem">Every new hire adds coordination cost</li>
+        </ul>
+      </div>
+      <div class="ContrastPair-side ContrastPair-side--highlight">
+        <div class="ContrastPair-label">After — Compound Architecture™</div>
+        <ul class="ContrastPair-list">
+          <li class="ContrastPair-listItem">Decisions flow through logic, not people</li>
+          <li class="ContrastPair-listItem">Agents handle follow-up, routing, and triage</li>
+          <li class="ContrastPair-listItem">AI-native architecture built from the ground up</li>
+          <li class="ContrastPair-listItem">Working systems installed. They run after we leave.</li>
+          <li class="ContrastPair-listItem">Each improvement accelerates the next</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 4. METHODOLOGY — COMPOUND ARCHITECTURE ═══════════════════ -->
+<section class="Section Section--mistTeal" id="methodology">
+  <div class="Section-inner">
+    <div class="PreTitle animate-div">The Methodology</div>
+    <h2 class="Section-heading animate-div">Compound Architecture™</h2>
+    <p class="Section-subheading animate-div">Four engines. Not phases — a flywheel. Each cycle compounds on the last. The system gets smarter every month you run it.</p>
+
+    <div class="Flywheel animate-div">
+      <div class="Flywheel-engine">
+        <div class="Flywheel-index">Engine 01</div>
+        <h3 class="Flywheel-name">Envision</h3>
+        <div class="Flywheel-time">Week 1–2</div>
+        <p class="Flywheel-desc">Map your future-state operating model. Not an audit of what's broken — a vision of what your business looks like when it works without you holding it together.</p>
+      </div>
+      <div class="Flywheel-engine">
+        <div class="Flywheel-index">Engine 02</div>
+        <h3 class="Flywheel-name">Architect</h3>
+        <div class="Flywheel-time">Week 2–3</div>
+        <p class="Flywheel-desc">Design the AI operating system. Agents, workflows, memory, orchestration. Every decision point, handoff, and dependency mapped and architected.</p>
+      </div>
+      <div class="Flywheel-engine">
+        <div class="Flywheel-index">Engine 03</div>
+        <h3 class="Flywheel-name">Install</h3>
+        <div class="Flywheel-time">Week 3–7</div>
+        <p class="Flywheel-desc">Deploy agents. Wire integrations. Build the command centre. Train your operators. Working systems, not prototypes.</p>
+      </div>
+      <div class="Flywheel-engine">
+        <div class="Flywheel-index">Engine 04</div>
+        <h3 class="Flywheel-name">Compound</h3>
+        <div class="Flywheel-time">Week 7+</div>
+        <p class="Flywheel-desc">Monitor, tune, expand. Each improvement feeds the next. The architecture compounds — your operating advantage grows every month.</p>
+      </div>
+    </div>
+    <div class="Flywheel-loop animate-div">
+      <div class="Flywheel-loopLabel">↻ Each cycle feeds the next — architecture that compounds</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 5. WHAT WE BUILD ═══════════════════ -->
+<section class="Section">
+  <div class="Section-inner">
+    <div class="PreTitle animate-div">What We Build</div>
+    <h2 class="Section-heading animate-div">Working systems. Not slide decks.</h2>
+    <p class="Section-subheading animate-div">Every engagement delivers infrastructure your team runs after we leave. No retainers. No dependency.</p>
+
+    <div class="CardGrid animate-div">
+      <div class="Card">
+        <h3 class="Card-title">AI Agent Teams</h3>
+        <p class="Card-body">Purpose-built agents that handle triage, follow-up, reporting, and routing. They work 24/7. They don't forget. They get better.</p>
+      </div>
+      <div class="Card">
+        <h3 class="Card-title">Workflow Architecture</h3>
+        <p class="Card-body">End-to-end workflows that move work through your business without manual coordination. Handoffs happen automatically.</p>
+      </div>
+      <div class="Card">
+        <h3 class="Card-title">Command Centre</h3>
+        <p class="Card-body">One place to see everything that matters. Real-time visibility across operations. No more status meetings.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 6. FOUNDER AUTHORITY ═══════════════════ -->
+<section class="Section Section--grey" id="about">
+  <div class="Section-inner">
+    <div class="Founder">
+      <div>
+        <div class="PreTitle animate-div">Practitioner, Not Consultant</div>
+        <h2 class="Section-heading animate-div">Built by a founder who runs this architecture every day.</h2>
+        <div class="Founder-story animate-div">
+          <p><strong>James Richmond</strong> built a 43-agent AI operating system from a hospital bed while recovering from surgery. Not as a proof of concept. As his actual operating model — the one that runs his marketing, finances, communications, and strategic planning daily. OptiFlows exists because this architecture works, and most businesses don't know it's possible yet.</p>
+        </div>
+      </div>
+      <div>
+        <ul class="Founder-creds animate-div">
+          <li class="Founder-cred">
+            <span class="Founder-credIcon">→</span>
+            20+ years in enterprise marketing — HP, Telstra, SemTech
+          </li>
+          <li class="Founder-cred">
+            <span class="Founder-credIcon">→</span>
+            Executive MBA + Masters in Marketing (Oxford Brookes)
+          </li>
+          <li class="Founder-cred">
+            <span class="Founder-credIcon">→</span>
+            RMIT Design Thinking — systems-level problem framing
+          </li>
+          <li class="Founder-cred">
+            <span class="Founder-credIcon">→</span>
+            43-agent personal AI architecture — in production daily
+          </li>
+          <li class="Founder-cred">
+            <span class="Founder-credIcon">→</span>
+            Melbourne-based. Australian businesses only.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 7. FAQ / PRINCIPLES ═══════════════════ -->
+<section class="Section Section--mistTeal">
+  <div class="Section-inner">
+    <div class="TwoCol">
+      <div>
+        <div class="PreTitle animate-div">Common Questions</div>
+        <h2 class="Section-heading animate-div">What founders ask before they start.</h2>
+      </div>
+      <div>
+        <div class="Accordion animate-div" id="accordion">
+          <div class="Accordion-item active">
+            <div class="Accordion-question" role="button" tabindex="0">
+              <span>We already use AI tools. How is this different?</span>
+              <div class="Accordion-icon">+</div>
+            </div>
+            <div class="Accordion-answer">
+              <p class="Accordion-answerText">Tools are components. Architecture is how they work together. Most businesses have AI tools bolted onto manual processes. We build the operating system that connects them into a working whole.</p>
+            </div>
+          </div>
+          <div class="Accordion-item">
+            <div class="Accordion-question" role="button" tabindex="0">
+              <span>What happens after you leave?</span>
+              <div class="Accordion-icon">+</div>
+            </div>
+            <div class="Accordion-answer">
+              <p class="Accordion-answerText">The system stays. Your team runs it. We build infrastructure, not dependency. Every engagement includes operator training and documentation. No monthly retainer required.</p>
+            </div>
+          </div>
+          <div class="Accordion-item">
+            <div class="Accordion-question" role="button" tabindex="0">
+              <span>How long until we see results?</span>
+              <div class="Accordion-icon">+</div>
+            </div>
+            <div class="Accordion-answer">
+              <p class="Accordion-answerText">Working systems are installed by week 7. The compound phase starts immediately after. Most clients see measurable operational improvement within the first month of running the architecture.</p>
+            </div>
+          </div>
+          <div class="Accordion-item">
+            <div class="Accordion-question" role="button" tabindex="0">
+              <span>What size business is this for?</span>
+              <div class="Accordion-icon">+</div>
+            </div>
+            <div class="Accordion-answer">
+              <p class="Accordion-answerText">Australian businesses with 50–500 people where growth has outpaced the operating model. Founder-operators, COOs, and technical leaders who know the current system won't scale.</p>
+            </div>
+          </div>
+          <div class="Accordion-item">
+            <div class="Accordion-question" role="button" tabindex="0">
+              <span>Is this just automation?</span>
+              <div class="Accordion-icon">+</div>
+            </div>
+            <div class="Accordion-answer">
+              <p class="Accordion-answerText">Automation repeats tasks. Architecture makes decisions. We build systems with agents that triage, route, follow up, and learn — not scripts that run the same way every time.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════ 8. FINAL CTA ═══════════════════ -->
+<section class="Section" id="start">
+  <div class="Section-inner">
+    <div class="CTAPanel animate-div">
+      <div>
+        <div class="CTAPanel-brand">Your operating model is the product.</div>
+        <p class="CTAPanel-sub">Book a 30-minute operating model audit. We'll map where architecture would replace coordination — and whether Compound Architecture is the right fit.</p>
+      </div>
+      <div class="CTAPanel-actions">
+        <a href="mailto:james@optiflows.com.au?subject=Operating%20Model%20Audit" class="Button Button--filled"><span>Book an Operating Model Audit</span></a>
+        <a href="https://www.linkedin.com/in/jamesrichmond/" class="Button Button--noArrow" target="_blank" rel="noopener"><span>Connect on LinkedIn</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="Footer">
+  <div class="Footer-inner">
+    <div class="Footer-note">© 2026 OptiFlows Pty Ltd · Melbourne, Australia</div>
+    <div class="Footer-note">ABN · james@optiflows.com.au</div>
+  </div>
+</footer>
+
+<script>
+// Sticky header scroll state
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 8) header.classList.add('scrolled');
+  else header.classList.remove('scrolled');
+});
+
+// Scroll-triggered animations
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) entry.target.classList.add('Visible');
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.animate-div').forEach(el => observer.observe(el));
+
+// Accordion
+document.querySelectorAll('.Accordion-question').forEach(question => {
+  const toggle = () => {
+    const item = question.parentElement;
+    const wasActive = item.classList.contains('active');
+    document.querySelectorAll('.Accordion-item').forEach(i => i.classList.remove('active'));
+    if (!wasActive) item.classList.add('active');
+  };
+  question.addEventListener('click', toggle);
+  question.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      toggle();
+    }
+  });
+});
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+</body>
+</html>
