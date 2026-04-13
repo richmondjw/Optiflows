@@ -1,19 +1,19 @@
 [
   {
-    "slug": "intro-agentic-pkm",
-    "title": "Introduction to Agentic PKM",
-    "excerpt": "Most companies have brand messaging across too many places. AI tools cannot reliably access it. Structured markdown files with consistent formatting are already machine-readable  - no vector database required.",
+    "slug": "your-ai-needs-a-filing-system-not-a-database",
+    "title": "Your AI Needs a Filing System, Not a Database",
+    "excerpt": "Most companies reach for a vector database when they want AI to use their knowledge. That's almost always the wrong tool. For teams with fewer than a few hundred documents, a well-structured folder of markdown files gives you better results, in an afternoon, with zero infrastructure.",
     "category": "Knowledge Systems",
-    "date": "2026-03-23",
+    "date": "2026-04-13",
     "readTime": "8 min",
     "featured": true
   },
   {
-    "slug": "designing-company-pkm",
-    "title": "Designing a Company PKM",
-    "excerpt": "A practical guide to building your brand memory vault. Start simple  - structured folders, consistent frontmatter, and clear naming give AI agents everything they need to retrieve and use your brand knowledge.",
+    "slug": "building-your-brand-vault",
+    "title": "Building Your Brand Vault",
+    "excerpt": "The five-folder structure, file templates, frontmatter conventions, and linking discipline that make an agentic PKM actually work. This is the exact architecture used at OptiFlows — you can have a working system by end of day.",
     "category": "Knowledge Systems",
-    "date": "2026-03-23",
+    "date": "2026-04-13",
     "readTime": "12 min",
     "featured": false
   },

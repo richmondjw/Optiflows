@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Your AI Needs a Filing System, Not a Database — OptiFlows</title>
+<style>
+  @import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+  :root {
+    --of-electric-teal: #66FFE0;
+    --of-mid-teal: #0A6E6E;
+    --of-dark-teal: #053D3D;
+    --of-light-interface: #E0FFF6;
+    --of-mist-teal: #B8E8E0;
+    --of-dark-grey: #1A1A1A;
+    --of-mid-grey: #6F6F6F;
+    --of-light-grey: #DDD;
+    --of-very-light-grey: #F7F7F7;
+    --of-white: #FFFFFF;
+    --of-radius-std: 15px;
+    --of-radius-sm: 5px;
+    --of-radius-lg: 25px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    color: var(--of-dark-grey);
+    line-height: 1.7;
+    font-size: 16px;
+    background: var(--of-white);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::selection {
+    background: var(--of-dark-teal);
+    color: var(--of-white);
+  }
+  ::-moz-selection {
+    background: var(--of-dark-teal);
+    color: var(--of-white);
+  }
+
+  ::-webkit-scrollbar { width: 8px; }
+  ::-webkit-scrollbar-track { background: var(--of-very-light-grey); }
+  ::-webkit-scrollbar-thumb { background: var(--of-mist-teal); border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--of-mid-teal); }
+
+  .top-bar {
+    height: 4px;
+    background: var(--of-electric-teal);
+    width: 100%;
+  }
+
+  .header {
+    background: var(--of-dark-teal);
+    color: var(--of-white);
+    padding: 5rem 2rem 4rem;
+    text-align: center;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .header .logo-mark {
+    margin-bottom: 1.5rem;
+  }
+
+  .header h1 {
+    font-family: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 3em;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    margin-bottom: 0.6rem;
+    color: var(--of-white);
+  }
+
+  .header .subtitle {
+    color: var(--of-electric-teal);
+    font-size: 1.2rem;
+    font-weight: 500;
+    letter-spacing: 0.01em;
+  }
+
+  .header .meta {
+    color: var(--of-mist-teal);
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.7em;
+    margin-top: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    font-weight: 400;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 4rem 64px 5rem;
+  }
+
+  .section-alt {
+    background: var(--of-very-light-grey);
+  }
+  .section-white {
+    background: var(--of-white);
+  }
+  .section-alt .container,
+  .section-white .container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  .section-alt:first-of-type .container,
+  .section-white:first-of-type .container {
+    padding-top: 4rem;
+  }
+
+  .bluf {
+    background: var(--of-light-interface);
+    border-left: 3px solid var(--of-mid-teal);
+    padding: 2rem 2.5rem;
+    margin-bottom: 72px;
+    border-radius: 4px var(--of-radius-std) var(--of-radius-std) 4px;
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: var(--of-dark-grey);
+  }
+
+  .bluf strong {
+    color: var(--of-mid-teal);
+    font-weight: 600;
+  }
+
+  .pretitle {
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: var(--of-mid-teal);
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 72px;
+  }
+
+  .pretitle .square {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: var(--of-electric-teal);
+    flex-shrink: 0;
+  }
+
+  .pretitle:first-child,
+  .bluf + .pretitle {
+    margin-top: 0;
+  }
+
+  h2 {
+    font-family: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.75em;
+    font-weight: 500;
+    color: var(--of-dark-teal);
+    margin-bottom: 1.2rem;
+    padding-bottom: 0.6rem;
+    border-bottom: 1px solid var(--of-light-grey);
+    letter-spacing: -0.02em;
+  }
+
+  h3 {
+    font-family: "General Sans", -apple-system, BlinkMacSystemFont, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--of-mid-teal);
+    margin-top: 2rem;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.01em;
+  }
+
+  p {
+    margin-bottom: 1.2rem;
+    color: var(--of-dark-grey);
+  }
+
+  strong {
+    color: var(--of-dark-grey);
+    font-weight: 600;
+  }
+
+  em {
+    color: var(--of-dark-grey);
+    font-style: italic;
+  }
+
+  a {
+    color: var(--of-mid-teal);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 2px;
+  }
+  a:hover {
+    color: var(--of-dark-teal);
+  }
+
+  code {
+    background: var(--of-light-interface);
+    border: 1px solid var(--of-mist-teal);
+    padding: 0.15rem 0.55rem;
+    border-radius: 6px;
+    font-size: 0.88em;
+    font-family: "Space Mono", "Courier New", monospace;
+    color: var(--of-mid-teal);
+  }
+
+  pre {
+    background: var(--of-very-light-grey);
+    border: 1px solid var(--of-light-grey);
+    color: var(--of-dark-grey);
+    padding: 1.5rem 2rem;
+    border-radius: var(--of-radius-std);
+    overflow-x: auto;
+    margin: 1.5rem 0;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    font-family: "Space Mono", "Courier New", monospace;
+  }
+
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  ul, ol {
+    margin: 1rem 0 1.5rem 1.5rem;
+    color: var(--of-dark-grey);
+  }
+
+  li {
+    margin-bottom: 0.5rem;
+  }
+
+  li strong {
+    color: var(--of-dark-grey);
+  }
+
+  .diagram {
+    background: var(--of-very-light-grey);
+    border: 1px solid var(--of-light-grey);
+    border-radius: var(--of-radius-std);
+    padding: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .diagram pre {
+    background: var(--of-white);
+    border: 1px solid var(--of-light-grey);
+    color: var(--of-dark-grey);
+    text-align: left;
+    display: inline-block;
+    margin: 0;
+    border-radius: var(--of-radius-std);
+  }
+
+  .diagram .caption {
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.75rem;
+    color: var(--of-mid-grey);
+    margin-top: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  .callout {
+    background: var(--of-light-interface);
+    border-left: 3px solid var(--of-mid-teal);
+    border-radius: 4px var(--of-radius-std) var(--of-radius-std) 4px;
+    padding: 2rem 2.5rem;
+    margin: 2rem 0;
+  }
+
+  .callout-title {
+    font-weight: 600;
+    color: var(--of-mid-teal);
+    margin-bottom: 0.6rem;
+    font-size: 1.05rem;
+  }
+
+  .callout p {
+    margin-bottom: 0;
+  }
+
+  .table-wrap {
+    border-radius: var(--of-radius-std);
+    overflow: hidden;
+    border: 1px solid var(--of-light-grey);
+    margin: 1.5rem 0;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92rem;
+    background: var(--of-white);
+  }
+
+  th {
+    background: var(--of-dark-teal);
+    color: var(--of-white);
+    padding: 0.9rem 1.2rem;
+    text-align: left;
+    font-family: "Space Mono", "Courier New", monospace;
+    font-weight: 700;
+    font-size: 0.7em;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    border-bottom: none;
+  }
+
+  td {
+    padding: 0.75rem 1.2rem;
+    border-bottom: 1px solid var(--of-light-grey);
+    color: var(--of-dark-grey);
+  }
+
+  td:first-child {
+    font-weight: 500;
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+
+  tbody tr:nth-child(even) {
+    background: var(--of-very-light-grey);
+  }
+
+  tbody tr:nth-child(odd) {
+    background: var(--of-white);
+  }
+
+  .footer {
+    background: var(--of-dark-teal);
+    text-align: center;
+    padding: 2.5rem 2rem;
+    color: var(--of-mist-teal);
+    font-family: "Space Mono", "Courier New", monospace;
+    font-size: 0.8rem;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    font-weight: 400;
+  }
+
+  .footer a {
+    color: var(--of-mist-teal);
+    text-decoration: none;
+    display: block;
+    margin-top: 0.75rem;
+    font-size: 0.7rem;
+    letter-spacing: 1.5px;
+    opacity: 0.7;
+  }
+  .footer a:hover {
+    opacity: 1;
+    color: var(--of-electric-teal);
+  }
+
+  @media (max-width: 768px) {
+    .header { padding: 4rem 40px 3rem; }
+    .header h1 { font-size: 2.2em; }
+    .container { padding: 3rem 40px 4rem; }
+    .section-alt .container, .section-white .container { padding: 2.5rem 40px; }
+    h2 { font-size: 1.5em; }
+    .pretitle { margin-top: 56px; }
+    .bluf { padding: 1.5rem 2rem; margin-bottom: 56px; }
+    table { font-size: 0.85rem; }
+    th, td { padding: 0.6rem 0.8rem; }
+  }
+
+  @media (max-width: 480px) {
+    .header { padding: 3rem 24px 2.5rem; }
+    .header h1 { font-size: 1.75em; }
+    .header .subtitle { font-size: 1rem; }
+    .container { padding: 2rem 16px 3rem; }
+    .section-alt .container, .section-white .container { padding: 2rem 16px; }
+    h2 { font-size: 1.3em; }
+    .pretitle { margin-top: 48px; font-size: 0.65rem; }
+    .bluf { padding: 1.2rem 1.2rem; margin-bottom: 48px; border-radius: 4px 10px 10px 4px; }
+    .callout { padding: 1.2rem; border-radius: 4px 10px 10px 4px; }
+    .diagram { padding: 1.2rem; border-radius: 10px; }
+    pre { padding: 1rem 1.2rem; font-size: 0.82rem; }
+    .table-wrap { display: block; overflow-x: auto; border-radius: 10px; }
+    table { font-size: 0.8rem; }
+    th, td { padding: 0.5rem 0.6rem; white-space: nowrap; }
+    .footer { padding: 2rem 1rem; font-size: 0.7rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<div class="header">
+  <div class="logo-mark">
+    <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+      <circle cx="20" cy="20" r="18" stroke="#66FFE0" stroke-width="2" fill="none"/>
+      <line x1="14" y1="20" x2="26" y2="20" stroke="#66FFE0" stroke-width="2"/>
+      <line x1="20" y1="14" x2="20" y2="26" stroke="#66FFE0" stroke-width="2"/>
+    </svg>
+  </div>
+  <h1>Your AI Needs a Filing System, Not a Database</h1>
+  <div class="subtitle">Why structured markdown beats vector search for most companies</div>
+  <div class="meta">OptiFlows — April 2026</div>
+</div>
+
+<section class="section-white">
+<div class="container">
+
+<div class="bluf">
+<strong>The short version:</strong> Most companies reach for a vector database when they want AI to use their knowledge. That is almost always the wrong tool. For teams with fewer than a few hundred documents, a well-structured folder of markdown files — what I call an agentic PKM — gives you better results, in an afternoon, with zero infrastructure. The vault is the database. The structure is the retrieval system.
+</div>
+
+<div class="pretitle"><span class="square"></span> 01 / THE REAL PROBLEM</div>
+<h2>The real problem isn't retrieval — it's organisation</h2>
+
+<p>I've worked with dozens of marketing teams who all share the same pain: their brand knowledge is scattered. Strategy decks in Google Drive. Campaign briefs in Notion. Website copy in a CMS. Sales messaging in someone's head. When they finally sit down to use an AI tool, they paste in whatever they can find from memory and hope for the best.</p>
+
+<p>The conventional fix is RAG — retrieval-augmented generation. Chunk your documents, push them through an embedding model, store the vectors in a database, wire up a retrieval API, and query by similarity at runtime. It's a real solution to a real problem. But it's a lot of infrastructure for a problem that usually has a simpler answer.</p>
+
+<p>The simpler answer: <strong>AI agents don't need vector search to find relevant content. They need well-organised files.</strong> An agent can read a folder. It can follow a link. It can scan a one-line description and decide whether to open a file. If your knowledge is structured well, navigation replaces retrieval — and you get to skip the entire pipeline.</p>
+
+</div>
+</section>
+
+<section class="section-alt">
+<div class="container">
+
+<div class="pretitle"><span class="square"></span> 02 / WHAT AN AGENTIC PKM ACTUALLY IS</div>
+<h2>What an agentic PKM actually is</h2>
+
+<p>PKM stands for personal knowledge management. The idea has been around for decades — a structured system for capturing and connecting what you know, so you can find and use it later. Tools like Obsidian have made it practical for individuals. What's new is applying the same architecture to company knowledge, and making it traversable by an AI agent, not just a human.</p>
+
+<p>An agentic PKM is a vault — a folder of markdown files — where knowledge is structured to serve two users equally: the human who writes in it, and the AI that navigates it. Both traverse the same files. The structure that makes it easy for a human to browse is the same structure that makes it easy for an agent to reason.</p>
+
+<p>The pipeline that makes it work looks like this:</p>
+
+<div class="diagram">
+<pre><code>concept  -->  rule  -->  playbook  -->  skill
+ (atom)       (guideline)  (strategy)   (capability)</code></pre>
+<div class="caption">Knowledge matures from atomic facts to executable agent capabilities</div>
+</div>
+
+<p>Each layer has a purpose:</p>
+
+<ul>
+<li><strong>Concepts</strong> are atomic. One idea per file. "What is our positioning?" One file. "Who is our primary buyer?" One file. Each stands alone and links to related concepts.</li>
+<li><strong>Rules</strong> are the distilled guidelines — the "always" and "never" statements that keep everything consistent. "Lead with outcomes, not features." "Never use jargon without explaining it in the same sentence."</li>
+<li><strong>Playbooks</strong> weave concepts and rules into coherent strategy for a specific context. A messaging framework. A campaign narrative. A channel guide. These are the documents your team already has — just restructured for navigability.</li>
+<li><strong>Skills</strong> are the agentic layer. Instructions that tell the AI exactly what to do, what files to read, and in what order to produce a specific output.</li>
+</ul>
+
+</div>
+</section>
+
+<section class="section-white">
+<div class="container">
+
+<div class="pretitle"><span class="square"></span> 03 / HOW AN AGENT ACTUALLY NAVIGATES IT</div>
+<h2>How an agent navigates — and why structure replaces search</h2>
+
+<p>This is where it gets concrete. When I point Claude Code at a well-structured vault and ask it to write a LinkedIn post for a product launch, here's what actually happens:</p>
+
+<ol>
+<li>It reads the <code>CLAUDE.md</code> file at the root — a short orientation that explains what the vault contains and how it's organised.</li>
+<li>It finds the relevant skill file — in this case, something like <code>skills/write-linkedin-post.md</code> — which tells it exactly which files to read and what to produce.</li>
+<li>It follows the links in that skill to the relevant concept files (brand voice, product positioning), rule files (tone guidelines), and proof files (relevant case studies).</li>
+<li>It generates output that is grounded in the actual knowledge — not a hallucinated approximation of it.</li>
+</ol>
+
+<p>No vector search. No similarity scores. No over-retrieval of tangentially related chunks. The agent navigates the same way a thoughtful human would — by reading what's relevant and following the links to what else matters.</p>
+
+<div class="callout">
+<div class="callout-title">The key insight: frontmatter as a scan layer</div>
+<p>Every file in the vault has a YAML frontmatter block with a one-line <code>description</code>. The agent can scan fifty file descriptions in seconds and decide which three to actually open. It's progressive disclosure — most retrieval decisions happen before reading a single full file. This is faster and more precise than vector similarity at the scale most companies operate at.</p>
+</div>
+
+<p>The knowledge graph that emerges from consistent linking is also genuinely useful. Every concept links to related concepts. Every rule links to the concepts it derives from and the playbooks it governs. Every playbook links to the rules it follows and the evidence it references. The agent can start anywhere and navigate to everything relevant. No retrieval pipeline needed.</p>
+
+</div>
+</section>
+
+<section class="section-alt">
+<div class="container">
+
+<div class="pretitle"><span class="square"></span> 04 / WHEN THIS BEATS RAG — AND WHEN IT DOESN'T</div>
+<h2>When this beats RAG — and when it doesn't</h2>
+
+<p>I'm not arguing against vector databases categorically. They're excellent at scale. If you have tens of thousands of documents, no human could maintain a link structure across them, and vector similarity becomes the only practical retrieval mechanism.</p>
+
+<p>But most companies aren't at that scale. Most companies have 20 to 150 core knowledge documents. At that scale, a structured file system with good links consistently outperforms embeddings — because the structure encodes <em>meaning</em>, not just co-occurrence. A link from a rule file to a case study means something specific. A vector similarity score between the same two chunks is a statistical approximation of that relationship.</p>
+
+<div class="table-wrap">
+<table>
+<thead>
+<tr><th>Factor</th><th>Vector DB (RAG)</th><th>Agentic PKM</th></tr>
+</thead>
+<tbody>
+<tr><td>Setup time</td><td>Days to weeks — ingestion pipeline, schema, embedding model</td><td>An afternoon — create vault, write files</td></tr>
+<tr><td>Content updates</td><td>Edit file → re-ingest → regenerate embeddings</td><td>Edit file. The agent sees it immediately.</td></tr>
+<tr><td>Retrieval quality</td><td>Depends on chunk size and embedding model choices</td><td>Depends on file structure and link quality</td></tr>
+<tr><td>Maintenance overhead</td><td>Pipeline monitoring, model versioning, database ops</td><td>None. Write files. Link them.</td></tr>
+<tr><td>Cost</td><td>Database hosting, embedding API calls at query time</td><td>Zero beyond Claude Code access</td></tr>
+<tr><td>Human usability</td><td>Requires a query interface to browse</td><td>Obsidian — graph view, backlinks, search</td></tr>
+<tr><td>Upgrade path</td><td>Locked in from day one</td><td>The same files feed a RAG pipeline later if needed</td></tr>
+</tbody>
+</table>
+</div>
+
+<p>That last row matters. Starting with structured markdown doesn't close off the RAG option — it keeps it open. Your files are perfectly valid input for an embedding pipeline if you ever need one. Starting with the pipeline, on the other hand, commits you to infrastructure from day one and gives you nothing useful for human browsing.</p>
+
+</div>
+</section>
+
+<section class="section-white">
+<div class="container">
+
+<div class="pretitle"><span class="square"></span> 05 / HOW I BUILT THIS AT OPTIFLOWS</div>
+<h2>How I built this at OptiFlows — and what it taught me</h2>
+
+<p>OptiFlows itself runs on an agentic PKM. The vault I built to run my own consulting practice is the same architecture I install for clients. I built the initial version in a single extended session — around twelve hours — and it's been the backbone of everything since.</p>
+
+<p>A few things I learned that aren't obvious from the outside:</p>
+
+<p><strong>The CLAUDE.md file does more work than you'd expect.</strong> This is the orientation document at the root of the vault. When Claude Code opens a session in the vault folder, it reads this file first. A good CLAUDE.md doesn't just describe the structure — it tells the agent what the vault is for, what conventions to follow, and what to do when it's uncertain. Think of it as the onboarding document for your AI team member.</p>
+
+<p><strong>The one-line description on every file is non-negotiable.</strong> I skipped this early on and immediately felt the cost — the agent was opening files unnecessarily, losing context, and occasionally hallucinating about what a file contained before reading it. A good description lets the agent make confident decisions without opening the file. This is the single highest-leverage structural habit in the whole system.</p>
+
+<p><strong>Start with ten files, not fifty.</strong> The instinct is to migrate everything at once. Resist it. Write ten core concept files — your positioning, your voice, your primary audience, your top three rules — and test the agent against them. You'll learn more from ten well-structured files than from fifty hastily converted ones. Build the link structure as you go. The graph gets smarter over time.</p>
+
+</div>
+</section>
+
+<section class="section-alt">
+<div class="container">
+
+<div class="pretitle"><span class="square"></span> 06 / WHERE TO START</div>
+<h2>Where to start</h2>
+
+<p>If this resonates, here's the minimal path to a working system:</p>
+
+<ol>
+<li><strong>Install Obsidian.</strong> Free. Mac, Windows, Linux. Stores everything as local markdown files that you own and control.</li>
+<li><strong>Create your vault.</strong> A single folder. Name it after your company or project.</li>
+<li><strong>Write your ten core concept files.</strong> Brand positioning. Voice and tone. Primary audience. Top messaging pillars. These are the atomic facts your AI needs to work from.</li>
+<li><strong>Add your rules.</strong> Three to eight "always/never" guidelines. Keep them short, specific, and linkable.</li>
+<li><strong>Write a CLAUDE.md.</strong> One page. Explain what the vault is, how it's structured, and what the agent should do with it.</li>
+<li><strong>Point Claude Code at the folder.</strong> Ask it to generate something. See what it gets right and wrong. The gaps in the output tell you exactly what to add to the vault next.</li>
+</ol>
+
+<p>The next article in this series — <a href="building-your-brand-vault.html">Building Your Brand Vault</a> — goes deeper on folder structure, file templates, frontmatter conventions, and the linking discipline that makes the graph actually useful.</p>
+
+</div>
+</section>
+
+<div class="footer">
+  OptiFlows Pty Ltd — optiflows.com.au
+  <a href="../../index.html">← Back to OptiFlows</a>
+</div>
+
+</body>
+</html>
