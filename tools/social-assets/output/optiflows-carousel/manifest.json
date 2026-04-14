@@ -1,0 +1,46 @@
+{
+  "title": "OptiFlows Operating System Carousel",
+  "brand": "optiflows",
+  "generatedAt": "2026-04-11T00:48:32.220Z",
+  "input": "tools/social-assets/examples/optiflows-carousel.json",
+  "outputBaseName": "optiflows-operating-system-carousel",
+  "outputs": [
+    {
+      "slide": 1,
+      "variant": "cover",
+      "file": "optiflows-operating-system-carousel-slide-01.png"
+    },
+    {
+      "slide": 2,
+      "variant": "body",
+      "file": "optiflows-operating-system-carousel-slide-02.png"
+    },
+    {
+      "slide": 3,
+      "variant": "body",
+      "file": "optiflows-operating-system-carousel-slide-03.png"
+    },
+    {
+      "slide": 4,
+      "variant": "body",
+      "file": "optiflows-operating-system-carousel-slide-04.png"
+    },
+    {
+      "slide": 5,
+      "variant": "body",
+      "file": "optiflows-operating-system-carousel-slide-05.png"
+    },
+    {
+      "slide": 6,
+      "variant": "cta",
+      "file": "optiflows-operating-system-carousel-slide-06.png"
+    }
+  ],
+  "previewHtml": "index.html",
+  "exportHtml": "export.html",
+  "renderStatus": "rendered",
+  "notes": [
+    "PNG and PDF rendering completed successfully."
+  ],
+  "pdf": "optiflows-operating-system-carousel.pdf"
+}

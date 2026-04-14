@@ -1,0 +1,23 @@
+{
+  "id": "optiflows",
+  "name": "OptiFlows",
+  "tokens": {
+    "black": "#0c0c0c",
+    "white": "#ffffff",
+    "electricTeal": "#66ffe0",
+    "midTeal": "#0a6e6e",
+    "darkTeal": "#053d3d",
+    "lightInterfaceTeal": "#e0fff6",
+    "mistTeal": "#b8e8e0",
+    "midGrey": "#6f6f6f",
+    "darkGrey": "#1a1a1a",
+    "lightGrey": "#dddddd",
+    "veryLightGrey": "#f7f7f7"
+  },
+  "typography": {
+    "primary": "General Sans",
+    "mono": "Space Mono"
+  },
+  "logoText": "OptiFlows",
+  "pretitle": "OptiFlows"
+}

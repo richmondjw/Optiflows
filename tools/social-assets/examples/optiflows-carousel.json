@@ -1,0 +1,45 @@
+{
+  "title": "OptiFlows Operating System Carousel",
+  "brand": "optiflows",
+  "format": "instagram-carousel",
+  "size": {
+    "width": 1080,
+    "height": 1350
+  },
+  "slides": [
+    {
+      "variant": "cover",
+      "headline": "AI isn't the strategy.\nThe operating system is.",
+      "subhead": "Most companies don't have an AI problem. They have a coordination problem."
+    },
+    {
+      "variant": "body",
+      "headline": "Most growth teams leak value in the handoffs.",
+      "body": "Leads stall. Follow-up slows. Context gets lost. Momentum dies between functions."
+    },
+    {
+      "variant": "body",
+      "headline": "Tools don't fix broken movement.",
+      "body": "More SaaS does not equal better execution. If the work still depends on chasing, reminding, and translating, the system is broken."
+    },
+    {
+      "variant": "body",
+      "headline": "OptiFlows redesigns how work moves.",
+      "body": "We build AI-native operating systems for growth teams, so execution keeps moving without constant manual coordination."
+    },
+    {
+      "variant": "body",
+      "headline": "What changes",
+      "body": "Less coordination drag. Faster follow-up. Clearer ownership. Better signal across the funnel."
+    },
+    {
+      "variant": "cta",
+      "headline": "The operating system your company is missing.",
+      "subhead": "If growth is stalling in the gaps between teams, that's the system to fix.",
+      "cta": "optiflows.com.au"
+    }
+  ],
+  "output": {
+    "baseName": "optiflows-operating-system-carousel"
+  }
+}

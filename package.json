@@ -7,8 +7,11 @@
   "scripts": {
     "assets:render": "node tools/social-assets/render.js",
     "assets:test": "node tools/social-assets/render.js --input tools/social-assets/examples/optiflows-carousel.json --output tools/social-assets/output/optiflows-carousel",
+    "assets:publish": "node tools/social-assets/publish-to-pages.js --input tools/social-assets/output/optiflows-carousel/manifest.json",
     "ayrshare:dry-run": "node tools/social-assets/ayrshare-post.js --input tools/social-assets/output/optiflows-carousel/manifest.json --dry-run",
-    "ayrshare:post": "node tools/social-assets/ayrshare-post.js --input tools/social-assets/output/optiflows-carousel/manifest.json"
+    "ayrshare:post": "node tools/social-assets/ayrshare-post.js --input tools/social-assets/output/optiflows-carousel/manifest.json",
+    "social:publish:dry-run": "node tools/social-assets/publish-and-post.js --input tools/social-assets/output/optiflows-carousel/manifest.json --dry-run",
+    "social:publish": "node tools/social-assets/publish-and-post.js --input tools/social-assets/output/optiflows-carousel/manifest.json"
   },
   "dependencies": {
     "playwright": "^1.54.2"
