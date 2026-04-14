@@ -1,0 +1,16 @@
+{
+  "name": "optiflows-social-asset-engine",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Code-native social asset generator for branded carousel and post rendering.",
+  "scripts": {
+    "assets:render": "node tools/social-assets/render.js",
+    "assets:test": "node tools/social-assets/render.js --input tools/social-assets/examples/optiflows-carousel.json --output tools/social-assets/output/optiflows-carousel",
+    "ayrshare:dry-run": "node tools/social-assets/ayrshare-post.js --input tools/social-assets/output/optiflows-carousel/manifest.json --dry-run",
+    "ayrshare:post": "node tools/social-assets/ayrshare-post.js --input tools/social-assets/output/optiflows-carousel/manifest.json"
+  },
+  "dependencies": {
+    "playwright": "^1.54.2"
+  }
+}
