@@ -10,6 +10,31 @@
   /* Tighten for the longer v4 headline */
   font-size: clamp(2.25rem, 3.5vw + 1rem, 3.75rem);
   max-width: 20ch;
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Prevent hero body text from clipping on narrow viewports */
+.Hero-copyText {
+  overflow-wrap: break-word;
+  word-break: break-word;
+}
+
+/* Ensure hero card doesn't clip text on mobile */
+@media (max-width: 768px) {
+  .Hero-main {
+    overflow: visible;
+    padding: 40px 24px 40px;
+  }
+
+  .Hero-title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem);
+    max-width: 100%;
+  }
+
+  .Hero-copy {
+    max-width: 100%;
+  }
 }
 
 /* ─── Contrast Stack (What We Build section) ─── */
@@ -49,6 +74,25 @@
 }
 
 .V4-contrastItem--good .V4-contrastLabel {
+  color: var(--interface-teal);
+}
+
+/* When the good card sits inside a dark-teal section, force light text */
+.Section--teal .V4-contrastItem--good {
+  background: rgba(102,255,224,0.14);
+  border-color: rgba(102,255,224,0.4);
+}
+
+.Section--teal .V4-contrastItem--good .V4-contrastLabel {
+  color: var(--interface-teal);
+}
+
+.Section--teal .V4-contrastItem--good .V4-contrastList li {
+  color: rgba(255,255,255,0.92);
+  font-weight: 400;
+}
+
+.Section--teal .V4-contrastItem--good .V4-contrastList li::before {
   color: var(--interface-teal);
 }
 
