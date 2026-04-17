@@ -20,20 +20,41 @@
   word-break: break-word;
 }
 
-/* Ensure hero card doesn't clip text on mobile */
+/* ─── Mobile hero: single-column, no clipping ─── */
 @media (max-width: 768px) {
+  /* Kill overflow so nothing gets clipped */
   .Hero-main {
-    overflow: visible;
-    padding: 40px 24px 40px;
+    overflow: visible !important;
+    padding: 36px 20px 40px !important;
+    /* Force single-column so right-column text isn't pushed off-screen */
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto auto !important;
   }
 
-  .Hero-title {
-    font-size: clamp(1.75rem, 8vw, 2.5rem);
-    max-width: 100%;
+  .Hero-titleCont {
+    grid-column: 1 !important;
+    grid-row: 1 !important;
   }
 
   .Hero-copy {
-    max-width: 100%;
+    grid-column: 1 !important;
+    grid-row: 2 !important;
+    max-width: 100% !important;
+    padding-left: 0 !important;
+    border-left: none !important;
+    border-top: 1px solid rgba(5, 61, 61, 0.12);
+    padding-top: 20px;
+    margin-top: 20px;
+  }
+
+  .Hero-buttons {
+    grid-column: 1 !important;
+    grid-row: 3 !important;
+  }
+
+  .Hero-title {
+    font-size: clamp(1.75rem, 8vw, 2.5rem) !important;
+    max-width: 100% !important;
   }
 }
 
@@ -84,16 +105,16 @@
 }
 
 .Section--teal .V4-contrastItem--good .V4-contrastLabel {
-  color: var(--interface-teal);
+  color: var(--interface-teal) !important;
 }
 
 .Section--teal .V4-contrastItem--good .V4-contrastList li {
-  color: rgba(255,255,255,0.92);
-  font-weight: 400;
+  color: rgba(255,255,255,0.92) !important;
+  font-weight: 400 !important;
 }
 
 .Section--teal .V4-contrastItem--good .V4-contrastList li::before {
-  color: var(--interface-teal);
+  color: var(--interface-teal) !important;
 }
 
 .V4-contrastList {
