@@ -52,6 +52,23 @@
   .Hero-buttons {
     grid-column: 1 !important;
     grid-row: 3 !important;
+    flex-wrap: wrap;
+  }
+
+  /* Prevent any child from spanning implicit columns */
+  .Hero-titleCont,
+  .Hero-copy,
+  .Hero-buttons {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
+  /* Stack buttons vertically on very small screens */
+  .Hero-buttons .Button {
+    flex: 1 1 auto;
+    min-width: 0;
+    text-align: center;
+    justify-content: center;
   }
 
   .Hero-title {
