@@ -231,6 +231,8 @@
     linear-gradient(160deg, #EEFFFA 0%, #DAF6ED 55%, #C9EFE3 100%);
   border: 1px solid rgba(5, 61, 61, 0.06);
   overflow: hidden;
+  /* Prevent sub-grid text from overflowing viewport width */
+  min-width: 0;
   padding: 72px 72px 64px;
   min-height: 460px;
 }
@@ -255,6 +257,7 @@
   align-self: start;
   justify-self: end;
   max-width: 380px;
+  min-width: 0;
   padding-top: 14px;
   border-left: 1px solid rgba(5, 61, 61, 0.12);
   padding-left: 32px;
@@ -268,6 +271,8 @@
   color: var(--dark-teal);
   line-height: 1.6;
   font-weight: 400;
+  overflow-wrap: break-word;
+  word-break: break-word;
 }
 .Hero-copyText--sub {
   margin-top: 14px;

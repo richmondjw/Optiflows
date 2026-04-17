@@ -9,7 +9,8 @@
 .Hero-title {
   /* Tighten for the longer v4 headline */
   font-size: clamp(2.25rem, 3.5vw + 1rem, 3.75rem);
-  max-width: 20ch;
+  /* Never exceed the grid cell; ch units can be wider than viewport on small screens */
+  max-width: min(20ch, 100%);
   overflow-wrap: break-word;
   word-break: break-word;
 }
@@ -18,6 +19,7 @@
 .Hero-copyText {
   overflow-wrap: break-word;
   word-break: break-word;
+  max-width: 100%;
 }
 
 /* ─── Mobile hero: single-column, no clipping ─── */
