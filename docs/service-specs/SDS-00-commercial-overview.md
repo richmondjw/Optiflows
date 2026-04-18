@@ -93,6 +93,30 @@ Hire trigger: when James has a consistent pipeline of 2+ concurrent System Insta
 
 ---
 
+## Bespoke Engagement
+
+Not every client problem fits the standard ladder. Bespoke engagements are designed from scratch for:
+- Multi-team or multi-business-unit complexity
+- Parallel workflow builds that require coordinated architecture
+- Businesses with internal technical teams who need advisory or design review, not a build partner
+- Operating model redesigns that go beyond one or two workflows
+- Unusual timelines, constraints, or scopes that don't fit fixed packages
+
+Bespoke engagements are scoped and priced after an initial conversation. No templates. The deliverables, structure, and timeline are agreed before anything is signed.
+
+---
+
+## Pricing Policy
+
+**Pricing is not published publicly.** It is shared in conversation, after a discovery call or Audit, when we understand the scope. This protects against:
+- Clients self-selecting out before a conversation that might reveal the value
+- Price anchoring before we understand the problem
+- Racing to the bottom on the wrong metric
+
+Internal pricing guidance is in each SDS document. What goes to clients is a scoped proposal with a fixed number and a defined scope — not a rate card.
+
+---
+
 ## Commercial Principles
 
 **1. Fixed scope, fixed price — always.**
