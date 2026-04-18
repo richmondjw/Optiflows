@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Services — Optiflows</title>
+<meta name="description" content="Three engagement types. Fixed scope. Real deliverables. No pilots. Operating Audit, System Install, and Operating Partner.">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="../base.css?v=20260418a">
+<link rel="stylesheet" href="../style.css?v=20260418a">
+<link rel="stylesheet" href="./v4.css?v=20260418a">
+<link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css">
+
+<style>
+/* ─── Services page specific ─── */
+.ServicesHero {
+  padding: 140px var(--container-padding) 80px;
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.ServicesHero-pre {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mid-teal);
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.ServicesHero-pre::before {
+  content: '';
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background: var(--mid-teal);
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+.ServicesHero-title {
+  font-size: clamp(2.5rem, 4vw + 1rem, 5rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.02;
+  color: var(--dark-teal);
+  max-width: 18ch;
+  margin-bottom: 28px;
+}
+
+.ServicesHero-sub {
+  font-size: var(--font-size-medium);
+  color: var(--mid-grey);
+  max-width: 56ch;
+  line-height: 1.6;
+}
+
+.ServicesHero-nav {
+  display: flex;
+  gap: 12px;
+  margin-top: 40px;
+  flex-wrap: wrap;
+}
+
+.ServicesHero-navLink {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--mid-teal);
+  text-decoration: none;
+  padding: 8px 16px;
+  border: 1px solid rgba(10, 110, 110, 0.2);
+  border-radius: var(--border-radius-small);
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.ServicesHero-navLink:hover {
+  background: rgba(10, 110, 110, 0.06);
+  border-color: var(--mid-teal);
+}
+
+/* ─── Service block ─── */
+.SvcBlock {
+  padding: 80px var(--container-padding);
+  border-top: 1px solid rgba(5, 61, 61, 0.08);
+}
+
+.SvcBlock:first-of-type {
+  border-top: none;
+}
+
+.SvcBlock-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+}
+
+.SvcBlock-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+  margin-bottom: 60px;
+}
+
+.SvcBlock-step {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mid-teal);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.SvcBlock-name {
+  font-size: clamp(2rem, 3vw, 3rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--dark-teal);
+  line-height: 1.05;
+  margin-bottom: 12px;
+}
+
+.SvcBlock-tagline {
+  font-size: var(--font-size-medium);
+  color: var(--mid-teal);
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.SvcBlock-desc {
+  font-size: var(--font-size-small);
+  color: var(--mid-grey);
+  line-height: 1.65;
+}
+
+.SvcBlock-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-self: start;
+  padding: 32px;
+  background: var(--very-light-grey);
+  border: 1px solid rgba(5, 61, 61, 0.07);
+  border-radius: var(--border-radius);
+}
+
+.SvcMeta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.SvcMeta-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: rgba(5, 61, 61, 0.4);
+  font-weight: 400;
+}
+
+.SvcMeta-value {
+  font-size: var(--font-size-small);
+  color: var(--dark-teal);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+.SvcMeta-value--price {
+  font-size: var(--font-size-x-large);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.SvcBlock-divider {
+  width: 40px;
+  height: 2px;
+  background: rgba(5, 61, 61, 0.1);
+  margin: 20px 0;
+}
+
+/* ─── Process steps ─── */
+.SvcProcess {
+  margin-bottom: 60px;
+}
+
+.SvcProcess-title {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mid-teal);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+.SvcSteps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 2px;
+}
+
+.SvcStep {
+  padding: 28px 24px;
+  background: var(--white);
+  border: 1px solid rgba(5, 61, 61, 0.07);
+  position: relative;
+}
+
+.SvcStep:first-child { border-radius: var(--border-radius) 0 0 var(--border-radius); }
+.SvcStep:last-child { border-radius: 0 var(--border-radius) var(--border-radius) 0; }
+
+.SvcStep-num {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  color: var(--mid-teal);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.SvcStep-name {
+  font-weight: 600;
+  font-size: var(--font-size-small);
+  color: var(--dark-teal);
+  margin-bottom: 8px;
+}
+
+.SvcStep-time {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(5, 61, 61, 0.4);
+  margin-bottom: 12px;
+  font-weight: 400;
+}
+
+.SvcStep-desc {
+  font-size: var(--font-size-small);
+  color: var(--mid-grey);
+  line-height: 1.55;
+}
+
+/* ─── Deliverables ─── */
+.SvcDeliverables {
+  margin-bottom: 60px;
+}
+
+.SvcDeliverables-title {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mid-teal);
+  margin-bottom: 28px;
+  font-weight: 400;
+}
+
+.SvcDelivGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.SvcDeliv {
+  padding: 24px;
+  border: 1px solid rgba(5, 61, 61, 0.08);
+  border-radius: var(--border-radius);
+  background: var(--white);
+}
+
+.SvcDeliv-name {
+  font-weight: 600;
+  font-size: var(--font-size-small);
+  color: var(--dark-teal);
+  margin-bottom: 8px;
+}
+
+.SvcDeliv-desc {
+  font-size: var(--font-size-small);
+  color: var(--mid-grey);
+  line-height: 1.55;
+}
+
+/* ─── CTA row ─── */
+.SvcCTA {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-top: 40px;
+  border-top: 1px solid rgba(5, 61, 61, 0.08);
+  margin-top: 20px;
+}
+
+.SvcCTA-note {
+  font-size: var(--font-size-small);
+  color: var(--mid-grey);
+}
+
+/* ─── Dark block (Operating Partner) ─── */
+.SvcBlock--dark {
+  background: var(--dark-teal);
+}
+
+.SvcBlock--dark .SvcBlock-step {
+  color: var(--interface-teal);
+}
+
+.SvcBlock--dark .SvcBlock-name {
+  color: var(--white);
+}
+
+.SvcBlock--dark .SvcBlock-tagline {
+  color: rgba(102,255,224,0.8);
+}
+
+.SvcBlock--dark .SvcBlock-desc {
+  color: rgba(255,255,255,0.7);
+}
+
+.SvcBlock--dark .SvcMeta-label {
+  color: rgba(255,255,255,0.35);
+}
+
+.SvcBlock--dark .SvcMeta-value {
+  color: var(--white);
+}
+
+.SvcBlock--dark .SvcBlock-meta {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(255,255,255,0.1);
+}
+
+.SvcBlock--dark .SvcProcess-title,
+.SvcBlock--dark .SvcDeliverables-title {
+  color: var(--interface-teal);
+}
+
+.SvcBlock--dark .SvcStep {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.SvcBlock--dark .SvcStep-num {
+  color: var(--interface-teal);
+}
+
+.SvcBlock--dark .SvcStep-name {
+  color: var(--white);
+}
+
+.SvcBlock--dark .SvcStep-time {
+  color: rgba(255,255,255,0.3);
+}
+
+.SvcBlock--dark .SvcStep-desc {
+  color: rgba(255,255,255,0.65);
+}
+
+.SvcBlock--dark .SvcDeliv {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.08);
+}
+
+.SvcBlock--dark .SvcDeliv-name {
+  color: var(--white);
+}
+
+.SvcBlock--dark .SvcDeliv-desc {
+  color: rgba(255,255,255,0.65);
+}
+
+.SvcBlock--dark .SvcCTA {
+  border-top-color: rgba(255,255,255,0.1);
+}
+
+.SvcBlock--dark .SvcCTA-note {
+  color: rgba(255,255,255,0.5);
+}
+
+.SvcBlock--dark .Button {
+  border-color: rgba(255,255,255,0.35);
+  color: var(--white);
+}
+
+.SvcBlock--dark .Button:hover {
+  background: var(--interface-teal);
+  border-color: var(--interface-teal);
+  color: var(--dark-teal);
+}
+
+/* ─── Tiers (Operating Partner) ─── */
+.SvcTiers {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin-bottom: 60px;
+}
+
+.SvcTier {
+  padding: 28px 24px;
+  border-radius: var(--border-radius);
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.04);
+}
+
+.SvcTier-name {
+  font-family: var(--font-mono);
+  font-size: var(--font-size-xx-small);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--interface-teal);
+  margin-bottom: 8px;
+  font-weight: 400;
+}
+
+.SvcTier-price {
+  font-size: var(--font-size-xx-large);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 4px;
+}
+
+.SvcTier-period {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 20px;
+  font-weight: 400;
+}
+
+.SvcTier-desc {
+  font-size: var(--font-size-small);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.SvcTier-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.SvcTier-list li {
+  font-size: var(--font-size-small);
+  color: rgba(255,255,255,0.72);
+  padding-left: 18px;
+  position: relative;
+  line-height: 1.45;
+}
+
+.SvcTier-list li::before {
+  content: "–";
+  position: absolute;
+  left: 0;
+  color: var(--interface-teal);
+}
+
+.SvcTier--highlight {
+  background: rgba(102,255,224,0.1);
+  border-color: rgba(102,255,224,0.3);
+}
+
+/* ─── Guarantee band ─── */
+.GuaranteeBand {
+  background: var(--very-light-grey);
+  border-top: 1px solid rgba(5, 61, 61, 0.07);
+  border-bottom: 1px solid rgba(5, 61, 61, 0.07);
+  padding: 60px var(--container-padding);
+}
+
+.GuaranteeBand-inner {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  gap: 48px;
+  align-items: center;
+}
+
+.GuaranteeBand-mark {
+  font-size: 3rem;
+  color: var(--mid-teal);
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.GuaranteeBand-heading {
+  font-size: var(--font-size-xx-large);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: var(--dark-teal);
+  margin-bottom: 12px;
+}
+
+.GuaranteeBand-text {
+  font-size: var(--font-size-small);
+  color: var(--mid-grey);
+  line-height: 1.65;
+  max-width: 62ch;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 1024px) {
+  .SvcBlock-header {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .SvcTiers {
+    grid-template-columns: 1fr;
+    max-width: 420px;
+  }
+
+  .GuaranteeBand-inner {
+    flex-direction: column;
+    gap: 24px;
+    align-items: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .ServicesHero {
+    padding: 100px var(--container-padding) 60px;
+  }
+
+  .SvcBlock {
+    padding: 60px var(--container-padding);
+  }
+
+  .SvcSteps {
+    grid-template-columns: 1fr;
+    gap: 2px;
+  }
+
+  .SvcStep:first-child { border-radius: var(--border-radius) var(--border-radius) 0 0; }
+  .SvcStep:last-child { border-radius: 0 0 var(--border-radius) var(--border-radius); }
+}
+</style>
+</head>
+
+<body>
+
+<!-- ======================== HEADER ======================== -->
+<header class="Header" id="header">
+  <div class="Header-inner">
+    <a href="./index.html" class="Logo">
+      <svg class="Logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="12" y1="3" x2="12" y2="7" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="12" y1="17" x2="12" y2="21" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="3" y1="12" x2="7" y2="12" stroke="currentColor" stroke-width="1.5"/>
+        <line x1="17" y1="12" x2="21" y2="12" stroke="currentColor" stroke-width="1.5"/>
+        <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+      </svg>
+      <span class="Logo-text">Optiflows</span>
+    </a>
+    <nav class="Header-nav">
+      <a href="#audit" class="Header-link">Operating Audit</a>
+      <a href="#install" class="Header-link">System Install</a>
+      <a href="#partner" class="Header-link">Operating Partner</a>
+    </nav>
+    <div class="Header-actions">
+      <a href="./index.html#start" class="Button Button--filled Button--small"><span>Get Started</span></a>
+    </div>
+  </div>
+</header>
+
+<!-- ======================== HERO ======================== -->
+<div class="ServicesHero">
+  <div class="ServicesHero-pre">Services</div>
+  <h1 class="ServicesHero-title">Three engagements. One progression.</h1>
+  <p class="ServicesHero-sub">Fixed scope. Real deliverables. No pilots, no retainers-for-nothing, no open-ended consulting. Every engagement starts with a diagnostic and ends with something your team owns and runs.</p>
+  <nav class="ServicesHero-nav">
+    <a href="#audit" class="ServicesHero-navLink">01 — Operating Audit</a>
+    <a href="#install" class="ServicesHero-navLink">02 — System Install</a>
+    <a href="#partner" class="ServicesHero-navLink">03 — Operating Partner</a>
+  </nav>
+</div>
+
+<!-- ======================== OPERATING AUDIT ======================== -->
+<section class="SvcBlock" id="audit">
+  <div class="SvcBlock-inner">
+
+    <div class="SvcBlock-header">
+      <div>
+        <div class="SvcBlock-step">Step 01</div>
+        <h2 class="SvcBlock-name">Operating Audit</h2>
+        <div class="SvcBlock-tagline">Find the drag before you pay to fix it.</div>
+        <p class="SvcBlock-desc">Most businesses can feel that something is broken. They can't always name it precisely enough to fix it. The Operating Audit is a two-week diagnostic that traces how work actually moves through your business — not how the org chart says it should. We find the two or three workflows costing you the most, quantify what they're costing you in time and margin, and give you a clear brief for what to build first. You leave with a decision, not a deck.</p>
+      </div>
+      <div class="SvcBlock-meta">
+        <div class="SvcMeta-item">
+          <span class="SvcMeta-label">Duration</span>
+          <span class="SvcMeta-value">2 weeks</span>
+        </div>
+        <div class="SvcMeta-item">
+          <span class="SvcMeta-label">Price</span>
+          <span class="SvcMeta-value SvcMeta-value--price">$5,500</span>
+          <span class="SvcMeta-value" style="font-size:0.8rem;font-weight:400;color:var(--mid-grey)">+ GST · Fixed fee · 100% upfront</span>
+        </div>
+        <div class="SvcMeta-item">
+          <span class="SvcMeta-label">Best for</span>
+          <span class="SvcMeta-value">Businesses 15–150 people who know something is broken but haven't pinned down exactly what to fix first</span>
+        </div>
+        <div class="SvcBlock-divider"></div>
+        <a href="./index.html#start" class="Button Button--filled" data-intent="operating_audit" style="justify-content:center"><span>Book an Audit</span></a>
+      </div>
+    </div>
+
+    <div class="SvcProcess">
+      <div class="SvcProcess-title">The Process</div>
+      <div class="SvcSteps">
+        <div class="SvcStep">
+          <div class="SvcStep-num">01</div>
+          <div class="SvcStep-name">Kick-off</div>
+          <div class="SvcStep-time">Day 1–2</div>
+          <p class="SvcStep-desc">90-minute session with your MD and ops lead. We review your tool stack, hear where work breaks, and identify the 4–5 workflows to trace in depth.</p>
+        </div>
+        <div class="SvcStep">
+          <div class="SvcStep-num">02</div>
+          <div class="SvcStep-name">Stakeholder interviews</div>
+          <div class="SvcStep-time">Day 3–4</div>
+          <p class="SvcStep-desc">We interview the people doing the work — not just the people managing it. We trace each workflow from trigger to output and map where value leaks.</p>
+        </div>
+        <div class="SvcStep">
+          <div class="SvcStep-num">03</div>
+          <div class="SvcStep-name">Analysis</div>
+          <div class="SvcStep-time">Day 5–8</div>
+          <p class="SvcStep-desc">We score every friction point by frequency, cost, and fixability. For the top three, we sketch the AI-native future state and build the business case.</p>
+        </div>
+        <div class="SvcStep">
+          <div class="SvcStep-num">04</div>
+          <div class="SvcStep-name">Readout</div>
+          <div class="SvcStep-time">Day 10</div>
+          <p class="SvcStep-desc">60-minute session. We present the friction map, the ranked intervention briefs, and one clear recommendation. Then we talk about what comes next.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="SvcDeliverables">
+      <div class="SvcDeliverables-title">What You Get</div>
+      <div class="SvcDelivGrid">
+        <div class="SvcDeliv">
+          <div class="SvcDeliv-name">Workflow Friction Map</div>
+          <p class="SvcDeliv-desc">Every traced workflow mapped visually — triggers, steps, handoffs, failure modes, time cost. The real version, not the org chart version. Shared as a Miro board and PDF.</p>
+        </div>
+        <div class="SvcDeliv">
+          <div class="SvcDeliv-name">Friction Scorecard</div>
+          <p class="SvcDeliv-desc">All identified friction points ranked by frequency, weekly cost estimate, and fixability. A single view of where your operational drag is concentrated.</p>
+        </div>
+        <div class="SvcDeliv">
+          <div class="SvcDeliv-name">Intervention Briefs (×3)</div>
+          <p class="SvcDeliv-desc">One-page brief per priority intervention: what breaks, what the AI-native version does, what it connects to, build complexity, and conservative vs. optimistic ROI.</p>
+        </div>
+        <div class="SvcDeliv">
+          <div class="SvcDeliv-name">Business Case</div>
+          <p class="SvcDeliv-desc">Two-page executive summary: annual cost of current friction vs. cost to fix, payback period, what success looks like at 90 days and 12 months.</p>
+        </div>
+        <div class="SvcDeliv">
+          <div class="SvcDeliv-name">One Clear Recommendation</div>
+          <p class="SvcDeliv-desc">Not three options. One recommendation — which workflow to build first, why, and what the System Install brief looks like. You leave with a decision, not homework.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="SvcCTA">
+      <a href="./index.html#start" class="Button Button--filled" data-intent="operating_audit"><span>Book an Audit</span></a>
+      <span class="SvcCTA-note">Most Audit clients proceed to a System Install. The Audit cost is not offset against the Install — it stands alone.</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================== SYSTEM INSTALL ======================== -->
+<section class="SvcBlock" id="install" style="background: var(--very-light-grey);">
+  <div class="SvcBlock-inner">
+
+    <div class="SvcBlock-header">
+      <div>
+        <div class="SvcBlock-step">Step 02</div>
+        <h2 class="SvcBlock-name">System Install</h2>
+        <div class="SvcBlock-tagline">A working operating system in six weeks.</div>
+        <p class="SvcBlock-desc">The System Install takes the highest-friction workflow identified in your Audit and rebuilds it as an AI-native operating system — end to end. We design it, build it, wire it into your existing stack, and hand it over to a team that understands how it works and can operate it themselves. Fixed scope. Fixed cost. No pilots. Production.</p>
+        <p class="SvcBlock-desc" style="margin-top:1rem">We do not do open-ended time-and-materials builds. Scope is agreed in writing at the end of Week 2, before build begins. Everything outside that scope is a separate conversation.</p>
+      </div>
+      <div class="SvcBlock-meta">
+        <div class="SvcMeta-item">
+          <span class="SvcMeta-label">Duration</span>
+          <span class="SvcMeta-value">6 weeks</span>
+        </div>
+        <div class="SvcMeta-item">
+          <span class="SvcMeta-label">Price</span>
+          <span class="SvcMeta-value SvcMeta-value--price">From $18,000</span>
+          <span class="SvcMeta-value" style="font-size:0.8rem;font-weight:400;color:var(--mid-grey)">+ GST · Fixed scope · 50% upfront, 50% on delivery</span>
+        </div>
+        <div class="SvcMeta-item">
+          <span class="SvcMeta-label">Best for</span>
+          <span class="SvcMeta-value">Businesses with a named internal owner, decision-maker buy-in, and a specific workflow ready to fix</span>
+        </div>
+        <div class="SvcMeta-item">
+          <span class="SvcMeta-label">Entry requirement</span>
+          <span class="SvcMeta-value">Operating Audit preferred. Direct engagement accepted where the workflow is already clearly defined.</span>
+        </div>
+        <div class="SvcBlock-divider"></div>
+        <a href="./index.html#start" class="Button Button--filled" data-intent="system_install" style="justify-content:center"><span>Install a System</span></a>
+      </div>
+    </div>
+
+    <div class="SvcProcess">
+      <div class="SvcProcess-title">The Process</div>
+      <div class="SvcSteps">
+        <div class="SvcStep">
+          <div class="SvcStep-num">01</div>
+          <div class="SvcStep-name">Map current state</div>
+          <div class="SvcStep-time">Week 1</div>
+          <p class="SvcStep-desc">Workshop with your internal owner. We trace the workflow end to end, find every failure mode, and agree what "working" looks like in precise, measurable terms.</p>
+        </div>
+        <div class="SvcStep">
+          <div class="SvcStep-num">02</div>
+          <div class="SvcStep-name">Design &amp; sign-off</div>
+          <div class="SvcStep-time">Week 2</div>
+          <p class="SvcStep-desc">We design the system architecture: agent layer, integrations, governance, human approval points. You sign off before we build anything. Scope is locked.</p>
+        </div>
+        <div class="SvcStep">
+          <div class="SvcStep-num">03</div>
+          <div class="SvcStep-name">Build &amp; integrate</div>
+          <div class="SvcStep-time">Weeks 3–4</div>
+          <p class="SvcStep-desc">Core build. Agent logic, tool integrations, governance layer. Tested against real examples from Week 1. Daily async update to your internal owner.</p>
+        </div>
+        <div class="SvcStep">
+          <div class="SvcStep-num">04</div>
+          <div class="SvcStep-name">Test &amp; refine</div>
+          <div class="SvcStep-time">Week 5</div>
+          <p class="SvcStep-desc">Live runs with your internal owner present. Edge case testing. Documentation sprint. Second run — your internal owner operates it; we observe.</p>
+        </div>
+        <div class="SvcStep">
+          <div class="SvcStep-num">05</div>
+          <div class="SvcStep-name">Handoff</div>
+          <div class="SvcStep-time">Week 6</div>
+          <p class="SvcStep-desc">Your internal owner presents the system to your MD. Runbook walkthrough. 30-day async support window begins. You own it. We're available if needed.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="SvcDeliverables">
+      <div class="SvcDeliverables-title">What You Get</div>
+      <div class="SvcDelivGrid">
+        <div class="SvcDeliv">
+          <div class="SvcDeliv-name">The Working System</div>
+          <p class="SvcDeliv-desc">One AI-native workflow running in production. Triggered automatically or with minimal initiation. Connected to your stack. Handles edge cases. Surfaces failures clearly.</p>
+        </div>
+        <div class="SvcDeliv">
+          <div class="SvcDeliv-name">Architecture Document</div>
+          <p class="SvcDeliv-desc">What the system does, how it works, what tools it connects to, what the agent cannot do. Living document — your team can maintain it as the system evolves.</p>
+        </div>
+        <div class="SvcDeliv">
+          <div class="SvcDeliv-name">Runbook</div>
+          <p class="SvcDeliv-desc">Step-by-step: how to use it daily, how to handle exceptions, how to make minor modifications, how to escalate when something goes wrong.</p>
+        </div>
+        <div class="SvcDeliv">
+          <div class="SvcDeliv-name">Training Recordings</div>
+          <p class="SvcDeliv-desc">3–5 Loom recordings: system overview, operator walkthrough, admin guide, governance review. Permanent onboarding asset for new team members.</p>
+        </div>
+        <div class="SvcDeliv">
+          <div class="SvcDeliv-name">GitHub Repository</div>
+          <p class="SvcDeliv-desc">All custom code, version controlled, with README. You are added as owner. We remove ourselves post-delivery. You own it, fully and permanently.</p>
+        </div>
+        <div class="SvcDeliv">
+          <div class="SvcDeliv-name">30-Day Support Window</div>
+          <p class="SvcDeliv-desc">Async support for 30 days post-handoff. Questions, minor bugs, configuration tweaks. Scope extensions and new features are a separate conversation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="SvcCTA" style="background:var(--very-light-grey)">
+      <a href="./index.html#start" class="Button Button--filled" data-intent="system_install"><span>Install a System</span></a>
+      <span class="SvcCTA-note">Most engagements land at $24,000–$28,000 + GST. Price scales with integration complexity, not with weeks worked.</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================== GUARANTEE ======================== -->
+<div class="GuaranteeBand">
+  <div class="GuaranteeBand-inner">
+    <div class="GuaranteeBand-mark">✓</div>
+    <div>
+      <h2 class="GuaranteeBand-heading">If it doesn't meet the brief, we fix it. No charge.</h2>
+      <p class="GuaranteeBand-text">Every System Install ships with success criteria defined in writing at the end of Week 2 — before we build anything. If the delivered system doesn't meet those criteria, we stay until it does. You don't pay for our time. You pay for a working system. That's the commitment.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ======================== OPERATING PARTNER ======================== -->
+<section class="SvcBlock SvcBlock--dark" id="partner">
+  <div class="SvcBlock-inner">
+
+    <div class="SvcBlock-header">
+      <div>
+        <div class="SvcBlock-step">Step 03</div>
+        <h2 class="SvcBlock-name">Operating Partner</h2>
+        <div class="SvcBlock-tagline">Embedded. Ongoing. Compounding.</div>
+        <p class="SvcBlock-desc">The hardest part of AI implementation isn't the first system. It's the second, third, and fourth — and building the organisational capability to keep going. The Operating Partner is where the investment compounds. We stay embedded to install new systems every quarter, tune what's running, and systematically build your team's capability to operate and eventually design new systems themselves.</p>
+        <p class="SvcBlock-desc" style="margin-top:1rem">This is by application. Not every System Install client is the right fit. The conversation happens at the Install handoff. The goal of every Operating Partner engagement is to eventually make OptiFlows unnecessary for the routine work.</p>
+      </div>
+      <div class="SvcBlock-meta">
+        <div class="SvcMeta-item">
+          <span class="SvcMeta-label">Commitment</span>
+          <span class="SvcMeta-value">Monthly · Minimum 3 months</span>
+        </div>
+        <div class="SvcMeta-item">
+          <span class="SvcMeta-label">Entry requirement</span>
+          <span class="SvcMeta-value">Must have completed a System Install with OptiFlows. By application.</span>
+        </div>
+        <div class="SvcBlock-divider" style="background:rgba(255,255,255,0.12)"></div>
+        <a href="./index.html#start" class="Button" data-intent="operating_partner" style="justify-content:center"><span>Apply to Partner</span></a>
+      </div>
+    </div>
+
+    <!-- Tiers -->
+    <div class="SvcDeliverables-title" style="margin-bottom:28px">Three Tiers</div>
+    <div class="SvcTiers">
+      <div class="SvcTier">
+        <div class="SvcTier-name">Tier 1 — Maintain</div>
+        <div class="SvcTier-price">$4,500</div>
+        <div class="SvcTier-period">per month + GST</div>
+        <p class="SvcTier-desc">Systems running well. Keep them healthy, tune them monthly, evolve them slowly.</p>
+        <ul class="SvcTier-list">
+          <li>Weekly audit log review</li>
+          <li>Minor updates and prompt tuning (4h/mo)</li>
+          <li>Monthly 60-min review call</li>
+          <li>Async support (24h response)</li>
+          <li>Quarterly optimisation session</li>
+        </ul>
+      </div>
+      <div class="SvcTier SvcTier--highlight">
+        <div class="SvcTier-name">Tier 2 — Expand</div>
+        <div class="SvcTier-price">$6,500</div>
+        <div class="SvcTier-period">per month + GST</div>
+        <p class="SvcTier-desc">Actively building. One new system install per quarter, built inside the retainer.</p>
+        <ul class="SvcTier-list">
+          <li>Everything in Tier 1</li>
+          <li>One new System Install per quarter</li>
+          <li>Access to OptiFlows integration pattern library</li>
+          <li>Design sessions for upcoming builds</li>
+        </ul>
+      </div>
+      <div class="SvcTier">
+        <div class="SvcTier-name">Tier 3 — Build</div>
+        <div class="SvcTier-price">$9,500</div>
+        <div class="SvcTier-period">per month + GST</div>
+        <p class="SvcTier-desc">Moving fast. Building internal capability. Transitioning toward independence.</p>
+        <ul class="SvcTier-list">
+          <li>Everything in Tier 2</li>
+          <li>Capability uplift (2h/mo training)</li>
+          <li>Ad-hoc build support (8h/mo)</li>
+          <li>Priority scheduling</li>
+          <li>Annual operating strategy review</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="SvcProcess">
+      <div class="SvcProcess-title">Monthly Rhythm</div>
+      <div class="SvcSteps">
+        <div class="SvcStep">
+          <div class="SvcStep-num">Wk 1</div>
+          <div class="SvcStep-name">Operations review</div>
+          <p class="SvcStep-desc">What ran, what broke, what needs tuning. Audit log reviewed. Optimisation opportunities identified.</p>
+        </div>
+        <div class="SvcStep">
+          <div class="SvcStep-num">Wk 2</div>
+          <div class="SvcStep-name">Build work</div>
+          <p class="SvcStep-desc">Active build on the next system (Tier 2/3 in build quarters). Design, integration, or refinement work.</p>
+        </div>
+        <div class="SvcStep">
+          <div class="SvcStep-num">Wk 3</div>
+          <div class="SvcStep-name">Async delivery</div>
+          <p class="SvcStep-desc">James working in the background. Daily 3-sentence update if in active build. Your team runs the existing systems.</p>
+        </div>
+        <div class="SvcStep">
+          <div class="SvcStep-num">Wk 4</div>
+          <div class="SvcStep-name">Monthly review</div>
+          <p class="SvcStep-desc">60-min call: what was delivered, what metrics moved, what's next. Tier and scope reviewed quarterly.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="SvcCTA">
+      <a href="./index.html#start" class="Button" data-intent="operating_partner"><span>Apply to Partner</span></a>
+      <span class="SvcCTA-note">Operating Partner availability is limited. We work with a small number of clients at once.</span>
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================== FOOTER ======================== -->
+<footer class="Footer">
+  <div class="Footer-inner">
+    <div class="Footer-grid">
+      <div class="Footer-brand">
+        <a href="./index.html" class="Logo">
+          <svg class="Logo-icon" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/>
+            <circle cx="12" cy="12" r="2.5" stroke="currentColor" stroke-width="1.5"/>
+          </svg>
+          <span class="Logo-text">Optiflows</span>
+        </a>
+        <p class="Footer-desc">AI-native operating systems for growing businesses.</p>
+      </div>
+      <div>
+        <div class="Footer-colTitle">Services</div>
+        <ul class="Footer-links">
+          <li><a href="#audit" class="Footer-link">Operating Audit</a></li>
+          <li><a href="#install" class="Footer-link">System Install</a></li>
+          <li><a href="#partner" class="Footer-link">Operating Partner</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="Footer-colTitle">Company</div>
+        <ul class="Footer-links">
+          <li><a href="./index.html" class="Footer-link">Home</a></li>
+          <li><a href="./index.html#start" class="Footer-link">Get Started</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="Footer-bottom">
+      <span class="Footer-copy">© 2026 Optiflows. All rights reserved.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', e => {
+    const target = document.querySelector(a.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+});
+
+// Header scroll behaviour
+const header = document.getElementById('header');
+window.addEventListener('scroll', () => {
+  header.classList.toggle('scrolled', window.scrollY > 20);
+});
+</script>
+
+</body>
+</html>
