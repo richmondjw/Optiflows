@@ -675,6 +675,11 @@
   gap: 12px;
 }
 
+/* Reduce excess bottom gap on CTA section */
+#start {
+  padding-bottom: 0;
+}
+
 /* ======================== FOOTER ======================== */
 .Footer {
   background: var(--dark-teal);
