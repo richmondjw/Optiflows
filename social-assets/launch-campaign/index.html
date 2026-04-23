@@ -92,12 +92,13 @@ body {
   transform: translateY(-4px);
 }
 
-/* Card 1 — Problem Hook — Dark teal with electric accent */
+/* Card 1 — Problem Hook — mobile-first */
 .card-1 {
   background: var(--dark-teal);
   display: flex;
   flex-direction: column;
-  padding: 56px 52px;
+  justify-content: space-between;
+  padding: 44px 40px;
 }
 
 .card-1 .noise {
@@ -129,13 +130,13 @@ body {
 }
 
 .card-1 .headline {
-  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-size: clamp(2.3rem, 4.8vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 0.98;
   color: var(--white);
-  margin-bottom: 28px;
-  flex: 1;
+  margin-bottom: 18px;
+  max-width: 11ch;
 }
 
 .card-1 .headline em {
@@ -144,10 +145,11 @@ body {
 }
 
 .card-1 .body-text {
-  font-size: 0.95rem;
-  line-height: 1.65;
-  color: rgba(255,255,255,0.65);
-  margin-bottom: 36px;
+  font-size: 1.02rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 28px;
+  max-width: 28ch;
 }
 
 .card-1 .cta-line {
@@ -197,7 +199,7 @@ body {
   background: var(--off-white);
   display: flex;
   flex-direction: column;
-  padding: 52px 48px;
+  padding: 40px 36px;
 }
 
 .card-2 .card-number {
@@ -210,12 +212,13 @@ body {
 }
 
 .card-2 .headline {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-size: clamp(2rem, 4.2vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 0.98;
   color: var(--dark-teal);
-  margin-bottom: 32px;
+  margin-bottom: 24px;
+  max-width: 10ch;
 }
 
 .card-2 .drag-list {
@@ -229,10 +232,11 @@ body {
 .card-2 .drag-list li {
   display: flex;
   align-items: flex-start;
-  gap: 14px;
-  font-size: 0.9rem;
-  line-height: 1.5;
-  color: var(--mid-grey);
+  gap: 12px;
+  font-size: 1rem;
+  line-height: 1.35;
+  color: #365656;
+  font-weight: 500;
 }
 
 .card-2 .drag-list li::before {
@@ -273,7 +277,7 @@ body {
 }
 
 .card-3 .card-header {
-  padding: 44px 48px 0;
+  padding: 36px 36px 0;
 }
 
 .card-3 .card-number {
@@ -286,21 +290,21 @@ body {
 }
 
 .card-3 .headline {
-  font-size: clamp(1.4rem, 2.8vw, 2rem);
-  font-weight: 600;
-  letter-spacing: -0.025em;
-  line-height: 1.1;
+  font-size: clamp(1.8rem, 3.6vw, 2.7rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
   color: var(--white);
+  max-width: 12ch;
 }
 
 .card-3 .contrast-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 0;
   flex: 1;
   align-self: center;
-  padding: 32px 48px;
-  gap: 16px;
+  padding: 24px 36px 20px;
+  gap: 12px;
 }
 
 .card-3 .col-bad,
@@ -337,8 +341,8 @@ body {
 }
 
 .card-3 .col-item {
-  font-size: 0.78rem;
-  line-height: 1.4;
+  font-size: 0.88rem;
+  line-height: 1.3;
   padding-left: 14px;
   position: relative;
 }
@@ -373,7 +377,7 @@ body {
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
-  padding: 56px 52px;
+  padding: 44px 40px;
   overflow: hidden;
 }
 
@@ -400,28 +404,29 @@ body {
 }
 
 .card-4 .big-stat {
-  font-size: clamp(4rem, 10vw, 7rem);
+  font-size: clamp(5.4rem, 12vw, 8rem);
   font-weight: 700;
-  letter-spacing: -0.05em;
-  line-height: 0.9;
+  letter-spacing: -0.07em;
+  line-height: 0.82;
   color: var(--electric-teal);
-  margin-bottom: 16px;
+  margin-bottom: 10px;
 }
 
 .card-4 .stat-label {
-  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
-  font-weight: 600;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
+  font-size: clamp(1.8rem, 3.8vw, 2.7rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
   color: var(--white);
-  margin-bottom: 24px;
+  margin-bottom: 18px;
+  max-width: 9ch;
 }
 
 .card-4 .stat-context {
-  font-size: 0.88rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.55);
-  max-width: 38ch;
+  font-size: 1rem;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.82);
+  max-width: 28ch;
 }
 
 .card-4 .card-divider {
@@ -444,7 +449,7 @@ body {
   background: var(--white);
   display: flex;
   flex-direction: column;
-  padding: 52px 48px;
+  padding: 40px 36px;
 }
 
 .card-5 .card-number {
@@ -457,12 +462,13 @@ body {
 }
 
 .card-5 .headline {
-  font-size: clamp(1.5rem, 3vw, 2.2rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
   color: var(--dark-teal);
-  margin-bottom: 28px;
+  margin-bottom: 22px;
+  max-width: 11ch;
 }
 
 .card-5 .offer-ladder {
@@ -476,9 +482,9 @@ body {
 .card-5 .offer-step {
   display: flex;
   align-items: flex-start;
-  gap: 16px;
-  padding: 16px 20px;
-  border-radius: 8px;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 10px;
   border: 1px solid rgba(5, 61, 61, 0.1);
 }
 
@@ -562,7 +568,7 @@ body {
 }
 
 .ad-a .left-panel {
-  padding: 48px 44px;
+  padding: 38px 34px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -589,11 +595,12 @@ body {
 }
 
 .ad-a .ad-headline {
-  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-size: clamp(1.8rem, 3.4vw, 2.8rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
   color: var(--white);
+  max-width: 10ch;
 }
 
 .ad-a .ad-headline span {
@@ -601,9 +608,10 @@ body {
 }
 
 .ad-a .ad-sub {
-  font-size: 0.82rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.55);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.82);
+  max-width: 28ch;
 }
 
 .ad-a .ad-cta {
@@ -651,7 +659,7 @@ body {
 }
 
 .ad-b .left-panel {
-  padding: 44px 48px;
+  padding: 36px 34px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -675,17 +683,19 @@ body {
 }
 
 .ad-b .ad-headline {
-  font-size: clamp(1.3rem, 2.5vw, 2rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-size: clamp(1.7rem, 3.2vw, 2.5rem);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.02;
   color: var(--dark-teal);
+  max-width: 11ch;
 }
 
 .ad-b .ad-sub {
-  font-size: 0.82rem;
-  line-height: 1.6;
-  color: var(--mid-grey);
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #516161;
+  max-width: 28ch;
 }
 
 .ad-b .ad-cta {
@@ -737,7 +747,7 @@ body {
   justify-content: center;
   flex-direction: column;
   text-align: center;
-  padding: 48px 80px;
+  padding: 38px 44px;
   gap: 0;
   overflow: hidden;
 }
@@ -777,13 +787,14 @@ body {
 }
 
 .ad-c .ad-headline {
-  font-size: clamp(1.6rem, 3vw, 2.5rem);
-  font-weight: 600;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
+  font-size: clamp(2rem, 3.8vw, 3rem);
+  font-weight: 700;
+  letter-spacing: -0.045em;
+  line-height: 1.02;
   color: var(--white);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
   position: relative;
+  max-width: 10ch;
 }
 
 .ad-c .ad-headline span {
@@ -791,11 +802,11 @@ body {
 }
 
 .ad-c .ad-sub {
-  font-size: 0.85rem;
-  line-height: 1.6;
-  color: rgba(255,255,255,0.5);
-  max-width: 50ch;
-  margin-bottom: 28px;
+  font-size: 0.95rem;
+  line-height: 1.42;
+  color: rgba(255,255,255,0.82);
+  max-width: 32ch;
+  margin-bottom: 22px;
   position: relative;
 }
 
@@ -1299,7 +1310,7 @@ optiflows.com.au</textarea></div>
           <div class="noise"></div>
           <div class="corner-mark">optiflows.com.au</div>
           <div class="headline">Most AI projects fail at the <em>same point.</em> Not the technology. The handoff.</div>
-          <div class="body-text">Someone builds a working prototype. It sits in a slide deck. The team goes back to doing things manually. Six months later, nothing has changed operationally.<br><br>This is the gap we close.</div>
+          <div class="body-text">A working prototype means nothing if the workflow never changes.<br><br>That is the gap we close.</div>
           <div class="cta-line"><span class="cta-text">AI-native operating systems</span><div class="cta-arrow"></div></div>
           <div class="bottom-bar"></div>
         </div>
@@ -1329,10 +1340,10 @@ optiflows.com.au</textarea></div></div>
         <div class="linkedin-card card-2">
           <div class="headline">"Coordination drag" isn't a buzzword. It's what's eating your margin.</div>
           <ul class="drag-list">
-            <li>Work leaves one person and arrives somewhere else wrong</li>
-            <li>Deals aren't followed up because nobody owns the handoff</li>
-            <li>The founder gets pulled in every time the system fails</li>
-            <li>AI tools get trialled, praised, and quietly abandoned</li>
+            <li>Broken handoffs</li>
+            <li>Missed follow-up</li>
+            <li>Founder dependency</li>
+            <li>Abandoned AI tools</li>
           </ul>
           <div class="resolution"><p>We map it. We fix it. We build systems that hold without us. <span>→ Operating Audit. Two weeks.</span></p></div>
         </div>
@@ -1405,7 +1416,7 @@ optiflows.com.au</textarea></div>
           <div class="big-stat">57%</div>
           <div class="stat-label">of enterprises are still stuck in pilot stage.</div>
           <div class="card-divider"></div>
-          <div class="stat-context">The gap between pilot and production is a workflow design problem — not a model capability problem. We close it in six weeks.</div>
+          <div class="stat-context">Pilot-to-production is a workflow problem. We close it in six weeks.</div>
           <br>
           <div class="source-label">Source · Deloitte 2026</div>
         </div>
@@ -1436,9 +1447,9 @@ optiflows.com.au/v4</textarea></div></div>
         <div class="linkedin-card card-5">
           <div class="headline">Three offers. One progression. Start where you are.</div>
           <div class="offer-ladder">
-            <div class="offer-step"><div class="step-num">01</div><div class="step-content"><div class="step-title">Operating Audit</div><div class="step-desc">Find the drag. Build the case. Two weeks.</div></div></div>
-            <div class="offer-step highlighted"><div class="step-num">02</div><div class="step-content"><div class="step-title">System Install</div><div class="step-desc">Production system in six weeks. Fixed scope, guaranteed.</div></div></div>
-            <div class="offer-step"><div class="step-num">03</div><div class="step-content"><div class="step-title">Operating Partner</div><div class="step-desc">Embedded, ongoing. By application only.</div></div></div>
+            <div class="offer-step"><div class="step-num">01</div><div class="step-content"><div class="step-title">Operating Audit</div><div class="step-desc">Find the drag</div></div></div>
+            <div class="offer-step highlighted"><div class="step-num">02</div><div class="step-content"><div class="step-title">System Install</div><div class="step-desc">Build the system</div></div></div>
+            <div class="offer-step"><div class="step-num">03</div><div class="step-content"><div class="step-title">Operating Partner</div><div class="step-desc">Compound capability</div></div></div>
           </div>
           <a class="cta-button" href="https://optiflows.com.au/v4">Book an Audit →</a>
         </div>
