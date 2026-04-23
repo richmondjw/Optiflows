@@ -1,0 +1,1631 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>OptiFlows — Launch Campaign Assets</title>
+<style>
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+  --dark-teal: #053D3D;
+  --mid-teal: #0A6E6E;
+  --electric-teal: #66FFE0;
+  --light-teal: #E0FFF6;
+  --mist-teal: #B8E8E0;
+  --white: #ffffff;
+  --off-white: #F7F7F7;
+  --mid-grey: #6f6f6f;
+  --font-primary: "General Sans", sans-serif;
+  --font-mono: "Space Mono", monospace;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  background: #0a0a0a;
+  font-family: var(--font-primary);
+  color: var(--white);
+  padding: 60px 40px;
+}
+
+.page-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.page-header-label {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--electric-teal);
+  margin-bottom: 16px;
+}
+
+.page-header h1 {
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  color: var(--white);
+  line-height: 1.05;
+}
+
+.page-header h1 span {
+  color: var(--electric-teal);
+}
+
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--electric-teal);
+  margin-bottom: 32px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(102, 255, 224, 0.2);
+}
+
+.asset-section {
+  margin-bottom: 100px;
+}
+
+/* ── LINKEDIN POST CARDS (1:1 square format) ── */
+.post-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(520px, 1fr));
+  gap: 32px;
+}
+
+.linkedin-card {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.linkedin-card:hover {
+  transform: translateY(-4px);
+}
+
+/* Card 1 — Problem Hook — Dark teal with electric accent */
+.card-1 {
+  background: var(--dark-teal);
+  display: flex;
+  flex-direction: column;
+  padding: 56px 52px;
+}
+
+.card-1 .noise {
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.card-1 .corner-mark {
+  position: absolute;
+  top: 40px;
+  right: 48px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(102, 255, 224, 0.5);
+}
+
+.card-1 .card-number {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--electric-teal);
+  margin-bottom: 32px;
+}
+
+.card-1 .headline {
+  font-size: clamp(1.6rem, 3.5vw, 2.4rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 28px;
+  flex: 1;
+}
+
+.card-1 .headline em {
+  font-style: normal;
+  color: var(--electric-teal);
+}
+
+.card-1 .body-text {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: rgba(255,255,255,0.65);
+  margin-bottom: 36px;
+}
+
+.card-1 .cta-line {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.card-1 .cta-text {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--electric-teal);
+}
+
+.card-1 .cta-arrow {
+  width: 32px;
+  height: 1px;
+  background: var(--electric-teal);
+  position: relative;
+}
+
+.card-1 .cta-arrow::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -3px;
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid var(--electric-teal);
+  border-top: 1.5px solid var(--electric-teal);
+  transform: rotate(45deg);
+}
+
+.card-1 .bottom-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--electric-teal) 0%, transparent 70%);
+}
+
+/* Card 2 — Coordination Drag — Light mode contrast */
+.card-2 {
+  background: var(--off-white);
+  display: flex;
+  flex-direction: column;
+  padding: 52px 48px;
+}
+
+.card-2 .card-number {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid-teal);
+  margin-bottom: 28px;
+}
+
+.card-2 .headline {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--dark-teal);
+  margin-bottom: 32px;
+}
+
+.card-2 .drag-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+}
+
+.card-2 .drag-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--mid-grey);
+}
+
+.card-2 .drag-list li::before {
+  content: '—';
+  color: var(--mid-teal);
+  flex-shrink: 0;
+  font-weight: 700;
+  margin-top: 1px;
+}
+
+.card-2 .resolution {
+  margin-top: 32px;
+  padding: 20px 24px;
+  background: var(--dark-teal);
+  border-radius: 10px;
+}
+
+.card-2 .resolution p {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--electric-teal);
+  letter-spacing: -0.01em;
+  line-height: 1.4;
+}
+
+.card-2 .resolution span {
+  color: rgba(255,255,255,0.55);
+  font-weight: 400;
+}
+
+/* Card 3 — The Reframe — Split layout */
+.card-3 {
+  background: var(--dark-teal);
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  padding: 0;
+  overflow: hidden;
+}
+
+.card-3 .card-header {
+  padding: 44px 48px 0;
+}
+
+.card-3 .card-number {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(102, 255, 224, 0.6);
+  margin-bottom: 20px;
+}
+
+.card-3 .headline {
+  font-size: clamp(1.4rem, 2.8vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+.card-3 .contrast-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  flex: 1;
+  align-self: center;
+  padding: 32px 48px;
+  gap: 16px;
+}
+
+.card-3 .col-bad,
+.card-3 .col-good {
+  padding: 24px;
+  border-radius: 10px;
+}
+
+.card-3 .col-bad {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+}
+
+.card-3 .col-good {
+  background: rgba(102, 255, 224, 0.1);
+  border: 1px solid rgba(102, 255, 224, 0.25);
+}
+
+.card-3 .col-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+}
+
+.card-3 .col-bad .col-label { color: rgba(255,255,255,0.3); }
+.card-3 .col-good .col-label { color: var(--electric-teal); }
+
+.card-3 .col-items {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.card-3 .col-item {
+  font-size: 0.78rem;
+  line-height: 1.4;
+  padding-left: 14px;
+  position: relative;
+}
+
+.card-3 .col-item::before {
+  position: absolute;
+  left: 0;
+  top: 1px;
+  font-size: 0.7rem;
+}
+
+.card-3 .col-bad .col-item { color: rgba(255,255,255,0.5); }
+.card-3 .col-bad .col-item::before { content: '✕'; color: rgba(255,255,255,0.2); }
+.card-3 .col-good .col-item { color: rgba(255,255,255,0.85); font-weight: 500; }
+.card-3 .col-good .col-item::before { content: '✓'; color: var(--electric-teal); }
+
+.card-3 .card-footer {
+  padding: 0 48px 40px;
+}
+
+.card-3 .footer-text {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: rgba(102, 255, 224, 0.5);
+}
+
+/* Card 4 — The Guarantee — Bold statement */
+.card-4 {
+  background: linear-gradient(135deg, #0A1A1A 0%, var(--dark-teal) 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 56px 52px;
+  overflow: hidden;
+}
+
+.card-4 .bg-mark {
+  position: absolute;
+  bottom: -60px;
+  right: -40px;
+  font-size: 18rem;
+  font-weight: 700;
+  color: rgba(102, 255, 224, 0.04);
+  font-family: var(--font-mono);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.card-4 .card-number {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(102, 255, 224, 0.5);
+  margin-bottom: 32px;
+}
+
+.card-4 .big-stat {
+  font-size: clamp(4rem, 10vw, 7rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+  line-height: 0.9;
+  color: var(--electric-teal);
+  margin-bottom: 16px;
+}
+
+.card-4 .stat-label {
+  font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: var(--white);
+  margin-bottom: 24px;
+}
+
+.card-4 .stat-context {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+  max-width: 38ch;
+}
+
+.card-4 .card-divider {
+  width: 48px;
+  height: 2px;
+  background: var(--electric-teal);
+  margin: 28px 0;
+}
+
+.card-4 .source-label {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(102, 255, 224, 0.35);
+}
+
+/* Card 5 — Direct CTA — Clean, urgent */
+.card-5 {
+  background: var(--white);
+  display: flex;
+  flex-direction: column;
+  padding: 52px 48px;
+}
+
+.card-5 .card-number {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid-teal);
+  margin-bottom: 28px;
+}
+
+.card-5 .headline {
+  font-size: clamp(1.5rem, 3vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--dark-teal);
+  margin-bottom: 28px;
+}
+
+.card-5 .offer-ladder {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+  margin-bottom: 32px;
+}
+
+.card-5 .offer-step {
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+  padding: 16px 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(5, 61, 61, 0.1);
+}
+
+.card-5 .offer-step.highlighted {
+  background: var(--dark-teal);
+  border-color: transparent;
+}
+
+.card-5 .step-num {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid-teal);
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.card-5 .offer-step.highlighted .step-num {
+  color: var(--electric-teal);
+}
+
+.card-5 .step-content {}
+
+.card-5 .step-title {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--dark-teal);
+  margin-bottom: 3px;
+}
+
+.card-5 .offer-step.highlighted .step-title {
+  color: var(--white);
+}
+
+.card-5 .step-desc {
+  font-size: 0.78rem;
+  color: var(--mid-grey);
+  line-height: 1.4;
+}
+
+.card-5 .offer-step.highlighted .step-desc {
+  color: rgba(255,255,255,0.55);
+}
+
+.card-5 .cta-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--dark-teal);
+  color: var(--white);
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  align-self: flex-start;
+}
+
+/* ── AD CREATIVES (16:9 landscape) ── */
+.ad-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(640px, 1fr));
+  gap: 32px;
+}
+
+.ad-card {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Ad A — Problem-first */
+.ad-a {
+  background: var(--dark-teal);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  overflow: hidden;
+}
+
+.ad-a .left-panel {
+  padding: 48px 44px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+  z-index: 1;
+}
+
+.ad-a .right-panel {
+  background: rgba(102, 255, 224, 0.06);
+  border-left: 1px solid rgba(102, 255, 224, 0.12);
+  padding: 44px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 16px;
+}
+
+.ad-a .ad-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(102, 255, 224, 0.5);
+}
+
+.ad-a .ad-headline {
+  font-size: clamp(1.4rem, 2.8vw, 2.2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--white);
+}
+
+.ad-a .ad-headline span {
+  color: var(--electric-teal);
+}
+
+.ad-a .ad-sub {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.55);
+}
+
+.ad-a .ad-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--electric-teal);
+  color: var(--dark-teal);
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  align-self: flex-start;
+}
+
+.ad-a .stat-block {
+  padding: 20px 24px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 10px;
+}
+
+.ad-a .stat-num {
+  font-size: 2.2rem;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  color: var(--electric-teal);
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.ad-a .stat-text {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  color: rgba(255,255,255,0.5);
+}
+
+/* Ad B — Outcome-first */
+.ad-b {
+  background: var(--off-white);
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  overflow: hidden;
+}
+
+.ad-b .left-panel {
+  padding: 44px 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.ad-b .right-panel {
+  background: var(--dark-teal);
+  padding: 36px 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+.ad-b .ad-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--mid-teal);
+}
+
+.ad-b .ad-headline {
+  font-size: clamp(1.3rem, 2.5vw, 2rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--dark-teal);
+}
+
+.ad-b .ad-sub {
+  font-size: 0.82rem;
+  line-height: 1.6;
+  color: var(--mid-grey);
+}
+
+.ad-b .ad-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--dark-teal);
+  color: var(--white);
+  padding: 12px 22px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  align-self: flex-start;
+}
+
+.ad-b .offer-pill {
+  padding: 14px 18px;
+  border-radius: 8px;
+  border: 1px solid rgba(102, 255, 224, 0.2);
+}
+
+.ad-b .offer-pill-num {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--electric-teal);
+  margin-bottom: 6px;
+}
+
+.ad-b .offer-pill-name {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 3px;
+}
+
+.ad-b .offer-pill-desc {
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+  line-height: 1.3;
+}
+
+/* Ad C — Guarantee */
+.ad-c {
+  background: linear-gradient(135deg, #041F1F 0%, var(--dark-teal) 60%, #0A5050 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  padding: 48px 80px;
+  gap: 0;
+  overflow: hidden;
+}
+
+.ad-c .bg-ring {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  border: 1px solid rgba(102, 255, 224, 0.06);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.ad-c .bg-ring-2 {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  border: 1px solid rgba(102, 255, 224, 0.03);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+
+.ad-c .ad-label {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(102, 255, 224, 0.5);
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.ad-c .ad-headline {
+  font-size: clamp(1.6rem, 3vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+  color: var(--white);
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.ad-c .ad-headline span {
+  color: var(--electric-teal);
+}
+
+.ad-c .ad-sub {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.5);
+  max-width: 50ch;
+  margin-bottom: 28px;
+  position: relative;
+}
+
+.ad-c .ad-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--electric-teal);
+  color: var(--dark-teal);
+  padding: 13px 28px;
+  border-radius: 6px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  position: relative;
+}
+
+/* ── ONE-PAGER ── */
+.onepager {
+  width: 100%;
+  aspect-ratio: 210 / 297; /* A4 */
+  background: var(--white);
+  border-radius: 16px;
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.onepager-header {
+  background: var(--dark-teal);
+  padding: 48px 56px 44px;
+}
+
+.onepager-header-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+}
+
+.logo-lockup {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 36px;
+  height: 36px;
+}
+
+.logo-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--white);
+}
+
+.logo-text span { color: var(--electric-teal); }
+
+.onepager-badge {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(102, 255, 224, 0.6);
+  border: 1px solid rgba(102, 255, 224, 0.2);
+  padding: 5px 12px;
+  border-radius: 100px;
+}
+
+.onepager-headline {
+  font-size: clamp(1.8rem, 3vw, 2.6rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.05;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.onepager-sub {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: rgba(255,255,255,0.6);
+  max-width: 52ch;
+}
+
+.onepager-body {
+  padding: 44px 56px;
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  overflow: hidden;
+}
+
+.onepager-problem {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.problem-block {
+  padding: 20px 22px;
+  border-radius: 8px;
+  background: #F4F8F8;
+  border-left: 3px solid var(--mid-teal);
+}
+
+.problem-block h4 {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--dark-teal);
+  margin-bottom: 6px;
+  letter-spacing: -0.01em;
+}
+
+.problem-block p {
+  font-size: 0.72rem;
+  line-height: 1.5;
+  color: var(--mid-grey);
+}
+
+.onepager-offer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.offer-block {
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid rgba(5, 61, 61, 0.1);
+  position: relative;
+}
+
+.offer-block.featured {
+  background: var(--dark-teal);
+  border-color: transparent;
+}
+
+.offer-block .step-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--mid-teal);
+  margin-bottom: 8px;
+}
+
+.offer-block.featured .step-label { color: var(--electric-teal); }
+
+.offer-block .offer-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--dark-teal);
+  margin-bottom: 4px;
+  letter-spacing: -0.015em;
+}
+
+.offer-block.featured .offer-name { color: var(--white); }
+
+.offer-block .offer-tagline {
+  font-size: 0.7rem;
+  color: var(--mid-grey);
+  line-height: 1.4;
+}
+
+.offer-block.featured .offer-tagline { color: rgba(255,255,255,0.5); }
+
+.offer-block .offer-duration {
+  margin-top: 12px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid-teal);
+}
+
+.offer-block.featured .offer-duration { color: rgba(102, 255, 224, 0.6); }
+
+.onepager-guarantee {
+  padding: 20px 24px;
+  background: #F4F8F8;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  border-left: 4px solid var(--mid-teal);
+}
+
+.guarantee-mark {
+  font-size: 1.8rem;
+  color: var(--mid-teal);
+  font-weight: 700;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.guarantee-text h4 {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--dark-teal);
+  margin-bottom: 4px;
+}
+
+.guarantee-text p {
+  font-size: 0.72rem;
+  color: var(--mid-grey);
+  line-height: 1.5;
+}
+
+.onepager-footer {
+  background: var(--off-white);
+  padding: 24px 56px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid rgba(5, 61, 61, 0.08);
+}
+
+.footer-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.footer-contact span {
+  font-size: 0.75rem;
+  color: var(--mid-grey);
+}
+
+.footer-contact a {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--dark-teal);
+}
+
+.footer-url {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.08em;
+  color: var(--mid-teal);
+}
+
+/* Nav */
+.asset-nav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(10,10,10,0.9);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(102, 255, 224, 0.1);
+  padding: 16px 40px;
+  display: flex;
+  gap: 32px;
+  margin: -60px -40px 60px;
+}
+
+.asset-nav a {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.asset-nav a:hover { color: var(--electric-teal); }
+
+/* Download hint */
+.download-hint {
+  text-align: center;
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+}
+
+.asset-count {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  color: rgba(102, 255, 224, 0.4);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-left: auto;
+}
+
+.copy-board {
+  margin-top: 32px;
+  display: grid;
+  gap: 20px;
+}
+
+.copy-card {
+  border: 1px solid rgba(102, 255, 224, 0.12);
+  background: rgba(255,255,255,0.02);
+  border-radius: 14px;
+  overflow: hidden;
+}
+
+.copy-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 18px;
+  border-bottom: 1px solid rgba(102, 255, 224, 0.08);
+}
+
+.copy-card-title {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--electric-teal);
+}
+
+.copy-card-hint {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+.copy-card-body {
+  padding: 18px;
+  display: grid;
+  gap: 14px;
+}
+
+.copy-block {
+  display: grid;
+  gap: 8px;
+}
+
+.copy-label {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+}
+
+.copy-box {
+  width: 100%;
+  min-height: 118px;
+  resize: vertical;
+  border: 1px solid rgba(102, 255, 224, 0.12);
+  border-radius: 10px;
+  background: #101010;
+  color: var(--off-white);
+  font-family: var(--font-primary);
+  font-size: 0.92rem;
+  line-height: 1.6;
+  padding: 16px;
+}
+
+.copy-box.short {
+  min-height: 84px;
+}
+
+.copy-meta {
+  font-size: 0.78rem;
+  line-height: 1.5;
+  color: rgba(255,255,255,0.52);
+}
+
+</style>
+</head>
+<body>
+
+<nav class="asset-nav">
+  <a href="#posts">LinkedIn Posts</a>
+  <a href="#ads">Ad Creatives</a>
+  <a href="#onepager">One-Pager</a>
+  <span class="asset-count">8 assets · Launch Pack v1</span>
+</nav>
+
+<div class="page-header">
+  <div class="page-header-label">OptiFlows · Launch Campaign · 2026</div>
+  <h1>Campaign <span>Creatives</span></h1>
+</div>
+
+<!-- LINKEDIN POSTS -->
+<section class="asset-section" id="posts">
+  <div class="section-label">01 — LinkedIn Post Cards (1:1 · 1080×1080)</div>
+  <div class="post-grid">
+
+    <!-- Post 1: The Problem Hook -->
+    <div class="linkedin-card card-1">
+      <div class="noise"></div>
+      <div class="corner-mark">optiflows.com.au</div>
+      <div class="card-number">Post 01 · Launch Day</div>
+      <div class="headline">Most AI projects fail at the <em>same point.</em> Not the technology. The handoff.</div>
+      <div class="body-text">Someone builds a working prototype. It sits in a slide deck. The team goes back to doing things manually. Six months later, nothing has changed operationally.<br><br>This is the gap we close.</div>
+      <div class="cta-line">
+        <span class="cta-text">AI-native operating systems</span>
+        <div class="cta-arrow"></div>
+      </div>
+      <div class="bottom-bar"></div>
+    </div>
+
+    <!-- Post 2: Coordination Drag -->
+    <div class="linkedin-card card-2">
+      <div class="card-number">Post 02 · Day 3</div>
+      <div class="headline">"Coordination drag" isn't a buzzword. It's what's eating your margin.</div>
+      <ul class="drag-list">
+        <li>Work leaves one person and arrives somewhere else wrong</li>
+        <li>Deals aren't followed up because nobody owns the handoff</li>
+        <li>The founder gets pulled in every time the system fails</li>
+        <li>AI tools get trialled, praised, and quietly abandoned</li>
+      </ul>
+      <div class="resolution">
+        <p>We map it. We fix it. We build systems that hold without us. <span>→ Operating Audit. Two weeks.</span></p>
+      </div>
+    </div>
+
+    <!-- Post 3: The Reframe -->
+    <div class="linkedin-card card-3">
+      <div class="card-header">
+        <div class="card-number">Post 03 · Day 7</div>
+        <div class="headline">Automation fixes tasks. An operating system changes how your business runs.</div>
+      </div>
+      <div class="contrast-grid">
+        <div class="col-bad">
+          <div class="col-label">Most businesses have</div>
+          <ul class="col-items">
+            <li class="col-item">Tools that don't talk to each other</li>
+            <li class="col-item">Processes in someone's head</li>
+            <li class="col-item">AI experiments that never became systems</li>
+            <li class="col-item">Context rebuilt at every handoff</li>
+          </ul>
+        </div>
+        <div class="col-good">
+          <div class="col-label">What we install</div>
+          <ul class="col-items">
+            <li class="col-item">Connected workflows that route themselves</li>
+            <li class="col-item">Documented, repeatable patterns</li>
+            <li class="col-item">Agent systems in production</li>
+            <li class="col-item">Context surfaced at the right moment</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="footer-text">optiflows.com.au · #AIoperations</span>
+      </div>
+    </div>
+
+    <!-- Post 4: The Stat -->
+    <div class="linkedin-card card-4">
+      <div class="bg-mark">57</div>
+      <div class="card-number">Post 04 · Day 10</div>
+      <div class="big-stat">57%</div>
+      <div class="stat-label">of enterprises are still stuck in pilot stage.</div>
+      <div class="card-divider"></div>
+      <div class="stat-context">The gap between pilot and production is a workflow design problem — not a model capability problem. We close it in six weeks.</div>
+      <br>
+      <div class="source-label">Source · Deloitte 2026</div>
+    </div>
+
+    <!-- Post 5: Direct CTA -->
+    <div class="linkedin-card card-5">
+      <div class="card-number">Post 05 · Day 14</div>
+      <div class="headline">Three offers. One progression. Start where you are.</div>
+      <div class="offer-ladder">
+        <div class="offer-step">
+          <div class="step-num">01</div>
+          <div class="step-content">
+            <div class="step-title">Operating Audit</div>
+            <div class="step-desc">Find the drag. Build the case. Two weeks.</div>
+          </div>
+        </div>
+        <div class="offer-step highlighted">
+          <div class="step-num">02</div>
+          <div class="step-content">
+            <div class="step-title">System Install</div>
+            <div class="step-desc">Production system in six weeks. Fixed scope, guaranteed.</div>
+          </div>
+        </div>
+        <div class="offer-step">
+          <div class="step-num">03</div>
+          <div class="step-content">
+            <div class="step-title">Operating Partner</div>
+            <div class="step-desc">Embedded, ongoing. By application only.</div>
+          </div>
+        </div>
+      </div>
+      <a class="cta-button" href="https://optiflows.com.au/v4">Book an Audit →</a>
+    </div>
+
+  </div>
+
+  <div class="download-hint">Right-click → Save image · or screenshot at 1080px width</div>
+
+  <div class="copy-board">
+    <div class="copy-card"><div class="copy-card-head"><div class="copy-card-title">Post 01 copy · Launch Day</div><div class="copy-card-hint">Plain copy · ready to paste</div></div><div class="copy-card-body"><div class="copy-block"><div class="copy-label">Primary post copy</div><textarea class="copy-box">Most AI projects do not fail because the technology is weak.
+
+They fail at the handoff.
+
+Someone builds a promising prototype. It gets shown in a meeting. Everyone agrees it looks exciting. Then the business goes back to operating the same way it did before.
+
+No workflow change.
+No operating model change.
+No system that holds.
+
+That gap, between a working AI demo and real operational change, is where most value disappears.
+
+OptiFlows exists to close that gap.
+
+We design and install AI-native operating systems that fit the way a business actually runs, so the outcome is not just a tool, but a workflow that works in production.
+
+optiflows.com.au</textarea></div><div class="copy-block"><div class="copy-label">Short version</div><textarea class="copy-box short">Most AI projects fail at the same point.
+Not the technology.
+The handoff.
+
+That is the gap OptiFlows closes.
+
+optiflows.com.au</textarea></div></div></div>
+
+    <div class="copy-card"><div class="copy-card-head"><div class="copy-card-title">Post 02 copy · Day 3</div><div class="copy-card-hint">Problem-led</div></div><div class="copy-card-body"><div class="copy-block"><div class="copy-label">Primary post copy</div><textarea class="copy-box">“Coordination drag” sounds abstract until you see what it actually does inside a business.
+
+Work leaves one person and arrives somewhere else wrong.
+Follow-up falls through the cracks because nobody owns the handoff.
+The founder gets dragged back in every time the system breaks.
+AI tools get trialled, praised, and quietly abandoned because the workflow around them never changed.
+
+That is not a tooling problem.
+It is an operating system problem.
+
+OptiFlows starts by mapping where that drag exists, then builds systems that reduce the handoffs, surface the right context, and help work move cleanly without constant intervention.
+
+That is why the Operating Audit comes first.
+
+optiflows.com.au</textarea></div></div></div>
+
+    <div class="copy-card"><div class="copy-card-head"><div class="copy-card-title">Post 03 copy · Day 7</div><div class="copy-card-hint">Reframe</div></div><div class="copy-card-body"><div class="copy-block"><div class="copy-label">Primary post copy</div><textarea class="copy-box">Automation fixes tasks.
+An operating system changes how the business runs.
+
+That distinction matters.
+
+A lot of businesses have disconnected tools, undocumented processes, AI experiments that never made it to production, and context that gets rebuilt at every handoff.
+
+What OptiFlows installs is different.
+
+Connected workflows.
+Documented patterns.
+Agent systems in production.
+Context surfaced at the right moment.
+
+The goal is not to add more tools.
+The goal is to make the business operate better.
+
+optiflows.com.au</textarea></div></div></div>
+
+    <div class="copy-card"><div class="copy-card-head"><div class="copy-card-title">Post 04 copy · Day 10</div><div class="copy-card-hint">Stat-led</div></div><div class="copy-card-body"><div class="copy-block"><div class="copy-label">Primary post copy</div><textarea class="copy-box">57% of enterprises are still stuck in pilot stage.
+
+That should tell us something.
+
+The biggest problem in AI adoption is not usually model capability.
+It is the gap between experimentation and operational reality.
+
+If a business cannot move from pilot to production, the issue is usually workflow design, ownership, governance, and implementation discipline.
+
+That is why OptiFlows focuses on operating systems, not novelty.
+
+We help businesses move from interesting demos to practical systems that hold inside the real world.
+
+optiflows.com.au</textarea></div><div class="copy-block"><div class="copy-label">Short version</div><textarea class="copy-box short">57% of enterprises are still stuck in pilot stage.
+
+That is not a model problem.
+It is an operating system problem.
+
+optiflows.com.au</textarea></div></div></div>
+
+    <div class="copy-card"><div class="copy-card-head"><div class="copy-card-title">Post 05 copy · Day 14</div><div class="copy-card-hint">Direct CTA</div></div><div class="copy-card-body"><div class="copy-block"><div class="copy-label">Primary post copy</div><textarea class="copy-box">There are three ways to work with OptiFlows, but they are designed as one progression.
+
+1. Operating Audit
+Find the drag. Build the case. Two weeks.
+
+2. System Install
+Build the first production system with fixed scope and a guaranteed implementation path.
+
+3. Operating Partner
+An embedded operating relationship for businesses that want to keep compounding capability over time.
+
+The right place to start for most businesses is the Operating Audit.
+
+It gives you a clear picture of what is worth fixing first, why it matters, and what the path forward looks like.
+
+optiflows.com.au/v4</textarea></div></div></div>
+  </div>
+</section>
+
+<!-- AD CREATIVES -->
+<section class="asset-section" id="ads">
+  <div class="section-label">02 — LinkedIn Ad Creatives (16:9 · 1200×628)</div>
+  <div class="ad-grid">
+
+    <!-- Ad A: Problem-first -->
+    <div class="ad-card ad-a">
+      <div class="left-panel">
+        <div class="ad-label">Ad Variant A · Problem-first</div>
+        <div>
+          <div class="ad-headline">Your AI pilot worked.<br><span>Nothing changed.</span></div>
+          <div class="ad-sub" style="margin-top:14px;">The gap between AI excitement and operational change isn't a technology problem — it's a systems problem. We install AI-native operating systems. Six weeks. Production, not a slide deck.</div>
+        </div>
+        <a class="ad-cta" href="https://optiflows.com.au/v4">Book an Operating Audit →</a>
+      </div>
+      <div class="right-panel">
+        <div class="stat-block">
+          <div class="stat-num">57%</div>
+          <div class="stat-text">of enterprises still in AI pilot stage (Deloitte 2026)</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">6wk</div>
+          <div class="stat-text">from kick-off to production system — fixed scope, guaranteed</div>
+        </div>
+        <div class="stat-block">
+          <div class="stat-num">21%</div>
+          <div class="stat-text">of companies planning agentic AI have mature governance (Deloitte)</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad B: Outcome-first -->
+    <div class="ad-card ad-b">
+      <div class="left-panel">
+        <div class="ad-label">Ad Variant B · Outcome-first</div>
+        <div>
+          <div class="ad-headline">Still in the loop on things<br>that should run without you?</div>
+          <div class="ad-sub" style="margin-top:14px;">Coordination drag costs more than tools. It costs decisions, speed, and the people who leave when things don't work. We map the drag and fix it — starting with the workflow costing you the most right now.</div>
+        </div>
+        <a class="ad-cta" href="https://optiflows.com.au/v4">Find the drag in your business →</a>
+      </div>
+      <div class="right-panel">
+        <div class="offer-pill">
+          <div class="offer-pill-num">Step 01</div>
+          <div class="offer-pill-name">Operating Audit</div>
+          <div class="offer-pill-desc">2 weeks · Friction map + business case</div>
+        </div>
+        <div class="offer-pill">
+          <div class="offer-pill-num">Step 02</div>
+          <div class="offer-pill-name">System Install</div>
+          <div class="offer-pill-desc">6 weeks · Production system, fixed scope</div>
+        </div>
+        <div class="offer-pill">
+          <div class="offer-pill-num">Step 03</div>
+          <div class="offer-pill-name">Operating Partner</div>
+          <div class="offer-pill-desc">Ongoing · Embedded, by application</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Ad C: Guarantee -->
+    <div class="ad-card ad-c">
+      <div class="bg-ring"></div>
+      <div class="bg-ring-2"></div>
+      <div class="ad-label">Ad Variant C · Guarantee-led</div>
+      <div class="ad-headline">Six weeks. One working system.<br><span>Guaranteed.</span></div>
+      <div class="ad-sub">We build AI-native operating systems wired into tools your team already uses. Success criteria agreed before we build anything. If it doesn't meet the brief, we fix it at no charge.</div>
+      <a class="ad-cta" href="https://optiflows.com.au/v4">See how it works →</a>
+    </div>
+
+  </div>
+  <div class="download-hint">Right-click → Save image · Screenshot at 1200×628</div>
+
+  <div class="copy-board">
+    <div class="copy-card"><div class="copy-card-head"><div class="copy-card-title">Ad Variant A copy</div><div class="copy-card-hint">Problem-first</div></div><div class="copy-card-body"><div class="copy-block"><div class="copy-label">Primary ad copy</div><textarea class="copy-box">Your AI pilot worked.
+Nothing changed.
+
+That is the problem.
+
+The gap between AI excitement and operational change is rarely about the model. It is about the system around it.
+
+OptiFlows installs AI-native operating systems that move businesses from prototype to production in six weeks, with fixed scope and clear success criteria.
+
+Start with the Operating Audit.</textarea></div><div class="copy-block"><div class="copy-label">Headline + description</div><textarea class="copy-box short">Headline: Your AI pilot worked. Nothing changed.
+Description: Move from prototype to production with an AI-native operating system.</textarea></div></div></div>
+    <div class="copy-card"><div class="copy-card-head"><div class="copy-card-title">Ad Variant B copy</div><div class="copy-card-hint">Outcome-first</div></div><div class="copy-card-body"><div class="copy-block"><div class="copy-label">Primary ad copy</div><textarea class="copy-box">Still getting pulled into things that should run without you?
+
+That is usually not a people problem.
+It is coordination drag.
+
+OptiFlows helps businesses find the workflows creating the most drag, map the real cost, and build systems that reduce reliance on memory, manual follow-up, and founder intervention.
+
+The first step is the Operating Audit.</textarea></div></div></div>
+    <div class="copy-card"><div class="copy-card-head"><div class="copy-card-title">Ad Variant C copy</div><div class="copy-card-hint">Guarantee-led</div></div><div class="copy-card-body"><div class="copy-block"><div class="copy-label">Primary ad copy</div><textarea class="copy-box">Six weeks. One working system. Guaranteed.
+
+OptiFlows builds AI-native operating systems inside the tools your team already uses.
+
+Success criteria are agreed before implementation starts. If the system does not meet the brief, we fix it at no charge.
+
+That is how practical AI should be delivered.</textarea></div></div></div>
+  </div>
+</section>
+
+<!-- ONE-PAGER -->
+<section class="asset-section" id="onepager">
+  <div class="section-label">03 — Operating Audit One-Pager (A4 · PDF-ready)</div>
+
+  <div class="onepager">
+
+    <div class="onepager-header">
+      <div class="onepager-header-top">
+        <div class="logo-lockup">
+          <svg class="logo-icon" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M32 56 L32 28 Q32 16 44 16 Q56 16 56 28 L56 56" stroke="#66FFE0" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <path d="M32 56 L32 24 Q32 9 32 9 Q52 9 52 24 L52 56" stroke="#66FFE0" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.5"/>
+            <path d="M20 56 L20 28 Q20 16 32 16 Q32 16 32 28 L32 56" stroke="#66FFE0" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+            <circle cx="32" cy="38" r="4" fill="#66FFE0"/>
+          </svg>
+          <span class="logo-text">Opti<span>flows</span></span>
+        </div>
+        <div class="onepager-badge">Operating Audit</div>
+      </div>
+      <div class="onepager-headline">Find the drag.<br>Build the case.</div>
+      <div class="onepager-sub">A two-week engagement to map how work actually moves through your business — and identify the highest-friction workflows worth fixing first.</div>
+    </div>
+
+    <div class="onepager-body">
+
+      <div class="onepager-problem">
+        <div class="problem-block">
+          <h4>Broken handoffs</h4>
+          <p>Work leaves one person and arrives somewhere else wrong, late, or incomplete.</p>
+        </div>
+        <div class="problem-block">
+          <h4>Invisible leakage</h4>
+          <p>Deals not followed up. Clients not renewed. Value that never reaches an outcome.</p>
+        </div>
+        <div class="problem-block">
+          <h4>Founder in the loop</h4>
+          <p>When the system doesn't work, people escalate. Every interruption costs more than it looks.</p>
+        </div>
+        <div class="problem-block">
+          <h4>AI that doesn't stick</h4>
+          <p>Pilots get launched. Nothing changes operationally. The gap stays wide.</p>
+        </div>
+      </div>
+
+      <div>
+        <div style="font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-teal); margin-bottom: 12px;">What you get</div>
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+          <div style="display: flex; gap: 12px; align-items: flex-start; font-size: 0.8rem; color: var(--dark-teal);">
+            <span style="color: var(--mid-teal); flex-shrink: 0; font-weight: 700;">–</span>
+            <span>Workflow friction map across your core operations</span>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start; font-size: 0.8rem; color: var(--dark-teal);">
+            <span style="color: var(--mid-teal); flex-shrink: 0; font-weight: 700;">–</span>
+            <span>Ranked intervention brief for each priority workflow</span>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start; font-size: 0.8rem; color: var(--dark-teal);">
+            <span style="color: var(--mid-teal); flex-shrink: 0; font-weight: 700;">–</span>
+            <span>Business case: cost of drag vs. cost of fixing it</span>
+          </div>
+          <div style="display: flex; gap: 12px; align-items: flex-start; font-size: 0.8rem; color: var(--dark-teal);">
+            <span style="color: var(--mid-teal); flex-shrink: 0; font-weight: 700;">–</span>
+            <span>One clear recommendation — what to build first, and why</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="onepager-offer">
+        <div class="offer-block">
+          <div class="step-label">Step 01</div>
+          <div class="offer-name">Operating Audit</div>
+          <div class="offer-tagline">Find the drag. Build the case.</div>
+          <div class="offer-duration">2 weeks</div>
+        </div>
+        <div class="offer-block featured">
+          <div class="step-label">Step 02</div>
+          <div class="offer-name">System Install</div>
+          <div class="offer-tagline">Production system. Fixed scope.</div>
+          <div class="offer-duration">6 weeks</div>
+        </div>
+        <div class="offer-block">
+          <div class="step-label">Step 03</div>
+          <div class="offer-name">Operating Partner</div>
+          <div class="offer-tagline">Embedded. Ongoing. Compounding.</div>
+          <div class="offer-duration">By application</div>
+        </div>
+      </div>
+
+      <div class="onepager-guarantee">
+        <div class="guarantee-mark">✓</div>
+        <div class="guarantee-text">
+          <h4>No retainer commitment to start</h4>
+          <p>The Audit stands alone. You leave with a clear picture of what coordination drag is costing you — and a recommendation on what to fix first. No obligation to continue.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="onepager-footer">
+      <div class="footer-contact">
+        <span>Ready to start?</span>
+        <a href="https://optiflows.com.au/v4">optiflows.com.au/v4</a>
+      </div>
+      <div class="footer-url">james@optiflows.com.au</div>
+    </div>
+
+  </div>
+  <div class="download-hint">Print to PDF at A4 · or screenshot at full width</div>
+
+  <div class="copy-board">
+    <div class="copy-card"><div class="copy-card-head"><div class="copy-card-title">Operating Audit one-pager copy</div><div class="copy-card-hint">Email / DM / deck-ready</div></div><div class="copy-card-body"><div class="copy-block"><div class="copy-label">Share text</div><textarea class="copy-box">Sharing a clean overview of the OptiFlows Operating Audit.
+
+This is the starting point for businesses that want practical AI implementation without jumping straight into an oversized transformation program.
+
+Over two weeks, we map how work actually moves through the business, identify the highest-friction workflows worth fixing first, and produce a business case for action.
+
+Key outputs include:
+- workflow friction mapping
+- ranked intervention opportunities
+- business case and implementation pathway
+- one clear recommendation on what to build first
+
+If useful, happy to walk through how it applies to your operating model.
+
+optiflows.com.au/v4</textarea></div><div class="copy-block"><div class="copy-label">Short CTA</div><textarea class="copy-box short">Start with the Operating Audit.
+Find the drag. Build the case. Decide what to fix first.
+
+optiflows.com.au/v4</textarea></div></div></div>
+  </div>
+</section>
+
+</body>
+</html>
