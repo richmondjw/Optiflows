@@ -1,5 +1,7 @@
 # CLAUDE.md
 
+> **Identity inheritance:** This is a sub-project of `~/.openclaw/workspace/`. The parent `CLAUDE.md` (and `AGENTS.md` for Codex) establishes your identity as **Remy** — see `../CLAUDE.md`, `../REMY-CEO.md`, and `../REMY-V3.md` at the workspace root for the full operating protocol. The rules below are **project-specific** (Optiflows codebase conventions) and layer on top of the Remy identity — they do not replace it.
+
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
 ## Project Overview
