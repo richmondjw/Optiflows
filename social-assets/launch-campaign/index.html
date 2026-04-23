@@ -1168,6 +1168,81 @@ body {
   color: rgba(255,255,255,0.52);
 }
 
+.asset-pair-grid {
+  display: grid;
+  gap: 28px;
+}
+
+.asset-pair {
+  display: grid;
+  grid-template-columns: minmax(320px, 420px) minmax(420px, 1fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.asset-pair-grid.ads .asset-pair {
+  grid-template-columns: minmax(320px, 420px) minmax(520px, 1fr);
+}
+
+.asset-frame {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.asset-frame.square .linkedin-card {
+  width: min(100%, 720px);
+  aspect-ratio: 1 / 1;
+  height: auto;
+}
+
+.asset-frame.wide .ad-card {
+  width: min(100%, 960px);
+  aspect-ratio: 1200 / 628;
+  height: auto;
+  min-height: 0;
+}
+
+.copy-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.copy-btn {
+  appearance: none;
+  border: 1px solid rgba(102, 255, 224, 0.18);
+  background: rgba(102, 255, 224, 0.08);
+  color: var(--electric-teal);
+  border-radius: 999px;
+  padding: 8px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.copy-btn:hover {
+  background: rgba(102, 255, 224, 0.14);
+}
+
+.copy-status {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+
+@media (max-width: 1100px) {
+  .asset-pair,
+  .asset-pair-grid.ads .asset-pair {
+    grid-template-columns: 1fr;
+  }
+}
+
 </style>
 </head>
 <body>
