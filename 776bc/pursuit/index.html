@@ -1,0 +1,1534 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>776BC As One / Film 001 / Racing backwards toward a line you cannot see</title>
+<meta name="description" content="Every other sport faces the finish. Rowers pursue it blind. A 776BC film." />
+<style>
+  /* ---------- tokens ---------- */
+  :root{
+    --ink:#000;
+    --ink-2:#0b0b0b;
+    --ink-3:#1a1a1a;
+    --bone:#fff;
+    --bone-2:#f4f1ea;
+    --bone-3:#c9c2b2;
+    --steel:#6b6f75;
+    --steel-2:#9aa0a8;
+    --gold:#a28a4d;
+    --gold-2:#c4a766;
+    --hair:#1f1f1f;
+    --hair-bone:#dcd6c7;
+
+    --display:"Helvetica Neue","Arial Black",Arial,sans-serif;
+    --sans:"Helvetica Neue",Arial,sans-serif;
+    --mono:ui-monospace,Menlo,Consolas,"SFMono-Regular",monospace;
+
+    --u:8px;
+    --gut:24px;
+    --bleed:clamp(20px,4vw,64px);
+    --maxw:1440px;
+  }
+  *,*::before,*::after{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--ink);color:var(--bone)}
+  body{
+    font-family:var(--sans);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    text-rendering:optimizeLegibility;
+    overflow-x:hidden;
+  }
+  img,video{display:block;max-width:100%}
+  a{color:inherit;text-decoration:none}
+  button{font:inherit;cursor:pointer}
+
+  /* ---------- type utilities ---------- */
+  .display{
+    font-family:var(--display);
+    font-weight:900;
+    letter-spacing:-0.045em;
+    line-height:.86;
+    text-transform:uppercase;
+  }
+  .eyebrow,.label{
+    font-family:var(--mono);
+    font-weight:500;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    font-size:11px;
+  }
+  .body{
+    font-family:var(--sans);
+    font-weight:400;
+    font-size:16px;
+    line-height:1.55;
+  }
+
+  /* ---------- sticky bar ---------- */
+  .stickybar{
+    position:fixed;
+    top:0;left:0;right:0;
+    z-index:50;
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    align-items:center;
+    gap:18px;
+    padding:14px var(--bleed);
+    background:rgba(0,0,0,.78);
+    backdrop-filter:saturate(140%) blur(8px);
+    -webkit-backdrop-filter:saturate(140%) blur(8px);
+    border-bottom:1px solid var(--hair);
+    transform:translateY(-110%);
+    transition:transform .42s cubic-bezier(.2,.7,.2,1);
+  }
+  .stickybar.is-shown{transform:translateY(0)}
+  .wordmark{
+    font-family:var(--display);
+    font-weight:900;
+    font-size:14px;
+    letter-spacing:.04em;
+    padding:6px 8px;
+    background:var(--bone);
+    color:var(--ink);
+    line-height:1;
+  }
+  .sticky-mid{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--steel-2);
+    justify-self:start;
+    padding-left:14px;
+    border-left:1px solid var(--hair);
+    margin-left:0;
+  }
+  .sticky-mid b{color:var(--bone);font-weight:500}
+  .btn-gold{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    background:var(--gold);
+    color:var(--ink);
+    border:0;
+    padding:11px 18px;
+    line-height:1;
+    transition:background .2s;
+  }
+  .btn-gold:hover{background:var(--gold-2)}
+  .btn-ghost{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    background:transparent;
+    color:var(--bone);
+    border:1px solid var(--bone);
+    padding:11px 18px;
+    line-height:1;
+    transition:background .2s, color .2s;
+  }
+  .btn-ghost:hover{background:var(--bone);color:var(--ink)}
+
+  /* ---------- top masthead (above hero) ---------- */
+  .masthead{
+    position:absolute;
+    top:0;left:0;right:0;
+    z-index:10;
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    align-items:center;
+    gap:18px;
+    padding:22px var(--bleed) 18px;
+  }
+  .masthead .wordmark{background:var(--bone);color:var(--ink)}
+  .masthead .nav{
+    justify-self:end;
+    display:flex;
+    align-items:center;
+    gap:18px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--bone);
+  }
+  .masthead .nav a{opacity:.78;transition:opacity .2s}
+  .masthead .nav a:hover{opacity:1}
+  .masthead .runtime{
+    justify-self:start;
+    padding-left:14px;
+    border-left:1px solid rgba(255,255,255,.18);
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--steel-2);
+    line-height:1.5;
+  }
+  .masthead .runtime b{color:var(--bone);font-weight:500}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    position:relative;
+    height:100vh;
+    min-height:680px;
+    overflow:hidden;
+    background:#050608;
+  }
+  .hero-video{
+    position:absolute;inset:0;
+    width:100%;height:100%;
+    object-fit:cover;
+    z-index:1;
+    filter:contrast(1.04) saturate(.9);
+  }
+  .hero::before{
+    /* darken bottom for type readability */
+    content:"";
+    position:absolute;inset:0;z-index:2;
+    background:
+      linear-gradient(180deg, rgba(0,0,0,.55) 0%, rgba(0,0,0,.0) 18%, rgba(0,0,0,.0) 55%, rgba(0,0,0,.78) 100%),
+      linear-gradient(90deg, rgba(0,0,0,.45) 0%, rgba(0,0,0,.0) 38%);
+    pointer-events:none;
+  }
+  .hero-inner{
+    position:relative;z-index:3;
+    height:100%;
+    display:grid;
+    grid-template-rows:auto 1fr auto;
+    padding:96px var(--bleed) 36px;
+  }
+  .hero-top{
+    display:flex;
+    align-items:center;
+    gap:14px;
+    color:var(--bone);
+  }
+  .pill{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    padding:6px 10px;
+    border:1px solid rgba(255,255,255,.5);
+    line-height:1;
+  }
+  .pill.gold{
+    background:var(--gold);
+    color:var(--ink);
+    border-color:var(--gold);
+  }
+  .hero-mid{display:flex;align-items:flex-end}
+  .hero-headline{
+    font-family:var(--display);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.05em;
+    line-height:.86;
+    font-size:clamp(40px, 8.4vw, 140px);
+    max-width:14ch;
+    margin:0;
+    color:var(--bone);
+    text-wrap:balance;
+  }
+  .hero-headline .accent{
+    font-style:normal;
+    font-weight:900;
+    color:var(--bone);
+    background:linear-gradient(180deg,transparent 62%, var(--gold) 62%, var(--gold) 92%, transparent 92%);
+    padding:0 .04em;
+  }
+  .hero-bottom{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:24px;
+    align-items:end;
+    padding-top:24px;
+    border-top:1px solid rgba(255,255,255,.22);
+  }
+  .hero-spec{
+    display:grid;
+    grid-template-columns:repeat(4,minmax(0,1fr));
+    gap:18px;
+    color:var(--bone);
+  }
+  .spec-cell .k{
+    display:block;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--steel-2);
+    margin-bottom:6px;
+  }
+  .spec-cell .v{
+    display:block;
+    font-family:var(--display);
+    font-weight:800;
+    font-size:18px;
+    letter-spacing:-0.01em;
+    text-transform:uppercase;
+    line-height:1;
+  }
+  .hero-actions{
+    justify-self:end;
+    display:flex;
+    align-items:center;
+    gap:12px;
+  }
+  .play-cue{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--bone);
+    background:transparent;
+    border:0;
+    padding:0;
+  }
+  .play-cue .ring{
+    width:38px;height:38px;
+    border-radius:50%;
+    border:1px solid var(--bone);
+    display:grid;place-items:center;
+    transition:background .2s;
+  }
+  .play-cue:hover .ring{background:rgba(255,255,255,.12)}
+  .play-cue .ring svg{width:12px;height:12px;fill:var(--bone)}
+
+  /* hero ticker bar */
+  .ticker{
+    position:absolute;
+    left:0;right:0;bottom:0;
+    z-index:4;
+    display:flex;
+    overflow:hidden;
+    border-top:1px solid rgba(255,255,255,.14);
+    background:rgba(0,0,0,.5);
+  }
+  .ticker .row{
+    display:flex;
+    gap:48px;
+    padding:10px 0;
+    white-space:nowrap;
+    animation:tick 38s linear infinite;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.28em;
+    text-transform:uppercase;
+    color:var(--bone);
+  }
+  .ticker .row span{padding-left:48px}
+  .ticker .row b{color:var(--gold);font-weight:500}
+  @keyframes tick{
+    from{transform:translateX(0)}
+    to{transform:translateX(-50%)}
+  }
+
+  /* ---------- SECTIONS ---------- */
+  section{position:relative}
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:0 var(--bleed);
+  }
+  .rule-top{border-top:1px solid var(--hair)}
+  .rule-bot{border-bottom:1px solid var(--hair)}
+
+  /* eyebrow row used as a section header */
+  .sec-head{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    align-items:baseline;
+    gap:18px;
+    padding:18px 0;
+    border-bottom:1px solid var(--hair);
+    color:var(--steel-2);
+  }
+  .sec-head .num{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .sec-head .ttl{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--bone);
+  }
+  .sec-head .meta{
+    justify-self:end;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--steel-2);
+  }
+  /* light-mode header reuse */
+  .light .sec-head{border-bottom-color:var(--hair-bone)}
+  .light .sec-head .ttl{color:var(--ink)}
+  .light .sec-head .meta{color:var(--steel)}
+
+  /* ---------- premise ---------- */
+  .premise{padding:80px 0 60px;background:var(--ink)}
+  .premise-grid{
+    display:grid;
+    grid-template-columns:5fr 7fr;
+    gap:48px;
+    align-items:start;
+    padding-top:48px;
+  }
+  .premise-tag{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .premise-h{
+    margin:0;
+    font-family:var(--display);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.04em;
+    line-height:.9;
+    font-size:clamp(28px,3.6vw,52px);
+    color:var(--bone);
+  }
+  .premise-body{
+    font-family:var(--sans);
+    font-size:clamp(18px,1.7vw,24px);
+    line-height:1.45;
+    color:var(--bone);
+    max-width:46ch;
+    margin:0;
+    text-wrap:pretty;
+  }
+  .premise-body em{
+    font-style:normal;
+    color:var(--gold-2);
+  }
+
+  /* ---------- moment / pull quote ---------- */
+  .moment{
+    position:relative;
+    background:var(--ink);
+    overflow:hidden;
+  }
+  .moment-grid{
+    display:grid;
+    grid-template-columns:6fr 6fr;
+    min-height:88vh;
+  }
+  .moment-img{
+    position:relative;
+    background:#0c0e10;
+    overflow:hidden;
+  }
+  .moment-img img{
+    width:100%;height:100%;
+    object-fit:cover;
+    object-position:50% 40%;
+    filter:contrast(1.05) saturate(.85) brightness(.92);
+  }
+  .moment-img::after{
+    content:"";
+    position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(0,0,0,.0) 60%, rgba(0,0,0,.55) 100%);
+  }
+  .moment-img .frame-tag{
+    position:absolute;
+    left:24px;top:24px;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--bone);
+    z-index:2;
+    line-height:1.6;
+  }
+  .moment-img .frame-tag b{color:var(--gold);font-weight:500}
+  .moment-img .frame-tag2{
+    position:absolute;
+    right:24px;bottom:24px;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--steel-2);
+    z-index:2;
+  }
+  .moment-copy{
+    background:var(--ink);
+    padding:64px var(--bleed) 64px clamp(36px,6vw,96px);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    gap:24px;
+  }
+  .moment-marker{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:flex;align-items:center;gap:10px;
+  }
+  .moment-marker .dot{
+    width:8px;height:8px;background:var(--gold);
+    display:inline-block;
+  }
+  .pullquote{
+    font-family:var(--display);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.045em;
+    line-height:.92;
+    font-size:clamp(32px,4.4vw,68px);
+    margin:0;
+    color:var(--bone);
+    text-wrap:balance;
+  }
+  .pullquote .open,.pullquote .close{
+    color:var(--gold);
+    font-weight:900;
+  }
+  .moment-attr{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--steel-2);
+  }
+  .moment-attr b{color:var(--bone);font-weight:500}
+
+  /* ---------- story / frame ---------- */
+  .story{
+    background:var(--bone);
+    color:var(--ink);
+    padding:96px 0 80px;
+  }
+  .story.light{color:var(--ink)}
+  .story-grid{
+    display:grid;
+    grid-template-columns:3fr 9fr;
+    gap:64px;
+    padding-top:56px;
+  }
+  .story-aside{
+    position:sticky;
+    top:28px;
+    align-self:start;
+  }
+  .story-aside .chap{
+    font-family:var(--display);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.03em;
+    font-size:42px;
+    line-height:.9;
+    margin:0 0 14px;
+  }
+  .story-aside .meta{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--steel);
+    line-height:1.7;
+  }
+  .story-aside .meta b{color:var(--ink);font-weight:600}
+  .story-aside .divider{
+    width:36px;height:2px;background:var(--gold);margin:14px 0;
+  }
+  .story-body{
+    font-family:var(--sans);
+    font-size:clamp(17px,1.4vw,21px);
+    line-height:1.55;
+    color:var(--ink);
+    max-width:62ch;
+    text-wrap:pretty;
+  }
+  .story-body .lede{
+    font-family:var(--sans);
+    font-weight:500;
+    font-size:clamp(20px,1.7vw,26px);
+    line-height:1.45;
+    color:var(--ink);
+    margin:0 0 32px;
+  }
+  .story-body p{margin:0 0 22px}
+  .story-body .dropcap::first-letter{
+    font-family:var(--display);
+    font-weight:900;
+    float:left;
+    font-size:5.2em;
+    line-height:.85;
+    padding:6px 14px 0 0;
+    color:var(--ink);
+  }
+
+  /* secondary frame strip inside story */
+  .frame-strip{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:8px;
+    margin:48px 0 8px;
+  }
+  .frame-strip figure{
+    margin:0;
+    position:relative;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    background:#111;
+  }
+  .frame-strip img{
+    width:100%;height:100%;
+    object-fit:cover;
+    transition:transform 1.2s ease;
+  }
+  .frame-strip figure:hover img{transform:scale(1.03)}
+  .frame-strip figcaption{
+    position:absolute;
+    left:10px;bottom:10px;
+    font-family:var(--mono);
+    font-size:9.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--bone);
+    background:rgba(0,0,0,.55);
+    padding:4px 6px;
+    line-height:1;
+  }
+
+  /* ---------- field note ---------- */
+  .fieldnote{
+    background:var(--ink);
+    color:var(--bone);
+    padding:80px 0;
+    position:relative;
+  }
+  .fieldnote::before{
+    content:"";
+    position:absolute;left:0;right:0;top:0;height:2px;
+    background:var(--gold);
+  }
+  .fn-grid{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:64px;
+    align-items:start;
+    padding-top:32px;
+  }
+  .fn-side{
+    font-family:var(--display);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.03em;
+    font-size:42px;
+    line-height:.9;
+    color:var(--bone);
+  }
+  .fn-side small{
+    display:block;
+    margin-top:10px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    color:var(--gold);
+    font-weight:500;
+  }
+  .fn-body{
+    font-family:var(--sans);
+    font-size:clamp(20px,2vw,30px);
+    line-height:1.4;
+    color:var(--bone);
+    max-width:62ch;
+    text-wrap:pretty;
+  }
+  .fn-body strong{
+    color:var(--bone);
+    font-weight:600;
+    background:linear-gradient(180deg,transparent 60%, rgba(162,138,77,.45) 60%);
+    padding:0 .05em;
+  }
+
+  /* ---------- series ---------- */
+  .series{
+    background:var(--bone-2);
+    color:var(--ink);
+    padding:80px 0;
+  }
+  .series .sec-head{border-bottom-color:var(--hair-bone)}
+  .series .sec-head .ttl{color:var(--ink)}
+  .series .sec-head .meta{color:var(--steel)}
+  .series-grid{
+    display:grid;
+    grid-template-columns:5fr 7fr;
+    gap:48px;
+    padding-top:48px;
+    align-items:start;
+  }
+  .series-h{
+    margin:0;
+    font-family:var(--display);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.04em;
+    line-height:.9;
+    font-size:clamp(28px,3.4vw,48px);
+    color:var(--ink);
+  }
+  .series-body{
+    font-family:var(--sans);
+    font-size:clamp(16px,1.3vw,19px);
+    line-height:1.55;
+    color:var(--ink);
+    max-width:58ch;
+  }
+  .series-next{
+    margin-top:24px;
+    padding:18px 22px;
+    border:1px solid var(--ink);
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:18px;
+    align-items:center;
+  }
+  .series-next .lbl{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .series-next .cpy{
+    font-family:var(--sans);
+    font-size:15px;
+    line-height:1.4;
+    color:var(--ink);
+  }
+  .series-next .arr{
+    font-family:var(--mono);
+    font-size:14px;
+    color:var(--ink);
+  }
+
+  /* ---------- product bridge ---------- */
+  .bridge{
+    background:var(--ink);
+    color:var(--bone);
+    padding:80px 0;
+  }
+  .bridge-grid{
+    display:grid;
+    grid-template-columns:7fr 5fr;
+    gap:64px;
+    align-items:center;
+    padding-top:48px;
+  }
+  .bridge-h{
+    margin:0 0 14px;
+    font-family:var(--display);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.04em;
+    line-height:.92;
+    font-size:clamp(36px,5vw,72px);
+    color:var(--bone);
+  }
+  .bridge-lede{
+    font-family:var(--sans);
+    font-size:clamp(16px,1.3vw,19px);
+    line-height:1.55;
+    color:var(--steel-2);
+    max-width:46ch;
+    margin:0 0 24px;
+  }
+  .bridge-cta{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    background:var(--bone);
+    color:var(--ink);
+    padding:14px 20px;
+    line-height:1;
+    transition:background .2s;
+  }
+  .bridge-cta:hover{background:var(--gold)}
+  .bridge-side{
+    position:relative;
+    aspect-ratio:4/5;
+    overflow:hidden;
+    background:#0a0c10;
+  }
+  .bridge-side img{width:100%;height:100%;object-fit:cover}
+  .bridge-side .corner{
+    position:absolute;top:14px;left:14px;
+    font-family:var(--mono);font-size:10px;
+    letter-spacing:.22em;text-transform:uppercase;
+    color:var(--gold);
+  }
+  .bridge-side .corner-br{
+    position:absolute;bottom:14px;right:14px;
+    font-family:var(--mono);font-size:10px;
+    letter-spacing:.22em;text-transform:uppercase;
+    color:var(--bone);
+    background:rgba(0,0,0,.5);
+    padding:4px 6px;
+  }
+
+  /* ---------- programme / value ---------- */
+  .programme{
+    background:var(--bone);
+    color:var(--ink);
+    padding:80px 0;
+  }
+  .programme .sec-head{border-bottom-color:var(--hair-bone)}
+  .programme .sec-head .ttl{color:var(--ink)}
+  .programme .sec-head .meta{color:var(--steel)}
+  .prog-grid{
+    display:grid;
+    grid-template-columns:5fr 7fr;
+    gap:48px;
+    align-items:start;
+    padding-top:48px;
+  }
+  .prog-h{
+    margin:0;
+    font-family:var(--display);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.04em;
+    line-height:.92;
+    font-size:clamp(32px,3.8vw,56px);
+    color:var(--ink);
+  }
+  .prog-body{
+    font-family:var(--sans);
+    font-size:clamp(16px,1.3vw,19px);
+    line-height:1.55;
+    color:var(--ink);
+    max-width:54ch;
+  }
+  .prog-list{
+    margin:0;padding:0;
+    list-style:none;
+    display:grid;
+    gap:0;
+    border-top:1px solid var(--hair-bone);
+  }
+  .prog-list li{
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:20px;
+    padding:18px 0;
+    align-items:baseline;
+    border-bottom:1px solid var(--hair-bone);
+    font-family:var(--sans);
+    font-size:clamp(16px,1.3vw,19px);
+    line-height:1.4;
+    color:var(--ink);
+  }
+  .prog-list li .ix{
+    font-family:var(--mono);
+    font-weight:500;
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    min-width:32px;
+  }
+
+  /* social proof / in the field */
+  .field{
+    background:var(--bone);
+    color:var(--ink);
+    padding:24px 0 80px;
+  }
+  .field-card{
+    padding:24px;
+    border:1px solid var(--ink);
+    display:grid;
+    grid-template-columns:auto 1fr;
+    gap:24px;
+    align-items:center;
+    margin-top:24px;
+  }
+  .field-card .br{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .field-card .nm{
+    font-family:var(--display);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.02em;
+    font-size:22px;
+    line-height:1;
+    margin-top:6px;
+    color:var(--ink);
+  }
+  .field-card .rl{
+    font-family:var(--sans);
+    font-size:14px;
+    color:var(--steel);
+    margin-top:6px;
+    max-width:60ch;
+  }
+
+  /* ---------- register CTA ---------- */
+  .register{
+    background:var(--ink);
+    color:var(--bone);
+    padding:96px 0 96px;
+    position:relative;
+  }
+  .register::before{
+    content:"";
+    position:absolute;left:0;right:0;top:0;height:2px;background:var(--gold);
+  }
+  .reg-grid{
+    display:grid;
+    grid-template-columns:7fr 5fr;
+    gap:64px;
+    align-items:start;
+    padding-top:48px;
+  }
+  .reg-h{
+    margin:0 0 14px;
+    font-family:var(--display);
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:-0.045em;
+    line-height:.88;
+    font-size:clamp(40px,6vw,96px);
+    color:var(--bone);
+    text-wrap:balance;
+  }
+  .reg-sub{
+    font-family:var(--sans);
+    font-size:clamp(16px,1.3vw,19px);
+    line-height:1.55;
+    color:var(--steel-2);
+    max-width:46ch;
+    margin:0 0 18px;
+  }
+  .reg-form{
+    display:grid;
+    grid-template-columns:1fr;
+    gap:14px;
+    max-width:520px;
+    width:100%;
+  }
+  .reg-row{
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:0;
+    border:1px solid var(--bone);
+    background:transparent;
+    transition:border-color .2s;
+  }
+  .reg-row:focus-within{border-color:var(--gold)}
+  .reg-row input{
+    appearance:none;
+    background:transparent;
+    border:0;
+    outline:0;
+    color:var(--bone);
+    font-family:var(--sans);
+    font-size:16px;
+    padding:18px 18px;
+    width:100%;
+    letter-spacing:.01em;
+  }
+  .reg-row input::placeholder{
+    color:var(--steel-2);
+    text-transform:lowercase;
+    letter-spacing:.02em;
+    font-family:var(--mono);
+    font-size:13px;
+  }
+  .reg-row button{
+    background:var(--gold);
+    color:var(--ink);
+    border:0;
+    padding:0 26px;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    transition:background .2s;
+  }
+  .reg-row button:hover{background:var(--gold-2)}
+  .reg-privacy{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+    color:var(--steel-2);
+    line-height:1.6;
+    max-width:46ch;
+  }
+  .reg-success{
+    display:none;
+    border:1px solid var(--gold);
+    padding:20px;
+    color:var(--bone);
+    background:rgba(162,138,77,.08);
+  }
+  .reg-success .lbl{
+    font-family:var(--mono);font-size:11px;
+    letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+    margin-bottom:6px;
+  }
+  .reg-success.is-shown{display:block}
+
+  .reg-side{
+    border-left:1px solid var(--hair);
+    padding-left:32px;
+  }
+  .reg-side .k{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+    margin-bottom:18px;
+  }
+  .reg-side ul{
+    margin:0;padding:0;list-style:none;
+    display:grid;gap:14px;
+  }
+  .reg-side li{
+    font-family:var(--sans);
+    font-size:15px;
+    line-height:1.45;
+    color:var(--bone);
+    padding-left:24px;
+    position:relative;
+  }
+  .reg-side li::before{
+    content:"";
+    position:absolute;
+    left:0;top:.55em;
+    width:14px;height:2px;
+    background:var(--gold);
+  }
+
+  /* ---------- footer ---------- */
+  footer{
+    background:var(--ink);
+    color:var(--steel-2);
+    padding:32px 0 28px;
+    border-top:1px solid var(--hair);
+  }
+  .foot-grid{
+    display:grid;
+    grid-template-columns:auto 1fr auto;
+    gap:24px;
+    align-items:center;
+  }
+  .foot-grid .credit{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    color:var(--steel-2);
+    line-height:1.55;
+    max-width:64ch;
+  }
+  .foot-grid .credit b{color:var(--bone);font-weight:500}
+  .foot-grid .year{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    color:var(--steel-2);
+  }
+
+  /* ---------- responsive ---------- */
+  @media (max-width: 1100px){
+    .premise-grid,.story-grid,.series-grid,.bridge-grid,.prog-grid,.reg-grid{
+      grid-template-columns:1fr;
+      gap:32px;
+    }
+    .moment-grid{grid-template-columns:1fr; min-height:0}
+    .moment-img{aspect-ratio:16/10;min-height:60vh}
+    .moment-copy{padding:48px var(--bleed)}
+    .reg-side{border-left:0;border-top:1px solid var(--hair);padding-left:0;padding-top:32px}
+    .story-aside{position:static}
+  }
+  @media (max-width: 720px){
+    .hero{min-height:560px;height:auto;aspect-ratio:9/14;max-height:92vh}
+    .hero-inner{padding:88px var(--bleed) 28px}
+    .hero-bottom{grid-template-columns:1fr; gap:18px}
+    .hero-spec{grid-template-columns:repeat(2,1fr); gap:14px}
+    .hero-actions{justify-self:start}
+    .masthead{grid-template-columns:auto 1fr; padding:18px var(--bleed) 14px}
+    .masthead .runtime{display:none}
+    .masthead .nav{font-size:10px;gap:12px}
+    .sec-head{grid-template-columns:auto 1fr; gap:12px}
+    .sec-head .meta{display:none}
+    .stickybar{grid-template-columns:auto 1fr auto;padding:10px var(--bleed)}
+    .sticky-mid{display:none}
+    .frame-strip{grid-template-columns:repeat(2,1fr)}
+    .frame-strip figure:nth-child(3){display:none}
+    .foot-grid{grid-template-columns:1fr}
+    .field-card{grid-template-columns:1fr}
+    .story-body .dropcap::first-letter{font-size:4em;padding:4px 10px 0 0}
+    .ticker .row{font-size:9.5px;letter-spacing:.22em;gap:28px}
+    .ticker .row span{padding-left:28px}
+    .premise{padding:56px 0 40px}
+    .premise-body{font-size:18px}
+    .pullquote{font-size:32px}
+    .reg-h{font-size:38px}
+  }
+
+  /* reduced motion */
+  @media (prefers-reduced-motion: reduce){
+    .ticker .row{animation:none}
+    *{transition:none !important}
+  }
+
+  /* skip-link for keyboard */
+  .sr{
+    position:absolute;left:-9999px;
+    width:1px;height:1px;overflow:hidden;
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ STICKY BAR ============ -->
+<div class="stickybar" id="stickybar" aria-hidden="true">
+  <a href="#top" class="wordmark" aria-label="776BC">776BC</a>
+  <div class="sticky-mid"><b>The pursuit begins here.</b> &nbsp;&middot;&nbsp; As One / Film 001</div>
+  <a href="#register" class="btn-gold">Register</a>
+</div>
+
+<a class="sr" href="#story">Skip to story</a>
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <video class="hero-video"
+         id="hero-video"
+         src="./assets/clip.mp4"
+         autoplay muted loop playsinline preload="auto"
+         poster="./assets/frames/frame_019.jpg"></video>
+
+  <header class="masthead">
+    <a href="#top" class="wordmark" aria-label="776BC home">776BC</a>
+    <div class="runtime"><b>As One / Film 001</b> &nbsp;&middot;&nbsp; 0:22 Runtime</div>
+    <nav class="nav" aria-label="primary">
+      <a href="#story">The Story</a>
+      <a href="#series">Series</a>
+      <a href="#register">Register</a>
+    </nav>
+  </header>
+
+  <div class="hero-inner">
+    <div class="hero-top">
+      <span class="pill gold">As One / Film 001</span>
+      <span class="pill">On The Water</span>
+      <span class="pill">2025</span>
+    </div>
+
+    <div class="hero-mid">
+      <h1 class="hero-headline">
+        Racing backwards toward a line you <em class="accent">cannot see</em>
+      </h1>
+    </div>
+
+    <div class="hero-bottom">
+      <div class="hero-spec">
+        <div class="spec-cell">
+          <span class="k">Runtime</span>
+          <span class="v">0:22</span>
+        </div>
+        <div class="spec-cell">
+          <span class="k">Episode</span>
+          <span class="v">001</span>
+        </div>
+        <div class="spec-cell">
+          <span class="k">Location</span>
+          <span class="v">The Water</span>
+        </div>
+        <div class="spec-cell">
+          <span class="k">Subject</span>
+          <span class="v">The Pursuit</span>
+        </div>
+      </div>
+      <div class="hero-actions">
+        <button class="play-cue" id="seekChapter" type="button" aria-label="Jump to moment at 0:09">
+          <span class="ring" aria-hidden="true">
+            <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
+          </span>
+          <span>0:09 &nbsp;/&nbsp; My back faces the finish</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="ticker" aria-hidden="true">
+    <div class="row">
+      <span><b>As One.</b> A 776BC Film Series</span>
+      <span>Film 001 / The Pursuit</span>
+      <span>Founded by a two-time Australian Olympic rower</span>
+      <span>The work behind the work</span>
+      <span><b>As One.</b> A 776BC Film Series</span>
+      <span>Film 001 / The Pursuit</span>
+      <span>Founded by a two-time Australian Olympic rower</span>
+      <span>The work behind the work</span>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PREMISE ============ -->
+<section class="premise" id="premise">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">01 / Premise</span>
+      <span class="ttl">The condition that defines the sport</span>
+      <span class="meta">A reflective voice from within rowing</span>
+    </div>
+    <div class="premise-grid">
+      <h2 class="premise-h">Every other sport faces the finish.<br />Rowers pursue it <em style="font-style:normal;color:var(--gold)">blind</em>.</h2>
+      <p class="premise-body">Reading the water ahead through the bodies behind them. The pursuit is real. The finish line is not visible. The faith required is not metaphorical; <em>it is structural to the act of racing</em>.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ MOMENT / PULL QUOTE ============ -->
+<section class="moment" id="moment">
+  <div class="moment-grid">
+    <div class="moment-img">
+      <span class="frame-tag"><b>0:09 / Moment</b><br />Silhouette / on the water</span>
+      <img src="./assets/frames/frame_002.jpg" alt="Athlete silhouette on the water, back to the camera." />
+      <span class="frame-tag2">Clip 1 &nbsp;·&nbsp; Frame 002</span>
+    </div>
+    <div class="moment-copy">
+      <div class="moment-marker"><span class="dot"></span>The Pursuit / Pull Quote</div>
+      <blockquote class="pullquote">
+        <span class="open">&ldquo;</span>My back faces the finish line. I pursue something I can&rsquo;t see.<span class="close">&rdquo;</span>
+      </blockquote>
+      <div class="moment-attr"><b>The Pursuit</b> &nbsp;·&nbsp; As One / Film 001</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ STORY ============ -->
+<section class="story light" id="story">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">02 / Frame</span>
+      <span class="ttl">The story behind the film</span>
+      <span class="meta">Editorial &nbsp;·&nbsp; long read</span>
+    </div>
+
+    <div class="story-grid">
+      <aside class="story-aside">
+        <h3 class="chap">Racing<br />the line<br />you cannot<br />see.</h3>
+        <span class="divider" aria-hidden="true"></span>
+        <p class="meta">
+          <b>Film 001</b><br />
+          As One Series<br />
+          <br />
+          Runtime <b>0:22</b><br />
+          Setting <b>On the water</b><br />
+          Subject <b>The pursuit</b>
+        </p>
+      </aside>
+
+      <div class="story-body">
+        <p class="lede">In rowing, you never see the finish line approach. You feel it through the bodies ahead of you, through the rhythm of the crew, through the water&rsquo;s resistance reading back through the blade.</p>
+
+        <p class="dropcap">This is not a disadvantage rowers overcome. It is the condition that defines the sport. Racing backwards demands a particular kind of trust, not in what you can see, but in what you can read. The stroke rate, the split on the monitor, the grip of the oar in a following wind.</p>
+
+        <p>Every other signal tells you where you are. None of them show you where you are going.</p>
+
+        <p>The 776BC As One film begins here, in that geometry, with a voice that names what every rower already knows but rarely hears said plainly. The pursuit is real. The finish line is not visible. The faith required is not metaphorical; it is structural to the act of racing.</p>
+
+        <div class="frame-strip" aria-label="Selected frames from the film">
+          <figure>
+            <img src="./assets/frames/frame_019.jpg" alt="A single sculler on flat water, low cloud over the hills behind." />
+            <figcaption>Frame 019 / Environment</figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/frames/frame_035.jpg" alt="A rower in the boat, oar mid-stroke, water spraying from the catch." />
+            <figcaption>Frame 035 / Action</figcaption>
+          </figure>
+          <figure>
+            <img src="./assets/frames/frame_001.jpg" alt="Silhouette of an athlete looking out toward the lake before launch." />
+            <figcaption>Frame 001 / Silhouette</figcaption>
+          </figure>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FIELD NOTE ============ -->
+<section class="fieldnote" id="fieldnote">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">03 / Field Note</span>
+      <span class="ttl">A closing observation</span>
+      <span class="meta">From the editorial team</span>
+    </div>
+    <div class="fn-grid">
+      <div class="fn-side">
+        Field<br />Note.
+        <small>776BC As One</small>
+      </div>
+      <p class="fn-body">Most sports orient athletes toward the destination. Rowing removes that entirely. <strong>The finish line is behind you</strong>, and the trust required to race well is not a metaphor; <strong>it is a biomechanical fact</strong>.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ SERIES ============ -->
+<section class="series" id="series">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">04 / Series</span>
+      <span class="ttl">As One &nbsp;·&nbsp; A 776BC film series</span>
+      <span class="meta">Six films &nbsp;·&nbsp; in production</span>
+    </div>
+    <div class="series-grid">
+      <h3 class="series-h">As One.<br />A 776BC<br />film series.</h3>
+      <div>
+        <p class="series-body">As One is a 776BC film series built around the culture, philosophy, and daily practice of competitive rowing. This episode opens on the sport&rsquo;s defining condition: the finish line is always behind you.</p>
+        <div class="series-next">
+          <span class="lbl">Next /</span>
+          <p class="cpy" style="margin:0">What trust inside the boat actually requires when the race is decided in the final ten strokes.</p>
+          <span class="arr" aria-hidden="true">&rarr;</span>
+        </div>
+
+        <div class="field-card">
+          <div>
+            <span class="br">In the field / Rowing</span>
+            <div class="nm">776BC As One</div>
+          </div>
+          <div class="rl">A film made from within the rowing community, for the athletes who race it.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PRODUCT BRIDGE ============ -->
+<section class="bridge" id="bridge">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">05 / Product</span>
+      <span class="ttl">Built for the blind pursuit</span>
+      <span class="meta">As One Collection</span>
+    </div>
+    <div class="bridge-grid">
+      <div>
+        <h3 class="bridge-h">Built for<br />the blind<br />pursuit.</h3>
+        <p class="bridge-lede">776BC builds for athletes who race without seeing where they are going. The kit on the water in this film is part of the As One Collection.</p>
+        <a class="bridge-cta" href="https://776bc.com/collections/as-one" target="_blank" rel="noopener">
+          See the As One Collection
+          <span aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
+      <div class="bridge-side">
+        <span class="corner">As One / Collection</span>
+        <img src="./assets/frames/frame_012.jpg" alt="An athlete in 776BC kit on the water, preparing before a row." />
+        <span class="corner-br">Frame 012</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ PROGRAMME (VALUE) ============ -->
+<section class="programme" id="programme">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="num">06 / Programme</span>
+      <span class="ttl">Dispatches from inside performance culture</span>
+      <span class="meta">Free &nbsp;·&nbsp; weekly</span>
+    </div>
+    <div class="prog-grid">
+      <h3 class="prog-h">Dispatches<br />from inside<br />performance<br />culture.</h3>
+      <div>
+        <p class="prog-body" style="margin-bottom:24px">The 776BC programme delivers athlete stories, technical perspective, and editorial from the rowing community to your inbox. Not product announcements. The work behind the work.</p>
+        <ol class="prog-list">
+          <li><span class="ix">01 /</span><span>Athlete stories from training to competition.</span></li>
+          <li><span class="ix">02 /</span><span>Technical insight grounded in Olympic experience.</span></li>
+          <li><span class="ix">03 /</span><span>New films and editorial as they release.</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ REGISTER ============ -->
+<section class="register" id="register">
+  <div class="wrap">
+    <div class="sec-head" style="border-bottom-color:var(--hair)">
+      <span class="num">07 / Register</span>
+      <span class="ttl">Register for the pursuit.</span>
+      <span class="meta">Single field &nbsp;·&nbsp; one address &nbsp;·&nbsp; no noise</span>
+    </div>
+    <div class="reg-grid">
+      <div>
+        <h3 class="reg-h">Register for<br />the pursuit.</h3>
+        <p class="reg-sub">Athlete stories, technical insight, and new films delivered directly to you. The 776BC programme. The work behind the work.</p>
+
+        <form class="reg-form" id="regForm" novalidate>
+          <label for="reg-email" class="sr">Email address</label>
+          <div class="reg-row">
+            <input id="reg-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="your email address" required />
+            <button type="submit">Register</button>
+          </div>
+          <p class="reg-privacy">Your address is used only for 776BC dispatches. Unsubscribe at any point.</p>
+        </form>
+
+        <div class="reg-success" id="regSuccess" role="status" aria-live="polite">
+          <div class="lbl">Registered / Welcome</div>
+          You will receive the next dispatch in your inbox. The next film in the As One series lands soon. We will send it from there.
+        </div>
+      </div>
+
+      <aside class="reg-side">
+        <div class="k">Included in the programme</div>
+        <ul>
+          <li>Athlete stories from training to competition.</li>
+          <li>Technical insight grounded in Olympic experience.</li>
+          <li>New films and editorial as they release.</li>
+          <li>No product spam. No urgency tactics. No noise.</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <a href="#top" class="wordmark" aria-label="776BC">776BC</a>
+      <div class="credit">
+        <b>Produced by 776BC.</b> Founded by a two-time Australian Olympic rower. Built for athletes who do the work.
+      </div>
+      <div class="year">MMXXV</div>
+    </div>
+  </div>
+</footer>
+
+
+<script>
+(function(){
+  /* ---------- sticky bar reveal after video start / scroll ---------- */
+  var bar = document.getElementById('stickybar');
+  var threshold = function(){ return Math.max(360, window.innerHeight * 0.6); };
+  var update = function(){
+    if (window.scrollY > threshold()) {
+      bar.classList.add('is-shown');
+      bar.setAttribute('aria-hidden','false');
+    } else {
+      bar.classList.remove('is-shown');
+      bar.setAttribute('aria-hidden','true');
+    }
+  };
+  window.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+
+  /* ---------- chapter seek ---------- */
+  var btn = document.getElementById('seekChapter');
+  var video = document.getElementById('hero-video');
+  if (btn && video) {
+    btn.addEventListener('click', function(){
+      try {
+        video.currentTime = 9;
+        var p = video.play();
+        if (p && typeof p.then === 'function') p.catch(function(){});
+        video.scrollIntoView ? null : null;
+      } catch(e){}
+    });
+  }
+
+  /* ---------- video failsafe: if autoplay blocked, poster frame stays ---------- */
+  if (video) {
+    video.addEventListener('error', function(){
+      video.style.display = 'none';
+      document.querySelector('.hero').style.backgroundImage = 'url(./assets/frames/frame_019.jpg)';
+      document.querySelector('.hero').style.backgroundSize = 'cover';
+      document.querySelector('.hero').style.backgroundPosition = '50% 40%';
+    });
+  }
+
+  /* ---------- register form (no network; visual confirmation) ---------- */
+  var form = document.getElementById('regForm');
+  var success = document.getElementById('regSuccess');
+  if (form) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var input = form.querySelector('input[type=email]');
+      var val = (input.value || '').trim();
+      var ok = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
+      if (!ok) {
+        input.focus();
+        input.setAttribute('aria-invalid','true');
+        input.style.outline = '1px solid #c8341e';
+        return;
+      }
+      input.removeAttribute('aria-invalid');
+      input.style.outline = '';
+      form.style.display = 'none';
+      success.classList.add('is-shown');
+      try { localStorage.setItem('776bc-registered', val); } catch(e){}
+    });
+  }
+
+  /* ---------- restore registered state if user returns ---------- */
+  try {
+    if (localStorage.getItem('776bc-registered')) {
+      if (form) form.style.display = 'none';
+      if (success) success.classList.add('is-shown');
+    }
+  } catch(e){}
+
+  /* ---------- smooth anchor scroll ---------- */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href').slice(1);
+      var t = document.getElementById(id);
+      if (t) {
+        e.preventDefault();
+        window.scrollTo({top: t.getBoundingClientRect().top + window.scrollY - 8, behavior: 'smooth'});
+      }
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
