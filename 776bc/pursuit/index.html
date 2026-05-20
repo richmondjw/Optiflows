@@ -84,15 +84,12 @@
   }
   .stickybar.is-shown{transform:translateY(0)}
   .wordmark{
-    font-family:var(--display);
-    font-weight:900;
-    font-size:14px;
-    letter-spacing:.04em;
-    padding:6px 8px;
-    background:var(--bone);
-    color:var(--ink);
+    display:inline-flex;
+    align-items:center;
     line-height:1;
+    color:inherit;
   }
+  .wordmark img{display:block;height:22px;width:auto}
   .sticky-mid{
     font-family:var(--mono);
     font-size:10.5px;
@@ -143,7 +140,6 @@
     gap:18px;
     padding:22px var(--bleed) 18px;
   }
-  .masthead .wordmark{background:var(--bone);color:var(--ink)}
   .masthead .nav{
     justify-self:end;
     display:flex;
@@ -1106,18 +1102,193 @@
     *{transition:none !important}
   }
 
+  /* ---------- wordmark / logo (size variants per surface) ---------- */
+  .masthead .wordmark img{height:34px}
+  .stickybar .wordmark img{height:22px}
+  footer .wordmark img{height:36px}
+  @media (max-width:720px){
+    .masthead .wordmark img{height:26px}
+    .stickybar .wordmark img{height:20px}
+    footer .wordmark img{height:28px}
+  }
+
   /* skip-link for keyboard */
   .sr{
     position:absolute;left:-9999px;
     width:1px;height:1px;overflow:hidden;
   }
+
+  /* ---------- hero: clickable + tap-to-watch hint ---------- */
+  .hero-video{cursor:pointer}
+  .watch-hint{
+    position:absolute;
+    right:var(--bleed);
+    top:50%;
+    transform:translate(0,-50%);
+    z-index:5;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:14px;
+    pointer-events:none;
+  }
+  .watch-hint .play-btn{
+    pointer-events:auto;
+    width:104px;height:104px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.9);
+    background:rgba(0,0,0,.28);
+    backdrop-filter:blur(4px);
+    -webkit-backdrop-filter:blur(4px);
+    display:grid;place-items:center;
+    color:var(--bone);
+    transition:transform .25s, background .25s, border-color .25s;
+  }
+  .watch-hint .play-btn:hover{
+    background:var(--gold);
+    border-color:var(--gold);
+    color:var(--ink);
+    transform:scale(1.04);
+  }
+  .watch-hint .play-btn svg{width:28px;height:28px;fill:currentColor}
+  .watch-hint .lbl{
+    pointer-events:auto;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--bone);
+    background:rgba(0,0,0,.45);
+    padding:6px 10px;
+    line-height:1;
+  }
+  .watch-hint .lbl b{color:var(--gold);font-weight:500}
+
+  /* a subtle pulse ring on the play button */
+  .watch-hint .play-btn::after{
+    content:"";
+    position:absolute;
+    width:104px;height:104px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.55);
+    animation:pulse 2.4s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{transform:scale(1);opacity:.7}
+    100%{transform:scale(1.45);opacity:0}
+  }
+
+  /* ---------- theater modal ---------- */
+  .theater{
+    position:fixed;inset:0;
+    z-index:200;
+    background:rgba(0,0,0,.92);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .theater.is-open{display:flex}
+  .theater-stage{
+    position:relative;
+    width:min(1280px, 96vw);
+    max-height:92vh;
+    aspect-ratio:16/9;
+    background:#000;
+    box-shadow:0 30px 80px rgba(0,0,0,.6);
+  }
+  .theater-stage video{
+    width:100%;height:100%;
+    object-fit:contain;
+    background:#000;
+  }
+  .theater-bar{
+    position:absolute;
+    left:0;right:0;top:-44px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--bone);
+  }
+  .theater-bar .left b{color:var(--gold);font-weight:500}
+  .theater-close{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.55);
+    color:var(--bone);
+    padding:8px 14px;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    transition:background .2s,color .2s;
+  }
+  .theater-close:hover{background:var(--bone);color:var(--ink)}
+  .theater-stage::before{
+    content:"";
+    position:absolute;left:0;right:0;top:0;height:2px;background:var(--gold);
+    z-index:2;
+  }
+  .theater-chapter{
+    position:absolute;
+    left:0;right:0;bottom:-44px;
+    display:flex;
+    gap:10px;
+    align-items:center;
+    color:var(--bone);
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+  }
+  .chap-btn{
+    background:transparent;
+    border:1px solid rgba(255,255,255,.4);
+    color:var(--bone);
+    padding:6px 10px;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    transition:background .2s,color .2s,border-color .2s;
+  }
+  .chap-btn:hover{background:var(--gold);color:var(--ink);border-color:var(--gold)}
+  .chap-btn b{color:var(--gold);font-weight:500;margin-right:6px}
+  .chap-btn:hover b{color:var(--ink)}
+
+  @media (max-width: 720px){
+    .watch-hint{position:absolute;right:auto;left:50%;top:auto;bottom:96px;transform:translate(-50%,0)}
+    .watch-hint .play-btn,.watch-hint .play-btn::after{width:78px;height:78px}
+    .watch-hint .play-btn svg{width:22px;height:22px}
+    .theater-bar{top:-36px;font-size:9.5px}
+    .theater-chapter{bottom:-72px;flex-wrap:wrap;gap:6px}
+  }
 </style>
 </head>
 <body>
 
+<!-- ============ THEATER MODAL ============ -->
+<div class="theater" id="theater" role="dialog" aria-modal="true" aria-label="As One / Film 001 — Watch">
+  <div class="theater-stage">
+    <div class="theater-bar">
+      <div class="left"><b>As One / Film 001</b> &nbsp;·&nbsp; Racing backwards toward a line you cannot see &nbsp;·&nbsp; 0:22</div>
+      <button class="theater-close" id="closeTheater" type="button" aria-label="Close player">Close &nbsp;×</button>
+    </div>
+    <video id="theater-video" src="./assets/clip.mp4" controls playsinline preload="metadata"></video>
+    <div class="theater-chapter">
+      <span style="color:var(--steel-2)">Chapter /</span>
+      <button class="chap-btn" data-seek="0" type="button"><b>0:00</b> Open</button>
+      <button class="chap-btn" data-seek="9" type="button"><b>0:09</b> My back faces the finish</button>
+    </div>
+  </div>
+</div>
+
 <!-- ============ STICKY BAR ============ -->
 <div class="stickybar" id="stickybar" aria-hidden="true">
-  <a href="#top" class="wordmark" aria-label="776BC">776BC</a>
+  <a href="#top" class="wordmark" aria-label="776BC home"><img src="./assets/brand/776bc-logo-gold.png" alt="776BC" /></a>
   <div class="sticky-mid"><b>The pursuit begins here.</b> &nbsp;&middot;&nbsp; As One / Film 001</div>
   <a href="#register" class="btn-gold">Register</a>
 </div>
@@ -1133,7 +1304,7 @@
          poster="./assets/frames/frame_019.jpg"></video>
 
   <header class="masthead">
-    <a href="#top" class="wordmark" aria-label="776BC home">776BC</a>
+    <a href="#top" class="wordmark" aria-label="776BC home"><img src="./assets/brand/776bc-logo-gold.png" alt="776BC" /></a>
     <div class="runtime"><b>As One / Film 001</b> &nbsp;&middot;&nbsp; 0:22 Runtime</div>
     <nav class="nav" aria-label="primary">
       <a href="#story">The Story</a>
@@ -1175,7 +1346,7 @@
         </div>
       </div>
       <div class="hero-actions">
-        <button class="play-cue" id="seekChapter" type="button" aria-label="Jump to moment at 0:09">
+        <button class="play-cue" id="seekChapter" type="button" aria-label="Watch the film from the 0:09 moment">
           <span class="ring" aria-hidden="true">
             <svg viewBox="0 0 12 12"><polygon points="2,1 11,6 2,11"/></svg>
           </span>
@@ -1183,6 +1354,13 @@
         </button>
       </div>
     </div>
+  </div>
+
+  <div class="watch-hint">
+    <button class="play-btn" id="openTheater" type="button" aria-label="Watch the film with sound">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><polygon points="5,3 21,12 5,21"/></svg>
+    </button>
+    <span class="lbl"><b>Play</b> &nbsp;/&nbsp; Watch the film &nbsp;·&nbsp; 0:22</span>
   </div>
 
   <div class="ticker" aria-hidden="true">
@@ -1433,7 +1611,7 @@
 <footer>
   <div class="wrap">
     <div class="foot-grid">
-      <a href="#top" class="wordmark" aria-label="776BC">776BC</a>
+      <a href="#top" class="wordmark" aria-label="776BC home"><img src="./assets/brand/776bc-logo-gold.png" alt="776BC" /></a>
       <div class="credit">
         <b>Produced by 776BC.</b> Founded by a two-time Australian Olympic rower. Built for athletes who do the work.
       </div>
@@ -1461,24 +1639,71 @@
   window.addEventListener('resize', update);
   update();
 
-  /* ---------- chapter seek ---------- */
-  var btn = document.getElementById('seekChapter');
-  var video = document.getElementById('hero-video');
-  if (btn && video) {
-    btn.addEventListener('click', function(){
-      try {
-        video.currentTime = 9;
-        var p = video.play();
-        if (p && typeof p.then === 'function') p.catch(function(){});
-        video.scrollIntoView ? null : null;
-      } catch(e){}
-    });
+  /* ---------- theater modal ---------- */
+  var theater = document.getElementById('theater');
+  var theaterVideo = document.getElementById('theater-video');
+  var openBtn = document.getElementById('openTheater');
+  var closeBtn = document.getElementById('closeTheater');
+  var heroVideo = document.getElementById('hero-video');
+  var chapterBtn = document.getElementById('seekChapter');
+
+  function openTheater(seekTo){
+    if (!theater || !theaterVideo) return;
+    try { if (heroVideo) heroVideo.pause(); } catch(e){}
+    theater.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    try {
+      theaterVideo.currentTime = (typeof seekTo === 'number' && !isNaN(seekTo)) ? seekTo : 0;
+      theaterVideo.muted = false;
+      var p = theaterVideo.play();
+      if (p && typeof p.then === 'function') p.catch(function(){
+        /* if browser blocks unmuted autoplay, the user can hit the native play control */
+      });
+    } catch(e){}
+  }
+  function closeTheater(){
+    if (!theater || !theaterVideo) return;
+    theater.classList.remove('is-open');
+    document.body.style.overflow = '';
+    try {
+      theaterVideo.pause();
+      if (heroVideo) { var p = heroVideo.play(); if (p && p.catch) p.catch(function(){}); }
+    } catch(e){}
+  }
+  if (openBtn) openBtn.addEventListener('click', function(){ openTheater(0); });
+  if (closeBtn) closeBtn.addEventListener('click', closeTheater);
+  if (theater) theater.addEventListener('click', function(e){
+    if (e.target === theater) closeTheater();
+  });
+  document.addEventListener('keydown', function(e){
+    if (e.key === 'Escape' && theater.classList.contains('is-open')) closeTheater();
+  });
+
+  /* clicking the looping hero video itself opens the theater */
+  if (heroVideo) {
+    heroVideo.addEventListener('click', function(){ openTheater(heroVideo.currentTime || 0); });
   }
 
+  /* chapter seek opens theater jumped to 0:09 */
+  if (chapterBtn) {
+    chapterBtn.addEventListener('click', function(){ openTheater(9); });
+  }
+
+  /* chapter buttons inside theater */
+  document.querySelectorAll('.chap-btn').forEach(function(c){
+    c.addEventListener('click', function(){
+      var t = parseFloat(c.getAttribute('data-seek') || '0');
+      try {
+        theaterVideo.currentTime = isNaN(t) ? 0 : t;
+        var p = theaterVideo.play(); if (p && p.catch) p.catch(function(){});
+      } catch(e){}
+    });
+  });
+
   /* ---------- video failsafe: if autoplay blocked, poster frame stays ---------- */
-  if (video) {
-    video.addEventListener('error', function(){
-      video.style.display = 'none';
+  if (heroVideo) {
+    heroVideo.addEventListener('error', function(){
+      heroVideo.style.display = 'none';
       document.querySelector('.hero').style.backgroundImage = 'url(./assets/frames/frame_019.jpg)';
       document.querySelector('.hero').style.backgroundSize = 'cover';
       document.querySelector('.hero').style.backgroundPosition = '50% 40%';
