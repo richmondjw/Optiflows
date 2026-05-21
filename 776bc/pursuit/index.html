@@ -718,6 +718,52 @@
     font-size:14px;
     color:var(--ink);
   }
+  .series-reels{
+    margin-top:56px;
+    padding-top:32px;
+    border-top:1px solid var(--hair-bone);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:32px;
+  }
+  .reel{
+    display:block;
+  }
+  .reel-frame{
+    position:relative;
+    background:var(--ink);
+    aspect-ratio:16/9;
+    overflow:hidden;
+  }
+  .reel-frame video{
+    width:100%;
+    height:100%;
+    display:block;
+    object-fit:cover;
+  }
+  .reel-meta{
+    margin-top:14px;
+    display:flex;
+    justify-content:space-between;
+    align-items:baseline;
+    gap:16px;
+  }
+  .reel-meta .ep{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:.22em;
+    text-transform:uppercase;
+    color:var(--gold);
+  }
+  .reel-meta .ttl{
+    font-family:var(--sans);
+    font-size:15px;
+    line-height:1.4;
+    color:var(--ink);
+  }
+  @media (max-width: 720px){
+    .series-reels{grid-template-columns:1fr;gap:24px}
+  }
 
   /* ---------- product bridge ---------- */
   .bridge{
@@ -1510,6 +1556,27 @@
           <div class="rl">A film made from within the rowing community, for the athletes who race it.</div>
         </div>
       </div>
+    </div>
+
+    <div class="series-reels">
+      <figure class="reel">
+        <div class="reel-frame">
+          <video src="./assets/reels/reel_1.mp4" controls playsinline preload="metadata" poster="./assets/frames/frame_019.jpg"></video>
+        </div>
+        <figcaption class="reel-meta">
+          <span class="ep">Film 001</span>
+          <span class="ttl">The finish line is always behind you.</span>
+        </figcaption>
+      </figure>
+      <figure class="reel">
+        <div class="reel-frame">
+          <video src="./assets/reels/reel_6.mp4" controls playsinline preload="metadata" poster="./assets/frames/frame_035.jpg"></video>
+        </div>
+        <figcaption class="reel-meta">
+          <span class="ep">Film 006</span>
+          <span class="ttl">Trust inside the boat — decided in the final ten strokes.</span>
+        </figcaption>
+      </figure>
     </div>
   </div>
 </section>
