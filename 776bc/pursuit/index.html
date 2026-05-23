@@ -1721,10 +1721,12 @@
     document.body.style.overflow = 'hidden';
     try {
       theaterVideo.currentTime = (typeof seekTo === 'number' && !isNaN(seekTo)) ? seekTo : 0;
-      theaterVideo.muted = false;
+      theaterVideo.muted = true;
       var p = theaterVideo.play();
-      if (p && typeof p.then === 'function') p.catch(function(){
-        /* if browser blocks unmuted autoplay, the user can hit the native play control */
+      if (p && typeof p.then === 'function') p.then(function(){
+        theaterVideo.muted = false;
+      }).catch(function(){
+        /* play blocked — native controls still available */
       });
     } catch(e){}
   }
