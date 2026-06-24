@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="en-NZ">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M2M One NZ — Lo-fi Wireframes (layout pass)</title>
+<style>
+  /* ============ Achromatic only. Wireframe, not visual design. ============ */
+  :root{
+    --ink:#16181a; --ink2:#3d4144; --mut:#6c7176; --faint:#9aa0a4;
+    --line:#c7ccd0; --line2:#dfe3e6; --hair:#ebeef0;
+    --bg:#f4f5f6; --paper:#ffffff; --fill:#eef0f1; --fill2:#e6e9eb;
+    --heavy:#1d2023; --heavyink:#ffffff;
+    --r:10px; --r-sm:6px; --r-lg:16px;
+    --pad:clamp(20px,4cqi,40px);
+    --gap:20px;
+    --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:#3a3d40;color:var(--ink);font:15px/1.55 var(--sans);-webkit-font-smoothing:antialiased}
+
+  /* ---------- Prototype shell toolbar ---------- */
+  .tb{position:sticky;top:0;z-index:80;background:#1d2023;color:#e8e8e8;display:flex;align-items:center;gap:14px;
+      padding:9px 16px;flex-wrap:wrap;border-bottom:1px solid #000}
+  .tb b{color:#fff;font-weight:600;letter-spacing:.02em;font-size:14px}
+  .tb .tag{font-size:10.5px;color:#aeb3b6;border:1px solid #4a4f53;border-radius:4px;padding:2px 7px;letter-spacing:.04em}
+  .tb .grp{display:flex;align-items:center;gap:8px;margin-left:auto;flex-wrap:wrap}
+  .tb button{font:inherit;font-size:12px;background:#34383b;color:#e8e8e8;border:1px solid #4a4f53;border-radius:5px;padding:6px 11px;cursor:pointer;transition:background .15s}
+  .tb button:hover{background:#41464a}
+  .tb button[aria-pressed="true"]{background:#e8e8e8;color:#1d2023;border-color:#e8e8e8;font-weight:600}
+  .tb .seg{display:flex;border:1px solid #4a4f53;border-radius:6px;overflow:hidden}
+  .tb .seg button{border:0;border-right:1px solid #4a4f53;border-radius:0}
+  .tb .seg button:last-child{border-right:0}
+
+  /* ---------- Stage / device frame ---------- */
+  .stagewrap{display:flex;justify-content:center;padding:22px 14px 90px}
+  .stage{width:100%;max-width:1120px;background:var(--bg);border-radius:4px;overflow:hidden;
+    box-shadow:0 10px 40px rgba(0,0,0,.28);container-type:inline-size;
+    background-image:radial-gradient(var(--line2) 1px, transparent 1px);background-size:22px 22px;background-position:-1px -1px}
+  .stage.tablet{max-width:780px}
+  .stage.mobile{max-width:390px}
+
+  .site{display:flex;flex-direction:column;min-height:70vh}
+
+  /* ---------- Container & section rhythm ---------- */
+  .container{width:100%;max-width:1040px;margin:0 auto;padding-inline:var(--pad)}
+  section.band{padding-block:clamp(40px,7cqi,76px)}
+  section.band.tight{padding-block:clamp(28px,4cqi,44px)}
+  .surface{background:var(--paper);border:1px solid var(--line2);border-radius:var(--r-lg)}
+
+  /* ---------- Wireframe header ---------- */
+  header.shell{background:var(--paper);border-bottom:1px solid var(--line);position:relative}
+  .hdr{display:flex;align-items:center;gap:18px;height:66px;max-width:1040px;margin:0 auto;padding-inline:var(--pad)}
+  .wordmark{display:flex;align-items:center;gap:8px;font-weight:700;letter-spacing:.02em;color:var(--ink)}
+  .wordmark .mk{width:30px;height:30px;border:1.5px solid var(--ink);border-radius:7px;display:grid;place-items:center;font:600 11px/1 var(--mono);color:var(--ink)}
+  .wordmark small{display:block;font:400 9px/1.2 var(--mono);color:var(--mut);letter-spacing:.06em;margin-top:2px}
+  nav.main{display:flex;align-items:center;gap:2px;margin-left:6px}
+  nav.main a,.navgroup>button{font:inherit;font-size:13.5px;color:var(--ink2);background:none;border:0;cursor:pointer;
+    padding:8px 11px;border-radius:7px;text-decoration:none;display:inline-flex;align-items:center;gap:5px}
+  nav.main a:hover,.navgroup>button:hover{background:var(--fill)}
+  nav.main a.active{background:var(--fill);color:var(--ink);font-weight:600}
+  .navgroup{position:relative}
+  .navgroup>button .cv{width:9px;height:9px;color:var(--faint)}
+  .submenu{display:none;position:absolute;top:calc(100% + 6px);left:0;background:var(--paper);border:1px solid var(--line);
+    border-radius:var(--r);min-width:230px;padding:6px;z-index:30;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+  .navgroup.open .submenu{display:block}
+  .submenu a{display:flex;flex-direction:column;gap:1px;padding:9px 10px;border-radius:var(--r-sm)}
+  .submenu a:hover{background:var(--fill)}
+  .submenu a b{font-size:13px;color:var(--ink)}
+  .submenu a span{font-size:11px;color:var(--mut)}
+  .hdr .cta{margin-left:auto;display:flex;align-items:center;gap:10px}
+  .hamb{display:none;margin-left:auto;background:var(--paper);border:1px solid var(--line);border-radius:8px;width:42px;height:38px;cursor:pointer;align-items:center;justify-content:center}
+  .hamb svg{width:20px;height:20px;color:var(--ink)}
+
+  /* ---------- Buttons (lo-fi) ---------- */
+  .btn{display:inline-flex;align-items:center;gap:8px;font:inherit;font-size:14px;font-weight:600;cursor:pointer;
+    border-radius:999px;padding:11px 20px;text-decoration:none;border:1.5px solid var(--heavy);transition:transform .12s}
+  .btn:active{transform:translateY(1px)}
+  .btn.primary{background:var(--heavy);color:var(--heavyink)}
+  .btn.ghost{background:transparent;color:var(--ink)}
+  .btn.sm{padding:8px 15px;font-size:13px}
+  .btn svg{width:14px;height:14px}
+  .lnk{display:inline-flex;align-items:center;gap:6px;color:var(--ink);font-weight:600;text-decoration:none;border-bottom:1.5px dotted var(--mut);padding-bottom:1px}
+  .lnk:hover{border-bottom-style:solid}
+  .lnk svg{width:12px;height:12px}
+
+  /* ---------- Type rhythm (greyscale, no real type system) ---------- */
+  .eyebrow{font:600 11px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--mut)}
+  h1.wf{font-size:clamp(28px,5cqi,44px);line-height:1.08;letter-spacing:-.01em;margin:14px 0 0;font-weight:700;color:var(--ink)}
+  h2.wf{font-size:clamp(22px,3.4cqi,30px);line-height:1.15;margin:0;font-weight:700;letter-spacing:-.01em}
+  h3.wf{font-size:17px;margin:0;font-weight:700}
+  .sub{font-size:clamp(15px,1.9cqi,18px);color:var(--ink2);margin:14px 0 0;max-width:46ch}
+  .lede{font-size:18px;line-height:1.5;color:var(--ink);margin:0}
+  p.wf{margin:8px 0 0;color:var(--ink2)}
+  .muted{color:var(--mut)}
+
+  /* ---------- Image & logo placeholders (the key enhancement) ---------- */
+  .wimg{margin:0;position:relative;background:repeating-linear-gradient(135deg,var(--fill) 0 12px,var(--fill2) 12px 24px);
+    border:1.5px solid var(--line);border-radius:var(--r);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:var(--mut);overflow:hidden;min-height:120px}
+  .wimg .ph-ico{width:46px;height:46px;color:var(--faint)}
+  .wimg figcaption{font:500 12px/1.3 var(--mono);color:var(--mut);text-align:center;max-width:80%;letter-spacing:.02em}
+  .wimg.tall{aspect-ratio:4/5}
+  .wimg.wide{aspect-ratio:16/10}
+  .wimg.square{aspect-ratio:1/1}
+  .wimg.banner{aspect-ratio:21/9}
+  .wlogo{display:flex;align-items:center;gap:8px;border:1.5px dashed var(--line);border-radius:8px;padding:10px 14px;background:var(--paper)}
+  .wlogo .lk{width:26px;height:26px;border:1.5px solid var(--faint);border-radius:6px;display:grid;place-items:center;color:var(--faint)}
+  .wlogo .lk svg{width:15px;height:15px}
+  .wlogo span{font:500 12px/1.2 var(--mono);color:var(--mut)}
+
+  /* ---------- Icon tiles ---------- */
+  .ico{width:44px;height:44px;border-radius:11px;border:1.5px solid var(--line);background:var(--paper);display:grid;place-items:center;color:var(--ink2);flex:none}
+  .ico svg{width:23px;height:23px}
+  .ico.lg{width:54px;height:54px;border-radius:14px}
+  .ico.lg svg{width:28px;height:28px}
+
+  /* ---------- Layout primitives ---------- */
+  .grid{display:grid;gap:var(--gap)}
+  .hero-split{display:grid;grid-template-columns:1.05fr .95fr;gap:clamp(24px,4cqi,56px);align-items:center}
+  .cluster{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .stack-sm>*+*{margin-top:8px}
+  .sec-head{max-width:54ch;margin-bottom:26px}
+  .sec-head h2.wf{margin-top:10px}
+  .cols-3{grid-template-columns:repeat(3,1fr)}
+  .cols-4{grid-template-columns:repeat(4,1fr)}
+  .cols-2{grid-template-columns:repeat(2,1fr)}
+
+  .card{background:var(--paper);border:1px solid var(--line2);border-radius:var(--r);padding:22px}
+  .card h3.wf{margin-bottom:0}
+  .card .ico{margin-bottom:14px}
+  .card p.wf{margin-top:6px;font-size:14px}
+  .card .lnk{margin-top:14px;font-size:13px}
+
+  /* media split rows (alternating) */
+  .media{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(24px,4cqi,52px);align-items:center}
+  .media.flip .m-txt{order:2}
+  .media.flip .m-img{order:1}
+  .media + .media{margin-top:clamp(28px,4cqi,52px)}
+
+  /* lead / answer-first panel */
+  .lead-panel{background:var(--paper);border:1px solid var(--line2);border-left:4px solid var(--heavy);border-radius:var(--r);padding:22px 26px;max-width:64ch}
+  .lead-panel .tag{font:600 10px/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mut);display:block;margin-bottom:8px}
+
+  /* selector */
+  .selector{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+  .sel{display:flex;align-items:center;gap:12px;padding:14px;border:1px solid var(--line2);border-radius:var(--r);background:var(--paper);text-decoration:none;color:var(--ink);transition:border-color .15s,transform .12s}
+  .sel:hover{border-color:var(--heavy);transform:translateY(-1px)}
+  .sel .t{font-weight:600;font-size:14px}
+  .sel .g{font:500 11px/1.2 var(--mono);color:var(--mut);margin-top:2px}
+  .sel .ico{width:38px;height:38px;border-radius:9px}
+  .sel .ico svg{width:19px;height:19px}
+
+  /* trust / proof strip */
+  .proof{display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+
+  /* plan table */
+  table.plan{width:100%;border-collapse:separate;border-spacing:0;background:var(--paper);border:1px solid var(--line2);border-radius:var(--r);overflow:hidden}
+  table.plan th,table.plan td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--hair);vertical-align:top;font-size:14px}
+  table.plan thead th{background:var(--heavy);color:var(--heavyink);font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase}
+  table.plan tbody tr:last-child td{border-bottom:0}
+  table.plan tbody tr:hover{background:var(--fill)}
+
+  /* faq accordion */
+  .faq{max-width:64ch}
+  .faq details{border-bottom:1px solid var(--line2)}
+  .faq summary{cursor:pointer;list-style:none;padding:16px 0;font-weight:600;display:flex;justify-content:space-between;gap:16px;align-items:center}
+  .faq summary::-webkit-details-marker{display:none}
+  .faq summary::after{content:"+";font:400 22px/1 var(--sans);color:var(--mut)}
+  .faq details[open] summary::after{content:"\2013"}
+  .faq .a{padding:0 0 16px;color:var(--ink2)}
+
+  /* CTA band (the single heaviest element per screen) */
+  .ctaband{background:var(--heavy);color:var(--heavyink);border-radius:var(--r-lg);padding:clamp(30px,5cqi,52px);text-align:center;position:relative;overflow:hidden}
+  .ctaband .eyebrow{color:#b9bdc0}
+  .ctaband h2.wf{color:#fff;max-width:30ch;margin:10px auto 0}
+  .ctaband .btn.primary{background:#fff;color:var(--heavy);border-color:#fff;margin-top:22px}
+  .ctaband .note{font:500 12px/1.4 var(--mono);color:#b9bdc0;margin-top:14px}
+
+  /* form */
+  .form{max-width:520px;background:var(--paper);border:1px solid var(--line2);border-radius:var(--r-lg);padding:clamp(22px,3cqi,32px)}
+  .field{margin-bottom:16px}
+  .field label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+  .field .inp{height:44px;border:1.5px solid var(--line);border-radius:8px;background:var(--bg)}
+  .field .inp.area{height:84px}
+  .field .help{font:500 11px/1.3 var(--mono);color:var(--mut);margin-top:5px}
+
+  /* NAP basics */
+  .basics{list-style:none;margin:0;padding:0}
+  .basics li{padding:7px 0;border-bottom:1px dashed var(--line2);font-size:14px;color:var(--ink2)}
+  .basics li:last-child{border-bottom:0}
+  .basics b{color:var(--ink)}
+
+  /* footer */
+  footer.shell{background:var(--paper);border-top:1px solid var(--line);margin-top:auto}
+  .foot{max-width:1040px;margin:0 auto;padding:clamp(34px,5cqi,52px) var(--pad) 26px;display:grid;grid-template-columns:1.4fr repeat(4,1fr);gap:28px}
+  .foot h4{font:600 11px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin:0 0 12px}
+  .foot a{display:block;font-size:13px;color:var(--ink2);text-decoration:none;padding:3px 0}
+  .foot a:hover{color:var(--ink)}
+  .foot-brand .wordmark{margin-bottom:12px}
+  .foot-brand p{font-size:12.5px;color:var(--mut);max-width:30ch}
+  .foot-bottom{max-width:1040px;margin:0 auto;padding:14px var(--pad);border-top:1px solid var(--line2);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;font:500 11px/1.4 var(--mono);color:var(--mut)}
+
+  /* ---------- Annotations (toggle) ---------- */
+  .spec{display:none;font:500 12px/1.5 var(--mono);color:var(--mut);background:#fcfcfd;border:1px dashed var(--line);border-radius:var(--r);padding:12px 16px;margin-bottom:8px}
+  .spec b{color:var(--ink2)}
+  .anno-tag{display:none;position:absolute;top:8px;right:10px;z-index:5;font:600 9.5px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mut);background:#fcfcfd;border:1px solid var(--line2);border-radius:5px;padding:4px 7px}
+  .anno-host{position:relative}
+  body.anno .spec{display:block}
+  body.anno .anno-tag{display:inline-block}
+  body.anno .annorule{outline:1px dashed var(--line2);outline-offset:6px}
+
+  /* ---------- Placeholders / flags ---------- */
+  .flag{font-family:var(--mono);font-size:.86em}
+  .flag.num{background:#e9ebec;border:1px solid var(--line);border-radius:3px;padding:0 4px;color:var(--ink2)}
+  .flag.confirm{background:#f0f0f1;border:1px dashed var(--mut);border-radius:3px;padding:0 5px;color:var(--ink2)}
+
+  /* ---------- Overlays ---------- */
+  .ov{position:fixed;inset:0;background:rgba(20,22,24,.55);z-index:90;display:none;align-items:flex-start;justify-content:center;padding:44px 16px;overflow:auto}
+  .ov.show{display:flex}
+  .sheet{background:var(--paper);border-radius:var(--r-lg);max-width:960px;width:100%;padding:24px 26px;box-shadow:0 20px 60px rgba(0,0,0,.3)}
+  .sheet h3{margin:0 0 4px;font-size:18px}
+  .sheet .x{float:right;border:1px solid var(--line);background:var(--paper);border-radius:7px;padding:5px 11px;cursor:pointer;font:inherit;font-size:13px}
+  .tree{margin-top:16px}
+  .tree .row{display:flex;flex-wrap:wrap;gap:14px}
+  .tree .node{border:1px solid var(--line);border-radius:var(--r);padding:12px 14px;min-width:150px;background:var(--bg)}
+  .tree .node.spine{border:2px solid var(--heavy);background:var(--fill)}
+  .tree .node a{color:var(--ink);text-decoration:none;font-weight:600;cursor:pointer;font-size:14px}
+  .tree .node a:hover{text-decoration:underline}
+  .tree .kids{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line2);display:grid;gap:3px}
+  .tree .kids a{font-size:12px;color:var(--ink2);font-weight:400}
+  .tree .gh{width:100%;font:600 10px/1 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mut);margin:16px 0 -2px}
+  .legend{margin-top:14px;font:500 11px/1.4 var(--mono);color:var(--mut)}
+  .legend .sw{display:inline-block;width:22px;height:0;border-top:2px solid var(--heavy);vertical-align:middle;margin-right:6px}
+
+  /* journey stepper */
+  .stepper{position:fixed;left:0;right:0;bottom:0;z-index:85;background:#1d2023;color:#eee;border-top:1px solid #000;padding:11px 16px;display:none}
+  .stepper.show{display:block}
+  .stepper .top{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+  .stepper .jn{font-weight:600;color:#fff;font-size:13px}
+  .stepper .jd{font:500 12px/1.3 var(--mono);color:#aeb3b6}
+  .stepper .ctrls{margin-left:auto;display:flex;gap:6px}
+  .stepper button{font:inherit;font-size:12px;background:#34383b;color:#eee;border:1px solid #4a4f53;border-radius:5px;padding:5px 12px;cursor:pointer}
+  .stepper button:disabled{opacity:.4;cursor:default}
+  .steps{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+  .steps .st{font:500 11px/1 var(--mono);border:1px solid #4a4f53;border-radius:13px;padding:5px 11px;color:#cfd2d4;cursor:pointer}
+  .steps .st.cur{background:#eee;color:#1d2023;border-color:#eee;font-weight:600}
+  .steps .st .c{color:#777;margin-left:6px}
+  .jchooser{display:flex;flex-wrap:wrap;gap:8px;margin-top:11px}
+  .jchooser button{flex:1 1 250px;text-align:left;background:#2a2e31;padding:9px 12px}
+
+  /* drawer */
+  .drawer{display:none;position:absolute;top:100%;left:0;right:0;background:var(--paper);border-bottom:1px solid var(--line);z-index:40;padding:10px;box-shadow:0 14px 30px rgba(0,0,0,.12)}
+  .drawer.open{display:block}
+  .drawer a{display:block;padding:11px 10px;color:var(--ink2);text-decoration:none;border-bottom:1px dashed var(--line2);cursor:pointer;font-size:14px}
+  .drawer a.kid{padding-left:24px;font-size:13px}
+  .drawer a.lead-link{font-weight:700;color:var(--ink)}
+  .drawer a:last-child{border-bottom:0}
+
+  /* ---------- Container-query responsiveness ---------- */
+  @container (max-width: 880px){
+    .hero-split{grid-template-columns:1fr;gap:26px}
+    .media,.media.flip{grid-template-columns:1fr}
+    .media.flip .m-txt,.media.flip .m-img{order:initial}
+    .cols-4{grid-template-columns:repeat(2,1fr)}
+    .cols-3{grid-template-columns:repeat(2,1fr)}
+    .selector{grid-template-columns:repeat(2,1fr)}
+    .foot{grid-template-columns:1fr 1fr}
+  }
+  @container (max-width: 620px){
+    nav.main,.hdr .cta{display:none}
+    .hamb{display:flex}
+    .cols-2,.cols-3,.cols-4,.selector{grid-template-columns:1fr}
+    .foot{grid-template-columns:1fr 1fr}
+  }
+  /* comparison module (greyscale) */
+  table.cmp{width:100%;border-collapse:separate;border-spacing:0;background:var(--paper);border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;font-size:14px}
+  table.cmp th,table.cmp td{padding:12px 14px;text-align:left;border-bottom:1px solid var(--hair);vertical-align:top}
+  table.cmp thead th{background:var(--heavy);color:var(--heavyink);font:600 11px/1.3 var(--mono);letter-spacing:.04em;text-transform:uppercase}
+  table.cmp thead th.us{background:#0f1113}
+  table.cmp thead th .sub2{display:block;font:400 10px/1.2 var(--mono);color:#b9bdc0;text-transform:none;letter-spacing:0;margin-top:3px}
+  table.cmp tbody tr:last-child td{border-bottom:0}
+  table.cmp td.us{background:var(--fill)}
+  table.cmp .row-h{font-weight:600;color:var(--ink)}
+  table.cmp .yes{font-weight:700;color:var(--ink)}
+  table.cmp .yes::before{content:"✓  "}
+  table.cmp .no{color:var(--mut)}
+  .cmp-legend{font:500 11px/1.5 var(--mono);color:var(--mut);margin-top:10px}
+  /* ===== Review / sticky-note comment layer (meta — intentionally not greyscale) ===== */
+  .cbadge{display:inline-block;min-width:16px;padding:0 4px;margin-left:5px;border-radius:8px;background:#e0a32e;color:#1d2023;font:700 10px/16px var(--mono);text-align:center;vertical-align:middle}
+  body:not(.review) .rv-only{display:none!important}
+  #main{position:relative}
+  .rv-hint{position:fixed;left:50%;transform:translateX(-50%);bottom:14px;z-index:88;background:#1d2023;color:#eee;border:1px solid #000;border-radius:999px;padding:8px 16px;font:500 12px/1 var(--sans);display:flex;gap:12px;align-items:center;box-shadow:0 8px 24px rgba(0,0,0,.32)}
+  .rv-hint b{color:#f0c14b}
+  .rv-hint button{font:inherit;font-size:12px;background:#34383b;color:#eee;border:1px solid #4a4f53;border-radius:6px;padding:5px 11px;cursor:pointer}
+  .note-pin{position:absolute;width:26px;height:26px;border-radius:50% 50% 50% 3px;background:#f0c14b;border:1.5px solid #b8860b;color:#3a2f00;font:700 12px/23px var(--sans);text-align:center;cursor:pointer;transform:translate(-3px,-26px);z-index:45;box-shadow:0 3px 8px rgba(0,0,0,.28)}
+  .note-pin.resolved{background:#dfe3e6;border-color:#aab0b4;color:#6c7176}
+  .note-pin.flash{animation:pinflash 1.1s ease}
+  @keyframes pinflash{0%,100%{box-shadow:0 3px 8px rgba(0,0,0,.28)}30%{box-shadow:0 0 0 7px rgba(240,193,75,.55)}}
+  .note-pop{position:absolute;z-index:60;width:262px;background:#fff;border:1px solid var(--line);border-left:4px solid #e0a32e;border-radius:10px;box-shadow:0 14px 34px rgba(0,0,0,.24);padding:12px}
+  .note-pop .who{font-weight:700;font-size:13px;color:var(--ink)}
+  .note-pop .req{font:600 9.5px/1 var(--mono);color:#b8860b;margin-left:6px;text-transform:uppercase;letter-spacing:.06em}
+  .note-pop .when{font:500 11px/1 var(--mono);color:var(--mut);margin-left:6px}
+  .note-pop .body{margin:9px 0;white-space:pre-wrap;color:var(--ink2);font-size:14px;line-height:1.5}
+  .note-pop textarea,.note-pop input{width:100%;border:1.5px solid var(--line);border-radius:7px;padding:8px;font:inherit;font-size:13px;background:var(--bg);margin:8px 0 0}
+  .note-pop textarea{height:74px;resize:vertical}
+  .note-pop .row{display:flex;gap:6px;justify-content:flex-end;align-items:center;margin-top:9px}
+  .note-pop button{font:inherit;font-size:12px;border-radius:6px;padding:6px 11px;cursor:pointer;border:1px solid var(--line);background:#fff}
+  .note-pop button.save{background:#1d2023;color:#fff;border-color:#1d2023;font-weight:600}
+  .note-pop button.save:disabled{opacity:.4;cursor:default}
+  .note-pop button.del{margin-right:auto;color:#9a3b3b;border-color:#e2c7c7}
+  .rv-panel{position:fixed;top:0;right:0;bottom:0;width:344px;max-width:90vw;background:#fff;border-left:1px solid var(--line);z-index:93;transform:translateX(100%);transition:transform .2s;display:flex;flex-direction:column;box-shadow:-14px 0 44px rgba(0,0,0,.2)}
+  .rv-panel.open{transform:none}
+  .rv-panel header{padding:13px 16px;border-bottom:1px solid var(--line2);display:flex;align-items:center;gap:8px}
+  .rv-panel header h3{margin:0;font-size:15px}
+  .rv-panel header .x{margin-left:auto;border:1px solid var(--line);background:#fff;border-radius:6px;padding:4px 10px;cursor:pointer;font:inherit;font-size:12px}
+  .rv-me{padding:11px 16px;border-bottom:1px solid var(--line2);font:600 11px/1 var(--mono);letter-spacing:.04em;text-transform:uppercase;color:var(--mut)}
+  .rv-me input{width:100%;border:1.5px solid var(--line);border-radius:7px;padding:8px;font:400 13px/1.2 var(--sans);margin-top:6px;background:var(--bg);text-transform:none;letter-spacing:0}
+  .rv-tools{display:flex;flex-wrap:wrap;gap:6px;padding:10px 16px;border-bottom:1px solid var(--line2);align-items:center}
+  .rv-tools button{font:inherit;font-size:12px;border:1px solid var(--line);background:#fff;border-radius:6px;padding:6px 10px;cursor:pointer}
+  .rv-tools label{font:500 11px/1 var(--mono);color:var(--mut);margin-left:auto}
+  .rv-import{padding:10px 16px;border-bottom:1px solid var(--line2);display:none}
+  .rv-import.open{display:block}
+  .rv-import textarea{width:100%;height:78px;border:1.5px solid var(--line);border-radius:7px;padding:8px;font:inherit;font-size:12px;background:var(--bg)}
+  .rv-import .row{display:flex;gap:6px;margin-top:6px;align-items:center}
+  .rv-import button,.rv-import label.file{font:inherit;font-size:12px;border:1px solid var(--line);background:#fff;border-radius:6px;padding:6px 10px;cursor:pointer}
+  .rv-list{flex:1;overflow:auto;padding:6px 10px}
+  .rv-grp{font:600 10px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--mut);padding:13px 6px 5px}
+  .rv-item{display:flex;gap:10px;padding:9px 8px;border-radius:8px;cursor:pointer}
+  .rv-item:hover{background:var(--fill)}
+  .rv-item .n{flex:none;width:22px;height:22px;border-radius:50%;background:#f0c14b;border:1px solid #b8860b;color:#3a2f00;font:700 11px/20px var(--sans);text-align:center}
+  .rv-item.resolved .n{background:#dfe3e6;border-color:#aab0b4;color:#6c7176}
+  .rv-item .tx{font-size:13px;color:var(--ink2);line-height:1.45}
+  .rv-item .tx b{color:var(--ink);font-size:12px}
+  .rv-item .tx .rs{font:600 9.5px/1 var(--mono);color:#3a7d44;margin-left:6px;text-transform:uppercase}
+  .rv-empty{padding:26px 18px;color:var(--mut);font-size:13px;text-align:center;line-height:1.5}
+  /* ===== Review packet: workbench + spacing ===== */
+  body.packet .stagewrap{padding-bottom:132px}
+  body.packet .stepper{bottom:52px}
+  body.packet .rv-hint{bottom:60px}
+  .wb{position:fixed;left:0;right:0;bottom:0;z-index:86;background:#1d2023;color:#eee;border-top:1px solid #000;display:flex;align-items:center;gap:14px;padding:9px 16px}
+  .wb .wb-nav{font:600 13px/1 var(--sans);background:#34383b;color:#fff;border:1px solid #4a4f53;border-radius:7px;padding:9px 16px;cursor:pointer}
+  .wb .wb-nav:disabled{opacity:.4;cursor:default}
+  .wb .wb-mid{flex:1;min-width:0}
+  .wb .wb-bar{height:4px;background:#3a3f43;border-radius:3px;overflow:hidden}
+  .wb .wb-bar span{display:block;height:100%;background:#f0c14b;width:0;transition:width .25s}
+  .wb .wb-label{font:600 12px/1.3 var(--mono);color:#cfd2d4;margin-top:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+  .wb .wb-all{font:600 12px/1 var(--mono);background:transparent;color:#f0c14b;border:1px solid #4a4f53;border-radius:7px;padding:9px 12px;cursor:pointer;white-space:nowrap}
+  @media (max-width:620px){ .wb .wb-all{display:none} .wb .wb-nav{padding:9px 12px} }
+  /* packet chrome pages (cover, summary) drop the site header & footer */
+  body.meta-route header.shell, body.meta-route footer.shell{display:none}
+</style>
+</head>
+<body class="anno packet">
+
+<!-- ===== Prototype toolbar ===== -->
+<div class="tb">
+  <b>M2M One NZ</b>
+  <span class="tag">LO-FI · LAYOUT PASS</span>
+  <span class="tag" id="routeTag">/</span>
+  <div class="grp">
+    <button id="btnAnno" aria-pressed="true">Annotations</button>
+    <div class="seg" role="group" aria-label="Viewport">
+      <button data-vp="desktop" aria-pressed="true">Desktop</button>
+      <button data-vp="tablet" aria-pressed="false">Tablet</button>
+      <button data-vp="mobile" aria-pressed="false">Mobile</button>
+    </div>
+    <button id="btnSitemap">Sitemap</button>
+    <button id="btnJourneys">Journeys</button>
+    <button id="btnComments" aria-pressed="false">Comments <span class="cbadge" id="cBadge">0</span></button>
+  </div>
+</div>
+
+<!-- ===== Stage ===== -->
+<div class="stagewrap">
+  <div class="stage" id="stage">
+    <div class="site">
+      <header class="shell">
+        <div class="hdr">
+          <a class="wordmark" data-to="#/"><span class="mk">m2m</span><span>M2M One NZ<small>A SEMTECH COMPANY</small></span></a>
+          <nav class="main" id="navMain"></nav>
+          <div class="cta"><a class="btn primary sm" data-to="#/get-connected">Get Connected</a></div>
+          <button class="hamb" id="hamb" aria-label="Menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M3 6h18M3 12h18M3 18h18"/></svg></button>
+        </div>
+        <div class="drawer" id="drawer"></div>
+      </header>
+      <main id="main"></main>
+      <footer class="shell">
+        <div class="foot" id="foot"></div>
+        <div class="foot-bottom" id="footBottom"></div>
+      </footer>
+    </div>
+  </div>
+</div>
+
+<!-- ===== Sitemap overlay ===== -->
+<div class="ov" id="ovSitemap">
+  <div class="sheet">
+    <button class="x" data-close>Close</button>
+    <h3>Sitemap</h3>
+    <div class="muted" style="font-size:13px">4 primary nav items · 12 pages. Plans &amp; Pricing, Coverage and Compatible Hardware sit under the IoT SIM hero. Get Connected is the single conversion spine.</div>
+    <div class="tree" id="tree"></div>
+    <div class="legend"><span class="sw"></span> Conversion spine — every page routes here</div>
+  </div>
+</div>
+
+<!-- ===== Journey stepper ===== -->
+<div class="stepper" id="stepper">
+  <div class="top">
+    <span class="jn" id="jName">Choose a journey</span>
+    <span class="jd" id="jDesc">Five paths the layout must carry to Get Connected (or a person, for partners).</span>
+    <div class="ctrls">
+      <button id="jPrev">‹ Prev</button><button id="jNext">Next ›</button><button id="jClose">Hide</button>
+    </div>
+  </div>
+  <div class="steps" id="jSteps"></div>
+  <div class="jchooser" id="jChooser"></div>
+</div>
+
+<!-- ===== Review / comment layer ===== -->
+<div class="rv-hint rv-only" id="rvHint">Review mode on — <b>double-click anywhere</b> to leave a note <button id="rvOpenPanel">All comments</button></div>
+<div class="rv-panel" id="rvPanel">
+  <header><h3>Review comments</h3><span class="cbadge" id="cBadge2">0</span><button class="x" id="rvClose">Close</button></header>
+  <div class="rv-me">Commenting as<input id="rvName" placeholder="Your name (required)" autocomplete="name"></div>
+  <div class="rv-tools">
+    <button id="rvExport">Export</button>
+    <button id="rvCopy">Copy</button>
+    <button id="rvImportToggle">Import</button>
+    <label><input type="checkbox" id="rvHideResolved" style="vertical-align:middle;margin-right:4px">hide resolved</label>
+  </div>
+  <div class="rv-import" id="rvImportBox">
+    <textarea id="rvImportText" placeholder="Paste exported comments (JSON) here, then Merge…"></textarea>
+    <div class="row">
+      <button id="rvImportPaste">Merge pasted</button>
+      <label class="file">Load file…<input type="file" id="rvImportFile" accept="application/json" hidden></label>
+      <button id="rvClearAll" style="margin-left:auto;color:#9a3b3b">Clear all</button>
+    </div>
+  </div>
+  <div class="rv-list" id="rvList"></div>
+</div>
+
+<!-- ===== Workbench bar ===== -->
+<div class="wb" id="workbench">
+  <button class="wb-nav" id="wbPrev">‹ Back</button>
+  <div class="wb-mid"><div class="wb-bar"><span id="wbFill"></span></div><div class="wb-label" id="wbLabel">Step 1 of 13</div></div>
+  <button class="wb-all" id="wbAll"><span id="wbCount">0 comments</span></button>
+  <button class="wb-nav next" id="wbNext">Next ›</button>
+</div>
+
+<script>
+"use strict";
+
+/* ============ icon set (greyscale line icons + placeholders) ============ */
+const I = {
+  arrow:'<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m4 2 4 4-4 4"/></svg>',
+  chev:'<svg class="cv" viewBox="0 0 10 10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="m2 4 3 3 3-3"/></svg>',
+  image:'<svg class="ph-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="9" width="36" height="30" rx="3"/><circle cx="16" cy="19" r="3"/><path d="M6 33l10-9 8 7 7-6 11 9"/></svg>',
+  map:'<svg class="ph-ico" viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 7 6 11v30l12-4 12 4 12-4V7L30 11 18 7z"/><path d="M18 7v30M30 11v30"/><circle cx="24" cy="22" r="3"/></svg>',
+  logo:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M3 21 21 3"/></svg>',
+  sensor:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="2"/><path d="M7.5 7.5a6 6 0 0 0 0 9M16.5 7.5a6 6 0 0 1 0 9M4.5 4.5a10 10 0 0 0 0 15M19.5 4.5a10 10 0 0 1 0 15"/></svg>',
+  card:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="13" rx="2"/><path d="M3 10h18M7 15h4"/></svg>',
+  pin:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12z"/><circle cx="12" cy="9" r="2.5"/></svg>',
+  camera:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-2.5h6L17 8h3a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9a1 1 0 0 1 1-1z"/><circle cx="12" cy="13" r="3.5"/></svg>',
+  refresh:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 11a8 8 0 0 0-14-4.5L4 8M4 4v4h4M4 13a8 8 0 0 0 14 4.5L20 16M20 20v-4h-4"/></svg>',
+  grid:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="4" width="6.5" height="6.5" rx="1"/><rect x="4" y="13.5" width="6.5" height="6.5" rx="1"/><rect x="13.5" y="13.5" width="6.5" height="6.5" rx="1"/></svg>',
+  signal:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h2v-4H4zM10 20h2V9h-2zM16 20h2V4h-2z"/></svg>',
+  plug:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5M7 8h10v3a5 5 0 0 1-10 0V8zM12 16v5"/></svg>',
+  shield:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3z"/><path d="M9 12l2 2 4-4"/></svg>',
+  leaf:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 19c0-8 6-13 14-13 0 8-5 14-13 14M5 19c2-4 5-6 9-7"/></svg>',
+  building:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="1"/><path d="M9 7h2M13 7h2M9 11h2M13 11h2M9 15h2M13 15h2"/></svg>',
+  truck:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7z"/><circle cx="7" cy="18" r="2"/><circle cx="17.5" cy="18" r="2"/></svg>',
+  doc:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l4 4v14H7zM14 3v4h4M9.5 12h5M9.5 16h5"/></svg>',
+  router:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="13" width="18" height="6" rx="1.5"/><circle cx="7" cy="16" r="1"/><path d="M12 13V9M12 9a4 4 0 0 0-4 4M12 9a4 4 0 0 1 4 4"/></svg>',
+  spark:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v6M12 14v6M4 12h6M14 12h6"/><circle cx="12" cy="12" r="2"/></svg>',
+};
+
+/* ============ component helpers ============ */
+const C = t => `<span class="flag confirm">[CONFIRM: ${t}]</span>`;
+const N = t => `<span class="flag num">${t}</span>`;
+const wimg = (cap, cls='wide', ico='image') => `<figure class="wimg ${cls}">${I[ico]||I.image}<figcaption>${cap}</figcaption></figure>`;
+const wlogo = (t) => `<span class="wlogo"><span class="lk">${I.logo}</span><span>${t}</span></span>`;
+const ico = (name, cls='') => `<span class="ico ${cls}">${I[name]||I.grid}</span>`;
+const anno = (t) => `<span class="anno-tag">${t}</span>`;
+const spec = (t) => `<div class="spec">${t}</div>`;
+const head = (eyebrow,h2,sub) => `<div class="sec-head"><span class="eyebrow">${eyebrow}</span><h2 class="wf">${h2}</h2>${sub?`<p class="sub">${sub}</p>`:''}</div>`;
+const ctaBand = (h2, label, note) => `
+  <section class="band"><div class="container"><div class="ctaband anno-host">${anno('Primary action · heaviest element')}
+    <span class="eyebrow">Get Connected</span><h2 class="wf">${h2}</h2>
+    <a class="btn primary" data-to="#/get-connected">${label} ${I.arrow}</a>
+    ${note?`<div class="note">${note}</div>`:''}
+  </div></div></section>`;
+const card = (icoName, h, p, link) => `<div class="card">${ico(icoName)}${h?`<h3 class="wf">${h}</h3>`:''}<p class="wf">${p}</p>${link?`<a class="lnk" data-to="${link[1]}">${link[0]} ${I.arrow}</a>`:''}</div>`;
+const faq = (label, items) => `
+  <section class="band tight"><div class="container anno-host">${anno('FAQ · FAQPage schema')}
+    ${head('FAQ',label)}
+    <div class="faq">${items.map(f=>`<details><summary>${f.q}</summary><div class="a">${f.a}</div></details>`).join('')}</div>
+  </div></section>`;
+
+/* ============ IA ============ */
+const TITLES = {"#/welcome":"Welcome","#/":"Home","#/iot-sim-cards":"IoT SIM Cards","#/iot-sim-cards/plans-pricing":"Plans & Pricing","#/iot-sim-cards/coverage":"Coverage","#/iot-sim-cards/compatible-hardware":"Compatible Hardware","#/solutions":"Solutions","#/faq":"FAQ","#/company":"Company","#/contact":"Contact","#/get-connected":"Get Connected","#/customer-stories":"Customer Stories","#/privacy":"Privacy","#/terms":"Terms","#/review-summary":"Review summary"};
+const SIM_KIDS = [["#/iot-sim-cards","IoT SIM cards","Data SIMs on Spark's network"],["#/iot-sim-cards/plans-pricing","Plans & pricing","Real NZD pricing, no gate"],["#/iot-sim-cards/coverage","Coverage","Will it work where I am"],["#/iot-sim-cards/compatible-hardware","Compatible hardware","Which devices work"]];
+
+/* ============ PAGES ============ */
+const PAGES = {
+
+"#/": () => `
+${spec('<b>Home</b> · routes, doesn\'t explain · both readers/modes (mostly A) · entry for journeys A, C, E · primary keyword: brand + "IoT SIM cards NZ"')}
+<section class="band anno-host">${anno('Hero · two-column')}
+  <div class="container"><div class="hero-split">
+    <div>
+      <span class="eyebrow">IoT &amp; M2M connectivity · New Zealand</span>
+      <h1 class="wf">IoT SIM cards that connect your devices anywhere in New Zealand</h1>
+      <p class="sub">Data SIMs for remote and field devices on a real Spark network profile — not roaming. One SIM, ${N('XX')}% NZ coverage ${C('coverage % — M2M One NZ + Spark')}, set up and supported by people in New Zealand.</p>
+      <div class="cluster" style="margin-top:24px">
+        <a class="btn primary" data-to="#/get-connected">Get Connected ${I.arrow}</a>
+        <a class="lnk" data-to="#/iot-sim-cards/plans-pricing">See plans &amp; pricing ${I.arrow}</a>
+      </div>
+    </div>
+    ${wimg('Hero image: IoT device / sensor in an NZ field or paddock','wide')}
+  </div></div>
+</section>
+
+<section class="band tight anno-host">${anno('Trust strip · logos')}
+  <div class="container"><div class="proof">
+    ${wlogo('Real Spark profile')} ${wlogo('Semtech')} <span class="flag num">${'XX'}% NZ coverage</span> <span class="wlogo"><span class="lk">${I.pin}</span><span>Auckland</span></span> ${wlogo('Customer logo · '+C('permission').replace(/<[^>]+>/g,'').replace('[CONFIRM: ','').replace(']',''))}
+  </div></div>
+</section>
+
+<section class="band anno-host">${anno('What we do · 3 points')}
+  <div class="container">
+    <div class="grid cols-3">
+      ${card('sensor','','IoT and M2M data SIMs for the devices businesses need to connect.')}
+      ${card('signal','','On Spark\'s nationwide network — a real local profile, not roaming.')}
+      ${card('plug','','Built for remote and field devices, set up and supported by people in New Zealand.')}
+    </div>
+  </div>
+</section>
+
+<section class="band anno-host">${anno('Who it\'s for · media split')}
+  <div class="container"><div class="media">
+    <div class="m-txt">
+      ${head('Who it\'s for','The job we do')}
+      <p class="wf">Farms and orchards monitoring crops, water and weather. Councils and utilities watching pumps, rivers and power. Retail and hospitality keeping POS terminals online. Fleets and trades tracking vehicles and gear. If you need a device in a New Zealand location talking reliably to a back-end, that's the job we do.</p>
+    </div>
+    <div class="m-img">${wimg('Photo grid: orchard sensor · POS terminal · water monitoring · tracker','square')}</div>
+  </div></div>
+</section>
+
+<section class="band anno-host">${anno('Routing tiles · 4 cards')}
+  <div class="container">
+    ${head('Find your way','Four places to start')}
+    <div class="grid cols-4">
+      ${card('sensor','IoT SIM cards','What they are, how they work.',['See IoT SIM cards','#/iot-sim-cards'])}
+      ${card('card','Plans & pricing','Real prices, no gate.',['See plans & pricing','#/iot-sim-cards/plans-pricing'])}
+      ${card('grid','Solutions','Monitoring, POS, tracking.',['See solutions','#/solutions'])}
+      ${card('signal','Coverage','Will it work at my site.',['Check coverage','#/iot-sim-cards/coverage'])}
+    </div>
+  </div>
+</section>
+
+${ctaBand("Tell us what you're connecting and we'll sort the right SIM and plan.","Get Connected","On Spark's network · A Semtech company")}
+`,
+
+"#/iot-sim-cards": () => `
+${spec('<b>IoT SIM hero</b> · the definitive NZ IoT-SIM answer · Mode A + both readers + the machine · journey A lands here, E feeds in · primary keyword: iot sim card nz')}
+<section class="band anno-host">${anno('Hero · two-column')}
+  <div class="container"><div class="hero-split">
+    <div>
+      <span class="eyebrow">IoT SIM cards</span>
+      <h1 class="wf">IoT SIM cards for New Zealand businesses</h1>
+      <p class="sub">A real Spark network profile — not a roaming SIM — set up and supported by people in New Zealand, priced in NZD.</p>
+      <div class="cluster" style="margin-top:24px">
+        <a class="btn primary" data-to="#/get-connected">Get Connected ${I.arrow}</a>
+        <a class="btn ghost" data-to="#/iot-sim-cards/plans-pricing">See plans &amp; pricing</a>
+      </div>
+    </div>
+    ${wimg('Hero image: M2M One IoT SIM (form factors) + connected device','wide')}
+  </div></div>
+</section>
+
+<section class="band tight anno-host">${anno('Answer-first lead · most-cited passage')}
+  <div class="container"><div class="lead-panel"><span class="tag">The short answer</span>
+    <p class="lede">An IoT SIM from M2M One NZ is a data SIM built for machines and devices — sensors, trackers, POS terminals, cameras — not phones. It runs on Spark's nationwide network with ${N('XX')}% NZ coverage ${C('coverage % — M2M One NZ + Spark')}, so one SIM keeps your remote or field device connected almost anywhere in the country.</p>
+  </div></div>
+</section>
+
+<section class="band anno-host">${anno('What you get · feature cards')}
+  <div class="container">${head('What you get','One SIM, one network, one account')}
+    <div class="grid cols-3">
+      ${card('sensor','Works on Spark','A data SIM on a real Spark network profile — a local NZ connection, not roaming.')}
+      ${card('card','Right-sized plan','A plan matched to how much data your device uses each month.')}
+      ${card('signal','Built for remote','Coverage built for remote and field sites, not just towns.')}
+      ${card('plug','Set up by people in NZ','People in New Zealand pick the SIM and plan with you.')}
+      ${card('grid','One account','One account for one device or a whole fleet.')}
+      ${card('refresh','Replacing a device','Old device stopped working? The same IoT SIM replaces it.')}
+    </div>
+  </div>
+</section>
+
+<section class="band anno-host">${anno('Selector · "What are you connecting?" → routes to Get Connected')}
+  <div class="container">${head('What are you connecting?','Pick the device and we\'ll match the SIM')}
+    <div class="selector">
+      <a class="sel" data-to="#/get-connected">${ico('leaf')}<span><span class="t">Farm / orchard sensor</span><span class="g">Remote monitoring SIM →</span></span></a>
+      <a class="sel" data-to="#/get-connected">${ico('card')}<span><span class="t">POS / EFTPOS terminal</span><span class="g">Failover connectivity →</span></span></a>
+      <a class="sel" data-to="#/get-connected">${ico('pin')}<span><span class="t">GPS / asset tracker</span><span class="g">Tracking SIM →</span></span></a>
+      <a class="sel" data-to="#/get-connected">${ico('camera')}<span><span class="t">Camera / security device</span><span class="g">Field device SIM →</span></span></a>
+      <a class="sel" data-to="#/get-connected">${ico('refresh')}<span><span class="t">A device that stopped working</span><span class="g">Replacement SIM →</span></span></a>
+      <a class="sel" data-to="#/get-connected">${ico('grid')}<span><span class="t">Something else</span><span class="g">Tell us and we'll match it →</span></span></a>
+    </div>
+  </div>
+</section>
+
+<section class="band anno-host">${anno('Coverage + pricing · media split')}
+  <div class="container"><div class="media flip">
+    <div class="m-img">${wimg('Coverage map thumbnail (Spark NZ) with confirm-your-site marker','wide','map')}</div>
+    <div class="m-txt">
+      ${head('Coverage & pricing','Answer in place')}
+      <p class="wf">M2M One NZ SIMs run on Spark's nationwide network, with ${N('XX')}% NZ coverage ${C('coverage % — M2M One NZ + Spark')}. For remote sites, we confirm coverage before you commit.</p>
+      <p class="wf">Plans start from $${N('XX')}/month ${C('entry price — commercial')}, billed in NZD, shown up front — no quote wall.</p>
+      <div class="cluster" style="margin-top:14px">
+        <a class="lnk" data-to="#/iot-sim-cards/coverage">Check coverage ${I.arrow}</a>
+        <a class="lnk" data-to="#/iot-sim-cards/plans-pricing">See plans &amp; pricing ${I.arrow}</a>
+      </div>
+    </div>
+  </div></div>
+</section>
+
+<section class="band tight anno-host">${anno('Proof strip')}
+  <div class="container"><div class="proof">${wlogo('Real Spark profile')} ${wlogo('Semtech')} ${wlogo('Field-monitoring customer · '+'CONFIRM permission')}</div></div>
+</section>
+
+<section class="band anno-host">${anno('Comparison module · launch-safe (generic competitor column; named marks gated)')}
+  <div class="container">${head('Why M2M One NZ','What matters in New Zealand')}
+    <table class="cmp">
+      <thead><tr><th>What matters in New Zealand</th><th class="us">M2M One NZ<br><span class="sub2">NZ IoT specialist</span></th><th>Global IoT SIM platforms</th></tr></thead>
+      <tbody>
+        <tr><td class="row-h">A real Spark network profile (not roaming)</td><td class="us"><span class="yes">Yes</span></td><td class="no">Usually reach NZ by roaming ${C('verify — Legal')}</td></tr>
+        <tr><td class="row-h">Set up &amp; supported by people in NZ</td><td class="us"><span class="yes">Yes</span> ${C('hours/SLA')}</td><td class="no">Offshore / online-only ${C('verify')}</td></tr>
+        <tr><td class="row-h">Transparent NZD pricing, no quote wall</td><td class="us"><span class="yes">Yes</span></td><td class="no">Often gated or USD ${C('verify')}</td></tr>
+        <tr><td class="row-h">Built for remote &amp; field NZ</td><td class="us"><span class="yes">Yes</span> ${C('customer proof')}</td><td class="no">Global generalist</td></tr>
+        <tr><td class="row-h">A Semtech company, on Spark's network</td><td class="us"><span class="yes">Yes</span></td><td class="no">Typically no NZ entity ${C('verify')}</td></tr>
+        <tr><td class="row-h">Direct local supply, no offshore wall</td><td class="us"><span class="yes">Yes</span></td><td class="no">Channel / online-only ${C('verify')}</td></tr>
+      </tbody>
+    </table>
+    <div class="cmp-legend">Held until gates clear: “Hybrid cellular + satellite” (satellite gate) and “Multi-network failover” (carrier gate). Named-competitor marks pending ${C('NZ-verified competitor marks — Legal + commercial')}.</div>
+  </div>
+</section>
+
+${faq('IoT SIM questions',[
+  {q:'Which network do M2M One NZ SIMs use?',a:"M2M One NZ SIMs run on Spark's nationwide network — a real local Spark profile, not a roaming SIM. You get Spark's NZ coverage without holding a Spark account: M2M One NZ supplies the SIM, the plan and the setup. One network, one bill, one point of contact."},
+  {q:'Can I use one SIM across different devices or locations?',a:"A SIM is provisioned to a device, but you can run many SIMs on one M2M One NZ account and manage them together. If you move a SIM between devices or sites, tell us and we'll make sure the plan still fits."},
+  {q:"What if I'm replacing an old or retired device?",a:`If your device stopped working after an older network closed, you need a current IoT data SIM on Spark's network. Tell us the device and we'll recommend the right SIM and plan, then set you up.`},
+  {q:'How do I get started with an IoT SIM?',a:`Tell us what you're connecting, your rough SIM count and your region. A real person recommends the right SIM and plan, then sets up your account — usually ${C('same business day — sales ops')}.`},
+])}
+
+${ctaBand("Connecting a device? Tell us the details and we'll recommend the right SIM and plan.","Get Connected","On Spark's network · A Semtech company")}
+`,
+
+"#/iot-sim-cards/plans-pricing": () => `
+${spec('<b>Plans & Pricing</b> · real NZD pricing the old site gated — convert on trust + low risk, not the full matrix · Mode A · journey A · primary keyword: iot sim plan')}
+<section class="band anno-host">${anno('Hero')}
+  <div class="container"><div class="hero-split">
+    <div><span class="eyebrow">Plans &amp; pricing</span><h1 class="wf">IoT data plans and pricing</h1><p class="sub">From $3.85 per SIM a month, up to 100 GB — in NZD, shown up front. No quote wall, no USD billing.</p><div class="cluster" style="margin-top:24px"><a class="btn primary" data-to="#/get-connected">Get Connected ${I.arrow}</a></div></div>
+    ${wimg('Diagram: pooled data across a fleet (a quiet SIM covers a busy one)','wide')}
+  </div></div>
+</section>
+
+<section class="band tight anno-host">${anno('Answer-first lead · anchor + range')}
+  <div class="container"><div class="lead-panel"><span class="tag">The short answer</span><p class="lede">M2M One NZ IoT data plans start from $3.85 per SIM a month and run up to 100 GB — all in NZD and shown right here, with no quote wall and no USD billing. Pick by how much data your device uses; data pools across your fleet, and the price per SIM drops as you grow.</p></div></div>
+</section>
+
+<section class="band anno-host">${anno('How pricing works · 3 cards')}
+  <div class="container">${head('How pricing works','Pooled, honest, low-risk')}
+    <div class="grid cols-3">
+      ${card('grid','Pooled across your fleet','Every SIM on the same plan shares one data pool, so a quiet device covers a busy one.')}
+      ${card('shield','No bill shock','Heading over? We move a device up a tier for the month — you pay the difference, not excess.')}
+      ${card('refresh','No minimum, no lock-in','Activate or pause any SIM anytime. Discounts apply automatically as your fleet grows.')}
+    </div>
+  </div>
+</section>
+
+<section class="band anno-host">${anno('Representative plans · 4 anchors (not all 19 tiers)')}
+  <div class="container">${head('Representative plans','Pick by how much data your device uses')}
+    <table class="plan"><thead><tr><th>If your device uses…</th><th>Plan</th><th>From (NZD / SIM / mo, excl GST)</th></tr></thead>
+    <tbody>
+      <tr><td>A little — sensors, metering, telemetry</td><td>5 MB</td><td>$5.10</td></tr>
+      <tr><td>Some — trackers, POS, alarms</td><td>100 MB</td><td>$8.20</td></tr>
+      <tr><td>More — cameras, gateways, dashboards</td><td>1 GB</td><td>$15.00</td></tr>
+      <tr><td>A lot — video, high-use, connected fleets</td><td>10 GB</td><td>$48.00</td></tr>
+    </tbody></table>
+    <p class="wf muted" style="font-size:13px">Plans run from 0.5 MB ($3.85) to 100 GB ($79). Prices shown are for 1–99 SIMs and step down automatically at 100+ and 500+. Device guidance is indicative ${C('device→data guidance — technical')}.</p>
+    <p style="margin-top:6px"><span class="lnk">See the full price list — all 19 tiers, volume bands &amp; excess rates ↓</span></p>
+  </div>
+</section>
+
+<section class="band anno-host">${anno("What's included + why different · two cards")}
+  <div class="container"><div class="grid cols-2">
+    <div class="card">${ico('doc')}<h3 class="wf">What's included</h3><p class="wf">The data SIM (standard, micro or solderable chip), the pooled data allowance, access on a real Spark network profile ${C('network wording — Spark')}, an online platform for usage and alerts, and setup and support by people in New Zealand. Add-ons: static IP, IPSEC VPN and peer-to-peer networking. Excl GST; SIMs and courier billed at cost ${C('surface SIM + courier cost — commercial')}.</p></div>
+    <div class="card">${ico('card')}<h3 class="wf">Why our pricing is different</h3><p class="wf">You see the price (shown up front to 1,000 SIMs; larger fleets get a custom quote). We don't profit from overages — you move up, not over. It gets cheaper as you grow, automatically. And you can run it yourself, with a person in New Zealand when you need one.</p></div>
+  </div></div>
+</section>
+
+<section class="band tight anno-host">${anno('Not sure · routes to Get Connected')}
+  <div class="container"><div class="lead-panel"><span class="tag">Not sure which plan?</span><p class="lede">Tell us the device and your rough monthly data use, and we'll size it with you.</p><div style="margin-top:14px"><a class="btn ghost" data-to="#/get-connected">Get Connected ${I.arrow}</a></div></div></div>
+</section>
+
+${faq('Plans & billing questions',[
+  {q:'How does billing work, and can I change plans later?',a:"Plans are billed monthly in advance, per SIM, in NZD (excl GST), on 7-day terms, on one account. Change a SIM's plan as its data use changes — up as a deployment grows, or down if it settles."},
+  {q:'What happens if a device goes over its monthly data allowance?',a:"We move it up a tier for the month and you pay the difference, which is usually cheaper than excess usage. We flag heavy users early so there are no surprises."},
+  {q:'How does pooled data work?',a:"SIMs on the same plan share one data pool — for example, four 5 MB SIMs make a 20 MB pool. SIMs on different plans don't pool together."},
+  {q:'Is there a minimum term or contract?',a:"No minimum and no lock-in. You can activate or pause SIMs at any time, without penalty."},
+])}
+
+${ctaBand("Tell us what you're connecting and we'll match the plan.","Get Connected")}
+`,
+
+"#/iot-sim-cards/coverage": () => `
+${spec('<b>Coverage</b> · "will it work where I am" with citable facts · journey C resolves here (single Spark statement — carrier-scope gate) · primary keyword: iot coverage nz')}
+<section class="band anno-host">${anno('Hero')}
+  <div class="container"><div class="hero-split">
+    <div><span class="eyebrow">Coverage</span><h1 class="wf">Coverage on Spark's nationwide network</h1><p class="sub">One network, NZ-wide. We confirm remote and rural sites before you commit.</p><div class="cluster" style="margin-top:24px"><a class="btn primary" data-to="#/get-connected">Get Connected ${I.arrow}</a></div></div>
+    ${wimg('Interactive coverage map (Spark NZ) — primary asset','wide','map')}
+  </div></div>
+</section>
+
+<section class="band tight anno-host">${anno('Answer-first lead · quotable coverage statement')}
+  <div class="container"><div class="lead-panel"><span class="tag">The short answer</span><p class="lede">M2M One NZ SIMs run on Spark's nationwide network, with ${N('XX')}% NZ coverage ${C('coverage % + "nationwide" — M2M One NZ + Spark')}. For remote and rural sites, tell us your exact location and we'll confirm coverage before you commit.</p></div></div>
+</section>
+
+<section class="band anno-host">${anno('Meaning + check + gated fallback · media split')}
+  <div class="container"><div class="media">
+    <div class="m-txt">
+      ${head('What this means for remote and field devices','Most of NZ, with honest edges')}
+      <p class="wf">These SIMs run on a real Spark network profile — a local New Zealand connection, not roaming. Most of New Zealand's populated and farmed land sits inside Spark's network, so a sensor on a farm, an orchard, a pump station or a remote weather site can usually connect on a single IoT SIM. Coverage thins in deep back-country and some valleys. That's why we check your site before you order, rather than after.</p>
+      <div class="card" style="margin-top:18px">${ico('signal')}<h3 class="wf">No cellular at your site?</h3><p class="wf">Where there's no cellular coverage, we can discuss options ${C('whether M2M One NZ offers a satellite / non-cellular product — James / commercial. Do not publish a satellite claim until confirmed.')}.</p></div>
+    </div>
+    <div class="m-img">${wimg('Map: tell-us-your-site → we confirm coverage marker','tall','map')}</div>
+  </div></div>
+</section>
+
+${faq('Coverage questions',[
+  {q:'Is this a roaming SIM?',a:`No. An M2M One NZ SIM connects on a real Spark network profile — a local New Zealand connection — not by roaming onto whichever network it can find. It's a local SIM, supported locally. ${C('network wording — Spark')}`},
+  {q:'Will an IoT SIM work where my device is, out in a rural area?',a:"Yes, in most cases. M2M One NZ SIMs run on Spark's nationwide network, which reaches most of rural New Zealand. For remote or hard-to-reach sites, tell us the exact location and we'll confirm coverage before you order."},
+  {q:'Does coverage work indoors, for a POS terminal inside a building?',a:"Usually, yes. A POS or EFTPOS terminal on an IoT SIM connects wherever there's Spark coverage, including most indoor sites in towns and cities. Thick walls or basements can weaken signal; if a site is marginal, tell us and we'll check it."},
+  {q:"What happens if there's no cellular coverage at my site?",a:`If a site sits outside Spark's coverage, tell us the location and we'll look at the options ${C('non-cellular / satellite product in scope — James / commercial')}.`},
+])}
+
+${ctaBand("Check coverage for your site.","Get Connected")}
+`,
+
+"#/iot-sim-cards/compatible-hardware": () => `
+${spec('<b>Compatible Hardware</b> · "will my device work / what do I need" in ONE reference page (not a catalogue) · journey A · primary keyword: iot sim compatible devices')}
+<section class="band anno-host">${anno('Hero')}
+  <div class="container"><div class="hero-split">
+    <div><span class="eyebrow">Compatible hardware</span><h1 class="wf">Devices that work with an M2M One NZ IoT SIM</h1><p class="sub">Standard cellular and IoT devices on Spark's network. We confirm yours before you order.</p><div class="cluster" style="margin-top:24px"><a class="btn primary" data-to="#/get-connected">Get Connected ${I.arrow}</a></div></div>
+    ${wimg('Image: SIM form factors (standard / micro / solderable chip) beside a router','wide','router')}
+  </div></div>
+</section>
+
+<section class="band tight anno-host">${anno('Answer-first lead')}
+  <div class="container"><div class="lead-panel"><span class="tag">The short answer</span><p class="lede">An M2M One NZ IoT SIM works in standard cellular and IoT devices that run on Spark's network — routers, modems, trackers, sensors and POS terminals. You need a device that takes a SIM on Spark's network, and the right SIM size and settings, which we set up with you.</p></div></div>
+</section>
+
+<section class="band anno-host">${anno('What you need · 4 cards')}
+  <div class="container">${head('What you need','Four things')}
+    <div class="grid cols-4">
+      ${card('signal','Spark support',`A device that supports cellular data on Spark's network — 4G, 5G, NB-IoT or Cat-M1.`)}
+      ${card('sensor','SIM form factor',`Standard (2FF), micro (3FF) or solderable chip (MFF2).`)}
+      ${card('plug','APN setting',`The APN for your plan — we provide it ${C('APN — technical')}.`)}
+      ${card('card','Right plan',"A data plan matched to the device's monthly use.")}
+    </div>
+  </div>
+</section>
+
+<section class="band anno-host">${anno('Common device types · icon grid, links out (not a catalogue)')}
+  <div class="container">${head('Common device types', `A few of the device types we connect most often — the list isn't exhaustive, so tell us if yours isn't here.`)}
+    <div class="grid cols-3">
+      ${card('router','Cellular routers & modems','For sites and vehicles that need general connectivity.')}
+      ${card('sensor','Sensors & gateways','For monitoring crops, water, power and weather.')}
+      ${card('pin','GPS & asset trackers','For vehicles, trailers and plant.')}
+      ${card('card','POS & EFTPOS terminals','For payments, primary link or failover.')}
+      ${card('camera','Cameras & security','For remote sites.')}
+      ${card('grid','Not listed?',"Check the device maker's specs, or tell us the device and we'll confirm it.")}
+    </div>
+  </div>
+</section>
+
+${faq('Compatibility questions',[
+  {q:'Will my device work with an M2M One NZ IoT SIM?',a:"If your device supports cellular data on Spark's network and takes a SIM, then in most cases, yes. We confirm the device, the SIM size and the settings before you order. Tell us the make and model."},
+  {q:'What SIM size and settings do I need?',a:`You need the SIM form factor your device takes — standard (2FF), micro (3FF) or solderable chip (MFF2) — and the APN setting for your plan, which we provide.`},
+])}
+
+${ctaBand("Not sure your device works? Tell us the make and model.","Check your device")}
+`,
+
+"#/solutions": () => {
+  const uc=(icoN,label,kw,body,cta,partner)=>`
+   <div class="media${partner?'':''} annorule anno-host" style="margin-bottom:40px">${anno(partner?'Use-case block · routes to a person':'Use-case block · routes to Get Connected')}
+     <div class="m-img">${wimg('Photo: '+label.toLowerCase()+' in an NZ setting',partner?'wide':'wide')}</div>
+     <div class="m-txt">
+       <div class="cluster" style="gap:12px;margin-bottom:6px">${ico(icoN)}<span class="eyebrow">${kw}</span></div>
+       <h2 class="wf">${label}</h2>
+       <p class="wf">${body}</p>
+       <div style="margin-top:16px">${partner?`<a class="btn ghost" data-to="#/contact">${cta}</a>`:`<a class="btn primary" data-to="#/get-connected">${cta} ${I.arrow}</a>`}</div>
+     </div>
+   </div>`;
+  return `
+${spec('<b>Solutions</b> · use-cases S1–S7 as blocks on ONE page · journey E (use-case → block → Get Connected); B (partner → a person) · per-block long-tail keywords')}
+<section class="band anno-host">${anno('Hero')}
+  <div class="container"><div class="hero-split">
+    <div><span class="eyebrow">Solutions</span><h1 class="wf">Connectivity for remote and field devices</h1><p class="sub">Pick the closest job and get connected. Every block runs on Spark's network.</p><div class="cluster" style="margin-top:24px"><a class="btn primary" data-to="#/get-connected">Get Connected ${I.arrow}</a></div></div>
+    ${wimg('Hero image: collage of monitoring · POS · tracking · field devices','wide')}
+  </div></div>
+</section>
+<section class="band"><div class="container">
+  ${uc('leaf','Remote and field monitoring','remote farm monitoring sim',`Get a device in a remote New Zealand location talking reliably back to your systems. M2M One NZ SIMs connect farm and orchard sensors, irrigation and spray rigs, water and power monitoring, and weather telemetry — on Spark's network, across rural NZ. Farms, orchards and monitoring networks ${C('named operator + permission')} run on it.`,'Get Connected for remote monitoring')}
+  ${uc('card','POS and EFTPOS connectivity','pos failover connectivity nz',"Keep payments working when the fixed line drops. M2M One NZ SIMs give POS and EFTPOS terminals cellular connectivity on Spark's network, as a primary link or as failover behind broadband. The terminal stays online, so you keep taking payments.",'Get Connected for POS connectivity')}
+  ${uc('pin','Asset and vehicle tracking','asset tracking sim nz',"Track a vehicle, trailer or piece of plant wherever it goes. M2M One NZ SIMs connect GPS and asset trackers on Spark's network, sending location and status back to your tracking platform. One plan per tracker, or many on one account for a fleet.",'Get Connected for tracking')}
+  ${uc('camera','Field and site devices','field device connectivity nz',"Connect a field or mobile device on a job site or out on the network. M2M One NZ SIMs connect cameras, controllers, gateways and site monitoring on Spark's network — the same IoT SIM, matched to the device and its data use.",'Get Connected for field devices')}
+  ${uc('grid','Building connectivity into your product','for integrators',"Building M2M connectivity into your own product or client deployments? We work with integrators and resellers on volume pricing, provisioning, APIs and documentation, with account management. This is a conversation, not a self-serve buy — talk to the partner team.",'Talk to our partner team',true)}
+</div></section>
+${ctaBand("Pick the closest job and we'll get your devices connected.","Get Connected")}
+`;},
+
+"#/faq": () => `
+${spec('<b>FAQ</b> · the AI-citation hub · cross-cutting questions only (page-specific Qs live on their page) · primary keyword: iot sim vs normal sim')}
+<section class="band anno-host">${anno('Hero · centred')}
+  <div class="container" style="text-align:center"><span class="eyebrow">FAQ</span><h1 class="wf" style="max-width:20ch;margin-inline:auto">IoT SIM and connectivity FAQs — New Zealand</h1><p class="sub" style="margin-inline:auto">Straight answers to the questions the M2M One NZ sales team hears most. Each answers on its own.</p></div>
+</section>
+${faq('Common questions',[
+  {q:'What is an IoT SIM, and how is it different from a normal SIM?',a:"An IoT SIM is a data SIM built for machines and devices — sensors, trackers, POS terminals, cameras — rather than phones. Unlike a normal consumer SIM, it's built around data, on a plan sized to a device's monthly use, and stays connected unattended for years (voice and SMS are available if a device needs them). M2M One NZ supplies IoT SIMs on Spark's network."},
+  {q:'How is M2M One NZ different from a global IoT SIM platform?',a:`M2M One NZ runs on a real Spark network profile in New Zealand — not a roaming SIM on an offshore platform — and is set up and supported by people here, priced in NZD with no quote wall. Global IoT SIM platforms are typically run offshore, bill in USD, and reach New Zealand by roaming. ${C('general characterisation; verify before naming any provider — Legal + commercial')}`},
+  {q:'What data plan do I need for an IoT device in NZ?',a:"It depends on how much data the device uses each month. A single sensor needs very little; a camera or tracker needs more. M2M One NZ plans run from low-volume sensors to high-use fleets, priced in NZD. Tell us the device and we'll recommend one."},
+  {q:'Is M2M One NZ part of Spark?',a:"No. M2M One NZ is a separate company that supplies IoT SIMs on Spark's nationwide network. You get Spark's NZ coverage without holding a Spark account — M2M One NZ provides the SIM, the plan, the setup and the support."},
+  {q:'Do you offer wholesale or volume pricing for resellers and integrators?',a:"Yes. If you're building M2M connectivity into your own product or client deployments, we work with integrators and resellers on volume pricing, provisioning, APIs and documentation, with account management. This runs through the partner team, not the self-serve path."},
+  {q:'Is my data secure on an IoT SIM?',a:`IoT SIM data runs over Spark's network. For deployments that need it, we can provide static IP, a private APN, IPSEC VPN or peer-to-peer networking, which keeps device traffic on a private path rather than the public internet.`},
+  {q:'What does M2M One NZ do, and who is it for?',a:"M2M One NZ is a New Zealand IoT connectivity provider, based at Auckland Airport. It supplies cellular data SIMs on Spark's nationwide network to businesses connecting remote and field devices — farms, monitoring networks, retail and fleets. M2M One NZ is a Semtech company."},
+])}
+${ctaBand("Still have a question? Tell us what you're connecting.","Get Connected")}
+`,
+
+"#/company": () => `
+${spec('<b>Company</b> · establish the entity and trust (highest-weighted AI category) · one canonical name, Semtech, NZBN, Auckland · primary keyword: M2M One NZ Ltd')}
+<section class="band anno-host">${anno('Hero')}
+  <div class="container"><div class="hero-split">
+    <div><span class="eyebrow">Company</span><h1 class="wf">About M2M One NZ</h1><p class="sub">New Zealand IoT connectivity, on Spark's network. A Semtech company.</p></div>
+    ${wimg('Photo: Auckland Airport / NZ team','wide','building')}
+  </div></div>
+</section>
+<section class="band tight anno-host">${anno('Entity-anchoring lead · word-for-word with schema')}
+  <div class="container"><div class="lead-panel"><span class="tag">The short answer</span><p class="lede">M2M One NZ Ltd is a New Zealand IoT connectivity provider based at Auckland Airport. We supply cellular data SIMs on Spark's nationwide network to businesses connecting remote and field devices. M2M One NZ is a Semtech company.</p></div></div>
+</section>
+<section class="band anno-host">${anno('Who we are / Semtech / Spark · media split')}
+  <div class="container"><div class="media">
+    <div class="m-txt stack-sm">
+      <h2 class="wf">Who we are</h2>
+      <p class="wf">M2M One NZ is the New Zealand IoT connectivity specialist, not a hardware reseller. We do one thing: get your remote and field devices connected and keep them connected, on a real Spark network profile, across New Zealand. You deal with people here, not an offshore ticket queue.</p>
+      <h3 class="wf" style="margin-top:18px">A Semtech company</h3>
+      <p class="wf">M2M One NZ is a Semtech company. Semtech is a global supplier of ${C('Semtech one-line — Semtech brand owner')}. The relationship gives the backing of a global parent while keeping a New Zealand team and network.</p>
+      <h3 class="wf" style="margin-top:18px">On Spark's network</h3>
+      <p class="wf">M2M One NZ SIMs run on a real Spark network profile — a local New Zealand connection, not roaming. You get Spark's NZ coverage through M2M One NZ, without holding a Spark account.</p>
+    </div>
+    <div class="m-img">
+      <div class="card">${ico('doc','lg')}<h3 class="wf" style="margin-top:10px">The basics</h3>
+        <ul class="basics" style="margin-top:10px">
+          <li><b>Legal name:</b> M2M One NZ Ltd</li>
+          <li><b>NZBN:</b> ${C('NZBN — M2M One NZ')}</li>
+          <li><b>Address:</b> Level 1, Quad 7 Building, 6 Leonard Isitt Drive, Auckland Airport, Auckland 2022</li>
+          <li><b>Phone:</b> 0508 888 626 · +64 508 888 626</li>
+          <li><b>Parent:</b> a Semtech company</li>
+        </ul>
+      </div>
+      <div class="proof" style="margin-top:14px">${wlogo('Real Spark profile')} ${wlogo('Semtech')}</div>
+    </div>
+  </div></div>
+</section>
+${faq('About M2M One NZ',[
+  {q:"What is M2M One NZ's relationship with Semtech?",a:`M2M One NZ is a Semtech company. It operates as a New Zealand business — local team, Spark's NZ network — with Semtech as its parent ${C('exact parent-relationship wording — Semtech brand owner')}.`},
+])}
+${ctaBand("Talk to a real person about connecting your devices.","Get Connected")}
+`,
+
+"#/contact": () => `
+${spec('<b>Contact</b> · route enquiries incl. partner/reseller · Mode B served here · journeys B (partner → person), A (buyers → Get Connected)')}
+<section class="band anno-host">${anno('Hero')}
+  <div class="container"><div class="hero-split">
+    <div><span class="eyebrow">Contact</span><h1 class="wf">Contact M2M One NZ</h1><p class="sub">The fastest way to get connected is to tell us what you're connecting.</p><div class="cluster" style="margin-top:24px"><a class="btn primary" data-to="#/get-connected">Get Connected ${I.arrow}</a></div></div>
+    ${wimg('Map: Auckland Airport location pin','wide','map')}
+  </div></div>
+</section>
+<section class="band anno-host">${anno('Reasons to contact · cards')}
+  <div class="container">${head('Reasons to contact','Pick the right route')}
+    <div class="grid cols-2">
+      ${card('plug','New connection','Tell us your device and we\'ll match the SIM and plan.',['Get Connected','#/get-connected'])}
+      ${card('grid','Partner or reseller enquiry','Volume, provisioning, APIs and account management.',['Talk to our partner team','#/contact'])}
+      ${card('doc','Existing account or support',`Log in to the Control Centre, or email info@m2mone.co.nz`)}
+      ${card('card','General enquiry',`info@m2mone.co.nz`)}
+    </div>
+  </div>
+</section>
+<section class="band anno-host">${anno('Partner block (Mode B) + NAP · media split')}
+  <div class="container"><div class="media">
+    <div class="m-txt"><div class="card">${ico('grid','lg')}<h3 class="wf" style="margin-top:10px">Partner enquiry</h3><p class="wf">Building M2M connectivity into your own product or client deployments? Talk to the partner team about volume and wholesale pricing, provisioning, APIs, documentation and account management. This is a relationship, not a checkout.</p><div style="margin-top:14px"><a class="btn ghost" data-to="#/get-connected">Talk to our partner team</a></div></div></div>
+    <div class="m-img"><div class="card">${ico('pin','lg')}<h3 class="wf" style="margin-top:10px">The basics</h3><ul class="basics" style="margin-top:10px"><li><b>M2M One NZ Ltd</b></li><li>Level 1, Quad 7 Building, 6 Leonard Isitt Drive, Auckland Airport, Auckland 2022</li><li><b>Phone:</b> 0508 888 626 · +64 508 888 626</li><li><b>Hours:</b> ${C('hours — M2M One NZ')}</li></ul></div></div>
+  </div></div>
+</section>
+`,
+
+"#/get-connected": () => `
+${spec('<b>Get Connected</b> · the money path (77% of conversions) · all journeys finish here · agent-completable. CONFLICT to resolve: the legacy page is a full account-creation form (billing + shipping address, country, T&Cs, Standard Form of Agreement, sent to the accounts team for approval). This redesign keeps Get Connected as a short enquiry and defers account creation to after a person replies. Required set mirrors the legacy required fields (First/Last/Business/Email/Mobile); consider trimming further to reduce friction. [CONFIRM: enquiry-first vs full account-creation form — James]')}
+<section class="band anno-host">${anno('Hero + 3 steps')}
+  <div class="container">
+    <span class="eyebrow">Get connected</span>
+    <h1 class="wf">Tell us what you're connecting</h1>
+    <p class="sub">Give us a few details and a real person in New Zealand recommends the right SIM and plan, then sets up your account. There's no account to create before you hear from us.</p>
+    <div class="grid cols-3" style="margin-top:26px">
+      ${card('doc','1 · Start the enquiry','A few details in the form below — no billing or agreements needed yet.')}
+      ${card('card','2 · We set you up','We confirm the plan and coverage, create your account, and order your SIMs with you.')}
+      ${card('signal','3 · Connect','Your SIMs arrive set up on a real Spark network profile, ready to connect.')}
+    </div>
+    <p class="wf muted" style="font:500 11px/1.4 var(--mono);margin-top:10px">Reframed from the legacy "Get connected in 3 simple steps" (Fill in the sign-up form → Order SIMs &amp; Services → Connect to M2M One).</p>
+  </div>
+</section>
+
+<section class="band anno-host">${anno('Enquiry form · required core + optional details (mirrors the legacy form, minus the account-creation fields)')}
+  <div class="container"><div class="hero-split">
+    <div class="form">
+      <div class="spec" style="margin:0 0 12px">Required — enough for a person to reply and size it.</div>
+      <div class="grid cols-2" style="gap:12px">
+        <div class="field"><label>First name *</label><div class="inp"></div></div>
+        <div class="field"><label>Last name *</label><div class="inp"></div></div>
+      </div>
+      <div class="field"><label>Business name *</label><div class="inp"></div></div>
+      <div class="grid cols-2" style="gap:12px">
+        <div class="field"><label>Business email *</label><div class="inp"></div></div>
+        <div class="field"><label>Mobile *</label><div class="inp"></div><div class="help">e.g. 021 234 5678</div></div>
+      </div>
+      <div class="field"><label>What are you connecting? *</label><div class="inp area"></div><div class="help">e.g. farm sensors, POS terminals, trackers, cameras, or a device that stopped working</div></div>
+      <div class="spec" style="margin:14px 0 12px">Optional — speeds up onboarding (the legacy form's optional section, kept optional).</div>
+      <div class="field"><label>Industry</label><div class="inp" style="display:flex;align-items:center;padding:0 12px;color:var(--mut)">Select an industry ▾</div><div class="help">Agriculture · Retail &amp; POS · Digital signage · Security &amp; surveillance · Connected healthcare · Transport &amp; fleet · Utilities &amp; environmental · Other</div></div>
+      <div class="field"><label>What do you need?</label>
+        <div class="cluster" style="gap:8px;margin-top:4px">${['SIM cards','Data plans','Networking','VPN','Voice','SMS','International roaming','LoRaWAN','REST API'].map(o=>`<span style="display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:6px;padding:6px 10px;font-size:13px;color:var(--ink2)"><span style="width:13px;height:13px;border:1.5px solid var(--mut);border-radius:3px;flex:none"></span>${o}</span>`).join('')}</div>
+        <div class="help">From the legacy Product Requirements list ${C('confirm the public-facing set — satellite, international roaming, voice/SMS touch open product and positioning gates')}.</div>
+      </div>
+      <div class="grid cols-2" style="gap:12px">
+        <div class="field"><label>Roughly how many SIMs?</label><div class="inp"></div></div>
+        <div class="field"><label>Region or site</label><div class="inp"></div><div class="help">Where to confirm coverage.</div></div>
+      </div>
+      <div class="field"><label>Referral name / code</label><div class="inp"></div></div>
+      <a class="btn primary" data-to="#/get-connected" style="width:100%;justify-content:center">Get Connected</a>
+      <p class="wf muted" style="font-size:12px;margin-top:12px">A real person in New Zealand replies, usually ${C('"same business day" SLA — sales ops')}. You reach a person here, not an offshore queue.</p>
+    </div>
+    <div>
+      <div class="card">${ico('doc','lg')}<h3 class="wf" style="margin-top:10px">What happens next</h3><p class="wf">Your enquiry goes to a person in New Zealand, not an automated queue. We confirm the right plan and coverage, then set up your account and order your SIMs with you. You don't fill in billing, shipping or agreements to get a reply.</p></div>
+      <div class="card" style="margin-top:14px">${ico('shield','lg')}<h3 class="wf" style="margin-top:10px">When we set up your account</h3><p class="wf">At account setup you'll provide billing and shipping details and agree to M2M One NZ's Standard Form of Agreement ${C('SFOA + T&Cs handled at the account-creation step, not on this enquiry — Legal')}.</p></div>
+      <div class="proof" style="margin-top:14px">${wlogo('Real Spark profile')} ${wlogo('Semtech')}</div>
+      <ul class="basics" style="margin-top:14px">
+        <li><b>M2M One NZ Ltd</b> — Auckland Airport</li>
+        <li><b>Phone:</b> 0508 888 626 · +64 508 888 626</li>
+        <li><b>Email:</b> info@m2mone.co.nz</li>
+      </ul>
+    </div>
+  </div></div>
+</section>
+`,
+
+"#/customer-stories": () => `
+${spec('<b>Customer Stories</b> · un-generatable proof (real NZ outcomes) · evaluator; warmest tone · proof for journeys A, B → Get Connected')}
+<section class="band anno-host">${anno('Hero · centred')}
+  <div class="container" style="text-align:center"><span class="eyebrow">Customer stories</span><h1 class="wf" style="max-width:22ch;margin-inline:auto">How New Zealand businesses connect with M2M One</h1><p class="sub" style="margin-inline:auto">Real NZ deployments, in plain terms — what they needed to connect, what they run, and the result.</p></div>
+</section>
+<section class="band"><div class="container">
+  <div class="media annorule anno-host" style="margin-bottom:40px">${anno('Story · field/remote monitoring (lead) · TEMPLATE pending sign-off')}
+    <div class="m-img">${wimg('Customer logo + photo: orchard / monitoring deployment','wide')}</div>
+    <div class="m-txt"><span class="eyebrow">Field / remote monitoring</span><h2 class="wf" style="margin-top:8px">${C('customer name')}</h2>
+      <p class="wf">${C('who they are — e.g. an orchard / monitoring network in <region>')} needed ${C('what they connect — e.g. soil and weather sensors across remote sites')}. They run M2M One NZ IoT SIMs on Spark's network, on ${C('plan')}, managed on one account. The result: ${C('outcome — e.g. reliable readings from <N> remote sites')}.</p>
+      <div style="margin-top:16px"><a class="btn primary" data-to="#/get-connected">Connect your devices like this ${I.arrow}</a></div>
+    </div>
+  </div>
+  <div class="media flip annorule anno-host">${anno('Story · POS / EFTPOS · TEMPLATE pending sign-off')}
+    <div class="m-img">${wimg('Customer logo + photo: café / retail POS','wide')}</div>
+    <div class="m-txt"><span class="eyebrow">POS / EFTPOS</span><h2 class="wf" style="margin-top:8px">${C('customer name')}</h2>
+      <p class="wf">${C('a retail / hospitality operator')} needed payments to keep working when broadband dropped. They run M2M One NZ SIMs as POS failover on Spark's network. The result: ${C('outcome — e.g. terminals stayed online through <event>')}.</p>
+      <div style="margin-top:16px"><a class="btn primary" data-to="#/get-connected">Keep your POS online ${I.arrow}</a></div>
+    </div>
+  </div>
+  <div class="spec" style="margin-top:24px">Governance: no story names a real customer. Each is a template awaiting a signed-off customer (name, details, quote + written permission — customer + M2M One NZ).</div>
+</div></section>
+${ctaBand("Connect your devices like these NZ businesses did.","Get Connected")}
+`,
+
+"#/privacy": () => `${spec('<b>Privacy</b> · legal-owned, formatted for clarity, not originated here')}<section class="band"><div class="container"><span class="eyebrow">Legal</span><h1 class="wf">Privacy</h1><div class="spec" style="margin-top:20px">${C('full privacy policy text — Legal')}. Format for clarity once supplied. Do not originate.</div></div></section>`,
+"#/terms": () => `${spec('<b>Terms</b> · legal-owned, formatted for clarity, not originated here')}<section class="band"><div class="container"><span class="eyebrow">Legal</span><h1 class="wf">Terms</h1><div class="spec" style="margin-top:20px">${C('full terms text — Legal')}. Format for clarity once supplied. Do not originate.</div></div></section>`,
+
+"#/welcome": () => `
+<section class="band anno-host" style="padding-top:clamp(40px,7cqi,72px)">
+  <div class="container">
+    <span class="eyebrow">M2M One NZ · website review workbench</span>
+    <h1 class="wf" style="max-width:20ch">A working prototype of the new M2M One NZ website</h1>
+    <p class="sub" style="max-width:62ch">This is a wireframe for you to review and comment on directly — greyscale on purpose, no final design or photography. What matters now is the structure, the content and the path to purchase, not the look.</p>
+    <div class="cluster" style="margin-top:24px"><a class="btn primary" data-to="#/">Start the walkthrough ${I.arrow}</a><span class="muted" style="font:500 12px/1.4 var(--mono)">12 pages · about 10 minutes</span></div>
+  </div>
+</section>
+
+<section class="band tight"><div class="container"><div class="grid cols-3">
+  ${card('refresh','From a sprawling site to 12 pages','A large legacy site rebuilt into 12 focused pages under four nav items.')}
+  ${card('signal','One path to purchase','Every page routes to a single, low-effort Get Connected — around 77% of won deals already run through it.')}
+  ${card('shield','Lighter, safer to run','A static-first build with no backend, served from a global CDN — up to 75% faster page loads and a smaller attack surface than a plugin-heavy CMS.')}
+</div></div></section>
+
+<section class="band"><div class="container">
+  ${head('How to use this','Please read before you start')}
+  <div class="grid cols-2">
+    ${card('doc','1 · Move left to right','Use Next at the bottom to step through each page, from Home to the Review summary.')}
+    ${card('pin','2 · Comment in place','Turn on Comments in the top bar, then double-click anywhere on a page to drop a note exactly where your thought applies.')}
+    ${card('grid','3 · Add your name','Your name is required on each comment so we know who to follow up with. Comments are visible to the whole review group.')}
+    ${card('card','4 · See it all at the end','The final Review summary page gathers every comment in one place, so we can all see the consolidated feedback.')}
+  </div>
+</div></section>
+
+<section class="band anno-host"><div class="container"><div class="media">
+  <div class="m-txt">
+    ${head('The project, in brief','Why we are doing this')}
+    <p class="wf">The current site has grown large over time and is hard to navigate, costly to maintain, and not built for how buyers — and AI assistants — now find an IoT connectivity provider. We are rebuilding it as a smaller, sharper, discovery-first site that is the clear New Zealand answer for IoT connectivity.</p>
+    <p class="wf">We are optimising for less friction to purchase, the five buyer journeys that matter, and the field and remote monitoring customers we are built for — agriculture, water and environmental — alongside POS, tracking and fleets.</p>
+  </div>
+  <div class="m-img">${wimg('Open Sitemap and Journeys in the top bar to review the structure','wide','map')}</div>
+</div></div></section>
+
+<section class="band tight anno-host"><div class="container">
+  ${head('How the site is built','A lightweight, owned, static-first build')}
+  <div class="grid cols-2">
+    ${card('shield','No backend to attack','The pages are pre-built static files (built with Astro), so there is no database or server logic to exploit and far less to keep patched.')}
+    ${card('signal','Secured at the edge','Served from a global CDN with SSL, DDoS protection and a web application firewall, so pages load fast worldwide and stay up under load.')}
+    ${card('refresh','No vendor lock-in','We own the frontend and can move hosting at any time — the build is not tied to one platform or a plugin ecosystem.')}
+    ${card('grid','Dynamic bits, kept simple','The enquiry form, analytics and newsletter run through standard third-party services, with the existing Zoho CRM as the system of record.')}
+  </div>
+</div></section>
+
+<section class="band tight"><div class="container"><div class="lead-panel"><span class="tag">What we would like you to review</span>
+  <p class="wf">The <b>sitemap</b> (is the four-item, 12-page structure right?), the <b>customer journeys</b> (do the paths match how your customers buy?), the <b>content and messaging</b> on each page, the <b>positioning</b> (a real Spark profile, not roaming; people in New Zealand; NZD with no quote wall), and the <b>pricing presentation</b>. You will see XX and [CONFIRM] markers where figures and claims are still being verified — flag anything wrong, but do not worry about the markers themselves.</p>
+  <div class="cluster" style="margin-top:16px"><a class="btn primary" data-to="#/">Start the walkthrough ${I.arrow}</a></div>
+</div></div></section>
+`,
+
+"#/review-summary": () => `
+<section class="band anno-host"><div class="container">
+  <span class="eyebrow">Review summary</span>
+  <h1 class="wf">Everyone's feedback, in one place</h1>
+  <p class="sub">Every comment left across the prototype, grouped by page — it updates as people add feedback.</p>
+  <div class="cluster" style="margin-top:18px"><a class="btn ghost" data-to="#/welcome">Back to start</a></div>
+  <div id="summaryMount" style="margin-top:26px"><div class="rv-empty">Loading comments…</div></div>
+</div></section>
+`,
+
+};
+
+/* ============ JOURNEYS ============ */
+const JOURNEYS = {
+  A:{name:"A — Intent-led SIM buyer",desc:"SIM hero → plans/coverage in place → Get Connected.",steps:[["#/","Home"],["#/iot-sim-cards","SIM hero"],["#/iot-sim-cards/plans-pricing","Plans"],["#/iot-sim-cards/coverage","Coverage"],["#/get-connected","Get Connected"]]},
+  B:{name:"B — Channel partner / integrator",desc:"Routed to a person, not self-serve.",steps:[["#/","Home"],["#/solutions","Solutions — partner block"],["#/contact","Contact — partner (a person)"]]},
+  C:{name:"C — Which network / will it work here",desc:"Resolves on Coverage (single Spark statement; carrier-scope gate).",steps:[["#/","Home"],["#/iot-sim-cards/coverage","Coverage"],["#/get-connected","Get Connected"]]},
+  D:{name:"D — Satellite / remote-area (CONDITIONAL)",desc:"Gated; today collapses into the Coverage fallback line.",steps:[["#/","Home"],["#/iot-sim-cards/coverage","Coverage — gated fallback"],["#/get-connected","Get Connected"]]},
+  E:{name:"E — Use-case led",desc:"Solutions block → Get Connected.",steps:[["#/","Home"],["#/solutions","Solutions block"],["#/get-connected","Get Connected"]]},
+};
+
+/* ============ chrome build ============ */
+function buildNav(){
+  document.getElementById('navMain').innerHTML =
+    `<span class="navgroup" id="simGroup"><button>IoT SIM Cards ${I.chev}</button>
+      <span class="submenu">${SIM_KIDS.map(k=>`<a data-to="${k[0]}"><b>${k[1]}</b><span>${k[2]}</span></a>`).join('')}</span></span>
+     <a data-to="#/solutions">Solutions</a><a data-to="#/company">Company</a>`;
+  document.getElementById('drawer').innerHTML =
+    `<a class="lead-link" data-to="#/iot-sim-cards">IoT SIM Cards</a>${SIM_KIDS.slice(1).map(k=>`<a class="kid" data-to="${k[0]}">${k[1]}</a>`).join('')}
+     <a data-to="#/solutions">Solutions</a><a data-to="#/company">Company</a><a data-to="#/customer-stories">Customer stories</a><a data-to="#/faq">FAQ</a><a data-to="#/contact">Contact</a>
+     <a class="lead-link" data-to="#/get-connected">Get Connected</a>`;
+  const col=(t,ls)=>`<div><h4>${t}</h4>${ls.map(l=>`<a data-to="${l[0]}">${l[1]}</a>`).join('')}</div>`;
+  document.getElementById('foot').innerHTML =
+    `<div class="foot-brand"><a class="wordmark" data-to="#/"><span class="mk">m2m</span><span>M2M One NZ<small>A SEMTECH COMPANY</small></span></a><p>A Semtech company. IoT data SIMs on a real Spark network profile.</p></div>`
+    + col('IoT SIM Cards',[["#/iot-sim-cards","IoT SIM cards"],["#/iot-sim-cards/plans-pricing","Plans & pricing"],["#/iot-sim-cards/coverage","Coverage"],["#/iot-sim-cards/compatible-hardware","Compatible hardware"]])
+    + col('Explore',[["#/solutions","Solutions"],["#/customer-stories","Customer stories"],["#/faq","FAQ"]])
+    + col('Company',[["#/company","Company"],["#/contact","Contact"]])
+    + col('Get started',[["#/get-connected","Get Connected"],["#/privacy","Privacy"],["#/terms","Terms"]]);
+  document.getElementById('footBottom').innerHTML =
+    `<span>© 2026 M2M One NZ Ltd · A Semtech company · NZBN [CONFIRM] · Auckland Airport, Auckland 2022</span><span>${wlogo('LinkedIn')}</span>`;
+}
+function buildTree(){
+  const node=(to,l)=>`<div class="node"><a data-to="${to}">${l}</a></div>`;
+  document.getElementById('tree').innerHTML =
+    `<div class="row">${node('#/','Home')}
+      <div class="node"><a data-to="#/iot-sim-cards">IoT SIM Cards</a><div class="kids">${SIM_KIDS.slice(1).map(k=>`<a data-to="${k[0]}">${k[1]}</a>`).join('')}</div></div>
+      ${node('#/solutions','Solutions')}${node('#/company','Company')}
+      <div class="node spine"><a data-to="#/get-connected">Get Connected</a><div class="kids" style="border:0">Conversion spine</div></div></div>
+     <div class="gh">Supporting / footer</div>
+     <div class="row">${node('#/faq','FAQ')}${node('#/customer-stories','Customer Stories')}${node('#/contact','Contact')}${node('#/privacy','Privacy')}${node('#/terms','Terms')}</div>`;
+}
+function buildChooser(){
+  document.getElementById('jChooser').innerHTML = Object.keys(JOURNEYS).map(k=>{const j=JOURNEYS[k];return `<button data-j="${k}"><b>${j.name}</b><br><span style="color:#aeb3b6;font-size:11px;font-family:var(--mono)">${j.desc}</span></button>`;}).join('');
+}
+
+/* ============ router + interactions ============ */
+function render(route){
+  const fn = PAGES[route] || PAGES["#/"];
+  document.body.classList.toggle('meta-route', route==='#/welcome'||route==='#/review-summary');
+  document.getElementById('main').innerHTML = fn();
+  document.getElementById('routeTag').textContent = route.replace('#','');
+  document.querySelectorAll('nav.main a').forEach(a=>{
+    const to=a.getAttribute('data-to');
+    a.classList.toggle('active', to===route);
+  });
+  const sg=document.getElementById('simGroup'); if(sg) sg.querySelector('button').classList.toggle('active', route.indexOf('#/iot-sim-cards')===0);
+  document.getElementById('main').scrollIntoView({block:'start'});
+  if(jState.key){const j=JOURNEYS[jState.key];for(let i=0;i<j.steps.length;i++){if(j.steps[i][0]===route){jState.idx=i;renderStepper();break;}}}
+}
+function route(){let r=location.hash||'#/welcome'; if(!PAGES[r]) r='#/welcome'; render(r);}
+
+document.addEventListener('click',e=>{
+  const a=e.target.closest('[data-to]');
+  if(a){e.preventDefault();location.hash=a.getAttribute('data-to');closeMenus();return;}
+  const sg=document.getElementById('simGroup');
+  if(sg){ if(e.target.closest('#simGroup button')){sg.classList.toggle('open');} else if(!e.target.closest('#simGroup')){sg.classList.remove('open');} }
+});
+function closeMenus(){const sg=document.getElementById('simGroup');if(sg)sg.classList.remove('open');document.getElementById('drawer').classList.remove('open');}
+document.getElementById('hamb').addEventListener('click',()=>document.getElementById('drawer').classList.toggle('open'));
+
+/* annotations toggle */
+const btnAnno=document.getElementById('btnAnno');
+btnAnno.addEventListener('click',()=>{const on=document.body.classList.toggle('anno');btnAnno.setAttribute('aria-pressed',on?'true':'false');});
+
+/* viewport */
+const stage=document.getElementById('stage');
+document.querySelectorAll('.tb .seg button').forEach(b=>b.addEventListener('click',()=>{
+  document.querySelectorAll('.tb .seg button').forEach(x=>x.setAttribute('aria-pressed','false'));
+  b.setAttribute('aria-pressed','true');stage.classList.remove('tablet','mobile');
+  const v=b.getAttribute('data-vp'); if(v!=='desktop') stage.classList.add(v); closeMenus();
+}));
+
+/* sitemap */
+const ovS=document.getElementById('ovSitemap');
+document.getElementById('btnSitemap').addEventListener('click',()=>ovS.classList.add('show'));
+ovS.addEventListener('click',e=>{if(e.target===ovS||e.target.hasAttribute('data-close'))ovS.classList.remove('show');});
+
+/* journeys */
+const stepper=document.getElementById('stepper');let jState={key:null,idx:0};
+document.getElementById('btnJourneys').addEventListener('click',()=>{const open=stepper.classList.contains('show');const onChooser=open&&document.getElementById('jChooser').style.display!=='none';if(onChooser){stepper.classList.remove('show');}else{stepper.classList.add('show');jState.key=null;showChooser();}});
+document.getElementById('jClose').addEventListener('click',()=>stepper.classList.remove('show'));
+document.getElementById('jChooser').addEventListener('click',e=>{const b=e.target.closest('[data-j]');if(b)startJourney(b.getAttribute('data-j'));});
+function showChooser(){document.getElementById('jChooser').style.display='flex';document.getElementById('jSteps').style.display='none';document.getElementById('jName').textContent='Choose a journey';document.getElementById('jDesc').textContent='Five paths the layout must carry to Get Connected (or a person, for partners).';document.getElementById('jPrev').disabled=true;document.getElementById('jNext').disabled=true;}
+function startJourney(k){jState.key=k;jState.idx=0;document.getElementById('jChooser').style.display='none';document.getElementById('jSteps').style.display='flex';goStep(0);}
+function goStep(i){const j=JOURNEYS[jState.key];if(!j)return;jState.idx=Math.max(0,Math.min(i,j.steps.length-1));location.hash=j.steps[jState.idx][0];renderStepper();}
+function renderStepper(){const j=JOURNEYS[jState.key];if(!j)return;document.getElementById('jName').textContent=j.name;document.getElementById('jDesc').textContent=j.desc;
+  document.getElementById('jSteps').innerHTML=j.steps.map((s,i)=>`<span class="st${i===jState.idx?' cur':''}" data-step="${i}">${s[1]}${i<j.steps.length-1?'<span class="c">→</span>':''}</span>`).join('');
+  document.getElementById('jPrev').disabled=jState.idx===0;document.getElementById('jNext').disabled=jState.idx===j.steps.length-1;}
+document.getElementById('jPrev').addEventListener('click',()=>goStep(jState.idx-1));
+document.getElementById('jNext').addEventListener('click',()=>goStep(jState.idx+1));
+document.getElementById('jSteps').addEventListener('click',e=>{const s=e.target.closest('[data-step]');if(s)goStep(parseInt(s.getAttribute('data-step'),10));});
+
+window.addEventListener('hashchange',route);
+buildNav();buildTree();buildChooser();route();
+
+/* ===== Review packet: pluggable store + sticky notes + workbench + summary ===== */
+(function(){
+  var REVIEW_BACKEND = { url: "", pollMs: 5000 }; /* <-- set url to your hosted endpoint to capture feedback live for everyone */
+  var KEY='m2m_review_notes_v1', NK='m2m_review_name_v1';
+  var me='', hideResolved=false;
+  var ORDER=['#/welcome','#/','#/iot-sim-cards','#/iot-sim-cards/plans-pricing','#/iot-sim-cards/coverage','#/iot-sim-cards/compatible-hardware','#/solutions','#/customer-stories','#/faq','#/company','#/contact','#/get-connected','#/review-summary'];
+  function $(id){return document.getElementById(id)}
+  function esc(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
+  function fmt(ts){try{return new Date(ts).toLocaleString('en-NZ',{day:'2-digit',month:'short',hour:'2-digit',minute:'2-digit'})}catch(e){return ''}}
+  function curRoute(){var h=location.hash||'#/welcome';return TITLES[h]?h:'#/welcome'}
+  function uid(){return Date.now().toString(36)+'-'+Math.random().toString(36).slice(2,7)}
+  function persistName(){try{localStorage.setItem(NK,me)}catch(e){}}
+  function loadName(){try{me=localStorage.getItem(NK)||''}catch(e){me=''}}
+  function toast(m){var t=document.createElement('div');t.textContent=m;t.style.cssText='position:fixed;bottom:70px;left:50%;transform:translateX(-50%);background:#1d2023;color:#fff;padding:8px 14px;border-radius:8px;z-index:99;font:13px sans-serif';document.body.appendChild(t);setTimeout(function(){t.remove()},1600)}
+
+  /* ---- pluggable store: localStorage by default; remote (polling) when REVIEW_BACKEND.url is set ---- */
+  var Store=(function(){
+    var cache=[], subs=[], remote=!!REVIEW_BACKEND.url, started=false;
+    function notify(){subs.forEach(function(f){try{f()}catch(e){}})}
+    function lsLoad(){try{return JSON.parse(localStorage.getItem(KEY)||'[]')||[]}catch(e){return[]}}
+    function lsSave(){try{localStorage.setItem(KEY,JSON.stringify(cache))}catch(e){}}
+    function upsert(n){var i=-1,k;for(k=0;k<cache.length;k++){if(cache[k].id===n.id){i=k;break}}if(i>=0)cache[i]=Object.assign({},cache[i],n);else cache.push(n)}
+    function post(n){if(!remote)return;try{fetch(REVIEW_BACKEND.url,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(n)})['catch'](function(){})}catch(e){}}
+    function pull(done){if(!remote){done&&done();return}try{fetch(REVIEW_BACKEND.url).then(function(r){return r.json()}).then(function(a){if(a&&a.length!==undefined){cache=a;notify()}done&&done()})['catch'](function(){done&&done()})}catch(e){done&&done()}}
+    return {
+      live:remote,
+      init:function(cb){if(remote){pull(function(){cb&&cb();if(!started){started=true;setInterval(function(){pull()},REVIEW_BACKEND.pollMs||5000)}})}else{cache=lsLoad();cb&&cb()}},
+      all:function(){return cache.filter(function(n){return !n.deleted})},
+      raw:function(){return cache.slice()},
+      put:function(n){upsert(n);if(remote)post(n);else lsSave();notify()},
+      clearAll:function(){cache=cache.map(function(n){if(remote)post({id:n.id,deleted:true});return Object.assign({},n,{deleted:true})});if(!remote)lsSave();notify()},
+      merge:function(arr){if(!arr||arr.length===undefined)return 0;var added=0;arr.forEach(function(n){if(!n||!n.id||!n.text)return;var ex=null,k;for(k=0;k<cache.length;k++){if(cache[k].id===n.id){ex=cache[k];break}}if(ex){if((n.ts||0)>=(ex.ts||0)){upsert(n);if(remote)post(n)}}else{upsert(n);if(remote)post(n);added++}});if(!remote)lsSave();notify();return added},
+      onChange:function(f){subs.push(f)}
+    };
+  })();
+
+  function notesForRoute(r){return Store.all().filter(function(n){return n.route===r})}
+  function openCount(){return Store.all().filter(function(n){return !n.resolved}).length}
+  function updateCounts(){['cBadge','cBadge2'].forEach(function(id){var b=$(id);if(b)b.textContent=openCount()});var wc=$('wbCount');if(wc){var t=Store.all().length;wc.textContent=t+' comment'+(t===1?'':'s')}}
+  function closePop(){var p=$('notePop');if(p)p.remove()}
+  function placePop(pop,xPct,yPct){var main=$('main');main.appendChild(pop);var w=main.clientWidth,pw=pop.offsetWidth||262;var left=xPct*w;if(left+pw>w-8)left=w-pw-8;if(left<8)left=8;pop.style.left=left+'px';pop.style.top=(yPct*main.clientHeight+8)+'px'}
+
+  function renderNotes(){
+    var main=$('main');if(!main)return;
+    Array.prototype.slice.call(main.querySelectorAll('.note-pin')).forEach(function(n){n.remove()});
+    if(!document.body.classList.contains('review'))return;
+    var r=curRoute(),seq=0;
+    notesForRoute(r).forEach(function(n){seq++;if(hideResolved&&n.resolved)return;
+      var pin=document.createElement('div');pin.className='note-pin'+(n.resolved?' resolved':'');
+      pin.style.left=(n.xPct*100)+'%';pin.style.top=(n.yPct*100)+'%';pin.textContent=seq;pin.setAttribute('data-id',n.id);pin.title=n.name+': '+n.text;
+      (function(note){pin.addEventListener('click',function(ev){ev.stopPropagation();openRead(note,pin)})})(n);
+      main.appendChild(pin);
+    });
+  }
+  function openComposer(xPct,yPct){closePop();
+    var pop=document.createElement('div');pop.className='note-pop';pop.id='notePop';
+    pop.innerHTML='<div class="who">New comment<span class="req">name required</span></div>'+
+      '<input id="npName" placeholder="Your name" value="'+esc(me).replace(/"/g,'&quot;')+'">'+
+      '<textarea id="npText" placeholder="Your comment about this part of the page..."></textarea>'+
+      '<div class="row"><button class="cancel">Cancel</button><button class="save" disabled>Add note</button></div>';
+    placePop(pop,xPct,yPct);
+    var nm=pop.querySelector('#npName'),tx=pop.querySelector('#npText'),sv=pop.querySelector('.save');
+    function val(){sv.disabled=!(nm.value.trim()&&tx.value.trim())}
+    nm.addEventListener('input',val);tx.addEventListener('input',val);
+    pop.querySelector('.cancel').addEventListener('click',function(e){e.stopPropagation();closePop()});
+    sv.addEventListener('click',function(e){e.stopPropagation();me=nm.value.trim();persistName();var rn=$('rvName');if(rn)rn.value=me;
+      Store.put({id:uid(),name:me,text:tx.value.trim(),route:curRoute(),xPct:xPct,yPct:yPct,ts:Date.now(),resolved:false});closePop()});
+    setTimeout(function(){(me?tx:nm).focus()},0);
+  }
+  function openRead(n,pin){closePop();
+    var pop=document.createElement('div');pop.className='note-pop';pop.id='notePop';
+    pop.innerHTML='<div><span class="who">'+esc(n.name)+'</span><span class="when">'+fmt(n.ts)+'</span></div><div class="body">'+esc(n.text)+'</div>'+
+      '<div class="row"><button class="del">Delete</button><button class="res">'+(n.resolved?'Reopen':'Resolve')+'</button><button class="cancel">Close</button></div>';
+    placePop(pop,n.xPct,n.yPct);
+    pop.querySelector('.cancel').addEventListener('click',function(e){e.stopPropagation();closePop()});
+    pop.querySelector('.res').addEventListener('click',function(e){e.stopPropagation();Store.put({id:n.id,resolved:!n.resolved});closePop()});
+    pop.querySelector('.del').addEventListener('click',function(e){e.stopPropagation();if(confirm('Delete this comment?')){Store.put({id:n.id,deleted:true});closePop()}});
+  }
+  function groupHtml(){
+    var by={};Store.all().forEach(function(n){(by[n.route]=by[n.route]||[]).push(n)});
+    var keys=ORDER.concat(Object.keys(TITLES)).filter(function(v,i,a){return a.indexOf(v)===i});
+    var html='';
+    keys.forEach(function(r){var arr=by[r];if(!arr||!arr.length)return;var seq=0;
+      html+='<div class="rv-grp">'+esc(TITLES[r]||r)+' ('+arr.length+')</div>';
+      arr.forEach(function(n){seq++;if(hideResolved&&n.resolved)return;
+        html+='<div class="rv-item'+(n.resolved?' resolved':'')+'" data-id="'+n.id+'" data-route="'+r+'"><span class="n">'+seq+'</span><span class="tx"><b>'+esc(n.name)+'</b>'+(n.resolved?'<span class="rs">resolved</span>':'')+'<br>'+esc(n.text)+'</span></div>';
+      });
+    });
+    return html;
+  }
+  function bindGroup(root){Array.prototype.slice.call(root.querySelectorAll('.rv-item')).forEach(function(it){
+    it.addEventListener('click',function(){var r=it.getAttribute('data-route'),id=it.getAttribute('data-id');setReview(true);if(location.hash!==r)location.hash=r;
+      setTimeout(function(){renderNotes();var pin=document.querySelector('.note-pin[data-id="'+id+'"]');if(pin){pin.classList.add('flash');pin.scrollIntoView({block:'center'})}},80)})})}
+  function renderPanel(){var list=$('rvList');if(!list)return;list.innerHTML=groupHtml()||'<div class="rv-empty">No comments yet.<br>Turn on review mode and double-click anywhere on a page to leave one.</div>';bindGroup(list);updateCounts()}
+  function renderSummary(){var mount=$('summaryMount');if(!mount)return;var all=Store.all();var open=all.filter(function(n){return !n.resolved}).length;
+    var bar='<div class="rv-tools" style="border:1px solid var(--line2);border-radius:10px;margin-bottom:14px"><button id="smExport">Export all</button><button id="smCopy">Copy all</button><span style="margin-left:auto;font:500 12px/1 var(--mono);color:var(--mut)">'+all.length+' total \u00b7 '+open+' open \u00b7 '+(all.length-open)+' resolved'+(Store.live?' \u00b7 live':'')+'</span></div>';
+    mount.innerHTML=bar+(all.length?groupHtml():'<div class="rv-empty">No comments yet. Turn on Comments in the top bar and double-click on any page to add the first one.</div>');
+    bindGroup(mount);
+    if($('smExport'))$('smExport').addEventListener('click',exportNotes);
+    if($('smCopy'))$('smCopy').addEventListener('click',copyNotes);
+  }
+  function renderWorkbench(){var lbl=$('wbLabel'),fill=$('wbFill'),prev=$('wbPrev'),next=$('wbNext');if(!lbl)return;
+    var r=curRoute(),i=ORDER.indexOf(r);if(i<0)i=0;
+    lbl.textContent='Step '+(i+1)+' of '+ORDER.length+' \u2014 '+(TITLES[r]||'');
+    if(fill)fill.style.width=Math.round(i/(ORDER.length-1)*100)+'%';
+    if(prev)prev.disabled=i<=0;if(next)next.disabled=i>=ORDER.length-1;updateCounts();
+  }
+  function go(d){var r=curRoute(),i=ORDER.indexOf(r);if(i<0)i=0;var j=Math.max(0,Math.min(ORDER.length-1,i+d));location.hash=ORDER[j]}
+  function setReview(on){document.body.classList.toggle('review',on);var b=$('btnComments');if(b)b.setAttribute('aria-pressed',on?'true':'false');if(!on){closePop();var p=$('rvPanel');if(p)p.classList.remove('open')}renderNotes()}
+  function exportNotes(){var blob=new Blob([JSON.stringify(Store.raw(),null,2)],{type:'application/json'});var a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='m2m-review-'+((me||'all').replace(/[^a-z0-9]+/gi,'-').toLowerCase())+'-'+new Date().toISOString().slice(0,10)+'.json';document.body.appendChild(a);a.click();a.remove()}
+  function copyNotes(){var d=JSON.stringify(Store.raw());if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(d).then(function(){toast('Comments copied')},function(){window.prompt('Copy these comments:',d)})}else window.prompt('Copy these comments:',d)}
+  function onChange(){renderNotes();renderPanel();if(curRoute()==='#/review-summary')renderSummary();updateCounts()}
+
+  function init(){
+    loadName();
+    var nm=$('rvName');if(nm){nm.value=me;nm.addEventListener('input',function(){me=nm.value.trim();persistName()})}
+    var bc=$('btnComments');if(bc)bc.addEventListener('click',function(){var on=!document.body.classList.contains('review');setReview(on);if(on){var pp=$('rvPanel');if(pp)pp.classList.add('open');renderPanel()}});
+    if($('rvOpenPanel'))$('rvOpenPanel').addEventListener('click',function(){$('rvPanel').classList.add('open');renderPanel()});
+    if($('rvClose'))$('rvClose').addEventListener('click',function(){$('rvPanel').classList.remove('open')});
+    if($('rvExport'))$('rvExport').addEventListener('click',exportNotes);
+    if($('rvCopy'))$('rvCopy').addEventListener('click',copyNotes);
+    if($('rvImportToggle'))$('rvImportToggle').addEventListener('click',function(){$('rvImportBox').classList.toggle('open')});
+    if($('rvImportPaste'))$('rvImportPaste').addEventListener('click',function(){try{var n=Store.merge(JSON.parse($('rvImportText').value));toast(n+' comment(s) merged');$('rvImportText').value=''}catch(e){toast('Could not read that JSON')}});
+    if($('rvImportFile'))$('rvImportFile').addEventListener('change',function(e){var f=e.target.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){try{var n=Store.merge(JSON.parse(rd.result));toast(n+' comment(s) merged')}catch(err){toast('Could not read that file')}};rd.readAsText(f)});
+    if($('rvClearAll'))$('rvClearAll').addEventListener('click',function(){if(confirm('Delete ALL comments? This cannot be undone.')){Store.clearAll()}});
+    if($('rvHideResolved'))$('rvHideResolved').addEventListener('change',function(e){hideResolved=e.target.checked;onChange()});
+    if($('wbPrev'))$('wbPrev').addEventListener('click',function(){go(-1)});
+    if($('wbNext'))$('wbNext').addEventListener('click',function(){go(1)});
+    if($('wbAll'))$('wbAll').addEventListener('click',function(){location.hash='#/review-summary'});
+    var main=$('main');
+    if(main){
+      main.addEventListener('dblclick',function(e){if(!document.body.classList.contains('review'))return;if(e.target.closest('.note-pin')||e.target.closest('.note-pop')||e.target.closest('a')||e.target.closest('button')||e.target.closest('input')||e.target.closest('textarea')||e.target.closest('summary'))return;var rect=main.getBoundingClientRect();openComposer((e.clientX-rect.left)/rect.width,(e.clientY-rect.top)/rect.height)});
+      main.addEventListener('click',function(e){if(!document.body.classList.contains('review'))return;if(e.target.closest('.note-pin')||e.target.closest('.note-pop'))return;closePop()});
+    }
+    window.addEventListener('hashchange',function(){setTimeout(function(){renderNotes();renderWorkbench();if(curRoute()==='#/review-summary')renderSummary()},0)});
+    Array.prototype.slice.call(document.querySelectorAll('.tb .seg button')).forEach(function(b){b.addEventListener('click',function(){setTimeout(renderNotes,30)})});
+    var rz;window.addEventListener('resize',function(){clearTimeout(rz);rz=setTimeout(renderNotes,120)});
+    Store.onChange(onChange);
+    Store.init(function(){onChange();renderWorkbench();if(curRoute()==='#/review-summary')renderSummary()});
+  }
+  if(document.readyState!=='loading')init();else document.addEventListener('DOMContentLoaded',init);
+})();
+</script>
+</body>
+</html>
