@@ -1160,7 +1160,7 @@ buildNav();buildTree();buildChooser();route();
 
 /* ===== Review packet: pluggable store + sticky notes + workbench + summary ===== */
 (function(){
-  var REVIEW_BACKEND = { url: "", pollMs: 5000 }; /* SHARED COMMENTS: set url to your backend endpoint (see README: "comments.php" for the PHP option, or the Cloudflare Worker URL). Leaving "" means each reviewer's comments stay only in their own browser. */
+  var REVIEW_BACKEND = { url: "https://falling-cell-dc6f.james-richmondau.workers.dev", pollMs: 5000 }; /* SHARED COMMENTS: set url to your backend endpoint (see README: "comments.php" for the PHP option, or the Cloudflare Worker URL). Leaving "" means each reviewer's comments stay only in their own browser. */
   var KEY='m2m_review_notes_v1', NK='m2m_review_name_v1';
   var me='', hideResolved=false;
   var ORDER=['#/welcome','#/','#/iot-sim-cards','#/iot-sim-cards/plans-pricing','#/iot-sim-cards/coverage','#/iot-sim-cards/compatible-hardware','#/solutions','#/customer-stories','#/faq','#/company','#/contact','#/get-connected','#/review-summary'];
