@@ -6,7 +6,7 @@
 <title>Iridium 9604 · Hybrid IoT Readiness · Campaign Pack</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --navy:#003640; --navy-2:#0a4a55; --navy-deep:#002028;
@@ -138,7 +138,28 @@
   .sec-body table td strong{color:var(--navy)}
 
   /* COVER — light theme, accent strip, glass tiles */
-  .cover{display:flex; align-items:flex-start; justify-content:center; min-height:calc(100vh - var(--header-h) - var(--s-4)); padding:var(--s-4) 0 var(--s-5)}
+  .cover{display:flex; align-items:flex-start; justify-content:center; min-height:calc(100vh - var(--header-h) - var(--s-4)); padding:var(--s-4) 0 var(--s-5); position:relative}
+
+  /* Cover callout — hand-drawn pointer to the Comments button.
+     Only visible on the cover view, and dismisses once comments mode is toggled on. */
+  .cover-callout{position:absolute; top:-14px; right:36px; width:170px; pointer-events:none; z-index:5; color:var(--gold-d); opacity:0; animation:calloutIn 0.6s ease-out 0.4s forwards}
+  body.rc-active .cover-callout{display:none}
+  .cover-callout .callout-arrow{display:block; width:160px; height:110px; margin-left:auto; transform:rotate(2deg)}
+  .cover-callout .callout-path{stroke-dasharray:260; stroke-dashoffset:260; animation:calloutDraw 1.1s cubic-bezier(.5,0,.2,1) 0.5s forwards}
+  .cover-callout .callout-head{stroke-dasharray:42; stroke-dashoffset:42; animation:calloutDraw 0.3s ease-out 1.4s forwards}
+  .cover-callout .callout-text{font-family:"Caveat","Open Sans",cursive; font-weight:700; color:var(--gold-d); line-height:1.05; text-align:right; padding-right:6px; transform:rotate(-1.5deg); margin-top:-6px}
+  .cover-callout .callout-line-1{display:block; font-size:18px; opacity:0.7}
+  .cover-callout .callout-line-2{display:block; font-size:26px; color:var(--navy); letter-spacing:-0.01em}
+  .cover-callout .callout-line-3{display:block; font-size:18px; opacity:0.85}
+  @keyframes calloutDraw{to{stroke-dashoffset:0}}
+  @keyframes calloutIn{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)}}
+  /* Subtle continuous attention bob once drawn-in finishes */
+  .cover-callout .callout-arrow{animation:calloutBob 2.6s ease-in-out 1.7s infinite}
+  @keyframes calloutBob{0%,100%{transform:rotate(2deg) translateY(0)} 50%{transform:rotate(2deg) translateY(-3px)}}
+
+  /* Pulse hint on the comments button when we're on the cover and comments mode is OFF */
+  body.on-cover:not(.rc-active) .rc-toggle{animation:rcPulse 2.4s ease-in-out infinite}
+  @keyframes rcPulse{0%,100%{box-shadow:0 0 0 0 rgba(95,178,134,0)} 50%{box-shadow:0 0 0 6px rgba(95,178,134,0.18)}}
   .cover-card{width:100%; max-width:980px; background:#fff; border:1px solid var(--rule); border-radius:16px; box-shadow:var(--shadow-md); overflow:hidden; position:relative}
   .cover-accent-bar{height:6px; background:linear-gradient(90deg, var(--navy) 0%, var(--teal) 50%, var(--gold) 100%)}
   .cover-body{padding:var(--s-5) var(--s-5) var(--s-4)}
@@ -354,6 +375,11 @@
     .cover-paths-grid{grid-template-columns:1fr}
     .sec-title-row{flex-direction:column; align-items:flex-start; gap:8px}
     .sec-number{font-size:var(--t-2xl)}
+    .cover-callout{right:16px; width:150px}
+    .cover-callout .callout-arrow{width:140px; height:96px}
+  }
+  @media (max-width:640px){
+    .cover-callout{display:none}  /* button too close in mobile chrome — skip the pointer */
   }
   @media (max-width:780px){
     .pack{grid-template-columns:1fr}
@@ -375,7 +401,7 @@
     .content{max-width:none; padding:0}
     .sec{display:block !important; page-break-before:always; padding-top:var(--s-2)}
     .sec:first-child{page-break-before:auto}
-    .iframe-wrap, .filter-bar, .filter-bar-2, .tbl-wrap, .sec-next, .role-pill, .rc-toggle, .rc-panel, .rc-composer, .rc-pin{display:none}  /* skip interactive blocks + nudges + review chrome in print */
+    .iframe-wrap, .filter-bar, .filter-bar-2, .tbl-wrap, .sec-next, .role-pill, .rc-toggle, .rc-panel, .rc-composer, .rc-pin, .cover-callout{display:none}  /* skip interactive blocks + nudges + review chrome in print */
     .seg-grid{grid-template-columns:1fr 1fr}
     .h-print{display:none}
     .cover-inner{background:var(--navy); color:#fff; -webkit-print-color-adjust:exact; print-color-adjust:exact}
@@ -529,6 +555,23 @@
   <main class="content">
     <section class="sec" data-section="cover" id="cover"><div class="sec-body">
 <div class="cover">
+  <aside class="cover-callout" id="cover-callout" aria-hidden="true">
+    <svg class="callout-arrow" viewBox="0 0 160 110" xmlns="http://www.w3.org/2000/svg">
+      <path class="callout-path"
+            d="M 18 100 C 36 88, 50 95, 60 82 S 78 56, 92 50 S 122 38, 138 18"
+            fill="none" stroke="currentColor" stroke-width="2.4"
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <path class="callout-head"
+            d="M 130 12 L 140 16 L 134 26"
+            fill="none" stroke="currentColor" stroke-width="2.4"
+            stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <div class="callout-text">
+      <span class="callout-line-1">Click</span>
+      <span class="callout-line-2">'Comments'</span>
+      <span class="callout-line-3">to leave review notes</span>
+    </div>
+  </aside>
   <div class="cover-card">
     <div class="cover-accent-bar"></div>
     <div class="cover-body">
@@ -3704,6 +3747,8 @@ window.SPOTLIGHT = [{"name": "Acrulog Pty Ltd", "score": 85, "band": "A", "org":
       id = 'cover'; domId = 'cover';
     }
     navItems.forEach(a => a.classList.toggle('active', a.dataset.section === id));
+    // Toggle body.on-cover so the callout + pulse only animate on the cover view
+    document.body.classList.toggle('on-cover', domId === 'cover');
     updateRolePill();
     updateNextLink(id);
     window.scrollTo({top:0, behavior:'auto'});
