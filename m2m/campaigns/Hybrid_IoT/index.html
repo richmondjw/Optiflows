@@ -272,6 +272,9 @@
   table.tgt tbody td.industry, table.tgt tbody td.region, table.tgt tbody td.action{color:var(--gray-4); font-size:var(--t-xs)}
   table.tgt tbody tr.expand{cursor:default; background:var(--teal-bg)}
   table.tgt tbody tr.expand td{padding:14px var(--s-3); font-size:var(--t-sm); color:var(--gray-4); line-height:1.55}
+  /* Sticky wrapper — keeps the expand content visible at the left edge of the visible
+     viewport even when the table is scrolled horizontally on narrow screens. */
+  .exp-sticky{position:sticky; left:0; max-width:calc(100vw - var(--sidebar-w) - var(--s-5) * 2 - 40px); box-sizing:border-box}
   .exp-grid{display:grid; grid-template-columns:1fr 1fr; gap:var(--s-3)}
   .exp-row{display:grid; grid-template-columns:130px 1fr; gap:10px; padding:5px 0; border-bottom:1px dashed rgba(0,0,0,0.08)}
   .exp-row:last-child{border-bottom:none}
@@ -378,19 +381,110 @@
     .cover-callout{right:16px; width:150px}
     .cover-callout .callout-arrow{width:140px; height:96px}
   }
-  @media (max-width:640px){
-    .cover-callout{display:none}  /* button too close in mobile chrome — skip the pointer */
-  }
+  /* Hamburger menu toggle — hidden on desktop, shown as drawer trigger on mobile/tablet */
+  .mobile-menu-toggle{display:none; width:32px; height:32px; flex-direction:column; justify-content:space-around; align-items:center; padding:7px 6px; background:transparent; border:1px solid var(--rule); border-radius:5px; cursor:pointer; box-sizing:border-box}
+  .mobile-menu-toggle span{display:block; width:18px; height:2px; background:var(--navy); border-radius:1px; transition:transform 0.2s, opacity 0.2s}
+  body.menu-open .mobile-menu-toggle span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+  body.menu-open .mobile-menu-toggle span:nth-child(2){opacity:0}
+  body.menu-open .mobile-menu-toggle span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+  .menu-overlay{display:none; position:fixed; inset:var(--header-h) 0 0 0; background:rgba(0,54,64,0.45); z-index:39; opacity:0; transition:opacity 0.22s}
+  body.menu-open .menu-overlay{display:block; opacity:1}
+
   @media (max-width:780px){
-    .pack{grid-template-columns:1fr}
-    .sidebar{position:static; width:100%; height:auto; border-right:none; border-bottom:1px solid var(--rule); padding:var(--s-2)}
+    /* Drawer-style sidebar */
+    .pack{grid-template-columns:1fr; padding-top:var(--header-h)}
     .content{grid-column:1; padding:var(--s-3)}
+    .mobile-menu-toggle{display:flex}
+    .sidebar{transform:translateX(-100%); transition:transform 0.25s ease-out; width:280px; max-width:85%; box-shadow:4px 0 14px rgba(0,54,64,0.10)}
+    body.menu-open .sidebar{transform:translateX(0)}
+
+    /* Header — compress, keep Comments visible, hide print + date */
+    header.site{padding:0 var(--s-2)}
+    .brand .dept{display:none}
+    .brand .divider{display:none}
+    .brand img{height:24px}
+    .h-meta{display:flex; align-items:center; gap:8px}
+    .h-date, .h-print{display:none}
+    .rc-toggle{padding:6px 10px; gap:5px}
+
+    /* Section header */
     .sec-title{font-size:var(--t-2xl)}
+    .sec-head{padding-bottom:var(--s-2); margin-bottom:var(--s-3)}
+    .sec-breadcrumb{font-size:10px; gap:6px}
+    .sec-opener{font-size:var(--t-md)}
+
+    /* Cover */
+    .cover{padding:var(--s-2) 0 var(--s-4)}
+    .cover-card{border-radius:10px}
+    .cover-body{padding:var(--s-3)}
     .cover-headline{font-size:var(--t-3xl)}
     .cover-sub{font-size:var(--t-xl)}
-    .cover-stats{grid-template-columns:1fr 1fr}
-    .exp-grid{grid-template-columns:1fr}
-    .h-meta{display:none}
+    .cover-lead{font-size:var(--t-sm)}
+    .cover-stats{grid-template-columns:1fr 1fr; gap:8px}
+    .cs-tile{padding:14px; min-height:auto}
+    .cs-v{font-size:24px}
+    .cover-toc, .cover-paths{padding:var(--s-3)}
+    .cover-callout{display:none}
+
+    /* Audience widgets */
+    .seg-grid{grid-template-columns:1fr}
+    .filter-bar, .filter-bar-2{flex-direction:column; align-items:stretch; gap:8px}
+    .filter-bar .grow{min-width:0; width:100%}
+    .search-box{min-width:0; width:100%}
+    .toggle-wrap{align-self:flex-start}
+    .pill-group-label{margin-bottom:4px}
+    .downloads-bar{flex-wrap:wrap}
+    .dl-btn.primary{margin-left:0}
+    .sb-row{grid-template-columns:110px 1fr 42px; gap:8px; font-size:var(--t-xs)}
+
+    /* Expanded row — single column, fits viewport */
+    .exp-grid{grid-template-columns:1fr; gap:var(--s-2)}
+    .exp-sticky{max-width:calc(100vw - 36px)}
+    .exp-row{grid-template-columns:100px 1fr; gap:8px}
+    .exp-row .lbl{font-size:10px}
+
+    /* Other grids */
+    .spot-grid{grid-template-columns:1fr 1fr}
+    .outreach-grid{grid-template-columns:1fr}
+    .owner-grid{grid-template-columns:1fr}
+    .method-grid{grid-template-columns:1fr}
+    .seg-grid{grid-template-columns:1fr}
+
+    /* Iframes — lower height on mobile, still scrollable internally */
+    .iframe-preview.lp{height:900px}
+    .iframe-preview.cf{height:1100px}
+
+    /* Section title row — already stacked via 1100px rule */
+    .sec-title-row{flex-direction:column; align-items:flex-start; gap:6px}
+
+    /* Body table content (markdown tables) — allow horizontal scroll */
+    .sec-body table{display:block; overflow-x:auto; -webkit-overflow-scrolling:touch}
+
+    /* Next section nudge — full-width on mobile */
+    .next-inner{flex-direction:column; align-items:stretch}
+    .next-link{justify-content:center}
+    .next-cover{align-self:center}
+  }
+
+  @media (max-width:480px){
+    .cover-stats{grid-template-columns:1fr}
+    .cover-headline{font-size:28px}
+    .cover-sub{font-size:18px}
+    .cover-actions .btn{padding:11px 16px; font-size:var(--t-sm)}
+    .spot-grid{grid-template-columns:1fr}
+    .stat-grid{grid-template-columns:1fr}
+    .seg-card{padding:var(--s-2)}
+    .seg-card h3{font-size:var(--t-md)}
+    .panel{padding:var(--s-2)}
+    .iframe-preview.lp{height:700px}
+    .iframe-preview.cf{height:900px}
+    .rc-toggle .rc-label{display:none}  /* icon-only on tiny screens */
+    .sb-row{grid-template-columns:90px 1fr 40px}
+    .oc-stats{flex-wrap:wrap; gap:10px}
+  }
+
+  @media (max-width:640px){
+    .cover-callout{display:none}  /* button too close in mobile chrome — skip the pointer */
   }
 
   /* PRINT */
@@ -485,6 +579,9 @@
 
 <header class="site">
   <div class="h-inner">
+    <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Toggle navigation">
+      <span></span><span></span><span></span>
+    </button>
     <div class="brand">
       <img src="https://m2mone.com.au/wp-content/uploads/2024/09/M2M-One-Logo_RBG.png" alt="M2M One — A Semtech Company">
       <div class="divider"></div>
@@ -3835,6 +3932,24 @@ window.SPOTLIGHT = [{"name": "Acrulog Pty Ltd", "score": 85, "band": "A", "org":
     h.addEventListener('click', () => h.closest('.sb-group').classList.toggle('collapsed'));
   });
 
+  // ===== Mobile drawer (hamburger) =====
+  // Inject overlay once on init so we don't bloat the HTML payload
+  const menuOverlay = document.createElement('div');
+  menuOverlay.className = 'menu-overlay';
+  menuOverlay.id = 'menu-overlay';
+  document.body.appendChild(menuOverlay);
+  function closeMobileMenu(){ document.body.classList.remove('menu-open'); }
+  function toggleMobileMenu(){ document.body.classList.toggle('menu-open'); }
+  const menuBtn = document.getElementById('mobile-menu-toggle');
+  if (menuBtn) menuBtn.addEventListener('click', toggleMobileMenu);
+  menuOverlay.addEventListener('click', closeMobileMenu);
+  // Close menu after any sidebar link click (mobile UX)
+  document.querySelectorAll('.sidebar .sb-item').forEach(a => {
+    a.addEventListener('click', () => {
+      if (window.matchMedia('(max-width: 780px)').matches) closeMobileMenu();
+    });
+  });
+
   // ===== Print =====
   document.getElementById('print-btn').addEventListener('click', () => window.print());
 
@@ -4014,7 +4129,7 @@ window.SPOTLIGHT = [{"name": "Acrulog Pty Ltd", "score": 85, "band": "A", "org":
       </tr>`;
       if (!open) return main;
       const expand = `<tr class="expand"><td colspan="7">
-        <div class="exp-grid">
+        <div class="exp-sticky"><div class="exp-grid">
           <div>
             <div class="exp-row"><span class="lbl">Fit reason</span><span class="val">${esc(r['Fit Reason'])}</span></div>
             <div class="exp-row"><span class="lbl">Existing products / services</span><span class="val">${esc(r['Existing Products / Services'] || '—')}</span></div>
@@ -4029,7 +4144,7 @@ window.SPOTLIGHT = [{"name": "Acrulog Pty Ltd", "score": 85, "band": "A", "org":
             <div class="exp-row"><span class="lbl">Phone</span><span class="val">${esc(r['Phone'] || '—')}</span></div>
             <div class="exp-row"><span class="lbl">Recommended action</span><span class="val"><strong>${esc(r['Recommended Next Action'])}</strong></span></div>
           </div>
-        </div>
+        </div></div>
       </td></tr>`;
       return main + expand;
     }).join('');
@@ -4352,13 +4467,13 @@ window.SPOTLIGHT = [{"name": "Acrulog Pty Ltd", "score": 85, "band": "A", "org":
       if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)){ e.preventDefault(); saveComposer(); }
       if (e.key === 'Escape'){ closeComposer(); }
     });
-    // Close composer on outside click
-    document.addEventListener('mousedown', function(e){
-      if (!state.composer.open) return;
-      if (e.target.closest('#rc-composer') || e.target.closest('.rc-pin')) return;
-      // Allow header/sidebar clicks to also close the composer
-      closeComposer();
+    // Also accept Cmd/Ctrl+Enter from the name input
+    document.getElementById('rc-composer-name').addEventListener('keydown', function(e){
+      if (e.key === 'Enter' && (e.metaKey || e.ctrlKey)){ e.preventDefault(); saveComposer(); }
+      if (e.key === 'Escape'){ closeComposer(); }
     });
+    // IMPORTANT: composer no longer closes on outside click — too easy to lose work.
+    // Close only via Cancel button, Escape key, Save button, or section navigation.
   }
 
   // ---- Render ------------------------------------------------------------
@@ -4626,7 +4741,12 @@ window.SPOTLIGHT = [{"name": "Acrulog Pty Ltd", "score": 85, "band": "A", "org":
     }
     document.addEventListener('click', onContentClick, true);
     window.addEventListener('hashchange', function(){
-      closeComposer();
+      // If user navigates with an in-progress note, save it instead of discarding
+      if (state.composer.open){
+        var t = (document.getElementById('rc-composer-text').value || '').trim();
+        var n = (document.getElementById('rc-composer-name').value || '').trim() || state.name;
+        if (t && n) saveComposer(); else closeComposer();
+      }
       renderPins();
       renderList();
     });
