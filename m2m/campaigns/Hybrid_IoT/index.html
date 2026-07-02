@@ -4883,7 +4883,7 @@ window.SPOTLIGHT = [{"name": "Acrulog Pty Ltd", "score": 85, "band": "A", "org":
     document.body.appendChild(a); a.click();
     setTimeout(() => { document.body.removeChild(a); URL.revokeObjectURL(url); }, 100);
   }
-  const FULL_COLS = ['Org','Account Name','Contact Name','Contact Title','Email','Phone','Company Type','Industry / Vertical','State / Region','Country','Account Owner','Existing Products / Services','Relevant Keywords Found','Note/Task Snippets','Fit Reason','Fit Score 0-100','Priority A/B/C','Recommended Next Action','Account ID'];
+  const FULL_COLS = ['Org','Account Name','Contact Name','Contact Title','Email','Phone','Company Type','Industry / Vertical','State / Region','Country','Account Owner','Owner Status','Activity','Existing Products / Services','Relevant Keywords Found','Note/Task Snippets','Fit Reason','Fit Score 0-100','Priority A/B/C','Recommended Next Action','Account ID'];
   function vertSummary(){
     const buckets = {};
     for (const r of D.rows_all){
@@ -4908,7 +4908,7 @@ window.SPOTLIGHT = [{"name": "Acrulog Pty Ltd", "score": 85, "band": "A", "org":
     const kind = btn.dataset.csv;
     const ts = new Date().toISOString().slice(0,10);
     if (kind === 'top50') downloadCSV(`iridium_9604_top50_${ts}.csv`, FULL_COLS, D.rows_top50);
-    else if (kind === 'all') downloadCSV(`iridium_9604_all_507_${ts}.csv`, FULL_COLS, D.rows_all);
+    else if (kind === 'all') downloadCSV(`iridium_9604_all_fit_accounts_${ts}.csv`, FULL_COLS, D.rows_all);
     else if (kind === 'by-vertical') downloadCSV(`iridium_9604_by_vertical_${ts}.csv`, ['Vertical','A','B','C','Total'], vertSummary());
     else if (kind === 'by-owner') downloadCSV(`iridium_9604_by_owner_${ts}.csv`, ['Account Owner','A','B','C','Total'], ownerSummary());
     else if (kind === 'filtered') downloadCSV(`iridium_9604_filtered_${ts}.csv`, FULL_COLS, filtered());
