@@ -743,7 +743,7 @@
 <script>
 // ─── Two-Step Lead Form ───
 (function() {
-  var CRM_ENDPOINT = 'https://pkrvoxvswcghshfbtxtx.supabase.co/functions/v1/crm-submit-lead';
+  var FORM_ENDPOINT = 'https://formspree.io/f/meelyrkd';
 
   var step1 = document.getElementById('leadStep1');
   var step2 = document.getElementById('leadStep2');
@@ -822,14 +822,14 @@
     var utm = getUtm();
 
     var payload = {
-      form_name: fd.get('inquiry_type') || 'v4_website',
-      source_page: window.location.pathname,
-      full_name: (fd.get('full_name') || '').trim(),
+      _subject: 'Optiflows lead submission',
+      name: (fd.get('full_name') || '').trim(),
       email: fd.get('email'),
-      company_name: fd.get('company_name'),
+      company: fd.get('company_name'),
       message: fd.get('message'),
       inquiry_type: fd.get('inquiry_type'),
-      honeypot: fd.get('honeypot'),
+      source_page: window.location.pathname,
+      _gotcha: fd.get('honeypot'),
       utm_source: utm.utm_source,
       utm_medium: utm.utm_medium,
       utm_campaign: utm.utm_campaign,
@@ -837,11 +837,11 @@
       utm_content: utm.utm_content
     };
 
-    fetch(CRM_ENDPOINT, {
+    fetch(FORM_ENDPOINT, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'apikey': 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InBrcnZveHZzd2NnaHNoZmJ0eHR4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQyNDMwMDAsImV4cCI6MjA4OTgxOTAwMH0.CHvpce8dr83jtl99aonC3jVuxDUOjD1v4KXbPNu-avU'
+        'Accept': 'application/json'
       },
       body: JSON.stringify(payload)
     })
