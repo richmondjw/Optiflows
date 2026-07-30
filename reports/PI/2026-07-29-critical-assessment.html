@@ -1,0 +1,845 @@
+<!DOCTYPE html>
+<html lang="en-AU">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Peninsula Insider — Critical Assessment Report, July 2026</title>
+  <style>
+    :root {
+      --pi-green: #2d6a4f;
+      --pi-warm: #f9f3e8;
+      --pi-ink: #1a1a1a;
+      --pi-muted: #666;
+      --pi-border: #ddd;
+      --pi-accent: #b5451b;
+      --pi-gold: #c9a84c;
+      --rag-green: #2d6a4f;
+      --rag-amber: #c9a84c;
+      --rag-red: #b5451b;
+      --font-serif: Georgia, 'Times New Roman', serif;
+      --font-sans: 'Helvetica Neue', Arial, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--pi-ink);
+      background: #fff;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 48px 32px 80px;
+    }
+
+    h1 {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: normal;
+      line-height: 1.25;
+      margin-bottom: 8px;
+      color: var(--pi-ink);
+    }
+
+    h2 {
+      font-family: var(--font-serif);
+      font-size: 1.65rem;
+      font-weight: normal;
+      margin: 52px 0 16px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--pi-green);
+      color: var(--pi-ink);
+    }
+
+    h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin: 32px 0 10px;
+      color: var(--pi-green);
+    }
+
+    h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin: 20px 0 8px;
+      color: var(--pi-ink);
+    }
+
+    p { margin-bottom: 16px; }
+
+    ul, ol { margin: 0 0 16px 24px; }
+    li { margin-bottom: 6px; }
+
+    strong { font-weight: 700; }
+    em { font-style: italic; }
+
+    a { color: var(--pi-green); }
+
+    /* Cover block */
+    .cover {
+      border-left: 5px solid var(--pi-green);
+      padding: 28px 32px;
+      margin-bottom: 48px;
+      background: var(--pi-warm);
+    }
+    .cover .meta {
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--pi-muted);
+      margin-bottom: 12px;
+    }
+    .cover .subtitle {
+      font-size: 1.05rem;
+      color: var(--pi-muted);
+      margin-top: 8px;
+    }
+
+    /* Callout boxes */
+    .callout {
+      padding: 20px 24px;
+      margin: 24px 0;
+      border-radius: 4px;
+    }
+    .callout-verdict {
+      background: #f0f7f4;
+      border-left: 4px solid var(--pi-green);
+    }
+    .callout-warning {
+      background: #fdf8ed;
+      border-left: 4px solid var(--rag-amber);
+    }
+    .callout-critical {
+      background: #fdf2ef;
+      border-left: 4px solid var(--rag-red);
+    }
+    .callout-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+      color: var(--pi-muted);
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0 28px;
+      font-size: 0.92rem;
+    }
+    th {
+      background: var(--pi-green);
+      color: #fff;
+      padding: 10px 14px;
+      text-align: left;
+      font-weight: 600;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--pi-border);
+      vertical-align: top;
+    }
+    tr:nth-child(even) td { background: #fafafa; }
+    tr:hover td { background: #f5f5f5; }
+
+    /* RAG status badges */
+    .rag {
+      display: inline-block;
+      padding: 3px 10px;
+      border-radius: 3px;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .rag-green { background: #e8f5ee; color: var(--rag-green); border: 1px solid #b8dfc9; }
+    .rag-amber { background: #fdf8ed; color: #7a5c00; border: 1px solid #e8d08a; }
+    .rag-red { background: #fdf2ef; color: #8b2500; border: 1px solid #e8b8a8; }
+
+    /* Action list */
+    .action-item {
+      padding: 18px 20px;
+      margin-bottom: 12px;
+      border: 1px solid var(--pi-border);
+      border-radius: 4px;
+      background: #fafafa;
+    }
+    .action-item .action-num {
+      display: inline-block;
+      background: var(--pi-green);
+      color: #fff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 3px;
+      margin-right: 8px;
+      vertical-align: middle;
+    }
+    .action-item .action-title {
+      font-weight: 700;
+      font-size: 1.02rem;
+    }
+    .action-meta {
+      font-size: 0.84rem;
+      color: var(--pi-muted);
+      margin-top: 6px;
+    }
+    .action-body {
+      margin-top: 10px;
+      font-size: 0.93rem;
+    }
+
+    /* Stats grid */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin: 24px 0;
+    }
+    .stat-card {
+      border: 1px solid var(--pi-border);
+      padding: 20px;
+      border-radius: 4px;
+      text-align: center;
+    }
+    .stat-card .stat-value {
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--pi-green);
+      line-height: 1;
+      font-family: var(--font-serif);
+    }
+    .stat-card .stat-label {
+      font-size: 0.8rem;
+      color: var(--pi-muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      margin-top: 6px;
+    }
+    .stat-card.stat-red .stat-value { color: var(--rag-red); }
+    .stat-card.stat-amber .stat-value { color: #7a5c00; }
+
+    /* Divider */
+    hr {
+      border: none;
+      border-top: 1px solid var(--pi-border);
+      margin: 40px 0;
+    }
+
+    /* Footer */
+    .report-footer {
+      margin-top: 64px;
+      padding-top: 20px;
+      border-top: 1px solid var(--pi-border);
+      font-size: 0.82rem;
+      color: var(--pi-muted);
+    }
+
+    @media (max-width: 640px) {
+      body { padding: 24px 16px 60px; }
+      h1 { font-size: 1.8rem; }
+      .stats-grid { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cover">
+    <div class="meta">Internal Report &nbsp;&bull;&nbsp; Prepared by Remy, Chief of Staff &nbsp;&bull;&nbsp; 29 July 2026</div>
+    <h1>Peninsula Insider<br>Critical Assessment</h1>
+    <div class="subtitle">
+      An honest evaluation of the publication as a business, an editorial product, and an agentic content engine.
+      Prepared for James Richmond and Emma Richmond.
+    </div>
+  </div>
+
+  <!-- EXECUTIVE SUMMARY -->
+  <h2>1. Executive Summary</h2>
+
+  <p>Peninsula Insider is a well-designed publication that does not yet function as a business. The strategy is coherent. The brand voice is real. The editorial framework is sound. The technology is sophisticated. And by every conventional measure of a regional travel digital property, the foundations are genuinely strong.</p>
+
+  <p>But foundations are not outcomes. As of July 2026, after more than 12 months of development, the site has <strong>zero revenue, zero commercial partners, zero affiliate links live, no baseline subscriber count, and no behavioural analytics data</strong>. It is generating impressions on page 4 to 6 of Google. Its best-performing page accounts for 33 percent of all site clicks and that is a single article. Twenty-four clicks in 28 days.</p>
+
+  <p>The gap between what Peninsula Insider looks like as a document set and what it actually is as a business is the defining problem. The vault contains a masterpiece of strategic planning. The site contains strong editorial content. The agentic OS is functionally remarkable. And yet the platform as a commercial entity has not had a single conversation with a potential partner, has not confirmed how many newsletter subscribers it has, and cannot measure how visitors behave once they arrive.</p>
+
+  <p>This is not a failure of vision. It is a failure of sequencing. The team built the machine before confirming the machine would be used. The agentic OS is impressive engineering. But the marginal value of adding a fifteenth agent persona is zero when the site is behind a password gate and the commercial engine has never been started.</p>
+
+  <p>The differentiation is real. There is no category-leading editorial media brand on the Mornington Peninsula. The hot-springs comparison article is proof that the format works when executed well. The editorial voice eliminates the tourism-board beige that dominates the competitive set. The four brand territories are well-defined and the blend is the right blend.</p>
+
+  <p>The work for this phase is not more building. It is execution against what has already been built. Open the gate. State the newsletter baseline. Run the first commercial conversations. Publish more comparison content. Ship the concierge as a front-door product. Measure everything.</p>
+
+  <div class="callout callout-verdict">
+    <div class="callout-title">Verdict</div>
+    <p style="margin:0;"><strong>Strategically correct. Technically impressive. Commercially dormant.</strong> Peninsula Insider has the architecture of a compounding media property and the operational metrics of a site that launched last week. The unlock is not more strategy or more building. It is activation.</p>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-value">186</div>
+      <div class="stat-label">Articles published</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value">144</div>
+      <div class="stat-label">Venue pages</div>
+    </div>
+    <div class="stat-card stat-red">
+      <div class="stat-value">$0</div>
+      <div class="stat-label">Revenue, July 2026</div>
+    </div>
+    <div class="stat-card stat-red">
+      <div class="stat-value">24</div>
+      <div class="stat-label">Clicks in 28 days</div>
+    </div>
+    <div class="stat-card stat-amber">
+      <div class="stat-value">52.5</div>
+      <div class="stat-label">Avg. Google position</div>
+    </div>
+    <div class="stat-card stat-red">
+      <div class="stat-value">0</div>
+      <div class="stat-label">External backlinks</div>
+    </div>
+  </div>
+
+  <hr>
+
+  <!-- SECTION 2: PUBLICATION IDENTITY -->
+  <h2>2. The Publication: What We Are vs What We Should Be</h2>
+
+  <h3>What We Say We Are</h3>
+  <p>An independent editorial guide to the Mornington Peninsula. Opinionated. Selective. Locally informed. The trusted local layer that turns Peninsula intent into Peninsula days. A discovery, planning, and demand-routing platform. An AI-powered destination concierge. All four brand territories simultaneously.</p>
+
+  <h3>What We Actually Are (as of July 2026)</h3>
+  <p>A well-written regional travel website with strong technical foundations, 186 articles, 144 venue pages, an operational agentic content engine, and a subscriber list whose size no one has confirmed. It is publishing consistently, or was until the cadence drifted (three missed retros, W22, W23, W24). The editorial voice is real and distinct. The venue coverage is genuinely useful.</p>
+
+  <p>The gap between the stated identity and the operational reality is not hypocrisy. It is a staging problem. Peninsula Insider has built toward the stated identity correctly. The issue is that several of the most important elements of that identity require a live, visible, measurable platform to validate. You cannot be the region's trusted local discovery platform when the site is potentially behind a password gate. You cannot be an AI-powered destination concierge that earns a front-door product position when Ask PI is still buried.</p>
+
+  <h3>The Voice: Where It Works and Where It Drifts</h3>
+
+  <p>The voice rules are the right rules. No em-dashes. No tourism clichés. Specific over generic. One hard true thing per page. Named editors. The 7-phase editorial framework (Opening, Emotional Hook, Pathway, Sections, Payoffs, Planning, Ending) is load-bearing if followed. The single best page on the site, the hot-springs comparison piece, follows this logic: quick answer, at-a-glance table, decision support framing.</p>
+
+  <p>The risk is drift. With a fully agentic publication OS running agents named Tyler, Sloane, Margot, Lucien, Iris, and Vera across article production, there is a structural tension: the voice rules are written for human editors who have visited places and formed opinions. Agent-generated content can follow the framework shape without the substance. The frame is there; the visit is not.</p>
+
+  <div class="callout callout-warning">
+    <div class="callout-title">Editorial Risk Flag</div>
+    <p style="margin:0;">No commissioned photography and a reliance on stock images is the single most visible credibility gap. The brand promise is opinionated, selective, locally informed. Stock photos from generic travel libraries are the opposite of that promise. One commissioned shoot would do more for brand credibility than 20 more venue JSON files.</p>
+  </div>
+
+  <h3>Publication vs Platform: The Identity Tension</h3>
+
+  <p>The brand strategy tries to hold four territories simultaneously: Trusted Local Insider, Peninsula Planning Companion, Local Demand Router, and AI-Powered Destination Concierge. The strategy document is right that the blend is the brand. In practice, Peninsula Insider is currently operating primarily as Trusted Local Insider (the editorial publication), with planning utility built but underused, and the commercial and concierge territories essentially inactive.</p>
+
+  <p>This sequencing is, arguably, correct. You build editorial trust before you commercialise it. But the risk is that the publication identity calcifies and the commercial motion never starts. The editorial content is ready to support commercial conversations. The longer those conversations are deferred, the less plausible the Founding Partner pitch becomes as the publication ages without partners.</p>
+
+  <table>
+    <thead>
+      <tr><th>Brand Territory</th><th>Built?</th><th>Active?</th><th>Visible to User?</th><th>Status</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Trusted Local Insider</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="rag rag-green">Live</span></td></tr>
+      <tr><td>Peninsula Planning Companion</td><td>Partial</td><td>Partial</td><td>Limited</td><td><span class="rag rag-amber">Partial</span></td></tr>
+      <tr><td>Local Demand Router</td><td>Infrastructure only</td><td>No</td><td>No</td><td><span class="rag rag-red">Dormant</span></td></tr>
+      <tr><td>AI-Powered Destination Concierge</td><td>Yes (RAG over 1,619 chunks)</td><td>Yes (buried)</td><td>Barely</td><td><span class="rag rag-amber">Built, Not Promoted</span></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <!-- SECTION 3: CONTENT ENGINE -->
+  <h2>3. Content Engine Assessment</h2>
+
+  <h3>What the Engine Is</h3>
+  <p>The agentic publication OS is a genuine engineering achievement. A governed pipeline running Direction approval through Work Item state machines through agent drafting through editorial gates through CI/CD deployment. Cost caps. Cron scheduling. Daily image relevance audits. Daily accuracy scans. A 13-session newsroom of named agent personas. Content factory workflows in GitHub Actions. Post-publish verification. Publication ledger.</p>
+
+  <p>For a regional travel publication run by two people, this is extraordinary infrastructure. The question is not whether it was impressive to build. The question is what it actually produces and whether that output justifies the complexity.</p>
+
+  <h3>What It Actually Produces</h3>
+
+  <div class="callout callout-warning">
+    <div class="callout-title">The Core Content Engine Problem</div>
+    <p style="margin:0;">The engine is producing volume. It is not consistently producing the one proven format: comparison and decision pieces with quick-answer structure. The single data point we have, the hot-springs comparison, earns 33 percent of all site clicks. We have published one of these. The rest of the content production has not been retargeted toward what the data proves.</p>
+  </div>
+
+  <h4>Content Volume vs Content Effectiveness</h4>
+  <p>186 articles sounds like a large editorial library. Against 24 clicks in 28 days, it suggests that most content is not performing. The average position of 52.5 means we are on page 5 or 6 for nearly every query. The content may be well-written but it is not yet discoverable. This is primarily a backlink problem, not a content quality problem. But the content mix matters: if we are producing articles that target queries no one searches for, volume does not help.</p>
+
+  <h4>Technical Debt in the Engine</h4>
+  <p>Several indicators of technical debt are visible:</p>
+  <ul>
+    <li><strong>Stale/expired events.</strong> The git status shows deleted event files (alba-fire-and-ice-sessions, anzac-day-sorrento-dawn, autumn-winery-walk-2026, etc.). These are events that have passed. The daily accuracy scan should be catching these automatically but either the scan is not running consistently or the deletion workflow is manual.</li>
+    <li><strong>Image debt accumulating.</strong> 30 events missing hero images as of a June note, growing at approximately 4 per day. The image relevance audit is specced but whether it is running at the required cadence is unclear.</li>
+    <li><strong>Three consecutive missing editorial retros.</strong> W22, W23, W24. The rhythm that the operating model is built on has visibly broken down. The cron is specced but the cron is not the accountability mechanism. The retro is the accountability mechanism.</li>
+    <li><strong>6 of 19 towns not covered.</strong> Blairgowrie, Safety Beach, Rosebud, McCrae, Arthurs Seat, Shoreham represent real search demand. The engine has not closed these gaps despite months of operation.</li>
+  </ul>
+
+  <h4>The Agent Persona Question</h4>
+  <p>The newsroom has 13+ named personas: Tyler (EIC), Sloane (Managing Editor), Margot (Executive Editor), Lucien (Food and Drink), Iris (Culture and Events), Vera (Copy Chief), Freya (Audience), Dex (Insights), Cora, Rowan, Mira, Pip (governance layer), with Phase 3 agents beyond that. This is a sophisticated editorial hierarchy design.</p>
+
+  <p>The honest question is: how many distinct, active agent voices are genuinely producing differentiated content versus how many are conceptual roles that in practice run as the same underlying model with a persona prompt? Agent persona proliferation is a design pattern that can add clarity or add confusion. The test is whether removing a persona would produce measurably different content output. If removing Vera's copy check would not change the published content, Vera is not doing work.</p>
+
+  <table>
+    <thead>
+      <tr><th>Engine Component</th><th>Specced</th><th>Running</th><th>Verified Live</th><th>Assessment</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Agentic publication OS</td><td>Yes</td><td>Yes</td><td>Yes (July 2026)</td><td><span class="rag rag-green">Live</span></td></tr>
+      <tr><td>Daily image relevance audit</td><td>Yes</td><td>Unclear</td><td>No clear evidence</td><td><span class="rag rag-amber">Uncertain</span></td></tr>
+      <tr><td>Daily accuracy scan</td><td>Yes</td><td>Unclear</td><td>No clear evidence</td><td><span class="rag rag-amber">Uncertain</span></td></tr>
+      <tr><td>Event expiry/cleanup</td><td>Partial</td><td>No (manual deletion visible)</td><td>No</td><td><span class="rag rag-red">Broken</span></td></tr>
+      <tr><td>Publishing cadence cron</td><td>Yes</td><td>Drifted (3 missed retros)</td><td>Inconsistent</td><td><span class="rag rag-amber">Drifted</span></td></tr>
+      <tr><td>Content factory CI/CD</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="rag rag-green">Live</span></td></tr>
+      <tr><td>Post-publish verification</td><td>Yes</td><td>Yes</td><td>Yes</td><td><span class="rag rag-green">Live</span></td></tr>
+      <tr><td>Entity index / RAG rebuild</td><td>Yes</td><td>Blocked (SUPABASE_SERVICE_KEY expired June)</td><td>No</td><td><span class="rag rag-red">Blocked</span></td></tr>
+      <tr><td>Comparison content pipeline</td><td>No dedicated pipeline</td><td>N/A</td><td>1 article manually</td><td><span class="rag rag-red">Missing</span></td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <!-- SECTION 4: MARKETING AND DISTRIBUTION -->
+  <h2>4. Marketing and Distribution Strategy</h2>
+
+  <h3>The SEO Reality</h3>
+
+  <p>The SEO foundations are genuinely strong. Full schema markup across venue and place pages. 102 FAQ answers. 667 internal links with no orphan pages. Core Web Vitals green. Unique keyword-targeted titles. Valid structured data enforced at build via Zod. This is not the problem.</p>
+
+  <p>The problem is that strong on-page SEO with zero external backlinks produces position 52.5 on average. Google does not rank pages purely on technical quality. It ranks pages on authority, and authority is primarily a function of who links to you. The site has been publishing for over a year with no systematic backlink acquisition program. This single gap explains almost everything about the current traffic position.</p>
+
+  <div class="callout callout-critical">
+    <div class="callout-title">The Number One Traffic Problem</div>
+    <p style="margin:0;">Zero external backlinks. Not a low number. Zero. Every piece of content, every venue page, every FAQ answer, every schema tag is invisible to Google's authority algorithm without external references. The strategy docs named this "the single biggest unlock" correctly. It has not happened.</p>
+  </div>
+
+  <h4>What the Data Tells Us</h4>
+  <p>1,975 impressions in 28 days. 24 clicks. Average position 52.5. The bright spot: the hot-springs comparison article earns 33 percent of all clicks at position 24.4. Two anchors within it (quick answer, at-a-glance table) rank at position 4.2, featured-snippet grade.</p>
+
+  <p>This is not a failed site. It is a site that has proven one thing: the decision/comparison format with structured quick-answer copy is the right content shape. It ranks. It earns clicks. And it is currently a pillar of one. The content engine has not been redirected toward systematically producing more of this format.</p>
+
+  <h4>The Password Gate Problem</h4>
+  <p>The strategy document from July 2026 names this as "Decision 1" of the next phase: the site is behind a client-side password gate. This caps acquisition regardless of ranking. If someone finds Peninsula Insider in search results and lands on a gated page, the acquisition opportunity is gone. The strategy correctly identifies that you cannot grow or retain an owned audience behind a wall. This decision needs to be made and executed as the highest-priority gate.</p>
+
+  <h3>Newsletter: The Most Important Unknown</h3>
+
+  <p>The newsletter subscriber baseline is unconfirmed in the vault. This is described in the July 2026 strategy as "the number-one blocking open question" because newsletter sponsorship cannot be priced without it. The Beehiiv integration is live. The welcome email is designed. The newsletter identity (The Insider's Dispatch) is defined. But no one has stated how many subscribers there are.</p>
+
+  <p>There are two possibilities: the count is low and confirming it feels discouraging, or the count genuinely is not known. Either way, the number needs to be stated. A small but real subscriber base at a known size is more commercially useful than an unknown number, because the unknown prevents any action.</p>
+
+  <h3>Social Media: One Channel, Thin</h3>
+  <p>LinkedIn is live via Buffer. Instagram is pending photography. No paid social. No referral traffic. No cross-promotion with other Peninsula operators yet. One social channel at what is probably an early-stage posting cadence is not a distribution engine. It is a checkbox.</p>
+
+  <p>The missing channel is Instagram, and the missing channel matters because Peninsula Insider's content is primarily visual-emotional (wine country, coastal walks, cellar doors, long lunches). Instagram is the natural native habitat for this content. The blocker is photography, and the photography blocker is entirely within James's control to resolve. One commissioned day with a local photographer would unlock the channel the brand is most naturally suited to.</p>
+
+  <table>
+    <thead>
+      <tr><th>Distribution Channel</th><th>Status</th><th>Quality</th><th>Priority</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Organic search (Google)</td><td>Active, page 4-6</td><td><span class="rag rag-amber">Amber</span></td><td>P1: backlinks</td></tr>
+      <tr><td>Newsletter (Beehiiv)</td><td>Live, baseline unknown</td><td><span class="rag rag-amber">Amber</span></td><td>P1: state the baseline</td></tr>
+      <tr><td>LinkedIn (Buffer)</td><td>Active</td><td><span class="rag rag-amber">Amber</span></td><td>P2: content quality</td></tr>
+      <tr><td>Instagram</td><td>Pending photography</td><td><span class="rag rag-red">Red</span></td><td>P1: commission a shoot</td></tr>
+      <tr><td>Direct / referral</td><td>None</td><td><span class="rag rag-red">Red</span></td><td>P2: partner links</td></tr>
+      <tr><td>Paid social / search</td><td>None</td><td><span class="rag rag-red">Red</span></td><td>P3: post-baseline</td></tr>
+      <tr><td>PR / media mentions</td><td>None</td><td><span class="rag rag-red">Red</span></td><td>P2: Peninsula Essence outreach</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <!-- SECTION 5: COMMERCIAL ENGINE -->
+  <h2>5. Commercial Engine: Built but Idle</h2>
+
+  <p>The commercial infrastructure is detailed and well-designed. The CRM is forked. Email templates are drafted. Target operators are identified (Jackalope, Pt Leo Estate, Hotel Sorrento, Continental Sorrento, Montalto, Peninsula Hot Springs, Alba Thermal Springs, Ten Minutes by Tractor, The Baths Sorrento, Polperro). The Founding Partner Package is defined at A$1,250 per quarter, capped at 25 partners, 3 to 5 per category. The tier ladder, editorial firewall statement, and partnership benefits are documented.</p>
+
+  <p>None of this has been used. As of July 2026:</p>
+  <ul>
+    <li>Zero partnership outreach conversations started</li>
+    <li>Zero Founding Partners signed</li>
+    <li>Zero revenue</li>
+    <li>All AWIN affiliate programs still pending approval</li>
+    <li>No commercial-editorial labelling policy finalised</li>
+    <li>No media kit or rate card in external-facing format</li>
+    <li>No partnership page on the site</li>
+  </ul>
+
+  <div class="callout callout-critical">
+    <div class="callout-title">The Execution Gap</div>
+    <p style="margin:0;">The commercial strategy has been in the vault since approximately April 2026. The first wave of 10 target operators includes venues like Jackalope Hotel and Peninsula Hot Springs that are already featured on the site with editorial coverage. These are warm outreach conversations, not cold ones. Every month without starting them is a month of wasted relationship heat.</p>
+  </div>
+
+  <h3>Why the Commercial Engine Has Not Started</h3>
+
+  <p>The most likely explanation is sequencing logic that has become a sequencing trap. The strategy documents argue: build editorial trust first, then commercialise. This is reasonable editorial logic. The commercial conversations were deferred pending a stronger content base, better venue coverage, and a more professional-looking site. The site now has those things. The deferral logic has expired.</p>
+
+  <p>The owner split defined in the July 2026 strategy is: Emma owns the outward commercial motion. James owns the build and the offer. If Emma has not started outreach, the question is whether she has the commercial-editorial labelling policy, a media kit, and a mandate to proceed. The mandate should already exist. The labelling policy needs to be written in the next two weeks. The media kit is a single-page document that can be drafted in a day.</p>
+
+  <h3>Affiliate Revenue: Also Idle</h3>
+  <p>Every AWIN affiliate program (Booking.com, Expedia, Wotif, Viator, GetYourGuide) has been pending approval since at least April 2026. Pending is not a state. It requires follow-up. AWIN applications do not self-approve. If these applications were submitted, someone needs to check their status and chase them if they are still pending after 90+ days. If they were not formally submitted, they need to be submitted today.</p>
+
+  <hr>
+
+  <!-- SECTION 6: DIFFERENTIATION -->
+  <h2>6. Differentiation Analysis</h2>
+
+  <h3>What Is Genuinely Different</h3>
+
+  <p>Three things about Peninsula Insider are genuinely distinctive and not easily replicated:</p>
+
+  <h4>1. Editorial selectivity with named editors</h4>
+  <p>Every venue page carries an editor note. Every article has a byline. The voice is opinionated and specific. No other regional destination platform in the competitive set does this. Visit Mornington Peninsula cannot do it because they represent all members equally. Broadsheet does not have local editors embedded on the Peninsula. Urban List produces listicles. The selectivity is real and it compounds: the more venues Peninsula Insider declines to cover, the more the coverage it does provide is trusted.</p>
+
+  <h4>2. Structured entity data at scale</h4>
+  <p>516 registered entities in typed content collections with full schema markup is a machine-readable local knowledge graph. This is what makes the RAG concierge possible. This is what makes the site AI-citable. When AI systems answer "what are the best wineries near Sorrento," a site with structured entity data and schema markup is the source they cite. Generic directories and social feeds are not. This structural advantage will compound as AI-mediated discovery grows.</p>
+
+  <h4>3. The agentic content engine itself</h4>
+  <p>No other regional travel publication in Australia has a fully agentic content OS with governed pipelines, cost caps, and a multi-persona newsroom. This is a genuine first-mover position. The question is whether the first-mover advantage is being used, or whether it is being spent on building agent personas instead of producing content that earns rankings.</p>
+
+  <h3>What Does Not Differentiate</h3>
+
+  <table>
+    <thead>
+      <tr><th>Claimed Differentiator</th><th>Reality</th><th>Verdict</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>AI-Powered Destination Concierge</td>
+        <td>Built, but buried. Not a front-door product. Average user almost certainly has not used it.</td>
+        <td><span class="rag rag-amber">Built, not activated</span></td>
+      </tr>
+      <tr>
+        <td>Planning tools (saves, itineraries)</td>
+        <td>Infrastructure exists in Supabase. Not prominently surfaced or driven to.</td>
+        <td><span class="rag rag-amber">Underused</span></td>
+      </tr>
+      <tr>
+        <td>Weekly dispatch / newsletter</td>
+        <td>Live on Beehiiv. Subscriber count unknown. Cannot be called a differentiator until it has a meaningful audience.</td>
+        <td><span class="rag rag-amber">Unvalidated</span></td>
+      </tr>
+      <tr>
+        <td>Commission-free editorial</td>
+        <td>True, but not visible or communicated clearly enough. The "no advertising" positioning needs to be front-page stated.</td>
+        <td><span class="rag rag-amber">True but undersold</span></td>
+      </tr>
+      <tr>
+        <td>Photography quality</td>
+        <td>Currently stock images. This actively works against differentiation.</td>
+        <td><span class="rag rag-red">Not yet differentiated</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>What Compounds</h3>
+  <p>Three things compound in Peninsula Insider's favour if work continues:</p>
+  <ul>
+    <li><strong>Entity graph depth.</strong> Every new venue page, event, and experience adds a node to a machine-readable knowledge base. This compounds for AI citation and search coverage simultaneously.</li>
+    <li><strong>Newsletter audience.</strong> If the newsletter is published consistently and grows, it becomes an asset that cannot be disintermediated by algorithm changes. Each subscriber compounds.</li>
+    <li><strong>Backlinks.</strong> Once even a handful of external links exist from credible tourism, media, and venue sources, domain authority begins to compound. The first 10 backlinks are harder to earn than the next 100.</li>
+  </ul>
+
+  <h3>What Does Not Compound</h3>
+  <ul>
+    <li><strong>Agent persona count.</strong> Building more newsroom personas does not compound without more published content that earns traffic.</li>
+    <li><strong>Internal documentation at scale.</strong> A 17-section vault with 200+ files is a knowledge asset. But vault growth without corresponding site and audience growth is not compounding in the business sense.</li>
+    <li><strong>Strategy revisions without execution.</strong> The July 2026 strategy correctly named this: "the documents are ahead of the business." A fourth strategy revision would not compound.</li>
+  </ul>
+
+  <hr>
+
+  <!-- SECTION 7: LONG-TERM VIABILITY -->
+  <h2>7. The Automated Content Engine: Long-Term Viability</h2>
+
+  <h3>Is It Sustainable?</h3>
+
+  <p>The agentic publication OS is sustainable if three conditions hold:</p>
+  <ol>
+    <li><strong>The governance gates remain enforced.</strong> Cost caps and editorial gates are the guardrails against content drift and runaway spend. If these erode under production pressure, quality degrades and costs spiral.</li>
+    <li><strong>Human judgement remains in the loop at the right points.</strong> The model is agent-drafts, human-approves for editorial decisions. This is correct. The risk is approval fatigue: if every article requires a full review pass from James or Emma, the agentic advantage disappears. The solution is tighter first-level quality gates on agent output so human review is genuinely targeted at editorial decisions, not proofreading.</li>
+    <li><strong>The expired Supabase service key is rotated.</strong> The service key expired approximately June 7, 2026. This blocks the entity index rebuild, deploy-time registry refresh, and MC auth. It has been unresolved for 50+ days. This is a system-integrity issue that will progressively degrade the quality of concierge responses as new content is added without being indexed.</li>
+  </ol>
+
+  <h3>Is It Scalable?</h3>
+
+  <p>The architecture is genuinely scalable. The content pipeline is code-native. The entity schema is extensible. The content collections can hold thousands of entities. The RAG concierge can index more content chunks without architectural changes. The CI/CD pipeline handles growth.</p>
+
+  <p>The scaling constraint is not technical capacity. It is editorial quality maintenance at scale. As content volume grows, the probability that individual pieces drift from the editorial framework increases. The governance layer (Cora for voice drift, Rowan for taxonomy, Mira for image trust) is designed to address this. Whether these roles are actively running audits or are conceptual titles is the question.</p>
+
+  <h3>Is It Producing Genuine Value?</h3>
+
+  <p>This is the hardest question to answer honestly. The engine is producing content. Whether it is producing content that earns rankings, engages readers, and supports the publication's commercial mission is currently unmeasured.</p>
+
+  <p>The one data point we have (the comparison article) suggests that the right content format, well-executed, does perform. The risk is that the engine is optimised for production throughput rather than content effectiveness. 186 articles averaging position 52.5 suggests many of these articles are not yet contributing to discoverability.</p>
+
+  <div class="callout callout-warning">
+    <div class="callout-title">The Vanity Metrics Risk</div>
+    <p style="margin:0;">Article count is a vanity metric without backlinks and ranking data to support it. 186 articles at position 52.5 is not 186 articles working. It may be 1 to 5 articles working and 181 articles waiting for the domain authority that only backlinks can provide. Until the backlink problem is solved, article volume is not a meaningful success signal.</p>
+  </div>
+
+  <h3>Recommendation: Redirect the Engine</h3>
+
+  <p>The engine has proven it can produce content. The next phase should redirect it toward:</p>
+  <ol>
+    <li><strong>Comparison and decision pieces.</strong> Specifically: winery A vs winery B, town A vs town B, hot-springs comparison sequel, occasion-based guides (best for a Sunday in winter, best for first-timers, best for families). These are the formats the data proves work.</li>
+    <li><strong>The 6 uncovered towns.</strong> Blairgowrie, Safety Beach, Rosebud, McCrae, Arthurs Seat, Shoreham. Real search demand, zero coverage.</li>
+    <li><strong>Snippet rewrite campaign.</strong> The data shows high impression, low click pages (wedding venues at position 90, /eat/ at position 57, town hubs at 69-75). Rewriting these snippets for click-through is the fastest traffic gain available without new content.</li>
+  </ol>
+
+  <hr>
+
+  <!-- SECTION 8: 10 CRITICAL ACTIONS -->
+  <h2>8. The 10 Most Critical Actions</h2>
+  <p>Ranked by impact, with owners and rough timelines. Not suggestions. Required actions for this phase.</p>
+
+  <div class="action-item">
+    <span class="action-num">01</span>
+    <span class="action-title">Remove or evaluate the password gate</span>
+    <div class="action-meta">Owner: James &nbsp;&bull;&nbsp; Timeline: This week &nbsp;&bull;&nbsp; Impact: Unlocks all acquisition</div>
+    <div class="action-body">No audience growth is possible behind a client-side password gate. Confirm whether the gate is still live. If yes, make the decision: remove it entirely, or move to a host-level gate with a hard removal date. Every day this is unresolved caps the entire acquisition funnel.</div>
+  </div>
+
+  <div class="action-item">
+    <span class="action-num">02</span>
+    <span class="action-title">State the newsletter subscriber baseline</span>
+    <div class="action-meta">Owner: James / Emma &nbsp;&bull;&nbsp; Timeline: Today &nbsp;&bull;&nbsp; Impact: Unblocks all commercial pricing</div>
+    <div class="action-body">Log into Beehiiv. Write down the subscriber count, open rate, and click-through rate. Record it in the vault. This single number unblocks newsletter sponsorship pricing, growth target setting, and the commercial conversations Emma needs to have. The baseline does not need to be impressive. It needs to exist.</div>
+  </div>
+
+  <div class="action-item">
+    <span class="action-num">03</span>
+    <span class="action-title">Rotate the expired Supabase service key</span>
+    <div class="action-meta">Owner: James &nbsp;&bull;&nbsp; Timeline: This week &nbsp;&bull;&nbsp; Impact: Restores entity index, concierge, MC auth</div>
+    <div class="action-body">The SUPABASE_SERVICE_KEY GitHub secret expired June 7, 2026. It has been unresolved for 50+ days. Generate a new service role key from the Supabase dashboard, update the GitHub repo secret, and confirm the entity index rebuild runs cleanly in the next CI pass. Every governed article published without this fix is not being indexed into the concierge correctly.</div>
+  </div>
+
+  <div class="action-item">
+    <span class="action-num">04</span>
+    <span class="action-title">Start the first Founding Partner outreach conversations</span>
+    <div class="action-meta">Owner: Emma &nbsp;&bull;&nbsp; Timeline: This month &nbsp;&bull;&nbsp; Impact: First revenue, validates commercial model</div>
+    <div class="action-body">The commercial strategy has been documented since April 2026. The 10 target venues are warm: Jackalope, Pt Leo Estate, Hotel Sorrento, Continental Sorrento, Peninsula Hot Springs, Montalto, Ten Minutes by Tractor, The Baths Sorrento, Stillwater at Crittenden, Polperro. Emma's job is to contact three of these this month. Not email a rate card. Contact, have a conversation, understand their marketing priorities, present the Founding Partner concept. The goal is not to close in month one. It is to start.</div>
+  </div>
+
+  <div class="action-item">
+    <span class="action-num">05</span>
+    <span class="action-title">Commission a photography shoot</span>
+    <div class="action-meta">Owner: James / Emma &nbsp;&bull;&nbsp; Timeline: 4 weeks &nbsp;&bull;&nbsp; Impact: Unlocks Instagram, lifts brand credibility</div>
+    <div class="action-body">One day with a local Peninsula photographer would produce 30-50 usable images across venues, landscapes, food, and atmosphere. This unlocks the Instagram channel completely, eliminates the stock-image credibility gap on the highest-traffic venue pages, and gives the newsletter a native visual identity. Budget estimate: A$800-1,500 for a half-day commissioned shoot. This is not optional for a premium editorial brand.</div>
+  </div>
+
+  <div class="action-item">
+    <span class="action-num">06</span>
+    <span class="action-title">Chase and finalise AWIN affiliate applications</span>
+    <div class="action-meta">Owner: James &nbsp;&bull;&nbsp; Timeline: This week &nbsp;&bull;&nbsp; Impact: First passive revenue stream</div>
+    <div class="action-body">Applications for Booking.com, Expedia, Wotif, Viator, and GetYourGuide have been pending since at least April 2026. Log into AWIN, check the status of each application, and either chase the ones pending approval or resubmit if they have lapsed. Once approved, swapping direct venue booking links for affiliate-tracked links on the 30+ accommodation pages is a one-day code change with ongoing revenue upside.</div>
+  </div>
+
+  <div class="action-item">
+    <span class="action-num">07</span>
+    <span class="action-title">Publish 5 more comparison and decision articles</span>
+    <div class="action-meta">Owner: Remy / editorial engine &nbsp;&bull;&nbsp; Timeline: 4 weeks &nbsp;&bull;&nbsp; Impact: Most proven ranking format</div>
+    <div class="action-body">The hot-springs comparison article at position 24.4 is the only one of its kind on the site. It earns 33% of all clicks. The engine should produce at minimum 5 more in the same format within the next 4 weeks: Sorrento vs Portsea (weekend base), best wineries for first-timers vs serious drinkers, Red Hill vs Main Ridge for a cellar door day, Peninsula Hot Springs vs Alba (sequel with 2026 updates), best beaches by type (swimming vs walking vs dogs). Each should have a quick-answer, at-a-glance table, and planning value section.</div>
+  </div>
+
+  <div class="action-item">
+    <span class="action-num">08</span>
+    <span class="action-title">Register Google Business Profile and claim first 5 backlinks</span>
+    <div class="action-meta">Owner: James &nbsp;&bull;&nbsp; Timeline: 2 weeks &nbsp;&bull;&nbsp; Impact: Domain authority starts compounding</div>
+    <div class="action-body">Register Peninsula Insider as a media publisher on Google Business Profile. Submit to Visit Victoria and Australian Tourism Data Warehouse directories. Email Peninsula Essence and Mornington Peninsula Leader to introduce the publication. Email the first 5 Founding Partner targets and ask for a link to their peninsula-insider.com.au venue page. Each of these is a low-effort, no-cost action. The first 10 backlinks are the hardest to earn and they make every subsequent ranking easier.</div>
+  </div>
+
+  <div class="action-item">
+    <span class="action-num">09</span>
+    <span class="action-title">Wire GA4 into the data pipeline</span>
+    <div class="action-meta">Owner: Remy / James &nbsp;&bull;&nbsp; Timeline: 2 weeks &nbsp;&bull;&nbsp; Impact: Unlocks behavioural baseline</div>
+    <div class="action-body">GA4 is empty: 0 of 642 performance rows carry behavioural data. GSC data exists but only tells us about search impressions and clicks. On-site behaviour (time on page, scroll depth, concierge usage, save rates, newsletter conversion) is currently invisible. Wiring GA4 into the pi_performance_daily ingest layer is a one-time technical task that unlocks half the measurement capability needed for Phase 2.</div>
+  </div>
+
+  <div class="action-item">
+    <span class="action-num">10</span>
+    <span class="action-title">Promote Ask PI concierge to front-door product position</span>
+    <div class="action-meta">Owner: Remy &nbsp;&bull;&nbsp; Timeline: 2 weeks &nbsp;&bull;&nbsp; Impact: Brand territory 4 activated; AI-era positioning</div>
+    <div class="action-body">Run the 100-query quality test on the concierge. If it passes the source-card quality bar, move Ask PI from a buried feature to a homepage-visible, front-door product. This is the AI-era differentiator. When discovery shifts toward AI-mediated planning, a local concierge with structured entity data and source cards is more valuable than any amount of traditional SEO. It should be the first thing visitors see, not the last thing they discover.</div>
+  </div>
+
+  <hr>
+
+  <!-- SECTION 9: SCORECARD -->
+  <h2>9. Scorecard</h2>
+  <p>RAG status across all major dimensions as of 29 July 2026.</p>
+
+  <table>
+    <thead>
+      <tr><th>Dimension</th><th>Component</th><th>Status</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="4"><strong>Editorial</strong></td>
+        <td>Voice and tone rules</td>
+        <td><span class="rag rag-green">Green</span></td>
+        <td>Well-defined, specific, no em-dashes enforced</td>
+      </tr>
+      <tr>
+        <td>Editorial framework</td>
+        <td><span class="rag rag-green">Green</span></td>
+        <td>7-phase framework documented and in production</td>
+      </tr>
+      <tr>
+        <td>Publishing cadence</td>
+        <td><span class="rag rag-amber">Amber</span></td>
+        <td>3 missed retros (W22-W24). Cadence has drifted.</td>
+      </tr>
+      <tr>
+        <td>Photography quality</td>
+        <td><span class="rag rag-red">Red</span></td>
+        <td>Stock images. No commissioned content. Active credibility gap.</td>
+      </tr>
+      <tr>
+        <td rowspan="4"><strong>Content</strong></td>
+        <td>Article volume</td>
+        <td><span class="rag rag-green">Green</span></td>
+        <td>186 articles is a strong library for a regional publication</td>
+      </tr>
+      <tr>
+        <td>Content effectiveness</td>
+        <td><span class="rag rag-amber">Amber</span></td>
+        <td>1 proven format (comparison). Rest at position 50+.</td>
+      </tr>
+      <tr>
+        <td>Town coverage gaps</td>
+        <td><span class="rag rag-amber">Amber</span></td>
+        <td>6 of 19 towns uncovered</td>
+      </tr>
+      <tr>
+        <td>Event accuracy / freshness</td>
+        <td><span class="rag rag-red">Red</span></td>
+        <td>Stale events in git, image debt accumulating</td>
+      </tr>
+      <tr>
+        <td rowspan="4"><strong>Technology</strong></td>
+        <td>Astro static site</td>
+        <td><span class="rag rag-green">Green</span></td>
+        <td>Performant, correct architecture for this use case</td>
+      </tr>
+      <tr>
+        <td>Supabase / concierge</td>
+        <td><span class="rag rag-amber">Amber</span></td>
+        <td>Entity index rebuild blocked by expired service key</td>
+      </tr>
+      <tr>
+        <td>Agentic OS</td>
+        <td><span class="rag rag-green">Green</span></td>
+        <td>Operational with governed pipeline and cost caps</td>
+      </tr>
+      <tr>
+        <td>Analytics (GA4)</td>
+        <td><span class="rag rag-red">Red</span></td>
+        <td>Empty. No behavioural baseline exists.</td>
+      </tr>
+      <tr>
+        <td rowspan="5"><strong>Marketing</strong></td>
+        <td>On-page SEO</td>
+        <td><span class="rag rag-green">Green</span></td>
+        <td>Strong: schema, FAQ, internal linking, Core Web Vitals</td>
+      </tr>
+      <tr>
+        <td>Off-page SEO (backlinks)</td>
+        <td><span class="rag rag-red">Red</span></td>
+        <td>Zero external backlinks. Single biggest unlock.</td>
+      </tr>
+      <tr>
+        <td>Newsletter</td>
+        <td><span class="rag rag-amber">Amber</span></td>
+        <td>Live but baseline unconfirmed. Cannot be sized commercially.</td>
+      </tr>
+      <tr>
+        <td>Social media</td>
+        <td><span class="rag rag-amber">Amber</span></td>
+        <td>LinkedIn active. Instagram blocked by photography gap.</td>
+      </tr>
+      <tr>
+        <td>Password gate</td>
+        <td><span class="rag rag-red">Red</span></td>
+        <td>Caps all acquisition until resolved</td>
+      </tr>
+      <tr>
+        <td rowspan="5"><strong>Commercial</strong></td>
+        <td>Commercial strategy</td>
+        <td><span class="rag rag-green">Green</span></td>
+        <td>Well-defined: Founding Partner Package, tier ladder, GTM</td>
+      </tr>
+      <tr>
+        <td>Partner outreach</td>
+        <td><span class="rag rag-red">Red</span></td>
+        <td>Zero conversations started</td>
+      </tr>
+      <tr>
+        <td>Revenue</td>
+        <td><span class="rag rag-red">Red</span></td>
+        <td>$0 as of July 2026</td>
+      </tr>
+      <tr>
+        <td>Affiliate programs</td>
+        <td><span class="rag rag-red">Red</span></td>
+        <td>All AWIN applications pending 90+ days. Not chased.</td>
+      </tr>
+      <tr>
+        <td>Media kit / rate card</td>
+        <td><span class="rag rag-red">Red</span></td>
+        <td>No external-facing commercial collateral prepared</td>
+      </tr>
+      <tr>
+        <td rowspan="3"><strong>Positioning</strong></td>
+        <td>Category leadership potential</td>
+        <td><span class="rag rag-green">Green</span></td>
+        <td>No category-leading competitor exists. Position is winnable.</td>
+      </tr>
+      <tr>
+        <td>Concierge as differentiator</td>
+        <td><span class="rag rag-amber">Amber</span></td>
+        <td>Built and working. Not front-door. Not being used as a differentiator.</td>
+      </tr>
+      <tr>
+        <td>AI citability / AEO readiness</td>
+        <td><span class="rag rag-amber">Amber</span></td>
+        <td>Good schema and structure. No llms.txt. No citation tracking.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Overall Assessment</h3>
+
+  <table>
+    <thead>
+      <tr><th>Category</th><th>Score</th><th>Direction</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Editorial quality</td><td><span class="rag rag-green">7 / 10</span></td><td>Strong but photography debt and cadence drift drag it down</td></tr>
+      <tr><td>Technical architecture</td><td><span class="rag rag-green">8 / 10</span></td><td>Genuinely strong. SUPABASE_SERVICE_KEY expiry is the main open issue.</td></tr>
+      <tr><td>Content engine productivity</td><td><span class="rag rag-amber">5 / 10</span></td><td>Volume is there. Effectiveness against proven formats is not.</td></tr>
+      <tr><td>Marketing and distribution</td><td><span class="rag rag-red">3 / 10</span></td><td>Zero backlinks, password gate, empty GA4, one social channel.</td></tr>
+      <tr><td>Commercial execution</td><td><span class="rag rag-red">1 / 10</span></td><td>Zero revenue, zero partners, zero affiliate links live.</td></tr>
+      <tr><td>Differentiation and positioning</td><td><span class="rag rag-amber">6 / 10</span></td><td>Genuine in editorial. Concierge and planning utility undersold.</td></tr>
+      <tr><td><strong>Overall</strong></td><td><strong><span class="rag rag-amber">5 / 10</span></strong></td><td>Strategically correct. Technically impressive. Commercially dormant.</td></tr>
+    </tbody>
+  </table>
+
+  <hr>
+
+  <div class="callout callout-verdict">
+    <div class="callout-title">Final Note</div>
+    <p>Peninsula Insider is a real publication with a real editorial voice, a real competitive position, and a real compounding asset in its entity graph and agentic OS. None of the problems identified here require more strategy, more architecture, or more agent personas to fix. They require execution: opening the gate, starting commercial conversations, committing to the content format that works, rotating the key, commissioning photography, and chasing the AWIN applications. The opportunity is intact. The window is not.</p>
+  </div>
+
+  <div class="report-footer">
+    Prepared by Remy, Chief of Staff &mdash; Peninsula Insider &bull; 29 July 2026 &bull; DELI-51 &bull; Internal only
+  </div>
+
+</body>
+</html>
