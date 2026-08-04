@@ -482,7 +482,7 @@ const PERIODS = [
 function readState() {
   const p = new URLSearchParams(location.search);
   const s = {
-    register: p.get("register") === "analyse" ? "analyse" : "report",
+    register: p.get("register") === "report" ? "report" : "analyse",
     view: p.get("view") || "",
     bu: p.get("bu") || "M2M_AU",
     period: p.get("period") || "fy27",
@@ -1063,8 +1063,8 @@ function render() {
   // topbar: register toggle + BU tabs
   const regs = document.getElementById("register-tabs");
   if (regs) regs.innerHTML =
-    `<button type="button" data-register="report" aria-pressed="${s.register === "report"}">Report</button>` +
-    `<button type="button" data-register="analyse" aria-pressed="${s.register === "analyse"}">Analyse</button>`;
+    `<button type="button" data-register="analyse" aria-pressed="${s.register === "analyse"}">Analyse</button>` +
+    `<button type="button" data-register="report" aria-pressed="${s.register === "report"}">Report</button>`;
   const tabs = document.getElementById("bu-tabs");
   tabs.innerHTML = BUS.concat([GROUP]).map(b =>
     `<button type="button" aria-pressed="${s.bu === b.code}" data-bu="${b.code}">${b.code === "GROUP" ? "Group" : esc(b.label)}</button>`).join("");
