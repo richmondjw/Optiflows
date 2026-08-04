@@ -6,52 +6,57 @@
 <style>
 :root{--ink:#003640;--ink2:#0a4a55;--teal:#00AFAA;--teald:#008985;--tint:#e8f6f6;
 --green:#5FB286;--greend:#4a9971;--greenbg:#eaf6f1;--g1:#f5f6f7;--g2:#e6e7ea;--g3:#98989a;--g4:#666;
---rule:#e0e5e6;--gold:#FEC221}
+--rule:#e0e5e6}
 *{box-sizing:border-box}
 body{margin:0;font-family:'Open Sans',system-ui,-apple-system,sans-serif;color:var(--ink);background:#fff;
 background-image:radial-gradient(var(--g2) 1px,transparent 1px);background-size:24px 24px;background-attachment:fixed}
-body::before{content:"";position:fixed;inset:0;background:rgba(255,255,255,.6);z-index:-1}
-.wrap{max-width:1080px;margin:0 auto;padding:0 30px 90px}
-header{padding:52px 0 34px;border-bottom:1px solid var(--rule);display:flex;align-items:flex-end;
+body::before{content:"";position:fixed;inset:0;background:rgba(255,255,255,.62);z-index:-1}
+.wrap{max-width:1180px;margin:0 auto;padding:0 30px 90px}
+header{padding:52px 0 32px;border-bottom:1px solid var(--rule);display:flex;align-items:flex-end;
 justify-content:space-between;gap:26px;flex-wrap:wrap}
 .logo{width:196px}.logo svg{width:100%;height:auto;display:block}
 .hmeta{font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--g3);font-weight:700;
 text-align:right;line-height:1.7}
-.hero{padding:54px 0 12px}
+.hero{padding:52px 0 6px}
 .eyebrow{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--teald)}
 h1{font-size:clamp(32px,4.6vw,52px);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin:13px 0 0;max-width:17ch}
 h1 span{color:var(--teal)}
-.lede{font-size:clamp(17px,1.8vw,21px);font-weight:300;color:var(--g4);margin-top:17px;max-width:56ch;line-height:1.55}
-.grp{margin-top:52px}
-.grph{display:flex;align-items:baseline;justify-content:space-between;border-bottom:1px solid var(--rule);
-padding-bottom:11px;margin-bottom:22px}
-.gname{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em;color:var(--ink)}
-.gcount{font-size:11px;color:var(--g3);font-variant-numeric:tabular-nums}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:20px}
-.card{display:flex;flex-direction:column;border:1px solid var(--rule);border-radius:6px;padding:24px;background:#fff;
-text-decoration:none;color:inherit;transition:border-color .16s,box-shadow .16s,transform .16s}
-.card:hover{border-color:var(--teal);box-shadow:0 6px 20px rgba(0,54,64,.09);transform:translateY(-2px)}
-.ctop{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:13px}
-.tag{font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;border-radius:3px}
+.lede{font-size:clamp(17px,1.8vw,21px);font-weight:300;color:var(--g4);margin-top:17px;max-width:58ch;line-height:1.55}
+.tblhd{display:flex;align-items:baseline;justify-content:space-between;margin-top:52px;
+border-bottom:1px solid var(--rule);padding-bottom:11px}
+.tblhd .l{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em}
+.tblhd .r{font-size:11px;color:var(--g3)}
+.tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;min-width:900px}
+thead th{text-align:left;font-size:10px;text-transform:uppercase;letter-spacing:.13em;color:var(--g3);
+font-weight:700;padding:15px 14px 11px;border-bottom:1px solid var(--rule);white-space:nowrap}
+tbody tr{border-bottom:1px solid var(--g1);transition:background .13s}
+tbody tr:hover{background:var(--g1)}
+td{padding:20px 14px;vertical-align:top;font-size:13.5px;line-height:1.6}
+td.dt{white-space:nowrap;width:132px}
+.dlab{font-weight:700;font-size:12.5px;color:var(--ink);font-variant-numeric:tabular-nums}
+td.tt{width:250px}
+.rt{font-size:16px;font-weight:800;letter-spacing:-.015em;color:var(--ink);text-decoration:none;line-height:1.3}
+.rt:hover{color:var(--teald);text-decoration:underline}
+.rt.nolink{color:var(--g4)}
+.lk{font-size:10px;margin-left:7px;opacity:.5;vertical-align:1px}
+.bu{font-size:10.5px;color:var(--g3);margin-top:5px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+td.pp{color:var(--g4);font-weight:300;min-width:290px}
+td.au{color:var(--g4);font-size:12.5px;width:186px}
+td.st{width:106px}
+.tag{font-size:9.5px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px;
+border-radius:3px;white-space:nowrap}
 .tag.cur{background:var(--tint);color:var(--teald)}
 .tag.int{background:var(--g1);color:var(--g4)}
 .tag.arc{background:var(--g1);color:var(--g3)}
-.per{font-size:11px;color:var(--g3);font-variant-numeric:tabular-nums}
-.card h3{font-size:19.5px;font-weight:800;letter-spacing:-.02em;margin:0;line-height:1.25}
-.csub{font-size:13.5px;color:var(--g4);margin:9px 0 0;line-height:1.55;font-weight:300}
-.pts{margin:15px 0 0;padding:0 0 0 17px}
-.pts li{font-size:12.5px;color:var(--g4);line-height:1.6;margin-bottom:4px}
-.cmeta{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;margin-top:auto;
-padding-top:17px;font-size:11px;color:var(--g3);line-height:1.6}
-.cmeta b{color:var(--ink);font-size:11.5px}
-.lock{white-space:nowrap;font-size:10px;color:var(--g3)}
-.lock::before{content:"\1F512";margin-right:4px}
-.go{margin-top:15px;padding-top:14px;border-top:1px solid var(--g1);font-size:12.5px;font-weight:700;color:var(--teald)}
-.note{margin-top:56px;border-left:3px solid var(--green);background:var(--greenbg);padding:19px 23px;
-border-radius:0 4px 4px 0;font-size:13.5px;line-height:1.65;color:var(--ink)}
-footer{margin-top:58px;padding-top:22px;border-top:1px solid var(--rule);font-size:11px;color:var(--g3);line-height:1.7}
-@media(max-width:640px){.wrap{padding:0 18px 60px}header{padding-top:34px}.hmeta{text-align:left}
-.grid{grid-template-columns:1fr}}
+td.op{width:104px;white-space:nowrap}
+.open{font-size:12.5px;font-weight:700;color:var(--teald);text-decoration:none}
+.open:hover{text-decoration:underline}
+.na{font-size:11.5px;color:var(--g3)}
+.note{margin-top:48px;border-left:3px solid var(--green);background:var(--greenbg);padding:19px 23px;
+border-radius:0 4px 4px 0;font-size:13.5px;line-height:1.65}
+footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--rule);font-size:11px;color:var(--g3);line-height:1.7}
+@media(max-width:720px){.wrap{padding:0 18px 60px}header{padding-top:34px}.hmeta{text-align:left}}
 </style></head><body>
 <div class="wrap">
 <header><div class="logo"><svg viewBox="0 0 318 91" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -84,17 +89,25 @@ footer{margin-top:58px;padding-top:22px;border-top:1px solid var(--rule);font-si
 
 <div class="hero"><div class="eyebrow">Reporting</div>
 <h1>Performance reporting for <span>M2M One</span>.</h1>
-<p class="lede">A single place for reporting across sales, inbound and marketing performance. Reports are added here as they are produced; each one is dated and scoped to the period it covers.</p></div>
+<p class="lede">Every report produced for the business, newest first. Each one states what it was
+built to answer and who it was written for, so the right report is easy to find months later.</p></div>
 
-<div class="grp"><div class="grph"><span class="gname">Sales & Inbound</span><span class="gcount">1 report</span></div><div class="grid"><a class="card" href="/m2m/report/">
-<div class="ctop"><span class="tag cur">Current</span><span class="per">Feb – Jul 2026</span></div>
-<h3>Inbound Lead Performance</h3>
-<p class="csub">Is inbound down? Volume, mix, lead value and a rep scoreboard.</p>
-<ul class="pts"><li>Inbound volume and enquiry mix, year on year</li><li>What a lead is worth, by source</li><li>Response times and a six-month rep scoreboard</li></ul>
-<div class="cmeta"><div><b>Jane McGrath — Sales Manager</b><br>Published 4 August 2026</div><span class="lock">Password protected</span></div>
-<div class="go">Open report &rarr;</div></a></div></div>
+<div class="tblhd"><span class="l">All reports</span><span class="r">1 report &middot; newest first</span></div>
+<div class="tw"><table>
+<thead><tr><th>Date</th><th>Title</th><th>Purpose</th><th>Audience</th><th>Status</th><th></th></tr></thead>
+<tbody><tr>
+<td class="dt"><span class="dlab">August 2026</span></td>
+<td class="tt"><a class="rt" href="/m2m/report/">Inbound Lead Performance</a><span class="lk" title="Password protected">&#128274;</span><div class="bu">M2M One AU</div></td>
+<td class="pp">Answer whether inbound leads are down for M2M One, and show sales where volume, lead quality and rep performance actually stand.</td>
+<td class="au">Jane McGrath — Sales Manager, M2M One</td>
+<td class="st"><span class="tag cur">Current</span></td>
+<td class="op"><a class="open" href="/m2m/report/">Open &rarr;</a></td></tr></tbody></table></div>
 
-<div class="note"><b>About these reports.</b> Each report is a point-in-time analysis of the period stated on its card, built directly from source systems rather than manual exports. Figures are not restated once published &mdash; where a later report supersedes an earlier one, the earlier is marked as archive so the record of what was known, and when, stays intact. Reports are password protected; contact James Richmond for access.</div>
+<div class="note"><b>About these reports.</b> Each is a point-in-time analysis of the period stated
+inside it, built directly from source systems rather than manual exports. Figures are not restated
+once published &mdash; where a later report supersedes an earlier one, the earlier is marked
+<b>Archive</b> rather than removed, so the record of what was known, and when, stays intact.
+Reports are password protected; contact James Richmond for access.</div>
 
 <footer>M2M One &mdash; a Semtech company &middot; Prepared by OptiFlows<br>
 Last updated 4 August 2026 &middot; Not for external distribution</footer>
