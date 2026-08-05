@@ -13,17 +13,6 @@
       "status": "Current"
     },
     {
-      "section": "Diagnostics",
-      "date": "August 2026",
-      "sort": "2026-08-01",
-      "title": "Lead Performance Diagnostic",
-      "bu": "M2M One AU",
-      "href": "/m2m/report/technical/",
-      "purpose": "Technical companion to the inbound report — how each figure was derived, where tracking breaks, and which numbers carry caveats.",
-      "audience": "Marketing analyst",
-      "status": "Current"
-    },
-    {
       "section": "Performance",
       "date": "July 2026",
       "sort": "2026-07-01",
@@ -44,39 +33,6 @@
       "purpose": "Outcome of the nurture programme — audience, email performance, converted customers and where sales ownership sits. Supporting contact data withheld.",
       "audience": "Sales + marketing",
       "status": "Current"
-    },
-    {
-      "section": "Diagnostics",
-      "date": "May 2026",
-      "sort": "2026-05-25",
-      "title": "Paid Landing &amp; Campaign Analysis (Tier 1)",
-      "bu": "M2M One AU",
-      "href": "/m2m/reports/analysis-tier1/",
-      "purpose": "Where paid traffic to /sims/ and /iot-esim/ actually converts, the channel × landing-page matrix, and campaign impression share.",
-      "audience": "Marketing analyst",
-      "status": "Archive"
-    },
-    {
-      "section": "Diagnostics",
-      "date": "May 2026",
-      "sort": "2026-05-25",
-      "title": "Region, Device &amp; Event Analysis (Tier 2)",
-      "bu": "M2M One AU",
-      "href": "/m2m/reports/analysis-tier2/",
-      "purpose": "Google Ads performance split by region, device and hour of day, plus the GA4 event reconciliation that closes the 3,260 → 301 gap.",
-      "audience": "Marketing analyst",
-      "status": "Archive"
-    },
-    {
-      "section": "Diagnostics",
-      "date": "May 2026",
-      "sort": "2026-05-25",
-      "title": "Attribution &amp; Keyword Analysis (Tier 3)",
-      "bu": "M2M One AU",
-      "href": "/m2m/reports/analysis-tier3/",
-      "purpose": "Multi-touch attribution and conversion paths, plus refreshed keyword performance and what is still needed to answer brand vs product.",
-      "audience": "Marketing analyst",
-      "status": "Archive"
     },
     {
       "section": "Strategy",
