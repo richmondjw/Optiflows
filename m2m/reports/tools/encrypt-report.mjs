@@ -28,6 +28,7 @@ import { dirname, resolve } from 'node:path';
 import { pbkdf2Sync, randomBytes, createCipheriv } from 'node:crypto';
 
 const ITERATIONS = 250000;
+const ROBOTS = '<meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">';
 // Any already-encrypted report works as the shell donor; this one is the
 // library's original and defines the house look for the unlock screen.
 const TEMPLATE = resolve(process.argv[1], '../../../report/index.html');
@@ -96,7 +97,17 @@ let { head, tail } = shellFrom(TEMPLATE);
 head = head
   .replace(/<title>[\s\S]*?<\/title>/, `<title>${esc(title)}</title>`)
   .replace(/<h1>[\s\S]*?<\/h1>/, `<h1>${esc(title)}</h1>`)
-  .replace(/<p class="sub">[\s\S]*?<\/p>/, `<p class="sub">${esc(sub)}</p>`);
+  .replace(/<p class="sub">[\s\S]*?<\/p>/, `<p class="sub">${esc(sub)}</p>`)
+  // Nothing under /m2m/ is ever indexable. Forced here rather than inherited
+  // from the donor shell, so a template change can never silently drop it.
+  .replace(/<meta name="robots"[^>]*>/i, ROBOTS);
+if (!head.includes(ROBOTS)) {
+  head = head.replace(/(<meta charset="[^"]*">)/i, `$1\n${ROBOTS}`);
+}
+if (!head.includes(ROBOTS)) {
+  console.error('refusing to publish: could not apply the noindex directive');
+  process.exit(3);
+}
 if (foot) {
   head = head.replace(/<div class="foot">[\s\S]*?<\/div>/, `<div class="foot">${esc(foot)}</div>`);
 }

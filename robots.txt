@@ -1,8 +1,11 @@
 User-agent: *
 Allow: /
 
-# Keep internal Peninsula Insider reports out of crawlers. Meta robots directives
-# on each report remain the authoritative per-page noindex instruction.
+# Internal report libraries. Every page under these paths also carries a
+# per-page <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,
+# noimageindex">, which is the authoritative instruction — a Disallow alone
+# stops crawling but does not remove a URL that is already indexed.
 Disallow: /reports/pi/
+Disallow: /m2m/
 
 Sitemap: https://www.optiflows.com.au/sitemap.xml
