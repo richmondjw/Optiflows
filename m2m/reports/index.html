@@ -8,9 +8,7 @@
 --green:#5FB286;--greend:#4a9971;--greenbg:#eaf6f1;--g1:#f5f6f7;--g2:#e6e7ea;--g3:#98989a;--g4:#666;
 --rule:#e0e5e6}
 *{box-sizing:border-box}
-body{margin:0;font-family:'Open Sans',system-ui,-apple-system,sans-serif;color:var(--ink);background:#fff;
-background-image:radial-gradient(var(--g2) 1px,transparent 1px);background-size:24px 24px;background-attachment:fixed}
-body::before{content:"";position:fixed;inset:0;background:rgba(255,255,255,.62);z-index:-1}
+body{margin:0;font-family:'Open Sans',system-ui,-apple-system,sans-serif;color:var(--ink);background:#fff}
 .wrap{max-width:1180px;margin:0 auto;padding:0 30px 90px}
 header{padding:52px 0 32px;border-bottom:1px solid var(--rule);display:flex;align-items:flex-end;
 justify-content:space-between;gap:26px;flex-wrap:wrap}
@@ -22,8 +20,7 @@ text-align:right;line-height:1.7}
 h1{font-size:clamp(32px,4.6vw,52px);font-weight:800;letter-spacing:-.035em;line-height:1.05;margin:13px 0 0;max-width:17ch}
 h1 span{color:var(--teal)}
 .lede{font-size:clamp(17px,1.8vw,21px);font-weight:300;color:var(--g4);margin-top:17px;max-width:58ch;line-height:1.55}
-.tblhd{display:flex;align-items:baseline;justify-content:space-between;margin-top:46px;
-border-bottom:1px solid var(--rule);padding-bottom:11px}
+.tblhd{display:flex;align-items:baseline;justify-content:space-between;margin-top:54px;padding-bottom:2px}
 .tblhd .l{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.14em}
 .tblhd .r{font-size:11px;color:var(--g3)}
 .tw{overflow-x:auto;-webkit-overflow-scrolling:touch}
@@ -39,7 +36,6 @@ td.tt{width:250px}
 .rt{font-size:16px;font-weight:800;letter-spacing:-.015em;color:var(--ink);text-decoration:none;line-height:1.3}
 .rt:hover{color:var(--teald);text-decoration:underline}
 .rt.nolink{color:var(--g4)}
-.lk{font-size:10px;margin-left:7px;opacity:.5;vertical-align:1px}
 .bu{font-size:10.5px;color:var(--g3);margin-top:5px;letter-spacing:.06em;text-transform:uppercase;font-weight:700}
 td.pp{color:var(--g4);font-weight:300;min-width:290px}
 td.au{color:var(--g4);font-size:12.5px;width:186px}
@@ -49,46 +45,39 @@ border-radius:3px;white-space:nowrap}
 .tag.cur{background:var(--tint);color:var(--teald)}
 .tag.int{background:var(--g1);color:var(--g4)}
 .tag.arc{background:var(--g1);color:var(--g3)}
-td.op{width:104px;white-space:nowrap}
-.open{font-size:12.5px;font-weight:700;color:var(--teald);text-decoration:none}
-.open:hover{text-decoration:underline}
 .na{font-size:11.5px;color:var(--g3)}
-.note{margin-top:48px;border-left:3px solid var(--green);background:var(--greenbg);padding:19px 23px;
-border-radius:0 4px 4px 0;font-size:13.5px;line-height:1.65}
-footer{margin-top:54px;padding-top:22px;border-top:1px solid var(--rule);font-size:11px;color:var(--g3);line-height:1.7}
+.note{margin-top:52px;padding-top:22px;border-top:1px solid var(--rule);font-size:12.5px;line-height:1.7;
+color:var(--g4);font-weight:300}
+.note p{margin:0;max-width:88ch}
+.note b{font-weight:700;color:var(--ink)}
+footer{margin-top:38px;font-size:11px;color:var(--g3);line-height:1.7}
 @media(max-width:720px){.wrap{padding:0 18px 60px}header{padding-top:34px}.hmeta{text-align:left}}
-.prototype{margin-top:42px;border:1px solid #e8c98e;border-radius:4px;background:#fff9ee;overflow:hidden}
-.prototype-card{display:grid;grid-template-columns:minmax(210px,1.25fr) minmax(260px,2fr) minmax(145px,.8fr) auto;align-items:center;gap:24px;padding:20px 22px;color:var(--ink);text-decoration:none}.prototype-card:hover{background:#fff5e2}.prototype-title{font-size:16px;font-weight:800;letter-spacing:-.015em;line-height:1.3}.prototype-sub{color:#715d37;font-size:13px;line-height:1.55}.prototype-status{display:inline-block;padding:4px 7px;background:#f7dda7;color:#694a0a;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.prototype-open{font-size:12.5px;font-weight:700;color:#805b11;white-space:nowrap}@media(max-width:720px){.prototype{margin-top:34px}.prototype-card{grid-template-columns:1fr;gap:10px;padding:18px}.prototype-open{margin-top:2px}}
+.prototype{margin-top:54px;border:1px solid #eddfc2;border-radius:3px;background:#fffdf7;overflow:hidden}
+.prototype-card{display:grid;grid-template-columns:minmax(210px,1.25fr) minmax(240px,2fr) auto auto;align-items:center;gap:26px;padding:20px 22px;color:var(--ink);text-decoration:none}.prototype-card:hover{background:#fffaee}.prototype-title{font-size:15px;font-weight:800;letter-spacing:-.015em;line-height:1.3}.prototype-sub{color:#7d6a45;font-size:12px;font-weight:300;line-height:1.55}.prototype-status{display:inline-block;padding:3px 7px;background:transparent;border:1px solid #e2cd9f;color:#7a5c14;font-size:9px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;white-space:nowrap}.prototype-open{font-size:11.5px;font-weight:700;color:#7a5c14;white-space:nowrap}@media(max-width:720px){.prototype{margin-top:34px}.prototype-card{grid-template-columns:1fr;gap:10px;padding:18px}.prototype-open{margin-top:2px}}
 <!-- BEGIN generated:styles -->
-.controls{display:flex;flex-wrap:wrap;gap:18px 26px;align-items:center;margin-top:34px;padding:14px 0 13px;border-bottom:1px solid var(--rule)}
+.controls{display:flex;flex-wrap:wrap;gap:14px 24px;align-items:center;margin-top:20px;padding:0 0 16px}
 .fgroup{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
 .flabel{font-size:9.5px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:var(--g3);margin-right:2px}
 .chip{font:inherit;font-size:11px;font-weight:600;color:var(--g4);background:#fff;border:1px solid var(--g2);
 border-radius:11px;padding:3px 11px;cursor:pointer;transition:all .12s;white-space:nowrap}
 .chip:hover{border-color:var(--teal);color:var(--teald)}
-.chip.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip.on{background:var(--tint);border-color:var(--tint);color:var(--teald)}
 .search{margin-left:auto}
 .search input{font:inherit;font-size:12px;padding:5px 11px;border:1px solid var(--g2);border-radius:3px;width:190px;color:var(--ink)}
 .search input:focus{outline:2px solid var(--teal);outline-offset:1px;border-color:transparent}
 thead th{padding:12px 12px 9px;font-size:9.5px}
-td{padding:10px 12px;font-size:12px;line-height:1.5}
-td.sc{width:96px}
-.sec{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g4)}
-.sec-performance{color:var(--teald)}
-.sec-diagnostics{color:#6b7f86}
-.sec-campaign{color:var(--greend)}
-.sec-strategy{color:#8a6d3b}
+td{padding:11px 12px;font-size:12px;line-height:1.5}
+td.sc{width:104px}
+.sec{font-size:9.5px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;color:var(--g3)}
 td.dt{width:104px}
-.dlab{font-size:11.5px}
-td.tt{width:224px}
+.dlab{font-size:11.5px;font-weight:600}
+td.tt{width:238px}
 .rt{font-size:14px}
-.bu{font-size:9.5px;margin-top:3px}
-td.pp{min-width:250px;font-size:12px}
-td.au{width:166px;font-size:11.5px}
-td.st{width:92px}
+.bu{font-size:9.5px;margin-top:4px;font-weight:600;color:var(--g3)}
+td.pp{min-width:300px;font-size:12px}
+td.au{width:172px;font-size:11.5px}
+td.st{width:96px}
 .tag{font-size:9px;padding:3px 7px}
-td.op{width:86px}
-.open{font-size:11.5px}
 tbody tr.hide{display:none}
 .empty{padding:34px 12px;text-align:center;color:var(--g3);font-size:12.5px}
 @media(max-width:720px){.search{margin-left:0;width:100%}.search input{width:100%}}
@@ -124,63 +113,42 @@ tbody tr.hide{display:none}
 
 <!-- BEGIN generated:table -->
 <div class="tblhd"><span class="l">All reports</span><span class="r" id="rcount"></span></div>
-<div class="controls">
 
-<div class="fgroup"><span class="flabel">Section</span>
-<button class="chip on" data-filter="section" data-value="">All</button>
-<button class="chip" data-filter="section" data-value="performance">Performance</button><button class="chip" data-filter="section" data-value="campaign">Campaign</button><button class="chip" data-filter="section" data-value="strategy">Strategy</button>
-</div>
-
-<div class="fgroup"><span class="flabel">Status</span>
-<button class="chip on" data-filter="status" data-value="">All</button>
-<button class="chip" data-filter="status" data-value="current">Current</button><button class="chip" data-filter="status" data-value="archive">Archive</button>
-</div>
-
-<div class="fgroup"><span class="flabel">Business unit</span>
-<button class="chip on" data-filter="bu" data-value="">All</button>
-<button class="chip" data-filter="bu" data-value="m2m-one-au">M2M One AU</button><button class="chip" data-filter="bu" data-value="m2m-connectivity">M2M Connectivity</button>
-</div>
-<div class="search"><input type="search" id="q" placeholder="Search reports&hellip;" aria-label="Search reports"></div>
-</div>
 <div class="tw"><table>
-<thead><tr><th>Section</th><th>Date</th><th>Title</th><th>Purpose</th><th>Audience</th><th>Status</th><th></th></tr></thead>
+<thead><tr><th>Section</th><th>Date</th><th>Title</th><th>Purpose</th><th>Audience</th><th>Status</th></tr></thead>
 <tbody>
 <tr data-section="performance" data-bu="m2m-one-au" data-status="current"
  data-search="inbound-lead-performance-answer-whether-inbound-leads-are-down-for-m2m-one-and-show-sales-where-volume-lead-quality-and-rep-performance-actually-stand-jane-mcgrath-sales-manager-m2m-one-m2m-one-au-performance">
 <td class="sc"><span class="sec sec-performance">Performance</span></td>
 <td class="dt"><span class="dlab">August 2026</span></td>
-<td class="tt"><a class="rt" href="/m2m/report/">Inbound Lead Performance</a><span class="lk" title="Password protected">&#128274;</span><div class="bu">M2M One AU</div></td>
+<td class="tt"><a class="rt" href="/m2m/report/">Inbound Lead Performance</a><div class="bu">M2M One AU</div></td>
 <td class="pp">Answer whether inbound leads are down for M2M One, and show sales where volume, lead quality and rep performance actually stand.</td>
 <td class="au">Jane McGrath — Sales Manager, M2M One</td>
-<td class="st"><span class="tag cur">Current</span></td>
-<td class="op"><a class="open" href="/m2m/report/">Open &rarr;</a></td></tr>
+<td class="st"><span class="tag cur">Current</span></td></tr>
 <tr data-section="performance" data-bu="m2m-connectivity" data-status="current"
  data-search="marketing-performance-sales-view-show-the-m2m-connectivity-sales-team-what-marketing-is-putting-into-the-pipeline-spend-leads-campaign-performance-and-where-visibility-breaks-sales-m2m-connectivity-m2m-connectivity-performance">
 <td class="sc"><span class="sec sec-performance">Performance</span></td>
 <td class="dt"><span class="dlab">July 2026</span></td>
-<td class="tt"><a class="rt" href="/m2m/reports/mmc-marketing-performance/">Marketing Performance — Sales View</a><span class="lk" title="Password protected">&#128274;</span><div class="bu">M2M Connectivity</div></td>
+<td class="tt"><a class="rt" href="/m2m/reports/mmc-marketing-performance/">Marketing Performance — Sales View</a><div class="bu">M2M Connectivity</div></td>
 <td class="pp">Show the M2M Connectivity sales team what marketing is putting into the pipeline — spend, leads, campaign performance and where visibility breaks.</td>
 <td class="au">Sales — M2M Connectivity</td>
-<td class="st"><span class="tag cur">Current</span></td>
-<td class="op"><a class="open" href="/m2m/reports/mmc-marketing-performance/">Open &rarr;</a></td></tr>
+<td class="st"><span class="tag cur">Current</span></td></tr>
 <tr data-section="campaign" data-bu="m2m-one-au" data-status="current"
  data-search="nurture-programme-outcome-of-the-nurture-programme-audience-email-performance-converted-customers-and-where-sales-ownership-sits-supporting-contact-data-withheld-sales-marketing-m2m-one-au-campaign">
 <td class="sc"><span class="sec sec-campaign">Campaign</span></td>
 <td class="dt"><span class="dlab">June 2026</span></td>
-<td class="tt"><a class="rt" href="/m2m/reports/nurture-programme/">Nurture Programme</a><span class="lk" title="Password protected">&#128274;</span><div class="bu">M2M One AU</div></td>
+<td class="tt"><a class="rt" href="/m2m/reports/nurture-programme/">Nurture Programme</a><div class="bu">M2M One AU</div></td>
 <td class="pp">Outcome of the nurture programme — audience, email performance, converted customers and where sales ownership sits. Supporting contact data withheld.</td>
 <td class="au">Sales + marketing</td>
-<td class="st"><span class="tag cur">Current</span></td>
-<td class="op"><a class="open" href="/m2m/reports/nurture-programme/">Open &rarr;</a></td></tr>
+<td class="st"><span class="tag cur">Current</span></td></tr>
 <tr data-section="strategy" data-bu="m2m-one-au" data-status="archive"
  data-search="the-anz-inbound-growth-engine-give-the-global-marketing-team-a-clear-view-of-how-inbound-is-functioning-in-anz-the-operating-model-behind-it-and-what-can-be-replicated-global-marketing-team-m2m-one-au-strategy">
 <td class="sc"><span class="sec sec-strategy">Strategy</span></td>
 <td class="dt"><span class="dlab">March 2026</span></td>
-<td class="tt"><a class="rt" href="/m2m/reports/growth-engine/">The ANZ Inbound Growth Engine</a><span class="lk" title="Password protected">&#128274;</span><div class="bu">M2M One AU</div></td>
+<td class="tt"><a class="rt" href="/m2m/reports/growth-engine/">The ANZ Inbound Growth Engine</a><div class="bu">M2M One AU</div></td>
 <td class="pp">Give the global marketing team a clear view of how inbound is functioning in ANZ — the operating model behind it, and what can be replicated.</td>
 <td class="au">Global marketing team</td>
-<td class="st"><span class="tag arc">Archive</span></td>
-<td class="op"><a class="open" href="/m2m/reports/growth-engine/">Open &rarr;</a></td></tr>
+<td class="st"><span class="tag arc">Archive</span></td></tr>
 </tbody></table>
 <div class="empty" id="empty" style="display:none">No reports match those filters.</div></div>
 <!-- END generated:table -->
@@ -189,11 +157,11 @@ tbody tr.hide{display:none}
 <a class="prototype-card" href="/m2m/reports/m2m-intelligence/"><div class="prototype-title" id="m2m-intelligence-title">Prototype Sales and Marketing Intelligence Dashboard - live</div><div class="prototype-sub">Working prototype for marketing intelligence dashboard. Group-wide reporting for M2M One AU, M2M Connectivity and M2M One NZ.</div><span class="prototype-status">Prototype · password protected</span><span class="prototype-open">Open &rarr;</span></a>
 </section>
 
-<div class="note"><b>About these reports.</b> Each is a point-in-time analysis of the period stated
+<div class="note"><p><b>About these reports.</b> Each is a point-in-time analysis of the period stated
 inside it, built directly from source systems rather than manual exports. Figures are not restated
 once published &mdash; where a later report supersedes an earlier one, the earlier is marked
 <b>Archive</b> rather than removed, so the record of what was known, and when, stays intact.
-Reports are password protected; contact James Richmond for access.</div>
+Reports are password protected; contact James Richmond for access.</p></div>
 
 <footer>M2M Group &middot; Internal reporting library<br>
 Last updated 5 August 2026 &middot; Not for external distribution</footer>
@@ -222,7 +190,8 @@ Last updated 5 August 2026 &middot; Not for external distribution</footer>
    b.classList.add('on'); f[k]=b.dataset.value; apply();
   });
  });
- document.getElementById('q').addEventListener('input',function(e){
+ var qi=document.getElementById('q');
+ if(qi)qi.addEventListener('input',function(e){
   q=e.target.value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,''); apply();
  });
  apply();
