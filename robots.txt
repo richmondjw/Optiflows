@@ -7,5 +7,6 @@ Allow: /
 # stops crawling but does not remove a URL that is already indexed.
 Disallow: /reports/pi/
 Disallow: /m2m/
+Disallow: /design/
 
 Sitemap: https://www.optiflows.com.au/sitemap.xml
