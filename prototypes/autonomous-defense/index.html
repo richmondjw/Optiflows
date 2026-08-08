@@ -1,0 +1,342 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Optiflows / OF-100 Autonomous Operations — Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;600;700;800&family=Barlow+Condensed:wght@500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --orange:#FF5A1F; --white:#FFFFFF; --black:#141414; --rule:#E4E4E0; --plate:#2E2E2A;
+  --mod: clamp(40px, 8.3333vw, 118px);
+  --mono:'JetBrains Mono', ui-monospace, monospace;
+  --grot:'Archivo', Helvetica, Arial, sans-serif;
+  --cond:'Barlow Condensed', sans-serif;
+}
+*{box-sizing:border-box; margin:0; padding:0; border-radius:0}
+html{scroll-behavior:smooth}
+body{background:var(--white); color:var(--black); font-family:var(--grot); -webkit-font-smoothing:antialiased}
+a{color:inherit; text-decoration:none}
+
+/* ── drawn construction grid: 1px rules + crosses at every intersection ── */
+.gridbg{position:absolute; inset:0; pointer-events:none;
+  background-image:linear-gradient(90deg,var(--rule) 1px,transparent 1px),linear-gradient(180deg,var(--rule) 1px,transparent 1px);
+  background-size:var(--mod) 100%, 100% var(--mod);}
+.gridbg::after{content:''; position:absolute; inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 43v14M43 50h14' stroke='%23E4E4E0' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");
+  background-size:var(--mod) var(--mod);
+  background-position:calc(var(--mod)/-2) calc(var(--mod)/-2);}
+.gridbg--dark{background-image:linear-gradient(90deg,rgba(255,255,255,.09) 1px,transparent 1px),linear-gradient(180deg,rgba(255,255,255,.09) 1px,transparent 1px)}
+.gridbg--dark::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 43v14M43 50h14' stroke='rgba(255,255,255,0.22)' stroke-width='1.6' fill='none'/%3E%3C/svg%3E")}
+.gridbg--ink{background-image:linear-gradient(90deg,rgba(20,20,20,.13) 1px,transparent 1px),linear-gradient(180deg,rgba(20,20,20,.13) 1px,transparent 1px)}
+.gridbg--ink::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M50 43v14M43 50h14' stroke='rgba(20,20,20,0.30)' stroke-width='1.6' fill='none'/%3E%3C/svg%3E")}
+
+.mono{font-family:var(--mono); text-transform:uppercase; letter-spacing:.14em}
+.cap{font-family:var(--mono); font-size:9px; letter-spacing:.18em; text-transform:uppercase; color:#7A7A74}
+/* content blocks occupy whole modules — every edge lands on a drawn grid line */
+.slide{position:relative; overflow:hidden; padding:var(--mod)}
+.inner{position:relative}
+
+/* ── nav ── */
+nav{position:sticky; top:0; z-index:40; background:var(--white); border-bottom:1px solid var(--rule);
+  display:flex; align-items:center; justify-content:space-between; gap:16px; padding:0 clamp(14px,3vw,26px); height:54px}
+.brandbox{display:flex; align-items:stretch; height:100%}
+.brandbox .code{display:flex; align-items:center; padding:0 12px; background:var(--orange); color:var(--black);
+  font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.12em}
+.brandbox .nm{display:flex; align-items:center; gap:5px; padding:0 16px; font-weight:800; font-size:15px; letter-spacing:-.02em; border-right:1px solid var(--rule)}
+.brandbox .nm sup{font-size:8px; font-weight:500}
+.navlinks{display:flex; gap:22px; font-family:var(--mono); font-size:9.5px; letter-spacing:.16em; text-transform:uppercase; color:#6E6E68}
+.navlinks a:hover{color:var(--orange)}
+.navcta{font-family:var(--mono); font-size:9.5px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  border:1px solid var(--black); padding:9px 13px; transition:.18s}
+.navcta:hover{background:var(--orange); border-color:var(--orange)}
+
+/* ── slide 01 : white grid ── */
+.s-white{background:var(--white); min-height:calc(100svh - 54px); display:flex; align-items:center}
+.brackets::before,.brackets::after{content:''; position:absolute; width:26px; height:26px; border:1px solid var(--black)}
+.brackets::before{top:0; left:0; border-right:0; border-bottom:0}
+.brackets::after{bottom:0; right:0; border-left:0; border-top:0}
+.hero{display:flex; flex-direction:column; gap:calc(var(--mod) * .62); padding:calc(var(--mod)*.5) 0}
+.hero-top{display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; align-items:flex-start}
+h1{display:flex; flex-wrap:wrap; column-gap:var(--mod); row-gap:4px;
+  font-size:clamp(40px,7.6vw,104px); font-weight:800; letter-spacing:-.035em; line-height:.94}
+h1 span{display:inline-block; animation:rise .7s cubic-bezier(.2,.7,.2,1) both}
+h1 span:nth-child(2){animation-delay:.09s} h1 span:nth-child(3){animation-delay:.18s}
+.hero-sub{max-width:52ch; font-size:16.5px; line-height:1.62; color:#3A3A36; text-wrap:pretty}
+.hero-foot{display:flex; justify-content:space-between; align-items:flex-end; gap:26px; flex-wrap:wrap;
+  border-top:1px solid var(--rule); padding-top:16px}
+.hero-foot .mono{font-size:9px; line-height:1.9; color:#7A7A74; letter-spacing:.13em}
+.hero-foot .claim{font-size:13px; font-weight:600; max-width:34ch; text-align:right}
+.actions{display:flex; gap:10px; flex-wrap:wrap; margin-top:6px}
+.btn{font-family:var(--mono); font-size:10px; font-weight:700; letter-spacing:.14em; text-transform:uppercase;
+  padding:15px 20px; background:var(--orange); color:var(--black); border:1px solid var(--orange); transition:.18s}
+.btn:hover{background:var(--black); color:var(--orange); border-color:var(--black)}
+.btn--ghost{background:transparent; color:var(--black); border-color:var(--black)}
+.btn--ghost:hover{background:var(--black); color:var(--white)}
+.twin{display:flex; gap:3px; align-items:center; font-size:19px; line-height:1; color:var(--orange)}
+.twin i{display:block; width:13px; height:13px; border:1.5px solid currentColor; border-radius:50%; animation:orbit 9s linear infinite}
+.twin i:last-child{animation-direction:reverse}
+
+/* ── wide product card ── */
+.card{display:grid; grid-template-columns:minmax(150px,calc(var(--mod)*1.7)) minmax(0,1fr); border:1px solid var(--rule); background:var(--white)}
+.card-desig{border-right:1px solid var(--rule); padding:18px; display:flex; flex-direction:column; justify-content:space-between; gap:26px}
+.card-desig b{font-size:clamp(34px,4.4vw,58px); font-weight:800; letter-spacing:-.05em; line-height:.86; display:block}
+.card-body{padding:18px 20px; display:flex; flex-direction:column; justify-content:space-between; gap:20px; min-height:170px; position:relative}
+.card-row{display:flex; justify-content:space-between; gap:18px; flex-wrap:wrap; align-items:flex-end}
+.card-body h3{font-size:clamp(17px,2vw,23px); font-weight:700; letter-spacing:-.02em; line-height:1.2; max-width:26ch}
+.stack{font-size:11.5px; font-weight:600; line-height:1.35; text-align:right; color:#3A3A36}
+
+/* ── orange statement slide ── */
+.s-orange{background:var(--orange); color:var(--black)}
+.s-orange .stmt{display:flex; flex-direction:column; gap:calc(var(--mod)*.45)}
+.stmt-top{display:flex; justify-content:space-between; font-family:var(--mono); font-size:9px; letter-spacing:.22em}
+.stmt h2{font-size:clamp(38px,7.4vw,102px); font-weight:800; letter-spacing:-.045em; line-height:.93;
+  border-bottom:1px solid var(--black); padding-bottom:calc(var(--mod)*.32); max-width:19ch}
+.stmt-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:26px 34px}
+.stmt-grid p{font-size:14px; line-height:1.6; max-width:40ch}
+.stmt-grid .cap{color:#5C2E17; border-bottom:1px solid rgba(20,20,20,.4); padding-bottom:6px; margin-bottom:9px; display:block}
+
+/* ── dark spec slide ── */
+.s-dark{background:var(--black); color:#F2F2F0}
+.s-dark::before{content:''; position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background-image:radial-gradient(rgba(255,255,255,.14) .8px, transparent .8px); background-size:7px 7px}
+.scan{position:absolute; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,var(--orange),transparent);
+  opacity:.75; animation:scan 7s linear infinite}
+.spec-head{display:flex; justify-content:space-between; align-items:flex-end; gap:24px; flex-wrap:wrap;
+  border-bottom:1px solid var(--plate); padding-bottom:18px; margin-bottom:calc(var(--mod)*.5)}
+.spec-head h2{font-size:clamp(28px,4.4vw,56px); font-weight:800; letter-spacing:-.04em; line-height:.98; max-width:16ch}
+.plates{display:grid; grid-template-columns:repeat(3,1fr); border-top:1px solid var(--plate); border-left:1px solid var(--plate)}
+.plate{border-right:1px solid var(--plate); border-bottom:1px solid var(--plate); padding:20px;
+  min-height:290px; display:flex; flex-direction:column; justify-content:space-between; gap:22px; transition:.2s}
+.plate:hover{background:#1B1B1A}
+.plate-top{display:flex; justify-content:space-between; align-items:flex-start; gap:12px}
+.plate-top .cap{color:#8E8E86}
+.plate .idx{font-family:var(--cond); font-size:34px; font-weight:600; letter-spacing:.03em; line-height:.9; color:var(--orange)}
+.plate h3{font-size:19px; font-weight:700; letter-spacing:-.02em; margin-bottom:8px}
+.plate p{font-size:13.5px; line-height:1.6; color:#B4B4AE; max-width:32ch}
+.badge{display:inline-flex; align-items:center; gap:7px; border-top:1px solid var(--plate); padding-top:11px}
+.badge b{background:var(--orange); color:var(--black); font-family:var(--mono); font-size:8px; font-weight:700; letter-spacing:.12em; padding:3px 6px}
+.badge span{font-family:var(--mono); font-size:8px; letter-spacing:.12em; color:#8E8E86}
+
+/* ── metrics (white grid, second beat) ── */
+.metrics{display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--black); border-left:1px solid var(--rule)}
+.metric{border-right:1px solid var(--rule); border-bottom:1px solid var(--rule); padding:20px; min-height:180px;
+  display:flex; flex-direction:column; justify-content:space-between; gap:18px}
+.metric b{font-size:clamp(38px,4.6vw,64px); font-weight:800; letter-spacing:-.06em; line-height:.85; color:var(--orange)}
+.metric span{font-size:12.5px; font-weight:600; line-height:1.4; color:#3A3A36; max-width:20ch}
+
+/* ── ticker ── */
+.ticker{background:var(--black); color:#8E8E86; border-top:1px solid var(--plate); overflow:hidden; display:flex}
+.ticker p{white-space:nowrap; padding:9px 0; font-family:var(--mono); font-size:8.5px; letter-spacing:.24em;
+  text-transform:uppercase; animation:tick 40s linear infinite}
+.ticker em{color:var(--orange); font-style:normal; padding:0 16px}
+
+footer{background:var(--black); color:#8E8E86; padding:22px var(--mod);
+  display:flex; justify-content:space-between; gap:14px; flex-wrap:wrap;
+  font-family:var(--mono); font-size:8.5px; letter-spacing:.16em; text-transform:uppercase}
+footer b{color:#F2F2F0; font-weight:500}
+
+@keyframes rise{from{opacity:0; transform:translateY(.3em)} to{opacity:1; transform:none}}
+@keyframes scan{0%{top:-2%} 100%{top:102%}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes tick{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important; scroll-behavior:auto!important}}
+@media (max-width:900px){
+  .plates,.metrics{grid-template-columns:repeat(2,1fr)}
+  .navlinks{display:none}
+  h1{column-gap:calc(var(--mod)*.7)}
+}
+@media (max-width:620px){
+  .plates,.metrics{grid-template-columns:1fr}
+  .card{grid-template-columns:1fr}
+  .card-desig{border-right:0; border-bottom:1px solid var(--rule); flex-direction:row; align-items:flex-end}
+  .hero-foot .claim{text-align:left}
+  .stack{text-align:left}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="brandbox">
+    <span class="nm">Optiflows<sup>®</sup></span>
+    <span class="code">OF&nbsp;100</span>
+  </div>
+  <div class="navlinks">
+    <a href="#system">System</a><a href="#doctrine">Doctrine</a><a href="#output">Output</a><a href="#deploy">Deploy</a>
+  </div>
+  <a class="navcta" href="#deploy">Book an audit</a>
+</nav>
+
+<!-- 01 · WHITE GRID SLIDE -->
+<section class="slide s-white brackets" id="top">
+  <div class="gridbg"></div>
+  <div class="inner hero">
+    <div class="hero-top">
+      <span class="cap">Adaptive systems for changing operations</span>
+      <div class="twin" aria-hidden="true"><i></i><i></i></div>
+    </div>
+
+    <div>
+      <h1><span>Autonomy</span><span>by</span><span>design</span></h1>
+      <p class="hero-sub" style="margin-top:22px">Optiflows converts the work that lives in heads, handovers and heroic effort into an operating system your team can run, improve and trust — without adding another tool to manage.</p>
+      <div class="actions">
+        <a class="btn" href="#deploy">Find the bottleneck</a>
+        <a class="btn btn--ghost" href="#system">See the system</a>
+      </div>
+    </div>
+
+    <div class="hero-foot">
+      <span class="mono" style="font-size:9px; color:#7A7A74; line-height:1.9">Born from the pursuit of autonomy.<br>Built for the modern operation.</span>
+      <span class="claim">Built for the new industrial era of intelligence</span>
+    </div>
+  </div>
+</section>
+
+<!-- wide product card -->
+<section class="slide" style="padding-top:0; background:var(--white)">
+  <div class="inner">
+    <div class="card">
+      <div class="card-desig">
+        <span class="cap">Designation</span>
+        <b>OF<br>100</b>
+        <span class="cap" style="letter-spacing:.12em">Rev 04 / 2026</span>
+      </div>
+      <div class="card-body">
+        <div class="gridbg gridbg--ink" style="opacity:.7"></div>
+        <div class="card-row" style="position:relative">
+          <span class="cap">System without compromise</span>
+          <span class="cap">Deployment ID 3027·ALPHA·AUS·MEL</span>
+        </div>
+        <div class="card-row" style="position:relative">
+          <h3>The operating layer between your people, your data and the decisions that move revenue.</h3>
+          <span class="stack">Operating<br>Intelligence<br>Command<br>Systems</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 02 · ORANGE STATEMENT SLIDE -->
+<section class="slide s-orange" id="doctrine">
+  <div class="gridbg gridbg--ink"></div>
+  <div class="inner stmt">
+    <div class="stmt-top"><span>C&nbsp;&nbsp;2&nbsp;&nbsp;6</span><span>·· ®</span></div>
+    <h2>Coordination is the cost.</h2>
+    <div class="stmt-grid">
+      <div>
+        <span class="cap">01 / Diagnosis</span>
+        <p>Growth does not break because people stop working. It breaks where information, decisions and ownership disappear between teams.</p>
+      </div>
+      <div>
+        <span class="cap">02 / Position</span>
+        <p>Automation adds speed to a process you have not defined. Autonomy defines the process first, then removes the need to supervise it.</p>
+      </div>
+      <div>
+        <span class="cap">03 / Standard</span>
+        <p>A system is only installed when it runs correctly without the person who built it in the room.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 03 · DARK SPEC SLIDE -->
+<section class="slide s-dark" id="system">
+  <div class="gridbg gridbg--dark"></div>
+  <div class="scan" aria-hidden="true"></div>
+  <div class="inner">
+    <div class="spec-head">
+      <div>
+        <span class="cap" style="color:var(--orange)">Field tested / three-stage install</span>
+        <h2 style="margin-top:12px">Make the whole machine visible.</h2>
+      </div>
+      <span class="cap" style="color:#8E8E86; text-align:right; line-height:1.9">Forward base / 2026<br>Secure operating accelerator</span>
+    </div>
+
+    <div class="plates">
+      <article class="plate">
+        <div class="plate-top"><span class="cap">Stage 01</span><span class="idx">≡</span></div>
+        <div>
+          <span class="idx" style="display:block; margin-bottom:14px">MAP</span>
+          <h3>Expose the drag</h3>
+          <p>Trace where work stalls, repeats, or waits for a founder to intervene. Every stall gets a name, an owner and a cost.</p>
+        </div>
+        <div class="badge"><b>Field tested</b><span>OF-100 / M</span></div>
+      </article>
+      <article class="plate">
+        <div class="plate-top"><span class="cap">Stage 02</span><span class="idx">⊞</span></div>
+        <div>
+          <span class="idx" style="display:block; margin-bottom:14px">INSTALL</span>
+          <h3>Build the flow</h3>
+          <p>Connect the right decisions, data and AI actions into one operating rhythm your team already recognises.</p>
+        </div>
+        <div class="badge"><b>Field tested</b><span>OF-100 / I</span></div>
+      </article>
+      <article class="plate">
+        <div class="plate-top"><span class="cap">Stage 03</span><span class="idx">∞</span></div>
+        <div>
+          <span class="idx" style="display:block; margin-bottom:14px">COMPOUND</span>
+          <h3>Run without us</h3>
+          <p>Hand over a system that gets more useful every time it is used, and measurably cheaper to operate each quarter.</p>
+        </div>
+        <div class="badge"><b>Field tested</b><span>OF-100 / C</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- 04 · WHITE GRID SLIDE (second beat) -->
+<section class="slide s-white" id="output" style="min-height:0; display:block">
+  <div class="gridbg"></div>
+  <div class="inner">
+    <div class="spec-head" style="border-color:var(--rule)">
+      <div>
+        <span class="cap" style="color:var(--orange)">The output is autonomy</span>
+        <h2 style="margin-top:12px; font-size:clamp(28px,4.4vw,56px); font-weight:800; letter-spacing:-.04em; line-height:.98; max-width:20ch">Less coordination. More capacity for the work that changes the business.</h2>
+      </div>
+      <span class="cap" style="text-align:right; line-height:1.9">Measured at 90 days<br>Post-install review</span>
+    </div>
+    <div class="metrics">
+      <div class="metric"><span class="cap">Truth</span><div><b>01</b><span style="display:block; margin-top:12px">Single source of operating truth</span></div></div>
+      <div class="metric"><span class="cap">Uptime</span><div><b>24/7</b><span style="display:block; margin-top:12px">Workflows in motion without supervision</span></div></div>
+      <div class="metric"><span class="cap">Return</span><div><b>∞</b><span style="display:block; margin-top:12px">Compounding operating intelligence</span></div></div>
+      <div class="metric"><span class="cap">Rhythm</span><div><b>1</b><span style="display:block; margin-top:12px">Team-wide operating cadence</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 05 · ORANGE STATEMENT SLIDE (close) -->
+<section class="slide s-orange" id="deploy">
+  <div class="gridbg gridbg--ink"></div>
+  <div class="inner stmt">
+    <div class="stmt-top"><span>Deploy&nbsp;&nbsp;/&nbsp;&nbsp;OF&nbsp;100</span><span>·· ®</span></div>
+    <h2>Your next hire is an operating model.</h2>
+    <div class="stmt-grid">
+      <div>
+        <p style="font-size:15px">Start with the system that hurts most. We map one measurable path end to end, then show you what it costs to leave it manual.</p>
+        <div class="actions" style="margin-top:22px">
+          <a class="btn" style="background:var(--black); color:var(--orange); border-color:var(--black)" href="mailto:james.richmond@optiflows.com.au?subject=Operating%20Audit">Book an operating audit</a>
+        </div>
+      </div>
+      <div>
+        <span class="cap">Intake</span>
+        <p>90-minute diagnostic. No platform commitment, no access required before scope is agreed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="ticker"><p>Adaptive systems for changing operations <em>+</em> Compute without compromise <em>+</em> Born from the pursuit of autonomy <em>+</em> Field tested <em>+</em> Adaptive systems for changing operations <em>+</em> Compute without compromise <em>+</em> Born from the pursuit of autonomy <em>+</em> Field tested <em>+</em></p></div>
+
+<footer>
+  <span><b>Optiflows®</b> / OF-100 Autonomous Operations</span>
+  <span>Template 12 · R1 Autonomous Defense variant</span>
+  <span>Made in Australia</span>
+  <span><b>Review prototype only</b> / Not for production</span>
+</footer>
+
+</body>
+</html>
