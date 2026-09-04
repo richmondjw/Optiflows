@@ -24,6 +24,7 @@
 <link rel="stylesheet" href="./base.css?v=20260418c">
 <link rel="stylesheet" href="./style.css?v=20260418c">
 <link rel="stylesheet" href="./v4/v4.css?v=20260418c">
+<link rel="stylesheet" href="./operating-core.css?v=1">
 <link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css">
 <script src="./gate.js?v=1"></script>
 
@@ -246,20 +247,72 @@
 </div>
 
 <!-- ======================== HERO ======================== -->
-<section class="Hero" id="hero">
-  <div class="Hero-outer">
-    <div class="Hero-main">
-      <div class="Hero-titleCont animate-div">
-        <div class="PreTitle">AI-Native Operating Systems</div>
-        <h1 class="Hero-title">Your workflows are broken. Your team is paying for it every day.</h1>
-      </div>
-      <div class="Hero-copy animate-div">
-        <p class="Hero-copyText">Coordination drag isn't a people problem. It's a systems problem — and it compounds silently until someone leaves, a client churns, or a deal falls through a gap that should never have existed.</p>
-        <p class="Hero-copyText Hero-copyText--sub">Optiflows builds AI-native operating systems for growing businesses. We start with your highest-friction workflow and work up to a full operating layer your team runs without us.</p>
-      </div>
-      <div class="Hero-buttons animate-div">
-        <a href="#start" class="Button Button--filled"><span>Start with an Audit</span></a>
-        <a href="#offers" class="Button Button--noArrow"><span>See the Offers</span></a>
+<section class="Hero Hero--core" id="hero" data-core-experience>
+  <div class="CoreExperience-sticky">
+    <div class="Hero-outer">
+      <div class="Hero-main CoreHero-main">
+        <div class="CoreHero-copy">
+          <div class="Hero-titleCont animate-div">
+            <div class="PreTitle">AI-Native Operating Systems</div>
+            <h1 class="Hero-title">Your workflows are broken. Your team is paying for it every day.</h1>
+          </div>
+
+          <div class="Hero-copy animate-div">
+            <p class="Hero-copyText">Coordination drag isn't a people problem. It's a systems problem — and it compounds silently until someone leaves, a client churns, or a deal falls through a gap that should never have existed.</p>
+            <p class="Hero-copyText Hero-copyText--sub">Optiflows builds AI-native operating systems for growing businesses. We start with your highest-friction workflow and work up to a full operating layer your team runs without us.</p>
+          </div>
+
+          <div class="Hero-buttons animate-div">
+            <a href="#start" class="Button Button--filled"><span>Start with an Audit</span></a>
+            <a href="#offers" class="Button Button--noArrow"><span>See the Offers</span></a>
+          </div>
+
+          <ol class="CoreStateRail" aria-label="Operating core construction stages">
+            <li class="CoreState is-active" data-core-step="0">
+              <span class="CoreState-index">01</span>
+              <span><strong>Fragmented</strong><small>Tools without an operating layer</small></span>
+            </li>
+            <li class="CoreState" data-core-step="1">
+              <span class="CoreState-index">02</span>
+              <span><strong>Leaking</strong><small>Value lost at every handoff</small></span>
+            </li>
+            <li class="CoreState" data-core-step="2">
+              <span class="CoreState-index">03</span>
+              <span><strong>Constructing</strong><small>Workflow, context and agents aligned</small></span>
+            </li>
+            <li class="CoreState" data-core-step="3">
+              <span class="CoreState-index">04</span>
+              <span><strong>Governed</strong><small>A working system your team owns</small></span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="CoreStage animate-div" aria-label="A fragmented workflow constructing into a governed operating system as the page scrolls">
+          <canvas id="operatingCoreCanvas" class="CoreStage-canvas" role="img" aria-label="Animated Optiflows operating core"></canvas>
+          <div class="CoreStage-fallback" aria-hidden="true">
+            <svg viewBox="0 0 520 520" fill="none">
+              <circle cx="260" cy="260" r="142" stroke="currentColor" stroke-width="2"/>
+              <circle cx="260" cy="260" r="92" stroke="currentColor" stroke-width="2" stroke-dasharray="8 12"/>
+              <path d="M260 76v368M76 260h368" stroke="currentColor" stroke-width="2"/>
+              <circle cx="260" cy="260" r="43" fill="#66FFE0" fill-opacity=".85"/>
+              <circle cx="260" cy="76" r="13" fill="#053D3D"/>
+              <circle cx="444" cy="260" r="13" fill="#053D3D"/>
+              <circle cx="260" cy="444" r="13" fill="#053D3D"/>
+              <circle cx="76" cy="260" r="13" fill="#053D3D"/>
+            </svg>
+          </div>
+          <div class="CoreStage-grid" aria-hidden="true"></div>
+          <div class="CoreStage-meta" aria-hidden="true">
+            <span class="CoreStage-kicker">Live system state</span>
+            <span class="CoreStage-status" id="coreStageStatus">Fragmented network</span>
+          </div>
+          <div class="CoreStage-counter" aria-hidden="true"><span id="coreStageCounter">01</span> / 04</div>
+        </div>
+
+        <div class="CoreScrollCue" aria-hidden="true">
+          <span>Scroll to construct</span>
+          <i></i>
+        </div>
       </div>
     </div>
   </div>
@@ -738,6 +791,7 @@
 
 <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
 <script src="./app.js" defer></script>
+<script type="module" src="./operating-core.js?v=1"></script>
 
 
 
