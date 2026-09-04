@@ -250,6 +250,7 @@ function initStoryFallbackMotion() {
   const progressBar = document.getElementById('storyProgress');
   const storyScrollCue = document.getElementById('storyScrollCue');
   const compactMedia = window.matchMedia('(max-width: 760px)');
+  const stageColors = ['#ff8c73', '#66c7ff', '#8b7cff', '#ffc857', '#66ffe0'];
   let displayedProgress = 0;
   let previousTime = performance.now();
   story.classList.add('is-motion-ready');
@@ -266,6 +267,7 @@ function initStoryFallbackMotion() {
     const activeStage = Math.min(4, Math.round(stagePosition));
     const drag = Math.round(lerp(42, 8, smoother(progress)));
     if (meterFill) meterFill.style.width = `${drag}%`;
+    if (meterFill) meterFill.style.backgroundColor = stageColors[activeStage];
     if (meterValue) meterValue.textContent = `${drag}%`;
     if (progressBar) progressBar.style.height = `${progress * 100}%`;
     storyScrollCue?.classList.toggle('is-dismissed', rawProgress > 0.035);
@@ -319,6 +321,10 @@ function initHeroScene(THREE) {
     node.position.copy(position);
     node.scale.setScalar(index % 9 === 0 ? 2.25 : index % 4 === 0 ? 1.4 : 1);
     node.material.opacity = index % 9 === 0 ? 1 : 0.52 + random() * 0.35;
+    if (index % 19 === 0) node.material.color.setHex(0xff8c73);
+    else if (index % 17 === 0) node.material.color.setHex(0xffc857);
+    else if (index % 13 === 0) node.material.color.setHex(0x8b7cff);
+    else if (index % 11 === 0) node.material.color.setHex(0x66c7ff);
     group.add(node);
   });
 
@@ -477,6 +483,26 @@ function initFlowScene(THREE) {
     return { ring, node };
   });
 
+  const palette = {
+    base: new THREE.Color(0x0a6e6e),
+    deep: new THREE.Color(0x053d3d),
+    flow: new THREE.Color(0x66ffe0),
+    risk: new THREE.Color(0xff8c73),
+    signal: new THREE.Color(0x66c7ff),
+    intelligence: new THREE.Color(0x8b7cff),
+    human: new THREE.Color(0xffc857)
+  };
+  const meterColor = new THREE.Color();
+  const setWorkflowColor = (target, progress) => {
+    if (progress < .34) {
+      target.copy(palette.base).lerp(palette.signal, smoother(progress / .34));
+    } else if (progress < .66) {
+      target.copy(palette.signal).lerp(palette.intelligence, smoother((progress - .34) / .32));
+    } else {
+      target.copy(palette.intelligence).lerp(palette.flow, smoother((progress - .66) / .34));
+    }
+  };
+
   const meterFill = document.getElementById('storyMeterFill');
   const meterValue = document.getElementById('storyMeterValue');
   const progressBar = document.getElementById('storyProgress');
@@ -523,7 +549,13 @@ function initFlowScene(THREE) {
       current[i].set(lerp(from.x, to.x, stageMix), lerp(from.y, to.y, stageMix), lerp(from.z, to.z, stageMix));
       nodes[i].position.copy(current[i]);
       const isRisk = nodes[i].userData.isRisk;
-      nodes[i].material.color.setHex(isRisk && progress < 0.58 ? 0xff8c73 : nodes[i].userData.isGate ? 0x053d3d : 0x0a6e6e);
+      if (isRisk) {
+        nodes[i].material.color.copy(palette.risk).lerp(palette.flow, smoother(clamp((progress - .5) / .34)));
+      } else if (nodes[i].userData.isGate) {
+        nodes[i].material.color.copy(palette.deep).lerp(palette.human, smoother(clamp((progress - .48) / .22)));
+      } else {
+        setWorkflowColor(nodes[i].material.color, progress);
+      }
       nodes[i].material.opacity = isRisk && progress > 0.68 ? 0.55 : 0.88;
     }
 
@@ -537,6 +569,7 @@ function initFlowScene(THREE) {
       lineArray[offset + 5] = current[b].z;
     });
     lineGeometry.attributes.position.needsUpdate = true;
+    setWorkflowColor(lines.material.color, progress);
     lines.material.opacity = lerp(0.14, 0.42, progress);
 
     rings.forEach(({ ring, node }, index) => {
@@ -552,6 +585,7 @@ function initFlowScene(THREE) {
       const speed = lerp(0.00016, 0.00038, progress);
       const t = (time * speed + traveler.userData.offset) % 1;
       traveler.position.lerpVectors(current[a], current[b], t);
+      setWorkflowColor(traveler.material.color, clamp(progress + .12));
       traveler.material.opacity = progress > 0.35 ? 1 : 0.46;
       traveler.scale.setScalar(0.75 + progress * 0.55);
     });
@@ -569,6 +603,10 @@ function initFlowScene(THREE) {
 
     const drag = Math.round(lerp(42, 8, smoother(progress)));
     if (meterFill) meterFill.style.width = `${drag}%`;
+    if (meterFill) {
+      meterColor.copy(palette.risk).lerp(palette.flow, smoother(progress));
+      meterFill.style.backgroundColor = `#${meterColor.getHexString()}`;
+    }
     if (meterValue) meterValue.textContent = `${drag}%`;
     if (progressBar) progressBar.style.height = `${progress * 100}%`;
     story.style.setProperty('--story-progress', progress.toFixed(4));
@@ -604,6 +642,7 @@ function initCanvasFallback(canvas, isHero) {
   const random = seededRandom(isHero ? 776 : 1776);
   const count = isHero ? 48 : 36;
   const points = Array.from({ length: count }, () => ({ x: random(), y: random(), size: 1 + random() * 2 }));
+  const colors = ['#66ffe0', '#66ffe0', '#66ffe0', '#66c7ff', '#8b7cff', '#ffc857', '#ff8c73'];
 
   const render = () => {
     const ratio = Math.min(window.devicePixelRatio || 1, 1.5);
@@ -615,8 +654,11 @@ function initCanvasFallback(canvas, isHero) {
     }
     context.setTransform(ratio, 0, 0, ratio, 0, 0);
     context.clearRect(0, 0, width, height);
-    context.strokeStyle = isHero ? 'rgba(102,255,224,.16)' : 'rgba(10,110,110,.22)';
-    context.fillStyle = isHero ? 'rgba(102,255,224,.8)' : 'rgba(10,110,110,.82)';
+    const lineGradient = context.createLinearGradient(0, 0, width, height);
+    lineGradient.addColorStop(0, isHero ? 'rgba(102,255,224,.16)' : 'rgba(102,199,255,.2)');
+    lineGradient.addColorStop(.5, isHero ? 'rgba(102,199,255,.15)' : 'rgba(139,124,255,.2)');
+    lineGradient.addColorStop(1, isHero ? 'rgba(139,124,255,.12)' : 'rgba(102,255,224,.24)');
+    context.strokeStyle = lineGradient;
     points.forEach((point, index) => {
       const x = point.x * width;
       const y = point.y * height;
@@ -625,10 +667,13 @@ function initCanvasFallback(canvas, isHero) {
       context.moveTo(x, y);
       context.lineTo(next.x * width, next.y * height);
       context.stroke();
+      context.fillStyle = colors[index % colors.length];
+      context.globalAlpha = index % colors.length < 3 ? .82 : .72;
       context.beginPath();
       context.arc(x, y, point.size, 0, Math.PI * 2);
       context.fill();
     });
+    context.globalAlpha = 1;
   };
   render();
   window.addEventListener('resize', render, { passive: true });
