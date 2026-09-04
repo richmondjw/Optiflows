@@ -1,868 +1,283 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Optiflows — AI-Native Operating Systems for Growing Businesses</title>
-  <meta name="description" content="OptiFlows installs AI-native operating systems inside mid-market businesses. Start with the Operating Audit: two weeks, fixed scope, clear recommendation on what to build first.">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Optiflows | Measure coordination drag. Install better flow.</title>
+  <meta name="description" content="Optiflows measures coordination drag, redesigns high-cost workflows and installs governed agent systems your team can own.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://www.optiflows.com.au/">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.optiflows.com.au/">
-  <meta property="og:title" content="Optiflows — Stop Running Your Business on Broken Workflows">
-  <meta property="og:description" content="Your coordination drag isn't a people problem. It's a systems problem. We fix it — Operating Audit, System Install, Operating Partner.">
+  <meta property="og:title" content="Optiflows | Measure coordination drag. Install better flow.">
+  <meta property="og:description" content="Find the work your business loses between people, tools and decisions. Then install the system that fixes it.">
   <meta property="og:image" content="https://www.optiflows.com.au/images/og-default.png">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Optiflows — Stop Running Your Business on Broken Workflows">
-  <meta name="twitter:description" content="Your coordination drag isn't a people problem. It's a systems problem. We fix it — Operating Audit, System Install, Operating Partner.">
-
-<link rel="preconnect" href="https://api.fontshare.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="./base.css?v=20260418c">
-<link rel="stylesheet" href="./style.css?v=20260418c">
-<link rel="stylesheet" href="./v4/v4.css?v=20260418c">
-<link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css">
-<script src="./gate.js?v=1"></script>
-
-<style>
-
-/* ─── LEAD FORM ─── */
-.CTAPanel--form {
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
-  text-align: center;
-}
-.CTAPanel-formWrap {
-  width: 100%;
-  max-width: 620px;
-}
-.LeadStep { display: none; }
-.LeadStep.active { display: block; }
-.LeadStep-title {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xx-small);
-  font-weight: 400;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--dark-teal);
-  margin-bottom: 20px;
-}
-.IntentCards {
-  display: flex;
-  gap: 12px;
-}
-.IntentCard {
-  flex: 1;
-  padding: 24px 16px;
-  background: rgba(255,255,255,0.75);
-  border: 1.5px solid rgba(5, 61, 61, 0.15);
-  border-radius: var(--border-radius);
-  cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, transform 0.15s;
-  text-align: center;
-}
-.IntentCard:hover {
-  border-color: var(--mid-teal);
-  background: rgba(255,255,255,0.95);
-  transform: translateY(-2px);
-}
-.IntentCard-icon {
-  margin-bottom: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.IntentCard-icon svg {
-  width: 32px;
-  height: 32px;
-  stroke: var(--mid-teal);
-  fill: none;
-  stroke-width: 1.5;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-}
-.IntentCard-label {
-  font-family: var(--font-primary);
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--dark-teal);
-  line-height: 1.3;
-}
-.IntentCard-desc {
-  font-family: var(--font-primary);
-  font-size: 0.8125rem;
-  color: var(--mid-grey);
-  margin-top: 6px;
-  line-height: 1.35;
-}
-.LeadForm {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  text-align: left;
-}
-.LeadForm-label {
-  display: block;
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xx-small);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--dark-teal);
-  margin-bottom: 4px;
-}
-.LeadForm-input {
-  width: 100%;
-  padding: 0.75rem 1rem;
-  border: 1.5px solid rgba(5, 61, 61, 0.15);
-  border-radius: var(--border-radius-small);
-  background: rgba(255,255,255,0.75);
-  color: var(--black);
-  font-family: var(--font-primary);
-  font-size: 0.9375rem;
-  outline: none;
-  transition: border-color 0.2s;
-  box-sizing: border-box;
-}
-.LeadForm-input:focus {
-  border-color: var(--mid-teal);
-  background: rgba(255,255,255,0.95);
-}
-.LeadForm-textarea { resize: vertical; min-height: 80px; }
-.LeadForm-field { margin-bottom: 2px; }
-.LeadForm-back {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xx-small);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  color: var(--mid-teal);
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  margin-bottom: 16px;
-  transition: color 0.2s;
-}
-.LeadForm-back:hover { color: var(--dark-teal); }
-.Button--formSubmit { width: 100%; margin-top: 6px; justify-content: center; }
-.LeadForm-trust {
-  font-family: var(--font-primary);
-  font-size: 0.8125rem;
-  color: var(--mid-grey);
-  text-align: center;
-  margin-top: 4px;
-}
-.LeadForm-status {
-  font-family: var(--font-mono);
-  font-size: var(--font-size-xx-small);
-  text-align: center;
-  margin: 0;
-  min-height: 1.2em;
-}
-.LeadForm-status.success { color: var(--mid-teal); }
-.LeadForm-status.error { color: #E05252; }
-.LeadForm-success {
-  text-align: center;
-  padding: 40px 20px;
-}
-.LeadForm-success-icon { font-size: 2.5rem; margin-bottom: 16px; display: block; }
-.LeadForm-success-title {
-  font-family: var(--font-primary);
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: var(--dark-teal);
-  margin-bottom: 8px;
-}
-.LeadForm-success-text {
-  font-family: var(--font-primary);
-  font-size: 0.9375rem;
-  color: var(--mid-grey);
-  line-height: 1.5;
-}
-@media (max-width: 680px) {
-  .IntentCards { flex-direction: column; }
-  .IntentCard { padding: 20px 16px; }
-}
-</style>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-X22ML0J6RJ"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-X22ML0J6RJ');
-</script>
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">
-  <link rel="apple-touch-icon" href="/favicon.svg">
+  <meta name="twitter:title" content="Optiflows | Measure coordination drag. Install better flow.">
+  <meta name="twitter:description" content="Find the work your business loses between people, tools and decisions. Then install the system that fixes it.">
+  <meta name="theme-color" content="#053d3d">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="./favicon.svg" type="image/svg+xml" sizes="any">
+  <link rel="apple-touch-icon" href="./favicon.svg">
+  <link rel="preconnect" href="https://api.fontshare.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./homepage-rebuild.css?v=20260904a">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-X22ML0J6RJ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-X22ML0J6RJ');
+  </script>
+  <script src="./gate.js?v=1"></script>
 </head>
 <body>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-<div id="siteContent" class="site-content">
-
-<!-- ======================== HEADER ======================== -->
-<header class="Header" id="header">
-  <div class="Header-inner">
-    <a href="../" class="Header-logo" aria-label="Optiflows home">
-      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5" fill="none"/>
-        <path d="M8 16h16" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M16 8v16" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="16" cy="16" r="4" fill="#66FFE0" stroke="none"/>
-      </svg>
-      <span>Optiflows</span>
-    </a>
-
-    <nav class="Header-nav" aria-label="Main navigation">
-      <a href="#problem" class="Header-navLink">The Problem</a>
-      <a href="#offers" class="Header-navLink">Offers</a>
-      <a href="#how-it-works" class="Header-navLink">How It Works</a>
-      <a href="#principles" class="Header-navLink">Principles</a>
+  <header class="site-header" id="siteHeader">
+    <div class="header-inner">
+      <a class="brand" href="#top" aria-label="Optiflows home">
+        <img src="./favicon.svg" alt="" width="30" height="30">
+        <span>Optiflows</span>
+      </a>
+      <nav class="desktop-nav" aria-label="Primary navigation">
+        <a href="#method">Method</a>
+        <a href="#capabilities">Capabilities</a>
+        <a href="#engagements">Engagements</a>
+        <a href="./blog/">Thinking</a>
+      </nav>
+      <a class="button button-small header-cta" href="#start"><span>Measure the drag</span></a>
+      <button class="menu-toggle" id="menuToggle" type="button" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <span></span><span></span>
+      </button>
+    </div>
+    <nav class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
+      <a href="#method">Method</a>
+      <a href="#capabilities">Capabilities</a>
+      <a href="#engagements">Engagements</a>
+      <a href="./blog/">Thinking</a>
+      <a href="#start">Measure the drag</a>
     </nav>
+  </header>
 
-    <div class="Header-actions">
-      <a href="#start" class="Button Button--filled"><span>Get Started</span></a>
-    </div>
-
-    <button class="MobileToggle" aria-label="Open menu" id="mobileToggle">
-      <span></span><span></span><span></span>
-    </button>
-  </div>
-</header>
-
-<!-- Mobile Menu -->
-<div class="MobileMenu" id="mobileMenu">
-  <a href="#problem" class="MobileMenu-link">The Problem</a>
-  <a href="#offers" class="MobileMenu-link">Offers</a>
-  <a href="#how-it-works" class="MobileMenu-link">How It Works</a>
-  <a href="#principles" class="MobileMenu-link">Principles</a>
-  <a href="#start" class="Button Button--filled Button--large" style="margin-top:16px"><span>Get Started</span></a>
-</div>
-
-<!-- ======================== HERO ======================== -->
-<section class="Hero" id="hero">
-  <div class="Hero-outer">
-    <div class="Hero-main">
-      <div class="Hero-titleCont animate-div">
-        <div class="PreTitle">AI-Native Operating Systems</div>
-        <h1 class="Hero-title">Your workflows are broken. Your team is paying for it every day.</h1>
-      </div>
-      <div class="Hero-copy animate-div">
-        <p class="Hero-copyText">Coordination drag isn't a people problem. It's a systems problem — and it compounds silently until someone leaves, a client churns, or a deal falls through a gap that should never have existed.</p>
-        <p class="Hero-copyText Hero-copyText--sub">Optiflows builds AI-native operating systems for growing businesses. We start with your highest-friction workflow and work up to a full operating layer your team runs without us.</p>
-      </div>
-      <div class="Hero-buttons animate-div">
-        <a href="#start" class="Button Button--filled"><span>Start with an Audit</span></a>
-        <a href="#offers" class="Button Button--noArrow"><span>See the Offers</span></a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ======================== THE PROBLEM ======================== -->
-<section class="Section" id="problem">
-  <div class="Section-inner">
-    <div class="ProblemGrid">
-      <div class="ProblemGrid-copy">
-        <div class="PreTitle animate-div">Coordination Drag</div>
-        <h2 class="Section-heading animate-div">The cost isn't in the tools. It's in the gaps between them.</h2>
-        <p class="Section-subheading animate-div">Every growing business hits the same wall. Work stalls at handoffs. Context gets lost between systems. The team spends hours a week chasing status, re-entering data, and rebuilding things that should already exist. This is coordination drag — and it's eating your margin, your speed, and your people.</p>
-      </div>
-      <div class="ProblemGrid-signals">
-        <ul class="SignalList animate-div">
-          <li class="Signal">
-            <div class="Signal-index">01</div>
-            <div class="Signal-body">
-              <h3 class="Signal-title">Broken handoffs</h3>
-              <p class="Signal-text">Work leaves one person or system and arrives somewhere else wrong, late, or incomplete. Every handoff is a potential failure point nobody has time to audit.</p>
-            </div>
-          </li>
-          <li class="Signal">
-            <div class="Signal-index">02</div>
-            <div class="Signal-body">
-              <h3 class="Signal-title">Invisible leakage</h3>
-              <p class="Signal-text">Deals not followed up. Clients not renewed. Decisions made without the right information. The value is there — it just never reaches the outcome.</p>
-            </div>
-          </li>
-          <li class="Signal">
-            <div class="Signal-index">03</div>
-            <div class="Signal-body">
-              <h3 class="Signal-title">Founder in the loop</h3>
-              <p class="Signal-text">When the system doesn't work, people escalate to whoever makes decisions. That's usually you. And every interruption costs more than it looks.</p>
-            </div>
-          </li>
-          <li class="Signal">
-            <div class="Signal-index">04</div>
-            <div class="Signal-body">
-              <h3 class="Signal-title">AI that doesn't stick</h3>
-              <p class="Signal-text">Tools get trialled. Pilots get launched. Nothing changes operationally. The gap between AI excitement and actual workflow improvement stays wide.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Cutout: white → dark teal -->
-<div class="Cutout Cutout--whiteToTeal"></div>
-
-<!-- ======================== WHAT WE BUILD ======================== -->
-<section class="Section Section--teal" id="what-we-build">
-  <div class="Section-inner">
-    <div class="TwoCol TwoCol--wide">
-      <div>
-        <div class="PreTitle animate-div">What We Build</div>
-        <h2 class="Section-heading animate-div">Not automation. An operating system.</h2>
-        <p class="Section-subheading animate-div">Automation fixes individual tasks. An operating system changes how your business runs — how decisions get made, how work moves, how your team coordinates without you in the middle of everything.</p>
-        <p class="Section-subheading animate-div" style="margin-top:1rem;">We install AI-native operating systems. They're built around your real workflows, wired into your existing tools, and designed to compound over time — not degrade the moment we leave.</p>
-      </div>
-      <div class="V4-contrastStack animate-div">
-        <div class="V4-contrastItem V4-contrastItem--bad">
-          <div class="V4-contrastLabel">What most businesses have</div>
-          <ul class="V4-contrastList">
-            <li>Tools that don't talk to each other</li>
-            <li>Processes that live in someone's head</li>
-            <li>AI experiments that never became systems</li>
-            <li>Follow-up that depends on individuals remembering</li>
-            <li>Context rebuilt from scratch at every handoff</li>
-          </ul>
-        </div>
-        <div class="V4-contrastItem V4-contrastItem--good">
-          <div class="V4-contrastLabel">What Optiflows installs</div>
-          <ul class="V4-contrastList">
-            <li>Connected workflows that route themselves</li>
-            <li>Documented, repeatable operating patterns</li>
-            <li>Agent systems running in production, not in demos</li>
-            <li>Automated follow-up with human oversight built in</li>
-            <li>Context preserved and surfaced at the right moment</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Cutout: dark teal → white -->
-<div class="Cutout Cutout--tealToWhite"></div>
-
-<!-- ======================== THREE-OFFER LADDER ======================== -->
-<section class="Section" id="offers">
-  <div class="Section-inner">
-    <div class="PreTitle animate-div">The Offer Ladder</div>
-    <h2 class="Section-heading animate-div">Three offers. One progression.</h2>
-    <p class="Section-subheading animate-div">Start with a clear diagnosis. Move to a working system. Scale to a fully embedded operating partner. Each offer builds on the last — so you're never starting over, just going deeper.</p>
-
-    <div class="V4-OfferLadder animate-div">
-
-      <!-- Offer 1 -->
-      <div class="V4-Offer V4-Offer--1">
-        <div class="V4-Offer-step">Step 01</div>
-        <div class="V4-Offer-name">Operating Audit</div>
-        <div class="V4-Offer-tagline">Find the drag before you pay to fix it.</div>
-        <p class="V4-Offer-desc">We map how work actually moves through your business — not how the org chart says it should. In two weeks, we identify your two or three highest-friction workflows, quantify what they're costing you, and build the business case for fixing them first.</p>
-        <ul class="V4-Offer-deliverables">
-          <li>Workflow friction map across your core operations</li>
-          <li>Ranked intervention brief for each priority workflow</li>
-          <li>Business case: cost of drag vs. cost of fixing it</li>
-          <li>One clear recommendation — what to build first, and why</li>
-        </ul>
-        <div class="V4-Offer-footer">
-          <span class="V4-Offer-duration">2 weeks · Fixed fee</span>
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-            <a href="#start" class="Button" data-intent="operating_audit"><span>Book an Audit</span></a>
-            <a href="./services.html#audit" style="font-family:var(--font-mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--mid-teal);text-decoration:none">Full details →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Offer 2 -->
-      <div class="V4-Offer V4-Offer--2">
-        <div class="V4-Offer-step">Step 02</div>
-        <div class="V4-Offer-name">System Install</div>
-        <div class="V4-Offer-tagline">A working operating system in six weeks.</div>
-        <p class="V4-Offer-desc">We design and install your first AI-native operating system — end to end. Wired into the tools your team already uses. Guardrails and human oversight built in from day one. Fixed scope, fixed cost, owned by your team when we're done. Not a pilot. A production system.</p>
-        <ul class="V4-Offer-deliverables">
-          <li>One priority workflow rebuilt as an AI-native system</li>
-          <li>Full agent layer wired to your existing stack</li>
-          <li>Governance layer: audit trail, human checkpoints, clear boundaries</li>
-          <li>Runbook, architecture docs, training recordings, 30-day support</li>
-        </ul>
-        <div class="V4-Offer-footer">
-          <span class="V4-Offer-duration">6 weeks · Fixed scope</span>
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-            <a href="#start" class="Button Button--filled" data-intent="system_install"><span>Install a System</span></a>
-            <a href="./services.html#install" style="font-family:var(--font-mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--mid-teal);text-decoration:none">Full details →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Offer 3 -->
-      <div class="V4-Offer V4-Offer--3">
-        <div class="V4-Offer-step">Step 03</div>
-        <div class="V4-Offer-name">Operating Partner</div>
-        <div class="V4-Offer-tagline">Embedded. Ongoing. Compounding.</div>
-        <p class="V4-Offer-desc">Once you have one system working, we stay embedded to expand it. New workflow installs every quarter. Existing systems tuned and monitored. Your team builds capability alongside us — until they don't need us for the routine work. By application only.</p>
-        <ul class="V4-Offer-deliverables">
-          <li>Monthly operating review: what's running, what to fix, what's next</li>
-          <li>One new system install per quarter (Expand tier and above)</li>
-          <li>Capability uplift: your team learns to diagnose and design</li>
-          <li>Direct access — no account managers, no ticketing system</li>
-        </ul>
-        <div class="V4-Offer-footer">
-          <span class="V4-Offer-duration">Monthly · By application</span>
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-            <a href="#start" class="Button" data-intent="operating_partner"><span>Apply to Partner</span></a>
-            <a href="./services.html#partner" style="font-family:var(--font-mono);font-size:0.65rem;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,0.5);text-decoration:none">Full details →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Offer 4: Bespoke -->
-      <div class="V4-Offer V4-Offer--bespoke">
-        <div class="V4-Offer-step">Custom</div>
-        <div class="V4-Offer-name">Bespoke Engagement</div>
-        <div class="V4-Offer-tagline">Not every problem fits a fixed scope.</div>
-        <p class="V4-Offer-desc">Some businesses have unusual complexity, multi-team scope, or a specific problem that sits outside the standard ladder. We'll design an engagement around what you actually need — not what fits our template.</p>
-        <ul class="V4-Offer-deliverables">
-          <li>Scoped together — based on your problem, not our packages</li>
-          <li>Can span multiple teams, workflows, or business units</li>
-          <li>Flexible structure: diagnostic, build, advisory, or hybrid</li>
-          <li>Priced and scheduled once we understand what you're dealing with</li>
-        </ul>
-        <div class="V4-Offer-footer">
-          <span class="V4-Offer-duration">Let's talk first</span>
-          <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
-            <a href="#start" class="Button" data-intent="bespoke"><span>Start a Conversation</span></a>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- Cutout: white → grey -->
-<div class="Cutout Cutout--whiteToGrey"></div>
-
-<!-- ======================== HOW IT WORKS ======================== -->
-<section class="Section Section--grey" id="how-it-works">
-  <div class="Section-inner">
-    <div class="PreTitle animate-div">How It Works</div>
-    <h2 class="Section-heading animate-div">Diagnose. Install. Embed.</h2>
-    <p class="Section-subheading animate-div">Every engagement follows the same progression. You always know where you are, what comes next, and what you'll have when we're done.</p>
-
-    <div class="Phases animate-div">
-      <div class="Phase">
-        <div class="Phase-name">Diagnose</div>
-        <div class="Phase-time">Week 1–2</div>
-        <p class="Phase-desc">We interview the people doing the work, trace workflows from start to finish, and find where value leaks. No assumptions. Just what's actually happening — and what it's costing you.</p>
-      </div>
-      <div class="Phase">
-        <div class="Phase-name">Design</div>
-        <div class="Phase-time">Week 3</div>
-        <p class="Phase-desc">We spec the operating system: what it does, what it doesn't do, where humans stay in the loop, how it connects to your existing tools. You approve before we build anything.</p>
-      </div>
-      <div class="Phase">
-        <div class="Phase-name">Install</div>
-        <div class="Phase-time">Week 4–6</div>
-        <p class="Phase-desc">We build and wire it in. Your team trains alongside us. We don't hand off a black box — we hand off a system your team understands and can modify themselves.</p>
-      </div>
-    </div>
-
-    <div class="V4-MethodNote animate-div">
-      <div class="V4-MethodNote-inner">
-        <span class="V4-MethodNote-label">The Optiflows standard</span>
-        <p>Every system we build ships with a governance layer built in from day one — not retrofitted. Audit trail. Human approval checkpoints for high-stakes outputs. Explicit agent boundaries. If something breaks, you'll know what happened, why, and how to fix it.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Cutout: grey → white -->
-<div class="Cutout Cutout--greyToWhite"></div>
-
-<!-- ======================== PRINCIPLES ======================== -->
-<section class="Section" id="principles">
-  <div class="Section-inner">
-    <div class="TwoCol">
-      <div>
-        <div class="PreTitle animate-div">Non-Negotiables</div>
-        <h2 class="Section-heading animate-div">How we work. No exceptions.</h2>
-        <p class="Section-subheading animate-div">We're practitioners, not consultants. These rules aren't marketing — they're how every engagement runs.</p>
-      </div>
-      <div>
-        <div class="Accordion animate-div" id="accordion">
-          <div class="Accordion-item active">
-            <div class="Accordion-question" role="button" tabindex="0">
-              <span>Narrow entry. Measurable results.</span>
-              <svg class="Accordion-icon" viewBox="0 0 20 20" fill="none">
-                <line x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" class="icon-plus"/>
-                <line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <div class="Accordion-answer">
-              <div>
-                <p class="Accordion-answerText">We don't start with a roadmap. We start with the workflow costing you the most right now. One working system beats ten half-built ones. Scope discipline is the only way anything actually ships.</p>
-              </div>
-            </div>
-          </div>
-          <div class="Accordion-item">
-            <div class="Accordion-question" role="button" tabindex="0">
-              <span>Six weeks to production. Not to a pilot.</span>
-              <svg class="Accordion-icon" viewBox="0 0 20 20" fill="none">
-                <line x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" class="icon-plus"/>
-                <line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <div class="Accordion-answer">
-              <div>
-                <p class="Accordion-answerText">Pilots are how AI investment dies. You get a proof of concept, it sits in a slide deck, nothing changes. We build for production. If it's not running in your business after six weeks, we haven't done our job.</p>
-              </div>
-            </div>
-          </div>
-          <div class="Accordion-item">
-            <div class="Accordion-question" role="button" tabindex="0">
-              <span>Wired in, not bolted on.</span>
-              <svg class="Accordion-icon" viewBox="0 0 20 20" fill="none">
-                <line x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" class="icon-plus"/>
-                <line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <div class="Accordion-answer">
-              <div>
-                <p class="Accordion-answerText">We connect to what your team already uses. No new platforms forced on anyone. No parallel systems running alongside the real one. If it doesn't fit the way your business actually works, it won't get used — and we've wasted everyone's time.</p>
-              </div>
-            </div>
-          </div>
-          <div class="Accordion-item">
-            <div class="Accordion-question" role="button" tabindex="0">
-              <span>Governance built in, not bolted on.</span>
-              <svg class="Accordion-icon" viewBox="0 0 20 20" fill="none">
-                <line x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" class="icon-plus"/>
-                <line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <div class="Accordion-answer">
-              <div>
-                <p class="Accordion-answerText">Every system ships with audit trails, human-in-the-loop checkpoints, and explicit agent boundaries. Not as an afterthought — as a design constraint. You need to know what your AI is doing and be able to stop it when necessary.</p>
-              </div>
-            </div>
-          </div>
-          <div class="Accordion-item">
-            <div class="Accordion-question" role="button" tabindex="0">
-              <span>Your team owns it when we're done.</span>
-              <svg class="Accordion-icon" viewBox="0 0 20 20" fill="none">
-                <line x1="10" y1="4" x2="10" y2="16" stroke="currentColor" stroke-width="1.5" class="icon-plus"/>
-                <line x1="4" y1="10" x2="16" y2="10" stroke="currentColor" stroke-width="1.5"/>
-              </svg>
-            </div>
-            <div class="Accordion-answer">
-              <div>
-                <p class="Accordion-answerText">We hand off systems, not dependencies. Every engagement ends with a runbook, documented architecture, and a team that knows how to operate and extend what we built. You shouldn't need us every time something breaks or needs changing.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Cutout: white → mist teal -->
-<!-- ======================== GUARANTEE ======================== -->
-<section class="Section V4-GuaranteeSection">
-  <div class="Section-inner">
-    <div class="V4-Guarantee animate-div">
-      <div class="V4-Guarantee-mark">&#10003;</div>
-      <div class="V4-Guarantee-body">
-        <h2 class="V4-Guarantee-heading">If it doesn't meet the brief, we fix it. No charge.</h2>
-        <p class="V4-Guarantee-text">Every System Install ships with a defined set of success criteria — agreed in writing at the end of Week 2, before we build anything. If the system we deliver doesn't meet those criteria, we stay until it does. You don't pay for our time. You pay for a working system.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<div class="Cutout Cutout--whiteToMist"></div>
-
-<!-- ======================== START / CTA ======================== -->
-<section class="Section Section--mistTeal" id="start">
-  <div class="Section-inner">
-    <div class="CTAPanel CTAPanel--form animate-div">
-      <div>
-        <div class="CTAPanel-brand">Start here.</div>
-        <p class="CTAPanel-sub">Pick where you are. We'll take it from there.</p>
-      </div>
-      <div class="CTAPanel-formWrap">
-
-        <!-- STEP 1: Intent -->
-        <div class="LeadStep active" id="leadStep1">
-          <p class="LeadStep-title">Where do you want to start?</p>
-          <div class="IntentCards">
-            <div class="IntentCard" data-intent="operating_audit">
-              <span class="IntentCard-icon">
-                <!-- Scan / signal: three arcs radiating from a point -->
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="13" cy="13" r="5"/>
-                  <line x1="16.5" y1="16.5" x2="24" y2="24"/>
-                  <path d="M8 8 A7.5 7.5 0 0 0 18 18" opacity="0.35"/>
-                  <path d="M5 5 A11.5 11.5 0 0 0 21 21" opacity="0.2"/>
-                </svg>
-              </span>
-              <div class="IntentCard-label">Operating Audit</div>
-              <div class="IntentCard-desc">Find the drag. Build the case. Know what to fix first.</div>
-            </div>
-            <div class="IntentCard" data-intent="system_install">
-              <span class="IntentCard-icon">
-                <!-- Circuit nodes: 3 nodes connected -->
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="6" cy="16" r="2.5"/>
-                  <circle cx="16" cy="6" r="2.5"/>
-                  <circle cx="26" cy="16" r="2.5"/>
-                  <circle cx="16" cy="26" r="2.5"/>
-                  <circle cx="16" cy="16" r="3"/>
-                  <line x1="8.5" y1="16" x2="13" y2="16"/>
-                  <line x1="19" y1="16" x2="23.5" y2="16"/>
-                  <line x1="16" y1="8.5" x2="16" y2="13"/>
-                  <line x1="16" y1="19" x2="16" y2="23.5"/>
-                </svg>
-              </span>
-              <div class="IntentCard-label">System Install</div>
-              <div class="IntentCard-desc">Design and ship your first AI-native operating system.</div>
-            </div>
-            <div class="IntentCard" data-intent="operating_partner">
-              <span class="IntentCard-icon">
-                <!-- Orbit / embed: circle with arc and dot -->
-                <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                  <circle cx="16" cy="16" r="9"/>
-                  <circle cx="16" cy="16" r="2.5"/>
-                  <path d="M16 7 A9 9 0 0 1 25 16" stroke-dasharray="3 3"/>
-                  <circle cx="25" cy="16" r="2" fill="currentColor" stroke="none" style="color:var(--mid-teal)"/>
-                </svg>
-              </span>
-              <div class="IntentCard-label">Operating Partner</div>
-              <div class="IntentCard-desc">Embedded, ongoing — build AI operations as a compounding advantage.</div>
-            </div>
+  <main id="main">
+    <section class="hero" id="top">
+      <div class="hero-glow" aria-hidden="true"></div>
+      <canvas class="hero-canvas" id="heroCanvas" aria-hidden="true"></canvas>
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-inner">
+        <div class="hero-copy" data-reveal>
+          <p class="eyebrow eyebrow-light"><span></span> AI workflow architecture / Australia</p>
+          <h1>Find the work your business loses <em>between</em> people, tools and decisions.</h1>
+          <p class="hero-lede">Optiflows measures coordination drag, redesigns the workflow and installs governed agent systems your team can own.</p>
+          <div class="hero-actions">
+            <a class="button button-accent" href="#start"><span>Measure your coordination drag</span></a>
+            <a class="text-link text-link-light" href="#method">See how the method works <span aria-hidden="true">↓</span></a>
           </div>
         </div>
 
-        <!-- STEP 2: Contact -->
-        <div class="LeadStep" id="leadStep2">
-          <button type="button" class="LeadForm-back" id="leadBackBtn">← Back</button>
-          <form id="leadForm" class="LeadForm" autocomplete="on">
-            <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
-            <input type="hidden" name="inquiry_type" id="leadIntent" value="">
-            <div class="LeadForm-field">
-              <label class="LeadForm-label" for="lf-name">Your name</label>
-              <input type="text" name="full_name" id="lf-name" required class="LeadForm-input" autocomplete="name">
-            </div>
-            <div class="LeadForm-field">
-              <label class="LeadForm-label" for="lf-email">Work email</label>
-              <input type="email" name="email" id="lf-email" required class="LeadForm-input" autocomplete="email">
-            </div>
-            <div class="LeadForm-field">
-              <label class="LeadForm-label" for="lf-company">Company</label>
-              <input type="text" name="company_name" id="lf-company" required class="LeadForm-input" autocomplete="organization">
-            </div>
-            <div class="LeadForm-field">
-              <label class="LeadForm-label" for="lf-message">
-                What's the workflow costing you the most right now?
-                <span style="text-transform:none;letter-spacing:0;font-family:var(--font-primary);color:var(--mid-grey)"> (optional)</span>
-              </label>
-              <textarea name="message" id="lf-message" rows="3" class="LeadForm-input LeadForm-textarea"></textarea>
-            </div>
-            <button type="submit" class="Button Button--filled Button--formSubmit" id="leadSubmitBtn"><span>Send Enquiry</span></button>
-            <p class="LeadForm-trust">We respond within 24 hours. No sales decks. No spam.</p>
-            <p class="LeadForm-status" id="leadFormStatus"></p>
+        <div class="hero-readout" data-reveal>
+          <div class="readout-topline">
+            <span>Live workflow model</span>
+            <span class="live-status"><i></i> illustrative</span>
+          </div>
+          <div class="readout-number"><span id="heroDragValue">37</span><small>%</small></div>
+          <p>of cycle time waiting on handoffs, approvals and missing context.</p>
+          <div class="readout-track"><span id="heroDragTrack"></span></div>
+          <div class="readout-meta"><span>12 handoffs</span><span>4 decision queues</span><span>3 systems</span></div>
+        </div>
+      </div>
+      <div class="hero-foot">
+        <div><span>Built for</span> founder-led teams scaling past manual coordination</div>
+        <div><span>Designed around</span> human authority, visible controls, client ownership</div>
+      </div>
+    </section>
+
+    <section class="evidence-strip" aria-label="Market evidence">
+      <div class="evidence-intro">
+        <span class="micro-label">The implementation gap</span>
+        <p>AI use is widespread. Operational value is not.</p>
+      </div>
+      <a class="evidence-stat" href="https://www.mckinsey.com/capabilities/quantumblack/our-insights/the-state-of-ai" target="_blank" rel="noopener noreferrer">
+        <strong>Nearly 2 in 3</strong>
+        <span>organisations have not started scaling AI across the enterprise.</span>
+        <small>McKinsey, 2025 ↗</small>
+      </a>
+      <a class="evidence-stat" href="https://www.deloitte.com/au/en/about/press-room/ai-edge-small-business-increased-smb-ai-adoption-can-add-44-billion-australias-economy-251125.html" target="_blank" rel="noopener noreferrer">
+        <strong>5%</strong>
+        <span>of surveyed Australian SMB AI users are fully enabled.</span>
+        <small>Deloitte Australia, 2025 ↗</small>
+      </a>
+      <div class="evidence-conclusion">
+        <span class="micro-label">The implication</span>
+        <p>The opportunity is not another tool. It is redesigning how work moves.</p>
+      </div>
+    </section>
+
+    <section class="story-section" id="method">
+      <div class="story-sticky">
+        <div class="story-visual" aria-label="Illustrative workflow transforming from fragmented to governed">
+          <canvas id="flowCanvas" aria-hidden="true"></canvas>
+          <div class="story-visual-grid" aria-hidden="true"></div>
+          <div class="story-meter">
+            <span>Coordination drag</span>
+            <div><i id="storyMeterFill"></i></div>
+            <strong id="storyMeterValue">42%</strong>
+          </div>
+          <div class="story-legend" aria-hidden="true">
+            <span><i class="dot-work"></i> work</span>
+            <span><i class="dot-human"></i> human decision</span>
+            <span><i class="dot-risk"></i> blocked</span>
+          </div>
+        </div>
+
+        <div class="story-copy">
+          <div class="story-progress" aria-hidden="true"><i id="storyProgress"></i></div>
+          <article class="story-step is-active" data-stage="0">
+            <span class="step-number">01 / Fragmented</span>
+            <h2>The work is moving. The value is not.</h2>
+            <p>Requests cross inboxes, meetings, spreadsheets and chat. Context is rebuilt at every handoff. Routine decisions queue behind the same person.</p>
+          </article>
+          <article class="story-step" data-stage="1">
+            <span class="step-number">02 / Measured</span>
+            <h2>Make the drag visible.</h2>
+            <p>We map wait time, rework, decision queues and exceptions. The result is a number, a priority and a business case. Not a generic AI roadmap.</p>
+          </article>
+          <article class="story-step" data-stage="2">
+            <span class="step-number">03 / Redesigned</span>
+            <h2>Remove handoffs before automating them.</h2>
+            <p>We simplify the route, encode repeatable judgement and connect the systems that already matter. AI enters where it changes the whole workflow.</p>
+          </article>
+          <article class="story-step" data-stage="3">
+            <span class="step-number">04 / Governed</span>
+            <h2>Authority stays where it belongs.</h2>
+            <p>High-stakes actions stop for human approval. Every agent has a defined scope. Every material action leaves a trace. Failure paths are designed before launch.</p>
+          </article>
+          <article class="story-step" data-stage="4">
+            <span class="step-number">05 / Operating</span>
+            <h2>The system runs. Your team directs.</h2>
+            <p>Work moves through a legible operating rhythm. Your people handle judgement and exceptions. The system handles the coordination around them.</p>
+            <a class="text-link" href="#engagements">See the engagement path <span aria-hidden="true">↓</span></a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="fit-section section-pad" id="fit">
+      <div class="section-heading-row">
+        <div>
+          <p class="eyebrow"><span></span> The buying moment</p>
+          <h2>You do not need an AI strategy.<br>You need a first operating decision.</h2>
+        </div>
+        <p class="section-intro">Start when the cost of coordination is visible, but the right intervention is not.</p>
+      </div>
+      <div class="signal-grid">
+        <article class="signal-card" data-reveal><span>01</span><h3>One person routes everything</h3><p>Approvals, escalations and priorities wait for the founder or operations lead.</p><small>Signal: decision queue</small></article>
+        <article class="signal-card" data-reveal><span>02</span><h3>The tools work in isolation</h3><p>The CRM, inbox, project board and chat all contain part of the truth.</p><small>Signal: context rebuild</small></article>
+        <article class="signal-card" data-reveal><span>03</span><h3>AI saves minutes, not workflows</h3><p>Individuals are faster, but the end-to-end process and business result stay the same.</p><small>Signal: local optimisation</small></article>
+        <article class="signal-card" data-reveal><span>04</span><h3>No one can explain the risk</h3><p>There is no clear answer for what AI can touch, who approves it or what happens when it is wrong.</p><small>Signal: authority gap</small></article>
+      </div>
+    </section>
+
+    <section class="capabilities-section section-pad" id="capabilities">
+      <div class="capabilities-head">
+        <p class="eyebrow eyebrow-light"><span></span> Capabilities</p>
+        <h2>One operating problem.<br>Four disciplines.</h2>
+        <p>Optiflows works across the workflow, technology and control layers. The build is only as strong as the operating design around it.</p>
+      </div>
+      <div class="capability-list">
+        <article class="capability-row" data-reveal><div class="capability-index">01</div><div class="capability-title"><h3>Workflow intelligence</h3><span>Measure the real constraint</span></div><p>Map handoffs, wait states, rework, exceptions and decision load. Rank opportunities by business impact and buildability.</p><ul><li>Friction ledger</li><li>Opportunity model</li><li>Investment case</li></ul></article>
+        <article class="capability-row" data-reveal><div class="capability-index">02</div><div class="capability-title"><h3>Agent systems</h3><span>Install the decision layer</span></div><p>Design agents around a defined job, context boundary and escalation path. Test them in the real workflow, not a demo environment.</p><ul><li>Agent architecture</li><li>Evaluation suite</li><li>Production pilot</li></ul></article>
+        <article class="capability-row" data-reveal><div class="capability-index">03</div><div class="capability-title"><h3>Integration and knowledge</h3><span>Connect the operating context</span></div><p>Wire the tools your team already uses. Structure the knowledge agents need. Make provenance, access and handoffs explicit.</p><ul><li>System integration</li><li>Knowledge architecture</li><li>Source traceability</li></ul></article>
+        <article class="capability-row" data-reveal><div class="capability-index">04</div><div class="capability-title"><h3>Governance and adoption</h3><span>Keep humans in authority</span></div><p>Define what the system may do, what requires approval and how failures surface. Train the team and transfer the operating runbook.</p><ul><li>Control matrix</li><li>Human gates</li><li>Team handover</li></ul></article>
+      </div>
+    </section>
+
+    <section class="engagements-section section-pad" id="engagements">
+      <div class="section-heading-row">
+        <div><p class="eyebrow"><span></span> Engagement path</p><h2>Start with evidence.<br>Build only what earns the build.</h2></div>
+        <p class="section-intro">Three ways to work together. Each one has a defined decision, output and ownership boundary.</p>
+      </div>
+      <div class="engagement-grid">
+        <article class="engagement-card engagement-card-featured" data-reveal>
+          <div class="engagement-top"><span>01 / Diagnose</span><strong>2 weeks</strong></div><h3>Coordination Drag Audit</h3>
+          <p class="engagement-promise">Know where work is being lost, what it costs and which workflow deserves investment first.</p>
+          <div class="deliverable-block"><span>You leave with</span><ul><li>A measured friction ledger</li><li>A ranked workflow opportunity map</li><li>A target-state operating design</li><li>A go, no-go or sequence recommendation</li></ul></div>
+          <a class="button button-dark" href="#start" data-intent="coordination_drag_audit"><span>Start with the audit</span></a>
+        </article>
+        <article class="engagement-card" data-reveal>
+          <div class="engagement-top"><span>02 / Install</span><strong>6 weeks</strong></div><h3>System Install</h3>
+          <p class="engagement-promise">Redesign one priority workflow and put the agent system into controlled production.</p>
+          <div class="deliverable-block"><span>You leave with</span><ul><li>A working production system</li><li>Written success criteria and evaluations</li><li>Human approvals and an audit trail</li><li>Architecture, runbook and team handover</li></ul></div>
+          <a class="button" href="#start" data-intent="system_install"><span>Discuss an install</span></a>
+        </article>
+        <article class="engagement-card" data-reveal>
+          <div class="engagement-top"><span>03 / Evolve</span><strong>monthly</strong></div><h3>Operating Partner</h3>
+          <p class="engagement-promise">Keep the operating model useful as the business, tools and risk surface change.</p>
+          <div class="deliverable-block"><span>You leave each cycle with</span><ul><li>A reviewed operating baseline</li><li>A refreshed workflow priority</li><li>Measured changes and next decisions</li><li>An updated control and capability plan</li></ul></div>
+          <a class="button" href="#start" data-intent="operating_partner"><span>Discuss continuity</span></a>
+        </article>
+      </div>
+    </section>
+
+    <section class="assurance-section section-pad" id="assurance">
+      <div class="assurance-grid">
+        <div class="assurance-statement" data-reveal><p class="eyebrow eyebrow-light"><span></span> Designed for trust</p><h2>Do not trust the pitch.<br>Inspect the system.</h2><p>Every material claim should map to an artefact, a test or an observable control. Optiflows makes the operating design inspectable before asking your team to depend on it.</p></div>
+        <div class="assurance-console" data-reveal>
+          <div class="console-bar"><span>system/readiness-check</span><i></i><i></i><i></i></div>
+          <div class="console-body"><div><span>scope_defined</span><strong class="ok">true</strong></div><div><span>success_criteria</span><strong class="ok">written</strong></div><div><span>human_authority</span><strong class="ok">retained</strong></div><div><span>high_stakes_actions</span><strong>approval_required</strong></div><div><span>audit_trail</span><strong class="ok">enabled</strong></div><div><span>failure_path</span><strong class="ok">tested</strong></div><div><span>client_ownership</span><strong class="ok">complete</strong></div></div>
+        </div>
+      </div>
+      <div class="assurance-cards">
+        <article data-reveal><span>01</span><h3>Written before build</h3><p>Scope, success criteria and authority boundaries are agreed before implementation begins.</p></article>
+        <article data-reveal><span>02</span><h3>Tested against failure</h3><p>Edge cases, escalation paths and recovery behaviour are part of the production brief.</p></article>
+        <article data-reveal><span>03</span><h3>Owned after handover</h3><p>The architecture, knowledge and runbook stay with your team. The system does not depend on our presence.</p></article>
+      </div>
+    </section>
+
+    <section class="practitioner-section section-pad" id="practitioner">
+      <div class="practitioner-card">
+        <div class="practitioner-mark" aria-hidden="true"><span>JR</span><i></i></div>
+        <div class="practitioner-copy" data-reveal><p class="eyebrow"><span></span> The practitioner</p><h2>Built by an operator.<br>Not handed off to a delivery pyramid.</h2><p>James Richmond founded Optiflows to close the gap between what AI can do and what a business can safely operate. The method comes from building agent systems, governance controls and knowledge infrastructure inside real operating environments.</p><p class="practitioner-quote">"The work is not finished when the agent responds. It is finished when the business can rely on the system around it."</p><a class="text-link" href="./blog/">Read the thinking <span aria-hidden="true">↗</span></a></div>
+        <div class="practitioner-proof" data-reveal><span class="micro-label">What the site should prove</span><ul><li><span>01</span> A specific point of view</li><li><span>02</span> Visible operating artefacts</li><li><span>03</span> Bounded claims and controls</li><li><span>04</span> Clear client ownership</li></ul></div>
+      </div>
+    </section>
+
+    <section class="thinking-section section-pad" id="thinking">
+      <div class="section-heading-row"><div><p class="eyebrow"><span></span> Field notes</p><h2>The thinking behind<br>the operating method.</h2></div><a class="text-link" href="./blog/">View all thinking <span aria-hidden="true">↗</span></a></div>
+      <div class="article-grid">
+        <a class="article-card article-card-main" href="./blog/posts/why-your-operating-model-is-the-bottleneck.html" data-reveal><span class="article-meta">Operating model / 8 min</span><h3>Why your operating model is the bottleneck</h3><p>The company grows. The coordination model does not. Here is what breaks first.</p><i>Read field note ↗</i></a>
+        <a class="article-card" href="./blog/posts/removing-the-founder-from-the-loop.html" data-reveal><span class="article-meta">Authority / 7 min</span><h3>Removing the founder from the loop</h3><p>Remove dependency without removing judgement or control.</p><i>Read field note ↗</i></a>
+        <a class="article-card" href="./blog/posts/flow-optimisation-is-not-process-improvement.html" data-reveal><span class="article-meta">Workflow design / 6 min</span><h3>Flow optimisation is not process improvement</h3><p>Do not make a broken route faster. Redesign the route.</p><i>Read field note ↗</i></a>
+      </div>
+    </section>
+
+    <section class="start-section" id="start">
+      <div class="start-background" aria-hidden="true"></div>
+      <div class="start-inner">
+        <div class="start-copy" data-reveal><p class="eyebrow eyebrow-light"><span></span> Start with the diagnostic</p><h2>Put a number on the drag.</h2><p>Tell us where work slows down. We will respond with the first question worth answering, not a sales deck.</p><div class="start-expectation"><span>01</span><p>One short enquiry</p><span>02</span><p>A direct response within one business day</p><span>03</span><p>No obligation to proceed to a build</p></div></div>
+        <div class="lead-panel" data-reveal>
+          <form id="leadForm" autocomplete="on">
+            <input type="text" name="honeypot" class="honeypot" tabindex="-1" autocomplete="off" aria-hidden="true"><input type="hidden" name="inquiry_type" id="leadIntent" value="coordination_drag_audit">
+            <div class="form-grid"><label><span>Name</span><input type="text" name="full_name" required autocomplete="name" placeholder="Your name"></label><label><span>Work email</span><input type="email" name="email" required autocomplete="email" placeholder="you@company.com"></label></div>
+            <label><span>Company</span><input type="text" name="company_name" required autocomplete="organization" placeholder="Company name"></label>
+            <label><span>Where does work slow down?</span><textarea name="message" id="leadMessage" rows="4" placeholder="A handoff, approval, recurring decision or workflow that keeps pulling someone back into the loop."></textarea></label>
+            <button class="button button-accent button-submit" id="leadSubmit" type="submit"><span>Request the first conversation</span></button><p class="form-status" id="formStatus" role="status"></p><p class="form-note">Your details are used only to respond to this enquiry.</p>
           </form>
+          <div class="form-success" id="formSuccess" hidden><span>Enquiry received</span><h3>We will be in touch within one business day.</h3><p>Expect a short, direct response from Optiflows.</p></div>
         </div>
-
-        <!-- STEP 3: Success -->
-        <div class="LeadStep" id="leadStep3">
-          <div class="LeadForm-success">
-            <span class="LeadForm-success-icon">✓</span>
-            <div class="LeadForm-success-title">Got it.</div>
-            <p class="LeadForm-success-text">We'll be in touch within 24 hours. Expect a short, direct response — not a deck.</p>
-          </div>
-        </div>
-
       </div>
-    </div>
-  </div>
-</section>
+    </section>
+  </main>
 
-<!-- Cutout: mist → white (footer gap handled by footer margin) -->
-<div class="Cutout Cutout--mistToWhite"></div>
+  <footer class="site-footer">
+    <div class="footer-top"><a class="brand brand-footer" href="#top"><img src="./favicon.svg" alt="" width="30" height="30"><span>Optiflows</span></a><p>Measure coordination drag.<br>Install better flow.</p><a class="footer-email" href="mailto:hello@optiflows.com">hello@optiflows.com ↗</a></div>
+    <div class="footer-bottom"><span>© 2026 Optiflows</span><nav aria-label="Footer navigation"><a href="#method">Method</a><a href="#capabilities">Capabilities</a><a href="#engagements">Engagements</a><a href="./blog/">Thinking</a></nav><a href="https://www.linkedin.com/company/14484279" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a></div>
+  </footer>
 
-<!-- ======================== FOOTER ======================== -->
-<footer class="Footer">
-  <div class="Footer-inner">
-    <div class="Footer-grid">
-      <div>
-        <div class="Footer-brand">Optiflows</div>
-        <p class="Footer-brandDesc">AI-native operating systems for growing businesses. We fix coordination drag, broken handoffs, and invisible value leakage — with systems your team owns.</p>
-      </div>
-      <div>
-        <div class="Footer-colTitle">Offers</div>
-        <a href="#offers" class="Footer-colLink">Operating Audit</a>
-        <a href="#offers" class="Footer-colLink">System Install</a>
-        <a href="#offers" class="Footer-colLink">Operating Partner</a>
-      </div>
-      <div>
-        <div class="Footer-colTitle">Pages</div>
-        <a href="#problem" class="Footer-colLink">The Problem</a>
-        <a href="#how-it-works" class="Footer-colLink">How It Works</a>
-        <a href="#principles" class="Footer-colLink">Principles</a>
-        <a href="../blog/" class="Footer-colLink">Thinking</a>
-        <a href="./team/" class="Footer-colLink">Team</a>
-      </div>
-      <div>
-        <div class="Footer-colTitle">Contact</div>
-        <a href="mailto:hello@optiflows.com" class="Footer-colLink">hello@optiflows.com</a>
-        <a href="https://www.linkedin.com/company/14484279" target="_blank" rel="noopener noreferrer" class="Footer-colLink">LinkedIn</a>
-      </div>
-    </div>
-    <div class="Footer-bottom">
-      <span class="Footer-copy">&copy; 2026 Optiflows. All rights reserved.</span>
-    </div>
-  </div>
-</footer>
-
-</div><!-- /siteContent -->
-
-<script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
-<script src="./app.js" defer></script>
-
-
-
-
-<script>
-// ─── Two-Step Lead Form ───
-(function() {
-  var FORM_ENDPOINT = 'https://formspree.io/f/meelyrkd';
-
-  var step1 = document.getElementById('leadStep1');
-  var step2 = document.getElementById('leadStep2');
-  var step3 = document.getElementById('leadStep3');
-  var form  = document.getElementById('leadForm');
-  var intentInput = document.getElementById('leadIntent');
-  var backBtn = document.getElementById('leadBackBtn');
-  var submitBtn = document.getElementById('leadSubmitBtn');
-  var status = document.getElementById('leadFormStatus');
-  var messageField = document.getElementById('lf-message');
-
-  if (!step1 || !form) return;
-
-  var messagePlaceholders = {
-    operating_audit: 'Which workflow is your biggest friction point right now?',
-    system_install: 'What would you want the first system to handle?',
-    operating_partner: 'Tell us where you are and what you are trying to build.'
-  };
-
-  function showStep(n) {
-    step1.className = 'LeadStep' + (n === 1 ? ' active' : '');
-    step2.className = 'LeadStep' + (n === 2 ? ' active' : '');
-    step3.className = 'LeadStep' + (n === 3 ? ' active' : '');
-  }
-
-  // Intent card clicks (inline in CTA form)
-  var cards = step1.querySelectorAll('.IntentCard');
-  for (var i = 0; i < cards.length; i++) {
-    cards[i].addEventListener('click', function() {
-      var intent = this.getAttribute('data-intent');
-      intentInput.value = intent;
-      messageField.placeholder = messagePlaceholders[intent] || '';
-      showStep(2);
-      document.getElementById('lf-name').focus();
-    });
-  }
-
-  // Offer section buttons → jump to CTA and pre-select intent
-  var offerBtns = document.querySelectorAll('[data-intent]');
-  offerBtns.forEach(function(btn) {
-    if (!btn.closest('#leadStep1')) {
-      btn.addEventListener('click', function(e) {
-        e.preventDefault();
-        var intent = this.getAttribute('data-intent');
-        intentInput.value = intent;
-        messageField.placeholder = messagePlaceholders[intent] || '';
-        showStep(2);
-        var ctaEl = document.getElementById('start');
-        if (ctaEl) ctaEl.scrollIntoView({ behavior: 'smooth' });
-        setTimeout(function() { document.getElementById('lf-name').focus(); }, 600);
-      });
-    }
-  });
-
-  backBtn.addEventListener('click', function() { showStep(1); });
-
-  function getUtm() {
-    var params = new URLSearchParams(window.location.search);
-    return {
-      utm_source: params.get('utm_source') || '',
-      utm_medium: params.get('utm_medium') || '',
-      utm_campaign: params.get('utm_campaign') || '',
-      utm_term: params.get('utm_term') || '',
-      utm_content: params.get('utm_content') || ''
-    };
-  }
-
-  form.addEventListener('submit', function(e) {
-    e.preventDefault();
-    status.textContent = '';
-    status.className = 'LeadForm-status';
-    submitBtn.disabled = true;
-    submitBtn.querySelector('span').textContent = 'Sending...';
-
-    var fd = new FormData(form);
-    var utm = getUtm();
-
-    var payload = {
-      _subject: 'Optiflows lead submission',
-      name: (fd.get('full_name') || '').trim(),
-      email: fd.get('email'),
-      company: fd.get('company_name'),
-      message: fd.get('message'),
-      inquiry_type: fd.get('inquiry_type'),
-      source_page: window.location.pathname,
-      _gotcha: fd.get('honeypot'),
-      utm_source: utm.utm_source,
-      utm_medium: utm.utm_medium,
-      utm_campaign: utm.utm_campaign,
-      utm_term: utm.utm_term,
-      utm_content: utm.utm_content
-    };
-
-    fetch(FORM_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(function(res) {
-      if (!res.ok) throw new Error('Failed');
-      return res.json();
-    })
-    .then(function() {
-      showStep(3);
-    })
-    .catch(function() {
-      status.textContent = 'Something went wrong. Email hello@optiflows.com directly.';
-      status.className = 'LeadForm-status error';
-      submitBtn.querySelector('span').textContent = 'Send Enquiry';
-      submitBtn.disabled = false;
-    });
-  });
-})();
-</script>
-
+  <script type="module" src="./homepage-rebuild.js?v=20260904a"></script>
 </body>
 </html>
