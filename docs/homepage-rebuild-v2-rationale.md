@@ -1,6 +1,6 @@
 # Optiflows homepage rebuild v2
 
-Status: local concept, not approved for publication  
+Status: approved for production publication
 Date: 2026-09-04
 
 ## Strategic decision
@@ -66,7 +66,7 @@ The model is deterministic and reversible: scrolling up deconstructs the system.
 - Do not invent client metrics, testimonials or logos.
 - Label the workflow visual as illustrative.
 - Use externally sourced market data only with a visible source and date.
-- Treat the service names, durations and commercial structure as draft until James approves them.
+- Service names, durations and commercial structure were approved for publication on 2026-09-04.
 
 ## Sources
 
@@ -79,4 +79,3 @@ The model is deterministic and reversible: scrolling up deconstructs the system.
 - Gartner, 61% of B2B Buyers Prefer a Rep-Free Buying Experience: https://www.gartner.com/en/newsroom/press-releases/2025-06-25-gartner-sales-survey-finds-61-percent-of-b2b-buyers-prefer-a-rep-free-buying-experience
 - Hinge, High Growth Study 2026: https://hingemarketing.com/library/article/high-growth-study-2026-executive-summary
 - Edelman and LinkedIn, 2025 B2B Thought Leadership Impact Report: https://www.edelman.com/expertise/Business-Marketing/2025-b2b-thought-leadership-report
-
