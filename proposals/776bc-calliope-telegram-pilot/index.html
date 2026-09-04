@@ -211,10 +211,20 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 @media print{
   body{font-size:11pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
   .section{padding:34px 0}
-  .cover{padding:28px 0 40px}
+  .cover{padding:28px 0 40px;min-height:273mm;display:flex;align-items:center;break-after:page}
+  .cover .wrap{width:100%}
   .wrap{padding:0}
   h1{font-size:34pt}h2{font-size:22pt}
-  .tbl,.tile,.step,.callout,.panel,.phase,.decision,.qs li,.record{break-inside:avoid}
+  h2,h3,.section-head{break-after:avoid-page}
+  .tile,.step,.callout,.panel,.phase,.decision,.qs li,.record{break-inside:avoid}
+  table{font-size:10pt}
+  thead{display:table-header-group}
+  tr{break-inside:avoid}
+  th,td{padding:10px 14px}
+  .two-col{display:block;columns:2;column-gap:28px}
+  .two-col li{break-inside:avoid;margin-bottom:10px}
+  .foot .wrap{display:block}
+  .foot .mono{display:block;margin-top:16px;white-space:normal}
   .no-print{display:none!important}
   .print-only{display:block}
   a{text-decoration:none;color:inherit}
@@ -497,7 +507,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
           <div class="hint">Sign here with your mouse, finger or stylus</div>
         </div>
         <div class="pad-tools">
-          <span class="note">Your signature is stored with the approval record and shown on the PDF.</span>
+          <span class="note">Submitting sends your name, role, date and signature to Optiflows via Formspree and stores a local copy in this browser for the approval record.</span>
           <button type="button" class="link-btn" id="clearSig">Clear signature</button>
         </div>
       </div>
