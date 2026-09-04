@@ -3,12 +3,28 @@ const lerp = (a, b, t) => a + (b - a) * t;
 const smooth = (t) => t * t * (3 - 2 * t);
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+function trackEvent(name, parameters = {}) {
+  if (typeof window.gtag !== 'function') return;
+  window.gtag('event', name, parameters);
+}
+
 function initInterface() {
   const header = document.getElementById('siteHeader');
   const menuToggle = document.getElementById('menuToggle');
   const mobileNav = document.getElementById('mobileNav');
+  const mobileActionBar = document.getElementById('mobileActionBar');
+  const dialog = document.getElementById('conversionDialog');
+  const dialogClose = document.getElementById('dialogClose');
+  const dialogSuccessClose = document.getElementById('dialogSuccessClose');
+  const intentInput = document.getElementById('leadIntent');
+  const ctaLocationInput = document.getElementById('ctaLocation');
+  const estimatedDragInput = document.getElementById('estimatedAnnualDrag');
+  const message = document.getElementById('leadMessage');
 
-  const updateHeader = () => header?.classList.toggle('is-scrolled', window.scrollY > 28);
+  const updateHeader = () => {
+    header?.classList.toggle('is-scrolled', window.scrollY > 28);
+    mobileActionBar?.classList.toggle('is-visible', window.scrollY > Math.max(520, window.innerHeight * 0.68) && !dialog?.open);
+  };
   updateHeader();
   window.addEventListener('scroll', updateHeader, { passive: true });
 
@@ -30,6 +46,7 @@ function initInterface() {
 
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener('click', (event) => {
+      if (link.hasAttribute('data-open-conversion')) return;
       const target = document.querySelector(link.getAttribute('href'));
       if (!target) return;
       event.preventDefault();
@@ -51,20 +68,76 @@ function initInterface() {
     revealItems.forEach((item) => observer.observe(item));
   }
 
-  const intentInput = document.getElementById('leadIntent');
-  const message = document.getElementById('leadMessage');
   const placeholders = {
     coordination_drag_audit: 'A handoff, approval, recurring decision or workflow that keeps pulling someone back into the loop.',
     system_install: 'What should the first production system handle, and what must always remain a human decision?',
     operating_partner: 'What is already running, and where does the operating model need to evolve?'
   };
-  document.querySelectorAll('[data-intent]').forEach((link) => {
-    link.addEventListener('click', () => {
+  document.querySelectorAll('[data-open-conversion]').forEach((link) => {
+    link.addEventListener('click', (event) => {
+      event.preventDefault();
       const intent = link.dataset.intent || 'coordination_drag_audit';
       if (intentInput) intentInput.value = intent;
+      if (ctaLocationInput) ctaLocationInput.value = link.dataset.ctaLocation || 'unknown';
       if (message) message.placeholder = placeholders[intent] || placeholders.coordination_drag_audit;
+      trackEvent('diagnostic_open', { cta_location: link.dataset.ctaLocation || 'unknown', inquiry_type: intent });
+      if (dialog && !dialog.open) dialog.showModal();
+      document.body.classList.add('dialog-open');
+      mobileActionBar?.classList.remove('is-visible');
     });
   });
+
+  const closeDialog = () => {
+    if (dialog?.open) dialog.close();
+    document.body.classList.remove('dialog-open');
+    updateHeader();
+  };
+  dialogClose?.addEventListener('click', closeDialog);
+  dialogSuccessClose?.addEventListener('click', closeDialog);
+  dialog?.addEventListener('cancel', () => {
+    document.body.classList.remove('dialog-open');
+    updateHeader();
+  });
+  dialog?.addEventListener('click', (event) => {
+    if (event.target === dialog) closeDialog();
+  });
+
+  const people = document.getElementById('calcPeople');
+  const hours = document.getElementById('calcHours');
+  const rate = document.getElementById('calcRate');
+  const peopleOutput = document.getElementById('calcPeopleOutput');
+  const hoursOutput = document.getElementById('calcHoursOutput');
+  const rateOutput = document.getElementById('calcRateOutput');
+  const annualOutput = document.getElementById('calcAnnual');
+  const money = new Intl.NumberFormat('en-AU', { style: 'currency', currency: 'AUD', maximumFractionDigits: 0 });
+  let calculatorTracked = false;
+  const updateCalculator = (track = false) => {
+    if (!people || !hours || !rate || !annualOutput) return;
+    const annual = Number(people.value) * Number(hours.value) * Number(rate.value) * 46;
+    peopleOutput.textContent = people.value;
+    hoursOutput.textContent = hours.value;
+    rateOutput.textContent = money.format(Number(rate.value));
+    annualOutput.textContent = money.format(annual);
+    if (estimatedDragInput) estimatedDragInput.value = money.format(annual);
+    if (track && !calculatorTracked) {
+      calculatorTracked = true;
+      trackEvent('drag_calculator_start');
+    }
+  };
+  document.querySelectorAll('[data-calc-input]').forEach((input) => input.addEventListener('input', () => updateCalculator(true)));
+  updateCalculator();
+
+  const depthSeen = new Set();
+  window.addEventListener('scroll', () => {
+    const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+    if (scrollable <= 0) return;
+    const depth = Math.round((window.scrollY / scrollable) * 100);
+    [25, 50, 75, 90].forEach((threshold) => {
+      if (depth < threshold || depthSeen.has(threshold)) return;
+      depthSeen.add(threshold);
+      trackEvent('scroll_depth', { percent: threshold });
+    });
+  }, { passive: true });
 
   initLeadForm();
 }
@@ -77,6 +150,12 @@ function initLeadForm() {
   if (!form || !submit || !status || !success) return;
 
   const endpoint = 'https://formspree.io/f/meelyrkd';
+  let formStarted = false;
+  form.addEventListener('focusin', () => {
+    if (formStarted) return;
+    formStarted = true;
+    trackEvent('diagnostic_form_start', { cta_location: document.getElementById('ctaLocation')?.value || 'unknown' });
+  });
   form.addEventListener('submit', async (event) => {
     event.preventDefault();
     status.textContent = '';
@@ -93,12 +172,15 @@ function initLeadForm() {
       company: String(data.get('company_name') || '').trim(),
       message: String(data.get('message') || '').trim(),
       inquiry_type: String(data.get('inquiry_type') || 'coordination_drag_audit'),
+      cta_location: String(data.get('cta_location') || 'unknown'),
+      estimated_annual_drag: String(data.get('estimated_annual_drag') || ''),
       source_page: window.location.pathname,
       _gotcha: String(data.get('honeypot') || ''),
       utm_source: query.get('utm_source') || '',
       utm_medium: query.get('utm_medium') || '',
       utm_campaign: query.get('utm_campaign') || ''
     };
+    trackEvent('diagnostic_form_submit', { cta_location: payload.cta_location, inquiry_type: payload.inquiry_type });
 
     try {
       const response = await fetch(endpoint, {
@@ -109,10 +191,12 @@ function initLeadForm() {
       if (!response.ok) throw new Error('Submission failed');
       form.hidden = true;
       success.hidden = false;
+      trackEvent('generate_lead', { cta_location: payload.cta_location, inquiry_type: payload.inquiry_type });
     } catch (error) {
       status.textContent = 'Something went wrong. Email hello@optiflows.com directly.';
       submit.disabled = false;
-      if (submitLabel) submitLabel.textContent = 'Request the first conversation';
+      if (submitLabel) submitLabel.textContent = 'Request my diagnostic';
+      trackEvent('diagnostic_form_error', { cta_location: payload.cta_location });
     }
   });
 }
@@ -138,6 +222,11 @@ function resizeRenderer(renderer, camera, canvas) {
 }
 
 async function initSpatialSystem() {
+  if (prefersReducedMotion) {
+    initCanvasFallback(document.getElementById('heroCanvas'), true);
+    initCanvasFallback(document.getElementById('flowCanvas'), false);
+    return;
+  }
   try {
     const THREE = await import('https://cdn.jsdelivr.net/npm/three@0.185.0/build/three.module.js');
     initHeroScene(THREE);
