@@ -1,6 +1,7 @@
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
 const lerp = (a, b, t) => a + (b - a) * t;
 const smooth = (t) => t * t * (3 - 2 * t);
+const smoother = (t) => t * t * t * (t * (t * 6 - 15) + 10);
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
 function trackEvent(name, parameters = {}) {
@@ -235,7 +236,56 @@ async function initSpatialSystem() {
     console.warn('Spatial rendering unavailable. Using the static workflow fallback.', error);
     initCanvasFallback(document.getElementById('heroCanvas'), true);
     initCanvasFallback(document.getElementById('flowCanvas'), false);
+    initStoryFallbackMotion();
   }
+}
+
+function initStoryFallbackMotion() {
+  const story = document.getElementById('method');
+  if (!story || prefersReducedMotion) return;
+  const steps = [...story.querySelectorAll('.story-step')];
+  const chapters = [...story.querySelectorAll('#storyChapters span')];
+  const meterFill = document.getElementById('storyMeterFill');
+  const meterValue = document.getElementById('storyMeterValue');
+  const progressBar = document.getElementById('storyProgress');
+  const storyScrollCue = document.getElementById('storyScrollCue');
+  const compactMedia = window.matchMedia('(max-width: 760px)');
+  let displayedProgress = 0;
+  let previousTime = performance.now();
+  story.classList.add('is-motion-ready');
+
+  const render = (time) => {
+    const distance = Math.max(1, story.offsetHeight - window.innerHeight);
+    const rawProgress = clamp(-story.getBoundingClientRect().top / distance);
+    const frameSeconds = Math.min(0.05, Math.max(0.001, (time - previousTime) / 1000));
+    previousTime = time;
+    const gap = rawProgress - displayedProgress;
+    displayedProgress += gap * (1 - Math.exp(-(10.5 + Math.min(16, Math.abs(gap) * 42)) * frameSeconds));
+    const progress = clamp(displayedProgress);
+    const stagePosition = progress * 4;
+    const activeStage = Math.min(4, Math.round(stagePosition));
+    const drag = Math.round(lerp(42, 8, smoother(progress)));
+    if (meterFill) meterFill.style.width = `${drag}%`;
+    if (meterValue) meterValue.textContent = `${drag}%`;
+    if (progressBar) progressBar.style.height = `${progress * 100}%`;
+    storyScrollCue?.classList.toggle('is-dismissed', rawProgress > 0.035);
+    chapters.forEach((chapter, index) => chapter.classList.toggle('is-current', index === activeStage));
+    steps.forEach((step, index) => {
+      step.classList.toggle('is-active', index === activeStage);
+      if (compactMedia.matches) {
+        step.style.removeProperty('opacity');
+        step.style.removeProperty('filter');
+        step.style.removeProperty('transform');
+        return;
+      }
+      const visibility = smoother(clamp(1.04 - Math.abs(index - stagePosition)));
+      step.style.opacity = visibility.toFixed(4);
+      step.style.filter = `blur(${((1 - visibility) * 7).toFixed(2)}px)`;
+      step.style.transform = `translate3d(0, ${((index - stagePosition) * 34).toFixed(2)}px, 0) scale(${(.985 + visibility * .015).toFixed(4)})`;
+    });
+    requestAnimationFrame(render);
+  };
+  requestAnimationFrame(render);
 }
 
 function initHeroScene(THREE) {
@@ -431,6 +481,11 @@ function initFlowScene(THREE) {
   const meterValue = document.getElementById('storyMeterValue');
   const progressBar = document.getElementById('storyProgress');
   const steps = [...document.querySelectorAll('.story-step')];
+  const storyGrid = story.querySelector('.story-visual-grid');
+  const storyChapters = [...document.querySelectorAll('#storyChapters span')];
+  const storyScrollCue = document.getElementById('storyScrollCue');
+  const compactMedia = window.matchMedia('(max-width: 760px)');
+  story.classList.add('is-motion-ready');
 
   function getProgress() {
     const rect = story.getBoundingClientRect();
@@ -438,12 +493,28 @@ function initFlowScene(THREE) {
     return clamp(-rect.top / distance);
   }
 
+  let displayedProgress = getProgress();
+  let previousRawProgress = displayedProgress;
+  let scrollVelocity = 0;
+  let previousTime = performance.now();
+
   function updateScene(time) {
     resizeRenderer(renderer, camera, canvas);
-    let progress = prefersReducedMotion ? 1 : getProgress();
+    const frameSeconds = Math.min(0.05, Math.max(0.001, (time - previousTime) / 1000));
+    previousTime = time;
+    const rawProgress = prefersReducedMotion ? 1 : getProgress();
+    const gap = rawProgress - displayedProgress;
+    const responsiveness = 10.5 + Math.min(16, Math.abs(gap) * 42);
+    displayedProgress += gap * (1 - Math.exp(-responsiveness * frameSeconds));
+    if (Math.abs(gap) < 0.00008) displayedProgress = rawProgress;
+    const rawVelocity = (rawProgress - previousRawProgress) / frameSeconds;
+    scrollVelocity = lerp(scrollVelocity, rawVelocity, 1 - Math.exp(-7 * frameSeconds));
+    previousRawProgress = rawProgress;
+
+    const progress = clamp(displayedProgress);
     const stagePosition = progress * 4;
     const stage = Math.min(3, Math.floor(stagePosition));
-    const stageMix = smooth(stagePosition - stage);
+    const stageMix = smoother(stagePosition - stage);
     const activeStage = Math.min(4, Math.round(stagePosition));
 
     for (let i = 0; i < count; i += 1) {
@@ -486,15 +557,40 @@ function initFlowScene(THREE) {
     });
 
     if (!prefersReducedMotion) {
-      group.rotation.y = 0.12 + Math.sin(time * 0.00022) * 0.08;
-      group.rotation.x = -0.08 + Math.cos(time * 0.00019) * 0.035;
+      const cinematicProgress = smoother(progress);
+      camera.position.z = lerp(18.6, 16.5, cinematicProgress);
+      camera.position.x = Math.sin(progress * Math.PI) * 0.32;
+      group.scale.setScalar(lerp(.94, 1.055, cinematicProgress));
+      group.position.x = clamp(scrollVelocity * -0.008, -0.32, 0.32);
+      group.position.y = Math.sin(progress * Math.PI) * 0.24;
+      group.rotation.y = 0.12 + Math.sin(time * 0.00022) * 0.055 + progress * 0.09;
+      group.rotation.x = -0.08 + Math.cos(time * 0.00019) * 0.025 - progress * 0.035;
     }
 
-    const drag = Math.round(lerp(42, 8, smooth(progress)));
+    const drag = Math.round(lerp(42, 8, smoother(progress)));
     if (meterFill) meterFill.style.width = `${drag}%`;
     if (meterValue) meterValue.textContent = `${drag}%`;
     if (progressBar) progressBar.style.height = `${progress * 100}%`;
-    steps.forEach((step, index) => step.classList.toggle('is-active', index === activeStage));
+    story.style.setProperty('--story-progress', progress.toFixed(4));
+    story.style.setProperty('--story-vignette-opacity', (.14 + progress * .28).toFixed(4));
+    if (storyGrid) storyGrid.style.transform = `translate3d(0, ${-18 * progress}px, 0) scale(${1 + progress * .025})`;
+    storyScrollCue?.classList.toggle('is-dismissed', rawProgress > 0.035);
+    storyChapters.forEach((chapter, index) => chapter.classList.toggle('is-current', index === activeStage));
+    steps.forEach((step, index) => {
+      const isActive = index === activeStage;
+      step.classList.toggle('is-active', isActive);
+      if (compactMedia.matches || prefersReducedMotion) {
+        step.style.removeProperty('opacity');
+        step.style.removeProperty('filter');
+        step.style.removeProperty('transform');
+        return;
+      }
+      const distance = Math.abs(index - stagePosition);
+      const visibility = smoother(clamp(1.04 - distance));
+      step.style.opacity = visibility.toFixed(4);
+      step.style.filter = `blur(${((1 - visibility) * 7).toFixed(2)}px)`;
+      step.style.transform = `translate3d(0, ${((index - stagePosition) * 34).toFixed(2)}px, 0) scale(${(.985 + visibility * .015).toFixed(4)})`;
+    });
 
     renderer.render(scene, camera);
     requestAnimationFrame(updateScene);
