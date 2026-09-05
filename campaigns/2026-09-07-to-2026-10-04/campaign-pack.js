@@ -42,7 +42,15 @@ function emailMarkup(email) {
         <strong>${escapeHtml(email.id.toUpperCase())}</strong>
       </div>
       <div class="email-preview">
-        <iframe src="./${email.html}" title="Preview: ${escapeHtml(email.title)}" loading="lazy"></iframe>
+        <div class="email-preview__bar">
+          <span class="email-preview__dots" aria-hidden="true"><i></i><i></i><i></i></span>
+          <span>Rendered email preview</span>
+          <a href="./${email.html}" target="_blank" rel="noopener">Open full email &nearr;</a>
+        </div>
+        <div class="email-preview__viewport" tabindex="0" aria-label="Scrollable preview of ${escapeHtml(email.title)}">
+          <img class="email-preview__image" src="./${email.preview}" width="700" alt="Full rendered preview of ${escapeHtml(email.title)}" loading="eager">
+        </div>
+        <span class="email-preview__hint">Scroll inside the preview to inspect the complete email</span>
       </div>
       <div class="email-card__body">
         <p class="email-intent">${escapeHtml(email.intent)}</p>

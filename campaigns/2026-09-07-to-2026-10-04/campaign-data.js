@@ -45,6 +45,7 @@ export const campaign = {
       ],
       preheader: 'The hidden constraint is often the routing between people, tools and decisions.',
       hero: 'emails/assets/email-01-coordination-drag-hero.jpg',
+      preview: 'emails/assets/email-01-coordination-drag-preview.png',
       html: 'emails/email-01-coordination-drag.html',
       cta: {
         label: 'Estimate the drag',
@@ -75,6 +76,7 @@ export const campaign = {
       ],
       preheader: 'Three questions reveal whether the workflow or the team is creating the drag.',
       hero: 'emails/assets/email-02-workflow-test-hero.jpg',
+      preview: 'emails/assets/email-02-workflow-test-preview.png',
       html: 'emails/email-02-workflow-test.html',
       cta: {
         label: 'Run the 90-second check',

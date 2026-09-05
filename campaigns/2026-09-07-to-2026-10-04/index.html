@@ -77,13 +77,25 @@
         </div>
       </div>
 
-      <aside class="send-gate" aria-label="Email compliance send gate">
-        <div>
-          <span>Mandatory send gate</span>
-          <strong>Validate consent before upload or send.</strong>
+      <aside class="send-gate" aria-labelledby="send-gate-title">
+        <div class="send-gate__intro">
+          <span class="send-gate__kicker">Required before upload or send</span>
+          <h3 id="send-gate-title">Permission first. Always.</h3>
+          <p>The sequence is ready. Every recipient still needs a documented and relevant basis for contact.</p>
         </div>
-        <p>Keep evidence of consent for every recipient, identify OptiFlows accurately, resolve the consent-context and unsubscribe merge tags, suppress opt-outs, and action unsubscribe requests within five working days.</p>
-        <a href="https://www.acma.gov.au/avoid-sending-spam" target="_blank" rel="noopener">ACMA requirements &nearr;</a>
+        <ol class="send-gate__steps">
+          <li><span>01</span><div><strong>Record the evidence</strong><p>Capture the consent source, basis and date for each recipient.</p></div></li>
+          <li><span>02</span><div><strong>Complete the sender details</strong><p>Identify OptiFlows accurately and replace the consent-context and unsubscribe merge tags.</p></div></li>
+          <li><span>03</span><div><strong>Suppress and honour</strong><p>Remove opt-outs, replies and bounces. Action unsubscribe requests within five working days.</p></div></li>
+        </ol>
+        <div class="send-gate__approval">
+          <span>Mandatory approval gate</span>
+          <strong>No list uploaded.<br>No email sent.</strong>
+          <div class="send-gate__links">
+            <a href="https://www.acma.gov.au/avoid-sending-spam" target="_blank" rel="noopener">ACMA guidance &nearr;</a>
+            <a href="https://www.oaic.gov.au/privacy/privacy-guidance-for-organisations-and-government-agencies/organisations/direct-marketing" target="_blank" rel="noopener">OAIC guidance &nearr;</a>
+          </div>
+        </div>
       </aside>
 
       <div id="email-grid" class="email-grid"></div>
@@ -97,7 +109,7 @@
         </div>
         <div class="progress-card" aria-live="polite">
           <span>Review progress</span>
-          <strong id="progress-value">0 / 36</strong>
+          <strong id="progress-value">0 / 42</strong>
           <div class="progress-track"><i id="progress-bar"></i></div>
         </div>
       </div>

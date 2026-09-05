@@ -8,6 +8,8 @@ Two responsive, table-based HTML email templates for the OptiFlows Visible Flow 
 - `email-02-workflow-test.html` - follow-up self-diagnosis and reply prompt
 - `assets/email-01-coordination-drag-hero.jpg` - optimized 1200 x 630 email hero
 - `assets/email-02-workflow-test-hero.jpg` - optimized 1200 x 630 email hero
+- `assets/email-01-coordination-drag-preview.png` - full rendered review image
+- `assets/email-02-workflow-test-preview.png` - full rendered review image
 - `visible-flow-email-sequence.md` - subjects, preheaders, plain text and send gates
 - `visible-flow-email-sequence.csv` - structured subject and campaign handoff
 
