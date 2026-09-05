@@ -571,12 +571,24 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">
   <link rel="apple-touch-icon" href="/favicon.svg">
+  <link rel="stylesheet" href="/site-navigation.css?v=20260905a">
 </head>
-<body>
+<body class="of-article-page">
+
+<a class="of-skip-link" href="#article-content">Skip to article</a>
+<header class="of-site-header" data-of-site-header>
+  <div class="of-header-inner">
+    <a class="of-brand" href="/" aria-label="Optiflows home"><span class="of-brand-mark" aria-hidden="true"><img src="/brand-mark.svg" alt="" width="48" height="48"><i></i></span><span class="of-brand-wordmark"><span>Opti</span><strong>Flows</strong></span></a>
+    <nav class="of-desktop-nav" aria-label="Primary navigation"><a href="/#method">Method</a><a href="/#capabilities">Capabilities</a><a href="/#engagements">Engagements</a><a href="/blog/" aria-current="page">Thinking</a></nav>
+    <a class="of-nav-cta" href="/#start">Book diagnostic</a>
+    <button class="of-menu-toggle" type="button" aria-expanded="false" aria-controls="ofMobileNav" aria-label="Open menu" data-of-menu-toggle><span></span><span></span></button>
+  </div>
+  <nav class="of-mobile-nav" id="ofMobileNav" aria-label="Mobile navigation" data-of-mobile-nav><a href="/#method">Method</a><a href="/#capabilities">Capabilities</a><a href="/#engagements">Engagements</a><a href="/blog/" aria-current="page">Thinking</a><a class="of-mobile-nav-cta" href="/#start">Book a 20-minute diagnostic</a></nav>
+</header>
 
 <div class="top-bar"></div>
 
-<div class="header">
+<div class="header" id="article-content">
   <div class="logo-mark">
     <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
       <circle cx="20" cy="20" r="18" stroke="#66FFE0" stroke-width="2" fill="none"/>
@@ -748,5 +760,6 @@
   OptiFlows Pty Ltd — optiflows.com.au
 </div>
 
+<script src="/site-navigation.js?v=20260905a"></script>
 </body>
 </html>

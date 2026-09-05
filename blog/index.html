@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="../base.css">
 <link rel="stylesheet" href="../style.css">
 <link rel="stylesheet" href="./blog.css">
+<link rel="stylesheet" href="../site-navigation.css?v=20260905a">
 <link rel="stylesheet" href="https://unpkg.com/lenis@1/dist/lenis.css">
 
 <style>
@@ -199,52 +200,38 @@
   <link rel="icon" type="image/svg+xml" href="/favicon.svg" sizes="any">
   <link rel="apple-touch-icon" href="/favicon.svg">
 </head>
-<body>
+<body class="of-blog-index">
+
+<a class="of-skip-link" href="#main">Skip to content</a>
 
 <div id="siteContent" class="site-content">
 
-<!-- ======================== HEADER ======================== -->
-<header class="Header" id="header">
-  <div class="Header-inner">
-    <a href="../" class="Header-logo" aria-label="Optiflows home">
-      <svg width="28" height="28" viewBox="0 0 32 32" fill="none" aria-hidden="true">
-        <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5" fill="none"/>
-        <path d="M8 16h16" stroke="currentColor" stroke-width="1.5"/>
-        <path d="M16 8v16" stroke="currentColor" stroke-width="1.5"/>
-        <circle cx="16" cy="16" r="4" fill="#66FFE0" stroke="none"/>
-      </svg>
-      <span>Optiflows</span>
+<!-- Shared public navigation -->
+<header class="of-site-header" data-of-site-header>
+  <div class="of-header-inner">
+    <a class="of-brand" href="/" aria-label="Optiflows home">
+      <span class="of-brand-mark" aria-hidden="true"><img src="/brand-mark.svg" alt="" width="48" height="48"><i></i></span>
+      <span class="of-brand-wordmark"><span>Opti</span><strong>Flows</strong></span>
     </a>
-
-    <nav class="Header-nav" aria-label="Main navigation">
-      <a href="../" class="Header-navLink">Operating Model</a>
-      <a href="../growth.html" class="Header-navLink">Growth</a>
-      <a href="./" class="Header-navLink Header-navLink--active">Thinking</a>
-      <a href="../#principles" class="Header-navLink">Principles</a>
+    <nav class="of-desktop-nav" aria-label="Primary navigation">
+      <a href="/#method">Method</a>
+      <a href="/#capabilities">Capabilities</a>
+      <a href="/#engagements">Engagements</a>
+      <a href="/blog/" aria-current="page">Thinking</a>
     </nav>
-
-    <div class="Header-actions">
-      <a href="#start" class="Button Button--filled"><span>Enquire</span></a>
-      <a href="#start" class="Button Button--ne"><span>Start</span></a>
-    </div>
-
-    <button class="MobileToggle" aria-label="Open menu" id="mobileToggle">
-      <span></span>
-      <span></span>
-      <span></span>
+    <a class="of-nav-cta" href="/#start">Book diagnostic</a>
+    <button class="of-menu-toggle" type="button" aria-expanded="false" aria-controls="ofMobileNav" aria-label="Open menu" data-of-menu-toggle>
+      <span></span><span></span>
     </button>
   </div>
+  <nav class="of-mobile-nav" id="ofMobileNav" aria-label="Mobile navigation" data-of-mobile-nav>
+    <a href="/#method">Method</a>
+    <a href="/#capabilities">Capabilities</a>
+    <a href="/#engagements">Engagements</a>
+    <a href="/blog/" aria-current="page">Thinking</a>
+    <a class="of-mobile-nav-cta" href="/#start">Book a 20-minute diagnostic</a>
+  </nav>
 </header>
-
-<!-- Mobile Menu -->
-<div class="MobileMenu" id="mobileMenu">
-  <a href="../" class="MobileMenu-link">Operating Model</a>
-  <a href="../growth.html" class="MobileMenu-link">Growth</a>
-  <a href="./" class="MobileMenu-link">Thinking</a>
-  <a href="../#principles" class="MobileMenu-link">Principles</a>
-  <a href="#start" class="Button Button--filled Button--large" style="margin-top: 16px;"><span>Enquire</span></a>
-  <a href="#start" class="Button Button--large"><span>Start</span></a>
-</div>
 
 <!-- ======================== BLOG HERO ======================== -->
 <section class="BlogHero">
@@ -269,7 +256,7 @@
 </section>
 
 <!-- ======================== POST GRID ======================== -->
-<main class="BlogGrid-wrap">
+<main class="BlogGrid-wrap" id="main">
   <div class="BlogGrid" id="blogGrid">
     <!-- Posts rendered by JS -->
   </div>
@@ -379,6 +366,7 @@
 </div><!-- /siteContent -->
 
 <script src="https://unpkg.com/lenis@1/dist/lenis.min.js"></script>
+<script src="../site-navigation.js?v=20260905a"></script>
 <script src="../app.js"></script>
 <script src="./blog.js"></script>
 <script>
