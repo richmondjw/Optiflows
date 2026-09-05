@@ -186,6 +186,7 @@ function initLeadForm() {
       _subject: 'Optiflows coordination drag enquiry',
       name: String(data.get('full_name') || '').trim(),
       email: String(data.get('email') || '').trim(),
+      mobile: String(data.get('mobile') || '').trim(),
       company: String(data.get('company_name') || '').trim(),
       message: String(data.get('message') || '').trim(),
       inquiry_type: String(data.get('inquiry_type') || 'coordination_drag_audit'),
