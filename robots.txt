@@ -8,5 +8,6 @@ Allow: /
 Disallow: /reports/pi/
 Disallow: /m2m/
 Disallow: /design/
+Disallow: /campaigns/2026-09-07-to-2026-10-04/
 
 Sitemap: https://www.optiflows.com.au/sitemap.xml
