@@ -151,7 +151,22 @@ function initLeadForm() {
   if (!form || !submit || !status || !success) return;
 
   const endpoint = 'https://formspree.io/f/meelyrkd';
+  const dialog = form.closest('dialog');
+  const submitLabel = submit.querySelector('span');
   let formStarted = false;
+
+  const resetLeadForm = () => {
+    if (success.hidden) return;
+    form.reset();
+    form.hidden = false;
+    success.hidden = true;
+    status.textContent = '';
+    submit.disabled = false;
+    if (submitLabel) submitLabel.textContent = 'Request my diagnostic';
+    formStarted = false;
+  };
+
+  dialog?.addEventListener('close', resetLeadForm);
   form.addEventListener('focusin', () => {
     if (formStarted) return;
     formStarted = true;
@@ -161,7 +176,6 @@ function initLeadForm() {
     event.preventDefault();
     status.textContent = '';
     submit.disabled = true;
-    const submitLabel = submit.querySelector('span');
     if (submitLabel) submitLabel.textContent = 'Sending';
 
     const data = new FormData(form);
@@ -192,6 +206,7 @@ function initLeadForm() {
       if (!response.ok) throw new Error('Submission failed');
       form.hidden = true;
       success.hidden = false;
+      dialog?.scrollTo({ top: 0, behavior: 'auto' });
       trackEvent('generate_lead', { cta_location: payload.cta_location, inquiry_type: payload.inquiry_type });
     } catch (error) {
       status.textContent = 'Something went wrong. Email hello@optiflows.com directly.';
