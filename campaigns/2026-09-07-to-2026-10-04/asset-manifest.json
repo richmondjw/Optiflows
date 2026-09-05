@@ -1,0 +1,467 @@
+{
+  "campaign": "coordination-drag-2026-09",
+  "concept": "Visible Flow",
+  "generatedAt": "2026-09-05T03:03:30.186Z",
+  "status": "Production-ready draft - publication requires human approval",
+  "renderer": "OptiFlows Visible Flow campaign renderer v2",
+  "generativeSources": [
+    {
+      "week": 1,
+      "imageModel": "GPT Image 2",
+      "imageJob": "prototype-approved",
+      "motionModel": "Seedance 2.0",
+      "motionJob": "prototype-approved"
+    },
+    {
+      "week": 2,
+      "imageModel": "GPT Image 2",
+      "imageJob": "9807e778-3b7d-4aa8-b951-c3f6414e4a3c",
+      "motionModel": "Seedance 2.0",
+      "motionJob": "aa50a295-35e8-458b-aecb-351f227705ae"
+    },
+    {
+      "week": 3,
+      "imageModel": "GPT Image 2",
+      "imageJob": "6c423c56-1f03-4b48-99bc-53c1b64b2e13",
+      "motionModel": "Seedance 2.0",
+      "motionJob": "bfc240ad-2bfa-42f4-9919-e7e2b1abaed6"
+    },
+    {
+      "week": 4,
+      "imageModel": "GPT Image 2",
+      "imageJob": "25d6a223-518a-4bac-a8e6-28a35138b2d7",
+      "motionModel": "Seedance 2.0",
+      "motionJob": "dace8537-2816-4aff-bce7-a50c693a1266"
+    }
+  ],
+  "outputs": [
+    {
+      "post": "p01",
+      "type": "tile",
+      "file": "assets/p01-operating-model-bottleneck.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1107922
+    },
+    {
+      "post": "p02",
+      "type": "carousel-slide",
+      "slide": 1,
+      "file": "assets/p02-coordination-tax-slide-01.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1131954
+    },
+    {
+      "post": "p02",
+      "type": "carousel-slide",
+      "slide": 2,
+      "file": "assets/p02-coordination-tax-slide-02.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 503038
+    },
+    {
+      "post": "p02",
+      "type": "carousel-slide",
+      "slide": 3,
+      "file": "assets/p02-coordination-tax-slide-03.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 504522
+    },
+    {
+      "post": "p02",
+      "type": "carousel-slide",
+      "slide": 4,
+      "file": "assets/p02-coordination-tax-slide-04.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 505877
+    },
+    {
+      "post": "p02",
+      "type": "carousel-slide",
+      "slide": 5,
+      "file": "assets/p02-coordination-tax-slide-05.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 500905
+    },
+    {
+      "post": "p02",
+      "type": "carousel-slide",
+      "slide": 6,
+      "file": "assets/p02-coordination-tax-slide-06.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 506522
+    },
+    {
+      "post": "p02",
+      "type": "carousel-slide",
+      "slide": 7,
+      "file": "assets/p02-coordination-tax-slide-07.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 506880
+    },
+    {
+      "post": "p02",
+      "type": "carousel-slide",
+      "slide": 8,
+      "file": "assets/p02-coordination-tax-slide-08.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1116081
+    },
+    {
+      "post": "p02",
+      "type": "carousel-pdf",
+      "file": "assets/p02-coordination-tax-carousel.pdf",
+      "pages": 8,
+      "width": 1080,
+      "height": 1350,
+      "bytes": 7700688
+    },
+    {
+      "post": "p03",
+      "type": "motion-video",
+      "file": "assets/p03-routing-architecture.mp4",
+      "width": 1080,
+      "height": 1920,
+      "durationSeconds": 6,
+      "fps": 24,
+      "bytes": 2778613
+    },
+    {
+      "post": "p03",
+      "type": "motion-poster",
+      "file": "assets/p03-routing-architecture-poster.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 1176675
+    },
+    {
+      "post": "p04",
+      "type": "tile",
+      "file": "assets/p04-filing-system.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1545755
+    },
+    {
+      "post": "p05",
+      "type": "carousel-slide",
+      "slide": 1,
+      "file": "assets/p05-files-versus-rag-slide-01.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1564821
+    },
+    {
+      "post": "p05",
+      "type": "carousel-slide",
+      "slide": 2,
+      "file": "assets/p05-files-versus-rag-slide-02.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 644171
+    },
+    {
+      "post": "p05",
+      "type": "carousel-slide",
+      "slide": 3,
+      "file": "assets/p05-files-versus-rag-slide-03.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 640570
+    },
+    {
+      "post": "p05",
+      "type": "carousel-slide",
+      "slide": 4,
+      "file": "assets/p05-files-versus-rag-slide-04.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 638901
+    },
+    {
+      "post": "p05",
+      "type": "carousel-slide",
+      "slide": 5,
+      "file": "assets/p05-files-versus-rag-slide-05.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 638987
+    },
+    {
+      "post": "p05",
+      "type": "carousel-slide",
+      "slide": 6,
+      "file": "assets/p05-files-versus-rag-slide-06.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 652392
+    },
+    {
+      "post": "p05",
+      "type": "carousel-slide",
+      "slide": 7,
+      "file": "assets/p05-files-versus-rag-slide-07.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 637375
+    },
+    {
+      "post": "p05",
+      "type": "carousel-slide",
+      "slide": 8,
+      "file": "assets/p05-files-versus-rag-slide-08.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1524891
+    },
+    {
+      "post": "p05",
+      "type": "carousel-pdf",
+      "file": "assets/p05-files-versus-rag-carousel.pdf",
+      "pages": 8,
+      "width": 1080,
+      "height": 1350,
+      "bytes": 12911328
+    },
+    {
+      "post": "p06",
+      "type": "motion-video",
+      "file": "assets/p06-navigable-knowledge.mp4",
+      "width": 1080,
+      "height": 1920,
+      "durationSeconds": 6,
+      "fps": 24,
+      "bytes": 5556494
+    },
+    {
+      "post": "p06",
+      "type": "motion-poster",
+      "file": "assets/p06-navigable-knowledge-poster.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 1609311
+    },
+    {
+      "post": "p07",
+      "type": "tile",
+      "file": "assets/p07-founder-router.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1499045
+    },
+    {
+      "post": "p08",
+      "type": "carousel-slide",
+      "slide": 1,
+      "file": "assets/p08-agent-boundaries-slide-01.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1508519
+    },
+    {
+      "post": "p08",
+      "type": "carousel-slide",
+      "slide": 2,
+      "file": "assets/p08-agent-boundaries-slide-02.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 654875
+    },
+    {
+      "post": "p08",
+      "type": "carousel-slide",
+      "slide": 3,
+      "file": "assets/p08-agent-boundaries-slide-03.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 657247
+    },
+    {
+      "post": "p08",
+      "type": "carousel-slide",
+      "slide": 4,
+      "file": "assets/p08-agent-boundaries-slide-04.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 649419
+    },
+    {
+      "post": "p08",
+      "type": "carousel-slide",
+      "slide": 5,
+      "file": "assets/p08-agent-boundaries-slide-05.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 657705
+    },
+    {
+      "post": "p08",
+      "type": "carousel-slide",
+      "slide": 6,
+      "file": "assets/p08-agent-boundaries-slide-06.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 667539
+    },
+    {
+      "post": "p08",
+      "type": "carousel-slide",
+      "slide": 7,
+      "file": "assets/p08-agent-boundaries-slide-07.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 657739
+    },
+    {
+      "post": "p08",
+      "type": "carousel-slide",
+      "slide": 8,
+      "file": "assets/p08-agent-boundaries-slide-08.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1485267
+    },
+    {
+      "post": "p08",
+      "type": "carousel-pdf",
+      "file": "assets/p08-agent-boundaries-carousel.pdf",
+      "pages": 8,
+      "width": 1080,
+      "height": 1350,
+      "bytes": 11255217
+    },
+    {
+      "post": "p09",
+      "type": "motion-video",
+      "file": "assets/p09-retain-authority.mp4",
+      "width": 1080,
+      "height": 1920,
+      "durationSeconds": 6,
+      "fps": 24,
+      "bytes": 4863860
+    },
+    {
+      "post": "p09",
+      "type": "motion-poster",
+      "file": "assets/p09-retain-authority-poster.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 1691114
+    },
+    {
+      "post": "p10",
+      "type": "tile",
+      "file": "assets/p10-campaigns-versus-engines.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1493624
+    },
+    {
+      "post": "p11",
+      "type": "carousel-slide",
+      "slide": 1,
+      "file": "assets/p11-campaign-engine-slide-01.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1509149
+    },
+    {
+      "post": "p11",
+      "type": "carousel-slide",
+      "slide": 2,
+      "file": "assets/p11-campaign-engine-slide-02.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 640037
+    },
+    {
+      "post": "p11",
+      "type": "carousel-slide",
+      "slide": 3,
+      "file": "assets/p11-campaign-engine-slide-03.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 651277
+    },
+    {
+      "post": "p11",
+      "type": "carousel-slide",
+      "slide": 4,
+      "file": "assets/p11-campaign-engine-slide-04.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 640806
+    },
+    {
+      "post": "p11",
+      "type": "carousel-slide",
+      "slide": 5,
+      "file": "assets/p11-campaign-engine-slide-05.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 641778
+    },
+    {
+      "post": "p11",
+      "type": "carousel-slide",
+      "slide": 6,
+      "file": "assets/p11-campaign-engine-slide-06.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 644823
+    },
+    {
+      "post": "p11",
+      "type": "carousel-slide",
+      "slide": 7,
+      "file": "assets/p11-campaign-engine-slide-07.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 640953
+    },
+    {
+      "post": "p11",
+      "type": "carousel-slide",
+      "slide": 8,
+      "file": "assets/p11-campaign-engine-slide-08.png",
+      "width": 1080,
+      "height": 1350,
+      "bytes": 1501966
+    },
+    {
+      "post": "p11",
+      "type": "carousel-pdf",
+      "file": "assets/p11-campaign-engine-carousel.pdf",
+      "pages": 8,
+      "width": 1080,
+      "height": 1350,
+      "bytes": 10072669
+    },
+    {
+      "post": "p12",
+      "type": "motion-video",
+      "file": "assets/p12-drag-check.mp4",
+      "width": 1080,
+      "height": 1920,
+      "durationSeconds": 6,
+      "fps": 24,
+      "bytes": 4946883
+    },
+    {
+      "post": "p12",
+      "type": "motion-poster",
+      "file": "assets/p12-drag-check-poster.png",
+      "width": 1080,
+      "height": 1920,
+      "bytes": 1749882
+    }
+  ]
+}

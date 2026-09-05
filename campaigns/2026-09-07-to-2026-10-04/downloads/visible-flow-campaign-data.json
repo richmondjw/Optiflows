@@ -1,0 +1,522 @@
+{
+  "id": "coordination-drag-2026-09",
+  "title": "Make the system visible",
+  "subtitle": "Four weeks of practical thinking on coordination drag, structured knowledge, governed agents and compounding growth systems.",
+  "period": "7 September – 4 October 2026",
+  "objective": "Build category clarity and qualified demand for the OptiFlows coordination-drag diagnostic.",
+  "owner": "James Richmond",
+  "status": "Draft campaign pack - human approval required before publication",
+  "channels": [
+    {
+      "id": "linkedin-personal",
+      "label": "James · LinkedIn"
+    },
+    {
+      "id": "linkedin-company",
+      "label": "OptiFlows · LinkedIn"
+    },
+    {
+      "id": "instagram",
+      "label": "Instagram"
+    },
+    {
+      "id": "youtube",
+      "label": "YouTube Shorts"
+    }
+  ],
+  "weeks": [
+    {
+      "number": 1,
+      "dates": "7–13 Sep",
+      "theme": "See the drag",
+      "colour": "#ff8c73",
+      "intent": "Make coordination drag recognisable and personally relevant."
+    },
+    {
+      "number": 2,
+      "dates": "14–20 Sep",
+      "theme": "Structure the knowledge",
+      "colour": "#66c7ff",
+      "intent": "Establish a sharp, practical point of view on AI-ready knowledge."
+    },
+    {
+      "number": 3,
+      "dates": "21–27 Sep",
+      "theme": "Remove dependency. Retain authority.",
+      "colour": "#ffc857",
+      "intent": "Show that governed agents reduce bottlenecks without removing human control."
+    },
+    {
+      "number": 4,
+      "dates": "28 Sep–4 Oct",
+      "theme": "Build the engine",
+      "colour": "#8b7cff",
+      "intent": "Move from isolated activity to compounding operating capability."
+    }
+  ],
+  "posts": [
+    {
+      "id": "p01",
+      "week": 1,
+      "date": "2026-09-07",
+      "day": "Mon 7 Sep",
+      "format": "tile",
+      "theme": "The operating-model reframe",
+      "title": "Your operating model is the bottleneck. Not your team.",
+      "deck": "A broad executive hook that shifts the diagnosis from people and tools to coordination architecture.",
+      "accent": "coral",
+      "visual": "network",
+      "blogSlug": "why-your-operating-model-is-the-bottleneck",
+      "asset": {
+        "image": "assets/p01-operating-model-bottleneck.png",
+        "width": 1080,
+        "height": 1350
+      },
+      "channels": {
+        "linkedin-personal": "Most scaling companies diagnose execution problems in the wrong place.\n\nThey hire more people. Buy another tool. Add another meeting. Then wonder why work still slows down between teams.\n\nThe team is often doing exactly what the system allows. The real constraint is the routing architecture: who decides, where context lives, how exceptions move and what still depends on somebody remembering to follow up.\n\nBefore asking people to work harder, I would ask a different question: how is work actually moving through the business?\n\nhttps://www.optiflows.com.au/blog/posts/why-your-operating-model-is-the-bottleneck.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p01-personal",
+        "linkedin-company": "More headcount does not repair broken coordination.\n\nWhen the routing model stays the same, adding people creates more handoffs, more waiting and more invisible work. The constraint is not necessarily the team. It may be the system the team is working inside.\n\nA practical operating-model diagnosis starts by mapping how work and decisions really move.\n\nhttps://www.optiflows.com.au/blog/posts/why-your-operating-model-is-the-bottleneck.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p01-company",
+        "instagram": "Your team may not be the bottleneck.\n\nIf decisions, approvals and context still route through the same few people, the operating model is the constraint.\n\nFix the movement before adding more work. Full article via the link in bio.\n\n#OperatingModel #AIWorkflow #BusinessSystems #OptiFlows"
+      }
+    },
+    {
+      "id": "p02",
+      "week": 1,
+      "date": "2026-09-09",
+      "day": "Wed 9 Sep",
+      "format": "carousel",
+      "theme": "Coordination-tax diagnostic",
+      "title": "Seven signs you are paying a coordination tax",
+      "deck": "A saveable diagnostic carousel that helps leaders recognise the problem inside their own organisation.",
+      "accent": "coral",
+      "visual": "meter",
+      "blogSlug": "why-your-operating-model-is-the-bottleneck",
+      "asset": {
+        "pdf": "assets/p02-coordination-tax-carousel.pdf",
+        "slideBase": "assets/p02-coordination-tax-slide-",
+        "slideCount": 8,
+        "width": 1080,
+        "height": 1350
+      },
+      "slides": [
+        {
+          "headline": "Seven signs you are paying a coordination tax",
+          "body": "The cost rarely appears as one line in the P&L. It appears between people, tools and decisions.",
+          "variant": "cover"
+        },
+        {
+          "headline": "01 / Decisions queue behind the same person",
+          "body": "Work pauses while teams wait for context, approval or judgment that exists in only one head."
+        },
+        {
+          "headline": "02 / Follow-up depends on memory",
+          "body": "The workflow has no reliable trigger, owner or escalation path. Progress depends on somebody remembering."
+        },
+        {
+          "headline": "03 / Every handoff rebuilds context",
+          "body": "Teams translate the same brief, customer history or decision repeatedly because the system does not carry it forward."
+        },
+        {
+          "headline": "04 / Another tool creates another inbox",
+          "body": "The software may be useful, but nobody redesigned how work should move through it."
+        },
+        {
+          "headline": "05 / Meetings are the integration layer",
+          "body": "People meet to reconcile systems, clarify ownership and manually route work that should already know where to go."
+        },
+        {
+          "headline": "06–07 / Exceptions become normal work",
+          "body": "Escalations consume senior attention, and growth creates more coordination instead of more capacity."
+        },
+        {
+          "headline": "Measure the drag before automating it",
+          "body": "Start with one workflow. Find the waiting, rework, chasing and decision latency. Then redesign the movement.",
+          "variant": "cta",
+          "cta": "Run the 90-second drag check"
+        }
+      ],
+      "channels": {
+        "linkedin-personal": "Coordination drag is expensive precisely because it rarely looks dramatic.\n\nIt looks like a Slack message asking for an update. A meeting to reconstruct context. A campaign waiting for approval. A client request sitting between two systems. A founder stepping back into a routine decision.\n\nOne incident is small. Repeated across a week, a team and a year, it becomes an operating tax.\n\nI have put seven of the most common signals into this diagnostic. Which one is most familiar inside your business?\n\nhttps://www.optiflows.com.au/blog/posts/why-your-operating-model-is-the-bottleneck.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p02-personal",
+        "linkedin-company": "Coordination tax hides in waiting, chasing, translation and rework.\n\nUse this seven-signal diagnostic to identify whether a workflow problem is being misdiagnosed as a people problem.\n\nSave it for your next operating review, then choose one workflow to measure.\n\nhttps://www.optiflows.com.au/blog/posts/why-your-operating-model-is-the-bottleneck.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p02-company",
+        "instagram": "Seven quiet signs that coordination is costing more than it should.\n\nSave this for your next workflow review. Then look for the handoff creating the most waiting, chasing or rework.\n\n#Operations #WorkflowDesign #FounderLed #OptiFlows"
+      }
+    },
+    {
+      "id": "p03",
+      "week": 1,
+      "date": "2026-09-11",
+      "day": "Fri 11 Sep",
+      "format": "motion",
+      "theme": "Scaling the nodes, not the routing",
+      "title": "Ten people to forty. Same routing architecture.",
+      "deck": "A short kinetic system diagram showing fragmentation, measurement, redesign and resolved flow.",
+      "accent": "coral",
+      "visual": "network",
+      "duration": "6 seconds",
+      "blogSlug": "why-your-operating-model-is-the-bottleneck",
+      "asset": {
+        "video": "assets/p03-routing-architecture.mp4",
+        "poster": "assets/p03-routing-architecture-poster.png",
+        "width": 1080,
+        "height": 1920
+      },
+      "motion": {
+        "opening": "Ten people → forty people.",
+        "closing": "The routing logic stayed the same.",
+        "resolution": "Scale the system, not just the nodes."
+      },
+      "channels": {
+        "linkedin-personal": "A company can scale headcount without scaling its operating model.\n\nMore people join the network. The same approvals, routing decisions and context dependencies remain. What worked at ten people becomes invisible drag at forty.\n\nScaling is not just adding nodes. The routing logic has to change too.\n\nhttps://www.optiflows.com.au/blog/posts/why-your-operating-model-is-the-bottleneck.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p03-personal",
+        "linkedin-company": "More nodes. Same routing logic. More drag.\n\nA scalable operating model changes how decisions, context and exceptions move, not only how many people are available to move them.\n\nhttps://www.optiflows.com.au/blog/posts/why-your-operating-model-is-the-bottleneck.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p03-company",
+        "instagram": "Ten people became forty. The routing architecture never changed.\n\nScale the system, not just the nodes.\n\n#SystemsThinking #BusinessGrowth #AIWorkflow #OptiFlows",
+        "youtube": "Ten people to forty. Same routing architecture.\n\nWhy scaling headcount without redesigning coordination creates more waiting, more escalation and more founder dependency.\n\nhttps://www.optiflows.com.au/blog/posts/why-your-operating-model-is-the-bottleneck.html?utm_source=youtube&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p03-short\n\n#Shorts #OperatingModel #BusinessSystems"
+      }
+    },
+    {
+      "id": "p04",
+      "week": 2,
+      "date": "2026-09-14",
+      "day": "Mon 14 Sep",
+      "format": "tile",
+      "theme": "The knowledge-system reframe",
+      "title": "Your AI needs a filing system. Not another database.",
+      "deck": "A contrarian technical hook that makes structured knowledge feel practical rather than infrastructurally heavy.",
+      "accent": "signal",
+      "visual": "files",
+      "blogSlug": "your-ai-needs-a-filing-system-not-a-database",
+      "asset": {
+        "image": "assets/p04-filing-system.png",
+        "width": 1080,
+        "height": 1350
+      },
+      "channels": {
+        "linkedin-personal": "When a business wants AI to use its knowledge, the reflex is often to reach for a vector database.\n\nFor a few hundred working documents, that can be a lot of infrastructure before the underlying information has even been organised.\n\nA well-structured folder of complete markdown files gives an agent something simpler and often more useful: clear names, explicit relationships, readable context and a path it can navigate.\n\nThe vault is the database. The structure is the retrieval system.\n\nhttps://www.optiflows.com.au/blog/posts/your-ai-needs-a-filing-system-not-a-database.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p04-personal",
+        "linkedin-company": "AI cannot compensate for knowledge that is scattered, ambiguous or structurally invisible.\n\nBefore adding a retrieval stack, organise the source: complete documents, explicit links, consistent metadata and clear operating rules.\n\nFor many mid-market teams, better structure beats more infrastructure.\n\nhttps://www.optiflows.com.au/blog/posts/your-ai-needs-a-filing-system-not-a-database.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p04-company",
+        "instagram": "Before building a retrieval pipeline, fix the filing system.\n\nClear files. Explicit links. Useful metadata. Complete context.\n\nBetter structure often beats more infrastructure.\n\n#KnowledgeManagement #AgenticAI #PKM #OptiFlows"
+      }
+    },
+    {
+      "id": "p05",
+      "week": 2,
+      "date": "2026-09-16",
+      "day": "Wed 16 Sep",
+      "format": "carousel",
+      "theme": "Choosing structured files or RAG",
+      "title": "When structured files beat RAG (and when they do not)",
+      "deck": "A balanced decision framework that demonstrates judgment rather than promoting a universal technical answer.",
+      "accent": "signal",
+      "visual": "files",
+      "blogSlug": "your-ai-needs-a-filing-system-not-a-database",
+      "asset": {
+        "pdf": "assets/p05-files-versus-rag-carousel.pdf",
+        "slideBase": "assets/p05-files-versus-rag-slide-",
+        "slideCount": 8,
+        "width": 1080,
+        "height": 1350
+      },
+      "slides": [
+        {
+          "headline": "Structured files or RAG?",
+          "body": "Choose the lightest architecture that reliably solves the knowledge problem you actually have.",
+          "variant": "cover"
+        },
+        {
+          "headline": "Start with the source, not the retrieval layer",
+          "body": "If the knowledge is duplicated, stale or unnamed, a more sophisticated search layer will retrieve the same disorder faster."
+        },
+        {
+          "headline": "Structured files win when the corpus is bounded",
+          "body": "A few dozen to a few hundred curated documents can stay legible to both people and agents."
+        },
+        {
+          "headline": "They win when relationships matter",
+          "body": "Rules can link to definitions, playbooks and proof. An agent can follow the same reasoning path as a careful operator."
+        },
+        {
+          "headline": "They win when change must be immediate",
+          "body": "Edit the source file and the agent sees the current version. No chunking or embedding refresh is required."
+        },
+        {
+          "headline": "RAG wins when scale and search complexity dominate",
+          "body": "Large, heterogeneous corpora and high-volume semantic discovery can justify dedicated retrieval infrastructure."
+        },
+        {
+          "headline": "The useful answer may be both",
+          "body": "Keep an authoritative structured source, then add retrieval where the corpus and use case genuinely demand it."
+        },
+        {
+          "headline": "Architecture should follow the problem",
+          "body": "Do not buy complexity as a substitute for information design.",
+          "variant": "cta",
+          "cta": "Read the full OptiFlows guide"
+        }
+      ],
+      "channels": {
+        "linkedin-personal": "Structured files versus RAG is not an ideological choice.\n\nThe right answer depends on corpus size, document quality, update frequency, retrieval patterns and how much infrastructure the team can realistically operate.\n\nThe mistake is starting with the retrieval technology before establishing an authoritative source.\n\nThis carousel is the decision framework I use. It also includes the point where structured files stop being the simplest answer.\n\nhttps://www.optiflows.com.au/blog/posts/your-ai-needs-a-filing-system-not-a-database.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p05-personal",
+        "linkedin-company": "The best knowledge architecture is not necessarily the most sophisticated one.\n\nUse this framework to decide when a structured file system is sufficient, when dedicated retrieval becomes justified and why the authoritative source still matters in both cases.\n\nhttps://www.optiflows.com.au/blog/posts/your-ai-needs-a-filing-system-not-a-database.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p05-company",
+        "instagram": "Structured files or RAG?\n\nThe answer should follow the corpus and the operating need, not the current technology fashion.\n\nSave this decision framework.\n\n#RAG #KnowledgeSystems #AIArchitecture #OptiFlows"
+      }
+    },
+    {
+      "id": "p06",
+      "week": 2,
+      "date": "2026-09-18",
+      "day": "Fri 18 Sep",
+      "format": "motion",
+      "theme": "Knowledge becomes navigable",
+      "title": "From scattered documents to navigable knowledge",
+      "deck": "A kinetic transformation from disconnected files into a linked, agent-readable knowledge map.",
+      "accent": "signal",
+      "visual": "files",
+      "duration": "6 seconds",
+      "blogSlug": "your-ai-needs-a-filing-system-not-a-database",
+      "asset": {
+        "video": "assets/p06-navigable-knowledge.mp4",
+        "poster": "assets/p06-navigable-knowledge-poster.png",
+        "width": 1080,
+        "height": 1920
+      },
+      "motion": {
+        "opening": "Documents everywhere.",
+        "closing": "No shared path through them.",
+        "resolution": "Structure turns storage into navigable knowledge."
+      },
+      "channels": {
+        "linkedin-personal": "Most company knowledge is not missing. It is simply difficult to navigate.\n\nStrategy is in a deck. Decisions are in chat. Proof is in a proposal. Brand rules are in somebody’s memory.\n\nAn agent-ready knowledge system does not begin with a larger model. It begins with an authoritative structure that both people and agents can follow.\n\nhttps://www.optiflows.com.au/blog/posts/your-ai-needs-a-filing-system-not-a-database.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p06-personal",
+        "linkedin-company": "Storage becomes knowledge only when people and agents can find the current source, understand its role and follow its relationships.\n\nStructure is the operating layer between information and useful action.\n\nhttps://www.optiflows.com.au/blog/posts/your-ai-needs-a-filing-system-not-a-database.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p06-company",
+        "instagram": "The documents already exist. The path through them does not.\n\nStructure turns storage into navigable knowledge.\n\n#KnowledgeDesign #AgentSystems #FutureOfWork #OptiFlows",
+        "youtube": "From scattered documents to navigable knowledge.\n\nAn agent-ready knowledge system starts with an authoritative structure that humans and AI can follow.\n\nhttps://www.optiflows.com.au/blog/posts/your-ai-needs-a-filing-system-not-a-database.html?utm_source=youtube&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p06-short\n\n#Shorts #KnowledgeManagement #AgenticAI"
+      }
+    },
+    {
+      "id": "p07",
+      "week": 3,
+      "date": "2026-09-21",
+      "day": "Mon 21 Sep",
+      "format": "tile",
+      "theme": "Founder as router",
+      "title": "If every decision returns to the founder, the system is not installed.",
+      "deck": "A founder-led observation that separates authority from routine coordination.",
+      "accent": "human",
+      "visual": "gate",
+      "blogSlug": "removing-the-founder-from-the-loop",
+      "asset": {
+        "image": "assets/p07-founder-router.png",
+        "width": 1080,
+        "height": 1350
+      },
+      "channels": {
+        "linkedin-personal": "There is a difference between founder authority and founder dependency.\n\nAuthority sets direction, defines boundaries and makes genuinely consequential decisions. Dependency means routine approvals, context and exceptions still queue behind one calendar.\n\nRemoving the founder from the loop should not remove their judgment. It should encode that judgment clearly enough that normal work can move, while unusual work escalates with the right context.\n\nThe goal is not less control. It is control without becoming the routing layer.\n\nhttps://www.optiflows.com.au/blog/posts/removing-the-founder-from-the-loop.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p07-personal",
+        "linkedin-company": "The founder’s job is to set direction, not route routine traffic.\n\nA durable operating model preserves human authority while removing unnecessary dependence on one person for context, follow-up and standard decisions.\n\nhttps://www.optiflows.com.au/blog/posts/removing-the-founder-from-the-loop.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p07-company",
+        "instagram": "Keep the authority. Remove the dependency.\n\nIf routine work still queues behind one person, the operating system is not installed yet.\n\n#FounderLed #LeadershipSystems #AIWorkflows #OptiFlows"
+      }
+    },
+    {
+      "id": "p08",
+      "week": 3,
+      "date": "2026-09-23",
+      "day": "Wed 23 Sep",
+      "format": "carousel",
+      "theme": "Governed decision boundaries",
+      "title": "What agents decide, recommend, escalate and never do",
+      "deck": "A governance framework designed to reassure direct and hidden buyers that autonomy has explicit boundaries.",
+      "accent": "human",
+      "visual": "gate",
+      "blogSlug": "removing-the-founder-from-the-loop",
+      "asset": {
+        "pdf": "assets/p08-agent-boundaries-carousel.pdf",
+        "slideBase": "assets/p08-agent-boundaries-slide-",
+        "slideCount": 8,
+        "width": 1080,
+        "height": 1350
+      },
+      "slides": [
+        {
+          "headline": "What should an agent be allowed to do?",
+          "body": "Autonomy is useful only when the authority boundary is explicit.",
+          "variant": "cover"
+        },
+        {
+          "headline": "Decide",
+          "body": "Routine, reversible actions inside an agreed policy: classification, routing, reminders and low-risk preparation."
+        },
+        {
+          "headline": "Recommend",
+          "body": "Judgment calls where the agent can assemble evidence and propose a next step, but a human owns the decision."
+        },
+        {
+          "headline": "Escalate",
+          "body": "Exceptions, ambiguity, missing evidence or thresholds that require accountable human attention."
+        },
+        {
+          "headline": "Never do",
+          "body": "Spend, publish, alter credentials, mutate protected records or make consequential external commitments without explicit authority."
+        },
+        {
+          "headline": "Carry the decision context",
+          "body": "An escalation should arrive with the source, options, risk and reason, not as another vague notification."
+        },
+        {
+          "headline": "Log what happened",
+          "body": "A governed system makes actions, approvals and exceptions reviewable after the fact."
+        },
+        {
+          "headline": "Good governance reduces friction",
+          "body": "The goal is not a human approval on everything. It is the right human decision at the right boundary.",
+          "variant": "cta",
+          "cta": "Map one authority boundary"
+        }
+      ],
+      "channels": {
+        "linkedin-personal": "“Human in the loop” is too vague to be an operating model.\n\nWhich human? At what point? For what threshold? With what evidence? What can proceed without them?\n\nI prefer four explicit lanes: decide, recommend, escalate and never do. The boundary should be visible before an agent enters production, not invented after something goes wrong.\n\nThe useful result is not an approval on every task. It is routine work moving safely while the right exceptions reach the right person with enough context to decide.\n\nhttps://www.optiflows.com.au/blog/posts/removing-the-founder-from-the-loop.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p08-personal",
+        "linkedin-company": "Governed autonomy needs explicit decision lanes.\n\nThis framework separates what an agent may decide, what it may recommend, what it must escalate and what remains outside its authority.\n\nSave it for the design review before your next agent enters production.\n\nhttps://www.optiflows.com.au/blog/posts/removing-the-founder-from-the-loop.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p08-company",
+        "instagram": "Decide. Recommend. Escalate. Never do.\n\nFour lanes make “human in the loop” an operating rule instead of a slogan.\n\n#AIGovernance #HumanInTheLoop #AgenticAI #OptiFlows"
+      }
+    },
+    {
+      "id": "p09",
+      "week": 3,
+      "date": "2026-09-25",
+      "day": "Fri 25 Sep",
+      "format": "motion",
+      "theme": "Authority gate in motion",
+      "title": "Remove dependency. Retain authority.",
+      "deck": "A cinematic visual of routine flow proceeding while consequential work pauses at a visible human gate.",
+      "accent": "human",
+      "visual": "gate",
+      "duration": "6 seconds",
+      "blogSlug": "removing-the-founder-from-the-loop",
+      "asset": {
+        "video": "assets/p09-retain-authority.mp4",
+        "poster": "assets/p09-retain-authority-poster.png",
+        "width": 1080,
+        "height": 1920
+      },
+      "motion": {
+        "opening": "Everything queued behind one person.",
+        "closing": "Routine work can move.",
+        "resolution": "Human authority stays exactly where it matters."
+      },
+      "channels": {
+        "linkedin-personal": "The best agent systems do not remove the human. They remove unnecessary waiting around the human.\n\nRoutine work moves inside explicit policy. Consequential work pauses at a visible authority gate. The decision arrives with its context intact.\n\nThat is the difference between automation and a governed operating system.\n\nhttps://www.optiflows.com.au/blog/posts/removing-the-founder-from-the-loop.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p09-personal",
+        "linkedin-company": "Remove dependency. Retain authority.\n\nGoverned flow allows routine work to proceed while preserving an explicit human decision boundary for what actually matters.\n\nhttps://www.optiflows.com.au/blog/posts/removing-the-founder-from-the-loop.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p09-company",
+        "instagram": "The human stays in authority, not in every routine handoff.\n\nDesign the boundary. Carry the context. Let normal work move.\n\n#AIGovernance #WorkflowAutomation #Leadership #OptiFlows",
+        "youtube": "Remove dependency. Retain authority.\n\nA governed agent system lets routine work move while consequential decisions remain human-owned.\n\nhttps://www.optiflows.com.au/blog/posts/removing-the-founder-from-the-loop.html?utm_source=youtube&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p09-short\n\n#Shorts #AIGovernance #HumanInTheLoop"
+      }
+    },
+    {
+      "id": "p10",
+      "week": 4,
+      "date": "2026-09-28",
+      "day": "Mon 28 Sep",
+      "format": "tile",
+      "theme": "From activity to infrastructure",
+      "title": "Campaigns are tactics. Engines are infrastructure.",
+      "deck": "A growth-system reframe that contrasts repeated launches with compounding capability.",
+      "accent": "intelligence",
+      "visual": "engine",
+      "blogSlug": "campaigns-are-tactics-engines-are-infrastructure",
+      "asset": {
+        "image": "assets/p10-campaigns-versus-engines.png",
+        "width": 1080,
+        "height": 1350
+      },
+      "channels": {
+        "linkedin-personal": "A campaign is a one-time event. A campaign engine is a system that can produce the next campaign without rebuilding everything from zero.\n\nThe distinction is easy to miss because both can generate activity. Only one compounds the audience learning, proof, workflows, reusable assets and decision logic created along the way.\n\nIf the tenth campaign takes the same effort as the first, the business has been funding tactics, not building infrastructure.\n\nhttps://www.optiflows.com.au/blog/posts/campaigns-are-tactics-engines-are-infrastructure.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p10-personal",
+        "linkedin-company": "Campaign activity can grow while campaign capability remains flat.\n\nAn engine preserves the learning, assets, routing and decision logic required to make the next cycle better than the last.\n\nOne depletes. The other compounds.\n\nhttps://www.optiflows.com.au/blog/posts/campaigns-are-tactics-engines-are-infrastructure.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p10-company",
+        "instagram": "If every campaign starts with a blank document, you do not have an engine yet.\n\nBuild the infrastructure that makes the next cycle better than the last.\n\n#GrowthSystems #MarketingOperations #CampaignStrategy #OptiFlows"
+      }
+    },
+    {
+      "id": "p11",
+      "week": 4,
+      "date": "2026-09-30",
+      "day": "Wed 30 Sep",
+      "format": "carousel",
+      "theme": "Reset versus compound",
+      "title": "Campaign versus engine: reset or compound?",
+      "deck": "A side-by-side operating comparison that turns the growth-engine argument into a practical checklist.",
+      "accent": "intelligence",
+      "visual": "engine",
+      "blogSlug": "campaigns-are-tactics-engines-are-infrastructure",
+      "asset": {
+        "pdf": "assets/p11-campaign-engine-carousel.pdf",
+        "slideBase": "assets/p11-campaign-engine-slide-",
+        "slideCount": 8,
+        "width": 1080,
+        "height": 1350
+      },
+      "slides": [
+        {
+          "headline": "Campaign or campaign engine?",
+          "body": "Both create activity. Only one leaves the organisation stronger after the launch.",
+          "variant": "cover"
+        },
+        {
+          "headline": "Campaign / Starts from a brief",
+          "body": "A new document, new assumptions and a new scramble for context every cycle."
+        },
+        {
+          "headline": "Engine / Starts from accumulated learning",
+          "body": "Audience evidence, approved positioning, previous performance and reusable components are already available."
+        },
+        {
+          "headline": "Campaign / Relies on coordination",
+          "body": "People chase assets, translate decisions and manually route each handoff."
+        },
+        {
+          "headline": "Engine / Encodes the workflow",
+          "body": "Clear triggers, ownership, authority boundaries and reusable production paths keep work moving."
+        },
+        {
+          "headline": "Campaign / Output disappears",
+          "body": "The launch ends and the operating knowledge disperses back into folders, inboxes and memory."
+        },
+        {
+          "headline": "Engine / Capability compounds",
+          "body": "Each cycle improves the playbook, evidence base, asset library and decision quality."
+        },
+        {
+          "headline": "The test is simple",
+          "body": "Did this campaign merely perform, or did it make the next campaign easier and better?",
+          "variant": "cta",
+          "cta": "Build the engine"
+        }
+      ],
+      "channels": {
+        "linkedin-personal": "The real test of a campaign is not only whether it performed.\n\nDid it make the next campaign easier to produce, easier to govern and more likely to work?\n\nA useful engine preserves the audience evidence, positioning decisions, reusable assets, workflow and performance learning created during the cycle. That is what turns marketing activity into organisational capability.\n\nThis carousel shows the operating difference between a campaign that resets and an engine that compounds.\n\nhttps://www.optiflows.com.au/blog/posts/campaigns-are-tactics-engines-are-infrastructure.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p11-personal",
+        "linkedin-company": "Did the campaign perform? And did it leave the next campaign easier to produce?\n\nUse this comparison to distinguish one-time activity from a campaign engine that preserves learning and compounds capability.\n\nhttps://www.optiflows.com.au/blog/posts/campaigns-are-tactics-engines-are-infrastructure.html?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p11-company",
+        "instagram": "A campaign creates an output. An engine creates the next output, and gets better each time.\n\nSwipe for the reset-versus-compound test.\n\n#GrowthEngine #MarketingSystems #ContentOperations #OptiFlows"
+      }
+    },
+    {
+      "id": "p12",
+      "week": 4,
+      "date": "2026-10-02",
+      "day": "Fri 2 Oct",
+      "format": "motion",
+      "theme": "Diagnostic conversion",
+      "title": "What is coordination drag costing?",
+      "deck": "The direct-response close: visualise the hidden cost, then invite one low-friction diagnostic action.",
+      "accent": "mint",
+      "visual": "meter",
+      "duration": "6 seconds",
+      "asset": {
+        "video": "assets/p12-drag-check.mp4",
+        "poster": "assets/p12-drag-check-poster.png",
+        "width": 1080,
+        "height": 1920
+      },
+      "motion": {
+        "opening": "Waiting. Chasing. Rework. Escalation.",
+        "closing": "Small moments. Repeated every week.",
+        "resolution": "Put a number on the drag."
+      },
+      "channels": {
+        "linkedin-personal": "Coordination drag rarely arrives as one dramatic failure.\n\nIt accumulates through waiting, chasing, rework, repeated context and senior attention pulled into routine decisions.\n\nThe first useful step is not a transformation program. It is putting a rough number on one workflow that keeps pulling people back into the loop.\n\nWe built a 90-second check to make that cost visible. It is indicative, not a business case, but it gives you a better first question.\n\nhttps://www.optiflows.com.au/?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p12-personal#drag-check",
+        "linkedin-company": "What is routine coordination costing your business?\n\nUse the 90-second OptiFlows drag check to estimate the annual cost of waiting, chasing, rework and unnecessary escalation inside one recurring workflow.\n\nhttps://www.optiflows.com.au/?utm_source=linkedin&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p12-company#drag-check",
+        "instagram": "Waiting. Chasing. Rework. Escalation.\n\nSmall moments become a material operating cost when they repeat every week.\n\nPut a number on the drag. Link in bio.\n\n#OperationalExcellence #WorkflowDesign #BusinessEfficiency #OptiFlows",
+        "youtube": "What is coordination drag costing your business?\n\nEstimate the annual cost of waiting, chasing, rework and unnecessary escalation inside one recurring workflow.\n\nhttps://www.optiflows.com.au/?utm_source=youtube&utm_medium=organic&utm_campaign=coordination-drag-2026-09&utm_content=p12-short#drag-check\n\n#Shorts #BusinessOperations #WorkflowDesign"
+      }
+    }
+  ]
+}
