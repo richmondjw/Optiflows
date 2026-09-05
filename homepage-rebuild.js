@@ -119,7 +119,9 @@ function initInterface() {
     hoursOutput.textContent = hours.value;
     rateOutput.textContent = money.format(Number(rate.value));
     annualOutput.textContent = money.format(annual);
-    if (estimatedDragInput) estimatedDragInput.value = money.format(annual);
+    // Plain text on purpose: a currency-formatted value ("$99,360") trips Formspree's spam
+    // filter and the lead lands in the Spam folder with no email (verified 2026-09-05).
+    if (estimatedDragInput) estimatedDragInput.value = annual + ' AUD per year (indicative)';
     if (track && !calculatorTracked) {
       calculatorTracked = true;
       trackEvent('drag_calculator_start');
