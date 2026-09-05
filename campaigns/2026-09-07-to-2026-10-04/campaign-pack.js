@@ -4,6 +4,7 @@ const reviewKey = 'optiflows-visible-flow-review-v1';
 const channelLabels = Object.fromEntries(campaign.channels.map((channel) => [channel.id, channel.label]));
 const reviewState = readReviewState();
 const weekMap = document.querySelector('#week-map');
+const emailGrid = document.querySelector('#email-grid');
 const campaignGrid = document.querySelector('#campaign-grid');
 const emptyState = document.querySelector('#empty-state');
 const progressValue = document.querySelector('#progress-value');
@@ -18,12 +19,63 @@ weekMap.innerHTML = campaign.weeks.map((week) => `
   </article>
 `).join('');
 
+emailGrid.innerHTML = campaign.emails.map(emailMarkup).join('');
 campaignGrid.innerHTML = campaign.posts.map(postMarkup).join('');
+bindEmailCards();
 bindCopyPanels();
 bindReviewChecks();
 bindFilters();
 bindMotionPlayers();
 updateProgress();
+
+function emailMarkup(email) {
+  const accent = accentColour(email.accent);
+  const checks = ['copy', 'creative', 'send-ready'].map((type) => {
+    const checked = reviewState[`${email.id}:${type}`] ? ' checked' : '';
+    return `<label><input type="checkbox" data-review-key="${email.id}:${type}"${checked}>${labelForCheck(type)}</label>`;
+  }).join('');
+
+  return `
+    <article class="email-card" style="--accent:${accent}">
+      <div class="email-card__head">
+        <span>${escapeHtml(email.sequence)}</span>
+        <strong>${escapeHtml(email.id.toUpperCase())}</strong>
+      </div>
+      <div class="email-preview">
+        <iframe src="./${email.html}" title="Preview: ${escapeHtml(email.title)}" loading="lazy"></iframe>
+      </div>
+      <div class="email-card__body">
+        <p class="email-intent">${escapeHtml(email.intent)}</p>
+        <h3>${escapeHtml(email.title)}</h3>
+        <p class="email-audience"><strong>Audience:</strong> ${escapeHtml(email.audience)}</p>
+        <div class="email-field">
+          <span>Subject line options</span>
+          <div class="subject-options" role="tablist" aria-label="Subject options for ${escapeHtml(email.title)}">
+            ${email.subjects.map((subject, index) => `<button class="subject-option${index === 0 ? ' is-active' : ''}" type="button" role="tab" aria-selected="${index === 0}" data-subject-index="${index}">${index + 1}</button>`).join('')}
+          </div>
+          <p class="subject-output">${escapeHtml(email.subjects[0])}</p>
+          <button class="copy-subject" type="button">Copy subject</button>
+        </div>
+        <div class="email-field">
+          <span>Preheader</span>
+          <p>${escapeHtml(email.preheader)}</p>
+        </div>
+        <details class="email-copy">
+          <summary>Plain-text version</summary>
+          <pre>${escapeHtml(email.plainText)}</pre>
+          <button class="copy-email" type="button">Copy email copy</button>
+        </details>
+        <div class="email-actions">
+          <a href="./${email.html}" target="_blank" rel="noopener">Open HTML</a>
+          <a href="./${email.html}" download>Download HTML</a>
+          <button class="copy-html" type="button">Copy HTML code</button>
+        </div>
+        <div class="review-checks" aria-label="Review status for ${escapeHtml(email.title)}">${checks}</div>
+        <script type="application/json" class="email-data">${safeJson(email)}</script>
+      </div>
+    </article>
+  `;
+}
 
 function postMarkup(post) {
   const accent = accentColour(post.accent);
@@ -105,6 +157,38 @@ function bindCopyPanels() {
   });
 }
 
+function bindEmailCards() {
+  document.querySelectorAll('.email-card').forEach((card) => {
+    const email = JSON.parse(card.querySelector('.email-data').textContent);
+    const subjectOutput = card.querySelector('.subject-output');
+    card.querySelectorAll('.subject-option').forEach((button) => {
+      button.addEventListener('click', () => {
+        const selectedIndex = Number(button.dataset.subjectIndex);
+        subjectOutput.textContent = email.subjects[selectedIndex];
+        card.querySelectorAll('.subject-option').forEach((option) => {
+          const selected = option === button;
+          option.classList.toggle('is-active', selected);
+          option.setAttribute('aria-selected', String(selected));
+        });
+      });
+    });
+    card.querySelector('.copy-subject').addEventListener('click', async () => {
+      await copyText(subjectOutput.textContent);
+      showToast('Email subject copied');
+    });
+    card.querySelector('.copy-email').addEventListener('click', async () => {
+      await copyText(email.plainText);
+      showToast('Email copy copied');
+    });
+    card.querySelector('.copy-html').addEventListener('click', async () => {
+      const response = await fetch(`./${email.html}`);
+      if (!response.ok) throw new Error(`Could not load ${email.html}`);
+      await copyText(await response.text());
+      showToast('Email HTML copied');
+    });
+  });
+}
+
 function bindReviewChecks() {
   document.querySelectorAll('[data-review-key]').forEach((input) => {
     input.addEventListener('change', () => {
@@ -150,7 +234,7 @@ function bindFilters() {
 }
 
 function updateProgress() {
-  const total = campaign.posts.length * 3;
+  const total = (campaign.posts.length + campaign.emails.length) * 3;
   const completed = Object.values(reviewState).filter(Boolean).length;
   progressValue.textContent = `${completed} / ${total}`;
   progressBar.style.width = `${(completed / total) * 100}%`;
@@ -194,7 +278,7 @@ function shortChannelLabel(channel) {
 }
 
 function labelForCheck(type) {
-  return { copy: 'Copy', creative: 'Creative', scheduled: 'Scheduled' }[type];
+  return { copy: 'Copy', creative: 'Creative', scheduled: 'Scheduled', 'send-ready': 'Send-ready' }[type];
 }
 
 function accentColour(name) {

@@ -32,6 +32,68 @@ export const campaign = {
     { number: 3, dates: '21–27 Sep', theme: 'Remove dependency. Retain authority.', colour: '#ffc857', intent: 'Show that governed agents reduce bottlenecks without removing human control.' },
     { number: 4, dates: '28 Sep–4 Oct', theme: 'Build the engine', colour: '#8b7cff', intent: 'Move from isolated activity to compounding operating capability.' }
   ],
+  emails: [
+    {
+      id: 'e01', sequence: 'Day 0', format: 'edm', accent: 'coral',
+      title: 'Your team may not be the bottleneck',
+      intent: 'Turn a familiar execution problem into a concrete diagnosis, then offer one low-friction action.',
+      audience: 'Permissioned or lawfully inferred business contacts whose roles are directly relevant to operating-model and workflow improvement.',
+      subjects: [
+        'Your team may not be the bottleneck',
+        'Where work gets stuck between teams',
+        'A 90-second check for coordination drag'
+      ],
+      preheader: 'The hidden constraint is often the routing between people, tools and decisions.',
+      hero: 'emails/assets/email-01-coordination-drag-hero.jpg',
+      html: 'emails/email-01-coordination-drag.html',
+      cta: {
+        label: 'Estimate the drag',
+        url: 'https://www.optiflows.com.au/?utm_source=outbound_email&utm_medium=email&utm_campaign=coordination-drag-2026-09&utm_content=e01-drag-check#drag-check'
+      },
+      plainText: paragraphs([
+        'Hi {{first_name}},',
+        'When a growing company slows down, the usual response is to add capacity: another hire, another tool or another meeting.',
+        'But the hidden constraint is often the way work moves between people, systems and decisions.',
+        'Three signs tend to show up first:\n\n1. Routine decisions queue behind the same person.\n2. Every handoff rebuilds context.\n3. Follow-up depends on memory.',
+        'We call this coordination drag. It looks small in the moment, but repeated across a team and a year, it becomes a material operating cost.',
+        'We built a 90-second check to put an indicative number on one workflow:',
+        'Estimate the drag: https://www.optiflows.com.au/?utm_source=outbound_email&utm_medium=email&utm_campaign=coordination-drag-2026-09&utm_content=e01-drag-check#drag-check',
+        'If you would rather talk it through, reply with the workflow that creates the most chasing. I will send back the first three places I would inspect.',
+        'James Richmond\nOptiFlows\nhello@optiflows.com',
+        '{{consent_context}}\nUnsubscribe: {{unsubscribe_url}}\nYou can also reply with "unsubscribe".'
+      ])
+    },
+    {
+      id: 'e02', sequence: 'Day +4 business days', format: 'edm', accent: 'human',
+      title: 'The three-question workflow test',
+      intent: 'Convert recognition into self-diagnosis and a reply while preserving a single primary CTA.',
+      audience: 'Recipients from Email 1 who have not replied or unsubscribed. Suppress all opt-outs before sending.',
+      subjects: [
+        'The three-question workflow test',
+        'Still routing work through the same few people?',
+        'A simple test for your next workflow review'
+      ],
+      preheader: 'Three questions reveal whether the workflow or the team is creating the drag.',
+      hero: 'emails/assets/email-02-workflow-test-hero.jpg',
+      html: 'emails/email-02-workflow-test.html',
+      cta: {
+        label: 'Run the 90-second check',
+        url: 'https://www.optiflows.com.au/?utm_source=outbound_email&utm_medium=email&utm_campaign=coordination-drag-2026-09&utm_content=e02-workflow-test#drag-check'
+      },
+      plainText: paragraphs([
+        'Hi {{first_name}},',
+        'A quick follow-up with a simple operating-model test.',
+        'Pick one recurring workflow that matters: lead follow-up, client onboarding, approvals, reporting or campaign production.',
+        'Then ask:\n\n1. Where does it wait?\n2. Who has to rebuild the context?\n3. Which routine exception reaches a senior person?',
+        'If the answers keep pointing to the same handoffs and the same people, the constraint is probably not effort. It is the routing architecture.',
+        'The goal is not to automate everything. It is to make the movement visible, encode the routine work and keep judgment with the right human.',
+        'Run the 90-second check: https://www.optiflows.com.au/?utm_source=outbound_email&utm_medium=email&utm_campaign=coordination-drag-2026-09&utm_content=e02-workflow-test#drag-check',
+        'Or reply with the workflow you chose. I am happy to tell you what I would measure first.',
+        'James Richmond\nOptiFlows\nhello@optiflows.com',
+        '{{consent_context}}\nUnsubscribe: {{unsubscribe_url}}\nYou can also reply with "unsubscribe".'
+      ])
+    }
+  ],
   posts: [
     {
       id: 'p01', week: 1, date: '2026-09-07', day: 'Mon 7 Sep', format: 'tile',

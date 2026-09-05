@@ -9,7 +9,10 @@ Production-ready draft campaign pack for 7 September to 4 October 2026.
 - `visible-flow-copy-book.csv`: spreadsheet-ready copy table
 - `visible-flow-schedule.csv`: publication dates, formats and asset mapping
 - `visible-flow-campaign-data.json`: structured campaign source
+- `visible-flow-email-sequence.md`: EDM subjects, preheaders, plain-text copy and send gates
+- `visible-flow-email-sequence.csv`: structured EDM handoff
+- `visible-flow-edm-package.zip`: both email HTML templates, optimized hero images and implementation guide
 
 ## Publication gate
 
-Nothing in this pack is scheduled or published. Copy, creative and final schedule require human approval before any external action.
+The website review pack is published. No social post or email is scheduled or sent. Email-list upload, consent validation and sending require separate human approval.
