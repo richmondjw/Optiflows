@@ -1,4 +1,4 @@
-import { campaign } from './campaign-data.js';
+import { campaign } from './campaign-data.js?v=20260905b';
 
 const reviewKey = 'optiflows-visible-flow-review-v1';
 const channelLabels = Object.fromEntries(campaign.channels.map((channel) => [channel.id, channel.label]));
