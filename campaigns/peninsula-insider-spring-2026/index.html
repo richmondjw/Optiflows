@@ -37,6 +37,7 @@
     .nav{display:flex;gap:10px;flex-wrap:wrap;margin:32px 0 20px}
     .nav button{border:1px solid var(--line);background:var(--white);color:var(--deep);border-radius:999px;padding:12px 17px;cursor:pointer;font-weight:600}
     .nav button[aria-pressed="true"]{background:var(--deep);color:var(--white);border-color:var(--deep)}
+    .motion-lab{margin:34px 0 18px;padding:34px;background:var(--white);border:1px solid var(--line);border-radius:22px}.motion-head{display:grid;grid-template-columns:1fr .9fr;gap:30px;align-items:end;margin-bottom:24px}.motion-head h2{font-size:clamp(38px,4vw,62px);color:var(--deep)}.motion-head p{margin:0;color:#4c5d67;font-size:16px;line-height:1.6}.motion-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.55fr);gap:18px;align-items:start}.motion-card{margin:0;min-width:0}.motion-card--story{width:min(100%,430px);justify-self:end}.motion-frame{position:relative;overflow:hidden;background:var(--deep);border-radius:16px;box-shadow:0 12px 36px rgba(11,46,74,.12)}.motion-frame video{display:block;width:100%;height:auto}.motion-brand{position:absolute;z-index:2;top:14px;left:14px;display:inline-flex;align-items:center;gap:7px;padding:5px 9px 5px 5px;background:rgba(253,252,250,.94);border-radius:9px;color:var(--ink);font:700 12px/1 Sora,Arial,sans-serif;letter-spacing:-.02em;pointer-events:none;backdrop-filter:blur(8px)}.motion-brand img{width:27px;height:27px;border-radius:6px}.motion-brand strong{color:var(--harbour)}.motion-meta{padding:13px 3px 0}.motion-meta strong{display:block;color:var(--deep);font-family:Sora;font-size:17px}.motion-meta span{display:block;margin-top:5px;color:#63727c;font-size:13px;line-height:1.45}
     .week-head{display:grid;grid-template-columns:1fr auto;gap:30px;align-items:end;padding:38px 0 23px;border-bottom:1px solid var(--line)}
     .week-head h2{font-size:clamp(44px,5vw,76px);color:var(--deep);margin-top:13px}
     .week-head p{max-width:700px;font-size:18px;margin:17px 0 0;color:#40515d}
@@ -60,8 +61,8 @@
     .evidence{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:28px}.evidence article{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px}.evidence h3{font-size:21px;color:var(--deep);margin-bottom:13px}.evidence p,.evidence li{font-size:14px;color:#4c5d67}.evidence ul{margin:0;padding-left:19px}.evidence li+li{margin-top:8px}
     .footer{margin-top:40px;padding:26px 4px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;font-size:13px;color:#596a74}.footer a{font-weight:600;color:var(--harbour)}
     .hidden{display:none!important}
-    @media(max-width:1050px){.hero{grid-template-columns:1fr}.hero-copy{min-height:520px}.wide-grid{grid-template-columns:1fr}.feed-sequence{grid-template-columns:repeat(2,1fr)}.story-sequence{grid-template-columns:repeat(3,1fr)}.copy-panel{grid-template-columns:1fr}.evidence{grid-template-columns:1fr 1fr}}
-    @media(max-width:680px){.shell{padding:12px 12px 54px}.topbar{border-radius:12px;gap:9px 16px;flex-wrap:wrap}.brand{font-size:18px}.brand img{width:34px;height:34px}.status{max-width:200px;font-size:9px;letter-spacing:.07em;line-height:1.25}.status span{white-space:normal}.hero-copy{padding:36px 28px;min-height:530px}.hero-copy .kicker{font-size:10px;overflow-wrap:anywhere}.hero-copy h1{font-size:54px}.hero-copy p{font-size:19px}.meta-strip{left:28px;right:28px;bottom:30px}.hero-art{min-height:420px}.week-head{grid-template-columns:minmax(0,1fr)}.week-head h2{font-size:38px}.week-head p{max-width:100%;font-size:16px;overflow-wrap:anywhere}.week-number{display:none}.info-grid,.evidence{grid-template-columns:minmax(0,1fr)}.feed-sequence,.story-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.copy-list{grid-template-columns:minmax(0,1fr)}.copy-panel{padding:24px}.hero-art .caption{display:block}.hero-art .caption span{display:block;margin-top:5px}}
+    @media(max-width:1050px){.hero{grid-template-columns:1fr}.hero-copy{min-height:520px}.wide-grid{grid-template-columns:1fr}.feed-sequence{grid-template-columns:repeat(2,1fr)}.story-sequence{grid-template-columns:repeat(3,1fr)}.copy-panel{grid-template-columns:1fr}.evidence{grid-template-columns:1fr 1fr}.motion-head,.motion-grid{grid-template-columns:1fr}.motion-card--story{justify-self:start}}
+    @media(max-width:680px){.shell{padding:12px 12px 54px}.topbar{border-radius:12px;gap:9px 16px;flex-wrap:wrap}.brand{font-size:18px}.brand img{width:34px;height:34px}.status{max-width:200px;font-size:9px;letter-spacing:.07em;line-height:1.25}.status span{white-space:normal}.hero-copy{padding:36px 28px;min-height:530px}.hero-copy .kicker{font-size:10px;overflow-wrap:anywhere}.hero-copy h1{font-size:54px}.hero-copy p{font-size:19px}.meta-strip{left:28px;right:28px;bottom:30px}.hero-art{min-height:420px}.motion-lab{padding:24px 18px}.motion-head{gap:14px}.week-head{grid-template-columns:minmax(0,1fr)}.week-head h2{font-size:38px}.week-head p{max-width:100%;font-size:16px;overflow-wrap:anywhere}.week-number{display:none}.info-grid,.evidence{grid-template-columns:minmax(0,1fr)}.feed-sequence,.story-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.copy-list{grid-template-columns:minmax(0,1fr)}.copy-panel{padding:24px}.hero-art .caption{display:block}.hero-art .caption span{display:block;margin-top:5px}}
     @media(max-width:460px){.status{width:100%;max-width:none;justify-content:flex-start;margin-left:44px}}
   </style>
   <script defer src="/gate.js"></script>
@@ -96,6 +97,29 @@
       <button data-week="s3" aria-pressed="false">03 · Holidays</button>
       <button data-week="s4" aria-pressed="false">04 · Reset</button>
     </nav>
+
+    <section class="motion-lab" aria-labelledby="motion-title">
+      <header class="motion-head">
+        <div><div class="kicker">MOTION STUDIES · REVIEW ONLY</div><h2 id="motion-title">Texture, not theatre.</h2></div>
+        <p>Two restrained Seedance 2.0 studies test whether light, depth and material movement can earn attention without changing the editorial claim. The source plates remain text-free; the live PI identity shown here is a deterministic review overlay.</p>
+      </header>
+      <div class="motion-grid">
+        <figure class="motion-card">
+          <div class="motion-frame">
+            <video controls muted playsinline preload="metadata" poster="assets/masters/s4-reset-wide.webp"><source src="assets/motion/s4-reset-wide-seedance2.mp4" type="video/mp4"></video>
+            <span class="motion-brand"><img src="assets/pi-site-icon.svg" alt=""><span>Peninsula <strong>Insider</strong></span></span>
+          </div>
+          <figcaption class="motion-meta"><strong>Spring reset · 16:9 motion plate</strong><span>8 seconds · silent · review-only · deterministic information layer pending</span></figcaption>
+        </figure>
+        <figure class="motion-card motion-card--story">
+          <div class="motion-frame">
+            <video controls muted playsinline preload="metadata" poster="assets/masters/s2-walk-story.webp"><source src="assets/motion/s2-walk-story-seedance2.mp4" type="video/mp4"></video>
+            <span class="motion-brand"><img src="assets/pi-site-icon.svg" alt=""><span>Peninsula <strong>Insider</strong></span></span>
+          </div>
+          <figcaption class="motion-meta"><strong>Choose your circuit · 9:16 motion plate</strong><span>8 seconds · silent · review-only · Story timing and copy pending</span></figcaption>
+        </figure>
+      </div>
+    </section>
 
     <div id="weeks"></div>
 

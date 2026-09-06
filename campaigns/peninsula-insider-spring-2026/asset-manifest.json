@@ -17,6 +17,26 @@
       "sha256": "c3337a673c9bbbfe433091d3831714dd9a257951f16f41eb3fc650ec593cfac2"
     }
   ],
+  "motion_receipt": "motion/receipts/motion-studies.json",
+  "motion_receipt_sha256": "3dec102ccbf7c16b8eea46d47abefb4ec44ed9ac5a3052c90ce75f11b1cf197a",
+  "motion_studies": [
+    {
+      "id": "M-S4-WIDE-01",
+      "file": "motion/raw/s4-reset-wide-seedance2.mp4",
+      "sha256": "8f5d0435623342a830ad973d30a1ee1691092459c88384b068a66f80c92ead76",
+      "dimensions": "1920x1080",
+      "duration_seconds": 8.041667,
+      "review_state": "review-only"
+    },
+    {
+      "id": "M-S2-STORY-01",
+      "file": "motion/raw/s2-walk-story-seedance2.mp4",
+      "sha256": "1cdf9875ac9d8775233cc34a5c1f9b4e3e27bc18d5abed30096a3a85b5c1b283",
+      "dimensions": "1080x1920",
+      "duration_seconds": 8.041667,
+      "review_state": "review-only"
+    }
+  ],
   "masters": [
     "masters/s1-paper-wide.png",
     "masters/s1-paper-feed.png",

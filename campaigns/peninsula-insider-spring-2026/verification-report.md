@@ -10,6 +10,18 @@
 - 12 Story frames are 1080x1920
 - Every deterministic export has a unique hash
 - 12 native visual masters present
+- s4-reset-wide-seedance2.mp4 reopens
+- s4-reset-wide-seedance2.mp4 has one video stream
+- s4-reset-wide-seedance2.mp4 is silent
+- s4-reset-wide-seedance2.mp4 uses H.264
+- s4-reset-wide-seedance2.mp4 dimensions are 1920x1080
+- s4-reset-wide-seedance2.mp4 duration is approximately 8 seconds
+- s2-walk-story-seedance2.mp4 reopens
+- s2-walk-story-seedance2.mp4 has one video stream
+- s2-walk-story-seedance2.mp4 is silent
+- s2-walk-story-seedance2.mp4 uses H.264
+- s2-walk-story-seedance2.mp4 dimensions are 1080x1920
+- s2-walk-story-seedance2.mp4 duration is approximately 8 seconds
 - asset-renderer.html declares noindex,nofollow
 - asset-renderer.html has no remote runtime dependency
 - campaign-review.html declares noindex,nofollow
@@ -24,6 +36,8 @@
 - campaign-review.html uses the current PI icon
 - campaign-review.html uses the current PI wordmark treatment
 - campaign-review.html does not use the retired campaign mark
+- Review interface exposes s4-reset-wide-seedance2.mp4
+- Review interface exposes s2-walk-story-seedance2.mp4
 - Current PI icon asset reopens
 - Sora 700 brand font reopens
 - PI icon hash matches the current site asset
