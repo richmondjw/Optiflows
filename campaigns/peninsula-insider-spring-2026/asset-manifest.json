@@ -1,0 +1,432 @@
+{
+  "campaign": "Spring is for decisions",
+  "status": "review-only",
+  "manuscript": "2026-09-06-four-week-spring-campaign-manuscript.md",
+  "manuscript_sha256": "42eaa272f162ea09928776b1926b364f5fc87ddea9f349ed7381deac2e37c7f5",
+  "renderer": "asset-renderer.html",
+  "renderer_sha256": "cb0d2ccbfcbc0abcb4746ad82e19b4218eaa14a4db0f5380ac9544a2efe13cc2",
+  "primary_asset_count": 20,
+  "rendered_file_count": 44,
+  "brand_assets": [
+    {
+      "file": "../assets/pi-site-icon.svg",
+      "sha256": "0c65387dbe31bd759ad0fa111d31a378b115173cafcd4d86f5edba9ac9e15d57"
+    },
+    {
+      "file": "../assets/fonts/sora-700.woff2",
+      "sha256": "c3337a673c9bbbfe433091d3831714dd9a257951f16f41eb3fc650ec593cfac2"
+    }
+  ],
+  "masters": [
+    "masters/s1-paper-wide.png",
+    "masters/s1-paper-feed.png",
+    "masters/s1-paper-story.png",
+    "masters/s2-walk-wide.png",
+    "masters/s2-walk-feed.png",
+    "masters/s2-walk-story.png",
+    "masters/s3-holidays-wide.png",
+    "masters/s3-holidays-feed.png",
+    "masters/s3-holidays-story.png",
+    "masters/s4-reset-wide.png",
+    "masters/s4-reset-feed.png",
+    "masters/s4-reset-story.png"
+  ],
+  "exports": [
+    {
+      "file": "exports/s1-dispatch.png",
+      "bytes": 1717274,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "1331394e08879b1513547391427a86891677be78f9982dbc003c47659287982a"
+    },
+    {
+      "file": "exports/s1-email.png",
+      "bytes": 1612128,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "5f191ae925619afec07ba9f4169066825c825787fd715c374b7b3892b2795976"
+    },
+    {
+      "file": "exports/s1-feed-01.png",
+      "bytes": 1246057,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "ae3e60fb8a3a328e3497ea3176475b787fffc44c0541f954cdfec8b9157be4af"
+    },
+    {
+      "file": "exports/s1-feed-02.png",
+      "bytes": 1596456,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "a363dc56c0dbd9a71b08ef6d0e29eeeed0aca9850da7fdc5f79f967a50cb4438"
+    },
+    {
+      "file": "exports/s1-feed-03.png",
+      "bytes": 1592799,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "50b52c44d258bc91a8a9a130ac4c4ef0429fc4b41409d4e39b128a3b80358f85"
+    },
+    {
+      "file": "exports/s1-feed-04.png",
+      "bytes": 1592161,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "2b1843f807e2f0fa1d58ff70b682249e233a50e45c4990bf7a809aac32b2237a"
+    },
+    {
+      "file": "exports/s1-feed-05.png",
+      "bytes": 1246970,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "0591f26a6efe6e08c02b8ef7ce8235e96fae52093f53ec0897696eb4998482e4"
+    },
+    {
+      "file": "exports/s1-story-01.png",
+      "bytes": 2437979,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "adc98bf89f3569296ad8a5572d17bb75c197d172adb86b6ad0d7a8b33e3e28e4"
+    },
+    {
+      "file": "exports/s1-story-02.png",
+      "bytes": 2179913,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "1bc11fee77a2ac450cdb626bd4e399b36b0ce9a48ee79180fc925fdcea8a251b"
+    },
+    {
+      "file": "exports/s1-story-03.png",
+      "bytes": 1823401,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "c17985b7ff2bff1cb582a8bf4838f2f953de635672923856385feb72f8544ada"
+    },
+    {
+      "file": "exports/s1-web.png",
+      "bytes": 1758826,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "4e9c66acff8f4d09c9910948a8bd3f0a56ff402129ba792b677b8ac0be938297"
+    },
+    {
+      "file": "exports/s2-dispatch.png",
+      "bytes": 1905990,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "a235dbc02f9072b09e0722d2cf48d77077056e3c62ff2f82744b74ef602742a9"
+    },
+    {
+      "file": "exports/s2-email.png",
+      "bytes": 1788192,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "f9509bc141a776e6904dcdc7d19dd32eb8485d4755716fc28ae07f54fc94b808"
+    },
+    {
+      "file": "exports/s2-feed-01.png",
+      "bytes": 1299283,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "7615bbe54bf2dc0804f96f5c1f34da3c9d4dc902d369aa7b8d80986a0f281a02"
+    },
+    {
+      "file": "exports/s2-feed-02.png",
+      "bytes": 1654618,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "a91f80b5adf1e075791eb8120aca4a05f94aee09363126337771a5339f3feea4"
+    },
+    {
+      "file": "exports/s2-feed-03.png",
+      "bytes": 1657602,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "50f622f4454beceff59913963fabe8018c524270da64b817518bd163e8429dfd"
+    },
+    {
+      "file": "exports/s2-feed-04.png",
+      "bytes": 1657887,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "e91fe42dc7cf000a67a92195a6cc45a4cf6cea0035e58358e8a1a7f3f7dc9d31"
+    },
+    {
+      "file": "exports/s2-feed-05.png",
+      "bytes": 1302621,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "9751286cc7a5e6dc81cec6cb9e01d723b77588dbbb160777fef52ad8eb0270de"
+    },
+    {
+      "file": "exports/s2-story-01.png",
+      "bytes": 2723750,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "410f9ca0659c326a25a8ea3f71f9bbf61a397d675cdbd9db7a82e0ec7b5ab400"
+    },
+    {
+      "file": "exports/s2-story-02.png",
+      "bytes": 2302578,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "3e8318353c006f53abb8966757e179a40dbc595b875e4b963b7481bbc71d0cfb"
+    },
+    {
+      "file": "exports/s2-story-03.png",
+      "bytes": 2089638,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "116349696267a8fca8346a148dc975cfc8d9d7aece38c5d4532a08af8fe311ca"
+    },
+    {
+      "file": "exports/s2-web.png",
+      "bytes": 1947913,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "bb6c97a04e57ad10598aad54d32bfc3ea2b993dcce86fec1d041da14a2c875e9"
+    },
+    {
+      "file": "exports/s3-dispatch.png",
+      "bytes": 1698250,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "81b6c6aa36a370119f67c302a46afab04c12c8468690da21d5c9e6991ae2d0ae"
+    },
+    {
+      "file": "exports/s3-email.png",
+      "bytes": 1557870,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "a76aa9eb95769ad4854179be027fed11d9c46bc4eedf4a0be6a080ed657f13c4"
+    },
+    {
+      "file": "exports/s3-feed-01.png",
+      "bytes": 1162713,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "762ca0534dc15d10061ec9610af1039f97277ccf956aa09faa6d67ee1a89baad"
+    },
+    {
+      "file": "exports/s3-feed-02.png",
+      "bytes": 1510027,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "87c28917b077711bbc26c8dd65d01fc43d1ed10f22ce75078c396787215ddbb5"
+    },
+    {
+      "file": "exports/s3-feed-03.png",
+      "bytes": 1511502,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "9d2715af767e8c0ac093634a7eee9d246948ff662f617267c8f401ef0c19b356"
+    },
+    {
+      "file": "exports/s3-feed-04.png",
+      "bytes": 1510121,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "bd789a4fdd50efdc6e3ead2868b38852a3d387592ac328a335f4397c54c2ca07"
+    },
+    {
+      "file": "exports/s3-feed-05.png",
+      "bytes": 1154945,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "3e15493780e73489e23382eac4d041ef06d8040b8e99cb1dabc82e8575298b5d"
+    },
+    {
+      "file": "exports/s3-story-01.png",
+      "bytes": 2470634,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "b7b2a5181a1e20712346a4263b3f06552a09ec9bfc26d58c7290f3010b699522"
+    },
+    {
+      "file": "exports/s3-story-02.png",
+      "bytes": 2036165,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "84736e9bdc232eff15d309a8ba8bf29605315da3d7323f2c73c22af20a7c5cc9"
+    },
+    {
+      "file": "exports/s3-story-03.png",
+      "bytes": 1827594,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "dfb26c9f446847122e0e6f2c694c080b9a6e0faf30b810d5643ce76a35875949"
+    },
+    {
+      "file": "exports/s3-web.png",
+      "bytes": 1737900,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "6606fe1c7ef5589eb9ea0f15d38c8953a41e42aee5b127fedd478e71e255be3a"
+    },
+    {
+      "file": "exports/s4-dispatch.png",
+      "bytes": 1765101,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "ac7dff474715f24050eb72cd8a8bd90885f537deb5934173b985a4f701a50bb8"
+    },
+    {
+      "file": "exports/s4-email.png",
+      "bytes": 1658025,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "0bf6181d6d1a12f49b79d7e818fd1ba00a43509c15e128811c822076b774f7ad"
+    },
+    {
+      "file": "exports/s4-feed-01.png",
+      "bytes": 1170215,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "d6d3f02a929d356885bdbca5b36f1f3d62271d0f85a89edbbaa8ff9e88c52c7b"
+    },
+    {
+      "file": "exports/s4-feed-02.png",
+      "bytes": 1490569,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "d14241c09aa15ca3cfa90352b801f73c72c202962e752ba17d8ee6efec8692da"
+    },
+    {
+      "file": "exports/s4-feed-03.png",
+      "bytes": 1493388,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "66b60cd1d8c747f6211d7db66352a67d0ca49ef7fc1fdbb8ce7a8950ff410b0c"
+    },
+    {
+      "file": "exports/s4-feed-04.png",
+      "bytes": 1494470,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "f886aa37bb3058c7b3d035697c247dfb29f3e83ad23d0e444871ca08be77b98d"
+    },
+    {
+      "file": "exports/s4-feed-05.png",
+      "bytes": 1165113,
+      "width": 1080,
+      "height": 1350,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "c5a0c6102b9a9e9886641f774eb342210e2bf27e5da840498c02b26c305cc4b4"
+    },
+    {
+      "file": "exports/s4-story-01.png",
+      "bytes": 2319636,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "f3b336b764f0ba3e9f8e3edd54941fdf71edd12232811df14835b602fa4fe410"
+    },
+    {
+      "file": "exports/s4-story-02.png",
+      "bytes": 2049776,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "275892a3d34fcd22917d3cb5b4b2352219badc801bf695cb6482229e35a725be"
+    },
+    {
+      "file": "exports/s4-story-03.png",
+      "bytes": 1755574,
+      "width": 1080,
+      "height": 1920,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "c532f5edf118e7edc435ea06274e490ff993a976750a560d9516877d79648e88"
+    },
+    {
+      "file": "exports/s4-web.png",
+      "bytes": 1815365,
+      "width": 1600,
+      "height": 900,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "eeab62c153dd4cb931c70d718e7a4e2e8419f74d9eae078253b46e622d03696d"
+    }
+  ]
+}

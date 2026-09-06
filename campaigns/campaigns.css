@@ -1,3 +1,5 @@
+@font-face { font-family: "PI Sora"; src: url("./peninsula-insider-spring-2026/assets/fonts/sora-700.woff2") format("woff2"); font-weight: 700; font-display: swap; }
+
 :root {
   --deepest: #032929;
   --deep: #053d3d;
@@ -76,15 +78,20 @@ a { color: inherit; }
 .section-heading > p { max-width: 520px; margin: 0; color: var(--muted); font-size: 17px; line-height: 1.6; }
 
 .campaign-card { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(420px, .95fr); max-width: 1500px; margin: 0 auto; overflow: hidden; background: var(--white); border: 1px solid rgba(5,61,61,.12); border-top: 5px solid var(--mint); border-radius: 22px; box-shadow: 0 28px 80px rgba(5,61,61,.11); }
+.campaign-card + .campaign-card { margin-top: 44px; }
+.campaign-card--pi { border-top-color: var(--amber); }
 .campaign-card__visual { position: relative; min-height: 760px; overflow: hidden; background: var(--deepest); }
 .campaign-card__visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,41,41,.16), transparent 35%, rgba(3,41,41,.58)); pointer-events: none; }
-.campaign-card__visual video { width: 100%; height: 100%; object-fit: cover; }
+.campaign-card__visual video, .campaign-card__visual img { width: 100%; height: 100%; object-fit: cover; }
 .campaign-card__visual-top, .campaign-card__visual-bottom { position: absolute; z-index: 2; left: 26px; right: 26px; display: flex; align-items: center; justify-content: space-between; color: rgba(255,255,255,.76); font: 700 9px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .campaign-card__visual-top { top: 24px; }
 .campaign-card__visual-bottom { bottom: 24px; }
 .campaign-card__visual-bottom span:first-child { color: var(--mint); }
 .status { display: inline-flex; align-items: center; gap: 9px; }
 .status i { width: 8px; height: 8px; background: var(--mint); border-radius: 50%; box-shadow: 0 0 0 5px rgba(102,255,224,.1); }
+.pi-lockup { display: inline-flex; align-items: center; gap: 8px; min-height: 38px; padding: 5px 10px 5px 6px; color: #14202a; background: rgba(253,252,250,.94); border-radius: 10px; font: 700 14px/1 "PI Sora", system-ui, sans-serif; letter-spacing: -.02em; text-transform: none; backdrop-filter: blur(8px); }
+.campaign-card__visual-top .pi-lockup > img { position: static; width: 28px; height: 28px; object-fit: contain; }
+.pi-lockup strong { color: #10527e; }
 
 .campaign-card__content { align-self: center; padding: clamp(38px, 5vw, 76px); }
 .campaign-card__type { margin: 0 0 22px; color: var(--coral); font: 700 10px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
@@ -121,7 +128,7 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 28px
 @media (max-width: 1050px) {
   .campaign-card { grid-template-columns: 1fr; }
   .campaign-card__visual { min-height: 620px; }
-  .campaign-card__visual video { position: absolute; inset: 0; }
+  .campaign-card__visual video, .campaign-card__visual img { position: absolute; inset: 0; }
 }
 
 @media (max-width: 780px) {

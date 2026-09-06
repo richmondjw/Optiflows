@@ -1,0 +1,258 @@
+{
+  "campaign": "Spring is for decisions",
+  "creative_direction": "B \u2014 Field Specimens / Decision Cabinet",
+  "manuscript_revision": "1.0",
+  "observed_at": "2026-09-07 Australia/Sydney",
+  "provider_account_verified": true,
+  "publication_authority": "none",
+  "brand_alignment": {
+    "status": "pass",
+    "source": "current Peninsula Insider public masthead and repository brand assets",
+    "icon_file": "../assets/pi-site-icon.svg",
+    "icon_sha256": "0c65387dbe31bd759ad0fa111d31a378b115173cafcd4d86f5edba9ac9e15d57",
+    "wordmark": "Peninsula Insider",
+    "display_font": "Sora 700",
+    "insider_colour": "#10527E",
+    "verified_at": "2026-09-07 Australia/Sydney"
+  },
+  "masters": [
+    {
+      "file": "masters/s1-paper-wide.png",
+      "bytes": 13482304,
+      "width": 3840,
+      "height": 2160,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "6221a767f3afbc5815859950d012591114dcaacb2103c0ae3ac083d2545e5c47",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "289f9f6b-acd1-4093-97ce-3dfc1344032b",
+      "prompt_file": "prompts/s1-paper-wide.txt",
+      "source_inputs": [
+        "Higgsfield job 122b502f-4ece-45d5-a5dc-960dd7d50f5b"
+      ],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    },
+    {
+      "file": "masters/s1-paper-feed.png",
+      "bytes": 16317971,
+      "width": 2480,
+      "height": 3312,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "48b24522f6c2f3144393690f5ca04de6e01924db8abb00f291bfca6f84e61475",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "1043aaf5-c39a-4a29-a882-ae9bb848773e",
+      "prompt_file": "prompts/s1-paper-feed.txt",
+      "source_inputs": [
+        "Higgsfield job 122b502f-4ece-45d5-a5dc-960dd7d50f5b"
+      ],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    },
+    {
+      "file": "masters/s1-paper-story.png",
+      "bytes": 13219983,
+      "width": 2160,
+      "height": 3840,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "a13f85ae25a7a5dce2c70cc108125fdd27928bac356b51d12440713fcf18e2e3",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "a1816d69-f836-4a02-963b-3773bc8d559c",
+      "prompt_file": "prompts/s1-paper-story.txt",
+      "source_inputs": [
+        "Higgsfield job 122b502f-4ece-45d5-a5dc-960dd7d50f5b"
+      ],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    },
+    {
+      "file": "masters/s2-walk-wide.png",
+      "bytes": 17165021,
+      "width": 3840,
+      "height": 2160,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "cfeefc0656839ce604bf38dc6989c54dcf7a56a41bfaba40856f5a5ac7355287",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "6b6edb65-8a2b-4d58-9f8e-f5bb393bca59",
+      "prompt_file": "prompts/s2-walk-wide.txt",
+      "source_inputs": [
+        "Higgsfield job 122b502f-4ece-45d5-a5dc-960dd7d50f5b"
+      ],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    },
+    {
+      "file": "masters/s2-walk-feed.png",
+      "bytes": 16367853,
+      "width": 2480,
+      "height": 3312,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "9f4c1ea47c6b0cbde8047ac65c1cbded5dd9311164c4ab2c7cfc7b0fcd8260f6",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "122b502f-4ece-45d5-a5dc-960dd7d50f5b",
+      "prompt_file": "prompts/s2-walk-feed.txt",
+      "source_inputs": [],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    },
+    {
+      "file": "masters/s2-walk-story.png",
+      "bytes": 14855512,
+      "width": 2160,
+      "height": 3840,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "e189b6bd3297ab1822cfe42226ccb7cd1b3ef39b137831a3077184c22577dab1",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "cf495e64-4054-4182-8cee-535bc1bf71b6",
+      "prompt_file": "prompts/s2-walk-story.txt",
+      "source_inputs": [
+        "Higgsfield job 122b502f-4ece-45d5-a5dc-960dd7d50f5b"
+      ],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    },
+    {
+      "file": "masters/s3-holidays-wide.png",
+      "bytes": 14588841,
+      "width": 3840,
+      "height": 2160,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "27818f72b29069d90e01c370ce037e25b6f565ef13e6cd7cf5e42f68fb7f9d9d",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "5b48de82-ff1a-4c66-b8df-0b65981b60d4",
+      "prompt_file": "prompts/s3-holidays-wide.txt",
+      "source_inputs": [
+        "Higgsfield job 122b502f-4ece-45d5-a5dc-960dd7d50f5b"
+      ],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    },
+    {
+      "file": "masters/s3-holidays-feed.png",
+      "bytes": 14158851,
+      "width": 2480,
+      "height": 3312,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "dbb0726c29ebca182bbdc4a6459c83aecc800d3f7625b2f6a2dd10241f98cc42",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "c99d62da-6ca5-4e95-ad11-06aeebbeede9",
+      "prompt_file": "prompts/s3-holidays-feed.txt",
+      "source_inputs": [
+        "Higgsfield job 122b502f-4ece-45d5-a5dc-960dd7d50f5b"
+      ],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    },
+    {
+      "file": "masters/s3-holidays-story.png",
+      "bytes": 13216104,
+      "width": 2160,
+      "height": 3840,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "dd15cd43a9bf670016910d3bd236467d96c6615d230a2ca4c52a4d4cea46395a",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "016801c0-a5aa-4f74-87d0-2817bce5580c",
+      "prompt_file": "prompts/s3-holidays-story.txt",
+      "source_inputs": [
+        "Higgsfield job 122b502f-4ece-45d5-a5dc-960dd7d50f5b"
+      ],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    },
+    {
+      "file": "masters/s4-reset-wide.png",
+      "bytes": 15369493,
+      "width": 3840,
+      "height": 2160,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "8a00bfa4b746b7dd3fefc5052bd9881cb198f3fd04a7ed19df61e5b4516f683a",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "6426b8d5-ffda-4c87-9926-71dd143c539f",
+      "prompt_file": "prompts/s4-reset-wide.txt",
+      "source_inputs": [
+        "Higgsfield job 122b502f-4ece-45d5-a5dc-960dd7d50f5b"
+      ],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    },
+    {
+      "file": "masters/s4-reset-feed.png",
+      "bytes": 13631046,
+      "width": 2480,
+      "height": 3312,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "546e24a12ba08ad1f1b9605ad5fd7d5701fd5f03dfe12af397cbed5a01032985",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "00cf7270-92fb-4729-b64d-d37d80a415f2",
+      "prompt_file": "prompts/s4-reset-feed.txt",
+      "source_inputs": [
+        "Higgsfield job 122b502f-4ece-45d5-a5dc-960dd7d50f5b"
+      ],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    },
+    {
+      "file": "masters/s4-reset-story.png",
+      "bytes": 12049350,
+      "width": 2160,
+      "height": 3840,
+      "format": "PNG",
+      "mode": "RGB",
+      "sha256": "f3605359355aac86330309cf8e89d10c8401f389fc8d444dc2f2286749c1431e",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "089faac9-cb9c-41e7-b55e-1f4b1d11bfbb",
+      "prompt_file": "prompts/s4-reset-story.txt",
+      "source_inputs": [
+        "Higgsfield job 122b502f-4ece-45d5-a5dc-960dd7d50f5b"
+      ],
+      "classification": "original editorial illustration",
+      "review_state": "review-only",
+      "visual_qa": "pass",
+      "truth_boundary": "illustrative; not documentary evidence, a route map, current weather, current conditions or an exhibited artwork"
+    }
+  ]
+}

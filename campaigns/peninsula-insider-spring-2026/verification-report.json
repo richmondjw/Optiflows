@@ -1,0 +1,38 @@
+{
+  "status": "pass",
+  "checked_at": "2026-09-07 Australia/Sydney",
+  "passes": [
+    "44 deterministic exports present",
+    "12 wide exports are 1600x900",
+    "20 feed frames are 1080x1350",
+    "12 Story frames are 1080x1920",
+    "Every deterministic export has a unique hash",
+    "12 native visual masters present",
+    "asset-renderer.html declares noindex,nofollow",
+    "asset-renderer.html has no remote runtime dependency",
+    "campaign-review.html declares noindex,nofollow",
+    "campaign-review.html has no remote runtime dependency",
+    "No operational publish control",
+    "No operational send control",
+    "No operational schedule control",
+    "No operational approve control",
+    "asset-renderer.html uses the current PI icon",
+    "asset-renderer.html uses the current PI wordmark treatment",
+    "asset-renderer.html does not use the retired campaign mark",
+    "campaign-review.html uses the current PI icon",
+    "campaign-review.html uses the current PI wordmark treatment",
+    "campaign-review.html does not use the retired campaign mark",
+    "Current PI icon asset reopens",
+    "Sora 700 brand font reopens",
+    "PI icon hash matches the current site asset",
+    "Source, data, manifest, provenance and review files reopen",
+    "Manifest declares 20 primary assets",
+    "Manifest declares 44 rendered files"
+  ],
+  "failures": [],
+  "dimension_counts": {
+    "1080x1350": 20,
+    "1080x1920": 12,
+    "1600x900": 12
+  }
+}
