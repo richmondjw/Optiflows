@@ -46,6 +46,9 @@
 - Every calendar drop has a unique asset ID
 - Every calendar drop remains proposed and held
 - Review interface exposes the held campaign calendar
+- Calendar data names each actual distribution platform and placement
+- Review interface exposes six website activation touchpoints
+- Website activation map names the current PI surfaces
 - Manifest declares 20 primary assets
 - Manifest declares 44 rendered files
 
