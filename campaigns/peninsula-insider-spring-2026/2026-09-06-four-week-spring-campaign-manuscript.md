@@ -6,10 +6,10 @@ deli: "1218209856204514"
 status: review-only
 created: 2026-09-06
 proposed_window: 2026-09-07/2026-10-04
-revision: "1.0"
+revision: "1.1"
 creative_direction: "B — Field Specimens / Decision Cabinet"
 publication_authority: none
-description: Complete review manuscript for the four-week Spring is for decisions campaign, including twenty channel-native assets, evidence, holds and production rules.
+description: Complete review manuscript for the four-week Spring is for decisions campaign, including twenty channel-native assets, the proposed campaign calendar, evidence, holds and production rules.
 tags: [hermes, peninsula-insider, campaign-manuscript, spring-2026, higgsfield]
 ---
 
@@ -33,16 +33,59 @@ Release, email send, social publishing, paid distribution, subscriber or CRM mut
 
 **Visual proposition:** each decision is arranged as a tactile field specimen. The illustration supplies mood and an ownable monthly grammar. Exact facts, labels, dates, distances, calls to action, identity and accessibility text stay in the deterministic information layer.
 
-## Proposed rhythm
+## Proposed campaign calendar
 
-| Week | Reader decision | Anchor | Feed | Stories | Forward dispatch and email |
+The calendar stages one useful decision across five distinct channel jobs. It is a planning proposal, not a publishing queue. Every entry remains held until its exact revision, live facts, route and channel executor pass the applicable release gate.
+
+**Channel scope:** `FEED` means an Instagram Feed carousel at 1080 × 1350. `STORY` means an Instagram Stories sequence at 1080 × 1920. The current pack does not contain Facebook, TikTok, LinkedIn, YouTube or paid-social derivatives. Those surfaces require a separate channel job, crop, copy and release review; an Instagram export must not be silently reused as if it were channel-native elsewhere.
+
+| Date | Week | Channel job | Asset | Editorial purpose | State |
 |---|---|---|---|---|---|
-| 7–13 Sep | Is one serious works-on-paper show the right half-day? | Tue 8 Sep | Thu 10 Sep | Sat 12 Sep | Sun 13 Sep |
-| 14–20 Sep | Short circuit or long circuit? | Tue 15 Sep | Thu 17 Sep | Sat 19 Sep | Sun 20 Sep |
-| 21–27 Sep | Active-first, rain-safe or low-friction? | Mon 21 Sep | Tue 22 Sep | Thu 24 Sep | Thu 24 Sep, ahead of the public-holiday weekend |
-| 28 Sep–4 Oct | Which two fixed points keep the last holiday weekend loose? | Wed 30 Sep | Thu 1 Oct | Fri 2 Oct | Fri 2 Oct, ahead of 3–4 Oct |
+| Tue 8 Sep | 1 · Paper | Peninsula Insider website · anchor | S1-WEB | Open the weekly decision | Proposed · held |
+| Thu 10 Sep | 1 · Paper | Instagram Feed · carousel | S1-FEED | Make the half-day saveable | Proposed · held |
+| Sat 12 Sep | 1 · Paper | Instagram Stories · sequence | S1-STORY | Prompt the weekend choice | Proposed · held |
+| Sun 13 Sep | 1 · Paper | Peninsula Insider website · dispatch | S1-DSP | Forward the useful decision | Proposed · held |
+| Sun 13 Sep | 1 · Paper | The Insider Note · email | S1-EML | Deliver the Sunday note | Proposed · held |
+| Tue 15 Sep | 2 · Walk | Peninsula Insider website · anchor | S2-WEB | Open the route decision | Proposed · held |
+| Thu 17 Sep | 2 · Walk | Instagram Feed · carousel | S2-FEED | Make the comparison saveable | Proposed · held |
+| Sat 19 Sep | 2 · Walk | Instagram Stories · sequence | S2-STORY | Prompt a route choice | Proposed · held |
+| Sun 20 Sep | 2 · Walk | Peninsula Insider website · dispatch | S2-DSP | Put the walk into consideration | Proposed · held |
+| Sun 20 Sep | 2 · Walk | The Insider Note · email | S2-EML | Deliver the Sunday comparison | Proposed · held |
+| Mon 21 Sep | 3 · Holidays | Peninsula Insider website · anchor | S3-WEB | Open the holiday framework | Proposed · held |
+| Tue 22 Sep | 3 · Holidays | Instagram Feed · carousel | S3-FEED | Make the framework saveable | Proposed · held |
+| Thu 24 Sep | 3 · Holidays | Instagram Stories · sequence | S3-STORY | Prompt one day shape | Proposed · held |
+| Thu 24 Sep | 3 · Holidays | Peninsula Insider website · dispatch | S3-DSP | Reach readers before Friday | Proposed · held |
+| Thu 24 Sep | 3 · Holidays | The Insider Note · email | S3-EML | Deliver before the long weekend | Proposed · held |
+| Wed 30 Sep | 4 · Reset | Peninsula Insider website · anchor | S4-WEB | Open the two-point plan | Proposed · held |
+| Thu 1 Oct | 4 · Reset | Instagram Feed · carousel | S4-FEED | Make the plan saveable | Proposed · held |
+| Fri 2 Oct | 4 · Reset | Instagram Stories · sequence | S4-STORY | Prompt the exact-date plan | Proposed · held |
+| Fri 2 Oct | 4 · Reset | Peninsula Insider website · dispatch | S4-DSP | Reach readers before 3–4 October | Proposed · held |
+| Fri 2 Oct | 4 · Reset | The Insider Note · email | S4-EML | Deliver before the weekend | Proposed · held |
 
-These times are editorial hypotheses, not a standing cadence decision. They must not overwrite current channel governance.
+The timing pattern is deliberately editorial rather than quota-led. Weeks 3 and 4 compress the forward-looking jobs before the public-holiday and exact-date weekends. Exact send and post times remain `N/A` until channel baselines are retrieved. The machine-readable companion is `campaign-calendar.csv` in this package.
+
+## Website activation plan
+
+The campaign should travel through the site as a recognisable editorial signature, not a full-site reskin. The source remains the weekly anchor article. Supporting touchpoints may borrow the paper specimens, cabinet labels, Sand/Signal accents and decision language only when they help the reader discover, decide, save or return.
+
+| Reader moment | Confirmed current surface | Proposed campaign treatment | Window | Primary measure | Control |
+|---|---|---|---|---|---|
+| Discover | Homepage `/` | Add one “This week’s decision” band immediately after the existing This Weekend module. Use the weekly wide specimen, one sentence and one CTA. Keep the main cover unchanged. | Anchor release through week end | Band click-through; engaged anchor sessions | One campaign module only; auto-expire |
+| Decide | Weekly `/journal/…` anchor | Use the full Field Specimens hero and deterministic facts; include evidence, the bounded decision and Save. This remains the claim-bearing canonical source. | First release of each week | Engagement; official-source clicks; saves; corrections | Exact revision accepted and route read back |
+| Discover | Insider Picks `/picks/` | Add a compact “Decision Cabinet” below the Picks introduction: the weekly decision and up to two genuinely related picks. Use specimen tabs rather than a second hero. | Only when current Picks support the decision | Open, save and onward-Pick rate | Do not manufacture relevance or paid placement |
+| Consider | What’s On `/whats-on/` | In Weeks 3 and 4, insert a slim, date-aware decision card above PI’s Picks. Do not alter the authority, order or freshness logic of the live event list. | Relevant dates only | Card clicks; event saves; `+ Trip` actions | Automatic expiry and live event recheck |
+| Keep | Saved `/me/saved/` and My Trip `/me/trip/` | After a relevant campaign save, offer an in-page next step: “One anchor saved. Add one fallback.” No modal, forced sign-in or install interruption. | After a relevant Save action | Save-to-Trip progression; return rate | Preserve value-first and dismissal behaviour |
+| Return | Dispatch `/dispatch/` plus the homepage Insider Note surface | Carry the weekly email composition and decision line; link only to the released/read-back anchor. The next week introduces the next decision. | After anchor read-back and before the relevant moment | Unique clickers; returns; unsubscribes; complaints | Email controls and send authority remain separate |
+
+### Activation sequence
+
+1. Build and verify the weekly anchor plus the homepage decision band in an isolated branch.
+2. Add the Insider Picks cabinet only when the current edit supplies a real relationship.
+3. Add the What’s On inset for Weeks 3 and 4 with an explicit expiry test.
+4. Add the Saved/My Trip continuation after analytics events and state behaviour are verified.
+5. Release each surface behind the same fact recheck, accepted revision, authorised executor and public read-back gate as the campaign asset it carries.
+
+This plan records implementation intent only. No Peninsula Insider production page, component, content entry or analytics configuration has been changed by this review package.
 
 ## Common brand and production lock
 

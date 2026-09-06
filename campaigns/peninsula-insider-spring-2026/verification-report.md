@@ -42,6 +42,10 @@
 - Sora 700 brand font reopens
 - PI icon hash matches the current site asset
 - Source, data, manifest, provenance and review files reopen
+- Calendar declares 20 proposed channel drops
+- Every calendar drop has a unique asset ID
+- Every calendar drop remains proposed and held
+- Review interface exposes the held campaign calendar
 - Manifest declares 20 primary assets
 - Manifest declares 44 rendered files
 

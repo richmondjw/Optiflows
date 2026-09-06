@@ -1,7 +1,44 @@
 const PI_CAMPAIGN = {
-  revision: "1.0",
+  revision: "1.1",
   title: "Spring is for decisions",
   status: "REVIEW ONLY · UNPUBLISHED",
+  calendar: {
+    status: "PROPOSED · NOTHING SCHEDULED",
+    timezone: "Australia/Melbourne",
+    channels: {
+      web: "Peninsula Insider website · anchor",
+      feed: "Instagram Feed · carousel",
+      story: "Instagram Stories · sequence",
+      dispatch: "Peninsula Insider website · dispatch",
+      email: "The Insider Note · email"
+    },
+    timing_note: "Dates are editorial hypotheses. Exact send and post times require channel baselines and a separately authorised release.",
+    entries: [
+      {date:"2026-09-08", day:"TUE 08 SEP", week:"s1", channel:"web", channel_label:"Anchor", asset:"S1-WEB", title:"Paper before lunch", purpose:"Open the weekly decision", gate:"Editorial acceptance + released/read-back route"},
+      {date:"2026-09-10", day:"THU 10 SEP", week:"s1", channel:"feed", channel_label:"Feed", asset:"S1-FEED", title:"Five-slide decision", purpose:"Make the half-day saveable", gate:"Caption, alt text + social executor"},
+      {date:"2026-09-12", day:"SAT 12 SEP", week:"s1", channel:"story", channel_label:"Stories", asset:"S1-STORY", title:"Three-frame prompt", purpose:"Prompt the weekend choice", gate:"Sticker route + social executor"},
+      {date:"2026-09-13", day:"SUN 13 SEP", week:"s1", channel:"dispatch", channel_label:"Dispatch", asset:"S1-DSP", title:"Make one show the plan", purpose:"Forward the useful decision", gate:"Current MPRG check + released route"},
+      {date:"2026-09-13", day:"SUN 13 SEP", week:"s1", channel:"email", channel_label:"Email", asset:"S1-EML", title:"One show before lunch", purpose:"Deliver the Sunday note", gate:"Sender, consent, footer + suppression controls"},
+
+      {date:"2026-09-15", day:"TUE 15 SEP", week:"s2", channel:"web", channel_label:"Anchor", asset:"S2-WEB", title:"One walk, two lengths", purpose:"Open the route decision", gate:"Route identity, local judgement + released route"},
+      {date:"2026-09-17", day:"THU 17 SEP", week:"s2", channel:"feed", channel_label:"Feed", asset:"S2-FEED", title:"Short or long?", purpose:"Make the comparison saveable", gate:"Caption, alt text + social executor"},
+      {date:"2026-09-19", day:"SAT 19 SEP", week:"s2", channel:"story", channel_label:"Stories", asset:"S2-STORY", title:"Choose the length first", purpose:"Prompt a route choice", gate:"Live conditions + sticker route"},
+      {date:"2026-09-20", day:"SUN 20 SEP", week:"s2", channel:"dispatch", channel_label:"Dispatch", asset:"S2-DSP", title:"Plan 26–27 September", purpose:"Put the walk into consideration", gate:"Parks Victoria check + released route"},
+      {date:"2026-09-20", day:"SUN 20 SEP", week:"s2", channel:"email", channel_label:"Email", asset:"S2-EML", title:"Short walk or long walk?", purpose:"Deliver the Sunday comparison", gate:"Sender, consent, footer + suppression controls"},
+
+      {date:"2026-09-21", day:"MON 21 SEP", week:"s3", channel:"web", channel_label:"Anchor", asset:"S3-WEB", title:"Choose the day shape first", purpose:"Open the holiday framework", gate:"Programme checks, family review + released route"},
+      {date:"2026-09-22", day:"TUE 22 SEP", week:"s3", channel:"feed", channel_label:"Feed", asset:"S3-FEED", title:"School holidays, fewer tabs", purpose:"Make the framework saveable", gate:"Caption, alt text + social executor"},
+      {date:"2026-09-24", day:"THU 24 SEP", week:"s3", channel:"story", channel_label:"Stories", asset:"S3-STORY", title:"What does today need?", purpose:"Prompt one day shape", gate:"Operator checks + sticker route"},
+      {date:"2026-09-24", day:"THU 24 SEP", week:"s3", channel:"dispatch", channel_label:"Dispatch", asset:"S3-DSP", title:"The public-holiday weekend", purpose:"Reach readers before Friday", gate:"Public-holiday hours + released route"},
+      {date:"2026-09-24", day:"THU 24 SEP", week:"s3", channel:"email", channel_label:"Email", asset:"S3-EML", title:"Pick the shape before the venue", purpose:"Deliver before the long weekend", gate:"Sender, consent, footer + suppression controls"},
+
+      {date:"2026-09-30", day:"WED 30 SEP", week:"s4", channel:"web", channel_label:"Anchor", asset:"S4-WEB", title:"Leave the middle loose", purpose:"Open the two-point plan", gate:"Market recheck + released/read-back route"},
+      {date:"2026-10-01", day:"THU 01 OCT", week:"s4", channel:"feed", channel_label:"Feed", asset:"S4-FEED", title:"The Spring reset weekend", purpose:"Make the plan saveable", gate:"Caption, alt text + social executor"},
+      {date:"2026-10-02", day:"FRI 02 OCT", week:"s4", channel:"story", channel_label:"Stories", asset:"S4-STORY", title:"Saturday morning. Sunday evening.", purpose:"Prompt the exact-date plan", gate:"Live market details + sticker route"},
+      {date:"2026-10-02", day:"FRI 02 OCT", week:"s4", channel:"dispatch", channel_label:"Dispatch", asset:"S4-DSP", title:"Fix two points", purpose:"Reach readers before 3–4 October", gate:"24-hour market check + released route"},
+      {date:"2026-10-02", day:"FRI 02 OCT", week:"s4", channel:"email", channel_label:"Email", asset:"S4-EML", title:"Leave the middle open", purpose:"Deliver before the weekend", gate:"Sender, consent, footer + suppression controls"}
+    ]
+  },
   weeks: {
     s1: {
       number: "01",
