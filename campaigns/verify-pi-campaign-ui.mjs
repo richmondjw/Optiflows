@@ -47,8 +47,15 @@ for (const campaign of campaigns) {
     }
     const subject = await page.locator(`${campaign.emailRoot} .pcs-email-issue.is-active .pcs-email-spec h3`).textContent();
     if (subject.trim() !== campaign.firstSubject) throw new Error(`${campaign.slug}: first subject mismatch`);
-    const heroLoaded = await page.locator(`${campaign.emailRoot} .pcs-email-issue.is-active .pcs-email-hero`).evaluate((image) => image.complete && image.naturalWidth > 0);
-    if (!heroLoaded) throw new Error(`${campaign.slug}: email hero did not load`);
+    const heroSelector = `${campaign.emailRoot} .pcs-email-issue.is-active .pcs-email-hero`;
+    await page.waitForFunction(
+      (selector) => {
+        const image = document.querySelector(selector);
+        return image?.complete && image.naturalWidth > 0;
+      },
+      heroSelector,
+      { timeout: 15000 }
+    );
 
     await page.locator(`${campaign.emailRoot} [data-pcs-email-tab]`).nth(1).click();
     await page.locator(`${campaign.emailRoot} [data-pcs-email="${campaign.slug.includes("spring") ? "S2-EML" : "W2-EML"}"].is-active`).waitFor();
