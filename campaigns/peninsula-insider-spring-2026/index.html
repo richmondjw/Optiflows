@@ -70,6 +70,80 @@
     @media(max-width:680px){.shell{padding:12px 12px 54px}.topbar{border-radius:12px;gap:9px 16px;flex-wrap:wrap}.brand{font-size:18px}.brand img{width:34px;height:34px}.status{max-width:200px;font-size:9px;letter-spacing:.07em;line-height:1.25}.status span{white-space:normal}.hero-copy{padding:36px 28px;min-height:530px}.hero-copy .kicker{font-size:10px;overflow-wrap:anywhere}.hero-copy h1{font-size:54px}.hero-copy p{font-size:19px}.meta-strip{left:28px;right:28px;bottom:30px}.hero-art{min-height:420px}.calendar{padding:27px 18px}.calendar-grid{grid-template-columns:minmax(0,1fr)}.calendar-summary{grid-template-columns:1fr}.calendar-summary div+div{border-left:0;border-top:1px solid rgba(253,252,250,.12)}.calendar-download{width:100%;margin-left:0;text-align:center}.release-lane,.journey{grid-template-columns:1fr 1fr}.activation{padding:27px 18px}.touchpoint-grid{grid-template-columns:minmax(0,1fr)}.motion-lab{padding:24px 18px}.motion-head{gap:14px}.week-head{grid-template-columns:minmax(0,1fr)}.week-head h2{font-size:38px}.week-head p{max-width:100%;font-size:16px;overflow-wrap:anywhere}.week-number{display:none}.info-grid,.evidence{grid-template-columns:minmax(0,1fr)}.feed-sequence,.story-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.copy-list{grid-template-columns:minmax(0,1fr)}.copy-panel{padding:24px}.hero-art .caption{display:block}.hero-art .caption span{display:block;margin-top:5px}}
     @media(max-width:460px){.status{width:100%;max-width:none;justify-content:flex-start;margin-left:44px}}
   </style>
+  <style>
+    .activation-showcase{margin-top:42px;padding-top:38px;border-top:1px solid var(--line)}
+    .activation-showcase__head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:22px}
+    .activation-showcase__head h3{margin-top:10px;color:var(--deep);font-size:clamp(30px,3.4vw,50px)}
+    .activation-showcase__head p{max-width:620px;margin:12px 0 0;color:#53646e;font-size:14px;line-height:1.55}
+    .device-switch{display:inline-flex;flex:0 0 auto;padding:4px;background:var(--paper);border:1px solid var(--line);border-radius:999px}
+    .device-switch button{border:0;background:transparent;color:#62717a;border-radius:999px;padding:9px 14px;font-size:11px;font-weight:600;letter-spacing:.06em;cursor:pointer}
+    .device-switch button[aria-pressed="true"]{background:var(--deep);color:var(--white)}
+    .activation-gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .activation-study{min-width:0;padding:16px;background:#ebe7e0;border:1px solid var(--line);border-radius:20px}
+    .activation-study__caption{display:grid;grid-template-columns:auto 1fr;gap:12px 16px;align-items:start;padding:3px 3px 14px}
+    .activation-study__number{display:grid;place-items:center;width:34px;height:34px;background:var(--deep);color:var(--sand);border-radius:50%;font:700 12px/1 Sora,Arial,sans-serif}
+    .activation-study__caption strong{display:block;color:var(--deep);font:700 17px/1.2 Sora,Arial,sans-serif}
+    .activation-study__caption span{display:block;margin-top:5px;color:#61717a;font-size:11px;line-height:1.4}
+    .activation-study__route{grid-column:2;color:var(--harbour)!important;font-size:9px!important;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+    .pi-browser{width:100%;margin:0 auto;overflow:hidden;background:#dbe2e4;border:1px solid rgba(11,46,74,.24);border-radius:15px;box-shadow:0 16px 34px rgba(11,46,74,.13);transition:max-width .28s ease}
+    .pi-browser__chrome{height:32px;display:grid;grid-template-columns:58px minmax(0,1fr) 58px;align-items:center;padding:0 11px;background:#e8ecee;border-bottom:1px solid rgba(11,46,74,.16)}
+    .pi-browser__dots{display:flex;gap:4px}.pi-browser__dots i{width:6px;height:6px;background:#a8b1b6;border-radius:50%}.pi-browser__dots i:first-child{background:#E2562F}.pi-browser__dots i:nth-child(2){background:#F5C177}.pi-browser__address{overflow:hidden;padding:4px 10px;background:rgba(255,255,255,.76);border-radius:999px;color:#62717a;font-size:8px;letter-spacing:.03em;text-align:center;text-overflow:ellipsis;white-space:nowrap}
+    .pi-site{height:510px;overflow:hidden;background:#fff;color:#14202A;font-family:Figtree,Arial,sans-serif;container-type:inline-size}
+    .pi-site *{box-sizing:border-box}
+    .pi-masthead{display:flex;flex-direction:column;background:#fff}
+    .pi-utility{order:0;height:22px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;background:#0B2E4A;color:rgba(253,252,250,.75);font-size:7px;font-weight:600;letter-spacing:.13em;text-transform:uppercase}
+    .pi-utility b{color:#fff;font-weight:600}
+    .pi-brandrow{order:1;height:52px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;border-bottom:1px solid rgba(11,46,74,.15)}
+    .pi-wordmark{color:#14202A;font:700 19px/1 Sora,Arial,sans-serif;letter-spacing:-.04em}.pi-wordmark b{color:#10527E}
+    .pi-actions{display:flex;gap:6px}.pi-action{display:inline-flex;align-items:center;gap:5px;padding:7px 9px;border:1px solid #6b7780;border-radius:7px;color:#14202A;font-size:8px;font-weight:600}.pi-action:before{content:"";width:8px;height:8px;border:1.4px solid currentColor;border-radius:50%}.pi-action--saved:before{border-radius:1px}
+    .pi-navrow{order:2;height:38px;display:flex;align-items:center;gap:23px;padding:0 22px;border-bottom:2px solid #9EDFD0;color:#25323a;font-size:7px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}.pi-navrow .is-current{color:#10527E}
+    .pi-mini-eyebrow{color:#8A5620;font-size:8px;font-weight:700;letter-spacing:.14em;text-transform:uppercase}
+    .pi-mini-title{margin:7px 0 0;color:#0B2E4A;font:700 26px/1.06 Sora,Arial,sans-serif;letter-spacing:-.045em}
+    .pi-mini-deck{margin:8px 0 0;color:#4B5862;font-size:11px;line-height:1.45}
+    .pi-mini-cta{display:inline-flex;align-items:center;margin-top:11px;padding:8px 11px;background:#10527E;color:#fff;border-radius:6px;font-size:8px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+    .pi-mini-cta--sand{background:#F5C177;color:#14202A}.pi-mini-link{display:inline-block;margin:10px 0 0;color:#10527E;font-size:9px;font-weight:700}
+    .pi-site img{display:block;width:100%;height:100%;object-fit:cover}
+    .pi-home-context{padding:22px 24px 0}
+    .pi-context-heading{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-bottom:10px}.pi-context-heading h4{margin:4px 0 0;color:#14202A;font:700 22px/1 Sora,Arial,sans-serif;letter-spacing:-.04em}.pi-context-heading span{padding:5px 8px;background:#e5eef3;border-radius:999px;color:#10527E;font-size:7px;font-weight:600}
+    .pi-context-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.pi-context-card{height:74px;overflow:hidden;background:#f2efea;border:1px solid #a1a5a1;border-radius:8px}.pi-context-card__image{height:42px;background:linear-gradient(135deg,#7fb2d4,#0b2e4a)}.pi-context-card:nth-child(2) .pi-context-card__image{background:linear-gradient(135deg,#d1e8e3,#4f806f)}.pi-context-card:nth-child(3) .pi-context-card__image{background:linear-gradient(135deg,#f5c177,#9e723e)}.pi-context-card strong{display:block;padding:6px 7px;color:#14202A;font:600 8px/1.2 Sora,Arial,sans-serif}
+    .pi-campaign-band{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(180px,.95fr);min-height:195px;margin:18px 24px 0;overflow:hidden;background:#0B2E4A;border-radius:11px;color:#fff}.pi-campaign-band__copy{padding:21px}.pi-campaign-band__copy .pi-mini-title{max-width:340px;color:#fff;font-size:25px}.pi-campaign-band__copy .pi-mini-deck{max-width:380px;color:rgba(253,252,250,.76)}.pi-campaign-band__art{min-height:195px;position:relative}.pi-campaign-band__art:after{content:"FIELD SPECIMEN 01";position:absolute;right:8px;bottom:8px;padding:4px 6px;background:rgba(253,252,250,.9);border-radius:4px;color:#0B2E4A;font-size:6px;font-weight:700;letter-spacing:.1em}
+    .pi-article{padding:24px}.pi-article-hero{display:grid;grid-template-columns:minmax(0,1.03fr) minmax(220px,.97fr);gap:22px;align-items:center}.pi-article .pi-mini-title{font-size:34px}.pi-article-visual{height:244px;overflow:hidden;border-radius:11px}.pi-meta-row{display:flex;align-items:center;gap:7px;margin-top:12px;color:#66747c;font-size:8px}.pi-save-chip{padding:6px 8px;border:1px solid #8b9499;border-radius:999px;color:#10527E;font-weight:700}.pi-evidence-rail{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:20px;overflow:hidden;background:#7a848a;border:1px solid #7a848a;border-radius:8px}.pi-evidence-rail div{padding:10px;background:#f2efea}.pi-evidence-rail small{display:block;color:#8A5620;font-size:6px;font-weight:700;letter-spacing:.12em}.pi-evidence-rail strong{display:block;margin-top:4px;color:#14202A;font-size:8px;line-height:1.3}
+    .pi-picks{padding:22px 24px}.pi-picks-intro{max-width:560px}.pi-picks-intro .pi-mini-title{font-size:28px}.pi-decision-cabinet{margin-top:17px;padding:13px;background:#f2efea;border:1px solid #83857E;border-radius:10px}.pi-cabinet-head{display:flex;align-items:end;justify-content:space-between;gap:12px;padding:2px 2px 10px}.pi-cabinet-head strong{color:#0B2E4A;font:700 16px/1 Sora,Arial,sans-serif}.pi-cabinet-head span{color:#8A5620;font-size:7px;font-weight:700;letter-spacing:.12em}.pi-cabinet-grid{display:grid;grid-template-columns:1.25fr .75fr .75fr;gap:8px}.pi-cabinet-card{min-width:0;overflow:hidden;background:#fff;border:1px solid rgba(11,46,74,.24);border-radius:8px}.pi-cabinet-card__image{height:78px;background:linear-gradient(135deg,#7fb2d4,#0b2e4a)}.pi-cabinet-card__body{padding:9px}.pi-cabinet-card small{color:#8A5620;font-size:6px;font-weight:700;letter-spacing:.1em}.pi-cabinet-card strong{display:block;margin-top:4px;color:#14202A;font:600 10px/1.25 Sora,Arial,sans-serif}.pi-cabinet-card p{margin:5px 0 0;color:#61717a;font-size:7px;line-height:1.35}
+    .pi-whats-hero{padding:18px 24px;background:#0B2E4A;color:#fff}.pi-whats-hero .pi-mini-eyebrow{color:#F5C177}.pi-whats-hero .pi-mini-title{color:#fff;font-size:29px}.pi-date-pills{display:flex;gap:6px;padding:12px 24px 0}.pi-date-pills span{padding:7px 9px;border:1px solid #8b9499;border-radius:8px;color:#14202A;font-size:7px;font-weight:600}.pi-date-pills span:first-child{background:#14202A;color:#fff;border-color:#14202A}.pi-date-aware{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(160px,.8fr);min-height:126px;margin:13px 24px 0;overflow:hidden;background:#f2efea;border-left:5px solid #E2562F;border-radius:8px}.pi-date-aware__copy{padding:14px}.pi-date-aware__copy .pi-mini-title{font-size:18px}.pi-date-aware__copy .pi-mini-deck{font-size:9px}.pi-date-aware__art{position:relative}.pi-expiry{display:inline-flex;margin-top:8px;color:#A63A16;font-size:6px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.pi-picks-peek{padding:13px 24px}.pi-picks-peek h5{margin:0;color:#0B2E4A;font:700 16px/1 Sora,Arial,sans-serif}.pi-picks-peek div{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-top:8px}.pi-picks-peek span{height:48px;background:#e7ecee;border:1px solid #9ba2a4;border-radius:7px}
+    .pi-personal{padding:23px 24px}.pi-personal .pi-mini-title{font-size:30px}.pi-tabs{display:flex;gap:22px;margin:17px 0 14px;border-bottom:1px solid #83857E}.pi-tabs span{padding:0 0 8px;color:#3e4a52;font-size:9px}.pi-tabs span:first-child{color:#0B2E4A;border-bottom:2px solid #10527E;font-weight:700}.pi-saved-card{display:grid;grid-template-columns:148px minmax(0,1fr);min-height:126px;overflow:hidden;border:1px solid #83857E;border-radius:9px}.pi-saved-card__art{position:relative}.pi-saved-card__body{padding:14px}.pi-saved-card__body strong{display:block;color:#0B2E4A;font:700 15px/1.25 Sora,Arial,sans-serif}.pi-saved-card__body p{margin:6px 0 0;color:#596770;font-size:8px;line-height:1.4}.pi-next-step{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-top:11px;padding:12px 14px;background:#0B2E4A;border-radius:8px;color:#fff}.pi-next-step small{display:block;color:#F5C177;font-size:6px;font-weight:700;letter-spacing:.12em}.pi-next-step strong{display:block;margin-top:3px;font:600 12px/1.25 Sora,Arial,sans-serif}.pi-next-step span{flex:0 0 auto;padding:7px 9px;background:#F5C177;border-radius:6px;color:#14202A;font-size:7px;font-weight:700}
+    .pi-dispatch{padding:23px 24px}.pi-dispatch-intro{text-align:center}.pi-dispatch-intro .pi-mini-title{font-size:29px}.pi-dispatch-issue{display:grid;grid-template-columns:minmax(200px,.9fr) minmax(0,1.1fr);min-height:210px;margin-top:18px;overflow:hidden;border:1px solid #83857E;border-radius:11px}.pi-dispatch-art{position:relative}.pi-dispatch-copy{padding:18px}.pi-dispatch-copy .pi-mini-title{font-size:23px}.pi-dispatch-copy .pi-mini-deck{font-size:9px}.pi-email-row{display:grid;grid-template-columns:1fr auto;gap:6px;margin-top:12px;padding-top:12px;border-top:1px solid rgba(11,46,74,.16)}.pi-email-row span{padding:8px;background:#f2efea;border:1px solid #9aa0a2;border-radius:6px;color:#758087;font-size:7px}.pi-email-row b{padding:8px 10px;background:#10527E;border-radius:6px;color:#fff;font-size:7px;letter-spacing:.08em}
+    .activation-showcase[data-device="mobile"] .activation-gallery{grid-template-columns:repeat(3,minmax(260px,1fr))}
+    .activation-showcase[data-device="mobile"] .pi-browser{max-width:390px}
+    .activation-showcase[data-device="mobile"] .pi-site{height:640px}
+    .activation-showcase[data-device="mobile"] .pi-utility{order:1;padding:0 14px}
+    .activation-showcase[data-device="mobile"] .pi-brandrow{order:0;height:54px;padding:0 14px}
+    .activation-showcase[data-device="mobile"] .pi-navrow{display:none}
+    .activation-showcase[data-device="mobile"] .pi-wordmark{font-size:17px}
+    .activation-showcase[data-device="mobile"] .pi-action{width:30px;height:30px;justify-content:center;padding:0}
+    .activation-showcase[data-device="mobile"] .pi-action-label{display:none}
+    .activation-showcase[data-device="mobile"] .pi-home-context,.activation-showcase[data-device="mobile"] .pi-article,.activation-showcase[data-device="mobile"] .pi-picks,.activation-showcase[data-device="mobile"] .pi-personal,.activation-showcase[data-device="mobile"] .pi-dispatch{padding-left:16px;padding-right:16px}
+    .activation-showcase[data-device="mobile"] .pi-context-cards{grid-template-columns:repeat(2,1fr)}
+    .activation-showcase[data-device="mobile"] .pi-context-card:nth-child(3){display:none}
+    .activation-showcase[data-device="mobile"] .pi-campaign-band{grid-template-columns:1fr;margin-left:16px;margin-right:16px}
+    .activation-showcase[data-device="mobile"] .pi-campaign-band__art{min-height:155px;order:-1}
+    .activation-showcase[data-device="mobile"] .pi-campaign-band__copy .pi-mini-title{font-size:22px}
+    .activation-showcase[data-device="mobile"] .pi-article-hero,.activation-showcase[data-device="mobile"] .pi-dispatch-issue{grid-template-columns:1fr}
+    .activation-showcase[data-device="mobile"] .pi-article .pi-mini-title{font-size:27px}
+    .activation-showcase[data-device="mobile"] .pi-article-visual{height:185px;order:-1}
+    .activation-showcase[data-device="mobile"] .pi-evidence-rail{grid-template-columns:1fr}
+    .activation-showcase[data-device="mobile"] .pi-cabinet-grid{grid-template-columns:1fr 1fr}
+    .activation-showcase[data-device="mobile"] .pi-cabinet-card:first-child{grid-column:1/-1}
+    .activation-showcase[data-device="mobile"] .pi-date-pills{padding-left:16px;padding-right:16px;overflow:hidden}
+    .activation-showcase[data-device="mobile"] .pi-date-aware{grid-template-columns:1fr;margin-left:16px;margin-right:16px}
+    .activation-showcase[data-device="mobile"] .pi-date-aware__art{height:112px;order:-1}
+    .activation-showcase[data-device="mobile"] .pi-picks-peek{padding-left:16px;padding-right:16px}
+    .activation-showcase[data-device="mobile"] .pi-saved-card{grid-template-columns:1fr}.activation-showcase[data-device="mobile"] .pi-saved-card__art{height:150px}
+    .activation-showcase[data-device="mobile"] .pi-next-step{align-items:flex-start;flex-direction:column;gap:9px}
+    .activation-showcase[data-device="mobile"] .pi-dispatch-art{height:180px}
+    @media(max-width:1150px){.activation-showcase[data-device="mobile"] .activation-gallery{grid-template-columns:repeat(2,minmax(260px,1fr))}}
+    @media(max-width:900px){.activation-gallery{grid-template-columns:minmax(0,1fr)}}
+    @media(max-width:680px){.activation-showcase__head{align-items:flex-start;flex-direction:column}.activation-showcase[data-device="mobile"] .activation-gallery{grid-template-columns:minmax(0,1fr)}.activation-study{padding:10px}.pi-site{height:540px}.pi-navrow{gap:13px;padding:0 14px}.pi-campaign-band{margin-left:14px;margin-right:14px}.pi-home-context,.pi-article,.pi-picks,.pi-personal,.pi-dispatch{padding-left:14px;padding-right:14px}}
+  </style>
   <script defer src="/gate.js"></script>
 </head>
 <body>
@@ -86,7 +160,7 @@
         <h1>Spring is for decisions.</h1>
         <p>One useful Peninsula choice each week. Four commissions, twenty primary assets and one tactile Field Specimens visual system.</p>
         <div class="meta-strip">
-          <span class="pill">Direction B selected</span><span class="pill">20 primary assets</span><span class="pill">44 native compositions</span><span class="pill">Manuscript 1.1</span>
+          <span class="pill">Direction B selected</span><span class="pill">20 primary assets</span><span class="pill">44 native compositions</span><span class="pill">Manuscript 1.2</span>
         </div>
       </div>
       <div class="hero-art">
@@ -132,12 +206,149 @@
       <div class="touchpoint-grid">
         <article class="touchpoint"><div class="touchpoint__surface"><span>01 · DISCOVER</span><span>/</span></div><h3>Homepage decision band</h3><p>Add one “This week’s decision” band after the existing This Weekend module. Use the weekly wide specimen, one sentence and one link. Keep the main cover and the rest of the homepage calm.</p><dl><div><dt>When</dt><dd>Anchor release through week end</dd></div><div><dt>Measure</dt><dd>Band click-through and engaged anchor sessions</dd></div></dl></article>
         <article class="touchpoint touchpoint--consider"><div class="touchpoint__surface"><span>02 · DECIDE</span><span>/journal/…</span></div><h3>Weekly anchor page</h3><p>The canonical article carries the full Field Specimens hero, evidence, practical decision and Save action. It is the claim-bearing source every derivative must link back to.</p><dl><div><dt>When</dt><dd>First release in each campaign week</dd></div><div><dt>Measure</dt><dd>Engagement, source clicks, saves and corrections</dd></div></dl></article>
-        <article class="touchpoint"><div class="touchpoint__surface"><span>03 · DISCOVER</span><span>/picks/</span></div><h3>Insider Picks cabinet</h3><p>Add a compact “Decision Cabinet” beneath the Picks introduction: the current weekly decision plus two genuinely related picks. Use specimen tabs and labels, not a second hero.</p><dl><div><dt>When</dt><dd>Only when Picks supply a real connection</dd></div><div><dt>Measure</dt><dd>Open, save and onward-pick rate</dd></div></dl></article>
+        <article class="touchpoint"><div class="touchpoint__surface"><span>03 · DISCOVER</span><span>/journal/insider-picks-…/</span></div><h3>Insider Picks issue cabinet</h3><p>Add a compact “Decision Cabinet” beneath the current Insider Picks issue introduction: the weekly decision plus two genuinely related picks. Use specimen tabs and labels, not a second hero. The live site has no standalone <code>/picks/</code> route.</p><dl><div><dt>When</dt><dd>Only when the current issue supplies a real connection</dd></div><div><dt>Measure</dt><dd>Open, save and onward-pick rate</dd></div></dl></article>
         <article class="touchpoint"><div class="touchpoint__surface"><span>04 · DISCOVER</span><span>/whats-on/</span></div><h3>What’s On contextual inset</h3><p>For the holiday and exact-date weeks, place a slim decision card above PI’s Picks. It frames the choice without changing the authority or ordering of the live event list.</p><dl><div><dt>When</dt><dd>Weeks 3–4; automatically expire after relevance</dd></div><div><dt>Measure</dt><dd>Inset clicks, event saves and + Trip actions</dd></div></dl></article>
         <article class="touchpoint touchpoint--act"><div class="touchpoint__surface"><span>05 · KEEP</span><span>/me/saved/ · /me/trip/</span></div><h3>One-anchor continuation</h3><p>After a campaign save, offer the next useful action in-page: “One anchor saved. Add one fallback.” Preserve the existing value-first behaviour; no modal or install interruption.</p><dl><div><dt>When</dt><dd>Only after a relevant save</dd></div><div><dt>Measure</dt><dd>Save-to-Trip progression and return rate</dd></div></dl></article>
         <article class="touchpoint touchpoint--return"><div class="touchpoint__surface"><span>06 · RETURN</span><span>/dispatch/</span></div><h3>The Insider Note echo</h3><p>The email and on-site Dispatch surface use the week’s email composition and decision line, always linking to the released anchor. The following week closes the loop with the next decision.</p><dl><div><dt>When</dt><dd>After anchor read-back; before the relevant moment</dd></div><div><dt>Measure</dt><dd>Unique clickers, returns, unsubscribes and complaints</dd></div></dl></article>
       </div>
-      <div class="activation-boundary"><strong>Build boundary</strong><span>This is a reviewed activation architecture, not a production-site change. Implementation should start with the anchor page and homepage band, then add Picks, What’s On and Save/My Trip only after route, expiry, analytics and rollback behaviour pass in an isolated branch.</span></div>
+      <div class="activation-showcase" data-device="desktop">
+        <header class="activation-showcase__head">
+          <div><div class="kicker">IN-SITU WEBSITE STUDIES · REVIEW ONLY</div><h3>See it on the page.</h3><p>Six representative compositions place the campaign inside the current Harbour system. Switch viewport to test the same idea as a desktop module or a narrow reader journey. These are design studies, not live routes.</p></div>
+          <div class="device-switch" role="group" aria-label="Website study viewport">
+            <button type="button" data-activation-view="desktop" aria-pressed="true">Desktop</button>
+            <button type="button" data-activation-view="mobile" aria-pressed="false">Mobile</button>
+          </div>
+        </header>
+        <div class="activation-gallery">
+          <article class="activation-study" data-activation-study="homepage">
+            <div class="activation-study__caption"><span class="activation-study__number">01</span><div><strong>Homepage decision band</strong><span>One recognisable campaign moment after This Weekend. The cover and global masthead stay untouched.</span><span class="activation-study__route">DISCOVER · /</span></div></div>
+            <div class="pi-browser">
+              <div class="pi-browser__chrome"><span class="pi-browser__dots"><i></i><i></i><i></i></span><span class="pi-browser__address">peninsulainsider.com.au/</span><span></span></div>
+              <div class="pi-site">
+                <header class="pi-masthead">
+                  <div class="pi-utility"><span>Sorrento · sunset 6:04 pm</span><b>Spring Insider · September 2026</b></div>
+                  <div class="pi-brandrow"><span class="pi-wordmark">Peninsula <b>Insider</b></span><span class="pi-actions"><span class="pi-action"><span class="pi-action-label">Search</span></span><span class="pi-action pi-action--saved"><span class="pi-action-label">Saved</span></span></span></div>
+                  <div class="pi-navrow"><span>Eat &amp; Drink</span><span>Stay</span><span>Wine</span><span>Explore</span><span>Plans</span><span>What’s On</span><span>Journal</span></div>
+                </header>
+                <div class="pi-home-context">
+                  <div class="pi-context-heading"><div><span class="pi-mini-eyebrow">THE SHORT LIST</span><h4>This weekend</h4></div><span>12–13 September</span></div>
+                  <div class="pi-context-cards"><div class="pi-context-card"><div class="pi-context-card__image"></div><strong>National Works on Paper</strong></div><div class="pi-context-card"><div class="pi-context-card__image"></div><strong>Pt. Leo Sculpture Park</strong></div><div class="pi-context-card"><div class="pi-context-card__image"></div><strong>Terroir Masterclass</strong></div></div>
+                </div>
+                <section class="pi-campaign-band">
+                  <div class="pi-campaign-band__copy"><span class="pi-mini-eyebrow">THIS WEEK’S DECISION · FIELD SPECIMENS 01</span><h4 class="pi-mini-title">One serious show. One Mornington half-day.</h4><p class="pi-mini-deck">Make National Works on Paper the fixed point. Decide what comes next when you step outside.</p><span class="pi-mini-cta pi-mini-cta--sand">Open the field note →</span></div>
+                  <div class="pi-campaign-band__art"><img data-preview-asset="s1-web" alt="Paper before lunch campaign artwork shown inside the proposed homepage band"></div>
+                </section>
+              </div>
+            </div>
+          </article>
+
+          <article class="activation-study" data-activation-study="anchor">
+            <div class="activation-study__caption"><span class="activation-study__number">02</span><div><strong>Canonical Journal anchor</strong><span>The full decision, evidence boundary and Save action live together in the claim-bearing source.</span><span class="activation-study__route">DECIDE · /journal/one-walk-two-lengths/</span></div></div>
+            <div class="pi-browser">
+              <div class="pi-browser__chrome"><span class="pi-browser__dots"><i></i><i></i><i></i></span><span class="pi-browser__address">peninsulainsider.com.au/journal/one-walk-two-lengths/</span><span></span></div>
+              <div class="pi-site">
+                <header class="pi-masthead">
+                  <div class="pi-utility"><span>Sorrento · sunset 6:04 pm</span><b>Spring Insider · September 2026</b></div>
+                  <div class="pi-brandrow"><span class="pi-wordmark">Peninsula <b>Insider</b></span><span class="pi-actions"><span class="pi-action"><span class="pi-action-label">Search</span></span><span class="pi-action pi-action--saved"><span class="pi-action-label">Saved</span></span></span></div>
+                  <div class="pi-navrow"><span>Eat &amp; Drink</span><span>Stay</span><span>Wine</span><span>Explore</span><span>Plans</span><span>What’s On</span><span class="is-current">Journal</span></div>
+                </header>
+                <main class="pi-article">
+                  <div class="pi-article-hero">
+                    <div><span class="pi-mini-eyebrow">FIELD SPECIMEN 02 · WALK / GREENS BUSH</span><h4 class="pi-mini-title">One walk, two lengths.</h4><p class="pi-mini-deck">Choose 1.6 km when walking shares the day. Choose 3.6 km when walking is the day.</p><div class="pi-meta-row"><span>4 min read</span><span>·</span><span>Checked 6 Sep 2026</span><span class="pi-save-chip">Save</span></div></div>
+                    <div class="pi-article-visual"><img data-preview-asset="s2-web" alt="One walk, two lengths artwork shown in a proposed Journal article hero"></div>
+                  </div>
+                  <div class="pi-evidence-rail"><div><small>THE DECISION</small><strong>Short circuit or long circuit?</strong></div><div><small>OFFICIAL SOURCE</small><strong>Parks Victoria conditions</strong></div><div><small>RELEASE HOLD</small><strong>Route identity + local judgement</strong></div></div>
+                </main>
+              </div>
+            </div>
+          </article>
+
+          <article class="activation-study" data-activation-study="picks">
+            <div class="activation-study__caption"><span class="activation-study__number">03</span><div><strong>Insider Picks decision cabinet</strong><span>A compact cabinet below the weekly issue introduction. It supports the edit without becoming another hero.</span><span class="activation-study__route">DISCOVER · /journal/insider-picks-2026-09-14/</span></div></div>
+            <div class="pi-browser">
+              <div class="pi-browser__chrome"><span class="pi-browser__dots"><i></i><i></i><i></i></span><span class="pi-browser__address">peninsulainsider.com.au/journal/insider-picks-2026-09-14/</span><span></span></div>
+              <div class="pi-site">
+                <header class="pi-masthead">
+                  <div class="pi-utility"><span>Sorrento · sunset 6:04 pm</span><b>Spring Insider · September 2026</b></div>
+                  <div class="pi-brandrow"><span class="pi-wordmark">Peninsula <b>Insider</b></span><span class="pi-actions"><span class="pi-action"><span class="pi-action-label">Search</span></span><span class="pi-action pi-action--saved"><span class="pi-action-label">Saved</span></span></span></div>
+                  <div class="pi-navrow"><span>Eat &amp; Drink</span><span>Stay</span><span>Wine</span><span>Explore</span><span>Plans</span><span>What’s On</span><span class="is-current">Journal</span></div>
+                </header>
+                <main class="pi-picks">
+                  <div class="pi-picks-intro"><span class="pi-mini-eyebrow">INSIDER EDIT · 14 SEPTEMBER 2026</span><h4 class="pi-mini-title">Insider Picks: the week ahead.</h4><p class="pi-mini-deck">Three calls for the Peninsula now, with one useful decision to make before the weekend.</p></div>
+                  <section class="pi-decision-cabinet">
+                    <div class="pi-cabinet-head"><strong>The Decision Cabinet</strong><span>CURRENT FIELD SPECIMEN</span></div>
+                    <div class="pi-cabinet-grid">
+                      <article class="pi-cabinet-card"><div class="pi-cabinet-card__image"><img data-preview-asset="s2-feed-01" alt="One walk, two lengths artwork in the proposed Insider Picks cabinet"></div><div class="pi-cabinet-card__body"><small>THIS WEEK’S DECISION</small><strong>One walk, two lengths</strong><p>Choose the distance before you leave.</p></div></article>
+                      <article class="pi-cabinet-card"><div class="pi-cabinet-card__image"></div><div class="pi-cabinet-card__body"><small>PAIR IT WITH</small><strong>A lunch that earns the turn</strong><p>One genuinely related pick.</p></div></article>
+                      <article class="pi-cabinet-card"><div class="pi-cabinet-card__image"></div><div class="pi-cabinet-card__body"><small>KEEP IN RESERVE</small><strong>The rain-safe fallback</strong><p>Useful, optional, easy to save.</p></div></article>
+                    </div>
+                  </section>
+                </main>
+              </div>
+            </div>
+          </article>
+
+          <article class="activation-study" data-activation-study="whats-on">
+            <div class="activation-study__caption"><span class="activation-study__number">04</span><div><strong>What’s On contextual inset</strong><span>A date-aware choice above PI’s Picks. The live event order remains authoritative and the inset expires.</span><span class="activation-study__route">CONSIDER · /whats-on/</span></div></div>
+            <div class="pi-browser">
+              <div class="pi-browser__chrome"><span class="pi-browser__dots"><i></i><i></i><i></i></span><span class="pi-browser__address">peninsulainsider.com.au/whats-on/</span><span></span></div>
+              <div class="pi-site">
+                <header class="pi-masthead">
+                  <div class="pi-utility"><span>Sorrento · sunset 6:04 pm</span><b>Spring Insider · September 2026</b></div>
+                  <div class="pi-brandrow"><span class="pi-wordmark">Peninsula <b>Insider</b></span><span class="pi-actions"><span class="pi-action"><span class="pi-action-label">Search</span></span><span class="pi-action pi-action--saved"><span class="pi-action-label">Saved</span></span></span></div>
+                  <div class="pi-navrow"><span>Eat &amp; Drink</span><span>Stay</span><span>Wine</span><span>Explore</span><span>Plans</span><span class="is-current">What’s On</span><span>Journal</span></div>
+                </header>
+                <section class="pi-whats-hero"><span class="pi-mini-eyebrow">WHAT’S ON · LIVE NOW</span><h4 class="pi-mini-title">What’s on this weekend</h4><p class="pi-mini-deck" style="color:rgba(253,252,250,.75)">We list what’s worth the drive, not everything on.</p></section>
+                <div class="pi-date-pills"><span>This weekend</span><span>Next weekend</span><span>School holidays</span><span>Pick dates</span></div>
+                <section class="pi-date-aware">
+                  <div class="pi-date-aware__copy"><span class="pi-mini-eyebrow">SCHOOL HOLIDAYS · DECISION 03</span><h4 class="pi-mini-title">Choose the day shape first.</h4><p class="pi-mini-deck">Active-first, rain-safe or low-friction. One anchor and one fallback beat another long list.</p><span class="pi-expiry">Visible 21–27 Sep · expires automatically</span></div>
+                  <div class="pi-date-aware__art"><img data-preview-asset="s3-web" alt="School holidays campaign artwork shown in a proposed What’s On inset"></div>
+                </section>
+                <div class="pi-picks-peek"><h5>PI’s picks</h5><div><span></span><span></span><span></span></div></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="activation-study" data-activation-study="saved">
+            <div class="activation-study__caption"><span class="activation-study__number">05</span><div><strong>Saved to My Trip continuation</strong><span>The next action appears only after a relevant save. It stays useful, dismissible and inside the page.</span><span class="activation-study__route">KEEP · /me/saved/ + /me/trip/</span></div></div>
+            <div class="pi-browser">
+              <div class="pi-browser__chrome"><span class="pi-browser__dots"><i></i><i></i><i></i></span><span class="pi-browser__address">peninsulainsider.com.au/me/saved/</span><span></span></div>
+              <div class="pi-site">
+                <header class="pi-masthead">
+                  <div class="pi-utility"><span>Sorrento · sunset 6:04 pm</span><b>Spring Insider · September 2026</b></div>
+                  <div class="pi-brandrow"><span class="pi-wordmark">Peninsula <b>Insider</b></span><span class="pi-actions"><span class="pi-action"><span class="pi-action-label">Search</span></span><span class="pi-action pi-action--saved"><span class="pi-action-label">Saved</span></span></span></div>
+                  <div class="pi-navrow"><span>Eat &amp; Drink</span><span>Stay</span><span>Wine</span><span>Explore</span><span>Plans</span><span>What’s On</span><span>Journal</span></div>
+                </header>
+                <main class="pi-personal">
+                  <span class="pi-mini-eyebrow">MY PENINSULA</span><h4 class="pi-mini-title">Saved</h4>
+                  <div class="pi-tabs"><span>Saved</span><span>My Trip</span><span>Account</span></div>
+                  <article class="pi-saved-card"><div class="pi-saved-card__art"><img data-preview-asset="s4-web" alt="Spring reset campaign artwork shown as a saved Journal anchor"></div><div class="pi-saved-card__body"><span class="pi-mini-eyebrow">SAVED ARTICLE · FIELD SPECIMEN 04</span><strong>Leave the middle loose</strong><p>One morning. One protected evening. Everything between them stays optional.</p><span class="pi-mini-link">Open saved field note →</span></div></article>
+                  <aside class="pi-next-step"><div><small>ONE ANCHOR SAVED</small><strong>Add one easy fallback to My Trip?</strong></div><span>Find a fallback →</span></aside>
+                </main>
+              </div>
+            </div>
+          </article>
+
+          <article class="activation-study" data-activation-study="dispatch">
+            <div class="activation-study__caption"><span class="activation-study__number">06</span><div><strong>The Insider Note echo</strong><span>The released decision becomes the week’s return path without turning Dispatch into a campaign landing page.</span><span class="activation-study__route">RETURN · /dispatch/</span></div></div>
+            <div class="pi-browser">
+              <div class="pi-browser__chrome"><span class="pi-browser__dots"><i></i><i></i><i></i></span><span class="pi-browser__address">peninsulainsider.com.au/dispatch/</span><span></span></div>
+              <div class="pi-site">
+                <header class="pi-masthead">
+                  <div class="pi-utility"><span>Sorrento · sunset 6:04 pm</span><b>Spring Insider · September 2026</b></div>
+                  <div class="pi-brandrow"><span class="pi-wordmark">Peninsula <b>Insider</b></span><span class="pi-actions"><span class="pi-action"><span class="pi-action-label">Search</span></span><span class="pi-action pi-action--saved"><span class="pi-action-label">Saved</span></span></span></div>
+                  <div class="pi-navrow"><span>Eat &amp; Drink</span><span>Stay</span><span>Wine</span><span>Explore</span><span>Plans</span><span>What’s On</span><span>Journal</span></div>
+                </header>
+                <main class="pi-dispatch">
+                  <div class="pi-dispatch-intro"><span class="pi-mini-eyebrow">THE INSIDER NOTE</span><h4 class="pi-mini-title">The Peninsula worth knowing.</h4><p class="pi-mini-deck">Weekly. What’s on, where we’d go and what’s worth knowing next.</p></div>
+                  <article class="pi-dispatch-issue"><div class="pi-dispatch-art"><img data-preview-asset="s4-email" alt="Spring reset campaign artwork shown inside a proposed Insider Note return module"></div><div class="pi-dispatch-copy"><span class="pi-mini-eyebrow">THIS WEEK’S NOTE · 4 MIN READ</span><h4 class="pi-mini-title">Leave the middle open.</h4><p class="pi-mini-deck">One market. One protected evening. Let weather and energy decide everything between them.</p><span class="pi-mini-cta">Read the released field note →</span><div class="pi-email-row"><span>your@email.com</span><b>JOIN</b></div></div></article>
+                </main>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+      <div class="activation-boundary"><strong>Build boundary</strong><span>These are review compositions grounded in the current live site and Harbour tokens, not Peninsula Insider production changes. Implement the anchor and homepage band first, then add the Insider Picks issue cabinet, What’s On and Saved/My Trip treatments only after route, expiry, analytics and rollback behaviour pass in an isolated branch.</span></div>
     </section>
 
     <section class="motion-lab" aria-labelledby="motion-title">
@@ -171,7 +382,7 @@
       <article><h3>Not authorised</h3><ul><li>No web publication or production release.</li><li>No email send, social post or schedule.</li><li>No paid distribution, CRM/subscriber mutation or commercial commitment.</li></ul></article>
     </section>
 
-    <footer class="footer"><span>Campaign source: manuscript revision 1.1 · 7 September 2026</span><span><a href="2026-09-06-four-week-spring-campaign-manuscript.md">Open full manuscript</a> · <a href="campaign-calendar.csv">Open calendar CSV</a> · <a href="creative-provenance.json">Open provenance</a></span></footer>
+    <footer class="footer"><span>Campaign source: manuscript revision 1.2 · 7 September 2026</span><span><a href="2026-09-06-four-week-spring-campaign-manuscript.md">Open full manuscript</a> · <a href="campaign-calendar.csv">Open calendar CSV</a> · <a href="creative-provenance.json">Open provenance</a></span></footer>
   </div>
   <script src="asset-data.js"></script>
   <script>
@@ -213,7 +424,7 @@
         <div class="asset-group"><div class="group-head"><h3>Web, dispatch and email</h3><span>3 primary assets · 1600 × 900</span></div><div class="wide-grid">${wides}</div></div>
         <div class="asset-group"><div class="group-head"><h3>Feed carousel</h3><span>1 primary asset · 5 × 1080 × 1350</span></div><div class="sequence feed-sequence">${feeds}</div></div>
         <div class="asset-group"><div class="group-head"><h3>Story sequence</h3><span>1 primary asset · 3 × 1080 × 1920</span></div><div class="sequence story-sequence">${stories}</div></div>
-        <div class="copy-panel"><div><div class="kicker">CHANNEL JOBS</div><h3>Adapted, not duplicated.</h3><p>The full web, email, caption, alt and evidence copy remains in manuscript 1.0. These cards show each channel’s distinct reader moment.</p></div><div class="copy-list">${copy}<div class="copy-item"><small>S${n}-FEED + STORY</small><strong>${esc(w.feed[0].title)}</strong><span>${esc(w.feed[0].body)} ${esc(w.stories[2].body)}</span></div></div></div>
+        <div class="copy-panel"><div><div class="kicker">CHANNEL JOBS</div><h3>Adapted, not duplicated.</h3><p>The full web, email, caption, alt and evidence copy remains in manuscript 1.2. These cards show each channel’s distinct reader moment.</p></div><div class="copy-list">${copy}<div class="copy-item"><small>S${n}-FEED + STORY</small><strong>${esc(w.feed[0].title)}</strong><span>${esc(w.feed[0].body)} ${esc(w.stories[2].body)}</span></div></div></div>
       </section>`;
     }
     weeksRoot.innerHTML=Object.entries(PI_CAMPAIGN.weeks).map(([k,w])=>weekSection(k,w)).join('');
@@ -223,6 +434,20 @@
       document.querySelectorAll('[data-week-section]').forEach(s=>s.classList.toggle('hidden',chosen!=='all'&&s.dataset.weekSection!==chosen));
       if(chosen!=='all') document.querySelector(`[data-week-section="${chosen}"]`).scrollIntoView({behavior:'smooth',block:'start'});
     }));
+    const activationShowcase = document.querySelector('.activation-showcase');
+    const deployedAssetMode = document.querySelector('.hero-art img')?.getAttribute('src')?.endsWith('.webp');
+    const activationAssetRoot = deployedAssetMode ? 'assets/exports/' : 'exports/';
+    const activationAssetExtension = deployedAssetMode ? '.webp' : '.png';
+    document.querySelectorAll('[data-preview-asset]').forEach(image=>{
+      image.src=activationAssetRoot+image.dataset.previewAsset+activationAssetExtension;
+    });
+    function setActivationDevice(device){
+      if(!['desktop','mobile'].includes(device)) return;
+      activationShowcase.dataset.device=device;
+      document.querySelectorAll('[data-activation-view]').forEach(control=>control.setAttribute('aria-pressed',String(control.dataset.activationView===device)));
+    }
+    document.querySelectorAll('[data-activation-view]').forEach(btn=>btn.addEventListener('click',()=>setActivationDevice(btn.dataset.activationView)));
+    setActivationDevice(new URLSearchParams(location.search).get('activation')||'desktop');
   </script>
 </body>
 </html>

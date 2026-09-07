@@ -6,10 +6,10 @@ deli: "1218209856204514"
 status: review-only
 created: 2026-09-06
 proposed_window: 2026-09-07/2026-10-04
-revision: "1.1"
+revision: "1.2"
 creative_direction: "B — Field Specimens / Decision Cabinet"
 publication_authority: none
-description: Complete review manuscript for the four-week Spring is for decisions campaign, including twenty channel-native assets, the proposed campaign calendar, evidence, holds and production rules.
+description: Complete review manuscript for the four-week Spring is for decisions campaign, including twenty channel-native assets, the proposed campaign calendar, six in-situ website activation studies, evidence, holds and production rules.
 tags: [hermes, peninsula-insider, campaign-manuscript, spring-2026, higgsfield]
 ---
 
@@ -72,10 +72,23 @@ The campaign should travel through the site as a recognisable editorial signatur
 |---|---|---|---|---|---|
 | Discover | Homepage `/` | Add one “This week’s decision” band immediately after the existing This Weekend module. Use the weekly wide specimen, one sentence and one CTA. Keep the main cover unchanged. | Anchor release through week end | Band click-through; engaged anchor sessions | One campaign module only; auto-expire |
 | Decide | Weekly `/journal/…` anchor | Use the full Field Specimens hero and deterministic facts; include evidence, the bounded decision and Save. This remains the claim-bearing canonical source. | First release of each week | Engagement; official-source clicks; saves; corrections | Exact revision accepted and route read back |
-| Discover | Insider Picks `/picks/` | Add a compact “Decision Cabinet” below the Picks introduction: the weekly decision and up to two genuinely related picks. Use specimen tabs rather than a second hero. | Only when current Picks support the decision | Open, save and onward-Pick rate | Do not manufacture relevance or paid placement |
+| Discover | Current Insider Picks issue at `/journal/insider-picks-YYYY-MM-DD/` | Add a compact “Decision Cabinet” below the issue introduction: the weekly decision and up to two genuinely related picks. Use specimen tabs rather than a second hero. The live site has no standalone `/picks/` route. | Only when the current issue supports the decision | Open, save and onward-Pick rate | Do not manufacture relevance or paid placement |
 | Consider | What’s On `/whats-on/` | In Weeks 3 and 4, insert a slim, date-aware decision card above PI’s Picks. Do not alter the authority, order or freshness logic of the live event list. | Relevant dates only | Card clicks; event saves; `+ Trip` actions | Automatic expiry and live event recheck |
 | Keep | Saved `/me/saved/` and My Trip `/me/trip/` | After a relevant campaign save, offer an in-page next step: “One anchor saved. Add one fallback.” No modal, forced sign-in or install interruption. | After a relevant Save action | Save-to-Trip progression; return rate | Preserve value-first and dismissal behaviour |
 | Return | Dispatch `/dispatch/` plus the homepage Insider Note surface | Carry the weekly email composition and decision line; link only to the released/read-back anchor. The next week introduces the next decision. | After anchor read-back and before the relevant moment | Unique clickers; returns; unsubscribes; complaints | Email controls and send authority remain separate |
+
+### In-situ website design studies
+
+The interactive review pack includes six high-fidelity compositions inside a reduced version of the current Peninsula Insider Harbour masthead and page system:
+
+1. Homepage decision band after This Weekend.
+2. Canonical Journal anchor with artwork, evidence rail and Save action.
+3. Decision Cabinet inside a dated Insider Picks Journal issue.
+4. Date-aware What’s On inset above PI’s Picks.
+5. Saved-to-My Trip continuation after a relevant campaign save.
+6. The Insider Note return module on Dispatch.
+
+Each study can be reviewed in desktop and mobile modes. They reuse the accepted campaign artwork and deterministic copy while preserving the live site’s Sora/Figtree typography, Harbour palette, masthead hierarchy, cards, controls and warm-paper support surface. Surrounding content is representative context, not a claim that the modules have been implemented. The studies are design evidence for an isolated production branch; they do not create routes, activate tracking or authorise a release.
 
 ### Activation sequence
 
@@ -763,4 +776,4 @@ No baseline has been retrieved. Do not set uplift targets or combine cross-chann
 
 ## Completion boundary
 
-This manuscript becomes production-complete when all 44 deterministic compositions, provenance receipts, hashes, native-size visual checks and review interface have been verified against revision 1.0. It becomes editorially accepted only when a named reviewer accepts this exact revision. It becomes released only through a separately authorised executor with current checks, rollback and public readback.
+This manuscript becomes production-complete when all 44 deterministic compositions, six in-situ website studies, provenance receipts, hashes, native-size visual checks and review interface have been verified against revision 1.2. It becomes editorially accepted only when a named reviewer accepts this exact revision. It becomes released only through a separately authorised executor with current checks, rollback and public readback.

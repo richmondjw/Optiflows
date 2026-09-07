@@ -48,7 +48,10 @@
 - Review interface exposes the held campaign calendar
 - Calendar data names each actual distribution platform and placement
 - Review interface exposes six website activation touchpoints
-- Website activation map names the current PI surfaces
+- Review interface exposes six in-situ website activation studies
+- Website studies expose desktop and mobile review modes
+- Website activation map names verified current PI route patterns
+- Review interface is bound to manuscript revision 1.2
 - Manifest declares 20 primary assets
 - Manifest declares 44 rendered files
 

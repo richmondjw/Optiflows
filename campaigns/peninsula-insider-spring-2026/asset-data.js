@@ -1,5 +1,5 @@
 const PI_CAMPAIGN = {
-  revision: "1.1",
+  revision: "1.2",
   title: "Spring is for decisions",
   status: "REVIEW ONLY · UNPUBLISHED",
   calendar: {
