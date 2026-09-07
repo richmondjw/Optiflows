@@ -1,0 +1,45 @@
+{
+  "status": "pass",
+  "checked_at": "2026-09-07 Australia/Sydney",
+  "environment": "local release candidate",
+  "passes": [
+    "Fresh session presents the OptiFlows password gate",
+    "Review page returns HTTP 200",
+    "Campaign index links to the October review page",
+    "Campaign index reports three active review campaigns",
+    "Review page declares noindex and nofollow controls",
+    "Four editorial chapters are present",
+    "Four actual-photography direction studies are present",
+    "All referenced images reopen and render",
+    "Nine proposed calendar entries are present",
+    "Week filters work",
+    "Channel filters work",
+    "Email filter returns three entries",
+    "Desktop and mobile activation views switch correctly",
+    "Device controls expose the correct accessibility state",
+    "Research brief, calendar CSV and provenance JSON reopen",
+    "Creative provenance records four photographs",
+    "Desktop horizontal overflow is zero",
+    "Mobile horizontal overflow is zero",
+    "No operational release control is exposed"
+  ],
+  "failures": [],
+  "counts": {
+    "editorial_chapters": 4,
+    "photography_studies": 4,
+    "calendar_entries": 9,
+    "provenance_records": 4,
+    "email_calendar_entries": 3
+  },
+  "viewport_checks": {
+    "desktop": {
+      "width": 1440,
+      "horizontal_overflow": 0
+    },
+    "mobile": {
+      "width": 390,
+      "horizontal_overflow": 0
+    }
+  },
+  "boundary": "Review artefacts only; no editorial acceptance or external campaign release is implied."
+}

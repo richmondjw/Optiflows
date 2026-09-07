@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+  <meta name="theme-color" content="#0b2e4a">
+  <title>October, in long form | Peninsula Insider campaign review</title>
+  <style>
+    @font-face{font-family:Sora;src:url("assets/fonts/sora-600.woff2") format("woff2");font-weight:600;font-display:swap}
+    @font-face{font-family:Sora;src:url("assets/fonts/sora-700.woff2") format("woff2");font-weight:700;font-display:swap}
+    @font-face{font-family:Sora;src:url("assets/fonts/sora-800.woff2") format("woff2");font-weight:800;font-display:swap}
+    @font-face{font-family:Figtree;src:url("assets/fonts/figtree-400.woff2") format("woff2");font-weight:400;font-display:swap}
+    @font-face{font-family:Figtree;src:url("assets/fonts/figtree-600.woff2") format("woff2");font-weight:600;font-display:swap}
+    :root{--deep:#0b2e4a;--harbour:#10527e;--ink:#14202a;--paper:#f2efe8;--white:#fffdfa;--sand:#f5c177;--signal:#e2562f;--moss:#5f735c;--mist:#dfe8e8;--line:rgba(11,46,74,.16);--shadow:0 20px 55px rgba(11,46,74,.12)}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:Figtree,Arial,sans-serif;line-height:1.5}
+    img{display:block;max-width:100%}
+    a{color:inherit}
+    button{font:inherit}
+    .skip{position:absolute;left:-9999px;top:10px;z-index:99;background:var(--deep);color:#fff;padding:10px 14px}.skip:focus{left:10px}
+    .shell{width:min(1640px,100%);margin:auto;padding:24px 28px 76px}
+    .library-back{display:inline-flex;gap:8px;margin:0 0 12px 4px;color:var(--harbour);font-size:12px;font-weight:600;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}
+    .library-back:hover{text-decoration:underline;text-underline-offset:4px}
+    .topbar{position:sticky;top:10px;z-index:30;display:flex;align-items:center;justify-content:space-between;gap:20px;padding:12px 15px;background:rgba(242,239,232,.92);border:1px solid var(--line);border-radius:16px;backdrop-filter:blur(18px);box-shadow:0 8px 28px rgba(11,46,74,.08)}
+    .brand{display:flex;align-items:center;gap:10px;font:700 21px/1 Sora,Arial,sans-serif;letter-spacing:-.03em}.brand img{width:38px;height:38px;border-radius:9px}.brand strong{color:var(--harbour)}
+    .review-state{display:flex;align-items:center;gap:8px;color:var(--signal);font-size:10px;font-weight:600;letter-spacing:.12em;text-align:right;text-transform:uppercase}.review-state:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--signal)}
+    h1,h2,h3,h4{margin:0;font-family:Sora,Arial,sans-serif;letter-spacing:-.045em;line-height:1}
+    .eyebrow{margin:0;color:var(--signal);font-size:10px;font-weight:600;letter-spacing:.17em;text-transform:uppercase}
+    .hero{display:grid;grid-template-columns:minmax(0,.92fr) minmax(560px,1.08fr);gap:18px;margin-top:28px}
+    .hero-copy{position:relative;min-height:650px;overflow:hidden;padding:clamp(42px,5vw,82px);background:var(--deep);color:var(--white);border-radius:26px}
+    .hero-copy:after{content:"";position:absolute;right:-170px;bottom:-190px;width:460px;height:460px;border:92px solid rgba(245,193,119,.12);border-radius:50%}
+    .hero-copy .eyebrow{color:var(--sand)}
+    h1{position:relative;z-index:1;max-width:820px;margin-top:28px;font-size:clamp(66px,7vw,116px)}
+    h1 span{display:block;color:var(--sand)}
+    .hero-lede{position:relative;z-index:1;max-width:680px;margin:30px 0 0;color:rgba(255,253,250,.79);font-size:clamp(19px,1.6vw,25px);line-height:1.42}
+    .hero-meta{position:absolute;z-index:2;left:clamp(42px,5vw,82px);right:clamp(42px,5vw,82px);bottom:48px;display:flex;flex-wrap:wrap;gap:9px}.pill{padding:8px 12px;border:1px solid rgba(255,255,255,.25);border-radius:999px;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
+    .hero-photos{display:grid;grid-template-columns:1.2fr .8fr;grid-template-rows:1fr 1fr;gap:10px;min-height:650px;overflow:hidden;border-radius:26px}
+    .photo{position:relative;min-width:0;overflow:hidden;background:#aebabc}.photo:first-child{grid-row:1/3}.photo img{width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.03)}.photo:first-child img{object-position:48% center}.photo:nth-child(2) img{object-position:center 58%}.photo:nth-child(3) img{object-position:center}
+    .photo:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,46,74,.68))}
+    .photo figcaption{position:absolute;z-index:2;left:16px;right:16px;bottom:14px;display:flex;justify-content:space-between;gap:12px;color:#fff;font-size:9px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}
+    .concept-strip{display:grid;grid-template-columns:1fr repeat(4,auto);gap:1px;margin:18px 0;background:var(--line);border:1px solid var(--line);border-radius:15px;overflow:hidden}
+    .concept-strip div{padding:18px 20px;background:var(--white)}.concept-strip div:first-child{padding-right:34px}.concept-strip strong{display:block;color:var(--deep);font:700 17px/1.2 Sora,Arial,sans-serif}.concept-strip span{display:block;margin-top:5px;color:#64737a;font-size:10px;letter-spacing:.05em}.concept-strip b{display:block;color:var(--signal);font:700 26px/1 Sora,Arial,sans-serif}.concept-strip small{color:#64737a;font-size:8px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+    .jump{display:flex;flex-wrap:wrap;gap:9px;margin:22px 0 40px}.jump a,.filter button,.calendar-tools button,.device-tools button{border:1px solid var(--line);background:var(--white);color:var(--deep);border-radius:999px;padding:10px 14px;text-decoration:none;font-size:11px;font-weight:600;cursor:pointer}.jump a:hover,.filter button:hover,.calendar-tools button:hover,.device-tools button:hover{border-color:var(--harbour)}
+    .section{margin-top:26px;padding:clamp(28px,4vw,54px);background:var(--white);border:1px solid var(--line);border-radius:24px}
+    .section--deep{background:var(--deep);color:var(--white);border-color:var(--deep)}
+    .section-head{display:grid;grid-template-columns:minmax(0,.8fr) minmax(380px,1.2fr);gap:42px;align-items:end;margin-bottom:30px}.section-head h2{margin-top:12px;color:var(--deep);font-size:clamp(43px,5vw,78px)}.section-head p{margin:0;color:#53646c;font-size:17px;line-height:1.62}.section--deep .section-head h2{color:var(--white)}.section--deep .section-head p{color:rgba(255,255,255,.7)}.section--deep .eyebrow{color:var(--sand)}
+    .filter{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}.filter button[aria-pressed="true"],.calendar-tools button[aria-pressed="true"],.device-tools button[aria-pressed="true"]{background:var(--deep);border-color:var(--deep);color:#fff}.section--deep .calendar-tools button{background:transparent;color:#fff;border-color:rgba(255,255,255,.22)}.section--deep .calendar-tools button[aria-pressed="true"]{background:var(--sand);border-color:var(--sand);color:var(--deep)}
+    .chapters{display:grid;gap:14px}.chapter{display:grid;grid-template-columns:minmax(330px,.82fr) minmax(0,1.18fr);min-height:390px;overflow:hidden;background:var(--paper);border-radius:18px}.chapter[hidden],.social-card[hidden],.calendar-row[hidden]{display:none}.chapter-media{position:relative;min-height:390px}.chapter-media img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.76)}.chapter-media:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(11,46,74,.62))}.chapter-credit{position:absolute;z-index:2;left:16px;right:16px;bottom:14px;color:#fff;font-size:8px;line-height:1.4;letter-spacing:.04em}.chapter-copy{padding:clamp(28px,4vw,52px)}.chapter-top{display:flex;align-items:center;justify-content:space-between;gap:16px}.chapter-number{color:var(--signal);font-size:10px;font-weight:600;letter-spacing:.14em}.tag{padding:7px 10px;border-radius:999px;background:#dce7dc;color:#31533b;font-size:8px;font-weight:700;letter-spacing:.1em;text-transform:uppercase}.tag--hold{background:#fde3d8;color:#923e20}.chapter h3{margin-top:25px;color:var(--deep);font-size:clamp(36px,4vw,62px)}.chapter-decision{margin:15px 0 0;color:var(--harbour);font:600 16px/1.4 Sora,Arial,sans-serif}.chapter-body{max-width:760px;margin:18px 0 0;color:#52636b;font-size:15px;line-height:1.62}.chapter-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:25px;overflow:hidden;background:var(--line);border:1px solid var(--line);border-radius:10px}.chapter-facts div{padding:12px;background:var(--white)}.chapter-facts small{display:block;color:#7a858a;font-size:8px;font-weight:600;letter-spacing:.09em;text-transform:uppercase}.chapter-facts strong{display:block;margin-top:4px;color:var(--deep);font-size:11px;line-height:1.35}
+    .visual-studio{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}.social-card{position:relative;aspect-ratio:4/5;min-width:0;overflow:hidden;border-radius:16px;background:#d8dedc;box-shadow:0 16px 35px rgba(0,0,0,.14)}.social-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.72) contrast(1.04)}.social-card--one img{object-position:center}.social-card--two img{object-position:66% center;transform:scale(1.12)}.social-card--three img{object-position:center}.social-card--four img{object-position:center}.social-card:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(11,46,74,.12),transparent 34%,rgba(11,46,74,.88))}
+    .card-folio{position:absolute;z-index:2;left:18px;right:18px;top:16px;display:flex;justify-content:space-between;gap:10px;color:#fff;font-size:8px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}.card-copy{position:absolute;z-index:2;left:18px;right:18px;bottom:18px;color:#fff}.card-copy small{color:var(--sand);font-size:8px;font-weight:700;letter-spacing:.13em;text-transform:uppercase}.card-copy h3{margin-top:8px;font-size:clamp(25px,2.4vw,40px);line-height:.98}.card-copy p{margin:10px 0 0;color:rgba(255,255,255,.72);font-size:10px;line-height:1.42}.visual-note{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:18px}.visual-note div{padding:18px;border:1px solid rgba(255,255,255,.16);border-radius:12px;color:rgba(255,255,255,.72);font-size:12px;line-height:1.55}.visual-note strong{display:block;margin-bottom:7px;color:var(--sand);font-size:9px;letter-spacing:.11em;text-transform:uppercase}
+    .calendar-tools{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 18px}.calendar-wrap{overflow:auto;border-radius:13px;border:1px solid rgba(255,255,255,.14)}table{width:100%;min-width:880px;border-collapse:collapse}th,td{padding:14px 16px;text-align:left;border-bottom:1px solid rgba(255,255,255,.1)}th{color:var(--sand);font-size:9px;letter-spacing:.11em;text-transform:uppercase}td{color:rgba(255,255,255,.78);font-size:12px}tr:last-child td{border-bottom:0}.channel{display:inline-flex;padding:5px 7px;border:1px solid rgba(255,255,255,.18);border-radius:999px;color:#fff;font-size:8px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}.state{color:var(--sand);font-weight:600}.state--hold{color:#ff9c7b}
+    .activation-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}.activation-study{min-width:0;padding:14px;background:var(--paper);border-radius:16px}.study-label{display:flex;justify-content:space-between;gap:16px;margin:0 2px 12px;color:var(--deep);font-size:10px;font-weight:600;letter-spacing:.06em}.study-label span{color:#6a777d}.mock-browser{overflow:hidden;margin:auto;background:#fff;border:1px solid #b7c0c0;border-radius:12px;box-shadow:var(--shadow);transition:max-width .2s ease}.browser-bar{display:grid;grid-template-columns:60px 1fr 60px;gap:8px;align-items:center;height:30px;padding:0 9px;background:#e8eded;color:#718087;font-size:7px;text-align:center}.dots{display:flex;gap:4px}.dots i{width:5px;height:5px;border-radius:50%;background:#9da8a8}.pi-head{padding:12px 18px;border-bottom:1px solid #d3d8d5}.pi-brand{font:700 16px/1 Sora,Arial,sans-serif}.pi-brand b{color:var(--harbour)}.pi-nav{float:right;color:#6b777c;font-size:7px;word-spacing:9px}.mock-body{padding:18px}.mock-context{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;margin-bottom:12px}.mock-context i{height:42px;background:#e1e7e3;border-radius:5px}.campaign-band{display:grid;grid-template-columns:1.05fr .95fr;min-height:190px;overflow:hidden;background:var(--deep);border-radius:10px}.campaign-band-copy{padding:22px;color:#fff}.campaign-band-copy small{color:var(--sand);font-size:7px;font-weight:700;letter-spacing:.12em}.campaign-band-copy h3{margin-top:10px;font-size:25px}.campaign-band-copy p{margin:9px 0 0;color:rgba(255,255,255,.72);font-size:9px}.campaign-band-copy b{display:inline-block;margin-top:14px;padding:7px 9px;background:var(--sand);color:var(--deep);border-radius:5px;font-size:7px}.campaign-band-image{position:relative}.campaign-band-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.event-inset{display:grid;grid-template-columns:140px 1fr;min-height:185px;overflow:hidden;border-left:5px solid var(--signal);background:#f0eee8;border-radius:9px}.event-inset img{width:100%;height:100%;object-fit:cover}.event-copy{padding:18px}.event-copy small{color:var(--signal);font-size:7px;font-weight:700;letter-spacing:.1em}.event-copy h3{margin-top:8px;color:var(--deep);font-size:23px}.event-copy p{margin:8px 0 0;color:#5d6c72;font-size:9px}.event-copy b{display:inline-block;margin-top:13px;color:var(--harbour);font-size:8px}.device-tools{display:flex;gap:8px;justify-content:flex-end;margin:-8px 0 16px}.activation[data-device="mobile"] .mock-browser{max-width:390px}.activation[data-device="mobile"] .activation-grid{grid-template-columns:1fr 1fr}.activation[data-device="mobile"] .pi-nav{display:none}.activation[data-device="mobile"] .campaign-band{grid-template-columns:1fr}.activation[data-device="mobile"] .campaign-band-image{height:150px;order:-1}.activation[data-device="mobile"] .event-inset{grid-template-columns:1fr}.activation[data-device="mobile"] .event-inset img{height:140px}
+    .rights-layout{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(300px,.85fr);gap:18px}.rights-table{border:1px solid var(--line);border-radius:13px;overflow:auto}.rights-table table{min-width:720px}.rights-table th,.rights-table td{border-color:var(--line)}.rights-table th{color:var(--signal)}.rights-table td{color:#53646c}.rights-table a{color:var(--harbour)}.doctrine{padding:26px;background:var(--deep);color:#fff;border-radius:14px}.doctrine h3{font-size:31px}.doctrine ul{margin:20px 0 0;padding-left:18px;color:rgba(255,255,255,.72);font-size:13px}.doctrine li+li{margin-top:10px}.doctrine strong{color:var(--sand)}
+    .holds{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}.hold{padding:22px;background:var(--paper);border-top:4px solid var(--signal);border-radius:12px}.hold small{color:var(--signal);font-size:8px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}.hold h3{margin-top:13px;color:var(--deep);font-size:24px}.hold p{margin:10px 0 0;color:#596970;font-size:12px}.hold a{color:var(--harbour);font-weight:600}
+    .decision{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;margin-top:26px;padding:clamp(30px,4vw,54px);background:var(--sand);border-radius:22px}.decision h2{max-width:850px;color:var(--deep);font-size:clamp(42px,5vw,76px)}.decision p{max-width:820px;margin:18px 0 0;color:#4f5d61;font-size:15px}.decision-actions{display:grid;gap:10px}.decision-actions a{min-width:210px;padding:13px 17px;border:1px solid var(--deep);border-radius:999px;text-align:center;text-decoration:none;font-size:11px;font-weight:600}.decision-actions a:first-child{background:var(--deep);color:#fff}
+    footer{display:flex;justify-content:space-between;gap:20px;margin-top:26px;padding:22px 5px 0;border-top:1px solid var(--line);color:#69777c;font-size:10px;letter-spacing:.08em;text-transform:uppercase}
+    @media(max-width:1100px){.hero{grid-template-columns:1fr}.hero-copy{min-height:570px}.hero-photos{min-height:560px}.section-head{grid-template-columns:1fr}.visual-studio{grid-template-columns:repeat(2,1fr)}.activation-grid{grid-template-columns:1fr}.activation[data-device="mobile"] .activation-grid{grid-template-columns:1fr}.rights-layout{grid-template-columns:1fr}.holds{grid-template-columns:1fr}.concept-strip{grid-template-columns:1fr 1fr}.concept-strip div:first-child{grid-column:1/-1}}
+    @media(max-width:720px){.shell{padding:12px 12px 50px}.topbar{top:5px}.review-state{max-width:150px;font-size:8px}.hero-copy{min-height:600px;padding:38px 25px}.hero-meta{left:25px;right:25px;bottom:30px}.hero-photos{grid-template-columns:1fr 1fr;min-height:500px}.hero-photos .photo:first-child{grid-column:1/-1;grid-row:auto}.concept-strip{grid-template-columns:1fr 1fr}.chapter{grid-template-columns:1fr}.chapter-media{min-height:270px}.chapter-facts{grid-template-columns:1fr}.visual-studio{grid-template-columns:1fr 1fr}.section{padding:28px 18px}.activation-grid{grid-template-columns:1fr}.rights-layout{grid-template-columns:1fr}.decision{grid-template-columns:1fr}.decision-actions a{width:100%}footer{flex-direction:column}.pi-nav{display:none}}
+    @media(max-width:470px){.visual-studio{grid-template-columns:1fr}.hero-photos{grid-template-columns:1fr;grid-template-rows:260px 180px 180px}.photo:first-child{grid-column:auto!important}.concept-strip{grid-template-columns:1fr}.concept-strip div:first-child{grid-column:auto}.chapter-top{align-items:flex-start;flex-direction:column}.device-tools{justify-content:flex-start}}
+    @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+  </style>
+  <script defer src="/gate.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to campaign</a>
+  <div class="shell">
+    <a class="library-back" href="/campaigns/">&larr; OptiFlows campaign library</a>
+    <header class="topbar">
+      <div class="brand"><img src="assets/pi-site-icon.svg" alt=""><span>Peninsula <strong>Insider</strong></span></div>
+      <div class="review-state">Private review · direction not released</div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">October 2026 · Photography-first campaign</p>
+          <h1>October,<span>in long form.</span></h1>
+          <p class="hero-lede">One more hour. Use it well. Four evidence-led ways to inhabit the Peninsula as the day stretches out.</p>
+          <div class="hero-meta"><span class="pill">4 editorial chapters</span><span class="pill">Actual photography</span><span class="pill">9 proposed drops</span><span class="pill">0 scheduled</span></div>
+        </div>
+        <div class="hero-photos" aria-label="Provisional location photography">
+          <figure class="photo"><img src="assets/photos/long-light-sorrento.webp" alt="Sunlight over the water and moored boats at Sorrento"><figcaption><span>01 · Long light</span><span>Sorrento</span></figcaption></figure>
+          <figure class="photo"><img src="assets/photos/western-port-flinders.webp" alt="Water breaking against Flinders Pier on Western Port"><figcaption><span>02 · Other coast</span><span>Flinders</span></figcaption></figure>
+          <figure class="photo"><img src="assets/photos/point-nepean-coast.webp" alt="Coastal scrub and the ocean near Cheviot Hill at Point Nepean"><figcaption><span>04 · Long finish</span><span>Point Nepean</span></figcaption></figure>
+        </div>
+      </section>
+
+      <div class="concept-strip" aria-label="Campaign summary">
+        <div><strong>Long Frames</strong><span>Real places, observed details and one coherent editorial sequence.</span></div>
+        <div><b>04</b><small>chapters</small></div><div><b>04</b><small>photo studies</small></div><div><b>09</b><small>drops</small></div><div><b>02</b><small>release holds</small></div>
+      </div>
+
+      <nav class="jump" aria-label="Campaign pack sections">
+        <a href="#programme">Programme</a><a href="#creative">Creative studies</a><a href="#calendar">Calendar</a><a href="#activation">Website activation</a><a href="#rights">Rights and holds</a>
+      </nav>
+
+      <section class="section" id="programme">
+        <header class="section-head"><div><p class="eyebrow">Editorial programme</p><h2>Four ways through October.</h2></div><p>Each chapter resolves one practical choice. The month starts with a broad behavioural shift, then moves through culture, community and distance. Held items have a defined fallback instead of wishful copy.</p></header>
+        <div class="filter" role="group" aria-label="Filter campaign chapters">
+          <button type="button" data-week-filter="all" aria-pressed="true">Whole month</button><button type="button" data-week-filter="w1" aria-pressed="false">01 · Light</button><button type="button" data-week-filter="w2" aria-pressed="false">02 · Western Port</button><button type="button" data-week-filter="w3" aria-pressed="false">03 · Mornington</button><button type="button" data-week-filter="w4" aria-pressed="false">04 · Distance</button>
+        </div>
+        <div class="chapters">
+          <article class="chapter" data-week-card="w1"><div class="chapter-media"><img src="assets/photos/long-light-sorrento.webp" alt="Sunlight over Sorrento water"><span class="chapter-credit">Alan Travers · Wikimedia Commons · CC0</span></div><div class="chapter-copy"><div class="chapter-top"><span class="chapter-number">CHAPTER 01 · 1 TO 4 OCTOBER</span><span class="tag">Ready to commission</span></div><h3>One more hour.</h3><p class="chapter-decision">Where will I use the first longer evening?</p><p class="chapter-body">Daylight saving begins on 4 October, just as school holidays end. Refresh the existing spring, late-afternoon walk and sunset material into three practical after-five plans with duration, access, parking, safety and weather alternatives.</p><div class="chapter-facts"><div><small>Trigger</small><strong>Clock change · 4 Oct</strong></div><div><small>Content move</small><strong>Refresh and consolidate</strong></div><div><small>Photography</small><strong>Lived late light, not postcard sky</strong></div></div></div></article>
+          <article class="chapter" data-week-card="w2"><div class="chapter-media"><img src="assets/photos/western-port-flinders.webp" alt="Water and pier structure at Flinders"><span class="chapter-credit">Daniel Kabel · Wikimedia Commons · CC BY-SA 4.0 · Western Port context, not Coolart</span></div><div class="chapter-copy"><div class="chapter-top"><span class="chapter-number">CHAPTER 02 · 5 TO 11 OCTOBER</span><span class="tag tag--hold">Access hold</span></div><h3>Read the other coast.</h3><p class="chapter-decision">Which Western Port Writes session and day suit me?</p><p class="chapter-body">The organiser lists events on 9 to 11 October, but Parks Victoria currently lists Coolart Historic Area closed. The chapter releases only after current venue confirmation. If unresolved by 22 September, it becomes a Somers and Balnarring reading and picnic field guide with no Coolart access claim.</p><div class="chapter-facts"><div><small>Trigger</small><strong>Western Port Writes</strong></div><div><small>Gate</small><strong>Coolart access confirmation</strong></div><div><small>Fallback</small><strong>Western Port field guide</strong></div></div></div></article>
+          <article class="chapter" data-week-card="w3"><div class="chapter-media"><img src="assets/photos/mornington-bay.webp" alt="Mornington foreshore and bathing boxes"><span class="chapter-credit">Simon Yeo · Wikimedia Commons · CC BY 2.0</span></div><div class="chapter-copy"><div class="chapter-top"><span class="chapter-number">CHAPTER 03 · 12 TO 18 OCTOBER</span><span class="tag">Ready with booking check</span></div><h3>Keep the weekend.</h3><p class="chapter-decision">Community walk, garden Sunday, or both?</p><p class="chapter-body">The Main Street festival is cancelled. Say that once, then help readers plan a separate current weekend around Breast Foot Forward on Saturday 17 October and Mornington Botanical Rose Gardens High Tea on Sunday 18 October.</p><div class="chapter-facts"><div><small>Trigger</small><strong>17 and 18 Oct</strong></div><div><small>Traffic move</small><strong>Useful cancellation redirect</strong></div><div><small>Photography</small><strong>Real community and garden detail</strong></div></div></div></article>
+          <article class="chapter" data-week-card="w4"><div class="chapter-media"><img src="assets/photos/point-nepean-coast.webp" alt="Ocean and coastal scrub at Point Nepean"><span class="chapter-credit">Philip Mallis · Wikimedia Commons · CC BY-SA 4.0</span></div><div class="chapter-copy"><div class="chapter-top"><span class="chapter-number">CHAPTER 04 · 19 TO 25 OCTOBER</span><span class="tag">Primary event confirmed</span></div><h3>The long finish.</h3><p class="chapter-decision">Participating, supporting, or following the coast?</p><p class="chapter-body">Lead with the confirmed 35 km Bloody Long Walk from Quarantine Station to Martha Cove. H&amp;H at Stonier remains an optional note for existing ticket holders unless saleable inventory is confirmed.</p><div class="chapter-facts"><div><small>Trigger</small><strong>Bloody Long Walk · 25 Oct</strong></div><div><small>Content move</small><strong>Route and support guide</strong></div><div><small>Optional layer</small><strong>H&amp;H after inventory check</strong></div></div></div></article>
+        </div>
+      </section>
+
+      <section class="section section--deep" id="creative">
+        <header class="section-head"><div><p class="eyebrow">Creative territory · Long Frames</p><h2>Photography that observes.</h2></div><p>These four compositions prove the visual grammar with existing rights-documented location images. They are art-direction studies, not final campaign masters. The final set should be captured or commissioned natively for horizontal, square and vertical use.</p></header>
+        <div class="visual-studio">
+          <article class="social-card social-card--one" data-week-card="w1"><img src="assets/photos/long-light-sorrento.webp" alt=""><div class="card-folio"><span>Peninsula Insider</span><span>01 / OCT</span></div><div class="card-copy"><small>One more hour</small><h3>Use it well.</h3><p>Three after-five plans for the first longer evening.</p></div></article>
+          <article class="social-card social-card--two" data-week-card="w2"><img src="assets/photos/western-port-flinders.webp" alt=""><div class="card-folio"><span>Peninsula Insider</span><span>02 / OCT</span></div><div class="card-copy"><small>Read the other coast</small><h3>Bring the picnic.</h3><p>Western Port in pages, water and a quieter horizon.</p></div></article>
+          <article class="social-card social-card--three" data-week-card="w3"><img src="assets/photos/mornington-bay.webp" alt=""><div class="card-folio"><span>Peninsula Insider</span><span>03 / OCT</span></div><div class="card-copy"><small>Keep the weekend</small><h3>Walk Saturday. Garden Sunday.</h3><p>Two separate reasons to make a current Mornington plan.</p></div></article>
+          <article class="social-card social-card--four" data-week-card="w4"><img src="assets/photos/point-nepean-coast.webp" alt=""><div class="card-folio"><span>Peninsula Insider</span><span>04 / OCT</span></div><div class="card-copy"><small>The long finish</small><h3>Thirty-five kilometres of coast.</h3><p>Join it, support it, or understand the route.</p></div></article>
+        </div>
+        <div class="visual-note"><div><strong>Image rule</strong>Every named place and event claim uses actual, rights-cleared photography. Abstract crops are welcome when they come from the real place. No generated location, venue, crowd or person.</div><div><strong>Motion rule</strong>Capture six to ten seconds of real movement beside every hero setup. Use restrained cuts, crops and type. Do not synthetically animate a still of a real location.</div></div>
+      </section>
+
+      <section class="section section--deep" id="calendar">
+        <header class="section-head"><div><p class="eyebrow">Proposed calendar · Australia/Melbourne</p><h2>The month, staged.</h2></div><p>Nine proposed drops across the website, newsletter, Instagram and Facebook. Nothing is scheduled. Every event item is rechecked within 72 hours of release.</p></header>
+        <div class="calendar-tools" role="group" aria-label="Filter calendar by channel"><button type="button" data-channel-filter="all" aria-pressed="true">All · 9</button><button type="button" data-channel-filter="site" aria-pressed="false">Website</button><button type="button" data-channel-filter="email" aria-pressed="false">Newsletter</button><button type="button" data-channel-filter="instagram" aria-pressed="false">Instagram</button><button type="button" data-channel-filter="facebook" aria-pressed="false">Facebook</button></div>
+        <div class="calendar-wrap"><table><thead><tr><th>Date</th><th>Chapter</th><th>Channel</th><th>Asset</th><th>Purpose</th><th>State</th></tr></thead><tbody>
+          <tr class="calendar-row" data-channel="site email instagram facebook"><td>Thu 1 Oct</td><td>One more hour</td><td><span class="channel">Integrated</span></td><td>Month reveal and guide</td><td>Establish the system and plan the first longer evening</td><td class="state">Proposed</td></tr>
+          <tr class="calendar-row" data-channel="site instagram"><td>Sun 4 Oct</td><td>One more hour</td><td><span class="channel">Site + Stories</span></td><td>Clock-change reminder</td><td>Timely utility</td><td class="state">Proposed</td></tr>
+          <tr class="calendar-row" data-channel="site instagram facebook"><td>Wed 7 Oct</td><td>Other coast</td><td><span class="channel">Integrated</span></td><td>Festival decision guide</td><td>Session and picnic choice</td><td class="state state--hold">Coolart hold</td></tr>
+          <tr class="calendar-row" data-channel="site instagram"><td>9 to 11 Oct</td><td>Other coast</td><td><span class="channel">What's On + Stories</span></td><td>Access updates</td><td>Keep venue and availability claims current</td><td class="state state--hold">Conditional</td></tr>
+          <tr class="calendar-row" data-channel="site email instagram facebook"><td>Wed 14 Oct</td><td>Keep the weekend</td><td><span class="channel">Integrated</span></td><td>Mornington weekend guide</td><td>Community walk and garden planning</td><td class="state">Proposed</td></tr>
+          <tr class="calendar-row" data-channel="site instagram"><td>17 to 18 Oct</td><td>Keep the weekend</td><td><span class="channel">What's On + Stories</span></td><td>Booking and access reminders</td><td>Last-mile utility</td><td class="state">Proposed</td></tr>
+          <tr class="calendar-row" data-channel="site email instagram facebook"><td>Tue 20 Oct</td><td>Long finish</td><td><span class="channel">Integrated</span></td><td>Route and support guide</td><td>Registration, support and route planning</td><td class="state">Proposed</td></tr>
+          <tr class="calendar-row" data-channel="site instagram"><td>22 to 25 Oct</td><td>Long finish</td><td><span class="channel">What's On + Stories</span></td><td>Availability and event updates</td><td>Honest H&amp;H and walk status</td><td class="state">Proposed</td></tr>
+          <tr class="calendar-row" data-channel="site instagram"><td>Sat 31 Oct</td><td>Optional</td><td><span class="channel">What's On + Stories</span></td><td>Halloweekend item</td><td>Secondary family utility</td><td class="state">Optional</td></tr>
+        </tbody></table></div>
+        <p style="margin:16px 0 0"><a href="campaign-calendar.csv" download style="color:var(--sand);font-size:11px;font-weight:600">Download planning CSV &darr;</a></p>
+      </section>
+
+      <section class="section activation" id="activation" data-device="desktop">
+        <header class="section-head"><div><p class="eyebrow">Website activation · in situ</p><h2>Put the campaign where decisions happen.</h2></div><p>Carry Long Frames into useful site moments without reskinning Peninsula Insider. The homepage introduces the week's decision. What's On handles live access and booking status.</p></header>
+        <div class="device-tools" role="group" aria-label="Preview website studies"><button type="button" data-device="desktop" aria-pressed="true">Desktop</button><button type="button" data-device="mobile" aria-pressed="false">Mobile</button></div>
+        <div class="activation-grid">
+          <article class="activation-study"><div class="study-label"><strong>01 · Homepage campaign band</strong><span>Discover</span></div><div class="mock-browser"><div class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span>peninsulainsider.com.au/</span><span></span></div><div class="pi-head"><span class="pi-brand">Peninsula <b>Insider</b></span><span class="pi-nav">EAT STAY WINE EXPLORE WHAT'S ON</span></div><div class="mock-body"><div class="mock-context"><i></i><i></i><i></i></div><section class="campaign-band"><div class="campaign-band-copy"><small>OCTOBER · THIS WEEK'S DECISION</small><h3>One more hour. Use it well.</h3><p>Three current after-five plans, with access, timing and weather alternatives.</p><b>Open the field guide &rarr;</b></div><div class="campaign-band-image"><img src="assets/photos/long-light-sorrento.webp" alt=""></div></section></div></div></article>
+          <article class="activation-study"><div class="study-label"><strong>02 · What's On access inset</strong><span>Decide</span></div><div class="mock-browser"><div class="browser-bar"><span class="dots"><i></i><i></i><i></i></span><span>peninsulainsider.com.au/whats-on/</span><span></span></div><div class="pi-head"><span class="pi-brand">Peninsula <b>Insider</b></span><span class="pi-nav">EAT STAY WINE EXPLORE WHAT'S ON</span></div><div class="mock-body"><div class="event-inset"><img src="assets/photos/western-port-flinders.webp" alt=""><div class="event-copy"><small>ACCESS CHECK · WESTERN PORT WRITES</small><h3>Coolart is a live verification gate.</h3><p>The organiser's programme and Parks Victoria's current closure notice conflict. Publish only after the venue is confirmed.</p><b>See evidence and fallback &rarr;</b></div></div></div></div></article>
+        </div>
+      </section>
+
+      <section class="section" id="rights">
+        <header class="section-head"><div><p class="eyebrow">Photography provenance</p><h2>Real images need real permission.</h2></div><p>The published review page uses four existing PI library images with documented Wikimedia provenance. They are provisional direction studies. Final campaign photography still needs a capture or commissioning decision.</p></header>
+        <div class="rights-layout">
+          <div class="rights-table"><table><thead><tr><th>Study</th><th>Photographer</th><th>Licence</th><th>Original</th></tr></thead><tbody>
+            <tr><td>Long light · Sorrento</td><td>Alan Travers</td><td>CC0</td><td><a href="https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg">Wikimedia source</a></td></tr>
+            <tr><td>Western Port · Flinders</td><td>Daniel Kabel</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg">Wikimedia source</a></td></tr>
+            <tr><td>Mornington Bay</td><td>Simon Yeo</td><td>CC BY 2.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Mornington,_Victoria_Bathing_boxes_1.jpg">Wikimedia source</a></td></tr>
+            <tr><td>Point Nepean coast</td><td>Philip Mallis</td><td>CC BY-SA 4.0</td><td><a href="https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg">Wikimedia source</a></td></tr>
+          </tbody></table></div>
+          <aside class="doctrine"><h3>Photography doctrine</h3><ul><li><strong>Named place:</strong> show the actual place.</li><li><strong>Named event:</strong> use organiser-cleared or commissioned coverage.</li><li><strong>Abstract frame:</strong> capture it at the real location and do not overclaim.</li><li><strong>Search and scraping:</strong> research only, never a licence.</li><li><strong>Generative tools:</strong> no reconstructed place, crowd, venue or person.</li><li><strong>Production:</strong> preserve credit, licence and release evidence.</li></ul></aside>
+        </div>
+        <div class="holds" style="margin-top:18px">
+          <article class="hold"><small>Hold 01 · Access</small><h3>Coolart conflict</h3><p><a href="https://westernportwrites.com.au/program-2026/">Western Port Writes</a> lists Coolart sessions while <a href="https://www.parks.vic.gov.au/places-to-see/parks/coolart-historic-area">Parks Victoria</a> currently lists the area closed. Confirm before 22 September or use the fallback.</p></article>
+          <article class="hold"><small>Hold 02 · Availability</small><h3>H&amp;H waitlist</h3><p>The dates are current, but the public path emphasises a waitlist. Do not lead with a ticket CTA unless saleable inventory is verified.</p></article>
+          <article class="hold"><small>Excluded · Cancelled</small><h3>Emu Plains</h3><p>The organiser marks 17 October cancelled. Exclude it despite stale third-party listings. Keep the Main Street festival cancellation explicit too.</p></article>
+        </div>
+      </section>
+
+      <section class="decision">
+        <div><p class="eyebrow">Current approval boundary</p><h2>Direction is ready. External release is not.</h2><p>Approve the proposition and the actual-photography rule, then run a rights-cleared sourcing pass before commissioning only the remaining gaps. This review publication does not schedule, buy, license or publish any campaign content to Peninsula Insider, email or social channels.</p></div>
+        <div class="decision-actions"><a href="2026-09-07-october-campaign-research-and-direction.md">Open research brief</a><a href="creative-provenance.json">Open provenance</a><a href="verification-report.md">Open verification</a></div>
+      </section>
+    </main>
+
+    <footer><span>Peninsula Insider · October 2026 direction pack</span><span>Private review · No external campaign release</span></footer>
+  </div>
+  <script>
+    const weekButtons = document.querySelectorAll("[data-week-filter]");
+    weekButtons.forEach(function(button){
+      button.addEventListener("click", function(){
+        const filter = button.getAttribute("data-week-filter");
+        weekButtons.forEach(function(item){ item.setAttribute("aria-pressed", String(item === button)); });
+        document.querySelectorAll("[data-week-card]").forEach(function(card){
+          card.hidden = filter !== "all" && card.getAttribute("data-week-card") !== filter;
+        });
+      });
+    });
+    const channelButtons = document.querySelectorAll("[data-channel-filter]");
+    channelButtons.forEach(function(button){
+      button.addEventListener("click", function(){
+        const filter = button.getAttribute("data-channel-filter");
+        channelButtons.forEach(function(item){ item.setAttribute("aria-pressed", String(item === button)); });
+        document.querySelectorAll(".calendar-row").forEach(function(row){
+          const channels = row.getAttribute("data-channel").split(" ");
+          row.hidden = filter !== "all" && channels.indexOf(filter) === -1;
+        });
+      });
+    });
+    const activation = document.querySelector(".activation");
+    document.querySelectorAll("button[data-device]").forEach(function(button){
+      button.addEventListener("click", function(){
+        const device = button.getAttribute("data-device");
+        activation.setAttribute("data-device", device);
+        document.querySelectorAll("button[data-device]").forEach(function(item){ item.setAttribute("aria-pressed", String(item === button)); });
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+{
+  "campaign": "Peninsula Insider October 2026",
+  "workingTitle": "October, in long form",
+  "publicLine": "One more hour. Use it well.",
+  "status": "review-only",
+  "observedAt": "2026-09-07",
+  "publicationAuthority": "none",
+  "photographyPolicy": {
+    "namedPlaces": "Actual rights-cleared photography only",
+    "namedEvents": "Organiser-cleared or commissioned photography only",
+    "abstractDetails": "Permitted when photographed at the real location and accurately labelled",
+    "generativeImagery": "No generated reconstruction of a real place, venue, crowd or person",
+    "searchAndScraping": "Reference and research only"
+  },
+  "assets": [
+    {
+      "file": "assets/photos/long-light-sorrento.webp",
+      "role": "Week 1 direction study",
+      "depicts": "Sorrento water and moored boats",
+      "sourceFile": "Peninsula Insider /images/sourced/place-sorrento-01.webp",
+      "creator": "Alan Travers",
+      "license": "CC0",
+      "original": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
+      "transform": "Copied unchanged; CSS crop and colour treatment only",
+      "finalMaster": false
+    },
+    {
+      "file": "assets/photos/western-port-flinders.webp",
+      "role": "Week 2 Western Port direction study",
+      "depicts": "Flinders Pier and Western Port water; not Coolart",
+      "sourceFile": "Peninsula Insider /images/sourced/place-flinders-01.webp",
+      "creator": "Daniel Kabel",
+      "license": "CC BY-SA 4.0",
+      "original": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
+      "transform": "Copied unchanged; CSS crop and colour treatment only",
+      "finalMaster": false
+    },
+    {
+      "file": "assets/photos/mornington-bay.webp",
+      "role": "Week 3 Mornington direction study",
+      "depicts": "Mornington foreshore and bathing boxes",
+      "sourceFile": "Peninsula Insider /images/sourced/place-mornington-01.webp",
+      "creator": "Simon Yeo",
+      "license": "CC BY 2.0",
+      "original": "https://commons.wikimedia.org/wiki/File:Mornington,_Victoria_Bathing_boxes_1.jpg",
+      "transform": "Copied unchanged; CSS crop and colour treatment only",
+      "finalMaster": false
+    },
+    {
+      "file": "assets/photos/point-nepean-coast.webp",
+      "role": "Week 4 direction study",
+      "depicts": "Coastal scrub and ocean near Cheviot Hill at Point Nepean",
+      "sourceFile": "Peninsula Insider /images/sourced/place-point-nepean-01.webp",
+      "creator": "Philip Mallis",
+      "license": "CC BY-SA 4.0",
+      "original": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
+      "transform": "Copied unchanged; CSS crop and colour treatment only",
+      "finalMaster": false
+    }
+  ],
+  "researchSources": [
+    "https://www.rba.gov.au/schedules-events/daylight-saving.html",
+    "https://www.vic.gov.au/school-term-dates-and-holidays-victoria",
+    "https://westernportwrites.com.au/program-2026/",
+    "https://www.parks.vic.gov.au/places-to-see/parks/coolart-historic-area",
+    "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
+    "https://www.morningtonrosegardens.com.au/high-tea/",
+    "https://www.bloodylongwalk.com.au/mornington-peninsula/",
+    "https://hhfestivals.com/",
+    "https://www.emuplainsmarket.com.au/"
+  ]
+}
