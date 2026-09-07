@@ -11,9 +11,11 @@ Produce a concise, commercially coherent client proposal in James Richmond's Opt
 
 Use the client's original brief as the primary statement of need. Treat James's working drafts, discussions and solution ideas as inputs to test unless confirmed. Label assumptions, indicative estimates and agreed facts distinctly.
 
-Lead with the outcome, recommended decision and immediate investment. Define phases, deliverables, scope boundaries, client input, timing dependencies, acceptance, payment and the next decision. Use plain British English, executive brevity and concrete language. Never use em dashes. Avoid technology promises that have not been demonstrated.
+Lead with the client’s ultimate objective and commercial purpose, then the recommended decision and immediate investment. Describe the future customer or staff experience in simple terms. Keep the full-project ambition distinct from the deliverables being approved now. Define phases, deliverables, scope boundaries, client input, timing dependencies, acceptance, payment and the next decision. Use plain British English, executive brevity and concrete language. Never use em dashes. Avoid technology promises that have not been demonstrated.
 
-Keep the proposal, agreement, index summary, signature consent, submitted record and printed acceptance summary consistent. Distinguish a fixed deliverable fee from a capped time allocation. Discovery can precede a separately scoped build. Do not make A$300/hour or A$18,000 a universal default: those belong to the teamwear proposal; Calliope used a different allocation and fee.
+Keep the proposal, agreement, index summary, signature consent, submitted record and printed acceptance summary consistent. Distinguish a fixed deliverable fee from a capped time allocation. Discovery can precede a separately scoped build. Do not make a prior rate, fee or duration a universal default. Re-estimate when the delivery approach changes and update every commercial and approval surface.
+
+Prefer gathering facts from existing material and short, role-specific questionnaires. Use live walkthroughs for material uncertainty and practical constraints; ask people to confirm a prepared understanding. Automate collation where useful, with human review before treating it as an agreed requirement. Retain checks that protect the actual business outcome.
 
 ## Create the document
 

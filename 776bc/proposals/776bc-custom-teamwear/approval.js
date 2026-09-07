@@ -1,8 +1,8 @@
 
 (function(){
   var ENDPOINT = 'https://formspree.io/f/meelyrkd';
-  var KEY = 'optiflows-proposal-776bc-teamwear-v1-3-approval';
-  var PROPOSAL = 'Custom Teamwear Discovery (776BC), 7 September 2026, v1.3';
+  var KEY = 'optiflows-proposal-776bc-teamwear-v1-4-approval';
+  var PROPOSAL = 'Custom Teamwear Discovery (776BC), 7 September 2026, v1.4';
 
   var form = document.getElementById('approvalForm');
   var nameEl = document.getElementById('name');
@@ -125,11 +125,11 @@
     }
     var rec = pendingRecord || {
       record_id: crypto.randomUUID(),
-      proposal_version: '1.3',
+      proposal_version: '1.4',
       consent: CONSENT,
-      scope: 'Four-week Discovery, D1–D4',
-      fee_aud_ex_gst: 18000,
-      payment_milestones: 'A$9,000 on PMA signing before kickoff; A$9,000 on D1–D4 acceptance',
+      scope: 'Three-week Discovery, D1–D4',
+      fee_aud_ex_gst: 14400,
+      payment_milestones: 'A$7,200 on PMA signing before kickoff; A$7,200 on D1–D4 acceptance',
       approval_type: 'In principle; separate Project Management Agreement required',
       proposal_text: document.body.innerText.split('Approve Discovery in principle')[0],
       proposal: PROPOSAL,
