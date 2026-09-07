@@ -1,8 +1,8 @@
 # OptiFlows proposal design
 
 Authoritative visual examples in richmondjw/Optiflows:
-- `proposals/776bc-calliope-telegram-pilot/index.html`: original proposal pattern.
-- `proposals/776bc-custom-teamwear/index.html`: Discovery engagement and separate-agreement variant.
+- `776bc/proposals/776bc-calliope-telegram-pilot/index.html`: original proposal pattern.
+- `776bc/proposals/776bc-custom-teamwear/index.html`: Discovery engagement and separate-agreement variant.
 
 Design tokens:
 

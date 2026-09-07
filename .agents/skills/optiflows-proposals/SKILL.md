@@ -29,7 +29,7 @@ Read [references/approval.md](references/approval.md) before adding or changing 
 
 Read [references/publishing.md](references/publishing.md) when publication is requested. Prepare and check the result first. Existing explicit user authorisation to publish is sufficient; do not ask again simply because publishing is an external action. A draft-only request does not authorise publication.
 
-Publish to a descriptive `/proposals/<slug>/` path and maintain `/proposals/` as an index, not a redirect. Preserve unrelated proposals and existing controls. Confirm deployment of the actual commit and report verification limits honestly.
+For 776BC, publish to `/776bc/proposals/<slug>/` and maintain `/776bc/proposals/` as the client index. For other clients, use their agreed client-specific proposal directory. The old `/proposals/` addresses redirect to the corresponding 776BC destinations. Preserve unrelated proposals and existing controls. Confirm deployment of the actual commit and report verification limits honestly.
 
 ## Quality checks
 
