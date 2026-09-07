@@ -1,0 +1,248 @@
+{
+  "campaign": "Peninsula Insider October 2026",
+  "version": "production-review-v2",
+  "generatedAt": "2026-09-07T05:58:46.914Z",
+  "assetCount": 24,
+  "assets": [
+    {
+      "file": "assets/exports/feed/pi-october-w1-one-more-hour-instagram-feed-1080x1350.jpg",
+      "bytes": 300795,
+      "sha256": "65b8af31d13bb8cf3f0c3a05f51ead383b8063f541200d682abc57a00491dfe8",
+      "codec": "mjpeg",
+      "width": 1080,
+      "height": 1350,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/exports/feed/pi-october-w2-read-other-coast-instagram-feed-1080x1350.jpg",
+      "bytes": 319636,
+      "sha256": "dc8d358c4a2774e80df008a2c00363f5a76711a90852710221828fbc4c010c29",
+      "codec": "mjpeg",
+      "width": 1080,
+      "height": 1350,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/exports/feed/pi-october-w3-keep-the-weekend-instagram-feed-1080x1350.jpg",
+      "bytes": 401874,
+      "sha256": "43fd72f3b66b72607b43a251815dcd352ab52eecdbd82a1757302b3254c99a80",
+      "codec": "mjpeg",
+      "width": 1080,
+      "height": 1350,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/exports/feed/pi-october-w4-long-finish-instagram-feed-1080x1350.jpg",
+      "bytes": 433025,
+      "sha256": "58f4203b2ae9c3b553e4e7773d519f0d080928f8613ea8c7755e9f310d7b1fe1",
+      "codec": "mjpeg",
+      "width": 1080,
+      "height": 1350,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/exports/story/pi-october-w1-one-more-hour-story-reel-cover-1080x1920.jpg",
+      "bytes": 399838,
+      "sha256": "377aec87f61e9618151e935991782881f62cafa449263263929e10930e619288",
+      "codec": "mjpeg",
+      "width": 1080,
+      "height": 1920,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/exports/story/pi-october-w2-read-other-coast-story-reel-cover-1080x1920.jpg",
+      "bytes": 429547,
+      "sha256": "59e84b528a092b191a262d7a9ce228ebfa9fbc72d80329283c602bc67957d332",
+      "codec": "mjpeg",
+      "width": 1080,
+      "height": 1920,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/exports/story/pi-october-w3-keep-the-weekend-story-reel-cover-1080x1920.jpg",
+      "bytes": 535563,
+      "sha256": "c6512e091e43b40c25ed2d46d8e9c2a4edbf4acafad539767c399d5df7d2150c",
+      "codec": "mjpeg",
+      "width": 1080,
+      "height": 1920,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/exports/story/pi-october-w4-long-finish-story-reel-cover-1080x1920.jpg",
+      "bytes": 541821,
+      "sha256": "4dbaaccdcf368b5563724a49af9ec36c20657a8ccc8874afa27156d4ad7cdca8",
+      "codec": "mjpeg",
+      "width": 1080,
+      "height": 1920,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/exports/wide/pi-october-w1-one-more-hour-web-email-hero-1600x900.jpg",
+      "bytes": 288417,
+      "sha256": "d667cb62d6e4ef5744bf0c98fa067c60e42aa7993243e97327c165a2fc968ccc",
+      "codec": "mjpeg",
+      "width": 1600,
+      "height": 900,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/exports/wide/pi-october-w2-read-other-coast-web-email-hero-1600x900.jpg",
+      "bytes": 340953,
+      "sha256": "92c6d9f5a416c720c84d9f568bd76cfde91547789ba66802a4ab18189c97e004",
+      "codec": "mjpeg",
+      "width": 1600,
+      "height": 900,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/exports/wide/pi-october-w3-keep-the-weekend-web-email-hero-1600x900.jpg",
+      "bytes": 420111,
+      "sha256": "a00f7549d0629cb0e33adbeddd49e0aae945c4b5b2477bd913319d27f2df065d",
+      "codec": "mjpeg",
+      "width": 1600,
+      "height": 900,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/exports/wide/pi-october-w4-long-finish-web-email-hero-1600x900.jpg",
+      "bytes": 373622,
+      "sha256": "09e9a068c7c2c991e3b3235b28293c6d76d63a0b30a33227af9855f46369047e",
+      "codec": "mjpeg",
+      "width": 1600,
+      "height": 900,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/masters/w1-one-more-hour-master.jpg",
+      "bytes": 458990,
+      "sha256": "d9e3158296d4d1d2f976f1ca883c38b37ad82468038c1d7267622d7b25416bdc",
+      "codec": "mjpeg",
+      "width": 1856,
+      "height": 2304,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/masters/w2-read-other-coast-master.jpg",
+      "bytes": 800752,
+      "sha256": "1ffe7fdcd6b4c63d822d4d6145a7f73e6464bdff29eaeef0c3386ed3405b3dcf",
+      "codec": "mjpeg",
+      "width": 1856,
+      "height": 2304,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/masters/w3-keep-weekend-master.jpg",
+      "bytes": 1010750,
+      "sha256": "cf0ae81ee39f552c155ca5e6af6e8b4eda95935a7cd27f63a84435dbcf8584c2",
+      "codec": "mjpeg",
+      "width": 1856,
+      "height": 2304,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/masters/w4-long-finish-master.jpg",
+      "bytes": 931363,
+      "sha256": "2797656a7fdb5397866378d5f73abc0e4169160a97b145d3783e9fdd68e84623",
+      "codec": "mjpeg",
+      "width": 1856,
+      "height": 2304,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/motion/w1-one-more-hour-motion.mp4",
+      "bytes": 1204765,
+      "sha256": "301980775a817c17b82909413552d49ae315fddc01db24256c825bfbee111068",
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "durationSeconds": 7,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/motion/w2-read-other-coast-motion.mp4",
+      "bytes": 4212550,
+      "sha256": "c93f593962164ec81432c35b7105062ebc4b3a6b14c5f7b784001a6ff5614866",
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "durationSeconds": 7.033,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/motion/w3-keep-weekend-motion.mp4",
+      "bytes": 4363314,
+      "sha256": "c1fc833c1df1f8fae5cf7ef2600bf4ffee873b3d158deaae12c0f6336f38112e",
+      "codec": "h264",
+      "width": 1080,
+      "height": 1920,
+      "durationSeconds": 7.033,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/motion/w4-long-finish-motion-review-720p.mp4",
+      "bytes": 2469389,
+      "sha256": "31407a6a5ad37aa88eba4419d90fb8b1670c5e4bc35a06f1715bce95fa977daf",
+      "codec": "h264",
+      "width": 720,
+      "height": 1280,
+      "durationSeconds": 6.033,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/references/w1-cape-schanck-sunset.jpg",
+      "bytes": 267971,
+      "sha256": "34bb7085ba5db15d02246ab4aa3237c3e0046e552a81b2b409e6ee9de64a69c9",
+      "codec": "mjpeg",
+      "width": 1800,
+      "height": 1200,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/references/w2-flinders-pier.jpg",
+      "bytes": 735698,
+      "sha256": "8a9bf43d7b8d685eccd4342b1988ef53eb80dc278b435ca4bb4b939977d9b224",
+      "codec": "mjpeg",
+      "width": 1500,
+      "height": 2000,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/references/w3-st-andrews-beach-footprints.jpg",
+      "bytes": 689615,
+      "sha256": "0dd5f21a1ebcaa07139e15ae0a3fcf190d2975d13ada301a742dfa0f56665910",
+      "codec": "mjpeg",
+      "width": 1800,
+      "height": 1200,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    },
+    {
+      "file": "assets/references/w4-point-nepean-coast.jpg",
+      "bytes": 573021,
+      "sha256": "2be4403e1eb4935112a7497f7672009fbb3abb50b2409e2550afddaf7fadde7e",
+      "codec": "mjpeg",
+      "width": 1800,
+      "height": 1200,
+      "durationSeconds": 0.04,
+      "audioStreams": 0
+    }
+  ]
+}

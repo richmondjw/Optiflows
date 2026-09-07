@@ -1,0 +1,71 @@
+{
+  "campaign": "Peninsula Insider October 2026",
+  "version": "production-review-v2",
+  "created": "2026-09-07",
+  "stillModel": "Higgsfield Nano Banana Pro",
+  "motionModel": "Higgsfield Seedance 2.0",
+  "sharedStillGuardrails": [
+    "Use the supplied Peninsula photograph as the geographic and compositional anchor.",
+    "Preserve recognisable terrain, horizon and built geometry.",
+    "Generate no text, letters, logo, border or watermark.",
+    "Generate no crowd, named person or undocumented event scene.",
+    "Leave deliberate negative space for controlled typography.",
+    "Avoid fantasy, HDR, neon, oversaturation, plastic texture and postcard cliche."
+  ],
+  "stillPrompts": [
+    {
+      "chapter": "w1",
+      "input": "assets/references/w1-cape-schanck-sunset.jpg",
+      "output": "assets/masters/w1-one-more-hour-master.jpg",
+      "prompt": "Create a world-class vertical editorial campaign photograph using the supplied Cape Schanck lighthouse sunset as a strict geographic and compositional anchor. Preserve the recognisable white lighthouse, the real cliff silhouette, ocean horizon, and open-sky proportions. Reinterpret only atmosphere, light, grain, and colour into a sophisticated contemporary travel-editorial image for Peninsula Insider's October campaign, chapter One more hour. The visual idea is the first long spring evening: luminous coral afterglow, deep harbour-blue shadows, warm sand highlights, subtle 35mm film grain, restrained long-exposure softness in cloud and water, tactile and premium rather than glossy or hyperreal. Keep generous clean negative space in the upper-left and lower-left for later typography. No added buildings, no invented landmarks, no people, no signs, no typography, no letters, no logo, no border, no watermark. Photographic realism with art-direction polish; avoid fantasy, HDR, neon, oversaturation, plastic texture, or postcard cliche."
+    },
+    {
+      "chapter": "w2",
+      "input": "assets/references/w2-flinders-pier.jpg",
+      "output": "assets/masters/w2-read-other-coast-master.jpg",
+      "prompt": "Create a world-class vertical editorial campaign photograph using the supplied Flinders Pier image as a strict architectural and geographic anchor. Preserve the real pier alignment, paired walkway structure, rail proportions, horizon, and Western Port character. Reinterpret the light into a quiet early-spring coastal morning: deep harbour blue, pale sand light, a restrained signal-coral glint, slight salt haze, delicate 35mm grain, tactile timber and water. The chapter idea is Read the other coast: intelligent, contemplative, literary, and distinctly Western Port rather than generic luxury travel. Use the leading lines to draw the eye into a calm horizon. Keep generous clean sky and upper-left negative space for later typography. No people, no books, no added boats beyond plausible distant craft, no invented structures, no signs, no text, no letters, no logo, no border, no watermark. Photographic realism with high-end editorial art direction. Avoid fantasy, HDR, neon, oversaturation, symmetry glitches, or postcard cliche."
+    },
+    {
+      "chapter": "w3",
+      "input": "assets/references/w3-st-andrews-beach-footprints.jpg",
+      "output": "assets/masters/w3-keep-weekend-master.jpg",
+      "prompt": "Create a world-class vertical editorial campaign photograph using the supplied Mornington Peninsula beach-footprints image as the material and compositional reference. Preserve the believable wet-sand texture, curving shoreline rhythm, and the human trace of one walked path without showing any person. Reframe it for a contemporary spring campaign chapter called Keep the weekend: a quietly optimistic sequence of footprints crossing soft morning light, with a very small natural scatter of pale native petals and wind-shaped dune texture as a symbolic bridge between Saturday's community walk and Sunday's garden visit. Palette: warm sand, misted harbour blue, chalk white, and only a restrained coral accent. Tactile 35mm grain, subtle depth, natural imperfections, editorial not commercial-stock. Keep broad uncluttered negative space in the upper-right for later typography. No visible feet or people, no identifiable event or venue claim, no signage, no text, no letters, no logo, no border, no watermark. Photographic realism; avoid fantasy, excessive sepia, staged romance, glossy advertising, or impossible botany."
+    },
+    {
+      "chapter": "w4",
+      "input": "assets/references/w4-point-nepean-coast.jpg",
+      "output": "assets/masters/w4-long-finish-master.jpg",
+      "prompt": "Create a world-class vertical editorial campaign photograph using the supplied Point Nepean coast image as a strict geographic anchor. Preserve the real coastal shelf, cliff rhythm, ocean horizon, native scrub, and Southern Ocean force. Reinterpret the scene into a cinematic late-spring frame for the chapter The long finish: long bands of surf read like measured distance, rugged coast folds into the frame, with cool harbour-blue water, chalk foam, warm sand rock, and a subtle coral edge in late light. The feeling is endurance, scale, and earned calm after 35 kilometres, without depicting an event that was not photographed. Tactile film grain, controlled long-exposure energy in the water, crisp land detail, premium magazine art direction. Leave clean upper-left sky and water space for later typography. No runners, no crowds, no route markers, no added buildings, no invented landmarks, no text, no letters, no logo, no border, no watermark. Photographic realism; avoid fantasy, HDR, neon, oversaturation, or tourism-poster cliche."
+    }
+  ],
+  "motionTreatments": [
+    {
+      "chapter": "w1",
+      "output": "assets/motion/w1-one-more-hour-motion.mp4",
+      "method": "Deterministic slow camera move from the approved master",
+      "reason": "The Higgsfield output was rejected for visible cyan banding."
+    },
+    {
+      "chapter": "w2",
+      "output": "assets/motion/w2-read-other-coast-motion.mp4",
+      "method": "Seedance 2.0 image-to-video",
+      "prompt": "Locked centred camera with a very slow glide along the pier, natural water ripple, almost imperceptible boat movement and salt haze. Preserve every rail, walkway and horizon line. No people, text, logo, morphing, rail wobble or flicker. Silent.",
+      "delivery": "1080x1920, 7 seconds"
+    },
+    {
+      "chapter": "w3",
+      "output": "assets/motion/w3-keep-weekend-motion.mp4",
+      "method": "Seedance 2.0 image-to-video",
+      "prompt": "Locked low camera with an almost imperceptible forward drift following the footprints. A shallow wave and a few petals move naturally. Keep every footprint stable. Add no feet, people, objects, text, logo, morphing or flicker. Silent.",
+      "delivery": "1080x1920, 7 seconds"
+    },
+    {
+      "chapter": "w4",
+      "output": "assets/motion/w4-long-finish-motion-review-720p.mp4",
+      "method": "Seedance 2.0 image-to-video",
+      "prompt": "Very slow controlled push toward the coastline, natural surf movement, soft cloud shadow and slight scrub movement. Preserve cliff, beach, rock shelf and horizon geometry. Add no runners, people, boats, structures, text, logo, morphing or flicker. Silent.",
+      "delivery": "720x1280, 6 seconds, review master",
+      "remainingGate": "Rerender at 1080x1920 before external use."
+    }
+  ]
+}

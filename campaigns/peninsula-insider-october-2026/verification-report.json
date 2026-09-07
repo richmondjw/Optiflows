@@ -1,35 +1,49 @@
 {
-  "status": "pass",
+  "status": "pass_with_release_gates",
   "checked_at": "2026-09-07 Australia/Sydney",
-  "environment": "local release candidate",
+  "environment": "local private-review release candidate",
+  "scope": "OptiFlows campaign review pack only",
   "passes": [
-    "Fresh session presents the OptiFlows password gate",
-    "Review page returns HTTP 200",
-    "Campaign index links to the October review page",
-    "Campaign index reports three active review campaigns",
-    "Review page declares noindex and nofollow controls",
+    "Fresh browser session presents the OptiFlows password gate",
+    "Review page returns HTTP 200 and declares noindex, nofollow, noarchive, nosnippet and noimageindex",
+    "Campaign index links to the October production pack",
     "Four editorial chapters are present",
-    "Four actual-photography direction studies are present",
-    "All referenced images reopen and render",
+    "Four licensed reference photographs and four AI-assisted text-free masters are present",
+    "Twelve deterministic branded still exports are present",
+    "Feed exports are 1080 by 1350 pixels",
+    "Story and Reel cover exports are 1080 by 1920 pixels",
+    "Website and email exports are 1600 by 900 pixels",
+    "Four silent H.264 motion files are present and metadata-ready",
+    "Every one of the 24 production media files has a unique SHA-256 hash",
+    "All 29 page images load successfully",
+    "All 34 internal page and download targets return HTTP 200",
+    "Twelve asset-library cards and four playable motion cards are present",
     "Nine proposed calendar entries are present",
-    "Week filters work",
-    "Channel filters work",
-    "Email filter returns three entries",
+    "Asset and calendar filters work",
+    "Four website activation studies are present",
     "Desktop and mobile activation views switch correctly",
-    "Device controls expose the correct accessibility state",
-    "Research brief, calendar CSV and provenance JSON reopen",
-    "Creative provenance records four photographs",
     "Desktop horizontal overflow is zero",
     "Mobile horizontal overflow is zero",
-    "No operational release control is exposed"
+    "Browser console contains no errors",
+    "No operational scheduling, publishing or production-release control is exposed"
   ],
-  "failures": [],
+  "expected_browser_behaviour": [
+    "Headless Chrome aborts open MP4 range requests when the QA page closes; each video still loads metadata and every direct HTTP HEAD check returns 200"
+  ],
   "counts": {
+    "licensed_references": 4,
+    "ai_assisted_masters": 4,
+    "feed_exports": 4,
+    "story_exports": 4,
+    "wide_exports": 4,
+    "motion_exports": 4,
+    "production_media_assets": 24,
+    "asset_library_cards": 12,
     "editorial_chapters": 4,
-    "photography_studies": 4,
+    "activation_studies": 4,
     "calendar_entries": 9,
-    "provenance_records": 4,
-    "email_calendar_entries": 3
+    "copy_deck_rows": 12,
+    "internal_targets_checked": 34
   },
   "viewport_checks": {
     "desktop": {
@@ -41,5 +55,16 @@
       "horizontal_overflow": 0
     }
   },
-  "boundary": "Review artefacts only; no editorial acceptance or external campaign release is implied."
+  "release_gates": [
+    "Run a 72-hour source readback before using dated event language",
+    "Confirm Coolart access or publish the Western Port fallback",
+    "Confirm Chapter 03 booking and Chapter 04 route and hospitality inventory",
+    "Rerender Chapter 04 motion at 1080 by 1920 pixels before external use"
+  ],
+  "quality_decisions": [
+    "Rejected the first Chapter 01 generated video because it contained visible cyan banding",
+    "Published a deterministic 1080 by 1920 slow camera treatment for Chapter 01 review instead",
+    "Accepted Chapter 04 motion for private review at 720 by 1280 pixels only"
+  ],
+  "boundary": "The OptiFlows pack is review-ready. No Peninsula Insider site, newsletter, social channel or campaign schedule has been changed."
 }

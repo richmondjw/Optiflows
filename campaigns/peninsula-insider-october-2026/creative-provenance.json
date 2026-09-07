@@ -2,71 +2,146 @@
   "campaign": "Peninsula Insider October 2026",
   "workingTitle": "October, in long form",
   "publicLine": "One more hour. Use it well.",
-  "status": "review-only",
+  "version": "production-review-v2",
+  "status": "private-review",
   "observedAt": "2026-09-07",
   "publicationAuthority": "none",
-  "photographyPolicy": {
-    "namedPlaces": "Actual rights-cleared photography only",
-    "namedEvents": "Organiser-cleared or commissioned photography only",
-    "abstractDetails": "Permitted when photographed at the real location and accurately labelled",
-    "generativeImagery": "No generated reconstruction of a real place, venue, crowd or person",
-    "searchAndScraping": "Reference and research only"
+  "externalCampaignReleased": false,
+  "productionSystem": {
+    "referenceResearch": "Wikimedia Commons and Openverse were searched; exact Commons source pages govern the four selected inputs.",
+    "stillGeneration": "Higgsfield Nano Banana Pro, 2K, 4:5, one licensed source reference per chapter.",
+    "motionGeneration": "Higgsfield Seedance 2.0 for chapters 2 to 4; deterministic still-derived motion for chapter 1 after generated output failed QA.",
+    "brandFinishing": "Deterministic HTML and CSS using the PI icon, Sora, Figtree and fixed campaign copy.",
+    "channelExports": "Four 1080x1350 feed JPGs, four 1080x1920 story JPGs and four 1600x900 wide JPGs."
   },
-  "assets": [
+  "photographyPolicy": {
+    "documentaryTruth": "Only the source references are documentary photographs.",
+    "generatedMasters": "Illustrative, AI-assisted campaign adaptations anchored to the named source frame.",
+    "namedEventsAndPeople": "No generated event crowd, participant or identifiable person is represented as real.",
+    "typographyAndBrand": "Never generated; always applied from controlled local source.",
+    "commercialBenchmarks": "Viewed for aesthetic research only; not downloaded into the pack or supplied to the generation model.",
+    "release": "No asset is scheduled or released externally by this pack publication."
+  },
+  "references": [
     {
-      "file": "assets/photos/long-light-sorrento.webp",
-      "role": "Week 1 direction study",
-      "depicts": "Sorrento water and moored boats",
-      "sourceFile": "Peninsula Insider /images/sourced/place-sorrento-01.webp",
-      "creator": "Alan Travers",
-      "license": "CC0",
-      "original": "https://commons.wikimedia.org/wiki/File:Bright_morning_Sorrento_Victoria_(51527287664).jpg",
-      "transform": "Copied unchanged; CSS crop and colour treatment only",
-      "finalMaster": false
+      "chapter": "w1",
+      "file": "assets/references/w1-cape-schanck-sunset.jpg",
+      "title": "Cape Schanck - sunset",
+      "depicts": "Cape Schanck lighthouse at sunset",
+      "creator": "Ali Khiran",
+      "captured": "2016-05-21",
+      "license": "CC BY-SA 4.0",
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Cape_Schanck_-_sunset.jpg",
+      "sourceDimensions": "6000x4000",
+      "packTransform": "Downscaled to 1800x1200 JPEG for review and generation provenance."
     },
     {
-      "file": "assets/photos/western-port-flinders.webp",
-      "role": "Week 2 Western Port direction study",
-      "depicts": "Flinders Pier and Western Port water; not Coolart",
-      "sourceFile": "Peninsula Insider /images/sourced/place-flinders-01.webp",
+      "chapter": "w2",
+      "file": "assets/references/w2-flinders-pier.jpg",
+      "title": "Flinders Pier 2nd Jul 2019 2 of 4",
+      "depicts": "Flinders Pier",
       "creator": "Daniel Kabel",
+      "captured": "2019-07-02",
       "license": "CC BY-SA 4.0",
-      "original": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_1_of_4.jpg",
-      "transform": "Copied unchanged; CSS crop and colour treatment only",
-      "finalMaster": false
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Flinders_Pier_2nd_Jul_2019_2_of_4.jpg",
+      "sourceDimensions": "3456x4608",
+      "packTransform": "Downscaled to 1500x2000 JPEG for review and generation provenance."
     },
     {
-      "file": "assets/photos/mornington-bay.webp",
-      "role": "Week 3 Mornington direction study",
-      "depicts": "Mornington foreshore and bathing boxes",
-      "sourceFile": "Peninsula Insider /images/sourced/place-mornington-01.webp",
-      "creator": "Simon Yeo",
-      "license": "CC BY 2.0",
-      "original": "https://commons.wikimedia.org/wiki/File:Mornington,_Victoria_Bathing_boxes_1.jpg",
-      "transform": "Copied unchanged; CSS crop and colour treatment only",
-      "finalMaster": false
+      "chapter": "w3",
+      "file": "assets/references/w3-st-andrews-beach-footprints.jpg",
+      "title": "Footprints on the sand beach",
+      "depicts": "St Andrews Beach, Mornington Peninsula",
+      "creator": "Alex Wigan",
+      "captured": "2015-04-21",
+      "license": "CC0",
+      "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Footprints_on_the_sand_beach_(Unsplash).jpg",
+      "sourceDimensions": "6000x4000",
+      "packTransform": "Downscaled to 1800x1200 JPEG for review and generation provenance."
     },
     {
-      "file": "assets/photos/point-nepean-coast.webp",
-      "role": "Week 4 direction study",
-      "depicts": "Coastal scrub and ocean near Cheviot Hill at Point Nepean",
-      "sourceFile": "Peninsula Insider /images/sourced/place-point-nepean-01.webp",
+      "chapter": "w4",
+      "file": "assets/references/w4-point-nepean-coast.jpg",
+      "title": "Crashing waves on beach near Fort Pearce at Point Nepean in Portsea, Victoria",
+      "depicts": "Coast near Fort Pearce at Point Nepean",
       "creator": "Philip Mallis",
+      "captured": "2025-09-13",
       "license": "CC BY-SA 4.0",
-      "original": "https://commons.wikimedia.org/wiki/File:Looking_out_towards_the_waves_near_Cheviot_Hill_at_Point_Nepean_in_Portsea,_Victoria.jpg",
-      "transform": "Copied unchanged; CSS crop and colour treatment only",
-      "finalMaster": false
+      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Crashing_waves_on_beach_near_Fort_Pearce_at_Point_Nepean_in_Portsea,_Victoria.jpg",
+      "sourceDimensions": "6960x4640",
+      "packTransform": "Downscaled to 1800x1200 JPEG for review and generation provenance."
     }
   ],
-  "researchSources": [
-    "https://www.rba.gov.au/schedules-events/daylight-saving.html",
-    "https://www.vic.gov.au/school-term-dates-and-holidays-victoria",
-    "https://westernportwrites.com.au/program-2026/",
-    "https://www.parks.vic.gov.au/places-to-see/parks/coolart-historic-area",
-    "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
-    "https://www.morningtonrosegardens.com.au/high-tea/",
-    "https://www.bloodylongwalk.com.au/mornington-peninsula/",
-    "https://hhfestivals.com/",
-    "https://www.emuplainsmarket.com.au/"
+  "generatedMasters": [
+    {
+      "chapter": "w1",
+      "file": "assets/masters/w1-one-more-hour-master.jpg",
+      "parentReference": "assets/references/w1-cape-schanck-sunset.jpg",
+      "dimensions": "1856x2304",
+      "classification": "AI-assisted illustrative adaptation",
+      "licenseTreatment": "Treat image layer and composites as CC BY-SA 4.0 pending formal rights review."
+    },
+    {
+      "chapter": "w2",
+      "file": "assets/masters/w2-read-other-coast-master.jpg",
+      "parentReference": "assets/references/w2-flinders-pier.jpg",
+      "dimensions": "1856x2304",
+      "classification": "AI-assisted illustrative adaptation",
+      "licenseTreatment": "Treat image layer and composites as CC BY-SA 4.0 pending formal rights review."
+    },
+    {
+      "chapter": "w3",
+      "file": "assets/masters/w3-keep-weekend-master.jpg",
+      "parentReference": "assets/references/w3-st-andrews-beach-footprints.jpg",
+      "dimensions": "1856x2304",
+      "classification": "AI-assisted illustrative adaptation",
+      "licenseTreatment": "CC0 reference; retain attribution as good editorial practice."
+    },
+    {
+      "chapter": "w4",
+      "file": "assets/masters/w4-long-finish-master.jpg",
+      "parentReference": "assets/references/w4-point-nepean-coast.jpg",
+      "dimensions": "1856x2304",
+      "classification": "AI-assisted illustrative adaptation",
+      "licenseTreatment": "Treat image layer and composites as CC BY-SA 4.0 pending formal rights review."
+    }
+  ],
+  "motion": [
+    {
+      "chapter": "w1",
+      "file": "assets/motion/w1-one-more-hour-motion.mp4",
+      "dimensions": "1080x1920",
+      "durationSeconds": 7,
+      "method": "Deterministic still-derived slow camera move",
+      "qa": "Passed. Higgsfield alternative rejected for cyan banding."
+    },
+    {
+      "chapter": "w2",
+      "file": "assets/motion/w2-read-other-coast-motion.mp4",
+      "dimensions": "1080x1920",
+      "durationSeconds": 7,
+      "method": "Higgsfield Seedance 2.0",
+      "qa": "Passed sampled-frame and codec checks."
+    },
+    {
+      "chapter": "w3",
+      "file": "assets/motion/w3-keep-weekend-motion.mp4",
+      "dimensions": "1080x1920",
+      "durationSeconds": 7,
+      "method": "Higgsfield Seedance 2.0",
+      "qa": "Passed sampled-frame and codec checks."
+    },
+    {
+      "chapter": "w4",
+      "file": "assets/motion/w4-long-finish-motion-review-720p.mp4",
+      "dimensions": "720x1280",
+      "durationSeconds": 6,
+      "method": "Higgsfield Seedance 2.0",
+      "qa": "Visual and codec checks passed; 1080p rerender remains an external-release gate."
+    }
   ]
 }
