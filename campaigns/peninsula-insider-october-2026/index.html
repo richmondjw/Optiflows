@@ -59,6 +59,9 @@
     .gates{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.gate{padding:21px;border-top:4px solid var(--signal);border-radius:12px;background:var(--paper)}.gate small{color:var(--signal);font-size:7px;font-weight:700;letter-spacing:.11em;text-transform:uppercase}.gate h3{margin-top:12px;color:var(--deep);font-size:22px}.gate p{margin:9px 0 0;color:var(--muted);font-size:11px;line-height:1.55}.decision{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:28px;align-items:center;margin-top:24px;padding:clamp(32px,4vw,58px);border-radius:23px;background:var(--sand)}.decision h2{max-width:900px;color:var(--deep);font-size:clamp(44px,5vw,78px)}.decision p{max-width:850px;margin:17px 0 0;color:#4c5b60;font-size:14px;line-height:1.6}.decision-links{display:grid;gap:9px}.decision-links a{min-width:220px;padding:12px 16px;border:1px solid var(--deep);border-radius:999px;text-align:center;text-decoration:none;font-size:10px;font-weight:600}.decision-links a:first-child{background:var(--deep);color:#fff}
     footer{display:flex;justify-content:space-between;gap:20px;margin-top:25px;padding:21px 5px 0;border-top:1px solid var(--line);color:#68777c;font-size:9px;letter-spacing:.09em;text-transform:uppercase}
     .toast{position:fixed;right:20px;bottom:20px;z-index:80;transform:translateY(20px);padding:10px 14px;border-radius:999px;background:var(--deep);color:#fff;font-size:10px;opacity:0;pointer-events:none;transition:.2s}.toast.show{transform:translateY(0);opacity:1}
+    .scheduler-strip{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:center;margin:0 0 20px;padding:15px 17px;border:1px solid var(--line);border-radius:13px;background:linear-gradient(110deg,#fff,#eef4f3)}.scheduler-state{display:inline-flex;align-items:center;gap:8px;color:var(--deep);font:700 10px/1.2 Sora,Arial,sans-serif;letter-spacing:.06em;text-transform:uppercase}.scheduler-state:before{content:"";width:8px;height:8px;border-radius:50%;background:#9ca9aa;box-shadow:0 0 0 4px rgba(156,169,170,.14)}.scheduler-state[data-state="ready"]:before{background:#4f8b62;box-shadow:0 0 0 4px rgba(79,139,98,.14)}.scheduler-state[data-state="error"]:before{background:var(--signal);box-shadow:0 0 0 4px rgba(242,106,79,.14)}.scheduler-strip p{margin:0;color:var(--muted);font-size:10px;line-height:1.5}.asset-actions,.motion-actions{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:11px}.asset-actions a,.motion-actions a{margin-top:0}.schedule-button{display:inline-flex;align-items:center;justify-content:center;min-height:34px;padding:8px 12px;border:1px solid var(--deep);border-radius:999px;background:var(--deep);color:#fff;font-size:8px;font-weight:700;letter-spacing:.05em;cursor:pointer}.schedule-button:hover:not(:disabled){border-color:var(--signal);background:var(--signal)}.schedule-button:disabled{border-color:#b9c1c0;background:#d6dcda;color:#788483;cursor:not-allowed}.motion-actions .schedule-button{border-color:var(--sand);background:var(--sand);color:var(--deep)}.motion-actions .schedule-button:hover:not(:disabled){border-color:#fff;background:#fff}.motion-actions .schedule-button:disabled{border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.08);color:rgba(255,255,255,.45)}.channel-note{color:var(--muted);font-size:8px}.motion-actions .channel-note{color:rgba(255,255,255,.55)}
+    .scheduler-dialog{width:min(700px,calc(100% - 28px));max-height:calc(100vh - 28px);padding:0;overflow:auto;border:0;border-radius:22px;background:var(--chalk);color:var(--ink);box-shadow:0 30px 100px rgba(0,0,0,.38)}.scheduler-dialog::backdrop{background:rgba(7,28,43,.78);backdrop-filter:blur(7px)}.dialog-shell{position:relative;padding:clamp(24px,5vw,46px)}.dialog-close{position:absolute;right:18px;top:18px;width:36px;height:36px;border:1px solid var(--line);border-radius:50%;background:#fff;color:var(--deep);cursor:pointer}.dialog-shell h2{max-width:560px;margin:12px 45px 0 0;color:var(--deep);font-size:clamp(36px,6vw,58px)}.dialog-summary{margin:15px 0 0;color:var(--muted);font-size:12px}.target-list{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}.target-pill{padding:6px 9px;border-radius:999px;background:#e6eeed;color:var(--harbour);font-size:8px;font-weight:700;letter-spacing:.06em;text-transform:uppercase}.unlock-panel,.schedule-form{margin-top:24px;padding-top:23px;border-top:1px solid var(--line)}.form-grid{display:grid;grid-template-columns:1fr 150px;gap:13px}.field{display:grid;gap:7px}.field--full{grid-column:1/-1}.field span{color:var(--deep);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}.field input,.field select,.field textarea{width:100%;padding:12px 13px;border:1px solid #bdc8c6;border-radius:9px;background:#fff;color:var(--ink);font:12px/1.5 Figtree,Arial,sans-serif}.field textarea{min-height:118px;resize:vertical}.field input:focus,.field select:focus,.field textarea:focus{outline:2px solid rgba(21,90,130,.24);border-color:var(--blue)}.gate-confirm{margin-top:15px;padding:15px;border-left:4px solid var(--signal);border-radius:8px;background:#fbede8}.gate-confirm strong{display:block;color:var(--deep);font:700 12px/1.3 Sora,Arial,sans-serif}.gate-confirm p{margin:7px 0 0;color:#5d696d;font-size:10px}.check-line{display:flex;gap:9px;align-items:flex-start;margin-top:13px;color:var(--deep);font-size:10px}.check-line input{margin-top:2px}.dialog-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:17px}.dialog-primary,.dialog-secondary{padding:11px 16px;border:1px solid var(--deep);border-radius:999px;font-size:9px;font-weight:700;letter-spacing:.06em;cursor:pointer}.dialog-primary{background:var(--deep);color:#fff}.dialog-primary:hover:not(:disabled){background:var(--signal);border-color:var(--signal)}.dialog-primary:disabled{opacity:.55;cursor:wait}.dialog-secondary{background:#fff;color:var(--deep)}.pairing-note{margin:11px 0 0;color:var(--muted);font-size:9px}.pairing-note a{color:var(--blue);font-weight:600}.dialog-result{margin-top:15px;padding:13px;border-radius:9px;background:#edf3ee;color:#31573b;font-size:10px;line-height:1.55}.dialog-result[data-state="error"]{background:#fbede8;color:#833d2b}.dialog-result:empty{display:none}
+    @media(max-width:620px){.scheduler-strip{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.field--full{grid-column:auto}.dialog-actions button{flex:1}.scheduler-dialog{max-height:calc(100vh - 12px)}}
     @media(max-width:1150px){.scoreboard{grid-template-columns:repeat(3,1fr)}.scoreboard div:first-child{grid-column:1/-1}.section-head{grid-template-columns:1fr}.method,.rights-grid,.motion-grid{grid-template-columns:repeat(2,1fr)}.chapter-body{grid-template-columns:1fr}.asset-grid{grid-template-columns:repeat(2,1fr)}.activation-grid{grid-template-columns:1fr}.activation[data-device="mobile"] .activation-grid{grid-template-columns:1fr}.gates{grid-template-columns:repeat(2,1fr)}}
     @media(max-width:760px){.shell{padding:12px 12px 48px}.topbar{top:5px}.review-state{max-width:155px;font-size:7px}.hero{min-height:720px}.hero:before{background:linear-gradient(180deg,rgba(7,28,43,.18),rgba(7,28,43,.92) 70%)}.hero-content{width:100%;min-height:720px;padding:34px 24px}.scoreboard{grid-template-columns:repeat(2,1fr)}.method,.rights-grid,.motion-grid,.copy-grid,.gates{grid-template-columns:1fr}.chapter-visuals{grid-template-columns:1fr}.visual{min-height:340px}.asset-grid{grid-template-columns:1fr}.section{padding:27px 18px}.licence-rule,.decision{grid-template-columns:1fr}.site-nav{display:none}footer{flex-direction:column}}
     @media(max-width:480px){h1{font-size:62px}.hero-lede{font-size:18px}.brand{font-size:18px}.review-state{max-width:130px}.scoreboard{grid-template-columns:1fr 1fr}.fact-grid{grid-template-columns:1fr}.chapter-visuals{grid-template-columns:1fr}.visual{min-height:290px}.device-tools{justify-content:flex-start}}
@@ -151,16 +154,17 @@
       <section class="section" id="assets">
         <header class="section-head"><div><p class="eyebrow">Downloadable asset library</p><h2>Twelve finished stills.</h2></div><p>Each chapter has a feed asset for Instagram and Facebook, a Story and Reel cover with platform-safe zones, and a wide hero for the website and newsletter. Filter, inspect and download the actual files.</p></header>
         <div class="filters" role="group" aria-label="Filter assets"><button type="button" data-asset-filter="all" aria-pressed="true">All · 12</button><button type="button" data-asset-filter="feed" aria-pressed="false">Feed · 4</button><button type="button" data-asset-filter="story" aria-pressed="false">Story · 4</button><button type="button" data-asset-filter="wide" aria-pressed="false">Web / email · 4</button></div>
+        <div class="scheduler-strip"><span class="scheduler-state" id="scheduler-state" data-state="checking">Buffer connection · checking</span><p>Instagram and Facebook are the approved October social channels. LinkedIn is connected in Buffer but deliberately excluded from this campaign. Scheduling remains a deliberate human action and records the release check.</p></div>
         <div class="asset-grid" id="asset-grid"></div>
       </section>
 
       <section class="section section--deep" id="motion">
         <header class="section-head"><div><p class="eyebrow">Motion system</p><h2>Movement, not spectacle.</h2></div><p>Motion stays restrained: cloud, water, haze, petals and a slow camera move. Every clip is silent, H.264, vertical and web-optimised. Play the actual exports below.</p></header>
         <div class="motion-grid">
-          <article class="motion-card"><video muted loop playsinline controls preload="metadata" poster="assets/exports/story/pi-october-w1-one-more-hour-story-reel-cover-1080x1920.jpg"><source src="assets/motion/w1-one-more-hour-motion.mp4" type="video/mp4"></video><div class="motion-meta"><small>01 · 7 sec · 1080p</small><h3>Light held still</h3><p>Deterministic slow push from the approved 2K master after the generated clip failed banding QA.</p><a href="assets/motion/w1-one-more-hour-motion.mp4" download>Download MP4 &darr;</a></div></article>
-          <article class="motion-card"><video muted loop playsinline controls preload="metadata" poster="assets/exports/story/pi-october-w2-read-other-coast-story-reel-cover-1080x1920.jpg"><source src="assets/motion/w2-read-other-coast-motion.mp4" type="video/mp4"></video><div class="motion-meta"><small>02 · 7 sec · 1080p</small><h3>Pier as passage</h3><p>Subtle forward glide, calm water and haze. The rail geometry remains stable across the sampled frames.</p><a href="assets/motion/w2-read-other-coast-motion.mp4" download>Download MP4 &darr;</a></div></article>
-          <article class="motion-card"><video muted loop playsinline controls preload="metadata" poster="assets/exports/story/pi-october-w3-keep-the-weekend-story-reel-cover-1080x1920.jpg"><source src="assets/motion/w3-keep-weekend-motion.mp4" type="video/mp4"></video><div class="motion-meta"><small>03 · 7 sec · 1080p</small><h3>A path continues</h3><p>Small shoreline and petal movement, with no person or event scene generated.</p><a href="assets/motion/w3-keep-weekend-motion.mp4" download>Download MP4 &darr;</a></div></article>
-          <article class="motion-card"><video muted loop playsinline controls preload="metadata" poster="assets/exports/story/pi-october-w4-long-finish-story-reel-cover-1080x1920.jpg"><source src="assets/motion/w4-long-finish-motion-review-720p.mp4" type="video/mp4"></video><div class="motion-meta"><small>04 · 6 sec · 720p review</small><h3>Coast as distance</h3><p>Natural surf movement and a slow coastal push. One 1080p rerender remains before external release.</p><a href="assets/motion/w4-long-finish-motion-review-720p.mp4" download>Download review MP4 &darr;</a></div></article>
+          <article class="motion-card"><video muted loop playsinline controls preload="metadata" poster="assets/exports/story/pi-october-w1-one-more-hour-story-reel-cover-1080x1920.jpg"><source src="assets/motion/w1-one-more-hour-motion.mp4" type="video/mp4"></video><div class="motion-meta"><small>01 · 7 sec · 1080p</small><h3>Light held still</h3><p>Deterministic slow push from the approved 2K master after the generated clip failed banding QA.</p><div class="motion-actions"><a href="assets/motion/w1-one-more-hour-motion.mp4" download>Download MP4 &darr;</a><button class="schedule-button" type="button" data-schedule-id="w1-story-motion" disabled>Connect Buffer</button></div><span class="channel-note">Instagram Story · alternative to the still</span></div></article>
+          <article class="motion-card"><video muted loop playsinline controls preload="metadata" poster="assets/exports/story/pi-october-w2-read-other-coast-story-reel-cover-1080x1920.jpg"><source src="assets/motion/w2-read-other-coast-motion.mp4" type="video/mp4"></video><div class="motion-meta"><small>02 · 7 sec · 1080p</small><h3>Pier as passage</h3><p>Subtle forward glide, calm water and haze. The rail geometry remains stable across the sampled frames.</p><div class="motion-actions"><a href="assets/motion/w2-read-other-coast-motion.mp4" download>Download MP4 &darr;</a><button class="schedule-button" type="button" data-schedule-id="w2-story-motion" disabled>Connect Buffer</button></div><span class="channel-note">Instagram Story · alternative to the still</span></div></article>
+          <article class="motion-card"><video muted loop playsinline controls preload="metadata" poster="assets/exports/story/pi-october-w3-keep-the-weekend-story-reel-cover-1080x1920.jpg"><source src="assets/motion/w3-keep-weekend-motion.mp4" type="video/mp4"></video><div class="motion-meta"><small>03 · 7 sec · 1080p</small><h3>A path continues</h3><p>Small shoreline and petal movement, with no person or event scene generated.</p><div class="motion-actions"><a href="assets/motion/w3-keep-weekend-motion.mp4" download>Download MP4 &darr;</a><button class="schedule-button" type="button" data-schedule-id="w3-story-motion" disabled>Connect Buffer</button></div><span class="channel-note">Instagram Story · alternative to the still</span></div></article>
+          <article class="motion-card"><video muted loop playsinline controls preload="metadata" poster="assets/exports/story/pi-october-w4-long-finish-story-reel-cover-1080x1920.jpg"><source src="assets/motion/w4-long-finish-motion-review-720p.mp4" type="video/mp4"></video><div class="motion-meta"><small>04 · 6 sec · 720p review</small><h3>Coast as distance</h3><p>Natural surf movement and a slow coastal push. One 1080p rerender remains before external release.</p><div class="motion-actions"><a href="assets/motion/w4-long-finish-motion-review-720p.mp4" download>Download review MP4 &darr;</a><button class="schedule-button" type="button" data-schedule-id="w4-story-motion" disabled>1080p required</button></div><span class="channel-note">Instagram Story · hard-blocked from scheduling</span></div></article>
         </div>
         <p class="quality-note"><strong>QA decision:</strong> the first Chapter 01 Higgsfield video contained visible cyan bands and was rejected, not hidden. The published review asset is a clean still-derived motion treatment. Chapters 02 and 03 passed at 1080p; Chapter 04 passed visually at 720p but is not the final delivery resolution.</p>
       </section>
@@ -225,17 +229,43 @@
 
     <footer><span>Peninsula Insider · October 2026 production campaign pack</span><span>Private OptiFlows review · No external campaign release</span></footer>
   </div>
+  <dialog class="scheduler-dialog" id="scheduler-dialog" aria-labelledby="scheduler-title">
+    <div class="dialog-shell">
+      <button class="dialog-close" id="scheduler-close" type="button" aria-label="Close scheduling dialog">×</button>
+      <p class="eyebrow">Buffer scheduling</p>
+      <h2 id="scheduler-title">Schedule campaign asset</h2>
+      <p class="dialog-summary" id="scheduler-summary"></p>
+      <div class="target-list" id="scheduler-targets" aria-label="Target channels"></div>
+      <div class="unlock-panel" id="unlock-panel">
+        <label class="field"><span>Scheduler access code</span><input id="scheduler-passphrase" type="password" autocomplete="current-password" spellcheck="false"></label>
+        <div class="dialog-actions"><button class="dialog-primary" id="scheduler-unlock" type="button">Unlock scheduling</button></div>
+        <p class="pairing-note">First use on this computer: open the <a href="http://127.0.0.1:8020/buffer/v1/local-access" target="_blank" rel="noreferrer">local pairing page</a>, copy the code, then return here. The code and session never enter this page's source.</p>
+      </div>
+      <form class="schedule-form" id="schedule-form" hidden>
+        <div class="form-grid">
+          <label class="field"><span>Campaign date</span><select id="scheduler-date" required></select></label>
+          <label class="field"><span>Local time</span><input id="scheduler-time" type="time" required></label>
+          <label class="field field--full"><span>Caption</span><textarea id="scheduler-caption" maxlength="2200" required></textarea></label>
+        </div>
+        <div class="gate-confirm"><strong>Release check required</strong><p id="scheduler-gate"></p><label class="check-line"><input id="scheduler-confirm" type="checkbox" required><span>I confirm this check has been completed for the scheduled release.</span></label></div>
+        <label class="field" style="margin-top:13px"><span>Evidence note</span><input id="scheduler-evidence" type="text" minlength="8" placeholder="Source and time checked" required></label>
+        <div class="dialog-actions"><button class="dialog-primary" id="scheduler-submit" type="submit">Schedule to Buffer</button><button class="dialog-secondary" id="scheduler-lock" type="button">Lock session</button></div>
+      </form>
+      <div class="dialog-result" id="scheduler-result" role="status" aria-live="polite"></div>
+    </div>
+  </dialog>
   <div class="toast" role="status" aria-live="polite">Copied</div>
   <script>
+    const bufferApi="https://hooks.optiflows.com.au/buffer/v1";
     const assets=[
-      {week:"w1",chapter:"One more hour",format:"feed",label:"Instagram / Facebook feed",size:"1080 × 1350",file:"assets/exports/feed/pi-october-w1-one-more-hour-instagram-feed-1080x1350.jpg"},
-      {week:"w2",chapter:"Read the other coast",format:"feed",label:"Instagram / Facebook feed",size:"1080 × 1350",file:"assets/exports/feed/pi-october-w2-read-other-coast-instagram-feed-1080x1350.jpg"},
-      {week:"w3",chapter:"Keep the weekend",format:"feed",label:"Instagram / Facebook feed",size:"1080 × 1350",file:"assets/exports/feed/pi-october-w3-keep-the-weekend-instagram-feed-1080x1350.jpg"},
-      {week:"w4",chapter:"The long finish",format:"feed",label:"Instagram / Facebook feed",size:"1080 × 1350",file:"assets/exports/feed/pi-october-w4-long-finish-instagram-feed-1080x1350.jpg"},
-      {week:"w1",chapter:"One more hour",format:"story",label:"Story / Reel cover",size:"1080 × 1920",file:"assets/exports/story/pi-october-w1-one-more-hour-story-reel-cover-1080x1920.jpg"},
-      {week:"w2",chapter:"Read the other coast",format:"story",label:"Story / Reel cover",size:"1080 × 1920",file:"assets/exports/story/pi-october-w2-read-other-coast-story-reel-cover-1080x1920.jpg"},
-      {week:"w3",chapter:"Keep the weekend",format:"story",label:"Story / Reel cover",size:"1080 × 1920",file:"assets/exports/story/pi-october-w3-keep-the-weekend-story-reel-cover-1080x1920.jpg"},
-      {week:"w4",chapter:"The long finish",format:"story",label:"Story / Reel cover",size:"1080 × 1920",file:"assets/exports/story/pi-october-w4-long-finish-story-reel-cover-1080x1920.jpg"},
+      {week:"w1",chapter:"One more hour",format:"feed",label:"Instagram / Facebook feed",size:"1080 × 1350",file:"assets/exports/feed/pi-october-w1-one-more-hour-instagram-feed-1080x1350.jpg",scheduleId:"w1-feed"},
+      {week:"w2",chapter:"Read the other coast",format:"feed",label:"Instagram / Facebook feed",size:"1080 × 1350",file:"assets/exports/feed/pi-october-w2-read-other-coast-instagram-feed-1080x1350.jpg",scheduleId:"w2-feed"},
+      {week:"w3",chapter:"Keep the weekend",format:"feed",label:"Instagram / Facebook feed",size:"1080 × 1350",file:"assets/exports/feed/pi-october-w3-keep-the-weekend-instagram-feed-1080x1350.jpg",scheduleId:"w3-feed"},
+      {week:"w4",chapter:"The long finish",format:"feed",label:"Instagram / Facebook feed",size:"1080 × 1350",file:"assets/exports/feed/pi-october-w4-long-finish-instagram-feed-1080x1350.jpg",scheduleId:"w4-feed"},
+      {week:"w1",chapter:"One more hour",format:"story",label:"Story / Reel cover",size:"1080 × 1920",file:"assets/exports/story/pi-october-w1-one-more-hour-story-reel-cover-1080x1920.jpg",scheduleId:"w1-story-still"},
+      {week:"w2",chapter:"Read the other coast",format:"story",label:"Story / Reel cover",size:"1080 × 1920",file:"assets/exports/story/pi-october-w2-read-other-coast-story-reel-cover-1080x1920.jpg",scheduleId:"w2-story-still"},
+      {week:"w3",chapter:"Keep the weekend",format:"story",label:"Story / Reel cover",size:"1080 × 1920",file:"assets/exports/story/pi-october-w3-keep-the-weekend-story-reel-cover-1080x1920.jpg",scheduleId:"w3-story-still"},
+      {week:"w4",chapter:"The long finish",format:"story",label:"Story / Reel cover",size:"1080 × 1920",file:"assets/exports/story/pi-october-w4-long-finish-story-reel-cover-1080x1920.jpg",scheduleId:"w4-story-still"},
       {week:"w1",chapter:"One more hour",format:"wide",label:"Website / email hero",size:"1600 × 900",file:"assets/exports/wide/pi-october-w1-one-more-hour-web-email-hero-1600x900.jpg"},
       {week:"w2",chapter:"Read the other coast",format:"wide",label:"Website / email hero",size:"1600 × 900",file:"assets/exports/wide/pi-october-w2-read-other-coast-web-email-hero-1600x900.jpg"},
       {week:"w3",chapter:"Keep the weekend",format:"wide",label:"Website / email hero",size:"1600 × 900",file:"assets/exports/wide/pi-october-w3-keep-the-weekend-web-email-hero-1600x900.jpg"},
@@ -244,7 +274,8 @@
     const grid=document.getElementById("asset-grid");
     assets.forEach(function(asset){
       const card=document.createElement("article");card.className="asset-card";card.dataset.format=asset.format;
-      card.innerHTML='<img src="'+asset.file+'" alt="'+asset.chapter+' '+asset.label+'"><div class="asset-meta"><small>'+asset.week.toUpperCase()+' · '+asset.format+'</small><h3>'+asset.chapter+'</h3><p>'+asset.label+' · '+asset.size+'</p><a href="'+asset.file+'" download>Download asset &darr;</a></div>';
+      const scheduleAction=asset.scheduleId?'<button class="schedule-button" type="button" data-schedule-id="'+asset.scheduleId+'" disabled>Connect Buffer</button>':'<span class="channel-note">Website / email only</span>';
+      card.innerHTML='<img src="'+asset.file+'" alt="'+asset.chapter+' '+asset.label+'"><div class="asset-meta"><small>'+asset.week.toUpperCase()+' · '+asset.format+'</small><h3>'+asset.chapter+'</h3><p>'+asset.label+' · '+asset.size+'</p><div class="asset-actions"><a href="'+asset.file+'" download>Download asset &darr;</a>'+scheduleAction+'</div></div>';
       grid.appendChild(card);
     });
     document.querySelectorAll("[data-asset-filter]").forEach(function(button){button.addEventListener("click",function(){const filter=button.dataset.assetFilter;document.querySelectorAll("[data-asset-filter]").forEach(function(item){item.setAttribute("aria-pressed",String(item===button))});document.querySelectorAll(".asset-card").forEach(function(card){card.hidden=filter!=="all"&&card.dataset.format!==filter})})});
@@ -252,6 +283,79 @@
     document.querySelectorAll("[data-device]").forEach(function(button){button.addEventListener("click",function(){const device=button.dataset.device;document.querySelector(".activation").dataset.device=device;document.querySelectorAll("[data-device]").forEach(function(item){item.setAttribute("aria-pressed",String(item===button))})})});
     const toast=document.querySelector(".toast");
     document.querySelectorAll(".copy-button").forEach(function(button){button.addEventListener("click",async function(){const text=button.parentElement.querySelector("p").innerText;try{await navigator.clipboard.writeText(text);toast.textContent="Copied"}catch(error){toast.textContent="Select and copy manually"}toast.classList.add("show");setTimeout(function(){toast.classList.remove("show")},1400)})});
+    const schedulerState=document.getElementById("scheduler-state");
+    const schedulerDialog=document.getElementById("scheduler-dialog");
+    const unlockPanel=document.getElementById("unlock-panel");
+    const scheduleForm=document.getElementById("schedule-form");
+    const schedulerResult=document.getElementById("scheduler-result");
+    const schedulerItems=new Map();
+    let activeScheduleItem=null;
+    let schedulerToken=sessionStorage.getItem("pi-buffer-scheduler-session")||"";
+    function channelLabel(target){if(target.service==="facebook")return "Facebook feed";if(target.postType==="story")return "Instagram Story";if(target.postType==="reel")return "Instagram Reel";return "Instagram feed"}
+    function showSchedulerResult(message,state){schedulerResult.textContent=message;schedulerResult.dataset.state=state||"ok"}
+    async function bufferRequest(path,options){
+      const response=await fetch(bufferApi+path,options||{});
+      let payload={};try{payload=await response.json()}catch(error){payload={message:"The scheduling service returned an unreadable response."}}
+      if(!response.ok||(payload.ok===false&&response.status!==207)){const requestError=new Error(payload.message||"Buffer scheduling request failed.");requestError.status=response.status;requestError.payload=payload;throw requestError}
+      return payload;
+    }
+    function renderScheduleForm(item){
+      document.getElementById("scheduler-title").textContent=item.chapter;
+      document.getElementById("scheduler-summary").textContent=item.label+" · Australia/Melbourne";
+      document.getElementById("scheduler-targets").innerHTML=item.targets.map(function(target){return '<span class="target-pill">'+channelLabel(target)+'</span>'}).join("");
+      const dateSelect=document.getElementById("scheduler-date");dateSelect.innerHTML="";
+      item.allowedDates.forEach(function(value){const option=document.createElement("option");option.value=value;option.textContent=new Intl.DateTimeFormat("en-AU",{dateStyle:"full",timeZone:"Australia/Melbourne"}).format(new Date(value+"T12:00:00+10:00"));dateSelect.appendChild(option)});
+      document.getElementById("scheduler-time").value=item.defaultTime;
+      document.getElementById("scheduler-caption").value=item.caption;
+      document.getElementById("scheduler-gate").textContent=item.gate;
+      document.getElementById("scheduler-confirm").checked=false;
+      document.getElementById("scheduler-evidence").value="";
+      schedulerResult.textContent="";
+      unlockPanel.hidden=Boolean(schedulerToken);
+      scheduleForm.hidden=!schedulerToken;
+    }
+    function openScheduler(itemId){const item=schedulerItems.get(itemId);if(!item||item.hardBlocked)return;activeScheduleItem=item;renderScheduleForm(item);schedulerDialog.showModal();if(!schedulerToken)document.getElementById("scheduler-passphrase").focus()}
+    function wireScheduleButtons(){
+      document.querySelectorAll("[data-schedule-id]").forEach(function(button){
+        const item=schedulerItems.get(button.dataset.scheduleId);
+        if(!item){button.disabled=true;button.textContent="Unavailable";return}
+        if(item.hardBlocked){button.disabled=true;button.textContent="1080p required";button.title=item.blockedReason;return}
+        button.disabled=false;button.textContent="Schedule to Buffer";if(button.dataset.schedulerWired!=="true"){button.dataset.schedulerWired="true";button.addEventListener("click",function(){openScheduler(button.dataset.scheduleId)})}
+      });
+    }
+    async function connectScheduler(){
+      try{
+        const results=await Promise.all([bufferRequest("/health"),bufferRequest("/catalog")]);
+        const health=results[0],catalog=results[1];catalog.items.forEach(function(item){schedulerItems.set(item.id,item)});wireScheduleButtons();
+        const paused=Object.values(health.channels).some(function(channel){return channel.queuePaused});
+        schedulerState.dataset.state=paused?"error":"ready";schedulerState.textContent=paused?"Buffer connected · queue paused":"Buffer connected · ready";
+      }catch(error){schedulerState.dataset.state="error";schedulerState.textContent="Buffer connection · unavailable";document.querySelectorAll("[data-schedule-id]").forEach(function(button){button.disabled=true;button.textContent="Buffer unavailable"})}
+    }
+    document.getElementById("scheduler-close").addEventListener("click",function(){schedulerDialog.close()});
+    schedulerDialog.addEventListener("click",function(event){if(event.target===schedulerDialog)schedulerDialog.close()});
+    document.getElementById("scheduler-unlock").addEventListener("click",async function(){
+      const button=this,passphrase=document.getElementById("scheduler-passphrase");button.disabled=true;button.textContent="Unlocking";showSchedulerResult("","");
+      try{const payload=await bufferRequest("/session",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({passphrase:passphrase.value})});schedulerToken=payload.token;sessionStorage.setItem("pi-buffer-scheduler-session",schedulerToken);passphrase.value="";unlockPanel.hidden=true;scheduleForm.hidden=false;showSchedulerResult("Scheduling unlocked for this browser session.","ok")}
+      catch(error){showSchedulerResult(error.message,"error")}
+      finally{button.disabled=false;button.textContent="Unlock scheduling"}
+    });
+    document.getElementById("scheduler-lock").addEventListener("click",function(){schedulerToken="";sessionStorage.removeItem("pi-buffer-scheduler-session");scheduleForm.hidden=true;unlockPanel.hidden=false;showSchedulerResult("Scheduling session locked.","ok")});
+    scheduleForm.addEventListener("submit",async function(event){
+      event.preventDefault();if(!activeScheduleItem)return;
+      const button=document.getElementById("scheduler-submit");button.disabled=true;button.textContent="Scheduling";showSchedulerResult("Creating the registered Buffer post. Do not click again.","ok");
+      const payload={assetId:activeScheduleItem.id,localDate:document.getElementById("scheduler-date").value,localTime:document.getElementById("scheduler-time").value,caption:document.getElementById("scheduler-caption").value,releaseGate:{confirmed:document.getElementById("scheduler-confirm").checked,evidence:document.getElementById("scheduler-evidence").value}};
+      try{
+        const result=await bufferRequest("/schedule",{method:"POST",headers:{"Authorization":"Bearer "+schedulerToken,"Content-Type":"application/json"},body:JSON.stringify(payload)});
+        const scheduled=result.results.filter(function(row){return row.status==="scheduled"}).map(function(row){return row.service});
+        const existing=result.results.filter(function(row){return row.status==="already_scheduled"}).map(function(row){return row.service});
+        const failed=result.results.filter(function(row){return row.status==="failed"||row.status==="pending"}).map(function(row){return row.service+": "+(row.message||row.status)});
+        const alternate=result.results.find(function(row){return row.scheduledAssetId&&row.scheduledAssetId!==activeScheduleItem.id});
+        const parts=[];if(scheduled.length)parts.push("Scheduled: "+scheduled.join(", "));if(existing.length)parts.push(alternate?"This Story slot already uses its alternate asset":"Already scheduled: "+existing.join(", "));if(failed.length)parts.push("Needs retry: "+failed.join(", "));showSchedulerResult(parts.join(". ")+". Buffer receipt recorded.",failed.length?"error":"ok");
+        if(!failed.length){document.querySelectorAll("[data-schedule-id]").forEach(function(itemButton){const item=schedulerItems.get(itemButton.dataset.scheduleId);if(item&&item.exclusiveGroup===activeScheduleItem.exclusiveGroup){itemButton.textContent=alternate?"Alternate already scheduled":"Scheduled in Buffer";itemButton.disabled=true}})}
+      }catch(error){if(error.status===401){schedulerToken="";sessionStorage.removeItem("pi-buffer-scheduler-session");scheduleForm.hidden=true;unlockPanel.hidden=false}showSchedulerResult(error.message,"error")}
+      finally{button.disabled=false;button.textContent="Schedule to Buffer"}
+    });
+    connectScheduler();
   </script>
 </body>
 </html>
