@@ -39,7 +39,7 @@
     .hero-lede{max-width:680px;margin:28px 0 0;color:rgba(255,255,255,.82);font-size:clamp(19px,1.6vw,25px);line-height:1.45}
     .hero-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:34px}.button{display:inline-flex;align-items:center;justify-content:center;gap:9px;padding:12px 16px;border:1px solid rgba(255,255,255,.32);border-radius:999px;color:#fff;font-size:10px;font-weight:600;letter-spacing:.08em;text-decoration:none;text-transform:uppercase}.button--primary{border-color:var(--sand);background:var(--sand);color:var(--deep)}
     .hero-note{margin:19px 0 0;color:rgba(255,255,255,.58);font-size:10px;letter-spacing:.06em}
-    .scoreboard{display:grid;grid-template-columns:1.25fr repeat(6,1fr);gap:1px;margin:16px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--line)}
+    .scoreboard{display:grid;grid-template-columns:1.25fr repeat(7,1fr);gap:1px;margin:16px 0 0;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:var(--line)}
     .scoreboard div{padding:17px 19px;background:var(--chalk)}.scoreboard strong{display:block;color:var(--deep);font:700 16px/1.2 Sora,Arial,sans-serif}.scoreboard b{display:block;color:var(--signal);font:700 28px/1 Sora,Arial,sans-serif}.scoreboard span,.scoreboard small{display:block;margin-top:5px;color:var(--muted);font-size:9px;letter-spacing:.08em}.scoreboard small{text-transform:uppercase}
     .jump{display:flex;flex-wrap:wrap;gap:8px;margin:20px 0 34px}.jump a,.filters button,.calendar-tools button,.device-tools button{padding:10px 14px;border:1px solid var(--line);border-radius:999px;background:var(--chalk);color:var(--deep);font-size:10px;font-weight:600;cursor:pointer;text-decoration:none}.jump a:hover,.filters button:hover,.calendar-tools button:hover,.device-tools button:hover{border-color:var(--blue)}
     .section{margin-top:24px;padding:clamp(28px,4vw,58px);border:1px solid var(--line);border-radius:24px;background:var(--chalk)}
@@ -67,6 +67,7 @@
     @media(max-width:480px){h1{font-size:62px}.hero-lede{font-size:18px}.brand{font-size:18px}.review-state{max-width:130px}.scoreboard{grid-template-columns:1fr 1fr}.fact-grid{grid-template-columns:1fr}.chapter-visuals{grid-template-columns:1fr}.visual{min-height:290px}.device-tools{justify-content:flex-start}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}.hero video{display:none}}
   </style>
+  <link rel="stylesheet" href="../pi-copy-studio.css?v=20260907a">
   <script defer src="/gate.js"></script>
 </head>
 <body>
@@ -96,12 +97,13 @@
         <div><b>04</b><small>2K masters</small></div>
         <div><b>12</b><small>channel stills</small></div>
         <div><b>04</b><small>motion studies</small></div>
+        <div><b>04</b><small>full email designs</small></div>
         <div><b>04</b><small>site touchpoints</small></div>
         <div><b>00</b><small>items scheduled</small></div>
       </div>
 
       <nav class="jump" aria-label="Campaign sections">
-        <a href="#method">Method</a><a href="#chapters">Four chapters</a><a href="#assets">Asset library</a><a href="#motion">Motion</a><a href="#copy">Copy deck</a><a href="#calendar">Calendar</a><a href="#activation">Website activation</a><a href="#rights">Rights</a><a href="#gates">Release gates</a>
+        <a href="#method">Method</a><a href="#chapters">Four chapters</a><a href="#assets">Asset library</a><a href="#motion">Motion</a><a href="#copy">Copy overview</a><a href="#emails">Email designs</a><a href="#production-copy">Full copy register</a><a href="#calendar">Calendar</a><a href="#activation">Website activation</a><a href="#rights">Rights</a><a href="#gates">Release gates</a>
       </nav>
 
       <section class="section" id="method">
@@ -170,15 +172,19 @@
       </section>
 
       <section class="section" id="copy">
-        <header class="section-head"><div><p class="eyebrow">Channel-ready copy deck</p><h2>One idea, adapted by context.</h2></div><p>The copy avoids identical cross-posting. Feed captions invite saving and sharing, email earns the click, and website language names the next decision. Event details remain subject to the release gates below.</p></header>
+        <header class="section-head"><div><p class="eyebrow">Channel copy overview</p><h2>One idea, adapted by context.</h2></div><p>The summaries below are the quick review layer. The new email studio and full production register carry complete bodies, Story frames, motion overlays, accessibility text, CTAs and release gates for every channel job.</p></header>
         <div class="copy-grid">
           <article class="copy-card"><small>Chapter 01 · Creative complete</small><h3>One more hour</h3><div class="copy-row"><b>Instagram / Facebook</b><p>October gives us one more hour. Use it well. We have mapped three after-five Peninsula plans, each with timing, access and a weather fallback. Save the guide for the first long evening.</p><button class="copy-button" type="button" aria-label="Copy Chapter 1 social caption">⧉</button></div><div class="copy-row"><b>Email</b><p>Subject: One more hour. Three ways to use it.<br>Preheader: Practical after-five plans for the first long October evening.</p><button class="copy-button" type="button" aria-label="Copy Chapter 1 email copy">⧉</button></div><div class="copy-row"><b>Website CTA</b><p>Open the October field guide</p><button class="copy-button" type="button" aria-label="Copy Chapter 1 website CTA">⧉</button></div></article>
           <article class="copy-card"><small>Chapter 02 · Venue language held</small><h3>Read the other coast</h3><div class="copy-row"><b>Instagram / Facebook</b><p>Western Port rewards a slower read. We are building a day around pages, water and a quieter horizon, with every access note checked before publication. Save this one for 9 to 11 October.</p><button class="copy-button" type="button" aria-label="Copy Chapter 2 social caption">⧉</button></div><div class="copy-row"><b>Email</b><p>Subject: Read the other coast.<br>Preheader: Your Western Port plan, with current access notes and a picnic fallback.</p><button class="copy-button" type="button" aria-label="Copy Chapter 2 email copy">⧉</button></div><div class="copy-row"><b>Website CTA</b><p>Plan a Western Port day</p><button class="copy-button" type="button" aria-label="Copy Chapter 2 website CTA">⧉</button></div></article>
           <article class="copy-card"><small>Chapter 03 · Final booking check</small><h3>Keep the weekend</h3><div class="copy-row"><b>Instagram / Facebook</b><p>Walk Saturday. Garden Sunday. Two separate reasons to keep the Mornington weekend, with current booking and access notes gathered in one useful plan.</p><button class="copy-button" type="button" aria-label="Copy Chapter 3 social caption">⧉</button></div><div class="copy-row"><b>Email</b><p>Subject: Keep the Mornington weekend.<br>Preheader: A community walk on Saturday, a garden plan on Sunday.</p><button class="copy-button" type="button" aria-label="Copy Chapter 3 email copy">⧉</button></div><div class="copy-row"><b>Website CTA</b><p>Build your weekend</p><button class="copy-button" type="button" aria-label="Copy Chapter 3 website CTA">⧉</button></div></article>
           <article class="copy-card"><small>Chapter 04 · Motion rerender held</small><h3>The long finish</h3><div class="copy-row"><b>Instagram / Facebook</b><p>Thirty-five kilometres of coast. Whether you are walking, supporting or simply curious, our route guide turns a very long day into a clear plan.</p><button class="copy-button" type="button" aria-label="Copy Chapter 4 social caption">⧉</button></div><div class="copy-row"><b>Email</b><p>Subject: Thirty-five kilometres of coast.<br>Preheader: The route, the support plan and what to know before 25 October.</p><button class="copy-button" type="button" aria-label="Copy Chapter 4 email copy">⧉</button></div><div class="copy-row"><b>Website CTA</b><p>Read the route guide</p><button class="copy-button" type="button" aria-label="Copy Chapter 4 website CTA">⧉</button></div></article>
         </div>
-        <p style="margin:16px 0 0"><a href="campaign-copy-deck.csv" download style="color:var(--blue);font-size:10px;font-weight:600">Download full copy, alt text and attribution CSV &darr;</a></p>
+        <p style="margin:16px 0 0"><a href="campaign-copy-deck.csv" download style="color:var(--blue);font-size:10px;font-weight:600">Download copy overview, alt text and attribution CSV &darr;</a></p>
       </section>
+
+      <div id="emails"></div>
+
+      <div id="production-copy"></div>
 
       <section class="section section--deep" id="calendar">
         <header class="section-head"><div><p class="eyebrow">Proposed calendar · Australia/Melbourne</p><h2>Nine deliberate drops.</h2></div><p>This is the activation sequence, not a schedule claim. Each event-led item gets a source read-back within 72 hours of release. Filters show where the work lands.</p></header>
@@ -255,6 +261,8 @@
     </div>
   </dialog>
   <div class="toast" role="status" aria-live="polite">Copied</div>
+  <script src="production-copy.js"></script>
+  <script src="../pi-copy-studio.js?v=20260907a"></script>
   <script>
     const bufferApi="https://hooks.optiflows.com.au/buffer/v1";
     const assets=[
@@ -356,6 +364,9 @@
       finally{button.disabled=false;button.textContent="Schedule to Buffer"}
     });
     connectScheduler();
+  </script>
+  <script>
+    PICopyStudio.mount({data:PI_OCTOBER_PRODUCTION,emailRoot:'emails',registerRoot:'production-copy'});
   </script>
 </body>
 </html>

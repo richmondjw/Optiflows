@@ -70,6 +70,7 @@
     @media(max-width:680px){.shell{padding:12px 12px 54px}.topbar{border-radius:12px;gap:9px 16px;flex-wrap:wrap}.brand{font-size:18px}.brand img{width:34px;height:34px}.status{max-width:200px;font-size:9px;letter-spacing:.07em;line-height:1.25}.status span{white-space:normal}.hero-copy{padding:36px 28px;min-height:530px}.hero-copy .kicker{font-size:10px;overflow-wrap:anywhere}.hero-copy h1{font-size:54px}.hero-copy p{font-size:19px}.meta-strip{left:28px;right:28px;bottom:30px}.hero-art{min-height:420px}.calendar{padding:27px 18px}.calendar-grid{grid-template-columns:minmax(0,1fr)}.calendar-summary{grid-template-columns:1fr}.calendar-summary div+div{border-left:0;border-top:1px solid rgba(253,252,250,.12)}.calendar-download{width:100%;margin-left:0;text-align:center}.release-lane,.journey{grid-template-columns:1fr 1fr}.activation{padding:27px 18px}.touchpoint-grid{grid-template-columns:minmax(0,1fr)}.motion-lab{padding:24px 18px}.motion-head{gap:14px}.week-head{grid-template-columns:minmax(0,1fr)}.week-head h2{font-size:38px}.week-head p{max-width:100%;font-size:16px;overflow-wrap:anywhere}.week-number{display:none}.info-grid,.evidence{grid-template-columns:minmax(0,1fr)}.feed-sequence,.story-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.copy-list{grid-template-columns:minmax(0,1fr)}.copy-panel{padding:24px}.hero-art .caption{display:block}.hero-art .caption span{display:block;margin-top:5px}}
     @media(max-width:460px){.status{width:100%;max-width:none;justify-content:flex-start;margin-left:44px}}
   </style>
+  <link rel="stylesheet" href="../pi-copy-studio.css?v=20260907a">
   <style>
     .activation-showcase{margin-top:42px;padding-top:38px;border-top:1px solid var(--line)}
     .activation-showcase__head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:22px}
@@ -160,7 +161,7 @@
         <h1>Spring is for decisions.</h1>
         <p>One useful Peninsula choice each week. Four commissions, twenty primary assets and one tactile Field Specimens visual system.</p>
         <div class="meta-strip">
-          <span class="pill">Direction B selected</span><span class="pill">20 primary assets</span><span class="pill">44 native compositions</span><span class="pill">Manuscript 1.2</span>
+          <span class="pill">Direction B selected</span><span class="pill">20 primary assets</span><span class="pill">44 native compositions</span><span class="pill">4 full email designs</span><span class="pill">Manuscript 1.2</span>
         </div>
       </div>
       <div class="hero-art">
@@ -175,6 +176,8 @@
       <button data-week="s2" aria-pressed="false">02 · Walk</button>
       <button data-week="s3" aria-pressed="false">03 · Holidays</button>
       <button data-week="s4" aria-pressed="false">04 · Reset</button>
+      <a class="pcs-nav-link" href="#email-studio">Email designs</a>
+      <a class="pcs-nav-link" href="#production-copy">Full copy register</a>
     </nav>
 
     <section class="calendar" aria-labelledby="calendar-title">
@@ -351,6 +354,8 @@
       <div class="activation-boundary"><strong>Build boundary</strong><span>These are review compositions grounded in the current live site and Harbour tokens, not Peninsula Insider production changes. Implement the anchor and homepage band first, then add the Insider Picks issue cabinet, What’s On and Saved/My Trip treatments only after route, expiry, analytics and rollback behaviour pass in an isolated branch.</span></div>
     </section>
 
+    <div id="email-studio"></div>
+
     <section class="motion-lab" aria-labelledby="motion-title">
       <header class="motion-head">
         <div><div class="kicker">MOTION STUDIES · REVIEW ONLY</div><h2 id="motion-title">Texture, not theatre.</h2></div>
@@ -362,19 +367,21 @@
             <video controls muted playsinline preload="metadata" poster="assets/masters/s4-reset-wide.webp"><source src="assets/motion/s4-reset-wide-seedance2.mp4" type="video/mp4"></video>
             <span class="motion-brand"><img src="assets/pi-site-icon.svg" alt=""><span>Peninsula <strong>Insider</strong></span></span>
           </div>
-          <figcaption class="motion-meta"><strong>Spring reset · 16:9 motion plate</strong><span>8 seconds · silent · review-only · deterministic information layer pending</span></figcaption>
+          <figcaption class="motion-meta"><strong>Spring reset · 16:9 motion plate</strong><span>8 seconds · silent · review-only · complete overlay copy in S4-MOTION</span></figcaption>
         </figure>
         <figure class="motion-card motion-card--story">
           <div class="motion-frame">
             <video controls muted playsinline preload="metadata" poster="assets/masters/s2-walk-story.webp"><source src="assets/motion/s2-walk-story-seedance2.mp4" type="video/mp4"></video>
             <span class="motion-brand"><img src="assets/pi-site-icon.svg" alt=""><span>Peninsula <strong>Insider</strong></span></span>
           </div>
-          <figcaption class="motion-meta"><strong>Choose your circuit · 9:16 motion plate</strong><span>8 seconds · silent · review-only · Story timing and copy pending</span></figcaption>
+          <figcaption class="motion-meta"><strong>Choose your circuit · 9:16 motion plate</strong><span>8 seconds · silent · review-only · complete overlay copy in S2-MOTION</span></figcaption>
         </figure>
       </div>
     </section>
 
     <div id="weeks"></div>
+
+    <div id="production-copy"></div>
 
     <section class="evidence">
       <article><h3>Confirmed</h3><ul><li>Direction B was selected on 6 September.</li><li>Eleven GPT Image 2 native masters plus the selected keyframe underpin the month.</li><li>Every displayed image is a local review export with deterministic copy.</li></ul></article>
@@ -385,6 +392,8 @@
     <footer class="footer"><span>Campaign source: manuscript revision 1.2 · 7 September 2026</span><span><a href="2026-09-06-four-week-spring-campaign-manuscript.md">Open full manuscript</a> · <a href="campaign-calendar.csv">Open calendar CSV</a> · <a href="creative-provenance.json">Open provenance</a></span></footer>
   </div>
   <script src="asset-data.js"></script>
+  <script src="production-copy.js"></script>
+  <script src="../pi-copy-studio.js?v=20260907a"></script>
   <script>
     const esc = value => String(value).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
     const weekDecision = {
@@ -448,6 +457,9 @@
     }
     document.querySelectorAll('[data-activation-view]').forEach(btn=>btn.addEventListener('click',()=>setActivationDevice(btn.dataset.activationView)));
     setActivationDevice(new URLSearchParams(location.search).get('activation')||'desktop');
+  </script>
+  <script>
+    PICopyStudio.mount({data:PI_SPRING_PRODUCTION,emailRoot:'email-studio',registerRoot:'production-copy'});
   </script>
 </body>
 </html>
