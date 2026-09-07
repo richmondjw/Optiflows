@@ -37,11 +37,11 @@ a{color:var(--mid)}
 .dark .pre,.cover .pre{color:var(--electric)}
 .mono{font-family:var(--mono);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--mid);line-height:1.2}
 .num{font-family:var(--mono);font-size:.75rem;letter-spacing:.05em;color:var(--mid)}
-.section-head{display:grid;grid-template-columns:auto 1fr;gap:16px 24px;align-items:baseline;margin-bottom:36px}
+.section-head{display:grid;grid-template-columns:32px minmax(0,1fr);gap:16px 20px;align-items:baseline;margin-bottom:0}
 .section-head .num{font-size:.85rem;padding-top:.35em}
 .section-head p{grid-column:2;color:var(--grey);font-size:1.05rem}
 .section-head h2{grid-column:2}
-.section-head.plain{grid-template-columns:1fr}
+.section-head.plain{grid-template-columns:minmax(0,1fr)}
 .section-head.plain h2,.section-head.plain p{grid-column:1}
 
 /* cover */
@@ -84,7 +84,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 @media (max-width:600px){td:first-child{width:40%}}
 
 /* process steps */
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:12px;counter-reset:step}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,240px),1fr));gap:12px;counter-reset:step}
 .step{background:var(--white);border-radius:var(--r);padding:24px;border:1px solid var(--line);display:flex;flex-direction:column;gap:10px;counter-increment:step}
 .step::before{content:"0" counter(step);font-family:var(--mono);font-size:.75rem;letter-spacing:.05em;color:var(--mid)}
 .step h3{font-size:1.15rem}
@@ -92,10 +92,10 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 
 /* list with markers */
 .marks{list-style:none;display:grid;gap:12px}
-.marks li{display:grid;grid-template-columns:7px 1fr;gap:14px;align-items:start;line-height:1.45}
-.marks li::before{content:"";width:7px;height:7px;background:var(--electric);margin-top:.55em}
+.marks li{display:block;position:relative;padding-left:21px;line-height:1.5;overflow-wrap:break-word}
+.marks li::before{content:"";position:absolute;left:0;top:.55em;width:7px;height:7px;background:var(--electric)}
 .mist .marks li::before,.paper .marks li::before{background:var(--mid)}
-.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px 40px}
+.two-col{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:20px 40px}
 
 /* callouts */
 .callout{border-radius:var(--r);padding:28px 32px;display:flex;flex-direction:column;gap:10px}
@@ -106,7 +106,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 .callout p{max-width:none}
 
 /* contrast pair */
-.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:16px}
+.pair{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:16px}
 .panel{border-radius:var(--r);padding:28px 30px;display:flex;flex-direction:column;gap:16px}
 .panel.in{background:var(--light-teal)}
 .panel.out{background:var(--paper)}
@@ -115,7 +115,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 .panel .marks{gap:10px;font-size:.98rem}
 
 /* timeline */
-.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}
+.timeline{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:12px}
 .phase{background:var(--white);border-radius:var(--r);padding:24px;display:flex;flex-direction:column;gap:12px;position:relative;overflow:hidden}
 .phase::after{content:"";position:absolute;left:0;right:0;top:0;height:4px;background:var(--mist)}
 .phase.live::after{background:var(--electric)}
@@ -147,7 +147,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 .btn[disabled]:hover::after{transform:none}
 
 /* approval form */
-.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px 20px}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px 20px}
 .field{display:flex;flex-direction:column;gap:8px}
 .field label{font-family:var(--mono);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--mid)}
 .field input[type=text],.field input[type=date]{font:inherit;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--white);color:var(--ink);min-height:52px;width:100%}
@@ -158,7 +158,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 .pad.invalid{border-color:var(--error)}
 .pad canvas{width:100%;height:100%;display:block;cursor:crosshair}
 .pad .base{position:absolute;left:24px;right:24px;bottom:48px;border-top:1px dashed var(--line);pointer-events:none}
-.pad .hint{position:absolute;left:24px;bottom:16px;color:var(--grey);font-size:.9rem;pointer-events:none;transition:opacity .3s var(--ease)}
+.pad .hint{position:absolute;left:24px;right:24px;bottom:16px;line-height:1.35;color:var(--grey);font-size:.9rem;pointer-events:none;transition:opacity .3s var(--ease)}
 .pad.inked .hint{opacity:0}
 .pad-tools{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
 .pad-tools .note{font-size:.9rem;color:var(--grey)}
@@ -278,6 +278,69 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 @media print{#approve{min-height:0;break-before:auto}.discovery{grid-template-columns:1fr 1fr}.section{break-before:page}.section-head{margin-bottom:0}.cover .meta{grid-template-columns:repeat(2,1fr)}.cover-top{padding-bottom:28mm}.cover h1{font-size:38pt}.print-acceptance dl{grid-template-columns:repeat(4,1fr)}p{orphans:3;widows:3}}
 
 [hidden]{display:none!important}.record{grid-template-columns:1fr}.record dl{grid-template-columns:90px minmax(0,1fr)}.record dd{overflow-wrap:anywhere}.record .sigbox img{max-width:100%}#approve .print-acceptance{margin-bottom:24px}@media print{#approve{break-before:page;min-height:297mm}.record{padding:7mm}.record dl{font-size:9pt}.print-only[hidden]{display:none!important}}
+
+/* Layout corrections: preserve inline prose and allow content to shrink. */
+.wrap > *,.meta > *,.tiles > *,.steps > *,.timeline > *,.pair > *,.form > *,.section-head > *,.record > *{min-width:0}
+.status-pill::before{flex:0 0 8px}
+.field input,.record dd{min-width:0}
+@media screen{
+  .section{padding:64px 0}
+  .stack-lg{gap:32px}
+  .cover h1{max-width:20ch;line-height:1.08}
+  .cover .sub{max-width:48ch;line-height:1.45}
+  .section-head p{line-height:1.5}
+  .timeline .phase{border:1px solid var(--line);background:var(--paper)}
+  .discovery .phase{background:var(--white)}
+  .phase p,.step p{line-height:1.55}
+  .marks strong{color:var(--dark)}
+  .marks{gap:18px}
+  .panel .marks{gap:12px}
+  .callout,.decision{padding:28px 32px}
+  .tbl th,.tbl td{overflow-wrap:break-word}
+}
+@media screen and (max-width:700px){
+  .cover-top{flex-wrap:wrap;padding-bottom:36px;gap:18px}
+  .meta{grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 20px}
+  .tiles{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .tiles .tile:last-child:nth-child(odd){grid-column:1/-1;min-height:96px}
+  .timeline:not(.discovery){grid-template-columns:minmax(0,1fr)}
+  .section-head{grid-template-columns:24px minmax(0,1fr);gap:12px 14px}
+  .section-head.plain{grid-template-columns:minmax(0,1fr)}
+}
+@media screen and (max-width:600px){
+  .wrap{padding:0 20px}
+  .section{padding:44px 0}
+  .stack-lg{gap:28px}
+  .cover{padding:28px 0 40px}
+  .cover h1{font-size:clamp(2.1rem,8.5vw,3rem);max-width:18ch}
+  .cover .sub{font-size:1.08rem}
+  .meta{margin-top:36px}
+  .tile{padding:20px 18px;min-height:112px}
+  .step,.phase,.panel{padding:24px}
+  .callout,.decision{padding:24px}
+  .form{grid-template-columns:minmax(0,1fr)}
+  .record{padding:24px}
+  .record dl{grid-template-columns:minmax(0,1fr);gap:4px}
+  .record dd{margin-bottom:12px}
+  .pad .hint{left:18px;right:18px;font-size:.85rem}
+  .tbl:has(td[data-label]) thead{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}
+  .tbl:has(td[data-label]) table,.tbl:has(td[data-label]) tbody,.tbl:has(td[data-label]) tr{display:block;width:100%}
+  .tbl:has(td[data-label]) tr{padding:18px 20px;border-bottom:1px solid var(--line)}
+  .tbl:has(td[data-label]) tr:last-child{border-bottom:0}
+  .tbl td[data-label]{display:block;width:100%;padding:0 0 14px;border:0}
+  .tbl td[data-label]:last-child{padding-bottom:0}
+  .tbl td[data-label]::before{content:attr(data-label);display:block;font-family:var(--mono);font-size:.66rem;letter-spacing:.04em;text-transform:uppercase;color:var(--mid);margin-bottom:5px}
+  .tbl:has(td[data-label]){overflow:visible}
+  th,td{padding:14px 16px}
+}
+@media print{
+  .marks li{display:block;padding-left:5mm}
+  .marks li::before{top:.5em}
+  .section-head{margin-bottom:0}
+  .cover h1{max-width:16ch}
+  .phase,.step,.panel,.callout,.decision{overflow:visible}
+  .record{overflow-wrap:anywhere}
+}
 </style></head><body>
 <header class="cover"><div class="wrap">
 <div class="cover-top"><a class="brand" href="https://www.optiflows.com.au/" aria-label="Optiflows">
@@ -354,7 +417,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 <div class="section-head"><span class="num">05</span><h2>Investment and next step</h2><p>Approve the first stage now. Price each subsequent stage against the evidence and agreed requirements.</p></div>
 <div class="callout dark"><span class="pre">First stage | Discovery</span><h3>A$14,400 ex GST. Fixed fee.</h3><p>A$7,200 on signing the separate Project Management Agreement, before kickoff. A$7,200 on acceptance of D1–D4. Invoices are payable within seven days; GST is added where applicable.</p><p>Pricing basis: 48 hours at A$300/hour, flexibly allocated across three delivery weeks. Extra effort needed to complete unchanged scope is not charged.</p></div>
 <p>Additional scope requires written approval at A$300/hour in 0.5-hour units, subject to a written cap. Software, API, hosting, specialist, travel and event costs are separate and need prior written approval. Existing client access is assumed; paid tests are quoted before commitment.</p>
-<div class="tbl"><table><thead><tr><th>Later stage</th><th>Indicative timing / effort</th><th>Fees, ex GST</th></tr></thead><tbody><tr><td>2. Proof of concept</td><td>3–4 weeks / 40–60 hours</td><td>A$12,000–18,000</td></tr><tr><td>3. Build and pilot</td><td>5–7 weeks / 80–120 hours</td><td>A$24,000–36,000</td></tr><tr><td>3. Launch and handover</td><td>2 weeks / 16–24 hours</td><td>A$4,800–7,200</td></tr></tbody></table></div>
+<div class="tbl"><table><thead><tr><th>Later stage</th><th>Indicative timing / effort</th><th>Fees, ex GST</th></tr></thead><tbody><tr><td data-label="Later stage">2. Proof of concept</td><td data-label="Indicative timing / effort">3–4 weeks / 40–60 hours</td><td data-label="Fees, ex GST">A$12,000–18,000</td></tr><tr><td data-label="Later stage">3. Build and pilot</td><td data-label="Indicative timing / effort">5–7 weeks / 80–120 hours</td><td data-label="Fees, ex GST">A$24,000–36,000</td></tr><tr><td data-label="Later stage">3. Launch and handover</td><td data-label="Indicative timing / effort">2 weeks / 16–24 hours</td><td data-label="Fees, ex GST">A$4,800–7,200</td></tr></tbody></table></div>
 <p><strong>Planning envelope including Discovery: A$55,200–75,600 over approximately 13–16 delivery weeks if consecutive.</strong> These are preliminary allowances, not an approved build budget. They exclude GST, third-party costs, specialists and event implementation. Asset readiness and technical findings may materially change them.</p>
 <p>A live pilot retains the manual process as a fallback. Launch includes training, editable assets and bespoke code, account and recovery documentation, a named internal owner and accepted operating instructions. Ongoing support is separately agreed.</p>
 <div class="callout teal"><span class="pre">To begin</span><p>Complete the Project Management Agreement, nominate the client lead and approver, select the historical job and confirm access. Agree kickoff once the commencement payment and required inputs are available. Delayed inputs or decisions move the schedule.</p></div>
