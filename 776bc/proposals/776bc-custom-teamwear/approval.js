@@ -1,8 +1,8 @@
 
 (function(){
   var ENDPOINT = 'https://formspree.io/f/meelyrkd';
-  var KEY = 'optiflows-proposal-776bc-teamwear-v1-5-approval';
-  var PROPOSAL = 'Custom Teamwear Discover and Design (776BC), 7 September 2026, v1.5';
+  var KEY = 'optiflows-proposal-776bc-teamwear-v1-6-approval';
+  var PROPOSAL = 'Custom Teamwear Workflow: Discover and Design (776BC), 7 September 2026, v1.6';
 
   var form = document.getElementById('approvalForm');
   var nameEl = document.getElementById('name');
@@ -96,7 +96,7 @@
     form.hidden = true;
     document.body.classList.add('is-approved');
     document.getElementById('statusText').textContent = 'Approval submitted ' + fmtDate(rec.date);
-    document.title = 'Custom Teamwear Discover and Design | Approval submitted';
+    document.title = 'Custom Teamwear Workflow: Discover and Design | Approval submitted';
   }
   try {
     var saved = localStorage.getItem(KEY);
@@ -125,7 +125,7 @@
     }
     var rec = pendingRecord || {
       record_id: crypto.randomUUID(),
-      proposal_version: '1.5',
+      proposal_version: '1.6',
       consent: CONSENT,
       scope: 'Three-week Discover and Design engagement, Outputs 1–4',
       fee_aud_ex_gst: 14400,
@@ -140,7 +140,7 @@
       approved_at: new Date().toISOString(),
       signature: exportSignature(),
       page: location.href,
-      _subject: 'PROPOSAL APPROVAL IN PRINCIPLE: Custom Teamwear Discover and Design signed by ' + name
+      _subject: 'PROPOSAL APPROVAL IN PRINCIPLE: Custom Teamwear Workflow: Discover and Design signed by ' + name
     };
     pendingRecord = rec;
     submitBtn.disabled = true;
