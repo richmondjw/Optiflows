@@ -114,10 +114,10 @@ text(KIT/'START-HERE.md','# Hybrid IoT publishing kit\n\nOnce release approval i
 
 def manifests():
     payload=dict(campaign_id=DATA['meta']['id'],source_copy_sha256=digest(BASE/'campaign-data.js'),status='exported_for_review_activation_held',source_urls='unverified',files=rows,exclusions=['No send-ready HTML email','No publication approval','No accessibility-tagged document PDFs','No live destination verification','Manifest files omit their own hashes'])
-    j=OUT/'publishing-manifest.json';j.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8')
+    j=OUT/'publishing-manifest.json';j.write_text(json.dumps(payload,ensure_ascii=False,indent=2)+'\n',encoding='utf-8',newline='\n')
     cols=list(dict.fromkeys(k for r in rows for k in r));p=OUT/'publishing-manifest.csv'
     with p.open('w',encoding='utf-8-sig',newline='') as f:
-        writer=csv.DictWriter(f,fieldnames=cols);writer.writeheader();writer.writerows(rows)
+        writer=csv.DictWriter(f,fieldnames=cols,lineterminator='\n');writer.writeheader();writer.writerows(rows)
     return j,p
 for w in DATA['weeks']:
     folder=KIT/'weeks'/w['id'];record(bundle(OUT/f"{w['id']}-publishing-kit.zip",folder.rglob('*'),folder),w['id'],'weekly ZIP')

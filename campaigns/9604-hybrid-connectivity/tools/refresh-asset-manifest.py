@@ -26,6 +26,6 @@ for file in sorted(root.rglob('*')):
 manifest.update(generatedAt=datetime.now(timezone.utc).isoformat(), files=rows,
                 totalFiles=len(rows), totalBytes=sum(row['bytes'] for row in rows),
                 counts=dict(Counter(row['category'] for row in rows)))
-manifest['exclusions'].append('downloads/verification/** visual QA working files')
+manifest['exclusions'] = list(dict.fromkeys(manifest['exclusions'] + ['downloads/verification/** visual QA working files']))
 target.write_text(json.dumps(manifest, indent=2)+'\n', encoding='utf-8', newline='\n')
 print(f'Refreshed {len(rows)} asset records')

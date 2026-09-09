@@ -1,14 +1,13 @@
 {
   "schemaVersion": "1.0",
   "campaignId": "9604-hybrid-iot-90-day-2026",
-  "generatedAt": "2026-09-09T15:44:54.846374+00:00",
+  "generatedAt": "2026-09-09T15:46:21.952009+00:00",
   "exclusions": [
     "tmp/**",
     "reference-only inputs retained outside the public release",
     "test render",
     "unused source video with audio",
     "asset-manifest.json self-hash",
-    "downloads/verification/** visual QA working files",
     "downloads/verification/** visual QA working files"
   ],
   "counts": {
@@ -24,7 +23,7 @@
     "production-tool": 9
   },
   "totalFiles": 353,
-  "totalBytes": 286316095,
+  "totalBytes": 286308505,
   "files": [
     {
       "file": ".gitattributes",
@@ -1140,8 +1139,8 @@
     {
       "file": "downloads/hybrid-iot-publishing-kit.zip",
       "category": "download",
-      "bytes": 79601316,
-      "sha256": "f960749e46d66498c992463c325d0ab78258bee6699048def11fd0c438a3a6cb",
+      "bytes": 79601274,
+      "sha256": "76df53522e5ea101f4850575292280ccf3e23dcd0aef7f7f2cac786865f97113",
       "dimensions": null
     },
     {
@@ -1987,15 +1986,15 @@
     {
       "file": "downloads/publishing-kit/publishing-manifest.csv",
       "category": "download",
-      "bytes": 124094,
-      "sha256": "52db95c6f4e3f731e0c2fafc0664d0a2700c191b07c8615c4fdfa88ea41a34af",
+      "bytes": 123866,
+      "sha256": "0dbbc986e72288edf0db97f332a24ad8e3c70ec79fd9bd3ca0719ca612b1e3a3",
       "dimensions": null
     },
     {
       "file": "downloads/publishing-kit/publishing-manifest.json",
       "category": "download",
-      "bytes": 199226,
-      "sha256": "4e5631e18eb95976b5be67f249e91dc8fc5c36275a488def5d7b37998f9abfef",
+      "bytes": 195650,
+      "sha256": "dd2f5c76aed00837e0282d754032544c2f23145ae651680e0668337e8ac33de5",
       "dimensions": null
     },
     {
@@ -2850,15 +2849,15 @@
     {
       "file": "downloads/publishing-manifest.csv",
       "category": "download",
-      "bytes": 124526,
-      "sha256": "cf8fe8b061d63bcd691e306f8285bfae2f4526fe2b3f7518aaf344c1b72280df",
+      "bytes": 124297,
+      "sha256": "730b7bed1a7e5d646b878a2373d89145e73baa3afa33c9eb34f8d790c87ce26a",
       "dimensions": null
     },
     {
       "file": "downloads/publishing-manifest.json",
       "category": "download",
-      "bytes": 199948,
-      "sha256": "560523912f5ec743c71e109f7ce0c6e508368eb6ffcb6502e2ba69115f0bf6a6",
+      "bytes": 196358,
+      "sha256": "19933dd8d7024a9ef29b026efb60aa3d27ae7d22f67109afb4496cb30e2c1e07",
       "dimensions": null
     },
     {
@@ -2983,8 +2982,8 @@
     {
       "file": "tools/build-publishing-kit.py",
       "category": "production-tool",
-      "bytes": 13499,
-      "sha256": "a1645eb5cda16929858dad7b83507c2dc01a53e88cf7d0d84c5423e17df20bd5",
+      "bytes": 13532,
+      "sha256": "33902907d36e95d157098e67dd5f3d6e2b3b7e612f81a7918fee1faa1aa35fd7",
       "dimensions": null
     },
     {
@@ -3018,8 +3017,8 @@
     {
       "file": "tools/refresh-asset-manifest.py",
       "category": "production-tool",
-      "bytes": 1661,
-      "sha256": "9866b632b1530671c7ad0f54c8b0772253758333831b6e006e7bfc8ca358d338",
+      "bytes": 1703,
+      "sha256": "9aecd0eaf995da7243be90aa60ce5591bfcdfb9323f96ec7df790363a7af17c5",
       "dimensions": null
     },
     {
