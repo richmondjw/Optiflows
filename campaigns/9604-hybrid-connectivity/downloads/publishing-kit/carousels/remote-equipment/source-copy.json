@@ -1,0 +1,30 @@
+{
+  "id": "remote-equipment",
+  "week": 7,
+  "title": "Remote equipment: design the exception path",
+  "audience": "Industrial and remote-operations teams",
+  "master": "w07-remote-equipment.png",
+  "slides": [
+    {
+      "headline": "What condition deserves attention now?",
+      "body": "Start with decisions—not dashboards or data volume."
+    },
+    {
+      "headline": "What can wait?",
+      "body": "Routine telemetry may retry or batch. Exceptions may need another path."
+    },
+    {
+      "headline": "What should the device do locally?",
+      "body": "Connectivity cannot replace safe local control and fault handling."
+    },
+    {
+      "headline": "How will operations read the state?",
+      "body": "Make delayed data, loss of link and genuine incidents distinguishable."
+    },
+    {
+      "headline": "Review the exception path",
+      "body": "Scope the architecture before the next remote failure or truck roll.",
+      "cta": "m2mone.com.au/hybrid-iot-readiness"
+    }
+  ]
+}

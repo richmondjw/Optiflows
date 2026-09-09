@@ -1,0 +1,21 @@
+{
+  "id": "e02",
+  "week": 2,
+  "segment": "Guide visitors and engaged prospects",
+  "subject": "What does one missed transmission cost?",
+  "preheader": "Prioritise the messages that change an operating decision.",
+  "headline": "Not every message is equal.",
+  "master": "w02-transmission-cost.png",
+  "cta": "Prioritise the message path",
+  "paragraphs": [
+    "Routine telemetry, threshold alerts, location exceptions and safety escalations do not carry the same operational consequence.",
+    "A stronger Hybrid IoT brief ranks those messages first. That ranking then informs payload size, reporting cadence, cellular retries, satellite escalation and the service assumptions that need testing.",
+    "Use the readiness guide to turn the cost of silence into a design input."
+  ],
+  "bullets": [
+    "Which messages trigger action?",
+    "How long can each message wait?",
+    "What needs acknowledgement?",
+    "What happens if neither path is available?"
+  ]
+}

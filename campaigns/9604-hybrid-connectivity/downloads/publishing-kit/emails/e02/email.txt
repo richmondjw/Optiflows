@@ -1,0 +1,17 @@
+SUBJECT: What does one missed transmission cost?
+PREHEADER: Prioritise the messages that change an operating decision.
+
+Not every message is equal.
+
+Routine telemetry, threshold alerts, location exceptions and safety escalations do not carry the same operational consequence.
+
+A stronger Hybrid IoT brief ranks those messages first. That ranking then informs payload size, reporting cadence, cellular retries, satellite escalation and the service assumptions that need testing.
+
+Use the readiness guide to turn the cost of silence into a design input.
+
+• Which messages trigger action?
+• How long can each message wait?
+• What needs acknowledgement?
+• What happens if neither path is available?
+
+Prioritise the message path

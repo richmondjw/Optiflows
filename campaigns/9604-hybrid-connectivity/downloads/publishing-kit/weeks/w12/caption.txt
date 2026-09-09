@@ -1,0 +1,7 @@
+If your device, asset or worker moves beyond dependable cellular coverage, the next step is not another generic connectivity claim. It is a scoped design conversation.
+
+Bring the operating map, message priorities, reporting cadence, power and antenna constraints, and the behaviour you need when the preferred network is unavailable. We can help you test whether a cellular-plus-satellite architecture is appropriate and identify the work needed before prototype or deployment.
+
+Start a Hybrid IoT design conversation: https://m2mone.com.au/hybrid-iot-readiness/
+
+#HybridIoT #IoTProduct #SatelliteConnectivity #Engineering

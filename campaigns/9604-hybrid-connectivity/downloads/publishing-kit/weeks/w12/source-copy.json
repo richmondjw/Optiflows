@@ -1,0 +1,21 @@
+{
+  "id": "w12",
+  "week": 12,
+  "phase": "convert",
+  "date": "2026-12-08",
+  "label": "Design conversation",
+  "master": "w01-coverage-boundary.png",
+  "eyebrow": "HYBRID IOT · NEXT DECISION",
+  "headline": "Ready to design beyond dependable coverage?",
+  "support": "Bring the operating map, critical messages and device constraints. We will help shape the next technical step.",
+  "cta": "Start a design conversation",
+  "url": "https://m2mone.com.au/hybrid-iot-readiness/",
+  "channels": [
+    "LinkedIn organic",
+    "Conversion email",
+    "Retargeting",
+    "Sales follow-up"
+  ],
+  "caption": "If your device, asset or worker moves beyond dependable cellular coverage, the next step is not another generic connectivity claim. It is a scoped design conversation.\n\nBring the operating map, message priorities, reporting cadence, power and antenna constraints, and the behaviour you need when the preferred network is unavailable. We can help you test whether a cellular-plus-satellite architecture is appropriate and identify the work needed before prototype or deployment.\n\nStart a Hybrid IoT design conversation: https://m2mone.com.au/hybrid-iot-readiness/\n\n#HybridIoT #IoTProduct #SatelliteConnectivity #Engineering",
+  "evidence": "Conversion offer; qualification and technical review required."
+}

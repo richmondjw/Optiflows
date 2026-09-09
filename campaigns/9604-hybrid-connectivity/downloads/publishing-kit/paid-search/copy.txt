@@ -1,0 +1,109 @@
+group:
+Hybrid IoT connectivity
+
+keywords:
+hybrid iot connectivity
+
+cellular satellite iot
+
+hybrid satellite cellular module
+
+headlines:
+Hybrid IoT Design
+
+Cellular + Satellite IoT
+
+Assess Your Coverage Gap
+
+descriptions:
+Map coverage dependencies, message priorities and device constraints before you prototype.
+
+Explore a cellular-plus-satellite design path with the M2M Connectivity team.
+
+group:
+Iridium 9604
+
+keywords:
+iridium 9604
+
+iridium certus 9604
+
+9604 hybrid iot module
+
+headlines:
+Explore Iridium 9604
+
+9604 Hybrid IoT Module
+
+Talk Through Your Design
+
+descriptions:
+Review LTE-M, Iridium SBD and GNSS integration questions for your connected product.
+
+Bring your route, payload and device constraints to a scoped technical conversation.
+
+group:
+Remote asset tracking
+
+keywords:
+satellite asset tracking module
+
+remote asset tracking connectivity
+
+hybrid iot tracking
+
+headlines:
+Track Beyond Cellular
+
+Design The Exception Path
+
+Hybrid IoT For Assets
+
+descriptions:
+Plan for routes and exceptions beyond dependable cellular coverage.
+
+Assess message priority, retry logic, power and antenna constraints with an IoT specialist.
+
+group:
+Remote monitoring
+
+keywords:
+satellite remote monitoring
+
+remote equipment iot
+
+satellite environmental monitoring
+
+headlines:
+Remote IoT Design
+
+Connect Remote Equipment
+
+Prioritise Critical Data
+
+descriptions:
+Separate critical exceptions from routine telemetry and review the right network path.
+
+Explore Hybrid IoT for remote equipment, agriculture and environmental monitoring.
+
+group:
+Field safety
+
+keywords:
+satellite lone worker device
+
+hybrid connectivity field safety
+
+remote worker iot
+
+headlines:
+Field Safety Connectivity
+
+Assess The Dependency
+
+Hybrid IoT Design Review
+
+descriptions:
+Review communications as one part of your complete field-safety system.
+
+Define acknowledgement, escalation and the unavailable state with technical owners.

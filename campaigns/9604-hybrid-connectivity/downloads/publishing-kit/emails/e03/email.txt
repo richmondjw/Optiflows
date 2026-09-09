@@ -1,0 +1,17 @@
+SUBJECT: Your route is the real coverage map
+PREHEADER: Design the exception path before an asset leaves the predictable corridor.
+
+Visibility beyond the predictable route.
+
+Detours, regional corridors, depots and remote handover points can expose the gap between a product's assumed coverage and the route it actually travels.
+
+The Iridium Certus 9604 makes cellular and satellite subsystems available in one compact module. Your application still decides which events justify another path, how long to retry and what the operations team sees.
+
+Bring a real route and message profile to a scoped design conversation.
+
+• Route and dwell-point review
+• Event and payload priority
+• Retry and escalation logic
+• Antenna, power and enclosure constraints
+
+Assess the route

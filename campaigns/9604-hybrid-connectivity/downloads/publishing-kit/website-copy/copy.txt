@@ -1,0 +1,95 @@
+id:
+hero
+
+title:
+Landing hero
+
+eyebrow:
+IRIDIUM CERTUS 9604 · HYBRID IOT
+
+headline:
+Cellular where you can. Satellite where you must.
+
+body:
+Design connected products around the real operating map—not the ideal one.
+
+cta:
+Download the readiness guide
+
+secondary:
+Start a design conversation
+
+master:
+w01-coverage-boundary.png
+
+id:
+verticals
+
+title:
+Vertical proof rail
+
+eyebrow:
+WHERE THE COVERAGE GAP BECOMES REAL
+
+headline:
+One architecture question. Five operating contexts.
+
+body:
+Asset tracking · Agtech · Environmental monitoring · Remote equipment · Field safety
+
+cta:
+Choose your operating context
+
+secondary:
+
+
+master:
+w04-asset-tracking.png
+
+id:
+architecture
+
+title:
+Architecture truth panel
+
+eyebrow:
+ONE MODULE · BOTH LAYERS · YOUR LOGIC
+
+headline:
+The hardware footprint gets smaller. The design responsibility does not.
+
+body:
+LTE-M, Iridium SBD and GNSS in one module. Routing, retry and fallback behaviour remain part of the product design.
+
+cta:
+Review the design questions
+
+secondary:
+View official product evidence
+
+master:
+w09-engineering-design.png
+
+id:
+clinic
+
+title:
+Design clinic conversion
+
+eyebrow:
+PROPOSED TECHNICAL SESSION
+
+headline:
+Bring the coverage problem. Leave with a design path.
+
+body:
+A focused working session for product teams and integrators. Date, speaker and capacity require confirmation before launch.
+
+cta:
+Register interest
+
+secondary:
+Download the guide
+
+master:
+w09-engineering-design.png

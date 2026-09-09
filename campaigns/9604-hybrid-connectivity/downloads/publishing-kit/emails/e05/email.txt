@@ -1,0 +1,17 @@
+SUBJECT: Design for the hour no one can drive out
+PREHEADER: Make the critical equipment state visible without transmitting everything.
+
+Design the exception path.
+
+Remote monitoring is valuable when it changes a maintenance or operating decision before another site visit is required.
+
+That means identifying the small set of states that deserve immediate attention, deciding what can wait for cellular recovery and keeping safe local control independent of the link.
+
+A Hybrid IoT design review can test whether a satellite exception path fits the device and operating model.
+
+• Decision-triggering conditions
+• Small exception payloads
+• Local control and storage
+• Operations visibility and response
+
+Review the exception path

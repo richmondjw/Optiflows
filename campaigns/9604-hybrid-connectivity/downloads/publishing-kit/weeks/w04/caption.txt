@@ -1,0 +1,9 @@
+Asset routes are rarely as tidy as a coverage map. Detours, yards, regional corridors and remote handover points can take a tracker outside the cellular conditions assumed at design time.
+
+A hybrid architecture can add a satellite message path for defined exceptions—but the design still needs discipline. Which event justifies satellite transmission? How long should the device retry cellular? What payload is essential? How will operations distinguish delayed telemetry from a genuine incident?
+
+Design the exception path before the exception happens.
+
+Assess your coverage gap: https://m2mone.com.au/hybrid-iot-readiness/
+
+#AssetTracking #LogisticsTechnology #HybridIoT #SatelliteIoT

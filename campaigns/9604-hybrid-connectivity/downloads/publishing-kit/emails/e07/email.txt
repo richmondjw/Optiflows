@@ -1,0 +1,20 @@
+SUBJECT: The Hybrid IoT readiness checklist
+PREHEADER: Seven inputs to bring into a cellular-plus-satellite design review.
+
+Map the gap before you map the hardware.
+
+A productive Hybrid IoT review begins with operating evidence: where the device travels, which messages matter, how quickly they need to arrive and what the product should do when a preferred path is unavailable.
+
+We have assembled the seven inputs into a concise, printable readiness guide for product teams and integrators.
+
+Use it internally, then bring the completed questions to a scoped architecture conversation.
+
+• Operating map
+• Coverage assumptions
+• Message and payload profile
+• Power and antenna constraints
+• Retry and fallback logic
+• Service model
+• Evidence and test plan
+
+Download the checklist

@@ -1,0 +1,21 @@
+{
+  "id": "w11",
+  "week": 11,
+  "phase": "convert",
+  "date": "2026-12-01",
+  "label": "Design clinic",
+  "master": "w09-engineering-design.png",
+  "eyebrow": "LIVE TECHNICAL SESSION · PROPOSED",
+  "headline": "Bring the coverage problem. Leave with a design path.",
+  "support": "A focused clinic for product teams and integrators—subject to speaker and date confirmation.",
+  "cta": "Register interest",
+  "url": "https://m2mone.com.au/hybrid-iot-readiness/",
+  "channels": [
+    "LinkedIn organic",
+    "Email 08",
+    "Website clinic panel",
+    "Partner outreach"
+  ],
+  "caption": "Some Hybrid IoT questions are best worked through with the route, payload and device constraints on the table.\n\nWe are proposing a focused design clinic for product teams and system integrators assessing cellular-plus-satellite architectures. The session would cover message priority, switching logic, power and antenna considerations, service assumptions and the evidence needed before a prototype.\n\nThis is an expression-of-interest, not a confirmed event. Date, speaker and capacity will be published only after internal confirmation.\n\nRegister interest: https://m2mone.com.au/hybrid-iot-readiness/\n\n#IoTEngineering #SystemIntegrators #SatelliteIoT #DesignClinic",
+  "evidence": "Proposed event; activation requires named speaker, date, capacity and owner."
+}

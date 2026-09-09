@@ -1,0 +1,17 @@
+SUBJECT: Remote monitoring starts with message priority
+PREHEADER: Separate the readings that must travel now from those that can wait.
+
+The site is remote. The decision is not.
+
+Distributed monitoring creates a simple but important question: which readings need to reach the operation when terrestrial coverage is intermittent or absent?
+
+Routine telemetry may store, batch or retry. A threshold event may deserve a different path. The right design joins that message logic with the device's power model, antenna conditions and maintenance reality.
+
+Use the guide to frame the field conditions before hardware selection.
+
+• Site and sky-view conditions
+• Threshold versus routine data
+• Power and reporting budget
+• Local storage and fallback behaviour
+
+Map the field conditions

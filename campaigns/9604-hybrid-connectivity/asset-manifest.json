@@ -1,15 +1,18 @@
 {
   "schemaVersion": "1.0",
   "campaignId": "9604-hybrid-iot-90-day-2026",
-  "generatedAt": "2026-09-10T00:00:00+10:00",
+  "generatedAt": "2026-09-09T15:44:54.846374+00:00",
   "exclusions": [
     "tmp/**",
     "reference-only inputs retained outside the public release",
     "test render",
     "unused source video with audio",
-    "asset-manifest.json self-hash"
+    "asset-manifest.json self-hash",
+    "downloads/verification/** visual QA working files",
+    "downloads/verification/** visual QA working files"
   ],
   "counts": {
+    "campaign-source": 7,
     "brand-source": 4,
     "carousel-slide": 25,
     "email-design": 8,
@@ -17,13 +20,19 @@
     "generative-master": 8,
     "motion-study": 4,
     "website-study": 4,
-    "campaign-source": 5,
-    "download": 4,
-    "production-tool": 7
+    "download": 236,
+    "production-tool": 9
   },
-  "totalFiles": 117,
-  "totalBytes": 72100390,
+  "totalFiles": 353,
+  "totalBytes": 286316095,
   "files": [
+    {
+      "file": ".gitattributes",
+      "category": "campaign-source",
+      "bytes": 113,
+      "sha256": "a08f0d25ca2c4281a3d81140c900caa82ae56dfa88c74443ba198218991e3124",
+      "dimensions": null
+    },
     {
       "file": "assets/brand/m2m-connectivity-logo.svg",
       "category": "brand-source",
@@ -946,7 +955,10 @@
       "file": "assets/motion/coverage-boundary-frame.jpg",
       "category": "motion-study",
       "bytes": 105945,
-      "dimensions": null,
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
       "sha256": "c105dde43616a9867b203d08ce2722a46700a32e4b79f188fd25843075d067de"
     },
     {
@@ -960,7 +972,10 @@
       "file": "assets/motion/engineering-design-frame.jpg",
       "category": "motion-study",
       "bytes": 115845,
-      "dimensions": null,
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      },
       "sha256": "ecd3ce6702feec357b007822d307bdb391ee4b520b628d688911d009134828d4"
     },
     {
@@ -1032,11 +1047,102 @@
       "sha256": "44d330fc6ae8bdc50716b4cb4f8c36ad3f53b565e772ffb3c42e7090b612c89e"
     },
     {
+      "file": "downloads/agtech-linkedin-document.pdf",
+      "category": "download",
+      "bytes": 2202803,
+      "sha256": "19013abd8c912690c6572074182289ff9fcc1de57963455a71dbdab0842f2db9",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/asset-tracking-linkedin-document.pdf",
+      "category": "download",
+      "bytes": 3345113,
+      "sha256": "ba421a8d526f48bcabf4440c08daf4a70c7447e9c9be9b13f96662ac28e8f16c",
+      "dimensions": null
+    },
+    {
       "file": "downloads/campaign-calendar.csv",
       "category": "download",
       "bytes": 4501,
       "dimensions": null,
       "sha256": "b31d8fe63fe8ed20c8a6bbd2fa21d1c6f8722ab16e4c1b04fcbe4e3089dc0f77"
+    },
+    {
+      "file": "downloads/e01-email-kit.zip",
+      "category": "download",
+      "bytes": 585906,
+      "sha256": "3c581a56ae044bed9d302f4f0526d80bd1a4da020895c1f064cec5a6ebbc7763",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/e02-email-kit.zip",
+      "category": "download",
+      "bytes": 665091,
+      "sha256": "2e866bd0b15913259cb7df24b5fdbda202d00e7cff69c45d16e08ac33827c063",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/e03-email-kit.zip",
+      "category": "download",
+      "bytes": 781848,
+      "sha256": "eb646be2524a9001ccedcc03e57fb93676ce7159eb650b77d1805a72db9a44ea",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/e04-email-kit.zip",
+      "category": "download",
+      "bytes": 603065,
+      "sha256": "8d76df749e3f998d8a02c1afa455f89441aff7039f60c32a1e65de32e1499135",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/e05-email-kit.zip",
+      "category": "download",
+      "bytes": 739940,
+      "sha256": "ff60a16d22dbf4ce3119f47d965c6ba028a5666a27e54f80b1d2571496422c24",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/e06-email-kit.zip",
+      "category": "download",
+      "bytes": 498556,
+      "sha256": "d3ab0a95556029cb80e5f37c19d846bfdf54fd4bacb716a817ecf4f4aa99b3ef",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/e07-email-kit.zip",
+      "category": "download",
+      "bytes": 578557,
+      "sha256": "52f3e947cd93e4b0087376ae347e8f39467a900baf2c3d2f39846ea9d9fe253e",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/e08-email-kit.zip",
+      "category": "download",
+      "bytes": 662090,
+      "sha256": "879ef73de0e1efad8f6e200d7912dc5f54cf7f862f4b3ec21357cd681e0ca9ef",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/environmental-linkedin-document.pdf",
+      "category": "download",
+      "bytes": 2523453,
+      "sha256": "d6ce4ac0daaa4af6693394c8cd1d5913e444b0dbcc5147539731aa62a6228246",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/field-safety-linkedin-document.pdf",
+      "category": "download",
+      "bytes": 1865989,
+      "sha256": "c5a63a79763b2399c5811ef31c3743d7f327a8d8438f4ecae009be64975de508",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/hybrid-iot-publishing-kit.zip",
+      "category": "download",
+      "bytes": 79601316,
+      "sha256": "f960749e46d66498c992463c325d0ab78258bee6699048def11fd0c438a3a6cb",
+      "dimensions": null
     },
     {
       "file": "downloads/hybrid-iot-readiness-guide.pdf",
@@ -1053,11 +1159,1812 @@
       "sha256": "ecd08ac5fc685ae8d19873540a28406e1d7d63c9828d90440d966f4708b5919e"
     },
     {
+      "file": "downloads/publishing-kit/carousels/agtech/agtech-01.png",
+      "category": "download",
+      "bytes": 406183,
+      "sha256": "e829c5a95fe6c522b8789c543c4ccdb4922d01755a3bdd5ef3a0510f6b0f8491",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/agtech/agtech-02.png",
+      "category": "download",
+      "bytes": 301358,
+      "sha256": "a80036e48473a1a292d53bcf7910dc2548a1cd38cc300c2d698dd7d4e75aab0f",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/agtech/agtech-03.png",
+      "category": "download",
+      "bytes": 272677,
+      "sha256": "5d60116d352c6e6124356e4b639dfd7bcde91176bb14788155ec28a6b34de3fb",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/agtech/agtech-04.png",
+      "category": "download",
+      "bytes": 265674,
+      "sha256": "a1bd92859fdd0ee18776a3169564ee4e3c3132f4421b52a47d98f253e81e66ca",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/agtech/agtech-05.png",
+      "category": "download",
+      "bytes": 381830,
+      "sha256": "adbddb0cac52f9d4bb7f49c1cf70aa096577dd5a88e567373fbe033789169c79",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/agtech/agtech-linkedin-document.pdf",
+      "category": "download",
+      "bytes": 2202803,
+      "sha256": "19013abd8c912690c6572074182289ff9fcc1de57963455a71dbdab0842f2db9",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/agtech/caption.txt",
+      "category": "download",
+      "bytes": 688,
+      "sha256": "949d06d931c3b3341abee9fe13a1a855483153a1529ebdff6f2cdaebad5b1175",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/agtech/README.txt",
+      "category": "download",
+      "bytes": 622,
+      "sha256": "faac65c87e5ca9d998c44ec4fbcc0c53cba817738d6c5831b4cd8e0702268fdb",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/agtech/source-copy.json",
+      "category": "download",
+      "bytes": 1045,
+      "sha256": "fb3fc1069f6fdaff26dc4b84603c4fa59e41c94f4e5ec6dcfd7ff9a8f7dabbab",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/asset-tracking/asset-tracking-01.png",
+      "category": "download",
+      "bytes": 916503,
+      "sha256": "3f10a162c3213de15b0d67f5a01bfa5073ff5331afb4ed25a4c33731bd460d63",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/asset-tracking/asset-tracking-02.png",
+      "category": "download",
+      "bytes": 249295,
+      "sha256": "d7f120e240a39e60bb74e5b5a1edecd91228bac944bfbee7fdc15cffa3133999",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/asset-tracking/asset-tracking-03.png",
+      "category": "download",
+      "bytes": 258940,
+      "sha256": "05dcda3a6a2c51619a66cc4b1a82eda5dc7d7549af6eb8bfb0bc7a14d6c83218",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/asset-tracking/asset-tracking-04.png",
+      "category": "download",
+      "bytes": 265097,
+      "sha256": "42259c1890d37b9557a202e426479537347526d667329cc7486865bc41f5f77d",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/asset-tracking/asset-tracking-05.png",
+      "category": "download",
+      "bytes": 870562,
+      "sha256": "f2b54ecabdceaeec583ff41da4d1a41f232ed308ce64a9ee4c169e67e76b58a5",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/asset-tracking/asset-tracking-linkedin-document.pdf",
+      "category": "download",
+      "bytes": 3345113,
+      "sha256": "ba421a8d526f48bcabf4440c08daf4a70c7447e9c9be9b13f96662ac28e8f16c",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/asset-tracking/caption.txt",
+      "category": "download",
+      "bytes": 688,
+      "sha256": "ab7a282b6b9888f034565ef4ada71c15997a84a49a07ee32be021e9cf38842fb",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/asset-tracking/README.txt",
+      "category": "download",
+      "bytes": 596,
+      "sha256": "c23d2870a299ef597543902aede9c7556159cbe49ba7d51e50f0384c8b38dc7a",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/asset-tracking/source-copy.json",
+      "category": "download",
+      "bytes": 1100,
+      "sha256": "d5ea603712e4c45a8067c3750f1f128d106a4cce3c46d911ba65de0dbdcb294b",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/environmental/caption.txt",
+      "category": "download",
+      "bytes": 702,
+      "sha256": "8997c49cb61095ba1ec02615f5750d044281fb7d33644fae702df3c7e6716a7b",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/environmental/environmental-01.png",
+      "category": "download",
+      "bytes": 580402,
+      "sha256": "54c48bc3b8956aa72b1216baddf9231ae1c568ff5fd9b2479ac21deeb07fad39",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/environmental/environmental-02.png",
+      "category": "download",
+      "bytes": 287280,
+      "sha256": "24eba0f565d4c6330a51bdb2135fd5193cc4200ef30615d5f441fb68f318356f",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/environmental/environmental-03.png",
+      "category": "download",
+      "bytes": 250342,
+      "sha256": "69780c136255bc8132d17e2363727f295c0ee659aa55f9e0c0897f93ed6d03ec",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/environmental/environmental-04.png",
+      "category": "download",
+      "bytes": 263240,
+      "sha256": "9f403b743d461e7c9815c58755abd7287db157a7b1412d6a44750676ae5bdae2",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/environmental/environmental-05.png",
+      "category": "download",
+      "bytes": 553777,
+      "sha256": "44280dfbc1300312c2a90dcb84afa41fb6524af3e96daae6b0748abe6e8a5cfa",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/environmental/environmental-linkedin-document.pdf",
+      "category": "download",
+      "bytes": 2523453,
+      "sha256": "d6ce4ac0daaa4af6693394c8cd1d5913e444b0dbcc5147539731aa62a6228246",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/environmental/README.txt",
+      "category": "download",
+      "bytes": 619,
+      "sha256": "53f73216884848b21ed7f8c6f235926fa4abf06378f1b4efc6bb062d64373852",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/environmental/source-copy.json",
+      "category": "download",
+      "bytes": 1055,
+      "sha256": "3e53bc01b075320948cc17300822c1a86ccd2cdede3d0317f8fe5d1652052938",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/field-safety/caption.txt",
+      "category": "download",
+      "bytes": 664,
+      "sha256": "db964bc20a298282dddf7ded9ef1c46ee669dd9ddae1b9a78f1001fae15fbf41",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/field-safety/field-safety-01.png",
+      "category": "download",
+      "bytes": 297661,
+      "sha256": "6c15194142ba3071b4a4666c8c3700c3dc114408ff3a5e6458243342c95eef77",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/field-safety/field-safety-02.png",
+      "category": "download",
+      "bytes": 261768,
+      "sha256": "06f6b333dc16cc9e6e7c360f693813eff592f8e9dcbc191f1a23882e8771f278",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/field-safety/field-safety-03.png",
+      "category": "download",
+      "bytes": 238266,
+      "sha256": "16b2715db446bfc05871afefe4ac73e334506b63f6f796cc4434e95e3658bde8",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/field-safety/field-safety-04.png",
+      "category": "download",
+      "bytes": 257515,
+      "sha256": "7ebed5a96d0c28c0de6f36c4cc6f69067650ab736dc9ff71a30ce7b058a51936",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/field-safety/field-safety-05.png",
+      "category": "download",
+      "bytes": 292753,
+      "sha256": "ea45f1fe92a746800c416078a155dff7d71db36f4142f78f7d2e41897fa2aa70",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/field-safety/field-safety-linkedin-document.pdf",
+      "category": "download",
+      "bytes": 1865989,
+      "sha256": "c5a63a79763b2399c5811ef31c3743d7f327a8d8438f4ecae009be64975de508",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/field-safety/README.txt",
+      "category": "download",
+      "bytes": 608,
+      "sha256": "f3ae928f2f906151de6f9f09f67f5edaef90ee2813e67ac88f29b6d4ccb76fd2",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/field-safety/source-copy.json",
+      "category": "download",
+      "bytes": 967,
+      "sha256": "c676c9b61725280632bced9e30214efb56bc1dd6310aee343e6800cbc2b5222c",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/remote-equipment/caption.txt",
+      "category": "download",
+      "bytes": 620,
+      "sha256": "f7ff07b39a783c9b399203f36b436898d23c6fd3d94cbae8f90aa189007516b5",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/remote-equipment/README.txt",
+      "category": "download",
+      "bytes": 619,
+      "sha256": "02b84888c1503af768246bf0d2b9b2dd9f39f993f5ade56454ac787811b44665",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/remote-equipment/remote-equipment-01.png",
+      "category": "download",
+      "bytes": 711867,
+      "sha256": "37db196b4402f0edcec20b1db1b7f85695f68cfbee1a54027436c26f418cea2f",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/remote-equipment/remote-equipment-02.png",
+      "category": "download",
+      "bytes": 235109,
+      "sha256": "d62d93d2262d29c2fb121bde3c903cb250426a2a4770955be1d0fca31fbda4aa",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/remote-equipment/remote-equipment-03.png",
+      "category": "download",
+      "bytes": 273087,
+      "sha256": "1cc8b6b809b65038cd05f014777ab78e1bb90129777caa03fecb1aa90148ae72",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/remote-equipment/remote-equipment-04.png",
+      "category": "download",
+      "bytes": 280425,
+      "sha256": "fd29ae4337dbf68cc35427cfd079b6b6bd887ac833c679d56386135c0f066b2b",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/remote-equipment/remote-equipment-05.png",
+      "category": "download",
+      "bytes": 688497,
+      "sha256": "344244d2773f59239f664377abc6357fdf7b172fcc1bcd090d8fe0a4f462b152",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/remote-equipment/remote-equipment-linkedin-document.pdf",
+      "category": "download",
+      "bytes": 2859579,
+      "sha256": "29e015a7208670f3154872c00b4a917eefe23ff47a50681f382bfb3b48cd8487",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/carousels/remote-equipment/source-copy.json",
+      "category": "download",
+      "bytes": 1001,
+      "sha256": "71bd5e1e9985d4a19ca668e5d427ebab4481d4be0cfec77cc2f2f950d55e34b7",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e01/e01-email-design.png",
+      "category": "download",
+      "bytes": 584652,
+      "sha256": "819467d0fc68fcc67a402993e5f371c1a17d1bb550476a8c28298fd1c67dd077",
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e01/email.txt",
+      "category": "download",
+      "bytes": 847,
+      "sha256": "31d549a2945eefb7edcc1ac446006f44102e163058d13f3f63d259cd4ce58908",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e01/preheader.txt",
+      "category": "download",
+      "bytes": 61,
+      "sha256": "e3a00e7244688c64b33df58c3b69736569557df42b83e81f48eaae64e8e8001b",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e01/README.txt",
+      "category": "download",
+      "bytes": 767,
+      "sha256": "fc5e4aff543d6e91bae2d7e5c67a77225735fb6c412e0cd81cb90a7a5d6e6fed",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e01/source-copy.json",
+      "category": "download",
+      "bytes": 1084,
+      "sha256": "4d9c0e8c9014bfe783729487699bc46e8b1001db87709ec338a63e6a8e35b2ff",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e01/subject.txt",
+      "category": "download",
+      "bytes": 37,
+      "sha256": "7ea789cb16a567899f4b2940147d48ff67708e11bec7cd8feeb5b0dc9a863da2",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e02/e02-email-design.png",
+      "category": "download",
+      "bytes": 664394,
+      "sha256": "466a011efbb21b03b97d57a4b0d4131e6cab65b1011cfd972c17526d0cee8674",
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e02/email.txt",
+      "category": "download",
+      "bytes": 732,
+      "sha256": "7166d1e815e7247850b1b92c80d31e8eb1af59804990ce1b6db876e05a5d89c2",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e02/preheader.txt",
+      "category": "download",
+      "bytes": 58,
+      "sha256": "675b48dfc7657f521707a355dcd7e7cc6985da1333ac3a9c5538a956c73d1bd4",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e02/README.txt",
+      "category": "download",
+      "bytes": 766,
+      "sha256": "62ca494e1179bb833c29b7260c62bfd240385065817f6ac531dd1e4e718c75d7",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e02/source-copy.json",
+      "category": "download",
+      "bytes": 968,
+      "sha256": "ad61ac55f5bccc5bbddf0603484a91bf740560f2dc5ccff165d6cf5efc3188ea",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e02/subject.txt",
+      "category": "download",
+      "bytes": 39,
+      "sha256": "4d043343cd6830078acd31e53836ee750e3c8332b942dac3e044e5bc5b4443d5",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e03/e03-email-design.png",
+      "category": "download",
+      "bytes": 780568,
+      "sha256": "77cc590b8ef3b618ef5e601513960384e940d115f2483aa6058540336998566d",
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e03/email.txt",
+      "category": "download",
+      "bytes": 777,
+      "sha256": "50f5563d106aa6f2297e5df263e3104ed1c6cc2550df651ad6907dd910127277",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e03/preheader.txt",
+      "category": "download",
+      "bytes": 74,
+      "sha256": "1147141ab0d1f35cf2bfbf24c1fbab195ca63186e7d3d612c3dd3f0c28353ab4",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e03/README.txt",
+      "category": "download",
+      "bytes": 758,
+      "sha256": "09f5e80be11ccb9ac9627781f801131b19e69e56d85bec5b46e2f0f4049a604a",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e03/source-copy.json",
+      "category": "download",
+      "bytes": 1002,
+      "sha256": "d4088f999dbe1f97ac0de3acf4eaf207df4765fb628c7ab667092fb8aeb975e7",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e03/subject.txt",
+      "category": "download",
+      "bytes": 35,
+      "sha256": "b887f8a27b360905e84d2ffaab463c529a6ad3872cc56defbb27f236f6b7ff0b",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e04/e04-email-design.png",
+      "category": "download",
+      "bytes": 602033,
+      "sha256": "6c70282d22fca4104558ee0f8788ac86c98f1fb484d3a67229bb3554db26adc5",
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e04/email.txt",
+      "category": "download",
+      "bytes": 788,
+      "sha256": "130d92baa5033eca70841f68e74e039fa932def970bf3001545220d2c116c3dc",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e04/preheader.txt",
+      "category": "download",
+      "bytes": 68,
+      "sha256": "a0a6b5ae9ef7d15d4392f824d8f50626bd065150bf7a164d70c87811e8e47492",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e04/README.txt",
+      "category": "download",
+      "bytes": 765,
+      "sha256": "0d14a260e5b5c65309d1a431f7b08b133bd37a2e9dc0dacfa448824ffbb7d6d1",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e04/source-copy.json",
+      "category": "download",
+      "bytes": 1012,
+      "sha256": "5f1b6aeeb4e6c095126bec5dc9dc3d173afb5225a4eb6adf4ccde3e73d01263d",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e04/subject.txt",
+      "category": "download",
+      "bytes": 46,
+      "sha256": "f837f2744dd8f63a8c672ac3ccd9f79c53185d3f26ea15024ef3d9bbab6e734b",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e05/e05-email-design.png",
+      "category": "download",
+      "bytes": 739015,
+      "sha256": "223d664346beb7386b5adeaaca4e1ec4b185cbdcb55457aa8bbdd9a5543deff7",
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e05/email.txt",
+      "category": "download",
+      "bytes": 739,
+      "sha256": "f27912493ea5af160ce90204ac7aceb63efc73fd0d4c9fd239d06e5409b3dce6",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e05/preheader.txt",
+      "category": "download",
+      "bytes": 74,
+      "sha256": "9340fe7d2fbef0be0b7978a0b97688ce966e3e5ffcf551fc3505ffe7a5db3032",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e05/README.txt",
+      "category": "download",
+      "bytes": 765,
+      "sha256": "dec89b66a482e893d6a72434fbfdad1ff95745218933751e7e89644550b26b63",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e05/source-copy.json",
+      "category": "download",
+      "bytes": 973,
+      "sha256": "c019650e1800bf46eee8d8901217533a1a02fd9c8ffe8975665f857b8421eb3e",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e05/subject.txt",
+      "category": "download",
+      "bytes": 40,
+      "sha256": "626a1ab5dd8c05ed77b6c52cb801f5885cfd5a800ed467a2b4aa061be5cfe5d0",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e06/e06-email-design.png",
+      "category": "download",
+      "bytes": 497306,
+      "sha256": "ceba6ed5751f2ab4e904578f9024aa11cc1c3429590921b6627667f9fc89504a",
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e06/email.txt",
+      "category": "download",
+      "bytes": 800,
+      "sha256": "4516a7e169e84c16ae607003ca9fc4d5b7b16c76b3656d789c00a9ac4bef6e1b",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e06/preheader.txt",
+      "category": "download",
+      "bytes": 61,
+      "sha256": "d55d774c37728eb321861d0e5e2bdff1d03901f1ed65a896f3dfbc74ce2e9027",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e06/README.txt",
+      "category": "download",
+      "bytes": 773,
+      "sha256": "02d4014c8271eec1910a16be3092a0689b907c8d518d8feac12f2d15a3cca295",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e06/source-copy.json",
+      "category": "download",
+      "bytes": 1038,
+      "sha256": "80ec9be2d34890d89a455b51423e34181dc12e05b719d31637e8ab4016ca4b87",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e06/subject.txt",
+      "category": "download",
+      "bytes": 39,
+      "sha256": "3c29dcb3e82b7a7ac3075c4e1c9dd6531257cc7215112cc86a855c3a660ceb95",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e07/e07-email-design.png",
+      "category": "download",
+      "bytes": 577401,
+      "sha256": "8762d5c8ea7633a5d62c259025b547826ec3cf0be4ec8dfba0d095fb5ac5680e",
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e07/email.txt",
+      "category": "download",
+      "bytes": 794,
+      "sha256": "f28c9156415756d5f4661921f3c789448c5f0a4a6e92976d3e2ee3099bbe8595",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e07/preheader.txt",
+      "category": "download",
+      "bytes": 67,
+      "sha256": "ff35b3760edf0811b9dce983b21ea0cabf80bdfdc3b73147984480b00cc64472",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e07/README.txt",
+      "category": "download",
+      "bytes": 752,
+      "sha256": "b7d5426b52b2871c9496d829145bfe3e256cc3c434962ea2a586fc00288950a1",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e07/source-copy.json",
+      "category": "download",
+      "bytes": 1025,
+      "sha256": "e115b57d0d21ce1e8e6c8a6b5a8e96b4a0c725b022ecb464bd29d5467419bd75",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e07/subject.txt",
+      "category": "download",
+      "bytes": 34,
+      "sha256": "4ff45d686bc38e89dee2e4a5b13cd43964532fe662367058a5e48f9b5baa78a0",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e08/e08-email-design.png",
+      "category": "download",
+      "bytes": 660827,
+      "sha256": "dd2e6b2730007f92fee92a63a753efdf41b57455e1785b8e0555a6371b5e4cf8",
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e08/email.txt",
+      "category": "download",
+      "bytes": 783,
+      "sha256": "36ef5f16ccc8fbd0828611e3e7c672b4b85fd36dfa5470af34e401a351ba35a0",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e08/preheader.txt",
+      "category": "download",
+      "bytes": 57,
+      "sha256": "a44b0ca2163ea868f2f64565cf912b7047dea9776d471739b9449aebb1556111",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e08/README.txt",
+      "category": "download",
+      "bytes": 779,
+      "sha256": "6a174afa4df8bebbe355c6e644363fdf176cb00041fa1e9fb1cd686f5f908394",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e08/source-copy.json",
+      "category": "download",
+      "bytes": 1033,
+      "sha256": "9bd47ccb1912d864c1df096c95be0c34a39fee23d3f83922c061a9e89073b281",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/emails/e08/subject.txt",
+      "category": "download",
+      "bytes": 59,
+      "sha256": "9fe89c4b3685e03af1295793c6175f31f4a8f8c494afb12fefa5743d8dcf3699",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/evidence/campaign-calendar.csv",
+      "category": "download",
+      "bytes": 4501,
+      "sha256": "b31d8fe63fe8ed20c8a6bbd2fa21d1c6f8722ab16e4c1b04fcbe4e3089dc0f77",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/evidence/creative-provenance.json",
+      "category": "download",
+      "bytes": 8995,
+      "sha256": "2292ef0427044ea3c8e93645e2c17396d3a94811978204afe07a4644d24bf4ba",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/guide/hybrid-iot-readiness-guide.pdf",
+      "category": "download",
+      "bytes": 2687671,
+      "sha256": "920c333b34158aba3205b867c4cbbfb2f1a0dd17adf207038660c99b83e98c1e",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/motion-studies/coverage-boundary-frame.jpg",
+      "category": "download",
+      "bytes": 105945,
+      "sha256": "c105dde43616a9867b203d08ce2722a46700a32e4b79f188fd25843075d067de",
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/motion-studies/coverage-boundary-loop.mp4",
+      "category": "download",
+      "bytes": 6515998,
+      "sha256": "0ca0ee32a9ba1b3f689209571ed089180de35e6daf66de1877930a81b7d7c5a9",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/motion-studies/engineering-design-frame.jpg",
+      "category": "download",
+      "bytes": 115845,
+      "sha256": "ecd3ce6702feec357b007822d307bdb391ee4b520b628d688911d009134828d4",
+      "dimensions": {
+        "width": 1920,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/motion-studies/engineering-design-loop.mp4",
+      "category": "download",
+      "bytes": 8273970,
+      "sha256": "d94ae0dd2aad776e5600e6b07afc27a6bb7ae48bb6fdcda1d1e0f567794ad01f",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/motion-studies/README.txt",
+      "category": "download",
+      "bytes": 279,
+      "sha256": "10085097a01641fccc243ab59ea20f53d05484237c122ca4642c7ea852e0f30f",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/paid-search/copy.txt",
+      "category": "download",
+      "bytes": 1904,
+      "sha256": "488ed803adf3f16b72089ec41620b5e0a4778c18a538f7a9f7be8ce7180a308c",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/paid-search/README.txt",
+      "category": "download",
+      "bytes": 286,
+      "sha256": "0ec7e9fdcc6426ecfc41e4efac12d1f1da21a93180fb5e9b4dd1b23866ff7d2f",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/publishing-manifest.csv",
+      "category": "download",
+      "bytes": 124094,
+      "sha256": "52db95c6f4e3f731e0c2fafc0664d0a2700c191b07c8615c4fdfa88ea41a34af",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/publishing-manifest.json",
+      "category": "download",
+      "bytes": 199226,
+      "sha256": "4e5631e18eb95976b5be67f249e91dc8fc5c36275a488def5d7b37998f9abfef",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/README.txt",
+      "category": "download",
+      "bytes": 1645,
+      "sha256": "f353e7473f5a2d7a386d3a80a2d0121990579f925818073434dbcbc2a9b42b13",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/release-gates.json",
+      "category": "download",
+      "bytes": 1468,
+      "sha256": "f4026c4df7ffb0a71252dc063816148c48b99853ded6e0ba61f2859c2bf7996b",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/retargeting/copy.txt",
+      "category": "download",
+      "bytes": 771,
+      "sha256": "534b4eb7b08e238ba3bad7de7eab890fb76a78d8a7b167d7eb323a5591139bd8",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/retargeting/README.txt",
+      "category": "download",
+      "bytes": 286,
+      "sha256": "0ec7e9fdcc6426ecfc41e4efac12d1f1da21a93180fb5e9b4dd1b23866ff7d2f",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/sales-talk-tracks/copy.txt",
+      "category": "download",
+      "bytes": 1842,
+      "sha256": "92db02ed01c3f903e91a8581148b180c3d223699f241874b72b0172fa8c015c9",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/sales-talk-tracks/README.txt",
+      "category": "download",
+      "bytes": 286,
+      "sha256": "0ec7e9fdcc6426ecfc41e4efac12d1f1da21a93180fb5e9b4dd1b23866ff7d2f",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/source-campaign.json",
+      "category": "download",
+      "bytes": 45550,
+      "sha256": "1cb25ef7000537dd8aa5338d3d80904fb12a3efce31df6b61f4276068a9adfeb",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/START-HERE.md",
+      "category": "download",
+      "bytes": 1402,
+      "sha256": "cd41f9ed94f72baebf444d1124e92e5ab625768fec0dc32336ca2b3e79e13338",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/website-copy/copy.txt",
+      "category": "download",
+      "bytes": 1448,
+      "sha256": "dad98744c217834923dd9f6c45c81d995c0c2014717e02f6d5dead785c359c24",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/website-copy/README.txt",
+      "category": "download",
+      "bytes": 286,
+      "sha256": "0ec7e9fdcc6426ecfc41e4efac12d1f1da21a93180fb5e9b4dd1b23866ff7d2f",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/website-studies/architecture-website.png",
+      "category": "download",
+      "bytes": 766501,
+      "sha256": "b3771128d7f7d2913bb336b9957ef68ef177181f92080d026e492353989904fc",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/website-studies/clinic-website.png",
+      "category": "download",
+      "bytes": 733050,
+      "sha256": "26bafc8199572d943feb073a3a75ef234c9123eed92ff0fd846915ae1f6245f6",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/website-studies/hero-website.png",
+      "category": "download",
+      "bytes": 692595,
+      "sha256": "136e0d80013b9cd5da393d940d9a2613b6d8470774033d6f496d4f8950857844",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/website-studies/README.txt",
+      "category": "download",
+      "bytes": 280,
+      "sha256": "c4da3756a3405d34d60599a73637fbab5b35c64cc7f3d3808e143a8fddc3bf3e",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/website-studies/verticals-website.png",
+      "category": "download",
+      "bytes": 980227,
+      "sha256": "e6c7140d24b81bd5b74fdbb7406ca1bead96b34b1713079370034c8ca3764978",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w01/caption.txt",
+      "category": "download",
+      "bytes": 724,
+      "sha256": "6d2be6b86ee778ce3609044e4b13fbb1b30469b7ac6cf31374d1e699e8d4190a",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w01/README.txt",
+      "category": "download",
+      "bytes": 678,
+      "sha256": "340852628691ebe10c4bd4d6db997d95be0d583d715e68ee78a2a84e37b58162",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w01/source-copy.json",
+      "category": "download",
+      "bytes": 1330,
+      "sha256": "8eddc3e2945577ebee22ccdfef308a3aa63d97e316f04c017f8c3455691792ec",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w01/w01-feed.png",
+      "category": "download",
+      "bytes": 428172,
+      "sha256": "67a81185626dc0f4d145cf04a35096d0a66754d64db777a74a2b62af4e8f8ec8",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w01/w01-square.png",
+      "category": "download",
+      "bytes": 385624,
+      "sha256": "e6b4a3b5f4f4c025e7b79658c303f10c26d7df4c602621584b054138d4cc5cf2",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w01/w01-story.png",
+      "category": "download",
+      "bytes": 517003,
+      "sha256": "df791a7234937f13f500423e4bd1c5ae7a8c1afb2ac5092fbf3c83b58cab5358",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w01/w01-wide.png",
+      "category": "download",
+      "bytes": 881390,
+      "sha256": "d89fdacac8bc1aa909ff14969b2d5e2df11394e21aab4a32dd20662565799936",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w02/caption.txt",
+      "category": "download",
+      "bytes": 687,
+      "sha256": "dbe89d56f482599aa999ab53efccb06de84c33ac43477b229b54be4129697e42",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w02/README.txt",
+      "category": "download",
+      "bytes": 675,
+      "sha256": "766651341260a41b6d1df1a0936d34f1b5cf1326c4e2050309beb8045b9ce96d",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w02/source-copy.json",
+      "category": "download",
+      "bytes": 1314,
+      "sha256": "779bda3bdc586f4e6e4e77d2e3b0c384e4dc4aa8e5df0f255d50c49d4ef2dbaa",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w02/w02-feed.png",
+      "category": "download",
+      "bytes": 681839,
+      "sha256": "6ada66b3fa35341ad21227fad53d174e06334c32846607d4e4561130cb3229f6",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w02/w02-square.png",
+      "category": "download",
+      "bytes": 565674,
+      "sha256": "9a1d0a89ec9633a9a20d4d2546a41f0dd32a4637b3e64312f78dc0b42a9ed2a0",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w02/w02-story.png",
+      "category": "download",
+      "bytes": 916836,
+      "sha256": "e539a1658a96467091b589df3ecdd7be0455774b4ce1f556b2e56892914d4cfb",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w02/w02-wide.png",
+      "category": "download",
+      "bytes": 937979,
+      "sha256": "ae35f5d477e8746565b69ff33af6adf3ea18fbf243acdc1c9cc43e11ead362f4",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w03/caption.txt",
+      "category": "download",
+      "bytes": 691,
+      "sha256": "b5007268c4f313a6d4e7e4106ea4af606399fd35a266af0aae023c4bd9cb4ef1",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w03/README.txt",
+      "category": "download",
+      "bytes": 731,
+      "sha256": "a616b1dcf1f2589319462980fc83565898a85d650c79def37e0a86d60d77acc7",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w03/source-copy.json",
+      "category": "download",
+      "bytes": 1389,
+      "sha256": "5858e8c7de5710b6b04a69aaaaf2eb45d76bdaee786be9aea45d0debc90e9955",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w03/w03-feed.png",
+      "category": "download",
+      "bytes": 627764,
+      "sha256": "99ffee08a9c217340616afbeb0817142cd0ea2fbe5e990adb8f00ee6f3e8abc1",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w03/w03-square.png",
+      "category": "download",
+      "bytes": 535516,
+      "sha256": "a04e8a8b919fcbd43ce4ebaa723b438100c9ac6e489adc8e8fe345cc509d7196",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w03/w03-story.png",
+      "category": "download",
+      "bytes": 801165,
+      "sha256": "06bd814afd8868e2d5f9aedb6f73a99852437b945a33d091f724232e6db0a1e4",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w03/w03-wide.png",
+      "category": "download",
+      "bytes": 744336,
+      "sha256": "5529fc0c4f2f98d7136ed1b4c8b26a4a0513c0497dca7c5f0100c031749c7b7a",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w04/caption.txt",
+      "category": "download",
+      "bytes": 688,
+      "sha256": "ab7a282b6b9888f034565ef4ada71c15997a84a49a07ee32be021e9cf38842fb",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w04/README.txt",
+      "category": "download",
+      "bytes": 694,
+      "sha256": "956c59d2ff602092aa5947b5201d64a66afe44127cc9ca177a009c0b5f0b6c40",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w04/source-copy.json",
+      "category": "download",
+      "bytes": 1327,
+      "sha256": "b19e27beb81c5465962aa1df399b453ab7c8957d701b230f233f0f44867d961e",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w04/w04-feed.png",
+      "category": "download",
+      "bytes": 961296,
+      "sha256": "76c7d18c5e46e833e86ac1ac7fdbabf8ff3d8f1f7bbd122c39e98787d7c8af89",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w04/w04-square.png",
+      "category": "download",
+      "bytes": 789302,
+      "sha256": "80ffaed044ba687bb116ca06c81bac866182b13b3c3fddc3b0afdaaa0314ae88",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w04/w04-story.png",
+      "category": "download",
+      "bytes": 1340145,
+      "sha256": "ca4516a79fb599832b0cab2e1e749a3ccc7b026283ee421ef47f5581bc140c08",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w04/w04-wide.png",
+      "category": "download",
+      "bytes": 1355111,
+      "sha256": "b77bd0d32255c743458d4160ab3d230351696e3e1a216da90acc89dedac88956",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w05/caption.txt",
+      "category": "download",
+      "bytes": 688,
+      "sha256": "949d06d931c3b3341abee9fe13a1a855483153a1529ebdff6f2cdaebad5b1175",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w05/README.txt",
+      "category": "download",
+      "bytes": 718,
+      "sha256": "8b7fedeabc3ef0c0a4213231b873935a40769c5f3f748a73feed5784ce7885a5",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w05/source-copy.json",
+      "category": "download",
+      "bytes": 1334,
+      "sha256": "a272e4ff62e379e54b10c41b2cea3bce87aa94ec93448f65d348c6d6c68f7ab0",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w05/w05-feed.png",
+      "category": "download",
+      "bytes": 448607,
+      "sha256": "e11edb154cd9194da807f68e4db767bff780b694e126db6d7c9ff15a98cd1e9e",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w05/w05-square.png",
+      "category": "download",
+      "bytes": 427905,
+      "sha256": "bb048c6316b9fdbe13a41ba10fb3504e42c84279fd3728ab080d66ffb2f5bc97",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w05/w05-story.png",
+      "category": "download",
+      "bytes": 544337,
+      "sha256": "1b439d2bc815374141847029a4bc4e7eae07cf9c0567561d03362f35121791b5",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w05/w05-wide.png",
+      "category": "download",
+      "bytes": 1012877,
+      "sha256": "c37523a8a97fa600d2a32cd04e462270e5d5a02436fa9eb7d602654cf23229ca",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w06/caption.txt",
+      "category": "download",
+      "bytes": 702,
+      "sha256": "8997c49cb61095ba1ec02615f5750d044281fb7d33644fae702df3c7e6716a7b",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w06/README.txt",
+      "category": "download",
+      "bytes": 725,
+      "sha256": "59f2d2dd1366bb06ac1f789b02d1434caaec9ad57cd67a0154273fbf666f2425",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w06/source-copy.json",
+      "category": "download",
+      "bytes": 1371,
+      "sha256": "5fd75b0eab5aa7abfc20d980c27fd5680cc4251ee76dd6f3e3a763114a04ba44",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w06/w06-feed.png",
+      "category": "download",
+      "bytes": 664832,
+      "sha256": "26b2c3c84706ac8c8e23be296353f7299be75bdf929b87e00733aead0b56e6e3",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w06/w06-square.png",
+      "category": "download",
+      "bytes": 602131,
+      "sha256": "ef59ec7141ef7d0106e65a2518a1e9309632a8c478f0abe2c546dc44bf65b09d",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w06/w06-story.png",
+      "category": "download",
+      "bytes": 829373,
+      "sha256": "447c119d750ed9bf9864923434f09e6c0572caa60663bd9d305c536cc49c0a18",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w06/w06-wide.png",
+      "category": "download",
+      "bytes": 1103462,
+      "sha256": "b9cbedfaf7a970b20fce74eea5f11941fe681548cd8172882be125cf6780ca6d",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w07/caption.txt",
+      "category": "download",
+      "bytes": 620,
+      "sha256": "f7ff07b39a783c9b399203f36b436898d23c6fd3d94cbae8f90aa189007516b5",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w07/README.txt",
+      "category": "download",
+      "bytes": 715,
+      "sha256": "e0b3a46ebe6c8e6e13d28decf65595c870426aa867127cfb0c7643d2730d7a4c",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w07/source-copy.json",
+      "category": "download",
+      "bytes": 1285,
+      "sha256": "27d82adcd37ef7243c33ffc0ba8c38f5af298f68fb09313274017636bea54ca3",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w07/w07-feed.png",
+      "category": "download",
+      "bytes": 791090,
+      "sha256": "e7843a660fa73f599fc1d5928641005847ec125245b55b36addb72bc1bbe909f",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w07/w07-square.png",
+      "category": "download",
+      "bytes": 689341,
+      "sha256": "755cccadf0043a2c87d31308bf07f95dc2635e9594726833d1b070062f603afc",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w07/w07-story.png",
+      "category": "download",
+      "bytes": 1023716,
+      "sha256": "c3563b60a8eac3b207c544a444c90247de5f3976a5073fd71bc0c33d77b16a6a",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w07/w07-wide.png",
+      "category": "download",
+      "bytes": 1282678,
+      "sha256": "894eb76dd9a66cc7c39cc25337520a1836e637455eb3e4fa41a1aa5bfb2ce7ff",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w08/caption.txt",
+      "category": "download",
+      "bytes": 664,
+      "sha256": "db964bc20a298282dddf7ded9ef1c46ee669dd9ddae1b9a78f1001fae15fbf41",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w08/README.txt",
+      "category": "download",
+      "bytes": 711,
+      "sha256": "b836a5bbbd8869b0125c6f84febefa9e31451c2230afd04fe27878249f63c62a",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w08/source-copy.json",
+      "category": "download",
+      "bytes": 1309,
+      "sha256": "1b5049be3eae74729e07cedd003313e8b6457b1849cafc83071db2b325920685",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w08/w08-feed.png",
+      "category": "download",
+      "bytes": 325559,
+      "sha256": "0a4cdfa2341890d1740c3c5edbcc5bc3a7518f54e801c34547c47e449fd7bb13",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w08/w08-square.png",
+      "category": "download",
+      "bytes": 315641,
+      "sha256": "66df69900738c0057c9509902c6a8801b51f16a7b077e3637a2317e59adfa016",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w08/w08-story.png",
+      "category": "download",
+      "bytes": 370692,
+      "sha256": "ff63835d28def64dec8b919b5f909af4436f4673ab7404053adc0540a6cdb28d",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w08/w08-wide.png",
+      "category": "download",
+      "bytes": 792802,
+      "sha256": "62bc7d6aa33ead9864edc9ecc09e7e6ce38f0a695f7bff656e579b4df3d28a9f",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w09/caption.txt",
+      "category": "download",
+      "bytes": 698,
+      "sha256": "3ab59f760d5489db3a50b2fc2e26e494e5f5883dfe0d0679186fc8e77c73d724",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w09/README.txt",
+      "category": "download",
+      "bytes": 751,
+      "sha256": "39994ed2432d76e9fa79ee661fe0e49021afa57876c0943506953e4a31f378ff",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w09/source-copy.json",
+      "category": "download",
+      "bytes": 1420,
+      "sha256": "0fb3d746b581908f16a63e579113821421bc302da9cce1c4329fe78e71b757a7",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w09/w09-feed.png",
+      "category": "download",
+      "bytes": 614510,
+      "sha256": "154526185aaedb7b78948c2c47cff895ee68b5f816cea8dde62748516c59acd9",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w09/w09-square.png",
+      "category": "download",
+      "bytes": 528666,
+      "sha256": "00cd8a4cf2099778054b217e3cd673aa0a65067d5ede282fe2f67897ad7ef5c6",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w09/w09-story.png",
+      "category": "download",
+      "bytes": 802217,
+      "sha256": "5cd3596adf69d0229fc7c9d95ec3246b5e893f2da286e2bf3528100c4ee51484",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w09/w09-wide.png",
+      "category": "download",
+      "bytes": 730023,
+      "sha256": "47be93d98396c917364f5a6fb05a788f0307d6cb2bbc7f98f397ad81bd74d40b",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w10/caption.txt",
+      "category": "download",
+      "bytes": 660,
+      "sha256": "00969641fa42a5c6905b474f3461a4fdd4d4079f336dad75b2919836afc4cf2f",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w10/README.txt",
+      "category": "download",
+      "bytes": 881,
+      "sha256": "2c61203aa835f5d432df98c69d894892104a98297acf8feafdce0133cf0d98b3",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w10/source-copy.json",
+      "category": "download",
+      "bytes": 1337,
+      "sha256": "80c74397097e1ade4711251bd446e03c5c838e2dbe88ec5c0d76e198df2dfdeb",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w10/w10-feed.png",
+      "category": "download",
+      "bytes": 425335,
+      "sha256": "70a0aca289f5121e402ad61f67debeeabd1abbe67fe0171d527850f7642e0dd2",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w10/w10-square.png",
+      "category": "download",
+      "bytes": 385339,
+      "sha256": "5c6ff7cb6cf6231d631d8c251ff185f097509ed0875998ab87d09d3661417867",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w10/w10-story.png",
+      "category": "download",
+      "bytes": 524464,
+      "sha256": "ba2ffbbd73cfd0d931112d70bcef13c5f7f89a27da84542beafa219b978e55c6",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w10/w10-wide.png",
+      "category": "download",
+      "bytes": 893389,
+      "sha256": "6d3edcffeba1b284aab058b15da19bccf8a9203625f4e00083b1ce5526dabe42",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w11/caption.txt",
+      "category": "download",
+      "bytes": 665,
+      "sha256": "cee00d00a94111355a49324f92f3decc04ae9d1073d2dcd3d471fd3e3923ce00",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w11/README.txt",
+      "category": "download",
+      "bytes": 711,
+      "sha256": "0118d99b943217edb06cdd7813d8500c87639c0e604215e4601f98d5c5b10f6e",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w11/source-copy.json",
+      "category": "download",
+      "bytes": 1363,
+      "sha256": "50c3282812a2aff949f2475428af00e7716048142501dba62946c5ecc4f44f69",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w11/w11-feed.png",
+      "category": "download",
+      "bytes": 629713,
+      "sha256": "d3c5954b54db7f946b0e69b4ae307b14f2c8a73d1d0e0eb785995f791e534196",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w11/w11-square.png",
+      "category": "download",
+      "bytes": 546492,
+      "sha256": "2bf97dd8cb73b870ccb89fedd222b94c2b5e517e9312b6230bd2eac4d2d56e43",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w11/w11-story.png",
+      "category": "download",
+      "bytes": 807164,
+      "sha256": "4791f4db83f1d1a5c3b0ecc459a216b3fadf72e43a893bc6a3e8db226d1192e2",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w11/w11-wide.png",
+      "category": "download",
+      "bytes": 749990,
+      "sha256": "7f8365286b29cca84c867b8327217ec894ca09c89c6af33ed5d36a4e20bfd004",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w12/caption.txt",
+      "category": "download",
+      "bytes": 622,
+      "sha256": "f6585a11de9272301aa1387c8ac175bac11ba43886db27986c2eb4dd793fb9e7",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w12/README.txt",
+      "category": "download",
+      "bytes": 711,
+      "sha256": "0f5fb387f3a4f0b7efdc120ad6eb5a517d852f0ecb1305b2975619fecd04f19e",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w12/source-copy.json",
+      "category": "download",
+      "bytes": 1316,
+      "sha256": "9b5c840833c1fa72393dc0f133aa06de737c8fdf091e046f1095f635fec942de",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w12/w12-feed.png",
+      "category": "download",
+      "bytes": 464545,
+      "sha256": "b0856235b96c7d144727e3289384bf7e503a59ec4b4d253509a1595c52e1a7b6",
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w12/w12-square.png",
+      "category": "download",
+      "bytes": 424240,
+      "sha256": "0c402bd66ca919b510060fd629375df7452d0bcfc3ecf68c9908c0165fff3978",
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w12/w12-story.png",
+      "category": "download",
+      "bytes": 591610,
+      "sha256": "3ccd8a27d6399f7d7c6e6ae49fdd7f40617408f81761fef7a3a69ef56860a874",
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      }
+    },
+    {
+      "file": "downloads/publishing-kit/weeks/w12/w12-wide.png",
+      "category": "download",
+      "bytes": 937516,
+      "sha256": "e8bf76af4fa3c06292bd39dc736bc83b4e4b0540848a444eca1d6db9a6f37242",
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      }
+    },
+    {
+      "file": "downloads/publishing-manifest.csv",
+      "category": "download",
+      "bytes": 124526,
+      "sha256": "cf8fe8b061d63bcd691e306f8285bfae2f4526fe2b3f7518aaf344c1b72280df",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/publishing-manifest.json",
+      "category": "download",
+      "bytes": 199948,
+      "sha256": "560523912f5ec743c71e109f7ce0c6e508368eb6ffcb6502e2ba69115f0bf6a6",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/remote-equipment-linkedin-document.pdf",
+      "category": "download",
+      "bytes": 2859579,
+      "sha256": "29e015a7208670f3154872c00b4a917eefe23ff47a50681f382bfb3b48cd8487",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w01-publishing-kit.zip",
+      "category": "download",
+      "bytes": 2208527,
+      "sha256": "c3f8be4db09420ade0efe6f7f116d657bcc91ad0eb36cb2fdc0e67cccefc6d4b",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w02-publishing-kit.zip",
+      "category": "download",
+      "bytes": 3100130,
+      "sha256": "b3b76d46ce3ad25aaa4718d28844c07d626cfb11c029ece575fc923ffce98b67",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w03-publishing-kit.zip",
+      "category": "download",
+      "bytes": 2706381,
+      "sha256": "4183f516504637a6909598b69ea74478be4207dded6b0a6712fd6b5454b78d5b",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w04-publishing-kit.zip",
+      "category": "download",
+      "bytes": 4445018,
+      "sha256": "6f346a93c65e6d1b28b67e0075d33e8ca54e96abe12b024b3603cb2fc4340e50",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w05-publishing-kit.zip",
+      "category": "download",
+      "bytes": 2428409,
+      "sha256": "547eaa69fa9130f3d5728df6f21441d5e445a610fe52cb858cb7e876d86f885c",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w06-publishing-kit.zip",
+      "category": "download",
+      "bytes": 3200143,
+      "sha256": "0274bd1e14da3473eb4b7a494b5460af69e6d52feeda3ce4d489776b81e7274a",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w07-publishing-kit.zip",
+      "category": "download",
+      "bytes": 3785691,
+      "sha256": "3d15c05f7887fde67bf54f76fb30f45469db9b524d785d3637448ad967b7816a",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w08-publishing-kit.zip",
+      "category": "download",
+      "bytes": 1795265,
+      "sha256": "24b756cb8f5105e79b73e2df4e0f2b0dc4e71032bff42ef97c74437d578f4361",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w09-publishing-kit.zip",
+      "category": "download",
+      "bytes": 2673259,
+      "sha256": "d1fa22a6e294f7236f3ce6bab90971d9f0c8c1d42e2ab04dc5a117ca1f00d9cd",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w10-publishing-kit.zip",
+      "category": "download",
+      "bytes": 2224857,
+      "sha256": "815b5c47136ea726f41b780b983a93d1935dac9073ed5f7318d0eecf596154b8",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w11-publishing-kit.zip",
+      "category": "download",
+      "bytes": 2730770,
+      "sha256": "eda123fe8455401014596aa788e1dc595c7f6373f1912f3d3804f641409cf822",
+      "dimensions": null
+    },
+    {
+      "file": "downloads/w12-publishing-kit.zip",
+      "category": "download",
+      "bytes": 2414408,
+      "sha256": "711d6f0fe35a003ffedc383db6aacb5fd854d1e94ee43cbb081ecd5074fd8e28",
+      "dimensions": null
+    },
+    {
       "file": "index.html",
       "category": "campaign-source",
-      "bytes": 36458,
+      "bytes": 37915,
       "dimensions": null,
-      "sha256": "92e23c3a444b0ae01e1f069fb5faa5fb9439e7463b8ab93e36b334452c33647c"
+      "sha256": "f769d3acf94119afa3813e194eb5c194898744cc5affa3bdb0566cbf9dbd3e14"
+    },
+    {
+      "file": "publishing-kit.js",
+      "category": "campaign-source",
+      "bytes": 2283,
+      "sha256": "19885b764269c8b9610348220ec6336a000ac08e0a19000af409338edc3cc7c4",
+      "dimensions": null
     },
     {
       "file": "readiness-guide.html",
@@ -1072,6 +2979,13 @@
       "bytes": 14538,
       "dimensions": null,
       "sha256": "a7805d571896418b43952e28624ab271c6e950c545479afca06aafa7df8a0185"
+    },
+    {
+      "file": "tools/build-publishing-kit.py",
+      "category": "production-tool",
+      "bytes": 13499,
+      "sha256": "a1645eb5cda16929858dad7b83507c2dc01a53e88cf7d0d84c5423e17df20bd5",
+      "dimensions": null
     },
     {
       "file": "tools/build-supporting-files.cjs",
@@ -1102,6 +3016,13 @@
       "sha256": "d40590cb27ed1fdbafbbabf26fe84b9acd7c3b8c020613c822fc08e64a4740d5"
     },
     {
+      "file": "tools/refresh-asset-manifest.py",
+      "category": "production-tool",
+      "bytes": 1661,
+      "sha256": "9866b632b1530671c7ad0f54c8b0772253758333831b6e006e7bfc8ca358d338",
+      "dimensions": null
+    },
+    {
       "file": "tools/render-assets.cjs",
       "category": "production-tool",
       "bytes": 3520,
@@ -1118,9 +3039,9 @@
     {
       "file": "verification-report.md",
       "category": "campaign-source",
-      "bytes": 4561,
+      "bytes": 5747,
       "dimensions": null,
-      "sha256": "6335141c400c1bfc0e2eb451e2f4816e72477178377157a652f534c9c648138d"
+      "sha256": "1a6f8fade9c630c3c6f36b2d6ef794f094235e70f7f8831c9ca353f3f47fabfd"
     }
   ]
 }

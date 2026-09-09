@@ -1,0 +1,9 @@
+Some Hybrid IoT questions are best worked through with the route, payload and device constraints on the table.
+
+We are proposing a focused design clinic for product teams and system integrators assessing cellular-plus-satellite architectures. The session would cover message priority, switching logic, power and antenna considerations, service assumptions and the evidence needed before a prototype.
+
+This is an expression-of-interest, not a confirmed event. Date, speaker and capacity will be published only after internal confirmation.
+
+Register interest: https://m2mone.com.au/hybrid-iot-readiness/
+
+#IoTEngineering #SystemIntegrators #SatelliteIoT #DesignClinic

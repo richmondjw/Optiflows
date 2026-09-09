@@ -1,0 +1,20 @@
+{
+  "id": "w02",
+  "week": 2,
+  "phase": "recognise",
+  "date": "2026-09-29",
+  "label": "Cost of silence",
+  "master": "w02-transmission-cost.png",
+  "eyebrow": "HYBRID IOT · OPERATING CONSEQUENCE",
+  "headline": "What does one missed transmission cost?",
+  "support": "Not every message is equal. Design around the ones that change a decision.",
+  "cta": "Prioritise your messages",
+  "url": "https://m2mone.com.au/hybrid-iot-readiness/",
+  "channels": [
+    "LinkedIn organic",
+    "Email 02",
+    "Retargeting"
+  ],
+  "caption": "A missed location update, threshold alert or safety escalation does not carry the same consequence as routine telemetry. That distinction should shape the connectivity design.\n\nBefore adding a satellite path, rank the messages your operation produces:\n• Which ones are time-sensitive?\n• Which ones can wait and retry?\n• Which ones trigger a human decision?\n• What is the operational cost when one never arrives?\n\nThe answer creates a clearer brief for reporting frequency, retry logic, power use and the role of each network layer.\n\nUse the readiness guide to start the conversation: https://m2mone.com.au/hybrid-iot-readiness/\n\n#RemoteOperations #IoT #AssetTracking #Engineering",
+  "evidence": "Operational diagnostic; consequence varies by application."
+}

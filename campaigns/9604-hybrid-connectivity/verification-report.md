@@ -1,5 +1,16 @@
 # Hybrid IoT campaign production verification
 
+## Publishing kit update — 10 September 2026
+
+- One complete publishing ZIP, 12 weekly post ZIPs and eight email copy/design ZIPs.
+- 48 PNG social exports preserve the decoded source pixels and dimensions; 12 caption files preserve the exact source strings.
+- Five LinkedIn document PDFs contain five ordered pages each. All 25 rendered pages match their source artwork; visual inspection completed.
+- Supporting paid-search, retargeting, sales and website copy is included as text, alongside the existing guide and labelled website/motion studies.
+- Publishing manifests record actual file hashes, dimensions, source IDs, archive paths and remaining holds.
+- Download controls checked at desktop, 390 and 320 CSS-pixel widths; no page overflow at those widths.
+- Email packages are not send-ready HTML templates. The week 10 URL field and caption contain different destination forms; the intended public destination requires confirmation. Clinic details and existing release requirements remain unresolved.
+- Rebuild with `python tools/build-publishing-kit.py`, then `python tools/refresh-asset-manifest.py`. Text files use LF line endings so delivered hashes survive Git checkout.
+
 **Campaign:** Coverage Beyond the Grid / Iridium Certus 9604 Hybrid IoT<br>
 **Checked:** 10 September 2026 (AEST)<br>
 **Release layer:** Private OptiFlows review surface only<br>

@@ -1,0 +1,21 @@
+{
+  "id": "w04",
+  "week": 4,
+  "phase": "prove",
+  "date": "2026-10-13",
+  "label": "Asset tracking",
+  "master": "w04-asset-tracking.png",
+  "eyebrow": "VERTICAL PROOF · ASSET TRACKING",
+  "headline": "Visibility beyond the predictable route.",
+  "support": "Plan for the point where a moving asset exceeds dependable cellular reach.",
+  "cta": "Assess the route",
+  "url": "https://m2mone.com.au/hybrid-iot-readiness/",
+  "channels": [
+    "LinkedIn carousel",
+    "Segment email",
+    "Vertical landing section",
+    "Sales talk track"
+  ],
+  "caption": "Asset routes are rarely as tidy as a coverage map. Detours, yards, regional corridors and remote handover points can take a tracker outside the cellular conditions assumed at design time.\n\nA hybrid architecture can add a satellite message path for defined exceptions—but the design still needs discipline. Which event justifies satellite transmission? How long should the device retry cellular? What payload is essential? How will operations distinguish delayed telemetry from a genuine incident?\n\nDesign the exception path before the exception happens.\n\nAssess your coverage gap: https://m2mone.com.au/hybrid-iot-readiness/\n\n#AssetTracking #LogisticsTechnology #HybridIoT #SatelliteIoT",
+  "evidence": "Use-case framing; no route or coverage guarantee."
+}

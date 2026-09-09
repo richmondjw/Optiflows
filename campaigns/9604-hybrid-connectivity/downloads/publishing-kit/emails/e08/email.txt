@@ -1,0 +1,17 @@
+SUBJECT: Bring your coverage problem to the Hybrid IoT design clinic
+PREHEADER: Register interest in a focused technical working session.
+
+Bring the problem. Leave with a design path.
+
+We are proposing a focused Hybrid IoT design clinic for teams assessing cellular-plus-satellite products.
+
+The session would work through a real operating map, message profile, switching logic, power and antenna constraints, service assumptions and the evidence needed before a prototype.
+
+Register your interest now. We will confirm the date, speaker and capacity separately before any event invitation is issued.
+
+• For product and engineering teams
+• Useful for solution integrators
+• Bring a real operating scenario
+• Proposed event; date and speaker to be confirmed
+
+Register interest

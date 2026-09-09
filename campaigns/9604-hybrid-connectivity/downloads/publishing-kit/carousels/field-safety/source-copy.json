@@ -1,0 +1,30 @@
+{
+  "id": "field-safety",
+  "week": 8,
+  "title": "Connectivity inside a field-safety system",
+  "audience": "Lone-worker and safety-solution teams",
+  "master": "w08-field-safety.png",
+  "slides": [
+    {
+      "headline": "Connectivity is one safety layer",
+      "body": "Treat it as part of a governed process—not a guarantee."
+    },
+    {
+      "headline": "Define acknowledgement",
+      "body": "Know how the device, worker and response team see message state."
+    },
+    {
+      "headline": "Define escalation",
+      "body": "Set retry, alternate path and human escalation behaviour for each event class."
+    },
+    {
+      "headline": "Define the unavailable state",
+      "body": "The product and procedure must make communication limits visible."
+    },
+    {
+      "headline": "Assess the dependency",
+      "body": "Review the complete safety workflow with technical and risk owners.",
+      "cta": "m2mone.com.au/hybrid-iot-readiness"
+    }
+  ]
+}

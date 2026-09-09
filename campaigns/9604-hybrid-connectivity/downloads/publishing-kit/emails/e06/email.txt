@@ -1,0 +1,17 @@
+SUBJECT: Connectivity is part of the safety plan
+PREHEADER: Review acknowledgement, escalation and the unavailable state.
+
+A communications path is not a safety guarantee.
+
+A field-safety product needs more than a second network. It needs a governed definition of message priority, acknowledgement, retry, escalation and the visible state when communications are unavailable.
+
+A satellite path may extend the operating design beyond dependable cellular coverage. It should sit inside the complete risk assessment, worker procedure and response workflow.
+
+Bring technical, product and safety owners into the same design conversation.
+
+• Event classes and urgency
+• Acknowledgement and escalation
+• User-visible link state
+• Procedure when communications are unavailable
+
+Assess the dependency

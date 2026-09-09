@@ -1,0 +1,16 @@
+A useful Hybrid IoT conversation starts before the module selection.
+
+Bring seven inputs:
+1. Operating regions and movement patterns
+2. Known or suspected coverage boundaries
+3. Message types and payload sizes
+4. Reporting frequency and urgency
+5. Power, enclosure and antenna constraints
+6. Retry, acknowledgement and fallback behaviour
+7. Commercial and service assumptions
+
+We have packaged the questions into a practical readiness guide for product and solution teams.
+
+Download the guide: https://optiflows.com.au/campaigns/9604-hybrid-connectivity/downloads/hybrid-iot-readiness-guide.pdf
+
+#IoTArchitecture #ProductDesign #HybridIoT #EngineeringChecklist

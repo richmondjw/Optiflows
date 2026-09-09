@@ -1,0 +1,21 @@
+{
+  "id": "w08",
+  "week": 8,
+  "phase": "prove",
+  "date": "2026-11-10",
+  "label": "Field safety",
+  "master": "w08-field-safety.png",
+  "eyebrow": "VERTICAL PROOF · FIELD SAFETY",
+  "headline": "Connectivity is part of the safety plan.",
+  "support": "Treat communications as one layer of a governed escalation process.",
+  "cta": "Assess the dependency",
+  "url": "https://m2mone.com.au/hybrid-iot-readiness/",
+  "channels": [
+    "LinkedIn carousel",
+    "Segment email",
+    "Vertical landing section",
+    "Sales talk track"
+  ],
+  "caption": "For a lone-worker or field-safety product, connectivity is important—but it is only one part of the safety system.\n\nA responsible design defines message priority, retry behaviour, acknowledgement, escalation, device-state visibility and what the worker should do when communications are unavailable. A satellite path may extend the operating design beyond dependable cellular coverage; it should never be presented as a guarantee of delivery or safety.\n\nBuild the communications dependency into the risk assessment from the start.\n\nAssess the design questions: https://m2mone.com.au/hybrid-iot-readiness/\n\n#FieldSafety #LoneWorker #SafetyTechnology #SatelliteIoT",
+  "evidence": "Safety-sensitive copy with explicit no-guarantee qualification."
+}

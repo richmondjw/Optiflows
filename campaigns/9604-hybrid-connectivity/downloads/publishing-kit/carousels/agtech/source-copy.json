@@ -1,0 +1,30 @@
+{
+  "id": "agtech",
+  "week": 5,
+  "title": "Four questions for connected agriculture",
+  "audience": "Agtech product and farm-system teams",
+  "master": "w05-agtech.png",
+  "slides": [
+    {
+      "headline": "What must leave the field now?",
+      "body": "Separate urgent thresholds from routine telemetry that can wait, batch or retry."
+    },
+    {
+      "headline": "Where does the device really operate?",
+      "body": "Use property conditions, terrain and movement—not the nearest town—as the design input."
+    },
+    {
+      "headline": "What is the power budget?",
+      "body": "Reporting frequency and network behaviour must fit the device's energy model."
+    },
+    {
+      "headline": "What happens offline?",
+      "body": "Define local control, storage, retry and operator visibility before choosing the communications path."
+    },
+    {
+      "headline": "Map the field conditions",
+      "body": "Turn operating reality into a Hybrid IoT readiness brief.",
+      "cta": "m2mone.com.au/hybrid-iot-readiness"
+    }
+  ]
+}

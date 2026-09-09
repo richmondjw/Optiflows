@@ -1,0 +1,13 @@
+A missed location update, threshold alert or safety escalation does not carry the same consequence as routine telemetry. That distinction should shape the connectivity design.
+
+Before adding a satellite path, rank the messages your operation produces:
+• Which ones are time-sensitive?
+• Which ones can wait and retry?
+• Which ones trigger a human decision?
+• What is the operational cost when one never arrives?
+
+The answer creates a clearer brief for reporting frequency, retry logic, power use and the role of each network layer.
+
+Use the readiness guide to start the conversation: https://m2mone.com.au/hybrid-iot-readiness/
+
+#RemoteOperations #IoT #AssetTracking #Engineering

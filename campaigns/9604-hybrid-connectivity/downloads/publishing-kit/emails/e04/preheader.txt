@@ -1,0 +1,1 @@
+Separate the readings that must travel now from those that can wait.

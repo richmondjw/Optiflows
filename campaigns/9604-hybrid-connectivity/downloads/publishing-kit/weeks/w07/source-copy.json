@@ -1,0 +1,21 @@
+{
+  "id": "w07",
+  "week": 7,
+  "phase": "prove",
+  "date": "2026-11-03",
+  "label": "Remote equipment",
+  "master": "w07-remote-equipment.png",
+  "eyebrow": "VERTICAL PROOF · REMOTE EQUIPMENT",
+  "headline": "Design for the hour no one can drive out.",
+  "support": "Make the critical state visible before it becomes an expensive site visit.",
+  "cta": "Review the exception path",
+  "url": "https://m2mone.com.au/hybrid-iot-readiness/",
+  "channels": [
+    "LinkedIn carousel",
+    "Segment email",
+    "Retargeting",
+    "Sales talk track"
+  ],
+  "caption": "Remote equipment monitoring earns its value when it changes a maintenance or operating decision. That makes message priority more important than message volume.\n\nWhat condition requires attention now? What can wait for the cellular path to recover? What should be compressed into a small exception payload? And what local behaviour must continue even if neither network is available?\n\nThose questions turn ‘hybrid connectivity’ from a feature into an operating design.\n\nReview the exception path: https://m2mone.com.au/hybrid-iot-readiness/\n\n#RemoteEquipment #PredictiveMaintenance #IndustrialIoT #HybridConnectivity",
+  "evidence": "Operational design framing; local autonomy remains application-specific."
+}

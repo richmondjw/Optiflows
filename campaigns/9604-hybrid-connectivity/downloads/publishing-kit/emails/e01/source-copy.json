@@ -1,0 +1,21 @@
+{
+  "id": "e01",
+  "week": 1,
+  "segment": "Product, engineering and SI prospects",
+  "subject": "Where does your device lose coverage?",
+  "preheader": "Map the operating boundary before it becomes a product issue.",
+  "headline": "Find the boundary before it finds you.",
+  "master": "w01-coverage-boundary.png",
+  "cta": "Explore the readiness guide",
+  "paragraphs": [
+    "A connected product can be reliable in its expected cellular footprint and still encounter a very different operating reality once an asset, device or worker moves beyond it.",
+    "The first Hybrid IoT decision is not a module selection. It is a map of operating regions, critical messages, reporting urgency and the consequence of a transmission that does not arrive.",
+    "Our readiness guide gives product teams a practical way to assemble those inputs before an engineering conversation."
+  ],
+  "bullets": [
+    "Operating regions and movement",
+    "Critical versus delay-tolerant messages",
+    "Power, antenna and enclosure constraints",
+    "Retry, acknowledgement and fallback behaviour"
+  ]
+}

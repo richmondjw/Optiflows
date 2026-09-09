@@ -1,0 +1,38 @@
+[
+  {
+    "owner": "Campaign owner",
+    "gate": "Reconcile the operational record",
+    "requirement": "Confirm whether this is an extension, relaunch or new 90-day flight; align the campaign hub, Asana state and dates.",
+    "status": "Required before activation"
+  },
+  {
+    "owner": "Marketing + Finance",
+    "gate": "Approve budget and channel mix",
+    "requirement": "Set the paid-media budget, bidding boundary and stop conditions. Current working record shows no approved budget.",
+    "status": "Required before paid activation"
+  },
+  {
+    "owner": "Marketing Ops",
+    "gate": "Prove attribution",
+    "requirement": "Verify UTM naming, landing conversion, consent, Zoho source capture and test-lead read-back.",
+    "status": "Required before traffic"
+  },
+  {
+    "owner": "Engineering / Product",
+    "gate": "Approve technical claims",
+    "requirement": "Check every 9604 claim and preserve the developer-defined routing/fallback caveat.",
+    "status": "Required before external release"
+  },
+  {
+    "owner": "Sales",
+    "gate": "Name offer owner and SLA",
+    "requirement": "Assign lead owner, qualification rule and response time for guide downloads and design-session requests.",
+    "status": "Required before lead capture"
+  },
+  {
+    "owner": "James",
+    "gate": "Approve release set",
+    "requirement": "Approve the exact copy, creative, dates, destinations and any proposed design-clinic details.",
+    "status": "Human-gated"
+  }
+]

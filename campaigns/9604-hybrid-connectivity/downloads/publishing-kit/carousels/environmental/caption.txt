@@ -1,0 +1,9 @@
+Environmental monitoring often places sensors exactly where network infrastructure is least convenient: catchments, coastlines, reserves and distributed field sites.
+
+The design challenge is not to transmit everything over every available path. It is to define what the operation needs to know, how soon it needs to know it and what the device should do when its preferred network is unavailable.
+
+A hybrid module can reduce hardware complexity. A resilient monitoring product still depends on thoughtful payloads, power management, antenna design and exception logic.
+
+Define the reporting logic: https://m2mone.com.au/hybrid-iot-readiness/
+
+#EnvironmentalMonitoring #IoTDesign #RemoteSensors #Iridium

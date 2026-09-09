@@ -1,0 +1,1 @@
+Make the critical equipment state visible without transmitting everything.

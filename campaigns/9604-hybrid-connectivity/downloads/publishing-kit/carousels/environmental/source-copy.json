@@ -1,0 +1,30 @@
+{
+  "id": "environmental",
+  "week": 6,
+  "title": "Remote monitoring without the blanket promise",
+  "audience": "Environmental monitoring teams",
+  "master": "w06-environmental.png",
+  "slides": [
+    {
+      "headline": "Remote data still needs a priority",
+      "body": "Not every reading needs immediate transmission. Define what changes a decision."
+    },
+    {
+      "headline": "Design for constrained payloads",
+      "body": "Send the smallest useful exception message; retain detail locally where appropriate."
+    },
+    {
+      "headline": "Account for the site",
+      "body": "Sky view, mounting, antenna placement, power and maintenance access affect the design."
+    },
+    {
+      "headline": "Keep the caveat visible",
+      "body": "A satellite layer extends the design; it does not guarantee continuous availability or delivery."
+    },
+    {
+      "headline": "Define the reporting logic",
+      "body": "Bring the site, payload and urgency model to a design review.",
+      "cta": "m2mone.com.au/hybrid-iot-readiness"
+    }
+  ]
+}

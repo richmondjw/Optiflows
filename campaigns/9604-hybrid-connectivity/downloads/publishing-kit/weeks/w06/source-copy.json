@@ -1,0 +1,20 @@
+{
+  "id": "w06",
+  "week": 6,
+  "phase": "prove",
+  "date": "2026-10-27",
+  "label": "Environmental monitoring",
+  "master": "w06-environmental.png",
+  "eyebrow": "VERTICAL PROOF · ENVIRONMENT",
+  "headline": "When the site is remote, the data still matters.",
+  "support": "Prioritise the readings that should travel now from the ones that can wait.",
+  "cta": "Define the reporting logic",
+  "url": "https://m2mone.com.au/hybrid-iot-readiness/",
+  "channels": [
+    "LinkedIn carousel",
+    "Engineering explainer",
+    "Vertical landing section"
+  ],
+  "caption": "Environmental monitoring often places sensors exactly where network infrastructure is least convenient: catchments, coastlines, reserves and distributed field sites.\n\nThe design challenge is not to transmit everything over every available path. It is to define what the operation needs to know, how soon it needs to know it and what the device should do when its preferred network is unavailable.\n\nA hybrid module can reduce hardware complexity. A resilient monitoring product still depends on thoughtful payloads, power management, antenna design and exception logic.\n\nDefine the reporting logic: https://m2mone.com.au/hybrid-iot-readiness/\n\n#EnvironmentalMonitoring #IoTDesign #RemoteSensors #Iridium",
+  "evidence": "Scenario-led copy; no promise of universal or continuous connectivity."
+}

@@ -1,0 +1,21 @@
+{
+  "id": "w05",
+  "week": 5,
+  "phase": "prove",
+  "date": "2026-10-20",
+  "label": "Agtech",
+  "master": "w05-agtech.png",
+  "eyebrow": "VERTICAL PROOF · AGTECH",
+  "headline": "Monitoring does not stop at the fence line.",
+  "support": "Design the reporting path around the property—not the nearest tower.",
+  "cta": "Map the field conditions",
+  "url": "https://m2mone.com.au/hybrid-iot-readiness/",
+  "channels": [
+    "LinkedIn carousel",
+    "Segment email",
+    "Vertical landing section",
+    "SI outreach"
+  ],
+  "caption": "Distributed agriculture creates a practical connectivity question: which readings need to leave the field when terrestrial coverage is intermittent or absent?\n\nThe right answer is usually selective. Routine readings may be stored, batched or retried. A threshold event—water level, equipment state or environmental condition—may deserve a different path and priority.\n\nHybrid IoT is strongest when message value, power budget, antenna conditions and operating geography are designed together. It is not a substitute for that work.\n\nMap the field conditions with the readiness guide: https://m2mone.com.au/hybrid-iot-readiness/\n\n#Agtech #RemoteMonitoring #IoTConnectivity #SatelliteIoT",
+  "evidence": "Scenario-led copy; final application architecture requires engineering review."
+}

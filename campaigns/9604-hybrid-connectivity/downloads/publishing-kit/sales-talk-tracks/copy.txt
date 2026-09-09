@@ -1,0 +1,94 @@
+vertical:
+Asset tracking & logistics
+
+opener:
+Where do your routes or assets move beyond the cellular conditions assumed by the product?
+
+questions:
+Which events trigger an operational response?
+
+How long can routine telemetry wait?
+
+What payload would justify satellite escalation?
+
+guard:
+Do not promise uninterrupted tracking or coverage.
+
+next:
+Review one representative route and message profile.
+
+vertical:
+Agtech
+
+opener:
+Which field readings need action when terrestrial coverage is unavailable?
+
+questions:
+What can store, batch or retry?
+
+What is the device power budget?
+
+What are the antenna and mounting conditions?
+
+guard:
+Do not assume the same design across properties or terrain.
+
+next:
+Complete the readiness worksheet for one deployment.
+
+vertical:
+Environmental monitoring
+
+opener:
+Which remote measurements change a decision, and how quickly?
+
+questions:
+What is the minimum useful exception payload?
+
+How often can the site be serviced?
+
+What local storage is required?
+
+guard:
+Do not imply continuous or guaranteed delivery.
+
+next:
+Scope the site, payload and reporting logic.
+
+vertical:
+Remote equipment
+
+opener:
+Which equipment state is worth knowing before the next site visit?
+
+questions:
+What should the equipment do locally?
+
+What can wait for cellular recovery?
+
+How will operators distinguish delayed data from an incident?
+
+guard:
+Connectivity must not replace safe local control.
+
+next:
+Map one exception workflow end to end.
+
+vertical:
+Field safety
+
+opener:
+How does your current safety process behave when cellular coverage is unavailable?
+
+questions:
+How are messages acknowledged?
+
+What is the escalation path?
+
+How is unavailable communications shown to the worker?
+
+guard:
+Never position a network path as a safety guarantee.
+
+next:
+Convene product, engineering and safety owners for a governed review.

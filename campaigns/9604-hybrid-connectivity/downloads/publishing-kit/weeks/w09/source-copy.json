@@ -1,0 +1,21 @@
+{
+  "id": "w09",
+  "week": 9,
+  "phase": "convert",
+  "date": "2026-11-17",
+  "label": "Engineering proof",
+  "master": "w09-engineering-design.png",
+  "eyebrow": "ENGINEERING PROOF · 9604",
+  "headline": "One module. Both layers. Your logic.",
+  "support": "LTE-M, Iridium SBD and GNSS in a compact form factor—with subsystem control left to the product design.",
+  "cta": "Talk through the architecture",
+  "url": "https://m2mone.com.au/hybrid-iot-readiness/",
+  "channels": [
+    "LinkedIn document",
+    "Technical email",
+    "Landing-page proof",
+    "SI enablement"
+  ],
+  "caption": "The Iridium Certus 9604 combines LTE-M cellular, Iridium Short Burst Data and GNSS in a 16 × 26 × 2.4 mm module. Iridium describes independent control of the cellular and satellite subsystems and a unified AT-command interface.\n\nFor an engineering team, the practical value is design flexibility and a smaller integration footprint—not a black-box promise. Antennas, power, firmware, payloads, service plans, certification and operating conditions still belong in the design review.\n\nBring the real route, message profile and constraints to a Hybrid IoT design conversation.\n\nStart here: https://m2mone.com.au/hybrid-iot-readiness/\n\n#HardwareDesign #EmbeddedIoT #Iridium9604 #SystemsEngineering",
+  "evidence": "Dimensions and architecture from official Iridium product information, observed 9 September 2026."
+}

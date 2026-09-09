@@ -1,0 +1,21 @@
+{
+  "id": "w10",
+  "week": 10,
+  "phase": "convert",
+  "date": "2026-11-24",
+  "label": "Readiness checklist",
+  "master": "w01-coverage-boundary.png",
+  "eyebrow": "DESIGN TOOL · READINESS CHECKLIST",
+  "headline": "Map the gap before you map the hardware.",
+  "support": "Seven questions to turn a coverage concern into an engineering brief.",
+  "cta": "Download the checklist",
+  "url": "downloads/hybrid-iot-readiness-guide.pdf",
+  "channels": [
+    "LinkedIn organic",
+    "Email 07",
+    "Lead-magnet page",
+    "Retargeting"
+  ],
+  "caption": "A useful Hybrid IoT conversation starts before the module selection.\n\nBring seven inputs:\n1. Operating regions and movement patterns\n2. Known or suspected coverage boundaries\n3. Message types and payload sizes\n4. Reporting frequency and urgency\n5. Power, enclosure and antenna constraints\n6. Retry, acknowledgement and fallback behaviour\n7. Commercial and service assumptions\n\nWe have packaged the questions into a practical readiness guide for product and solution teams.\n\nDownload the guide: https://optiflows.com.au/campaigns/9604-hybrid-connectivity/downloads/hybrid-iot-readiness-guide.pdf\n\n#IoTArchitecture #ProductDesign #HybridIoT #EngineeringChecklist",
+  "evidence": "Campaign-owned diagnostic framework; not a product certification or coverage assessment."
+}

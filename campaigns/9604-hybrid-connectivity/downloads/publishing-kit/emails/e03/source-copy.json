@@ -1,0 +1,21 @@
+{
+  "id": "e03",
+  "week": 4,
+  "segment": "Asset tracking and logistics",
+  "subject": "Your route is the real coverage map",
+  "preheader": "Design the exception path before an asset leaves the predictable corridor.",
+  "headline": "Visibility beyond the predictable route.",
+  "master": "w04-asset-tracking.png",
+  "cta": "Assess the route",
+  "paragraphs": [
+    "Detours, regional corridors, depots and remote handover points can expose the gap between a product's assumed coverage and the route it actually travels.",
+    "The Iridium Certus 9604 makes cellular and satellite subsystems available in one compact module. Your application still decides which events justify another path, how long to retry and what the operations team sees.",
+    "Bring a real route and message profile to a scoped design conversation."
+  ],
+  "bullets": [
+    "Route and dwell-point review",
+    "Event and payload priority",
+    "Retry and escalation logic",
+    "Antenna, power and enclosure constraints"
+  ]
+}

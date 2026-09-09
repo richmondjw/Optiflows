@@ -1,0 +1,9 @@
+For a lone-worker or field-safety product, connectivity is important—but it is only one part of the safety system.
+
+A responsible design defines message priority, retry behaviour, acknowledgement, escalation, device-state visibility and what the worker should do when communications are unavailable. A satellite path may extend the operating design beyond dependable cellular coverage; it should never be presented as a guarantee of delivery or safety.
+
+Build the communications dependency into the risk assessment from the start.
+
+Assess the design questions: https://m2mone.com.au/hybrid-iot-readiness/
+
+#FieldSafety #LoneWorker #SafetyTechnology #SatelliteIoT

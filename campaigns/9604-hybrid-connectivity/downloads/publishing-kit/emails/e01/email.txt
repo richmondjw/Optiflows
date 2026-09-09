@@ -1,0 +1,17 @@
+SUBJECT: Where does your device lose coverage?
+PREHEADER: Map the operating boundary before it becomes a product issue.
+
+Find the boundary before it finds you.
+
+A connected product can be reliable in its expected cellular footprint and still encounter a very different operating reality once an asset, device or worker moves beyond it.
+
+The first Hybrid IoT decision is not a module selection. It is a map of operating regions, critical messages, reporting urgency and the consequence of a transmission that does not arrive.
+
+Our readiness guide gives product teams a practical way to assemble those inputs before an engineering conversation.
+
+• Operating regions and movement
+• Critical versus delay-tolerant messages
+• Power, antenna and enclosure constraints
+• Retry, acknowledgement and fallback behaviour
+
+Explore the readiness guide

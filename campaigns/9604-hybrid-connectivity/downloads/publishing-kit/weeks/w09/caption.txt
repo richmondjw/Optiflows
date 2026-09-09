@@ -1,0 +1,9 @@
+The Iridium Certus 9604 combines LTE-M cellular, Iridium Short Burst Data and GNSS in a 16 × 26 × 2.4 mm module. Iridium describes independent control of the cellular and satellite subsystems and a unified AT-command interface.
+
+For an engineering team, the practical value is design flexibility and a smaller integration footprint—not a black-box promise. Antennas, power, firmware, payloads, service plans, certification and operating conditions still belong in the design review.
+
+Bring the real route, message profile and constraints to a Hybrid IoT design conversation.
+
+Start here: https://m2mone.com.au/hybrid-iot-readiness/
+
+#HardwareDesign #EmbeddedIoT #Iridium9604 #SystemsEngineering

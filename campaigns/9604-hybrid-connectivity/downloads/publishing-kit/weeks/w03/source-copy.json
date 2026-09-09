@@ -1,0 +1,20 @@
+{
+  "id": "w03",
+  "week": 3,
+  "phase": "recognise",
+  "date": "2026-10-06",
+  "label": "Architecture truth",
+  "master": "w09-engineering-design.png",
+  "eyebrow": "HYBRID IOT · DESIGN TRUTH",
+  "headline": "Hybrid is a design decision—not a magic switch.",
+  "support": "The 9604 makes both network layers available. Your system defines when and how to use them.",
+  "cta": "Review the design questions",
+  "url": "https://m2mone.com.au/hybrid-iot-readiness/",
+  "channels": [
+    "LinkedIn document",
+    "Landing-page proof",
+    "Engineering follow-up"
+  ],
+  "caption": "The Iridium Certus 9604 brings LTE-M cellular, Iridium Short Burst Data and GNSS into one compact module. That simplifies the hardware footprint. It does not remove the system-design work.\n\nThe module provides independent control of its cellular and satellite subsystems. Product teams still define the routing, retry, fallback and message-priority logic that fits their application.\n\nThat is good engineering news: the behaviour can be designed around the device, environment and commercial model instead of assumed from a generic ‘always connected’ claim.\n\nStart with the readiness questions: https://m2mone.com.au/hybrid-iot-readiness/\n\n#EmbeddedSystems #IoTEngineering #Iridium #LTEM",
+  "evidence": "Official Iridium 9604 architecture; implementation behaviour remains developer-defined."
+}

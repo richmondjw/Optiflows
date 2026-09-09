@@ -1,0 +1,21 @@
+{
+  "id": "w01",
+  "week": 1,
+  "phase": "recognise",
+  "date": "2026-09-22",
+  "label": "Coverage boundary",
+  "master": "w01-coverage-boundary.png",
+  "eyebrow": "HYBRID IOT · THE COVERAGE GAP",
+  "headline": "Where does your device lose coverage?",
+  "support": "Find the boundary before it becomes an operating issue.",
+  "cta": "Explore the readiness guide",
+  "url": "https://m2mone.com.au/hybrid-iot-readiness/",
+  "channels": [
+    "LinkedIn organic",
+    "Website hero",
+    "Email 01",
+    "Paid search"
+  ],
+  "caption": "A connected product can work perfectly in the lab and still fail at the edge of its operating map. The useful question is not whether cellular coverage is good in general. It is where your device, asset or worker moves beyond the coverage your workflow depends on—and which messages still matter there.\n\nHybrid IoT gives product teams another connectivity layer to design around. The readiness work starts with routes, environments, message priorities, power, antenna placement and the consequence of a missed transmission.\n\nMap the coverage dependency before choosing the architecture.\n\nExplore the Hybrid IoT readiness guide: https://m2mone.com.au/hybrid-iot-readiness/\n\n#HybridIoT #IoTDesign #SatelliteIoT #Connectivity",
+  "evidence": "Problem framing; no performance guarantee."
+}

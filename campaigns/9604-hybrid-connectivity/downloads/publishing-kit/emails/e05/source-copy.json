@@ -1,0 +1,21 @@
+{
+  "id": "e05",
+  "week": 7,
+  "segment": "Remote equipment operators and OEMs",
+  "subject": "Design for the hour no one can drive out",
+  "preheader": "Make the critical equipment state visible without transmitting everything.",
+  "headline": "Design the exception path.",
+  "master": "w07-remote-equipment.png",
+  "cta": "Review the exception path",
+  "paragraphs": [
+    "Remote monitoring is valuable when it changes a maintenance or operating decision before another site visit is required.",
+    "That means identifying the small set of states that deserve immediate attention, deciding what can wait for cellular recovery and keeping safe local control independent of the link.",
+    "A Hybrid IoT design review can test whether a satellite exception path fits the device and operating model."
+  ],
+  "bullets": [
+    "Decision-triggering conditions",
+    "Small exception payloads",
+    "Local control and storage",
+    "Operations visibility and response"
+  ]
+}

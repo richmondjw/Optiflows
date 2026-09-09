@@ -1,0 +1,47 @@
+audience:
+Landing-page visitor
+
+line:
+Still mapping the coverage gap?
+
+body:
+Use the seven-question readiness guide to turn it into a design brief.
+
+cta:
+Download the guide
+
+audience:
+Guide downloader
+
+line:
+Bring the real operating map.
+
+body:
+Talk through message priorities, power, antennas and fallback logic with an IoT specialist.
+
+cta:
+Start a design conversation
+
+audience:
+Vertical content engager
+
+line:
+Your operating context changes the design.
+
+body:
+Review the exception path for assets, agriculture, monitoring or field safety.
+
+cta:
+Assess the coverage gap
+
+audience:
+High-intent repeat visitor
+
+line:
+Ready to test the architecture?
+
+body:
+Bring the route, payload and constraints. We will help shape the next technical step.
+
+cta:
+Book a design session
