@@ -146,6 +146,31 @@
     @media(max-width:680px){.activation-showcase__head{align-items:flex-start;flex-direction:column}.activation-showcase[data-device="mobile"] .activation-gallery{grid-template-columns:minmax(0,1fr)}.activation-study{padding:10px}.pi-site{height:540px}.pi-navrow{gap:13px;padding:0 14px}.pi-campaign-band{margin-left:14px;margin-right:14px}.pi-home-context,.pi-article,.pi-picks,.pi-personal,.pi-dispatch{padding-left:14px;padding-right:14px}}
   </style>
   <script defer src="/gate.js"></script>
+  <style>
+    /* Keep each production brief with its matching creative; scoped to this page. */
+    .asset-pairs-ready .wide-grid,.asset-pairs-ready .motion-grid{grid-template-columns:minmax(0,1fr);gap:48px}
+    .asset-review-pair{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:24px;align-items:start;min-width:0;padding-top:24px;border-top:1px solid var(--line);scroll-margin-top:96px}
+    .asset-review-pair>*{min-width:0}
+    .asset-review-pair>.card{box-shadow:none}
+    .asset-review-pair>.card{position:sticky;top:24px}
+    .asset-review-pair .feed-sequence,.asset-review-pair .story-sequence{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+    .asset-review-pair .motion-card--story{justify-self:center}
+    .asset-review-pair>.pcs-asset-copy{border:0;border-radius:0;background:transparent}
+    .asset-review-pair .pcs-asset-copy summary{padding:0 0 16px;min-height:44px}
+    .asset-review-pair .pcs-asset-copy summary small{font-size:11px;color:var(--harbour)}
+    .asset-review-pair .pcs-asset-copy summary strong{font-size:20px}
+    .asset-review-pair .pcs-copy-state{font-size:10px;white-space:normal;flex-shrink:1}
+    .asset-review-pair .pcs-asset-copy-body{padding:16px 0 0}
+    .asset-review-pair .pcs-asset-copy-body dl{gap:16px}
+    .asset-review-pair .pcs-copy-field dt,.asset-review-pair .pcs-copy-gate strong{font-size:11px;color:var(--harbour)}
+    .asset-review-pair .pcs-copy-field dd{font-size:15px;line-height:1.6;overflow-wrap:anywhere;max-width:70ch}
+    .asset-review-pair .pcs-copy-gate{border-left:0;padding:16px;border-radius:0}
+    .asset-review-pair .pcs-copy-gate span{font-size:13px}
+    .asset-review-pair .pcs-copy-action{min-height:44px;font-size:13px}
+    .asset-review-link{display:flex;align-items:center;min-height:44px;padding:12px 16px;color:var(--harbour);font-weight:600;text-underline-offset:4px}
+    @media(max-width:900px){.asset-review-pair{grid-template-columns:minmax(0,1fr);gap:24px}.asset-review-pair>.card{position:static}.asset-pairs-ready .wide-grid,.asset-pairs-ready .motion-grid{gap:48px}}
+    @media(max-width:480px){.asset-review-pair .pcs-asset-copy summary{gap:12px}.asset-review-pair .pcs-copy-field dd{font-size:15px}}
+  </style>
 </head>
 <body>
   <div class="shell">
@@ -460,6 +485,54 @@
   </script>
   <script>
     PICopyStudio.mount({data:PI_SPRING_PRODUCTION,emailRoot:'email-studio',registerRoot:'production-copy'});
+    // Move the existing, wired brief nodes rather than duplicating production copy.
+    const creativeByAsset = new Map();
+    document.querySelectorAll('.wide-grid > .card').forEach(card => {
+      creativeByAsset.set(card.querySelector('.card-meta strong').textContent.trim(), card);
+    });
+    document.querySelectorAll('[data-week-section]').forEach(week => {
+      const prefix = week.dataset.weekSection.toUpperCase();
+      creativeByAsset.set(prefix + '-FEED', week.querySelector('.feed-sequence'));
+      creativeByAsset.set(prefix + '-STORY', week.querySelector('.story-sequence'));
+    });
+    creativeByAsset.set('S4-MOTION', document.querySelector('.motion-card:not(.motion-card--story)'));
+    creativeByAsset.set('S2-MOTION', document.querySelector('.motion-card--story'));
+    const briefs = [...document.querySelectorAll('#production-copy .pcs-asset-copy')];
+    const pairPlan = briefs.map(brief => ({
+      brief,
+      assetId: brief.querySelector('[data-copy-asset]').dataset.copyAsset
+    }));
+    if (pairPlan.every(item => creativeByAsset.get(item.assetId))) {
+      pairPlan.forEach(({brief, assetId}) => {
+        const creative = creativeByAsset.get(assetId);
+        const pair = document.createElement('div');
+        pair.className = 'asset-review-pair';
+        pair.id = 'review-' + assetId.toLowerCase();
+        pair.dataset.assetReview = assetId;
+        const link = document.createElement('a');
+        link.className = 'asset-review-link';
+        link.href = '#' + pair.id;
+        link.textContent = assetId + ' — creative and complete copy';
+        brief.replaceWith(link);
+        creative.before(pair);
+        brief.open = true;
+        pair.append(creative, brief);
+        link.addEventListener('click', () => {
+          const week = pair.closest('[data-week-section]');
+          if (week && week.classList.contains('hidden')) {
+            document.querySelectorAll('.nav button').forEach(tab => {
+              tab.setAttribute('aria-pressed', String(tab.dataset.week === week.dataset.weekSection));
+            });
+            document.querySelectorAll('[data-week-section]').forEach(section => {
+              section.classList.toggle('hidden', section !== week);
+            });
+          }
+          brief.open = true;
+        });
+      });
+      document.body.classList.add('asset-pairs-ready');
+    }
+
   </script>
 </body>
 </html>
