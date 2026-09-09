@@ -161,6 +161,7 @@ for (const carousel of campaign.carousels) {
   carousel.slides.forEach((slide, index) => {
     manuscript.push(`#### Slide ${index + 1} · ${slide.headline}\n\n${slide.body}${slide.cta ? `\n\n**CTA:** ${slide.cta}` : ""}\n`);
   });
+  if (carousel.technicalNotes) manuscript.push(`**Retained engineering detail**\n\n${carousel.technicalNotes.map(s => `- **${s.headline}** ${s.body}`).join('\n')}\n`);
 }
 
 manuscript.push("## Email sequence\n");
@@ -249,7 +250,7 @@ const provenance = {
     source: "User-supplied campaign reference",
     rightsStatus: "Unknown; reference use only; not approved for publication",
     retainedOutsidePublicRelease: true,
-    sha256: sha256(path.join(root, file)),
+    sha256: fs.existsSync(path.join(root, file)) ? sha256(path.join(root, file)) : JSON.parse(fs.readFileSync(path.join(root, 'creative-provenance.json'), 'utf8')).references.find(r => r.internalWorkingPath === file)?.sha256 || null,
   })),
   imageMasters: Object.entries(masterBriefs).map(([name, promptBrief]) => ({
     file: `assets/higgsfield-masters/${name}`,
@@ -290,12 +291,19 @@ const provenance = {
     source: "render.html + campaign-data.js + official logo/font assets + Higgsfield masters",
     sets: [
       { path: "assets/exports", count: 48, formats: ["1600x900", "1080x1350", "1080x1080", "1080x1920"] },
-      { path: "assets/carousels", count: 25, formats: ["1080x1350"] },
+      { path: "assets/carousels", count: 25, formats: ["1080x1350"], brand: "M2M Connectivity" },
+      { path: "assets/carousels/co-branded", count: 25, formats: ["1080x1350"], brand: "M2M Connectivity + M2M One" },
       { path: "assets/email", count: 8, formats: ["1200x900"] },
       { path: "assets/website", count: 4, formats: ["1600x900"] },
     ],
   },
 };
+const carouselReceipts = path.join(root, 'carousel-generation-receipts.json');
+if (fs.existsSync(carouselReceipts)) {
+  provenance.imageMasters.push(...JSON.parse(fs.readFileSync(carouselReceipts, 'utf8')));
+  provenance.policy.limitation = 'Original weekly masters lack retained provider job IDs. The human-story carousel revision retains provider job IDs, verbatim prompt files and generation receipts. All people and settings are illustrative, not actual customer evidence.';
+  provenance.brandVariants = { default: 'M2M Connectivity', coBranded: 'M2M Connectivity + M2M One', placement: 'Official marks together at top left; unchanged artwork and proportions', m2mOneSource: 'https://m2mone.com.au/wp-content/uploads/2024/09/M2M-One-Logo_RBG.png', m2mOneAuthority: 'Existing approved asset from Pixel M2M One brand manifest; endorsed positive 326x80 source, placed no larger than native size', m2mOneSha256: sha256(path.join(root, 'assets/brand/m2m-one-logo.png')) };
+}
 write("creative-provenance.json", JSON.stringify(provenance, null, 2) + "\n");
 
 function dimensions(file) {

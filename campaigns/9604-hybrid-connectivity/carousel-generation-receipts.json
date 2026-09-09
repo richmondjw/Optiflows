@@ -1,0 +1,92 @@
+[
+  {
+    "file": "assets/higgsfield-masters/carousel-agtech-human.jpg",
+    "provider": "Higgsfield",
+    "model": "gpt_image_2",
+    "jobId": "b78f5aeb-fbd7-4122-a92f-27123a630c9c",
+    "createdAt": "2026-09-09T15:59:42.320508Z",
+    "status": "completed",
+    "promptFile": "assets/higgsfield-masters/carousel-agtech-prompt.txt",
+    "sourceOriginalSha256": "d9b1b883f3c0388e34c13beb66d91c2353e7c047f7f7f1c297945b062307d3a7",
+    "sha256": "8e79d355e030eadaad6d46300f1dbc5db4760e9b93f4f5f9394651154b176a17",
+    "dimensions": [
+      3840,
+      1648
+    ],
+    "finishing": "Provider original converted to JPEG quality 95, no crop, colour change, typography or logo generation.",
+    "rightsStatus": "Generated illustrative image; provider terms apply. No customer, named person or actual deployment represented. Existing campaign release review retained.",
+    "referenceImages": []
+  },
+  {
+    "file": "assets/higgsfield-masters/carousel-asset-tracking-human.jpg",
+    "provider": "Higgsfield",
+    "model": "gpt_image_2",
+    "jobId": "5f0af6a6-4b3d-4204-a14e-205097793b0a",
+    "createdAt": "2026-09-09T15:59:42.308366Z",
+    "status": "completed",
+    "promptFile": "assets/higgsfield-masters/carousel-asset-tracking-prompt.txt",
+    "sourceOriginalSha256": "f444baa00d84ad165118551def987effb68522a373d8faf75615604b7d0e8e5f",
+    "sha256": "53a29a0ad6eaa533b98c9eb67111e81a217ae695ad3295942619cb2667d11330",
+    "dimensions": [
+      3840,
+      1648
+    ],
+    "finishing": "Provider original converted to JPEG quality 95, no crop, colour change, typography or logo generation.",
+    "rightsStatus": "Generated illustrative image; provider terms apply. No customer, named person or actual deployment represented. Existing campaign release review retained.",
+    "referenceImages": []
+  },
+  {
+    "file": "assets/higgsfield-masters/carousel-environmental-human.jpg",
+    "provider": "Higgsfield",
+    "model": "gpt_image_2",
+    "jobId": "e8e64f6c-9ad3-49ff-955b-8290d0f49d78",
+    "createdAt": "2026-09-09T15:59:42.130831Z",
+    "status": "completed",
+    "promptFile": "assets/higgsfield-masters/carousel-environmental-prompt.txt",
+    "sourceOriginalSha256": "ef14e024073fbe2f5b6ac64d4b3babb18a2b3017c357204804e740b140106fa2",
+    "sha256": "73530d78cc9e314808b1c5f05427be0babaffe3f03e453e10a0a237aa509842c",
+    "dimensions": [
+      3840,
+      1648
+    ],
+    "finishing": "Provider original converted to JPEG quality 95, no crop, colour change, typography or logo generation.",
+    "rightsStatus": "Generated illustrative image; provider terms apply. No customer, named person or actual deployment represented. Existing campaign release review retained.",
+    "referenceImages": []
+  },
+  {
+    "file": "assets/higgsfield-masters/carousel-field-safety-human.jpg",
+    "provider": "Higgsfield",
+    "model": "gpt_image_2",
+    "jobId": "a22fd29a-1880-4b6a-a71c-472f89112bc8",
+    "createdAt": "2026-09-09T15:59:42.2208Z",
+    "status": "completed",
+    "promptFile": "assets/higgsfield-masters/carousel-field-safety-prompt.txt",
+    "sourceOriginalSha256": "0ef0bea85ce3c00cbae8fdfb439dc2ac16c6681dcab968240fad19b01280b742",
+    "sha256": "3460dcce62ed247e285a307a7f4cb2e2fba69678cb37d20d1baf9112bca96080",
+    "dimensions": [
+      3840,
+      1648
+    ],
+    "finishing": "Provider original converted to JPEG quality 95, no crop, colour change, typography or logo generation.",
+    "rightsStatus": "Generated illustrative image; provider terms apply. No customer, named person or actual deployment represented. Existing campaign release review retained.",
+    "referenceImages": []
+  },
+  {
+    "file": "assets/higgsfield-masters/carousel-remote-equipment-human.jpg",
+    "provider": "Higgsfield",
+    "model": "gpt_image_2",
+    "jobId": "e24dc1fc-0570-482e-8fba-ba0b558c22ed",
+    "createdAt": "2026-09-09T15:59:42.132177Z",
+    "status": "completed",
+    "promptFile": "assets/higgsfield-masters/carousel-remote-equipment-prompt.txt",
+    "sourceOriginalSha256": "5bceae055c36993302da5fb4f0139d6606645068a5dd70c54f819419937f545d",
+    "sha256": "e582b027bf1d1d9595b8069bbde8dcb2a5adabcaa0f72b96fa2cf8ac9392b840",
+    "dimensions": [
+      3840,
+      1648
+    ],
+    "finishing": "Provider original converted to JPEG quality 95, no crop, colour change, typography or logo generation.",
+    "rightsStatus": "Generated illustrative image; provider terms apply. No customer, named person or actual deployment represented. Existing campaign release review retained.",
+    "referenceImages": []
+  }
+]

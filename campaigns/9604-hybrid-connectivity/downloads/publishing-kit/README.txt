@@ -6,7 +6,7 @@ LinkedIn: upload a weekly feed/square PNG and paste its caption, OR upload the a
 
 Email designs are screenshots, not HTML or an ESP-ready send template. Import exact copy into an approved ESP template and integrate sender, consent/suppression, unsubscribe/preference links, accessibility and tested destination links before release. No recipient lists included.
 
-Website and motion files remain design/motion STUDIES. The guide is the existing source PDF, copied unchanged. Corporate/product claims and application-dependent limitations remain in source evidence and weekly notes.
+Website and motion files remain design/motion STUDIES. The two video studies are separate downloads, linked in motion-studies/README.txt, and excluded from the all-in-one ZIP; all finished publishing PNGs and PDFs are included. The guide is the existing source PDF, copied unchanged. Corporate/product claims and application-dependent limitations remain in source evidence and weekly notes.
 
 The proposed campaign destination is https://m2mone.com.au/hybrid-iot-readiness/ (unverified; root observed HTTP403 during fetch).
 

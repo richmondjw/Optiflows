@@ -1,0 +1,211 @@
+{
+  "schemaVersion": "1.0",
+  "campaignId": "9604-hybrid-iot-90-day-2026",
+  "status": "Creative revision for review; existing activation gates retained",
+  "creativePlatform": "Someone is waiting on that message.",
+  "direction": "Five human operating stories, each unfolding across five cards. Begin with the person and a recognisable moment, reveal the information gap, make the engineering choice tangible, show responsible behaviour, then invite a real design conversation. These are illustrative situations, not customer stories or testimonials.",
+  "brand": {
+    "typeface": "Titillium Web",
+    "primary": [
+      "#00AFAA",
+      "#003640",
+      "#00677A"
+    ],
+    "support": [
+      "#BBEBDD",
+      "#5FB286"
+    ],
+    "accentRule": "Use the approved extended accent as a small punctuation, at most 20 percent of designed colour area. Keep actual photography naturally coloured. Official logos only; never generated.",
+    "continuity": "A broad route or contour line enters and exits at the same edge coordinates across every adjacent pair. It belongs to the landscape: road, irrigation line, river, cable or walking trail. Use split crops or one continuous panorama and a persistent human protagonist; do not repeat one background with five text overlays. Text sits in deliberately reserved calm space. Cards 1 and 5 feel like opening and resolution; 2 to 4 change scale and viewpoint.",
+    "copyRule": "Headlines ideally 3 to 8 words, one supporting sentence, discreet 01/05 numbering. Primary CTA unchanged. Claim caveats close to relevant capability. No fake quotations, dates, savings or named customers."
+  },
+  "carousels": [
+    {
+      "id": "asset-tracking",
+      "title": "The route changes. Someone still needs an answer.",
+      "accent": "#F7781E",
+      "human": "A freight coordinator and the driver they are trying to support, shown as an illustrative working situation.",
+      "continuity": "A sweeping road travels left to right through all five cards, becoming a route drawn on the coordinator's desk at the end.",
+      "slides": [
+        {
+          "headline": "The route just changed.",
+          "body": "For the person waiting at the next handover, the next update matters.",
+          "visual": "Close, empathetic driver portrait beside a parked truck; road curves out of the right edge."
+        },
+        {
+          "headline": "So did the coverage.",
+          "body": "A detour can take a tracker beyond the cellular conditions it was designed around.",
+          "visual": "Pull wide to the same truck small within a sweeping remote corridor; continuing road establishes the handoff."
+        },
+        {
+          "headline": "Which update cannot wait?",
+          "body": "Rank the location, delay and exception messages that change a human decision.",
+          "visual": "Shift to coordinator close-up with sparse, clearly illustrative message categories added deterministically, not a fake live interface."
+        },
+        {
+          "headline": "Give the exception a plan.",
+          "body": "Design cellular retries, a satellite message path and what happens when neither is available.",
+          "visual": "Landscape cutaway with two intentional paths and an honest unavailable branch; the road remains the continuous foreground thread."
+        },
+        {
+          "headline": "Bring us the real route.",
+          "body": "Start with one journey, its critical messages and your device constraints.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness",
+          "visual": "Driver and coordinator perspectives resolve in a human engineering discussion over the actual route motif."
+        }
+      ]
+    },
+    {
+      "id": "agtech",
+      "title": "The water level cannot read your coverage map.",
+      "accent": "#FEC221",
+      "human": "A farmer checking a remote water installation; practical, calm, knowledgeable.",
+      "continuity": "A winding blue-green water line links tank, paddock, sensor, power detail and farm plan; the same farmer anchors the story.",
+      "slides": [
+        {
+          "headline": "One farm. A lot to watch.",
+          "body": "A water reading from the far paddock can shape the next job of the day.",
+          "visual": "Farmer at dawn, tactile hands on fence, bright field light, remote tank visible across the next-card edge."
+        },
+        {
+          "headline": "The tower is somewhere else.",
+          "body": "Design around the paddock, terrain and sky view where the sensor actually works.",
+          "visual": "Expansive aerial paddock view with the tank and irrigation contour continuing the prior composition."
+        },
+        {
+          "headline": "This reading changes the day.",
+          "body": "Separate urgent thresholds from routine readings that can store, batch or retry.",
+          "visual": "Intimate tank-level or sensor detail and the farmer's considered expression; bold single threshold motif, no fabricated numeric reading."
+        },
+        {
+          "headline": "Make the whole design work.",
+          "body": "Match message paths to power, antennas and the behaviour required when offline.",
+          "visual": "Sunlit sensor/solar installation as illustrative hardware, green growth and sweeping water contour; never imply exact 9604 product appearance."
+        },
+        {
+          "headline": "Start with your far paddock.",
+          "body": "Bring one site's conditions into a Hybrid IoT readiness conversation.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness",
+          "visual": "Farmer and technical specialist working over a property plan; water line resolves into the map."
+        }
+      ]
+    },
+    {
+      "id": "environmental",
+      "title": "A remote reading. A very human decision.",
+      "accent": "#0057AD",
+      "human": "A field scientist following a remote catchment; attentive observation rather than disaster imagery.",
+      "continuity": "The river is a single flowing form across all five cards, moving from real water to a contour and back to the scientist's site plan.",
+      "slides": [
+        {
+          "headline": "Out here, change is quiet.",
+          "body": "A remote reading can help someone decide what needs a closer look.",
+          "visual": "Scientist beside a broad river bend, human foreground, luminous water sweeping into next card."
+        },
+        {
+          "headline": "Which change needs attention?",
+          "body": "Define which thresholds matter and how quickly the team needs to know.",
+          "visual": "Macro of the scientist's sampling work and water detail; single bold contour loop gives focus without invented measurement."
+        },
+        {
+          "headline": "Send the part that matters.",
+          "body": "Design a small, useful exception message and retain detail locally where appropriate.",
+          "visual": "River narrows into a minimal packet-like grouping, with large calm text space; visual metaphor explicitly distinct from factual dashboard."
+        },
+        {
+          "headline": "Remote still has limits.",
+          "body": "Plan for power and sky view; a satellite path cannot guarantee delivery.",
+          "visual": "Wider rugged field station under open sky with terrain occlusion legible, scientist checking the real mounting context."
+        },
+        {
+          "headline": "Bring the site into the design.",
+          "body": "Use the readiness guide to map the site, payload and reporting priorities.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness",
+          "visual": "Scientist and colleague over a catchment map; flowing river becomes a route through their shared plan."
+        }
+      ]
+    },
+    {
+      "id": "remote-equipment",
+      "title": "Before someone makes the long drive.",
+      "accent": "#F7781E",
+      "human": "A maintenance technician making a considered remote-site decision, not an alarmist breakdown story.",
+      "continuity": "A cable or pipe curves through equipment, diagnostic detail, local-control scene and workshop plan, held at common edge coordinates.",
+      "slides": [
+        {
+          "headline": "It's a long way out.",
+          "body": "Before a technician heads to a remote site, the equipment state matters.",
+          "visual": "Technician beside service vehicle surveying remote installation; human face and warm light counterbalance teal graphics."
+        },
+        {
+          "headline": "What needs their attention now?",
+          "body": "Choose the fault or threshold messages that change the next maintenance decision.",
+          "visual": "Move close to gloved hands and equipment inspection; purposeful detail instead of another landscape."
+        },
+        {
+          "headline": "Give critical messages a plan.",
+          "body": "Define retries and a satellite exception path around urgency, power and payload.",
+          "visual": "Cable carries into compact illustrated network-path choices beside realistic equipment texture; no automatic-switch promise."
+        },
+        {
+          "headline": "The machine still needs a plan.",
+          "body": "Keep safe local control independent of connectivity, and make missing data visible.",
+          "visual": "Technician working on local controls, grounded physical action; clear illustrative unavailable-state symbol near cable."
+        },
+        {
+          "headline": "Start with one real exception.",
+          "body": "Bring its trigger, response and device constraints to a design review.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness",
+          "visual": "Technician and engineer reviewing a workflow; cable motif resolves into a simple drawn exception path."
+        }
+      ]
+    },
+    {
+      "id": "field-safety",
+      "title": "There is a person behind every check-in.",
+      "accent": "#FEC221",
+      "human": "A competent field worker and a response colleague, both visibly active participants in a safety procedure; no rescue spectacle or implied protective guarantee.",
+      "continuity": "A walking trail threads through the worker, device interaction, response colleague and shared safety plan; no glowing forcefield, protective dome or always-on signal.",
+      "slides": [
+        {
+          "headline": "Someone is expecting your check-in.",
+          "body": "A field worker and their response team need a clear communications plan.",
+          "visual": "Warm close portrait of worker preparing at a safe trailhead, with response colleague visually introduced across edge."
+        },
+        {
+          "headline": "Sent. Received. Acknowledged?",
+          "body": "Define what the worker and response team see at every message state.",
+          "visual": "Over-shoulder physical device interaction and colleague perspective; status words typeset in finishing, no fake product interface."
+        },
+        {
+          "headline": "Who takes the next step?",
+          "body": "Set retry, alternate-path and human escalation rules for each event.",
+          "visual": "Response colleague focused at desk, trail line becomes a procedural connector rather than an asserted delivered signal."
+        },
+        {
+          "headline": "And when no message gets through?",
+          "body": "Make communication limits visible and define the worker's procedure for that state.",
+          "visual": "Worker pausing responsibly to follow procedure; calm clear offline condition, no emergency or heroic rescue depiction."
+        },
+        {
+          "headline": "Build the whole safety plan.",
+          "body": "Review the workflow with technical and safety owners; connectivity is not a safety guarantee.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness",
+          "visual": "Worker, safety owner and technical colleague together over a plan; trail unites the human participants."
+        }
+      ]
+    }
+  ],
+  "sourceBasis": [
+    "Existing campaign-data.js carousel and weekly source copy, read 10 September 2026",
+    "Existing creative-provenance.json and activation gates",
+    "agents/pixel/brand/semtech/tokens.json version 1.0.0"
+  ],
+  "qaNotes": [
+    "No new product specifications or performance claims introduced.",
+    "Characters and situations are illustrative; do not label as customer case studies or imply testimonials.",
+    "Unchanged CTA destination remains subject to existing destination and release checks.",
+    "Expanded review copy should preserve the original detailed engineering questions; concise on-card copy does not replace the technical brief.",
+    "Image-generation prompts must exclude all text, logos, watermarks and precise branded hardware; add official branding and typography deterministically."
+  ]
+}

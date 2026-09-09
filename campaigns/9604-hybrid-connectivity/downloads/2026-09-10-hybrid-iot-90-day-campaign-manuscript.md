@@ -328,135 +328,175 @@ Start a Hybrid IoT design conversation: https://m2mone.com.au/hybrid-iot-readine
 
 ## LinkedIn document and carousel scripts
 
-### Asset tracking beyond the predictable route
+### The route changes. Someone still needs an answer.
 
 **Audience:** Asset tracking and logistics teams · **Week:** 4
 
-#### Slide 1 · Where does the route exceed your network assumption?
+#### Slide 1 · The route just changed.
 
-Detours, depots and remote handover points can expose a coverage dependency.
+For the person waiting at the next handover, the next update matters.
 
-#### Slide 2 · Rank the events
+#### Slide 2 · So did the coverage.
 
-Routine location updates, exceptions, tamper events and safety alerts do not carry equal urgency.
+A detour can take a tracker beyond the cellular conditions it was designed around.
 
-#### Slide 3 · Define the behaviour
+#### Slide 3 · Which update cannot wait?
 
-Set cellular retry, satellite escalation, payload size, acknowledgement and store-and-forward rules.
+Rank the location, delay and exception messages that change a human decision.
 
-#### Slide 4 · Design the whole device
+#### Slide 4 · Give the exception a plan.
 
-Power, antennas, enclosure, firmware, service costs and operations must be reviewed together.
+Design cellular retries, a satellite message path and what happens when neither is available.
 
-#### Slide 5 · Assess the coverage gap
+#### Slide 5 · Bring us the real route.
 
-Bring a real route and message profile to a scoped Hybrid IoT design conversation.
+Start with one journey, its critical messages and your device constraints.
 
 **CTA:** m2mone.com.au/hybrid-iot-readiness
 
-### Four questions for connected agriculture
+**Retained engineering detail**
+
+- **Where does the route exceed your network assumption?** Detours, depots and remote handover points can expose a coverage dependency.
+- **Rank the events** Routine location updates, exceptions, tamper events and safety alerts do not carry equal urgency.
+- **Define the behaviour** Set cellular retry, satellite escalation, payload size, acknowledgement and store-and-forward rules.
+- **Design the whole device** Power, antennas, enclosure, firmware, service costs and operations must be reviewed together.
+- **Assess the coverage gap** Bring a real route and message profile to a scoped Hybrid IoT design conversation.
+
+### The water level cannot read your coverage map.
 
 **Audience:** Agtech product and farm-system teams · **Week:** 5
 
-#### Slide 1 · What must leave the field now?
+#### Slide 1 · One farm. A lot to watch.
 
-Separate urgent thresholds from routine telemetry that can wait, batch or retry.
+A water reading from the far paddock can shape the next job of the day.
 
-#### Slide 2 · Where does the device really operate?
+#### Slide 2 · The tower is somewhere else.
 
-Use property conditions, terrain and movement—not the nearest town—as the design input.
+Design around the paddock, terrain and sky view where the sensor actually works.
 
-#### Slide 3 · What is the power budget?
+#### Slide 3 · This reading changes the day.
 
-Reporting frequency and network behaviour must fit the device's energy model.
+Separate urgent thresholds from routine readings that can store, batch or retry.
 
-#### Slide 4 · What happens offline?
+#### Slide 4 · Make the whole design work.
 
-Define local control, storage, retry and operator visibility before choosing the communications path.
+Match message paths to power, antennas and the behaviour required when offline.
 
-#### Slide 5 · Map the field conditions
+#### Slide 5 · Start with your far paddock.
 
-Turn operating reality into a Hybrid IoT readiness brief.
+Bring one site's conditions into a Hybrid IoT readiness conversation.
 
 **CTA:** m2mone.com.au/hybrid-iot-readiness
 
-### Remote monitoring without the blanket promise
+**Retained engineering detail**
+
+- **What must leave the field now?** Separate urgent thresholds from routine telemetry that can wait, batch or retry.
+- **Where does the device really operate?** Use property conditions, terrain and movement—not the nearest town—as the design input.
+- **What is the power budget?** Reporting frequency and network behaviour must fit the device's energy model.
+- **What happens offline?** Define local control, storage, retry and operator visibility before choosing the communications path.
+- **Map the field conditions** Turn operating reality into a Hybrid IoT readiness brief.
+
+### A remote reading. A very human decision.
 
 **Audience:** Environmental monitoring teams · **Week:** 6
 
-#### Slide 1 · Remote data still needs a priority
+#### Slide 1 · Out here, change is quiet.
 
-Not every reading needs immediate transmission. Define what changes a decision.
+A remote reading can help someone decide what needs a closer look.
 
-#### Slide 2 · Design for constrained payloads
+#### Slide 2 · Which change needs attention?
 
-Send the smallest useful exception message; retain detail locally where appropriate.
+Define which thresholds matter and how quickly the team needs to know.
 
-#### Slide 3 · Account for the site
+#### Slide 3 · Send the part that matters.
 
-Sky view, mounting, antenna placement, power and maintenance access affect the design.
+Design a small, useful exception message and retain detail locally where appropriate.
 
-#### Slide 4 · Keep the caveat visible
+#### Slide 4 · Remote still has limits.
 
-A satellite layer extends the design; it does not guarantee continuous availability or delivery.
+Plan for power and sky view; a satellite path cannot guarantee delivery.
 
-#### Slide 5 · Define the reporting logic
+#### Slide 5 · Bring the site into the design.
 
-Bring the site, payload and urgency model to a design review.
+Use the readiness guide to map the site, payload and reporting priorities.
 
 **CTA:** m2mone.com.au/hybrid-iot-readiness
 
-### Remote equipment: design the exception path
+**Retained engineering detail**
+
+- **Remote data still needs a priority** Not every reading needs immediate transmission. Define what changes a decision.
+- **Design for constrained payloads** Send the smallest useful exception message; retain detail locally where appropriate.
+- **Account for the site** Sky view, mounting, antenna placement, power and maintenance access affect the design.
+- **Keep the caveat visible** A satellite layer extends the design; it does not guarantee continuous availability or delivery.
+- **Define the reporting logic** Bring the site, payload and urgency model to a design review.
+
+### Before someone makes the long drive.
 
 **Audience:** Industrial and remote-operations teams · **Week:** 7
 
-#### Slide 1 · What condition deserves attention now?
+#### Slide 1 · It's a long way out.
 
-Start with decisions—not dashboards or data volume.
+Before a technician heads to a remote site, the equipment state matters.
 
-#### Slide 2 · What can wait?
+#### Slide 2 · What needs their attention now?
 
-Routine telemetry may retry or batch. Exceptions may need another path.
+Choose the fault or threshold messages that change the next maintenance decision.
 
-#### Slide 3 · What should the device do locally?
+#### Slide 3 · Give critical messages a plan.
 
-Connectivity cannot replace safe local control and fault handling.
+Define retries and a satellite exception path around urgency, power and payload.
 
-#### Slide 4 · How will operations read the state?
+#### Slide 4 · The machine still needs a plan.
 
-Make delayed data, loss of link and genuine incidents distinguishable.
+Keep safe local control independent of connectivity, and make missing data visible.
 
-#### Slide 5 · Review the exception path
+#### Slide 5 · Start with one real exception.
 
-Scope the architecture before the next remote failure or truck roll.
+Bring its trigger, response and device constraints to a design review.
 
 **CTA:** m2mone.com.au/hybrid-iot-readiness
 
-### Connectivity inside a field-safety system
+**Retained engineering detail**
+
+- **What condition deserves attention now?** Start with decisions—not dashboards or data volume.
+- **What can wait?** Routine telemetry may retry or batch. Exceptions may need another path.
+- **What should the device do locally?** Connectivity cannot replace safe local control and fault handling.
+- **How will operations read the state?** Make delayed data, loss of link and genuine incidents distinguishable.
+- **Review the exception path** Scope the architecture before the next remote failure or truck roll.
+
+### There is a person behind every check-in.
 
 **Audience:** Lone-worker and safety-solution teams · **Week:** 8
 
-#### Slide 1 · Connectivity is one safety layer
+#### Slide 1 · Someone is expecting your check-in.
 
-Treat it as part of a governed process—not a guarantee.
+A field worker and their response team need a clear communications plan.
 
-#### Slide 2 · Define acknowledgement
+#### Slide 2 · Sent. Received. Acknowledged?
 
-Know how the device, worker and response team see message state.
+Define what the worker and response team see at every message state.
 
-#### Slide 3 · Define escalation
+#### Slide 3 · Who takes the next step?
 
-Set retry, alternate path and human escalation behaviour for each event class.
+Set retry, alternate-path and human escalation rules for each event.
 
-#### Slide 4 · Define the unavailable state
+#### Slide 4 · And when no message gets through?
 
-The product and procedure must make communication limits visible.
+Make communication limits visible and define the worker's procedure for that state.
 
-#### Slide 5 · Assess the dependency
+#### Slide 5 · Build the whole safety plan.
 
-Review the complete safety workflow with technical and risk owners.
+Review the workflow with technical and safety owners; connectivity is not a safety guarantee.
 
 **CTA:** m2mone.com.au/hybrid-iot-readiness
+
+**Retained engineering detail**
+
+- **Connectivity is one safety layer** Treat it as part of a governed process—not a guarantee.
+- **Define acknowledgement** Know how the device, worker and response team see message state.
+- **Define escalation** Set retry, alternate path and human escalation behaviour for each event class.
+- **Define the unavailable state** The product and procedure must make communication limits visible.
+- **Assess the dependency** Review the complete safety workflow with technical and risk owners.
 
 ## Email sequence
 

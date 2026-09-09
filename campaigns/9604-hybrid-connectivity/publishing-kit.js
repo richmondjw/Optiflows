@@ -33,9 +33,30 @@
   });
   document.querySelectorAll('.carousel-set').forEach((article, index) => {
     const carousel = CAMPAIGN.carousels[index];
+    const chooser = document.createElement('div');
+    chooser.className = 'brand-chooser';
+    chooser.setAttribute('role', 'group');
+    chooser.setAttribute('aria-label', 'Preview brand version: ' + carousel.title);
+    for (const [variant, label] of [['', 'M2M Connectivity'], ['co-branded/', 'M2M Connectivity + M2M One']]) {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.textContent = label;
+      button.setAttribute('aria-pressed', String(!variant));
+      button.addEventListener('click', () => {
+        chooser.querySelectorAll('button').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
+        article.querySelectorAll('.slide-rail img').forEach((img, i) => {
+          img.src = `assets/carousels/${variant}${carousel.id}-${String(i + 1).padStart(2, '0')}.webp?v=human-story-2`;
+          img.alt = `${label}, slide ${i + 1}: ${carousel.slides[i].headline}`;
+        });
+      });
+      chooser.append(button);
+    }
+    article.querySelector('.slide-rail').before(chooser);
     const row = document.createElement('div');
     row.className = 'card-actions';
-    row.append(download('Download LinkedIn PDF ↓', `downloads/${carousel.id}-linkedin-document.pdf`));
+    row.append(download('Both versions + copy ZIP ↓', `downloads/${carousel.id}-carousel-kit.zip`));
+    row.append(download('Connectivity PDF ↓', `downloads/${carousel.id}-linkedin-document.pdf`, true));
+    row.append(download('Both logos PDF ↓', `downloads/${carousel.id}-co-branded-linkedin-document.pdf`, true));
     row.append(download('Matching caption TXT ↓', `downloads/publishing-kit/carousels/${carousel.id}/caption.txt`, true));
     article.append(row);
   });

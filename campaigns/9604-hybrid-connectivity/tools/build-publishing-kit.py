@@ -21,7 +21,7 @@ rows=[]
 def digest(p): return hashlib.sha256(p.read_bytes()).hexdigest()
 def rel(p): return p.relative_to(BASE).as_posix()
 def record(p, aid, channel, source='', copy='', holds=HOLD):
-    inside=p.is_relative_to(KIT)
+    inside=p.is_relative_to(KIT) and p.suffix.lower() != '.mp4'
     r=dict(asset_id=aid, channel=channel, file=rel(p), archive_path=p.relative_to(KIT).as_posix() if inside else '', external_only=not inside, bytes=p.stat().st_size, sha256=digest(p), source_file=source, source_copy=copy, readiness='file_exported; activation_held', readiness_holds=holds, destination_status='source_provided_unverified')
     if source and (BASE/source).is_file(): r['source_sha256']=digest(BASE/source)
     if p.suffix.lower()=='.png':
@@ -38,19 +38,19 @@ def native(p,target,aid,channel):
 def png(p,target,aid,channel,copy=''):
     target.parent.mkdir(parents=True,exist_ok=True)
     with Image.open(p) as im:
-        im.load();im.save(target,format='PNG',optimize=False)
+        im.load();im.save(target,format='PNG',optimize=True)
         with Image.open(target) as result:
             assert result.size==im.size and result.convert('RGBA').tobytes()==im.convert('RGBA').tobytes()
     return record(target,aid,channel,rel(p),copy)
 def bundle(path,files,root):
     with zipfile.ZipFile(path,'w',compression=zipfile.ZIP_DEFLATED,compresslevel=6) as z:
-        for p in sorted(files):
+        for p in sorted(p for p in files if p.is_file()):
             info=zipfile.ZipInfo(p.relative_to(root).as_posix(),date_time=(2026,9,10,0,0,0));info.compress_type=zipfile.ZIP_DEFLATED;info.external_attr=0o644 << 16
             z.writestr(info,p.read_bytes())
     with zipfile.ZipFile(path) as z: assert z.testzip() is None
     return path
 
-text(KIT/'README.txt',HOLD+'\n\nPublishing files, not approval. Weekly captions are exact source strings. PNGs preserve the decoded WebP pixels and dimensions without crop or redesign. Format export cannot improve existing source resolution.\n\nLinkedIn: upload a weekly feed/square PNG and paste its caption, OR upload the applicable five-page document PDF with its matching caption. Wide/story files are format alternatives, not four additional scheduled posts. Confirm current channel requirements before publishing.\n\nEmail designs are screenshots, not HTML or an ESP-ready send template. Import exact copy into an approved ESP template and integrate sender, consent/suppression, unsubscribe/preference links, accessibility and tested destination links before release. No recipient lists included.\n\nWebsite and motion files remain design/motion STUDIES. The guide is the existing source PDF, copied unchanged. Corporate/product claims and application-dependent limitations remain in source evidence and weekly notes.\n\nThe proposed campaign destination is '+DATA['meta']['primaryUrl']+' (unverified; root observed HTTP403 during fetch).\n\nOfficial format references:\nhttps://www.linkedin.com/help/linkedin/answer/a564109/media-file-types-supported-on-linkedin?lang=en\nhttps://www.linkedin.com/help/linkedin/answer/a518909\n\nRebuild: python tools/build-publishing-kit.py (Node, Pillow, reportlab, pypdf). Deterministic PDFs and ZIP member timestamps; no network calls.\n','campaign-readme')
+text(KIT/'README.txt',HOLD+'\n\nPublishing files, not approval. Weekly captions are exact source strings. PNGs preserve the decoded WebP pixels and dimensions without crop or redesign. Format export cannot improve existing source resolution.\n\nLinkedIn: upload a weekly feed/square PNG and paste its caption, OR upload the applicable five-page document PDF with its matching caption. Wide/story files are format alternatives, not four additional scheduled posts. Confirm current channel requirements before publishing.\n\nEmail designs are screenshots, not HTML or an ESP-ready send template. Import exact copy into an approved ESP template and integrate sender, consent/suppression, unsubscribe/preference links, accessibility and tested destination links before release. No recipient lists included.\n\nWebsite and motion files remain design/motion STUDIES. The two video studies are separate downloads, linked in motion-studies/README.txt, and excluded from the all-in-one ZIP; all finished publishing PNGs and PDFs are included. The guide is the existing source PDF, copied unchanged. Corporate/product claims and application-dependent limitations remain in source evidence and weekly notes.\n\nThe proposed campaign destination is '+DATA['meta']['primaryUrl']+' (unverified; root observed HTTP403 during fetch).\n\nOfficial format references:\nhttps://www.linkedin.com/help/linkedin/answer/a564109/media-file-types-supported-on-linkedin?lang=en\nhttps://www.linkedin.com/help/linkedin/answer/a518909\n\nRebuild: python tools/build-publishing-kit.py (Node, Pillow, reportlab, pypdf). Deterministic PDFs and ZIP member timestamps; no network calls.\n','campaign-readme')
 text(KIT/'source-campaign.json',json.dumps(DATA,ensure_ascii=False,indent=2)+'\n','campaign-source','source data','CAMPAIGN')
 text(KIT/'release-gates.json',json.dumps(DATA.get('gates',[]),ensure_ascii=False,indent=2)+'\n','release-gates','evidence','CAMPAIGN.gates')
 old_manifest=KIT/'evidence/asset-manifest.json'
@@ -68,22 +68,31 @@ for w in DATA['weeks']:
         png(BASE/f'assets/exports/{wid}-{fmt}.webp',folder/f'{wid}-{fmt}.png',wid+'-'+fmt,'social format export',pointer)
 
 for c in DATA['carousels']:
-    cid=c['id'];folder=KIT/'carousels'/cid;w=weeks[c['week']];slidepaths=[]
+    cid=c['id'];folder=KIT/'carousels'/cid;w=weeks[c['week']]
     assert len(c['slides'])==5
-    for n in range(1,6):
-        slidepaths.append(png(BASE/f'assets/carousels/{cid}-{n:02}.webp',folder/f'{cid}-{n:02}.png',f'{cid}-{n:02}','LinkedIn document slide',f'CAMPAIGN.carousels[id={cid}].slides[{n-1}]'))
-    pdf=OUT/f'{cid}-linkedin-document.pdf'
-    doc=canvas.Canvas(str(pdf),invariant=1,pageCompression=1)
-    doc.setTitle(c['title']);doc.setAuthor('M2M Group');doc.setSubject('Review-only ordered five-slide document; activation held')
-    for p in slidepaths:
-        with Image.open(p) as im:
-            doc.setPageSize((im.width,im.height));doc.drawImage(ImageReader(im),0,0,width=im.width,height=im.height);doc.showPage()
-    doc.save();assert len(PdfReader(pdf).pages)==5
-    record(pdf,cid,'LinkedIn document PDF',copy=f'CAMPAIGN.carousels[id={cid}]')
-    native(pdf,folder/pdf.name,cid,'LinkedIn document PDF')
+    for variant, label in [('', 'M2M Connectivity'), ('co-branded', 'M2M Connectivity + M2M One')]:
+        variant_folder=folder/variant if variant else folder
+        source_folder=BASE/'assets/carousels'/variant if variant else BASE/'assets/carousels'
+        suffix='-co-branded' if variant else ''
+        slidepaths=[]
+        for n in range(1,6):
+            slidepaths.append(png(source_folder/f'{cid}-{n:02}.webp',variant_folder/f'{cid}-{n:02}.png',f'{cid}{suffix}-{n:02}','LinkedIn document slide — '+label,f'CAMPAIGN.carousels[id={cid}].slides[{n-1}]'))
+        pdf=OUT/f'{cid}{suffix}-linkedin-document.pdf'
+        doc=canvas.Canvas(str(pdf),invariant=1,pageCompression=1)
+        doc.setTitle(c['title']+' — '+label);doc.setAuthor('M2M Group');doc.setSubject('Review-only ordered five-slide document; '+label+'; activation held')
+        for slide in slidepaths:
+            with Image.open(slide) as im:
+                # Full-resolution JPEG embedding keeps document downloads practical.
+                # Lossless decoded-source PNG slides remain alongside each PDF.
+                encoded=io.BytesIO();im.convert('RGB').save(encoded,format='JPEG',quality=95,subsampling=0,optimize=True);encoded.seek(0)
+                doc.setPageSize((im.width,im.height));doc.drawImage(ImageReader(encoded),0,0,width=im.width,height=im.height);doc.showPage()
+        doc.save();assert len(PdfReader(pdf).pages)==5
+        record(pdf,cid+suffix,'LinkedIn document PDF — '+label,copy=f'CAMPAIGN.carousels[id={cid}]')
+        native(pdf,variant_folder/pdf.name,cid+suffix,'LinkedIn document PDF — '+label)
+        text(variant_folder/'BRAND-VERSION.txt',f"{label} version. Use all five slides from this folder together. Do not mix logo versions within one document. Official logo artwork is positioned at the top left.\n{HOLD}\n",cid+suffix)
     text(folder/'caption.txt',w['caption'],cid,'LinkedIn document caption',f"CAMPAIGN.weeks[id={w['id']}].caption")
     text(folder/'source-copy.json',json.dumps(c,ensure_ascii=False,indent=2)+'\n',cid,'complete source copy',f'CAMPAIGN.carousels[id={cid}]')
-    text(folder/'README.txt',f"{c['title']}\nWeek {c['week']} — source caption from {w['id']}.\nUpload the PDF as one ordered document; slides 01–05 are also supplied separately.\nDestination (unverified): {w['url']}\nClaim limit: {w['evidence']}\n{HOLD}\nImage-based PDF, no selectable text/accessibility tagging; source slide text is in source-copy.json.\n",cid)
+    text(folder/'README.txt',f"{c['title']}\nWeek {c['week']} — source caption from {w['id']}.\nChoose ONE brand version for the post:\n- This folder: M2M Connectivity, five PNG slides and the original-named PDF.\n- co-branded/: M2M Connectivity + M2M One, five PNG slides and the co-branded PDF.\nBoth versions place their official logo artwork at the top left. Upload one PDF as one ordered document, or use one version's slides 01–05 in order. Use caption.txt and source-copy.json here for either version; the story and caption are shared. Do not upload both alternatives as a ten-page document.\nDestination (unverified): {w['url']}\nClaim limit: {w['evidence']}\n{HOLD}\nFull-resolution image-based PDFs use high-quality JPEG compression; PNG slides retain decoded-source pixels. No selectable text/accessibility tagging; source slide text is in source-copy.json.\n",cid)
 
 for e in DATA['emails']:
     eid=e['id'];folder=KIT/'emails'/eid;pointer=f'CAMPAIGN.emails[id={eid}]'
@@ -100,7 +109,8 @@ for group in ['website','motion']:
         if p.is_file():
             if p.suffix=='.webp':png(p,KIT/(group+'-studies')/(p.stem+'.png'),p.stem,group+' study')
             else:native(p,KIT/(group+'-studies')/p.name,p.stem,group+' study')
-    text(KIT/(group+'-studies')/'README.txt',f'{group.upper()} STUDIES — review only. Existing source assets; no production activation.\n{HOLD}\n',group)
+    study_links=''.join('https://optiflows.com.au/campaigns/9604-hybrid-connectivity/assets/motion/'+p.name+'\n' for p in sorted((BASE/'assets/motion').glob('*.mp4'))) if group=='motion' else ''
+    text(KIT/(group+'-studies')/'README.txt',study_links+f'{group.upper()} STUDIES — review only. Existing source assets; no production activation.\n{HOLD}\n',group)
 native(OUT/'hybrid-iot-readiness-guide.pdf',KIT/'guide/hybrid-iot-readiness-guide.pdf','readiness-guide','existing guide PDF')
 native(OUT/'campaign-calendar.csv',KIT/'evidence/campaign-calendar.csv','calendar','proposed calendar')
 def plain_fields(obj):
@@ -110,7 +120,7 @@ def plain_fields(obj):
 for key,folder in [('paidSearch','paid-search'),('retargeting','retargeting'),('talkTracks','sales-talk-tracks'),('website','website-copy')]:
     text(KIT/f'{folder}/copy.txt',plain_fields(DATA[key])+'\n',key,'exact source copy',f'CAMPAIGN.{key}')
     text(KIT/f'{folder}/README.txt','Exact source fields exported as labelled plain text; no new copy or activation approval.\n'+HOLD+'\n',key)
-text(KIT/'START-HERE.md','# Hybrid IoT publishing kit\n\nOnce release approval is recorded:\n1. Choose the matching weekly post or carousel folder.\n2. Upload one PNG, or the five-page LinkedIn document PDF.\n3. Paste caption.txt and confirm the intended destination.\n\n'+HOLD+'\n\n- Weekly still posts: weeks/w01 through w12. Choose one appropriate image format and use the matching caption.txt.\n- LinkedIn documents: carousels folders contain ordered five-page PDFs and matching weekly captions; this is reuse of the source weekly caption, not a newly written caption.\n- Emails: exact subject/preheader/body plus screenshots. ESP template, footer and send checks remain required.\n- Website/motion folders are studies only.\n- Week 10 has a relative URL field and a separate absolute review-guide URL in its caption. Resolve the intended approved public destination before publishing; both source values are preserved.\n- Email e08 clinic date, speaker and capacity remain unconfirmed.\n- Read README.txt, each asset README, source-copy.json and release-gates.json before release.\n\nThe manifest inside the ZIP lists payload files and standalone ZIPs; the external manifest additionally records the full ZIP checksum to avoid a self-referential hash.\n','start-here')
+text(KIT/'START-HERE.md','# Hybrid IoT publishing kit\n\nOnce release approval is recorded:\n1. Choose the matching weekly post or carousel folder.\n2. Upload one PNG, or the five-page LinkedIn document PDF.\n3. Paste caption.txt and confirm the intended destination.\n\n'+HOLD+'\n\n- Weekly still posts: weeks/w01 through w12. Choose one appropriate image format and use the matching caption.txt.\n- LinkedIn documents: five stories, each supplied in two brand versions: 10 five-page PDFs and 50 PNG slides. The main carousel folder is M2M Connectivity; co-branded/ is M2M Connectivity + M2M One. Choose one version, not both. All official logos sit at the top left. Matching caption.txt and source-copy.json are shared by both versions; captions reuse source weekly copy. Five standalone carousel ZIPs each contain both versions and their matching copy.\n- Emails: exact subject/preheader/body plus screenshots. ESP template, footer and send checks remain required.\n- Website/motion folders are studies only. The two videos remain separate downloads, linked in motion-studies/README.txt; video binaries are not in this ZIP.\n- Week 10 has a relative URL field and a separate absolute review-guide URL in its caption. Resolve the intended approved public destination before publishing; both source values are preserved.\n- Email e08 clinic date, speaker and capacity remain unconfirmed.\n- Read README.txt, each asset README, source-copy.json and release-gates.json before release.\n\nThe manifest inside the ZIP lists payload files and standalone ZIPs; the external manifest additionally records the full ZIP checksum to avoid a self-referential hash.\n','start-here')
 
 def manifests():
     payload=dict(campaign_id=DATA['meta']['id'],source_copy_sha256=digest(BASE/'campaign-data.js'),status='exported_for_review_activation_held',source_urls='unverified',files=rows,exclusions=['No send-ready HTML email','No publication approval','No accessibility-tagged document PDFs','No live destination verification','Manifest files omit their own hashes'])
@@ -121,11 +131,13 @@ def manifests():
     return j,p
 for w in DATA['weeks']:
     folder=KIT/'weeks'/w['id'];record(bundle(OUT/f"{w['id']}-publishing-kit.zip",folder.rglob('*'),folder),w['id'],'weekly ZIP')
+for c in DATA['carousels']:
+    folder=KIT/'carousels'/c['id'];record(bundle(OUT/f"{c['id']}-carousel-kit.zip",folder.rglob('*'),folder),c['id'],'carousel ZIP — both brand versions')
 for e in DATA['emails']:
     folder=KIT/'emails'/e['id'];record(bundle(OUT/f"{e['id']}-email-kit.zip",folder.rglob('*'),folder),e['id'],'email ZIP')
 for p in manifests():shutil.copyfile(p,KIT/p.name)
-full=bundle(OUT/'hybrid-iot-publishing-kit.zip',(p for p in KIT.rglob('*') if p.is_file()),KIT)
+full=bundle(OUT/'hybrid-iot-publishing-kit.zip',(p for p in KIT.rglob('*') if p.is_file() and p.suffix.lower() != '.mp4'),KIT)
 record(full,DATA['meta']['id'],'full publishing ZIP')
 manifests()
 assert all((BASE/r['file']).is_file() and digest(BASE/r['file'])==r['sha256'] for r in rows)
-print(json.dumps(dict(full_zip=rel(full),bytes=full.stat().st_size,manifest_rows=len(rows),weeks=12,carousel_pdfs=5,email_kits=8,source_edits=False)))
+print(json.dumps(dict(full_zip=rel(full),bytes=full.stat().st_size,manifest_rows=len(rows),weeks=12,carousel_pdfs=10,carousel_pngs=50,carousel_kits=5,email_kits=8,source_edits=False)))

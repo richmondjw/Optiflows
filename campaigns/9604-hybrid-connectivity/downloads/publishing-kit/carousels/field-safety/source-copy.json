@@ -1,10 +1,33 @@
 {
   "id": "field-safety",
   "week": 8,
-  "title": "Connectivity inside a field-safety system",
+  "title": "There is a person behind every check-in.",
   "audience": "Lone-worker and safety-solution teams",
-  "master": "w08-field-safety.png",
+  "master": "carousel-field-safety-human.jpg",
   "slides": [
+    {
+      "headline": "Someone is expecting your check-in.",
+      "body": "A field worker and their response team need a clear communications plan."
+    },
+    {
+      "headline": "Sent. Received. Acknowledged?",
+      "body": "Define what the worker and response team see at every message state."
+    },
+    {
+      "headline": "Who takes the next step?",
+      "body": "Set retry, alternate-path and human escalation rules for each event."
+    },
+    {
+      "headline": "And when no message gets through?",
+      "body": "Make communication limits visible and define the worker's procedure for that state."
+    },
+    {
+      "headline": "Build the whole safety plan.",
+      "body": "Review the workflow with technical and safety owners; connectivity is not a safety guarantee.",
+      "cta": "m2mone.com.au/hybrid-iot-readiness"
+    }
+  ],
+  "technicalNotes": [
     {
       "headline": "Connectivity is one safety layer",
       "body": "Treat it as part of a governed process—not a guarantee."
@@ -26,5 +49,7 @@
       "body": "Review the complete safety workflow with technical and risk owners.",
       "cta": "m2mone.com.au/hybrid-iot-readiness"
     }
-  ]
+  ],
+  "storyAccent": "#FEC221",
+  "illustrative": "Generated illustrative person and setting; not a customer case study or testimonial."
 }

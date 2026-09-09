@@ -1,0 +1,60 @@
+/* Human field stories. Fixed 4:5 export stage; every dimension scales with width.
+   Semtech authoritative palette; extended accents occupy less than 20%.
+   Slides 1/2 share a 2160px panorama and a common image origin. */
+.carousel.story-frame{--story-teal:#00AFAA;--story-dark:#003640;--story-blue:#00677A;--story-green:#5FB286;--story-accent:#FEC221;padding:0;background:var(--story-dark);color:#fff}
+.story-frame *{box-sizing:border-box}
+.story-frame .story-photo{position:absolute;overflow:hidden;inset:0}
+.story-frame .story-photo img{display:block;position:absolute;width:100%;height:100%;object-fit:cover;object-position:20% 50%}
+.story-frame .brand{left:6.3%;top:4.3%;padding:1.9% 2.1%;border-radius:12px;background:#fff;box-shadow:none}
+.story-frame .brand img{width:26vw;max-width:none}
+.story-frame .story-step{position:absolute;z-index:5;right:6.3%;top:5.3%;font-size:2.5vw;font-weight:700;display:flex;align-items:center;gap:1vw;color:inherit}
+.story-frame .story-step i{width:3.4vw;height:.45vw;background:currentColor;opacity:.3}
+.story-frame .story-step i.active{opacity:1;background:var(--story-accent)}
+.story-frame .car-copy{position:absolute;z-index:3;left:6.3%;right:6.3%;top:16%;bottom:auto}
+.story-frame h1{font-size:8.65vw;line-height:1.02;letter-spacing:-.025em;font-weight:700;max-width:100%;margin:0 0 2.4vw;text-wrap:balance}
+.story-frame .car-body{font-size:3.2vw;font-weight:400;line-height:1.24;max-width:92%;margin:0;color:inherit;text-wrap:pretty}
+.story-frame .story-topic{position:absolute;z-index:4;left:6.3%;bottom:7.4%;font-size:2.15vw;font-weight:700;color:inherit}
+.story-frame .story-next{position:absolute;z-index:4;right:6.3%;bottom:7.4%;font-size:2.15vw;font-weight:700;color:inherit}
+.story-frame .story-signature{position:absolute;z-index:4;left:6.3%;bottom:3.7%;font-size:1.8vw;color:inherit}
+.story-frame .story-route{position:absolute;inset:0;width:100%;height:100%;z-index:2;pointer-events:none}
+.story-frame .story-route path{fill:none;stroke:var(--story-accent);stroke-width:11;stroke-linecap:round;stroke-linejoin:round}
+.story-frame .story-route circle{fill:var(--story-accent);stroke:var(--story-dark);stroke-width:7}
+.story-frame .story-cta{display:inline-block;border-radius:10px;background:var(--story-accent);color:var(--story-dark);font-size:3vw;font-weight:700;padding:1.4vw 2.2vw;margin-top:2.7vw}
+.story-frame .story-cta::after{content:' \2197'}
+/* Opening spread: a human first, their landscape revealed by the next swipe. */
+.story-frame.chapter-1 .story-photo,.story-frame.chapter-2 .story-photo{top:42%;bottom:15%;left:0;right:0}
+.story-frame.chapter-1 .story-photo img,.story-frame.chapter-2 .story-photo img{width:200%;max-width:none;height:auto;min-height:100%;object-fit:initial;top:0;left:0}
+.story-frame.chapter-2 .story-photo img{left:-100%}
+.story-frame.chapter-1 .car-copy,.story-frame.chapter-2 .car-copy{top:15%;}
+.story-frame.chapter-1 h1,.story-frame.chapter-2 h1{font-size:8.3vw;max-width:96%;margin-bottom:1.7vw}
+.story-frame.chapter-1 .car-body,.story-frame.chapter-2 .car-body{font-size:3.35vw;max-width:100%}
+.story-frame.chapter-2{background:var(--story-teal);color:var(--story-dark)}
+.story-frame.chapter-2 .story-route circle{stroke:var(--story-teal)}
+/* A close encounter: the person remains large; the idea sits in a solid field. */
+.story-frame.chapter-3{background:var(--story-blue)}
+.story-frame.chapter-3 .story-photo{top:14%;height:36%;bottom:auto;left:0;right:0}
+.story-frame.chapter-3 .story-photo img{width:200%;height:auto;max-width:none;left:-10%;top:-15%;object-fit:initial}
+.story-frame.chapter-3 .car-copy{top:50%;left:0;right:0;padding:4% 6.3% 0;background:var(--story-blue)}
+.story-frame.chapter-3 h1{font-size:8.5vw;max-width:100%}
+.story-frame.chapter-3 .car-body{max-width:96%}
+/* The landscape is a ribbon through a confident, lighter-coloured frame. */
+.story-frame.chapter-4{background:var(--story-green);color:var(--story-dark)}
+.story-frame.chapter-4 .story-photo{top:13.8%;height:35%;bottom:auto;left:0;right:0}
+.story-frame.chapter-4 .story-photo img{width:150%;height:auto;max-width:none;left:-50%;top:-10%;object-fit:initial}
+.story-frame.chapter-4 .car-copy{top:53%;}
+.story-frame.chapter-4 h1{font-size:8.2vw;max-width:100%}
+.story-frame.chapter-4 .car-body{max-width:100%;font-size:3.1vw}
+.story-frame.chapter-4 .story-route circle{stroke:var(--story-green)}
+/* Return to the human for the close, not a disconnected stock CTA panel. */
+.story-frame.chapter-5{background:var(--story-teal);color:var(--story-dark)}
+.story-frame.chapter-5 .story-photo{top:14%;height:34%;bottom:auto;left:0;right:0}
+.story-frame.chapter-5 .story-photo img{object-position:20% 48%}
+.story-frame.chapter-5 .car-copy{top:50%;}
+.story-frame.chapter-5 h1{font-size:7.6vw;max-width:100%;margin-bottom:1.8vw}
+.story-frame.chapter-5 .car-body{max-width:100%;font-size:3vw}
+.story-frame.chapter-5 .story-route circle{stroke:var(--story-teal)}
+
+.story-frame .brand.co-brand{display:flex;align-items:center;gap:3vw;padding:2.1% 2.4%}
+.story-frame .brand.co-brand img{width:min(28vw,300px);height:auto;max-height:80px;object-fit:contain}
+.story-frame .brand.co-brand img.one-logo{width:min(28vw,300px);max-height:80px}
+.story-frame.chapter-3 .story-step{padding:1.5vw;border-radius:10px;background:var(--story-dark);color:#fff}

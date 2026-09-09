@@ -137,54 +137,279 @@ const CAMPAIGN = {
 
   carousels: [
     {
-      id: "asset-tracking", week: 4, title: "Asset tracking beyond the predictable route", audience: "Asset tracking and logistics teams", master: "w04-asset-tracking.png",
-      slides: [
-        { headline: "Where does the route exceed your network assumption?", body: "Detours, depots and remote handover points can expose a coverage dependency." },
-        { headline: "Rank the events", body: "Routine location updates, exceptions, tamper events and safety alerts do not carry equal urgency." },
-        { headline: "Define the behaviour", body: "Set cellular retry, satellite escalation, payload size, acknowledgement and store-and-forward rules." },
-        { headline: "Design the whole device", body: "Power, antennas, enclosure, firmware, service costs and operations must be reviewed together." },
-        { headline: "Assess the coverage gap", body: "Bring a real route and message profile to a scoped Hybrid IoT design conversation.", cta: "m2mone.com.au/hybrid-iot-readiness" }
-      ]
+      "id": "asset-tracking",
+      "week": 4,
+      "title": "The route changes. Someone still needs an answer.",
+      "audience": "Asset tracking and logistics teams",
+      "master": "carousel-asset-tracking-human.jpg",
+      "slides": [
+        {
+          "headline": "The route just changed.",
+          "body": "For the person waiting at the next handover, the next update matters."
+        },
+        {
+          "headline": "So did the coverage.",
+          "body": "A detour can take a tracker beyond the cellular conditions it was designed around."
+        },
+        {
+          "headline": "Which update cannot wait?",
+          "body": "Rank the location, delay and exception messages that change a human decision."
+        },
+        {
+          "headline": "Give the exception a plan.",
+          "body": "Design cellular retries, a satellite message path and what happens when neither is available."
+        },
+        {
+          "headline": "Bring us the real route.",
+          "body": "Start with one journey, its critical messages and your device constraints.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness"
+        }
+      ],
+      "technicalNotes": [
+        {
+          "headline": "Where does the route exceed your network assumption?",
+          "body": "Detours, depots and remote handover points can expose a coverage dependency."
+        },
+        {
+          "headline": "Rank the events",
+          "body": "Routine location updates, exceptions, tamper events and safety alerts do not carry equal urgency."
+        },
+        {
+          "headline": "Define the behaviour",
+          "body": "Set cellular retry, satellite escalation, payload size, acknowledgement and store-and-forward rules."
+        },
+        {
+          "headline": "Design the whole device",
+          "body": "Power, antennas, enclosure, firmware, service costs and operations must be reviewed together."
+        },
+        {
+          "headline": "Assess the coverage gap",
+          "body": "Bring a real route and message profile to a scoped Hybrid IoT design conversation.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness"
+        }
+      ],
+      "storyAccent": "#F7781E",
+      "illustrative": "Generated illustrative person and setting; not a customer case study or testimonial."
     },
     {
-      id: "agtech", week: 5, title: "Four questions for connected agriculture", audience: "Agtech product and farm-system teams", master: "w05-agtech.png",
-      slides: [
-        { headline: "What must leave the field now?", body: "Separate urgent thresholds from routine telemetry that can wait, batch or retry." },
-        { headline: "Where does the device really operate?", body: "Use property conditions, terrain and movement—not the nearest town—as the design input." },
-        { headline: "What is the power budget?", body: "Reporting frequency and network behaviour must fit the device's energy model." },
-        { headline: "What happens offline?", body: "Define local control, storage, retry and operator visibility before choosing the communications path." },
-        { headline: "Map the field conditions", body: "Turn operating reality into a Hybrid IoT readiness brief.", cta: "m2mone.com.au/hybrid-iot-readiness" }
-      ]
+      "id": "agtech",
+      "week": 5,
+      "title": "The water level cannot read your coverage map.",
+      "audience": "Agtech product and farm-system teams",
+      "master": "carousel-agtech-human.jpg",
+      "slides": [
+        {
+          "headline": "One farm. A lot to watch.",
+          "body": "A water reading from the far paddock can shape the next job of the day."
+        },
+        {
+          "headline": "The tower is somewhere else.",
+          "body": "Design around the paddock, terrain and sky view where the sensor actually works."
+        },
+        {
+          "headline": "This reading changes the day.",
+          "body": "Separate urgent thresholds from routine readings that can store, batch or retry."
+        },
+        {
+          "headline": "Make the whole design work.",
+          "body": "Match message paths to power, antennas and the behaviour required when offline."
+        },
+        {
+          "headline": "Start with your far paddock.",
+          "body": "Bring one site's conditions into a Hybrid IoT readiness conversation.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness"
+        }
+      ],
+      "technicalNotes": [
+        {
+          "headline": "What must leave the field now?",
+          "body": "Separate urgent thresholds from routine telemetry that can wait, batch or retry."
+        },
+        {
+          "headline": "Where does the device really operate?",
+          "body": "Use property conditions, terrain and movement—not the nearest town—as the design input."
+        },
+        {
+          "headline": "What is the power budget?",
+          "body": "Reporting frequency and network behaviour must fit the device's energy model."
+        },
+        {
+          "headline": "What happens offline?",
+          "body": "Define local control, storage, retry and operator visibility before choosing the communications path."
+        },
+        {
+          "headline": "Map the field conditions",
+          "body": "Turn operating reality into a Hybrid IoT readiness brief.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness"
+        }
+      ],
+      "storyAccent": "#FEC221",
+      "illustrative": "Generated illustrative person and setting; not a customer case study or testimonial."
     },
     {
-      id: "environmental", week: 6, title: "Remote monitoring without the blanket promise", audience: "Environmental monitoring teams", master: "w06-environmental.png",
-      slides: [
-        { headline: "Remote data still needs a priority", body: "Not every reading needs immediate transmission. Define what changes a decision." },
-        { headline: "Design for constrained payloads", body: "Send the smallest useful exception message; retain detail locally where appropriate." },
-        { headline: "Account for the site", body: "Sky view, mounting, antenna placement, power and maintenance access affect the design." },
-        { headline: "Keep the caveat visible", body: "A satellite layer extends the design; it does not guarantee continuous availability or delivery." },
-        { headline: "Define the reporting logic", body: "Bring the site, payload and urgency model to a design review.", cta: "m2mone.com.au/hybrid-iot-readiness" }
-      ]
+      "id": "environmental",
+      "week": 6,
+      "title": "A remote reading. A very human decision.",
+      "audience": "Environmental monitoring teams",
+      "master": "carousel-environmental-human.jpg",
+      "slides": [
+        {
+          "headline": "Out here, change is quiet.",
+          "body": "A remote reading can help someone decide what needs a closer look."
+        },
+        {
+          "headline": "Which change needs attention?",
+          "body": "Define which thresholds matter and how quickly the team needs to know."
+        },
+        {
+          "headline": "Send the part that matters.",
+          "body": "Design a small, useful exception message and retain detail locally where appropriate."
+        },
+        {
+          "headline": "Remote still has limits.",
+          "body": "Plan for power and sky view; a satellite path cannot guarantee delivery."
+        },
+        {
+          "headline": "Bring the site into the design.",
+          "body": "Use the readiness guide to map the site, payload and reporting priorities.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness"
+        }
+      ],
+      "technicalNotes": [
+        {
+          "headline": "Remote data still needs a priority",
+          "body": "Not every reading needs immediate transmission. Define what changes a decision."
+        },
+        {
+          "headline": "Design for constrained payloads",
+          "body": "Send the smallest useful exception message; retain detail locally where appropriate."
+        },
+        {
+          "headline": "Account for the site",
+          "body": "Sky view, mounting, antenna placement, power and maintenance access affect the design."
+        },
+        {
+          "headline": "Keep the caveat visible",
+          "body": "A satellite layer extends the design; it does not guarantee continuous availability or delivery."
+        },
+        {
+          "headline": "Define the reporting logic",
+          "body": "Bring the site, payload and urgency model to a design review.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness"
+        }
+      ],
+      "storyAccent": "#0057AD",
+      "illustrative": "Generated illustrative person and setting; not a customer case study or testimonial."
     },
     {
-      id: "remote-equipment", week: 7, title: "Remote equipment: design the exception path", audience: "Industrial and remote-operations teams", master: "w07-remote-equipment.png",
-      slides: [
-        { headline: "What condition deserves attention now?", body: "Start with decisions—not dashboards or data volume." },
-        { headline: "What can wait?", body: "Routine telemetry may retry or batch. Exceptions may need another path." },
-        { headline: "What should the device do locally?", body: "Connectivity cannot replace safe local control and fault handling." },
-        { headline: "How will operations read the state?", body: "Make delayed data, loss of link and genuine incidents distinguishable." },
-        { headline: "Review the exception path", body: "Scope the architecture before the next remote failure or truck roll.", cta: "m2mone.com.au/hybrid-iot-readiness" }
-      ]
+      "id": "remote-equipment",
+      "week": 7,
+      "title": "Before someone makes the long drive.",
+      "audience": "Industrial and remote-operations teams",
+      "master": "carousel-remote-equipment-human.jpg",
+      "slides": [
+        {
+          "headline": "It's a long way out.",
+          "body": "Before a technician heads to a remote site, the equipment state matters."
+        },
+        {
+          "headline": "What needs their attention now?",
+          "body": "Choose the fault or threshold messages that change the next maintenance decision."
+        },
+        {
+          "headline": "Give critical messages a plan.",
+          "body": "Define retries and a satellite exception path around urgency, power and payload."
+        },
+        {
+          "headline": "The machine still needs a plan.",
+          "body": "Keep safe local control independent of connectivity, and make missing data visible."
+        },
+        {
+          "headline": "Start with one real exception.",
+          "body": "Bring its trigger, response and device constraints to a design review.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness"
+        }
+      ],
+      "technicalNotes": [
+        {
+          "headline": "What condition deserves attention now?",
+          "body": "Start with decisions—not dashboards or data volume."
+        },
+        {
+          "headline": "What can wait?",
+          "body": "Routine telemetry may retry or batch. Exceptions may need another path."
+        },
+        {
+          "headline": "What should the device do locally?",
+          "body": "Connectivity cannot replace safe local control and fault handling."
+        },
+        {
+          "headline": "How will operations read the state?",
+          "body": "Make delayed data, loss of link and genuine incidents distinguishable."
+        },
+        {
+          "headline": "Review the exception path",
+          "body": "Scope the architecture before the next remote failure or truck roll.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness"
+        }
+      ],
+      "storyAccent": "#F7781E",
+      "illustrative": "Generated illustrative person and setting; not a customer case study or testimonial."
     },
     {
-      id: "field-safety", week: 8, title: "Connectivity inside a field-safety system", audience: "Lone-worker and safety-solution teams", master: "w08-field-safety.png",
-      slides: [
-        { headline: "Connectivity is one safety layer", body: "Treat it as part of a governed process—not a guarantee." },
-        { headline: "Define acknowledgement", body: "Know how the device, worker and response team see message state." },
-        { headline: "Define escalation", body: "Set retry, alternate path and human escalation behaviour for each event class." },
-        { headline: "Define the unavailable state", body: "The product and procedure must make communication limits visible." },
-        { headline: "Assess the dependency", body: "Review the complete safety workflow with technical and risk owners.", cta: "m2mone.com.au/hybrid-iot-readiness" }
-      ]
+      "id": "field-safety",
+      "week": 8,
+      "title": "There is a person behind every check-in.",
+      "audience": "Lone-worker and safety-solution teams",
+      "master": "carousel-field-safety-human.jpg",
+      "slides": [
+        {
+          "headline": "Someone is expecting your check-in.",
+          "body": "A field worker and their response team need a clear communications plan."
+        },
+        {
+          "headline": "Sent. Received. Acknowledged?",
+          "body": "Define what the worker and response team see at every message state."
+        },
+        {
+          "headline": "Who takes the next step?",
+          "body": "Set retry, alternate-path and human escalation rules for each event."
+        },
+        {
+          "headline": "And when no message gets through?",
+          "body": "Make communication limits visible and define the worker's procedure for that state."
+        },
+        {
+          "headline": "Build the whole safety plan.",
+          "body": "Review the workflow with technical and safety owners; connectivity is not a safety guarantee.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness"
+        }
+      ],
+      "technicalNotes": [
+        {
+          "headline": "Connectivity is one safety layer",
+          "body": "Treat it as part of a governed process—not a guarantee."
+        },
+        {
+          "headline": "Define acknowledgement",
+          "body": "Know how the device, worker and response team see message state."
+        },
+        {
+          "headline": "Define escalation",
+          "body": "Set retry, alternate path and human escalation behaviour for each event class."
+        },
+        {
+          "headline": "Define the unavailable state",
+          "body": "The product and procedure must make communication limits visible."
+        },
+        {
+          "headline": "Assess the dependency",
+          "body": "Review the complete safety workflow with technical and risk owners.",
+          "cta": "m2mone.com.au/hybrid-iot-readiness"
+        }
+      ],
+      "storyAccent": "#FEC221",
+      "illustrative": "Generated illustrative person and setting; not a customer case study or testimonial."
     }
   ],
 

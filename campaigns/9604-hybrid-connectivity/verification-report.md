@@ -105,3 +105,40 @@ guide statements tested. No missing key statement or visible clipping remained.
   price or confirm the proposed design clinic.
 - Conversion attribution, lead ownership/SLA, technical claim approval,
   audience approval, paid budget and final release authority remain activation gates.
+# Human-story carousel revision - 10 September 2026
+
+Replaced the five carousel stories with newly generated human-focused photography,
+concise story copy, bold brand colour and a continuous route motif. Cards 1 and 2
+share adjoining crops of one panorama; the later cards change scale and return to
+the person. Illustrative people and settings are not customer evidence.
+
+Delivered 50 slide exports at 1080 x 1350: 25 M2M Connectivity-only and 25 with
+M2M Connectivity plus M2M One together at the top left. Both official logo files
+are placed without alteration. The M2M One positive raster is not enlarged beyond
+its native 326 x 80 size. Ten ordered five-page PDFs and five complete carousel
+ZIPs provide both brand choices and matching source copy. The all-in-one publishing
+ZIP is 98,563,692 bytes. All publishing PNGs/PDFs are included; the two existing
+motion-study videos remain separate downloads linked in the kit instructions.
+
+Validation: all 50 layouts passed copy bounds, loaded-image, logo-count,
+logo-proportion and co-brand clearance checks. All 50 PDF pages were rendered and
+reviewed; PDFs use quality-95 JPEG embedding at full pixel dimensions, with PNG
+slides retaining the decoded WebP source pixels. All 278 publishing-manifest hashes
+match, and 26 publishing ZIPs pass CRC checks. All 102 download links resolve.
+Both-brand preview switches work for all five stories at desktop, 390 px and
+320 px. Full site checks passed at these widths and 200% zoom. An initial parallel
+browser run exhausted a local image buffer; a fresh standalone run passed without
+resource failures. The campaign validator passed with zero warnings.
+
+The original engineering detail remains in each carousel's `technicalNotes` and
+the manuscript. Other channel records and the existing release gates are unchanged.
+Provider IDs, prompt files, output hashes and illustrative-use limits are retained
+in `carousel-generation-receipts.json` and `creative-provenance.json`.
+
+Rebuild: render `RENDER_SCOPE=carousels` with `tools/render-assets.cjs`, then run
+`tools/build-supporting-files.cjs`, `tools/build-publishing-kit.py` and
+`tools/refresh-asset-manifest.py`. Checks: `tools/qa-carousel-story.cjs`,
+`tools/qa-carousel-source.cjs`, `tools/qa-carousel-downloads.cjs`,
+`tools/qa-carousel-pdfs.py` and the existing `tools/qa-site.cjs`.
+
+---

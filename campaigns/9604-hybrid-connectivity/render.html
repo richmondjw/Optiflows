@@ -60,6 +60,7 @@
     .site-hero{position:absolute;left:0;right:0;top:134px;bottom:0;display:grid;grid-template-columns:54% 46%;background:#f5f9f8}.site-content{padding:6.5% 8% 4% 9%;position:relative;z-index:2}.site-content .eyebrow{color:var(--blue);font-size:18px;margin-bottom:18px}.site-content h1{font-size:64px;line-height:.96;color:var(--navy);margin:0 0 22px}.site-content p{font-size:24px;line-height:1.3;color:#334a52;max-width:680px;margin:0 0 28px}.site-actions{display:flex;gap:13px}.primary,.secondary{font-size:18px;font-weight:700;padding:13px 20px;border-radius:4px}.primary{background:var(--navy);color:white}.secondary{border:2px solid var(--navy);color:var(--navy)}.site-image{position:relative;overflow:hidden}.site-image .scene{object-position:center}.site-image::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#f5f9f8 0,transparent 24%)}
     .site-facts{display:flex;gap:14px;margin-top:34px}.fact{border-left:3px solid var(--teal);padding-left:13px;font-size:15px;color:#496068;max-width:145px}.fact strong{display:block;color:var(--navy);font-size:19px}
   </style>
+  <link rel="stylesheet" href="carousel-story.css">
 </head>
 <body>
   <div id="app"></div>
@@ -85,8 +86,18 @@
       const item = CAMPAIGN.carousels.find(x => x.id === q.get('id')) || CAMPAIGN.carousels[0];
       const n = Math.max(1, Math.min(item.slides.length, Number(q.get('slide') || 1)));
       const slide = item.slides[n - 1];
-      const imageSlide = n === 1 || n === item.slides.length;
-      app.innerHTML = `<main class="canvas carousel ${imageSlide ? 'has-scene' : ''}">${imageSlide ? `${scene(item.master)}<div class="shade"></div>` : '<div class="signal"></div>'}${brand()}<div class="progress">${String(n).padStart(2,'0')} / ${String(item.slides.length).padStart(2,'0')}</div><section class="car-copy"><p class="car-kicker">HYBRID IOT · ${esc(item.audience)}</p><h1>${esc(slide.headline)}</h1><p class="car-body">${esc(slide.body)}</p></section><footer class="car-footer"><span>${slide.cta ? `<strong>${esc(slide.cta)}</strong>` : esc(item.title)}</span><span>Swipe →</span></footer></main>`;
+      const groupBrand = q.get('brand') === 'group';
+      const carouselBrand = groupBrand ? `<div class="brand co-brand"><img src="${logo}" alt="M2M Connectivity"><img class="one-logo" src="assets/brand/m2m-one-logo.png" alt="M2M One"></div>` : brand();
+      // Edge y=1080 is invariant: adjacent images retain a continuous route.
+      const routes = [
+        'M -20 1080 H 640 Q 710 1080 710 1015 V 975 Q 710 935 755 935 H 850 Q 895 935 895 980 V 1015 Q 895 1080 960 1080 H 1100',
+        'M -20 1080 H 170 Q 230 1080 230 1030 V 1000 Q 230 950 280 950 H 380 Q 430 950 430 1000 V 1030 Q 430 1080 490 1080 H 1100',
+        'M -20 1080 H 610 Q 665 1080 665 1120 Q 665 1160 715 1160 H 850 Q 905 1160 905 1120 Q 905 1080 960 1080 H 1100',
+        'M -20 1080 H 240 Q 295 1080 295 1120 Q 295 1160 350 1160 H 420 Q 475 1160 475 1120 Q 475 1080 530 1080 H 1100',
+        'M -20 1080 H 890 Q 960 1080 960 1030 V 1000'
+      ];
+      const route = `<svg class="story-route" viewBox="0 0 1080 1350" aria-hidden="true"><path d="${routes[n-1]}"></path>${n===5?'<circle cx="960" cy="1000" r="17"></circle>':''}</svg>`;
+      app.innerHTML = `<main class="canvas carousel story-frame chapter-${n}" style="--story-accent:${item.storyAccent === '#F7781E' ? '#F7781E' : '#FEC221'}"><div class="story-photo"><img src="${master(`carousel-${item.id}-human.jpg`)}" alt=""></div>${carouselBrand}<div class="story-step" aria-label="Slide ${n} of ${item.slides.length}">${item.slides.map((_,i)=>`<i class="${i<n?'active':''}"></i>`).join('')}</div>${route}<section class="car-copy"><h1>${esc(slide.headline)}</h1><p class="car-body">${esc(slide.body)}</p>${slide.cta?`<span class="story-cta">${esc(slide.cta)}</span>`:''}</section><div class="story-topic">${esc(item.audience)}</div><div class="story-next">${n===item.slides.length?'Start the conversation ↗':'Keep going →'}</div><div class="story-signature">${groupBrand ? 'M2M Connectivity + M2M One' : 'M2M Connectivity'} · Hybrid IoT</div></main>`;
     }
 
     function renderEmail(){

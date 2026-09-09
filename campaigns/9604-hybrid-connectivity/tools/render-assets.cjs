@@ -32,9 +32,9 @@ for (const week of campaign.weeks) {
   }
 }
 for (const carousel of campaign.carousels) {
-  carousel.slides.forEach((_, i) => jobs.push({
-    url: `/render.html?type=carousel&id=${carousel.id}&slide=${i + 1}`,
-    output: `assets/carousels/${carousel.id}-${String(i + 1).padStart(2, '0')}.webp`,
+  for (const variant of ['', 'co-branded']) carousel.slides.forEach((_, i) => jobs.push({
+    url: `/render.html?type=carousel&id=${carousel.id}&slide=${i + 1}${variant ? '&brand=group' : ''}`,
+    output: `assets/carousels/${variant ? variant + '/' : ''}${carousel.id}-${String(i + 1).padStart(2, '0')}.webp`,
     width: 1080, height: 1350
   }));
 }
@@ -48,7 +48,8 @@ for (const study of campaign.website) jobs.push({
 });
 
 const scope = process.env.RENDER_SCOPE || 'all';
-const jobsToRun = scope === 'all' ? jobs : jobs.filter(job => job.output.startsWith(`assets/${scope}/`));
+const selectedSlides = process.env.RENDER_SLIDES?.split(',');
+const jobsToRun = (scope === 'all' ? jobs : jobs.filter(job => job.output.startsWith(`assets/${scope}/`))).filter(job => !selectedSlides || selectedSlides.includes(new URL(job.url, baseUrl).searchParams.get('slide')));
 
 (async () => {
   const browser = await chromium.launch({ headless: true, executablePath: browserPath });

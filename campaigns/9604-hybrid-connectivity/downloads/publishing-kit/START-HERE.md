@@ -8,9 +8,9 @@ Once release approval is recorded:
 REVIEW ONLY — NOT ACTIVATED. Technical claims, destination/form/tracking, audience, owner and human release approval remain required. Source URLs are unverified; no publishing or send authority.
 
 - Weekly still posts: weeks/w01 through w12. Choose one appropriate image format and use the matching caption.txt.
-- LinkedIn documents: carousels folders contain ordered five-page PDFs and matching weekly captions; this is reuse of the source weekly caption, not a newly written caption.
+- LinkedIn documents: five stories, each supplied in two brand versions: 10 five-page PDFs and 50 PNG slides. The main carousel folder is M2M Connectivity; co-branded/ is M2M Connectivity + M2M One. Choose one version, not both. All official logos sit at the top left. Matching caption.txt and source-copy.json are shared by both versions; captions reuse source weekly copy. Five standalone carousel ZIPs each contain both versions and their matching copy.
 - Emails: exact subject/preheader/body plus screenshots. ESP template, footer and send checks remain required.
-- Website/motion folders are studies only.
+- Website/motion folders are studies only. The two videos remain separate downloads, linked in motion-studies/README.txt; video binaries are not in this ZIP.
 - Week 10 has a relative URL field and a separate absolute review-guide URL in its caption. Resolve the intended approved public destination before publishing; both source values are preserved.
 - Email e08 clinic date, speaker and capacity remain unconfirmed.
 - Read README.txt, each asset README, source-copy.json and release-gates.json before release.

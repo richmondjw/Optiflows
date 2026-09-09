@@ -1,10 +1,33 @@
 {
   "id": "agtech",
   "week": 5,
-  "title": "Four questions for connected agriculture",
+  "title": "The water level cannot read your coverage map.",
   "audience": "Agtech product and farm-system teams",
-  "master": "w05-agtech.png",
+  "master": "carousel-agtech-human.jpg",
   "slides": [
+    {
+      "headline": "One farm. A lot to watch.",
+      "body": "A water reading from the far paddock can shape the next job of the day."
+    },
+    {
+      "headline": "The tower is somewhere else.",
+      "body": "Design around the paddock, terrain and sky view where the sensor actually works."
+    },
+    {
+      "headline": "This reading changes the day.",
+      "body": "Separate urgent thresholds from routine readings that can store, batch or retry."
+    },
+    {
+      "headline": "Make the whole design work.",
+      "body": "Match message paths to power, antennas and the behaviour required when offline."
+    },
+    {
+      "headline": "Start with your far paddock.",
+      "body": "Bring one site's conditions into a Hybrid IoT readiness conversation.",
+      "cta": "m2mone.com.au/hybrid-iot-readiness"
+    }
+  ],
+  "technicalNotes": [
     {
       "headline": "What must leave the field now?",
       "body": "Separate urgent thresholds from routine telemetry that can wait, batch or retry."
@@ -26,5 +49,7 @@
       "body": "Turn operating reality into a Hybrid IoT readiness brief.",
       "cta": "m2mone.com.au/hybrid-iot-readiness"
     }
-  ]
+  ],
+  "storyAccent": "#FEC221",
+  "illustrative": "Generated illustrative person and setting; not a customer case study or testimonial."
 }

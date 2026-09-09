@@ -1,10 +1,33 @@
 {
   "id": "environmental",
   "week": 6,
-  "title": "Remote monitoring without the blanket promise",
+  "title": "A remote reading. A very human decision.",
   "audience": "Environmental monitoring teams",
-  "master": "w06-environmental.png",
+  "master": "carousel-environmental-human.jpg",
   "slides": [
+    {
+      "headline": "Out here, change is quiet.",
+      "body": "A remote reading can help someone decide what needs a closer look."
+    },
+    {
+      "headline": "Which change needs attention?",
+      "body": "Define which thresholds matter and how quickly the team needs to know."
+    },
+    {
+      "headline": "Send the part that matters.",
+      "body": "Design a small, useful exception message and retain detail locally where appropriate."
+    },
+    {
+      "headline": "Remote still has limits.",
+      "body": "Plan for power and sky view; a satellite path cannot guarantee delivery."
+    },
+    {
+      "headline": "Bring the site into the design.",
+      "body": "Use the readiness guide to map the site, payload and reporting priorities.",
+      "cta": "m2mone.com.au/hybrid-iot-readiness"
+    }
+  ],
+  "technicalNotes": [
     {
       "headline": "Remote data still needs a priority",
       "body": "Not every reading needs immediate transmission. Define what changes a decision."
@@ -26,5 +49,7 @@
       "body": "Bring the site, payload and urgency model to a design review.",
       "cta": "m2mone.com.au/hybrid-iot-readiness"
     }
-  ]
+  ],
+  "storyAccent": "#0057AD",
+  "illustrative": "Generated illustrative person and setting; not a customer case study or testimonial."
 }
