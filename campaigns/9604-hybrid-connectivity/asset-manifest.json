@@ -1,0 +1,1126 @@
+{
+  "schemaVersion": "1.0",
+  "campaignId": "9604-hybrid-iot-90-day-2026",
+  "generatedAt": "2026-09-10T00:00:00+10:00",
+  "exclusions": [
+    "tmp/**",
+    "reference-only inputs retained outside the public release",
+    "test render",
+    "unused source video with audio",
+    "asset-manifest.json self-hash"
+  ],
+  "counts": {
+    "brand-source": 4,
+    "carousel-slide": 25,
+    "email-design": 8,
+    "social-export": 48,
+    "generative-master": 8,
+    "motion-study": 4,
+    "website-study": 4,
+    "campaign-source": 5,
+    "download": 4,
+    "production-tool": 7
+  },
+  "totalFiles": 117,
+  "totalBytes": 72100390,
+  "files": [
+    {
+      "file": "assets/brand/m2m-connectivity-logo.svg",
+      "category": "brand-source",
+      "bytes": 20670,
+      "dimensions": null,
+      "sha256": "8a5c083ad86dab2d1238cd5a12a6351b985a0ed6e667b113e279dd0e00ed2802"
+    },
+    {
+      "file": "assets/carousels/agtech-01.webp",
+      "category": "carousel-slide",
+      "bytes": 69714,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "1350c7da695f173c0676e5f9fb1dfdc9df0cb056e31e690b1cf4817ad7c515ea"
+    },
+    {
+      "file": "assets/carousels/agtech-02.webp",
+      "category": "carousel-slide",
+      "bytes": 65838,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "d40c9c8a3ce4051a398a8830d02718ace663fc0f2e6a00e78e6e391d19403d4d"
+    },
+    {
+      "file": "assets/carousels/agtech-03.webp",
+      "category": "carousel-slide",
+      "bytes": 59568,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "b5ecd791228c111518c520f5df843214b8ad469bfdc103ccb85b03ee05b653fb"
+    },
+    {
+      "file": "assets/carousels/agtech-04.webp",
+      "category": "carousel-slide",
+      "bytes": 59166,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "49fb3fa1f59dad23071f225157960fbce139630bbee9e34d5b3baab7a46c8810"
+    },
+    {
+      "file": "assets/carousels/agtech-05.webp",
+      "category": "carousel-slide",
+      "bytes": 61402,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "c518594aa1aed9edd766fc1f4a85ea1800ced44f56e7d0381c02e866318d91a0"
+    },
+    {
+      "file": "assets/carousels/asset-tracking-01.webp",
+      "category": "carousel-slide",
+      "bytes": 139976,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "67b840d4bb7fcf2a961b6efb5fe5683ec2494b917256162d728027016f235cc3"
+    },
+    {
+      "file": "assets/carousels/asset-tracking-02.webp",
+      "category": "carousel-slide",
+      "bytes": 55398,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "2787e9c8028fdf57bac3523812bc265459e3228612bf9d73bd0ced92ca9ee96f"
+    },
+    {
+      "file": "assets/carousels/asset-tracking-03.webp",
+      "category": "carousel-slide",
+      "bytes": 58018,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "a6b917dfc073d8e92a7785ec79278147b8e567a599f7ee7ed5cb6bd8597ce6c0"
+    },
+    {
+      "file": "assets/carousels/asset-tracking-04.webp",
+      "category": "carousel-slide",
+      "bytes": 59350,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "3fed1eb224173e30df4be24125fd3449566378a3128ae14de2b5408991f8c351"
+    },
+    {
+      "file": "assets/carousels/asset-tracking-05.webp",
+      "category": "carousel-slide",
+      "bytes": 127196,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "cd5c1ab279a67b8dcd874c8fa8f3ecba73f44031ed858faf834e23f648faaf59"
+    },
+    {
+      "file": "assets/carousels/environmental-01.webp",
+      "category": "carousel-slide",
+      "bytes": 84094,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "e4d2c0437954aab01251ae939952ab6bbb91c984fea48e38257c5497f8508c96"
+    },
+    {
+      "file": "assets/carousels/environmental-02.webp",
+      "category": "carousel-slide",
+      "bytes": 62962,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "9916fe82a2b420b3c713af01dc6b62df25b91165662ce5df7b717d9a78d7643b"
+    },
+    {
+      "file": "assets/carousels/environmental-03.webp",
+      "category": "carousel-slide",
+      "bytes": 55764,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "a7e214110a2268e60535325e4a4ea76c31fc9a873a1ceea5f28fd8dd141c8562"
+    },
+    {
+      "file": "assets/carousels/environmental-04.webp",
+      "category": "carousel-slide",
+      "bytes": 58728,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "e2550e95fccf6c2804c2ec72f493a20df40d30965b6861a3f27f45b4f2aa7ee4"
+    },
+    {
+      "file": "assets/carousels/environmental-05.webp",
+      "category": "carousel-slide",
+      "bytes": 76254,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "1916a7be39a811a63c48160b5a42e847ce78df24a2919cbb97ebde17a62230b6"
+    },
+    {
+      "file": "assets/carousels/field-safety-01.webp",
+      "category": "carousel-slide",
+      "bytes": 56538,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "4e30b8fd94bb9b8598c9b4bf08f705c0f46b389b4d10046541307dbf18bfdd9a"
+    },
+    {
+      "file": "assets/carousels/field-safety-02.webp",
+      "category": "carousel-slide",
+      "bytes": 56786,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "686de7f5a0745a70d95c9752490b57d558508a33dc31b1001fe10e016e6ffdc6"
+    },
+    {
+      "file": "assets/carousels/field-safety-03.webp",
+      "category": "carousel-slide",
+      "bytes": 52720,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "2045f356566c327a8da0457a4991aec9d2dabeae6274c579ad157b55ea767826"
+    },
+    {
+      "file": "assets/carousels/field-safety-04.webp",
+      "category": "carousel-slide",
+      "bytes": 55734,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "867ee4bdebf8f3cf8aca466432c059943b034f5c99b2e2fe2da952b472ae5f6d"
+    },
+    {
+      "file": "assets/carousels/field-safety-05.webp",
+      "category": "carousel-slide",
+      "bytes": 56138,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "c86f83c07ceb02bdb8a519932d3fbb319dc3107394c2337ec4f1f8f3a32f6615"
+    },
+    {
+      "file": "assets/carousels/remote-equipment-01.webp",
+      "category": "carousel-slide",
+      "bytes": 109820,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "bd526684b5af1388d7bd2f24be57b5cdb5bccf7639796fb6ccc40da5f1980e22"
+    },
+    {
+      "file": "assets/carousels/remote-equipment-02.webp",
+      "category": "carousel-slide",
+      "bytes": 52348,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "f89183062f831930810596341361aaaa1bb681e72ff723f0af5b4c8d09b77def"
+    },
+    {
+      "file": "assets/carousels/remote-equipment-03.webp",
+      "category": "carousel-slide",
+      "bytes": 59414,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "1f0d95783fcc6feebb2f3b72bc9f59788f2a8f656290ddc33a82687940d54884"
+    },
+    {
+      "file": "assets/carousels/remote-equipment-04.webp",
+      "category": "carousel-slide",
+      "bytes": 61320,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "d750ec9afa3fa8fe4d01c7552c60b99ccaf27bee2a6d7332875bdd027fbb850d"
+    },
+    {
+      "file": "assets/carousels/remote-equipment-05.webp",
+      "category": "carousel-slide",
+      "bytes": 104852,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "1524639a9a36e61e65a7b30d6b65c2b5ed609e8200bf3f53e735d8e164dc28b9"
+    },
+    {
+      "file": "assets/email/e01-email.webp",
+      "category": "email-design",
+      "bytes": 116600,
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      },
+      "sha256": "56d3fd6d28ee54555866b6d2e16ba7558695143377e8ff2210c8ca78dcf848a9"
+    },
+    {
+      "file": "assets/email/e02-email.webp",
+      "category": "email-design",
+      "bytes": 126482,
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      },
+      "sha256": "6f47f63e75032966771b39596b367b1d7333b35f5e8068e6786141bc32a1a66b"
+    },
+    {
+      "file": "assets/email/e03-email.webp",
+      "category": "email-design",
+      "bytes": 152872,
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      },
+      "sha256": "62cf8441fd3d7323f3d1ee20e010899e316247bf8c1252600679bd7457ca2699"
+    },
+    {
+      "file": "assets/email/e04-email.webp",
+      "category": "email-design",
+      "bytes": 117126,
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      },
+      "sha256": "65ec63c8815316f42edc63a2d50c517f917745207fce07847572e57c7fd89899"
+    },
+    {
+      "file": "assets/email/e05-email.webp",
+      "category": "email-design",
+      "bytes": 144846,
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      },
+      "sha256": "caf31bd3c9fc28388e3c63559e62151ac76428c6de10746b502fd350fbba77c1"
+    },
+    {
+      "file": "assets/email/e06-email.webp",
+      "category": "email-design",
+      "bytes": 107748,
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      },
+      "sha256": "2ddce98200d890b460af75be678ddfe46d42d924a6b6a073122e66f60a584b36"
+    },
+    {
+      "file": "assets/email/e07-email.webp",
+      "category": "email-design",
+      "bytes": 113264,
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      },
+      "sha256": "f16d58ed0447ae40e9b81e4f4f4c760fc347c08a3800a2295599a791cb0c4a53"
+    },
+    {
+      "file": "assets/email/e08-email.webp",
+      "category": "email-design",
+      "bytes": 129894,
+      "dimensions": {
+        "width": 1200,
+        "height": 900
+      },
+      "sha256": "bad023666b2940237bb4a57d4a0a0e935ec5ddd19920b111e881a357d051281c"
+    },
+    {
+      "file": "assets/exports/w01-feed.webp",
+      "category": "social-export",
+      "bytes": 69174,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "df378eb8635f4d8e665287338202876d89b939fda15b5e81ed917106665cbb7a"
+    },
+    {
+      "file": "assets/exports/w01-square.webp",
+      "category": "social-export",
+      "bytes": 62100,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "169fe1eda12818342edece49ec2dab0f4f184340b0ddeb2e868af4118d6d94c1"
+    },
+    {
+      "file": "assets/exports/w01-story.webp",
+      "category": "social-export",
+      "bytes": 88468,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "e8cccbdda664b73234db127387cdd3a8be7472f1d4c7b204703b1934d48b290c"
+    },
+    {
+      "file": "assets/exports/w01-wide.webp",
+      "category": "social-export",
+      "bytes": 129376,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "1196ee5bde5ecd1a112094889f46afd00c311ac759cf57dd8826f51723ac542d"
+    },
+    {
+      "file": "assets/exports/w02-feed.webp",
+      "category": "social-export",
+      "bytes": 100880,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "6dd983d7703a1f65f6d4225cfefad817c55ac4a8e8111307247f13a46e7119f1"
+    },
+    {
+      "file": "assets/exports/w02-square.webp",
+      "category": "social-export",
+      "bytes": 84898,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "e1e858f6d22338414e9e572a58c037a64648c3360cfd9d5a4825a56d93e7953b"
+    },
+    {
+      "file": "assets/exports/w02-story.webp",
+      "category": "social-export",
+      "bytes": 131450,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "d08bf2b02c76e851180fc45f6efec6d743915a0492f24eeecd976b2468d2b38f"
+    },
+    {
+      "file": "assets/exports/w02-wide.webp",
+      "category": "social-export",
+      "bytes": 136346,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "45316dfa63e950147ab673894f9474fd7ab6256f696e42adc21ec8755505828b"
+    },
+    {
+      "file": "assets/exports/w03-feed.webp",
+      "category": "social-export",
+      "bytes": 97014,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "1bc89bffd3ff6168b9b2d39bf8ddf07a1e6eec60ca85bbdd2f6c015f6f8c3921"
+    },
+    {
+      "file": "assets/exports/w03-square.webp",
+      "category": "social-export",
+      "bytes": 85088,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "79eff833b569e96644af2693f7c15e5e671ffbd5d5ed4cb9c56a1efb8fbb517f"
+    },
+    {
+      "file": "assets/exports/w03-story.webp",
+      "category": "social-export",
+      "bytes": 124290,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "9b6776ccffd77b024de81225dbb13396ed379b892f0ab68eb052965c48712bef"
+    },
+    {
+      "file": "assets/exports/w03-wide.webp",
+      "category": "social-export",
+      "bytes": 110912,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "0b4308372f284991d7bfc51479fd77d15a340e98349772ee9f252eb30fff696d"
+    },
+    {
+      "file": "assets/exports/w04-feed.webp",
+      "category": "social-export",
+      "bytes": 138952,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "000e9fcf4a994bead2e8beebaa0c0a9b0aa3c46025a1931a2268c48c06125ae1"
+    },
+    {
+      "file": "assets/exports/w04-square.webp",
+      "category": "social-export",
+      "bytes": 119002,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "96045a22bbacec48638f20a1a826a67188f080a74e0bcc59e756e673ccb9fb47"
+    },
+    {
+      "file": "assets/exports/w04-story.webp",
+      "category": "social-export",
+      "bytes": 184464,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "c8b731d6e85495cace2811024a568d60333e70f504d1e172848d4b22e529e154"
+    },
+    {
+      "file": "assets/exports/w04-wide.webp",
+      "category": "social-export",
+      "bytes": 216956,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "049d17b619e2ad8da230a0f9bee2c8de56d08ccc839e11d860b19c09a32d7bdd"
+    },
+    {
+      "file": "assets/exports/w05-feed.webp",
+      "category": "social-export",
+      "bytes": 71508,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "5e2f29c28e0131c52ee556f87d9f900e7c8bf11d25f0584b8f533ffb5f2d180c"
+    },
+    {
+      "file": "assets/exports/w05-square.webp",
+      "category": "social-export",
+      "bytes": 66384,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "82b5b4453779e8ba4a65eebd1e2a3ee87eef80e75388c9c61bbde59539cefd8c"
+    },
+    {
+      "file": "assets/exports/w05-story.webp",
+      "category": "social-export",
+      "bytes": 89108,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "6b8f0544eb73808031d268260b2a21d8ab06341841eaaa1f744d86f22879139f"
+    },
+    {
+      "file": "assets/exports/w05-wide.webp",
+      "category": "social-export",
+      "bytes": 152654,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "b938954aef5b436d02d7b54d8d12bc1c97967db629ed798dc6bc382323999aec"
+    },
+    {
+      "file": "assets/exports/w06-feed.webp",
+      "category": "social-export",
+      "bytes": 90894,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "651827b6f6c820a46663749e2ca634e79031c7c0547bafec2bca70cb98bc8135"
+    },
+    {
+      "file": "assets/exports/w06-square.webp",
+      "category": "social-export",
+      "bytes": 83582,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "66e2f0b79d88614612d72af27294d6dedebe5d1ca05e495a607044dc260c9326"
+    },
+    {
+      "file": "assets/exports/w06-story.webp",
+      "category": "social-export",
+      "bytes": 114162,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "675e30b884b86fbca9bdf7e89dfd1ec8eb11add27e0e63d0644e31f16215cc34"
+    },
+    {
+      "file": "assets/exports/w06-wide.webp",
+      "category": "social-export",
+      "bytes": 167348,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "a85ead120e130816254b31ef3996080891d3ab80873b58d9ab99ab0f2b9fc5f5"
+    },
+    {
+      "file": "assets/exports/w07-feed.webp",
+      "category": "social-export",
+      "bytes": 119838,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "ecebfead6f3b37a7ae7b9d59c54813e195a64b9e74116b42e4ce6705f54e789a"
+    },
+    {
+      "file": "assets/exports/w07-square.webp",
+      "category": "social-export",
+      "bytes": 104606,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "35ce98984b19b04a1f2bef8a812c142e8a3bea6164582c0b8e401f3d9c4bcca1"
+    },
+    {
+      "file": "assets/exports/w07-story.webp",
+      "category": "social-export",
+      "bytes": 152120,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "ef0c1003015ca869b2859dec3f08a394540b949f544e3f797ef6f59f5a98ef4e"
+    },
+    {
+      "file": "assets/exports/w07-wide.webp",
+      "category": "social-export",
+      "bytes": 216466,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "3ad3e77953987a8b45dcd6e94b17c86c4b151a5ef0369372b5b90dd14b91f54e"
+    },
+    {
+      "file": "assets/exports/w08-feed.webp",
+      "category": "social-export",
+      "bytes": 60728,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "69267afcaec25aa9b0782deaa7ec5584496449c5d953ba22f4a4b7e99699286e"
+    },
+    {
+      "file": "assets/exports/w08-square.webp",
+      "category": "social-export",
+      "bytes": 56052,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "bae7dcf561569dd13d026334cef5a34d1c567ec553c631791a870e864f0a1b4c"
+    },
+    {
+      "file": "assets/exports/w08-story.webp",
+      "category": "social-export",
+      "bytes": 76214,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "5c73e7dba47679a8a6c40fb4d6d6d251a4251070934a3d76ac33e54e03bcc60c"
+    },
+    {
+      "file": "assets/exports/w08-wide.webp",
+      "category": "social-export",
+      "bytes": 116286,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "cff0c4b9447b76894d4dee90ef7adffd4d9ed25b7d8193b6d4de946f027a7c2d"
+    },
+    {
+      "file": "assets/exports/w09-feed.webp",
+      "category": "social-export",
+      "bytes": 94188,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "f664bea98d168c3ec1e8c52781708a09bdb3542baa077292cf2ab3a3f9214212"
+    },
+    {
+      "file": "assets/exports/w09-square.webp",
+      "category": "social-export",
+      "bytes": 82742,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "bb9376697725249b7fb442badb2b850a64df2561150e58aa86d371680aa16ff9"
+    },
+    {
+      "file": "assets/exports/w09-story.webp",
+      "category": "social-export",
+      "bytes": 121926,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "0588b7028efe8e952cc44dd9a4a6c11d313b4207b4cb5132ae5a8c90b0bfa4bb"
+    },
+    {
+      "file": "assets/exports/w09-wide.webp",
+      "category": "social-export",
+      "bytes": 108052,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "e205b4919283db7bb5a38fea3685e81e74bfd2216ca1d0a48c832e1095c9542b"
+    },
+    {
+      "file": "assets/exports/w10-feed.webp",
+      "category": "social-export",
+      "bytes": 71364,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "c7e9e8d43f947ce0ae489cc2c038bdbeece4e20e4f6e318b2472de5c85e2bce8"
+    },
+    {
+      "file": "assets/exports/w10-square.webp",
+      "category": "social-export",
+      "bytes": 63994,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "67e9da6ff5b61b5095003aad210bbe43602e5d7d4e17048ef6eb6ae5ba60ff78"
+    },
+    {
+      "file": "assets/exports/w10-story.webp",
+      "category": "social-export",
+      "bytes": 90402,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "ec49ff0000a8b106f2c3786c069778c381b3ef143296a4f4038b2408ff5678ae"
+    },
+    {
+      "file": "assets/exports/w10-wide.webp",
+      "category": "social-export",
+      "bytes": 131814,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "760adab5b15a0293dff39b4e71efc18a40f5679f925e9bc94a687b1f0b731c4b"
+    },
+    {
+      "file": "assets/exports/w11-feed.webp",
+      "category": "social-export",
+      "bytes": 98918,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "8d763cd794011f30a1dc0f0fad31ed5fcd8e4ebb7b710a56777957cf7b00d11c"
+    },
+    {
+      "file": "assets/exports/w11-square.webp",
+      "category": "social-export",
+      "bytes": 87220,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "365f28b3fec57f8c6922335bf9f71ac256f7431dcaf7c872abc875c3ddc3732b"
+    },
+    {
+      "file": "assets/exports/w11-story.webp",
+      "category": "social-export",
+      "bytes": 125788,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "8af5235474bcf20c08e18e4962e314e26aad4e625456492c874315792aaef1ed"
+    },
+    {
+      "file": "assets/exports/w11-wide.webp",
+      "category": "social-export",
+      "bytes": 113074,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "4dc9bf26b1e5655c44b9dbe64ecd3953e503ffd39550504e63ab83f019171a8a"
+    },
+    {
+      "file": "assets/exports/w12-feed.webp",
+      "category": "social-export",
+      "bytes": 80572,
+      "dimensions": {
+        "width": 1080,
+        "height": 1350
+      },
+      "sha256": "4ef36e34ab250ee47ea30cfc34f697dea34973191d0b949f96d320f108302451"
+    },
+    {
+      "file": "assets/exports/w12-square.webp",
+      "category": "social-export",
+      "bytes": 72190,
+      "dimensions": {
+        "width": 1080,
+        "height": 1080
+      },
+      "sha256": "3b17c5e75d74404786cab5917101f85c63df4efb876d312ea7ab04f8ec4f262a"
+    },
+    {
+      "file": "assets/exports/w12-story.webp",
+      "category": "social-export",
+      "bytes": 104102,
+      "dimensions": {
+        "width": 1080,
+        "height": 1920
+      },
+      "sha256": "daca8353ba685b99cb5231072aed170e7927ab7b68a5a2b5534a69ae6c53321c"
+    },
+    {
+      "file": "assets/exports/w12-wide.webp",
+      "category": "social-export",
+      "bytes": 142004,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "53122fa1d78b85173ecefb402a95389d4770453de8abef3435fe976c05a36023"
+    },
+    {
+      "file": "assets/fonts/titillium-web-400.woff2",
+      "category": "brand-source",
+      "bytes": 12344,
+      "dimensions": null,
+      "sha256": "861b80b49d2a634d8746e2e45c672309d9ba69a2fdd95da2af034d7a1d09b3f9"
+    },
+    {
+      "file": "assets/fonts/titillium-web-600.woff2",
+      "category": "brand-source",
+      "bytes": 12116,
+      "dimensions": null,
+      "sha256": "f356ff5613e1b6789a47ae3bd6b72fa6fb61d44493811bcb758fb4229b7a8bcb"
+    },
+    {
+      "file": "assets/fonts/titillium-web-700.woff2",
+      "category": "brand-source",
+      "bytes": 11732,
+      "dimensions": null,
+      "sha256": "9e3162d81ed6681322ab34791660f1b45c79945197e7a7dbb217005b2926caf4"
+    },
+    {
+      "file": "assets/higgsfield-masters/w01-coverage-boundary.png",
+      "category": "generative-master",
+      "bytes": 4832598,
+      "dimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "sha256": "ee6ab10e624d63bc03c9ae886452c923dc43fc61bc1ea072c696aa1ded97a5b7"
+    },
+    {
+      "file": "assets/higgsfield-masters/w02-transmission-cost.png",
+      "category": "generative-master",
+      "bytes": 5602876,
+      "dimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "sha256": "d63af35f69f2ace478a8deb1bd60fe0fcb6db429b328583cbe1a2efe8e94ff51"
+    },
+    {
+      "file": "assets/higgsfield-masters/w04-asset-tracking.png",
+      "category": "generative-master",
+      "bytes": 6638383,
+      "dimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "sha256": "f86160f952e335cd1b918eda68212e0b71f481414180c686e80a9e90b7d9b6c4"
+    },
+    {
+      "file": "assets/higgsfield-masters/w05-agtech.png",
+      "category": "generative-master",
+      "bytes": 5592878,
+      "dimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "sha256": "9d8040a9be97d027380d2275b6d0972af2897bd3bded0156e7033f367097b367"
+    },
+    {
+      "file": "assets/higgsfield-masters/w06-environmental.png",
+      "category": "generative-master",
+      "bytes": 6266444,
+      "dimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "sha256": "04afb8ef8412eaab95e0996c683667793f4bf83f22867517e34e4974ecee3462"
+    },
+    {
+      "file": "assets/higgsfield-masters/w07-remote-equipment.png",
+      "category": "generative-master",
+      "bytes": 7083819,
+      "dimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "sha256": "9cd3452c76be97cbcf0fec9a58b403fdcb9b9644c1133e141019e720efe06267"
+    },
+    {
+      "file": "assets/higgsfield-masters/w08-field-safety.png",
+      "category": "generative-master",
+      "bytes": 4595396,
+      "dimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "sha256": "5feefc3942e0ddbeb79203807be1373e6ffac8723c917e1f7dfb8a9491de7f2e"
+    },
+    {
+      "file": "assets/higgsfield-masters/w09-engineering-design.png",
+      "category": "generative-master",
+      "bytes": 5014058,
+      "dimensions": {
+        "width": 2688,
+        "height": 1520
+      },
+      "sha256": "bf362e978a91654cf203e1e795de4446fd14c096e04796bef159e6265707cdfd"
+    },
+    {
+      "file": "assets/motion/coverage-boundary-frame.jpg",
+      "category": "motion-study",
+      "bytes": 105945,
+      "dimensions": null,
+      "sha256": "c105dde43616a9867b203d08ce2722a46700a32e4b79f188fd25843075d067de"
+    },
+    {
+      "file": "assets/motion/coverage-boundary-loop.mp4",
+      "category": "motion-study",
+      "bytes": 6515998,
+      "dimensions": null,
+      "sha256": "0ca0ee32a9ba1b3f689209571ed089180de35e6daf66de1877930a81b7d7c5a9"
+    },
+    {
+      "file": "assets/motion/engineering-design-frame.jpg",
+      "category": "motion-study",
+      "bytes": 115845,
+      "dimensions": null,
+      "sha256": "ecd3ce6702feec357b007822d307bdb391ee4b520b628d688911d009134828d4"
+    },
+    {
+      "file": "assets/motion/engineering-design-loop.mp4",
+      "category": "motion-study",
+      "bytes": 8273970,
+      "dimensions": null,
+      "sha256": "d94ae0dd2aad776e5600e6b07afc27a6bb7ae48bb6fdcda1d1e0f567794ad01f"
+    },
+    {
+      "file": "assets/website/architecture-website.webp",
+      "category": "website-study",
+      "bytes": 127562,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "d82c4481d59b7c924b606801008fdfa821340ba2d6f75aeaf0490db6b9ab6570"
+    },
+    {
+      "file": "assets/website/clinic-website.webp",
+      "category": "website-study",
+      "bytes": 120620,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "88325fc3e5691d132ddc551a45b479228fa16d0f34abf70bfd5c59365dbf4260"
+    },
+    {
+      "file": "assets/website/hero-website.webp",
+      "category": "website-study",
+      "bytes": 112944,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "f56cf4c8836a116b354727ab4c94e570d97a15b5092c669d901c1e94b7bd3d28"
+    },
+    {
+      "file": "assets/website/verticals-website.webp",
+      "category": "website-study",
+      "bytes": 168328,
+      "dimensions": {
+        "width": 1600,
+        "height": 900
+      },
+      "sha256": "a2f58e7e0723d615ab8ddb69743ccdb76a1b983f52ec52991fb18cd0149c12d2"
+    },
+    {
+      "file": "campaign-data.js",
+      "category": "campaign-source",
+      "bytes": 40347,
+      "dimensions": null,
+      "sha256": "754ba9aeb0fcd8c69d1f595f418644921dd9428bb89fc8c09c9096e03ef28d96"
+    },
+    {
+      "file": "creative-provenance.json",
+      "category": "campaign-source",
+      "bytes": 8995,
+      "dimensions": null,
+      "sha256": "2292ef0427044ea3c8e93645e2c17396d3a94811978204afe07a4644d24bf4ba"
+    },
+    {
+      "file": "downloads/2026-09-10-hybrid-iot-90-day-campaign-manuscript.md",
+      "category": "download",
+      "bytes": 38090,
+      "dimensions": null,
+      "sha256": "44d330fc6ae8bdc50716b4cb4f8c36ad3f53b565e772ffb3c42e7090b612c89e"
+    },
+    {
+      "file": "downloads/campaign-calendar.csv",
+      "category": "download",
+      "bytes": 4501,
+      "dimensions": null,
+      "sha256": "b31d8fe63fe8ed20c8a6bbd2fa21d1c6f8722ab16e4c1b04fcbe4e3089dc0f77"
+    },
+    {
+      "file": "downloads/hybrid-iot-readiness-guide.pdf",
+      "category": "download",
+      "bytes": 2687671,
+      "dimensions": null,
+      "sha256": "920c333b34158aba3205b867c4cbbfb2f1a0dd17adf207038660c99b83e98c1e"
+    },
+    {
+      "file": "downloads/m2m-campaign-production-skill.zip",
+      "category": "download",
+      "bytes": 13269,
+      "dimensions": null,
+      "sha256": "ecd08ac5fc685ae8d19873540a28406e1d7d63c9828d90440d966f4708b5919e"
+    },
+    {
+      "file": "index.html",
+      "category": "campaign-source",
+      "bytes": 36458,
+      "dimensions": null,
+      "sha256": "92e23c3a444b0ae01e1f069fb5faa5fb9439e7463b8ab93e36b334452c33647c"
+    },
+    {
+      "file": "readiness-guide.html",
+      "category": "campaign-source",
+      "bytes": 18740,
+      "dimensions": null,
+      "sha256": "a1ae2ad5bb89d625b8fb0cf86c6022487778244427e8f3b6262d7b7600e3edf9"
+    },
+    {
+      "file": "render.html",
+      "category": "production-tool",
+      "bytes": 14538,
+      "dimensions": null,
+      "sha256": "a7805d571896418b43952e28624ab271c6e950c545479afca06aafa7df8a0185"
+    },
+    {
+      "file": "tools/build-supporting-files.cjs",
+      "category": "production-tool",
+      "bytes": 17051,
+      "dimensions": null,
+      "sha256": "35e0a4ba495468b0dc28064bcd1d225e62638015dd30bde4e4d53ecfff6d5f1f"
+    },
+    {
+      "file": "tools/qa-campaign-index.cjs",
+      "category": "production-tool",
+      "bytes": 3484,
+      "dimensions": null,
+      "sha256": "01e3e3fe65b0e0ffcfcb25dab9a6acfa3a096b99de998ce1e0d954e0eab5d840"
+    },
+    {
+      "file": "tools/qa-pdf.py",
+      "category": "production-tool",
+      "bytes": 543,
+      "dimensions": null,
+      "sha256": "0970a11cab2a2f11e8bb5ad771ab2f97e47834f0efb77672531d23a77c022eb1"
+    },
+    {
+      "file": "tools/qa-site.cjs",
+      "category": "production-tool",
+      "bytes": 9066,
+      "dimensions": null,
+      "sha256": "d40590cb27ed1fdbafbbabf26fe84b9acd7c3b8c020613c822fc08e64a4740d5"
+    },
+    {
+      "file": "tools/render-assets.cjs",
+      "category": "production-tool",
+      "bytes": 3520,
+      "dimensions": null,
+      "sha256": "4c2625020385455109993e1e2b9a819bc2d27cf3df86bb2d1940f8fc842a28e9"
+    },
+    {
+      "file": "tools/render-pdf.cjs",
+      "category": "production-tool",
+      "bytes": 1430,
+      "dimensions": null,
+      "sha256": "7e06dfae4331945fe379d4bf09355b85924124eec7c0797ae70aa643e498e171"
+    },
+    {
+      "file": "verification-report.md",
+      "category": "campaign-source",
+      "bytes": 4561,
+      "dimensions": null,
+      "sha256": "6335141c400c1bfc0e2eb451e2f4816e72477178377157a652f534c9c648138d"
+    }
+  ]
+}

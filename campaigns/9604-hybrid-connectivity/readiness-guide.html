@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <title>Hybrid IoT readiness guide · M2M Connectivity</title>
+  <style>
+    @font-face{font-family:Titillium;src:url('assets/fonts/titillium-web-400.woff2') format('woff2');font-weight:400}
+    @font-face{font-family:Titillium;src:url('assets/fonts/titillium-web-600.woff2') format('woff2');font-weight:600}
+    @font-face{font-family:Titillium;src:url('assets/fonts/titillium-web-700.woff2') format('woff2');font-weight:700}
+    :root{--navy:#020f59;--mint:#aeeddc;--teal:#00afaa;--dark:#003640;--blue:#00677a;--ink:#071d28;--mist:#eaf7f5}
+    *{box-sizing:border-box}html,body{margin:0;background:#cfd8d8;color:var(--ink);font-family:Titillium,Arial,sans-serif}
+    .page{width:210mm;height:297mm;margin:12mm auto;background:#fff;position:relative;overflow:hidden;padding:19mm 18mm 16mm;page-break-after:always;box-shadow:0 10px 40px rgba(7,29,40,.2)}
+    .page:last-child{page-break-after:auto}.logo{width:67mm;height:auto}.page-no{position:absolute;right:18mm;bottom:12mm;color:#6d8186;font-size:9pt;letter-spacing:.1em}.rule{height:2px;background:linear-gradient(90deg,var(--teal),transparent);margin:8mm 0}
+    .kicker{font-size:10pt;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);font-weight:700;margin:0 0 4mm}.title{font-size:36pt;line-height:.95;letter-spacing:-.025em;color:var(--navy);margin:0 0 6mm}.lede{font-size:17pt;line-height:1.25;color:#344e56;max-width:160mm}.body{font-size:12pt;line-height:1.45;color:#354d55}.body strong{color:var(--navy)}
+    .cover{padding:0;background:var(--ink);color:#fff}.cover .hero{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.cover .veil{position:absolute;inset:0;background:linear-gradient(90deg,rgba(3,20,29,.96),rgba(3,20,29,.77) 53%,rgba(3,20,29,.12)),linear-gradient(0deg,rgba(2,15,89,.58),transparent 50%)}.cover .logo-wrap{position:absolute;left:17mm;top:17mm;background:rgba(255,255,255,.95);border-radius:3mm;padding:4mm 5mm}.cover .logo{width:68mm}.cover-copy{position:absolute;left:17mm;right:20mm;top:91mm}.cover .kicker{color:var(--mint);font-size:12pt}.cover h1{font-size:52pt;line-height:.9;letter-spacing:-.04em;margin:0 0 8mm;max-width:155mm}.cover .tag{font-size:22pt;line-height:1.15;color:#e6f5f2;max-width:145mm}.cover .status{position:absolute;left:17mm;bottom:18mm;border:1px solid rgba(174,237,220,.65);padding:3mm 5mm;border-radius:99px;font-weight:700;letter-spacing:.08em;font-size:10pt}.cover .edition{position:absolute;right:17mm;bottom:20mm;font-size:10pt;color:#c9dcda}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:6mm}.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:4mm}.card{border:1px solid #d8e3e1;border-top:3px solid var(--teal);padding:5mm;border-radius:2mm;background:#fff}.card h3{font-size:15pt;line-height:1.1;color:var(--navy);margin:0 0 2mm}.card p,.card li{font-size:10.5pt;line-height:1.35;color:#3d555c}.card ul{padding-left:5mm;margin:2mm 0}.number{font-size:28pt;line-height:1;color:var(--teal);font-weight:700;margin-bottom:2mm}.worksheet{border-collapse:collapse;width:100%;margin-top:5mm}.worksheet th{background:var(--navy);color:#fff;text-align:left;padding:3mm;font-size:10pt}.worksheet td{height:16mm;border:1px solid #cfdcda;padding:3mm;vertical-align:top;font-size:9.5pt}.worksheet tr td:first-child{width:38%;font-weight:600;color:var(--navy)}.note{background:var(--mist);border-left:4px solid var(--teal);padding:4mm 5mm;margin:6mm 0;font-size:10.5pt;line-height:1.4}.warning{background:#f1f4f8;border-left-color:var(--navy)}.steps{counter-reset:step;display:grid;gap:4mm}.step{display:grid;grid-template-columns:14mm 1fr;gap:4mm;align-items:start}.step::before{counter-increment:step;content:counter(step);width:12mm;height:12mm;border-radius:50%;background:var(--navy);color:white;display:grid;place-items:center;font-weight:700}.step h3{margin:0 0 1mm;color:var(--navy);font-size:15pt}.step p{margin:0;font-size:11pt;line-height:1.35;color:#3d555c}.checklist{display:grid;grid-template-columns:1fr 1fr;gap:4mm 7mm;margin-top:7mm}.check{border:1px solid #d8e3e1;padding:4mm;border-radius:2mm;min-height:29mm}.check h3{margin:0 0 2mm;font-size:14pt;color:var(--navy)}.check p{margin:0;font-size:10.5pt;line-height:1.35}.tick{display:inline-block;width:4mm;height:4mm;border:1px solid var(--blue);margin-right:2mm;vertical-align:-.5mm}.sources{font-size:9.5pt;line-height:1.45}.sources a{color:var(--blue);word-break:break-word}.cta-panel{background:var(--navy);color:#fff;border-radius:4mm;padding:10mm;margin-top:10mm}.cta-panel h2{font-size:27pt;line-height:1;margin:0 0 4mm}.cta-panel p{font-size:14pt;line-height:1.35;margin:0 0 5mm;color:#dceeed}.cta-button{display:inline-block;background:var(--mint);color:var(--navy);padding:3.5mm 6mm;border-radius:2mm;font-weight:700;font-size:12pt}
+    .page-map .grid-2{gap:3mm 4mm;margin-top:5mm!important}.page-map .card{height:34mm;padding:3mm}.page-map .card h3{font-size:12.5pt;margin-bottom:.8mm}.page-map .card p{font-size:8.8pt;line-height:1.18;margin:0}.page-map .number{font-size:21pt;margin-bottom:.8mm}.page-map .note{margin:3mm 0;padding:2.5mm 4mm;font-size:9pt}.page-map .worksheet{margin-top:2mm}.page-map .worksheet th{padding:1.8mm}.page-map .worksheet td{height:9mm;padding:1.8mm}
+    .page-evidence .lede{font-size:14pt}.page-evidence .worksheet{margin-top:4mm!important}.page-evidence .worksheet th{padding:2mm}.page-evidence .worksheet td{height:10mm;padding:1.8mm 2.2mm;font-size:8.8pt}.page-evidence .grid-2{gap:2mm 3mm;margin-top:3mm!important}.page-evidence .card{height:25mm;padding:2.5mm 3mm}.page-evidence .card h3{font-size:12pt;margin-bottom:.8mm}.page-evidence .card p{font-size:8.8pt;line-height:1.15;margin:0}
+    @page{size:A4;margin:0}@media print{html,body{background:white}.page{margin:0;box-shadow:none}}
+  </style>
+</head>
+<body>
+  <section class="page cover">
+    <img class="hero" src="assets/higgsfield-masters/w01-coverage-boundary.png" alt="Remote operating environment">
+    <div class="veil"></div>
+    <div class="logo-wrap"><img class="logo" src="assets/brand/m2m-connectivity-logo.svg" alt="M2M Connectivity"></div>
+    <div class="cover-copy">
+      <p class="kicker">Iridium Certus 9604 · Hybrid IoT</p>
+      <h1>Map the gap before you map the hardware.</h1>
+      <p class="tag">A practical readiness guide for cellular-plus-satellite connected products.</p>
+    </div>
+    <div class="status">REVIEW EDITION · NOT A COVERAGE ASSESSMENT</div><div class="edition">September 2026</div>
+  </section>
+
+  <section class="page page-map">
+    <img class="logo" src="assets/brand/m2m-connectivity-logo.svg" alt="M2M Connectivity"><div class="rule"></div>
+    <p class="kicker">01 · Start with operating reality</p><h1 class="title">Where does the product actually go?</h1>
+    <p class="lede">The useful coverage map is the one your device, asset or worker experiences—not a general market assumption.</p>
+    <div class="grid-2" style="margin-top:9mm">
+      <div class="card"><div class="number">01</div><h3>Map movement</h3><p>Record routes, operating regions, depots, fields, sites, dwell points and seasonal changes.</p></div>
+      <div class="card"><div class="number">02</div><h3>Mark uncertainty</h3><p>Separate verified network evidence from known gaps, anecdotal reports and locations still to test.</p></div>
+      <div class="card"><div class="number">03</div><h3>Name the consequence</h3><p>Describe what the operation cannot see or do when the preferred communications path is unavailable.</p></div>
+      <div class="card"><div class="number">04</div><h3>Select a test route</h3><p>Choose one representative scenario for prototype and field validation. Do not design from the best case.</p></div>
+    </div>
+    <div class="note"><strong>Working rule:</strong> label every coverage claim as observed, provider-supplied, inferred or unverified. A map is evidence to test—not a guarantee.</div>
+    <table class="worksheet"><tr><th>Readiness input</th><th>Your working evidence</th></tr><tr><td>Representative route or site</td><td></td></tr><tr><td>Known / suspected coverage boundary</td><td></td></tr><tr><td>Operational consequence</td><td></td></tr></table>
+    <div class="page-no">02 / 08</div>
+  </section>
+
+  <section class="page">
+    <img class="logo" src="assets/brand/m2m-connectivity-logo.svg" alt="M2M Connectivity"><div class="rule"></div>
+    <p class="kicker">02 · Rank the messages</p><h1 class="title">What needs to travel now?</h1>
+    <p class="lede">A stronger hybrid design starts by separating decision-changing exceptions from routine data.</p>
+    <table class="worksheet" style="margin-top:9mm">
+      <tr><th>Message class</th><th>Questions to answer</th></tr>
+      <tr><td>Routine telemetry</td><td>Can it store, batch or retry? What delay is acceptable?</td></tr>
+      <tr><td>Threshold event</td><td>What condition changes an operating decision? What is the smallest useful payload?</td></tr>
+      <tr><td>Location exception</td><td>Which movement or boundary requires attention? Does it need acknowledgement?</td></tr>
+      <tr><td>Safety escalation</td><td>Who responds, how is delivery state shown and what happens when communications are unavailable?</td></tr>
+      <tr><td>Configuration / downlink</td><td>How urgent is it? What control and validation prevent unintended changes?</td></tr>
+    </table>
+    <div class="note"><strong>Design principle:</strong> use the most appropriate path for each message class. “Transmit everything everywhere” is rarely a sound power, service-cost or operational strategy.</div>
+    <div class="grid-3">
+      <div class="card"><h3>Urgency</h3><p>How long can the message wait?</p></div><div class="card"><h3>Consequence</h3><p>What decision changes if it arrives?</p></div><div class="card"><h3>Evidence</h3><p>How will delivery and acknowledgement be observed?</p></div>
+    </div>
+    <div class="page-no">03 / 08</div>
+  </section>
+
+  <section class="page">
+    <img class="logo" src="assets/brand/m2m-connectivity-logo.svg" alt="M2M Connectivity"><div class="rule"></div>
+    <p class="kicker">03 · Define hybrid behaviour</p><h1 class="title">The module enables the paths. Your system defines the logic.</h1>
+    <p class="lede">The Iridium Certus 9604 combines LTE-M, Iridium Short Burst Data and GNSS. It does not remove the need to design routing, retry and fallback behaviour.</p>
+    <div class="steps" style="margin-top:9mm">
+      <div class="step"><div><h3>Choose a preferred path</h3><p>Define when cellular is attempted and what evidence determines availability.</p></div></div>
+      <div class="step"><div><h3>Set retry and timeout rules</h3><p>Make timing explicit for each message class; avoid a single rule for all traffic.</p></div></div>
+      <div class="step"><div><h3>Define satellite escalation</h3><p>Specify which events, payloads and operating conditions justify the satellite path.</p></div></div>
+      <div class="step"><div><h3>Design the unavailable state</h3><p>Store locally, continue safe local behaviour and make link limitations visible to users and operations.</p></div></div>
+      <div class="step"><div><h3>Prove it in a field test</h3><p>Retain route, radio, message, acknowledgement, power and outcome evidence.</p></div></div>
+    </div>
+    <div class="note warning"><strong>Claim control:</strong> do not describe the 9604 as automatically switching networks by itself. Iridium's product information states that the subsystems can be independently controlled; switching and routing logic are implementation choices.</div>
+    <div class="page-no">04 / 08</div>
+  </section>
+
+  <section class="page">
+    <img class="logo" src="assets/brand/m2m-connectivity-logo.svg" alt="M2M Connectivity"><div class="rule"></div>
+    <p class="kicker">04 · Design the complete device</p><h1 class="title">Connectivity is one subsystem.</h1>
+    <p class="lede">A viable hybrid product joins radio behaviour with physical, electrical, firmware, commercial and operating constraints.</p>
+    <div class="checklist">
+      <div class="check"><h3><span class="tick"></span>Power</h3><p>Budget for searches, retries, transmission, sleep, GNSS and worst-case operating conditions.</p></div>
+      <div class="check"><h3><span class="tick"></span>Antennas</h3><p>Review cellular and satellite RF paths, placement, ground plane, isolation, sky view and installation variability.</p></div>
+      <div class="check"><h3><span class="tick"></span>Enclosure</h3><p>Account for size, materials, ingress protection, temperature, mounting and service access.</p></div>
+      <div class="check"><h3><span class="tick"></span>Firmware</h3><p>Define state machine, queues, retry, acknowledgements, diagnostics, updates and safe failure behaviour.</p></div>
+      <div class="check"><h3><span class="tick"></span>Payload</h3><p>Prioritise compact, decision-useful messages and confirm the applicable network limits.</p></div>
+      <div class="check"><h3><span class="tick"></span>Service model</h3><p>Model traffic, activation, support, expected exceptions and the commercial consequence of each path.</p></div>
+      <div class="check"><h3><span class="tick"></span>Certification</h3><p>Confirm product, regional, carrier, RF, safety and industry obligations for the intended deployment.</p></div>
+      <div class="check"><h3><span class="tick"></span>Operations</h3><p>Make message state, delayed data, loss of link and escalation visible to the people who act.</p></div>
+    </div>
+    <div class="page-no">05 / 08</div>
+  </section>
+
+  <section class="page page-evidence">
+    <img class="logo" src="assets/brand/m2m-connectivity-logo.svg" alt="M2M Connectivity"><div class="rule"></div>
+    <p class="kicker">05 · Build the evidence plan</p><h1 class="title">Define “working” before the field test.</h1>
+    <p class="lede">A green process is not the outcome. Retain evidence that the intended message travelled, was understood and supported the operating decision.</p>
+    <table class="worksheet" style="margin-top:9mm">
+      <tr><th>Evidence layer</th><th>What to retain</th></tr>
+      <tr><td>Environment</td><td>Route/site, time, weather or obstruction notes, installation and antenna state.</td></tr>
+      <tr><td>Device</td><td>Firmware version, power state, network state, queue and retry behaviour.</td></tr>
+      <tr><td>Message</td><td>Class, timestamp, payload size, selected path, attempts and acknowledgement.</td></tr>
+      <tr><td>Platform</td><td>Ingestion, processing, visible state, alerts and operator action.</td></tr>
+      <tr><td>Outcome</td><td>Did the intended decision occur? What failed, degraded or remained unknown?</td></tr>
+    </table>
+    <div class="grid-2" style="margin-top:7mm">
+      <div class="card"><h3>Pass condition</h3><p>Write a measurable result for each scenario before testing.</p></div>
+      <div class="card"><h3>Rollback condition</h3><p>Define when the design returns to the last verified behaviour.</p></div>
+      <div class="card"><h3>Limitations</h3><p>Record what the route, duration and sample cannot prove.</p></div>
+      <div class="card"><h3>Owner</h3><p>Name who accepts technical, operational and safety evidence.</p></div>
+    </div>
+    <div class="page-no">06 / 08</div>
+  </section>
+
+  <section class="page">
+    <img class="logo" src="assets/brand/m2m-connectivity-logo.svg" alt="M2M Connectivity"><div class="rule"></div>
+    <p class="kicker">06 · Readiness worksheet</p><h1 class="title">Bring these seven inputs.</h1>
+    <table class="worksheet">
+      <tr><th>Input</th><th>Ready when…</th><th>Status / owner</th></tr>
+      <tr><td>1 · Operating map</td><td>A representative route or site is documented.</td><td></td></tr>
+      <tr><td>2 · Coverage evidence</td><td>Known, inferred and unverified areas are distinguished.</td><td></td></tr>
+      <tr><td>3 · Message profile</td><td>Message classes, size, urgency and acknowledgement are defined.</td><td></td></tr>
+      <tr><td>4 · Device constraints</td><td>Power, antenna, enclosure and environmental constraints are available.</td><td></td></tr>
+      <tr><td>5 · Behaviour</td><td>Preferred path, retry, escalation and unavailable state are explicit.</td><td></td></tr>
+      <tr><td>6 · Commercial model</td><td>Traffic assumptions, service costs and support ownership are modelled.</td><td></td></tr>
+      <tr><td>7 · Test plan</td><td>Scenarios, pass conditions, evidence and approval owners are named.</td><td></td></tr>
+    </table>
+    <div class="note"><strong>Suggested first review:</strong> choose one representative scenario, one critical message and one operational owner. A bounded test produces better evidence than a broad technology demonstration.</div>
+    <div class="page-no">07 / 08</div>
+  </section>
+
+  <section class="page">
+    <img class="logo" src="assets/brand/m2m-connectivity-logo.svg" alt="M2M Connectivity"><div class="rule"></div>
+    <p class="kicker">07 · Next step</p><h1 class="title">Turn the coverage concern into a design conversation.</h1>
+    <p class="lede">Bring the operating map, critical messages and device constraints. We will help assess whether a cellular-plus-satellite architecture fits the problem and what needs proving next.</p>
+    <div class="cta-panel"><h2>Cellular where you can.<br>Satellite where you must.</h2><p>Start at m2mone.com.au/hybrid-iot-readiness/</p><span class="cta-button">Start a Hybrid IoT design conversation →</span></div>
+    <div class="body" style="margin-top:9mm"><h2 style="color:var(--navy)">Evidence and limitations</h2><p>This guide is a campaign-owned diagnostic aid. It is not a radio survey, network availability guarantee, safety certification, product certification or final architecture. Technical claims must be checked against the current product documentation and intended operating region before release or design commitment.</p></div>
+    <div class="sources"><strong>Primary sources observed 9 September 2026</strong><br>
+      Iridium Certus 9604 product information: <a href="https://www.iridium.com/9604">iridium.com/9604</a><br>
+      Iridium commercial availability announcement, 23 June 2026: <a href="https://investor.iridium.com/2026-06-23-Iridiums-Next-Generation-Hybrid-IoT-Module-and-Development-Kit-are-Now-Commercially-Available">investor.iridium.com</a><br>
+      M2M One Hybrid IoT readiness page: <a href="https://m2mone.com.au/hybrid-iot-readiness/">m2mone.com.au/hybrid-iot-readiness/</a>
+    </div>
+    <div class="page-no">08 / 08</div>
+  </section>
+</body>
+</html>

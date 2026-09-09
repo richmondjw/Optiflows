@@ -1,0 +1,196 @@
+{
+  "schemaVersion": "1.0",
+  "campaignId": "9604-hybrid-iot-90-day-2026",
+  "generatedAt": "2026-09-10T00:00:00+10:00",
+  "policy": {
+    "rawMasters": "Higgsfield generated the text-free photographic masters; official branding and copy were not delegated to the image model.",
+    "finishing": "Official M2M artwork, Titillium fonts, approved copy and native dimensions were applied deterministically in HTML/CSS and exported through a browser renderer.",
+    "references": "The two supplied legacy composites were used for mood, audience and compositional direction only. Their external rights status is unknown; neither appears in the final rendered campaign assets.",
+    "limitation": "Higgsfield job identifiers were not retained in the campaign folder. File hashes anchor the observed outputs; promptBrief is the retained production brief rather than a verbatim provider log."
+  },
+  "references": [
+    {
+      "sourceId": "supplied-reference-01",
+      "internalWorkingPath": "assets/reference-art/9604-reference-01.jpg",
+      "source": "User-supplied campaign reference",
+      "rightsStatus": "Unknown; reference use only; not approved for publication",
+      "retainedOutsidePublicRelease": true,
+      "sha256": "83305d44be285288e784e43dc5e82bd86277de56513c344b81ac1e3e1e877b0f"
+    },
+    {
+      "sourceId": "supplied-reference-02",
+      "internalWorkingPath": "assets/reference-art/9604-reference-02.jpg",
+      "source": "User-supplied campaign reference",
+      "rightsStatus": "Unknown; reference use only; not approved for publication",
+      "retainedOutsidePublicRelease": true,
+      "sha256": "229626af8d5568652344c264eec58363d95aea2362f0ec901b2ddcd695d2bc4b"
+    }
+  ],
+  "imageMasters": [
+    {
+      "file": "assets/higgsfield-masters/w01-coverage-boundary.png",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 / gpt_image_2",
+      "generatedOn": "2026-09-09",
+      "promptBrief": "Cinematic editorial photograph of a remote Australian operating corridor crossing from connected infrastructure into open terrain; credible field conditions, strong left-side negative space, restrained teal and navy grade, no copy or logos.",
+      "referenceUse": [
+        "supplied-reference-01",
+        "supplied-reference-02"
+      ],
+      "outputRole": "Text-free photographic master",
+      "sha256": "ee6ab10e624d63bc03c9ae886452c923dc43fc61bc1ea072c696aa1ded97a5b7"
+    },
+    {
+      "file": "assets/higgsfield-masters/w02-transmission-cost.png",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 / gpt_image_2",
+      "generatedOn": "2026-09-09",
+      "promptBrief": "Cinematic industrial operations scene focused on an isolated asset and a time-sensitive telemetry moment; a sense of consequence without alarmism, realistic Australian landscape, negative space for campaign typography, no copy or logos.",
+      "referenceUse": [
+        "supplied-reference-01",
+        "supplied-reference-02"
+      ],
+      "outputRole": "Text-free photographic master",
+      "sha256": "d63af35f69f2ace478a8deb1bd60fe0fcb6db429b328583cbe1a2efe8e94ff51"
+    },
+    {
+      "file": "assets/higgsfield-masters/w04-asset-tracking.png",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 / gpt_image_2",
+      "generatedOn": "2026-09-09",
+      "promptBrief": "Premium editorial logistics photograph of freight moving beyond the predictable road network; layered distance, operational realism and a subtle boundary motif, no fictitious interface overlays, copy or logos.",
+      "referenceUse": [
+        "supplied-reference-01",
+        "supplied-reference-02"
+      ],
+      "outputRole": "Text-free photographic master",
+      "sha256": "f86160f952e335cd1b918eda68212e0b71f481414180c686e80a9e90b7d9b6c4"
+    },
+    {
+      "file": "assets/higgsfield-masters/w05-agtech.png",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 / gpt_image_2",
+      "generatedOn": "2026-09-09",
+      "promptBrief": "Premium Australian agtech landscape with distributed sensing and irrigation context; real soil, crop and machinery detail, expansive composition, soft atmospheric light, no text or logos.",
+      "referenceUse": [
+        "supplied-reference-01",
+        "supplied-reference-02"
+      ],
+      "outputRole": "Text-free photographic master",
+      "sha256": "9d8040a9be97d027380d2275b6d0972af2897bd3bded0156e7033f367097b367"
+    },
+    {
+      "file": "assets/higgsfield-masters/w06-environmental.png",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 / gpt_image_2",
+      "generatedOn": "2026-09-09",
+      "promptBrief": "Remote environmental-monitoring field site in an Australian coastal or catchment landscape; scientific equipment treated credibly, cinematic natural light, no text or logos.",
+      "referenceUse": [
+        "supplied-reference-01",
+        "supplied-reference-02"
+      ],
+      "outputRole": "Text-free photographic master",
+      "sha256": "04afb8ef8412eaab95e0996c683667793f4bf83f22867517e34e4974ecee3462"
+    },
+    {
+      "file": "assets/higgsfield-masters/w07-remote-equipment.png",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 / gpt_image_2",
+      "generatedOn": "2026-09-09",
+      "promptBrief": "Isolated industrial equipment in a remote Australian operating environment at a consequential maintenance moment; realistic materials, premium editorial lighting, no text or logos.",
+      "referenceUse": [
+        "supplied-reference-01",
+        "supplied-reference-02"
+      ],
+      "outputRole": "Text-free photographic master",
+      "sha256": "9cd3452c76be97cbcf0fec9a58b403fdcb9b9644c1133e141019e720efe06267"
+    },
+    {
+      "file": "assets/higgsfield-masters/w08-field-safety.png",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 / gpt_image_2",
+      "generatedOn": "2026-09-09",
+      "promptBrief": "Single field worker viewed respectfully in a vast remote work environment, communications as one element of a broader safety system; realistic PPE and terrain, no peril spectacle, text or logos.",
+      "referenceUse": [
+        "supplied-reference-01",
+        "supplied-reference-02"
+      ],
+      "outputRole": "Text-free photographic master",
+      "sha256": "5feefc3942e0ddbeb79203807be1373e6ffac8723c917e1f7dfb8a9491de7f2e"
+    },
+    {
+      "file": "assets/higgsfield-masters/w09-engineering-design.png",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 / gpt_image_2",
+      "generatedOn": "2026-09-09",
+      "promptBrief": "Macro editorial photograph of a compact communications module integrated into a real engineering prototype; visible design work, restrained signal-layer motif, technical credibility, no legible component branding, text or logos.",
+      "referenceUse": [
+        "supplied-reference-01",
+        "supplied-reference-02"
+      ],
+      "outputRole": "Text-free photographic master",
+      "sha256": "bf362e978a91654cf203e1e795de4446fd14c096e04796bef159e6265707cdfd"
+    }
+  ],
+  "motionStudies": [
+    {
+      "file": "assets/motion/coverage-boundary-loop.mp4",
+      "sourceMaster": "assets/higgsfield-masters/w01-coverage-boundary.png",
+      "provider": "Higgsfield",
+      "model": "Seedance 2.0",
+      "generatedOn": "2026-09-09",
+      "durationSeconds": 8,
+      "delivery": "Muted seamless review loop",
+      "promptBrief": "Slow, controlled cinematic push through the coverage-boundary landscape with natural atmospheric movement; preserve geography and realism; no added text, logos, vehicles or impossible motion.",
+      "sha256": "0ca0ee32a9ba1b3f689209571ed089180de35e6daf66de1877930a81b7d7c5a9"
+    },
+    {
+      "file": "assets/motion/engineering-design-loop.mp4",
+      "sourceMaster": "assets/higgsfield-masters/w09-engineering-design.png",
+      "provider": "Higgsfield",
+      "model": "Seedance 2.0",
+      "generatedOn": "2026-09-09",
+      "durationSeconds": 8,
+      "delivery": "Muted seamless review loop",
+      "promptBrief": "Measured macro camera slide across the engineering prototype with restrained light and depth movement; preserve component geometry; no added text, logos, hands or fictitious UI.",
+      "sha256": "d94ae0dd2aad776e5600e6b07afc27a6bb7ae48bb6fdcda1d1e0f567794ad01f"
+    }
+  ],
+  "deterministicOutputs": {
+    "tool": "tools/render-assets.cjs with Chromium/Playwright",
+    "source": "render.html + campaign-data.js + official logo/font assets + Higgsfield masters",
+    "sets": [
+      {
+        "path": "assets/exports",
+        "count": 48,
+        "formats": [
+          "1600x900",
+          "1080x1350",
+          "1080x1080",
+          "1080x1920"
+        ]
+      },
+      {
+        "path": "assets/carousels",
+        "count": 25,
+        "formats": [
+          "1080x1350"
+        ]
+      },
+      {
+        "path": "assets/email",
+        "count": 8,
+        "formats": [
+          "1200x900"
+        ]
+      },
+      {
+        "path": "assets/website",
+        "count": 4,
+        "formats": [
+          "1600x900"
+        ]
+      }
+    ]
+  }
+}
