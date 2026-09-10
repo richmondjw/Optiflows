@@ -54,7 +54,5 @@
 .story-frame.chapter-5 .car-body{max-width:100%;font-size:3vw}
 .story-frame.chapter-5 .story-route circle{stroke:var(--story-teal)}
 
-.story-frame .brand.co-brand{display:flex;align-items:center;gap:3vw;padding:2.1% 2.4%}
-.story-frame .brand.co-brand img{width:min(28vw,300px);height:auto;max-height:80px;object-fit:contain}
-.story-frame .brand.co-brand img.one-logo{width:min(28vw,300px);max-height:80px}
+.story-frame .brand img.one-logo{width:min(26vw,326px);height:auto;max-height:80px;object-fit:contain}
 .story-frame.chapter-3 .story-step{padding:1.5vw;border-radius:10px;background:var(--story-dark);color:#fff}

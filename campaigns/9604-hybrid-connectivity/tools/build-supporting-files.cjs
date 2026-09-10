@@ -292,7 +292,7 @@ const provenance = {
     sets: [
       { path: "assets/exports", count: 48, formats: ["1600x900", "1080x1350", "1080x1080", "1080x1920"] },
       { path: "assets/carousels", count: 25, formats: ["1080x1350"], brand: "M2M Connectivity" },
-      { path: "assets/carousels/co-branded", count: 25, formats: ["1080x1350"], brand: "M2M Connectivity + M2M One" },
+      { path: "assets/carousels/m2m-one", count: 25, formats: ["1080x1350"], brand: "M2M One" },
       { path: "assets/email", count: 8, formats: ["1200x900"] },
       { path: "assets/website", count: 4, formats: ["1600x900"] },
     ],
@@ -302,7 +302,7 @@ const carouselReceipts = path.join(root, 'carousel-generation-receipts.json');
 if (fs.existsSync(carouselReceipts)) {
   provenance.imageMasters.push(...JSON.parse(fs.readFileSync(carouselReceipts, 'utf8')));
   provenance.policy.limitation = 'Original weekly masters lack retained provider job IDs. The human-story carousel revision retains provider job IDs, verbatim prompt files and generation receipts. All people and settings are illustrative, not actual customer evidence.';
-  provenance.brandVariants = { default: 'M2M Connectivity', coBranded: 'M2M Connectivity + M2M One', placement: 'Official marks together at top left; unchanged artwork and proportions', m2mOneSource: 'https://m2mone.com.au/wp-content/uploads/2024/09/M2M-One-Logo_RBG.png', m2mOneAuthority: 'Existing approved asset from Pixel M2M One brand manifest; endorsed positive 326x80 source, placed no larger than native size', m2mOneSha256: sha256(path.join(root, 'assets/brand/m2m-one-logo.png')) };
+  provenance.brandVariants = { default: 'M2M Connectivity', m2mOne: 'M2M One', placement: 'Exactly one official logo at top left per slide; each version uses only its own brand logo and signature, with unchanged artwork and proportions', m2mOneSource: 'https://m2mone.com.au/wp-content/uploads/2024/09/M2M-One-Logo_RBG.png', m2mOneAuthority: 'Existing approved asset from Pixel M2M One brand manifest; endorsed positive 326x80 source, placed no larger than native size', m2mOneSha256: sha256(path.join(root, 'assets/brand/m2m-one-logo.png')) };
 }
 write("creative-provenance.json", JSON.stringify(provenance, null, 2) + "\n");
 

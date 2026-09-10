@@ -269,12 +269,12 @@
         "brand": "M2M Connectivity"
       },
       {
-        "path": "assets/carousels/co-branded",
+        "path": "assets/carousels/m2m-one",
         "count": 25,
         "formats": [
           "1080x1350"
         ],
-        "brand": "M2M Connectivity + M2M One"
+        "brand": "M2M One"
       },
       {
         "path": "assets/email",
@@ -294,8 +294,8 @@
   },
   "brandVariants": {
     "default": "M2M Connectivity",
-    "coBranded": "M2M Connectivity + M2M One",
-    "placement": "Official marks together at top left; unchanged artwork and proportions",
+    "m2mOne": "M2M One",
+    "placement": "Exactly one official logo at top left per slide; each version uses only its own brand logo and signature, with unchanged artwork and proportions",
     "m2mOneSource": "https://m2mone.com.au/wp-content/uploads/2024/09/M2M-One-Logo_RBG.png",
     "m2mOneAuthority": "Existing approved asset from Pixel M2M One brand manifest; endorsed positive 326x80 source, placed no larger than native size",
     "m2mOneSha256": "5a4c7ccb523559a2eb069184b97aabb3b4021a61934128fa39efc9b845043304"

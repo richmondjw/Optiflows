@@ -1,5 +1,40 @@
 # Hybrid IoT campaign production verification
 
+## Current revision: independent brand artwork - 10 September 2026
+
+James requested separate M2M Connectivity and M2M One versions, with no combined
+logos on the artwork. Each of the five carousel stories now has two independent
+five-slide sets: 25 Connectivity slides and 25 M2M One slides. Each slide carries
+exactly one matching official logo and one matching brand signature.
+
+Verified on the release candidate:
+
+- All 50 layouts passed logo identity/count, proportions, loaded-image, copy
+  bounds and clearance checks. The M2M One raster is displayed within its native
+  326 x 80 dimensions. Both versions retain identical story text, photographs
+  and geometry.
+- The 25 original Connectivity WebP exports, five photographic masters, both
+  official logos and campaign-data.js match the pre-change SHA-256 baseline.
+- Ten five-page PDFs were rendered and all 50 pages visually inspected. PDF
+  pages match their respective source artwork; PNG exports preserve decoded
+  source pixels. PDF title/author metadata identifies the correct brand.
+- Ten separate brand ZIPs each contain only that brand's five PNGs, PDF, caption,
+  source copy and instructions. Five story ZIPs also offer both independent
+  alternatives in separate folders.
+- All 36 publishing ZIPs passed CRC checks. The full publishing ZIP contains
+  exactly 50 carousel PNGs and 10 carousel PDFs. No current ZIP or delivery folder
+  contains the superseded combined-logo variant.
+- All 303 publishing-manifest file hashes passed. The full ZIP is 97,734,908 bytes.
+- Both brand previews work in all five stories at 1440, 390 and 320 CSS-pixel
+  widths. All 112 download links resolve locally, with no page overflow. The full
+  site QA also passed with zero issues.
+- Preview/download labels and cache versions now identify the independent
+  versions. Existing campaign copy and technical notes are preserved.
+
+This revision updates the campaign review pack. The existing channel-activation
+requirements remain in force. Entries below retain historical verification of
+earlier releases; their combined-logo descriptions are superseded by this entry.
+
 ## Publishing kit update — 10 September 2026
 
 - One complete publishing ZIP, 12 weekly post ZIPs and eight email copy/design ZIPs.
@@ -105,7 +140,12 @@ guide statements tested. No missing key statement or visible clipping remained.
   price or confirm the proposed design clinic.
 - Conversion attribution, lead ownership/SLA, technical claim approval,
   audience approval, paid budget and final release authority remain activation gates.
-# Human-story carousel revision - 10 September 2026
+# Historical human-story carousel revision - 10 September 2026
+
+Superseded branding record: the figures and combined-logo treatment below describe
+the earlier build. James subsequently requested independent M2M Connectivity and
+M2M One artwork. See the independent-brand verification entry for the rebuilt
+outputs and current checks; this historical section is retained as provenance.
 
 Replaced the five carousel stories with newly generated human-focused photography,
 concise story copy, bold brand colour and a continuous route motif. Cards 1 and 2

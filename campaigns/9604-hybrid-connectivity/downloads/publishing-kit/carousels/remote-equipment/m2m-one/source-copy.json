@@ -1,0 +1,55 @@
+{
+  "id": "remote-equipment",
+  "week": 7,
+  "title": "Before someone makes the long drive.",
+  "audience": "Industrial and remote-operations teams",
+  "master": "carousel-remote-equipment-human.jpg",
+  "slides": [
+    {
+      "headline": "It's a long way out.",
+      "body": "Before a technician heads to a remote site, the equipment state matters."
+    },
+    {
+      "headline": "What needs their attention now?",
+      "body": "Choose the fault or threshold messages that change the next maintenance decision."
+    },
+    {
+      "headline": "Give critical messages a plan.",
+      "body": "Define retries and a satellite exception path around urgency, power and payload."
+    },
+    {
+      "headline": "The machine still needs a plan.",
+      "body": "Keep safe local control independent of connectivity, and make missing data visible."
+    },
+    {
+      "headline": "Start with one real exception.",
+      "body": "Bring its trigger, response and device constraints to a design review.",
+      "cta": "m2mone.com.au/hybrid-iot-readiness"
+    }
+  ],
+  "technicalNotes": [
+    {
+      "headline": "What condition deserves attention now?",
+      "body": "Start with decisions—not dashboards or data volume."
+    },
+    {
+      "headline": "What can wait?",
+      "body": "Routine telemetry may retry or batch. Exceptions may need another path."
+    },
+    {
+      "headline": "What should the device do locally?",
+      "body": "Connectivity cannot replace safe local control and fault handling."
+    },
+    {
+      "headline": "How will operations read the state?",
+      "body": "Make delayed data, loss of link and genuine incidents distinguishable."
+    },
+    {
+      "headline": "Review the exception path",
+      "body": "Scope the architecture before the next remote failure or truck roll.",
+      "cta": "m2mone.com.au/hybrid-iot-readiness"
+    }
+  ],
+  "storyAccent": "#F7781E",
+  "illustrative": "Generated illustrative person and setting; not a customer case study or testimonial."
+}

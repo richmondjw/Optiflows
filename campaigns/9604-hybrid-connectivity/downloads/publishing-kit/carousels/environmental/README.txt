@@ -1,9 +1,7 @@
 A remote reading. A very human decision.
+M2M Connectivity independent version
 Week 6 — source caption from w06.
-Choose ONE brand version for the post:
-- This folder: M2M Connectivity, five PNG slides and the original-named PDF.
-- co-branded/: M2M Connectivity + M2M One, five PNG slides and the co-branded PDF.
-Both versions place their official logo artwork at the top left. Upload one PDF as one ordered document, or use one version's slides 01–05 in order. Use caption.txt and source-copy.json here for either version; the story and caption are shared. Do not upload both alternatives as a ten-page document.
+This folder contains five M2M Connectivity PNG slides, one ordered five-page PDF, caption.txt and source-copy.json. Each slide carries exactly one official M2M Connectivity logo at the top left. Upload the PDF as one document, or use slides 01–05 in order. Keep this brand version together.
 Destination (unverified): https://m2mone.com.au/hybrid-iot-readiness/
 Claim limit: Scenario-led copy; no promise of universal or continuous connectivity.
 REVIEW ONLY — NOT ACTIVATED. Technical claims, destination/form/tracking, audience, owner and human release approval remain required. Source URLs are unverified; no publishing or send authority.

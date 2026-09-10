@@ -32,8 +32,8 @@ for (const week of campaign.weeks) {
   }
 }
 for (const carousel of campaign.carousels) {
-  for (const variant of ['', 'co-branded']) carousel.slides.forEach((_, i) => jobs.push({
-    url: `/render.html?type=carousel&id=${carousel.id}&slide=${i + 1}${variant ? '&brand=group' : ''}`,
+  for (const variant of ['', 'm2m-one']) carousel.slides.forEach((_, i) => jobs.push({
+    url: `/render.html?type=carousel&id=${carousel.id}&slide=${i + 1}${variant ? '&brand=m2m-one' : ''}`,
     output: `assets/carousels/${variant ? variant + '/' : ''}${carousel.id}-${String(i + 1).padStart(2, '0')}.webp`,
     width: 1080, height: 1350
   }));

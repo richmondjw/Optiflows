@@ -37,7 +37,7 @@
     chooser.className = 'brand-chooser';
     chooser.setAttribute('role', 'group');
     chooser.setAttribute('aria-label', 'Preview brand version: ' + carousel.title);
-    for (const [variant, label] of [['', 'M2M Connectivity'], ['co-branded/', 'M2M Connectivity + M2M One']]) {
+    for (const [variant, label] of [['', 'M2M Connectivity'], ['m2m-one/', 'M2M One']]) {
       const button = document.createElement('button');
       button.type = 'button';
       button.textContent = label;
@@ -45,7 +45,7 @@
       button.addEventListener('click', () => {
         chooser.querySelectorAll('button').forEach(other => other.setAttribute('aria-pressed', String(other === button)));
         article.querySelectorAll('.slide-rail img').forEach((img, i) => {
-          img.src = `assets/carousels/${variant}${carousel.id}-${String(i + 1).padStart(2, '0')}.webp?v=human-story-2`;
+          img.src = `assets/carousels/${variant}${carousel.id}-${String(i + 1).padStart(2, '0')}.webp?v=independent-brands-1`;
           img.alt = `${label}, slide ${i + 1}: ${carousel.slides[i].headline}`;
         });
       });
@@ -54,9 +54,11 @@
     article.querySelector('.slide-rail').before(chooser);
     const row = document.createElement('div');
     row.className = 'card-actions';
-    row.append(download('Both versions + copy ZIP ↓', `downloads/${carousel.id}-carousel-kit.zip`));
+    row.append(download('M2M Connectivity kit ZIP ↓', `downloads/${carousel.id}-m2m-connectivity-carousel-kit.zip`));
+    row.append(download('M2M One kit ZIP ↓', `downloads/${carousel.id}-m2m-one-carousel-kit.zip`));
     row.append(download('Connectivity PDF ↓', `downloads/${carousel.id}-linkedin-document.pdf`, true));
-    row.append(download('Both logos PDF ↓', `downloads/${carousel.id}-co-branded-linkedin-document.pdf`, true));
+    row.append(download('M2M One PDF ↓', `downloads/${carousel.id}-m2m-one-linkedin-document.pdf`, true));
+    row.append(download('Both independent versions ZIP ↓', `downloads/${carousel.id}-carousel-kit.zip`, true));
     row.append(download('Matching caption TXT ↓', `downloads/publishing-kit/carousels/${carousel.id}/caption.txt`, true));
     article.append(row);
   });

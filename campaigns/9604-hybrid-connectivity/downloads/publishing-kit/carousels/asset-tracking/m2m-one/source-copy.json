@@ -1,0 +1,55 @@
+{
+  "id": "asset-tracking",
+  "week": 4,
+  "title": "The route changes. Someone still needs an answer.",
+  "audience": "Asset tracking and logistics teams",
+  "master": "carousel-asset-tracking-human.jpg",
+  "slides": [
+    {
+      "headline": "The route just changed.",
+      "body": "For the person waiting at the next handover, the next update matters."
+    },
+    {
+      "headline": "So did the coverage.",
+      "body": "A detour can take a tracker beyond the cellular conditions it was designed around."
+    },
+    {
+      "headline": "Which update cannot wait?",
+      "body": "Rank the location, delay and exception messages that change a human decision."
+    },
+    {
+      "headline": "Give the exception a plan.",
+      "body": "Design cellular retries, a satellite message path and what happens when neither is available."
+    },
+    {
+      "headline": "Bring us the real route.",
+      "body": "Start with one journey, its critical messages and your device constraints.",
+      "cta": "m2mone.com.au/hybrid-iot-readiness"
+    }
+  ],
+  "technicalNotes": [
+    {
+      "headline": "Where does the route exceed your network assumption?",
+      "body": "Detours, depots and remote handover points can expose a coverage dependency."
+    },
+    {
+      "headline": "Rank the events",
+      "body": "Routine location updates, exceptions, tamper events and safety alerts do not carry equal urgency."
+    },
+    {
+      "headline": "Define the behaviour",
+      "body": "Set cellular retry, satellite escalation, payload size, acknowledgement and store-and-forward rules."
+    },
+    {
+      "headline": "Design the whole device",
+      "body": "Power, antennas, enclosure, firmware, service costs and operations must be reviewed together."
+    },
+    {
+      "headline": "Assess the coverage gap",
+      "body": "Bring a real route and message profile to a scoped Hybrid IoT design conversation.",
+      "cta": "m2mone.com.au/hybrid-iot-readiness"
+    }
+  ],
+  "storyAccent": "#F7781E",
+  "illustrative": "Generated illustrative person and setting; not a customer case study or testimonial."
+}
