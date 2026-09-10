@@ -1,0 +1,18 @@
+{
+  "fixture": "9604-hybrid-connectivity",
+  "source": "https://optiflows.com.au/campaigns/9604-hybrid-connectivity/",
+  "title": "Coverage Beyond the Grid",
+  "product": "Iridium Certus 9604 Hybrid IoT",
+  "promise": "Cellular where you can. Satellite where you must.",
+  "route": "Coverage problem → readiness guide → qualified design conversation",
+  "phases": [
+    "Recognise the coverage gap",
+    "Prove it in the field",
+    "Move into engineering"
+  ],
+  "branches": [
+    { "id": "m2m-connectivity", "market": "Australia", "artworkRule": "one approved logo per artwork" },
+    { "id": "m2m-one-au", "market": "Australia", "artworkRule": "one approved logo per artwork" }
+  ],
+  "claimGuardrail": "No universal coverage, automatic failover or safety guarantee; application architecture remains subject to engineering review."
+}

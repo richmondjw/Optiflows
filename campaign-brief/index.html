@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive">
+  <meta name="description" content="M2M Group campaign brief compiler">
+  <title>Campaign Brief Compiler · M2M Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <a class="wordmark" href="../" aria-label="OptiFlows home"><span class="mark">OF</span><span>CAMPAIGN SYSTEMS</span></a>
+      <div class="top-actions">
+        <span class="save-state" id="saveState">Local draft</span>
+        <button class="button button-quiet" id="resetBtn" type="button">Reset</button>
+        <button class="button button-primary" id="exportTopBtn" type="button">Export pack</button>
+      </div>
+    </header>
+
+    <main class="workspace">
+      <aside class="rail" aria-label="Brief stages">
+        <div class="rail-intro">
+          <span class="kicker">BRIEF COMPILER / 01</span>
+          <h1>From decision<br>to pack.</h1>
+          <p>One strategic input. Independent brand branches. A production-ready handoff.</p>
+        </div>
+        <nav id="stageNav" class="stage-nav"></nav>
+        <div class="rail-footer">
+          <div class="rail-footer-label">Fixture</div>
+          <button class="fixture-button" id="fixtureBtn" type="button"><span class="fixture-dot"></span><span><strong>Load 9604 campaign</strong><small>Reverse-engineer the live pack</small></span><span aria-hidden="true">↗</span></button>
+          <p class="rail-note">Drafts stay in this browser until you export them.</p>
+        </div>
+      </aside>
+
+      <section class="form-column" aria-label="Campaign brief form">
+        <div class="mobile-progress"><span id="mobileProgressLabel">01 / 08</span><span class="progress-track"><span id="mobileProgressBar"></span></span></div>
+        <div id="formMount"></div>
+        <div class="form-footer">
+          <button class="button button-quiet" id="backBtn" type="button">← Back</button>
+          <span class="step-hint" id="stepHint">Your answers compile live on the right.</span>
+          <button class="button button-primary" id="nextBtn" type="button">Next <span aria-hidden="true">→</span></button>
+        </div>
+      </section>
+
+      <aside class="preview-column" aria-label="Compiled pack preview">
+        <div class="preview-head">
+          <div><span class="kicker">LIVE OUTPUT</span><h2>Compiled pack</h2></div>
+          <span class="status-pill" id="readinessPill">Draft</span>
+        </div>
+        <div class="output-score">
+          <div class="score-ring" id="scoreRing"><strong id="scoreValue">0%</strong><span>ready</span></div>
+          <div><strong id="outputTitle">Untitled campaign</strong><p id="outputSubtitle">Complete the foundation to start compiling.</p></div>
+        </div>
+        <div id="previewMount" class="preview-body"></div>
+        <div class="preview-actions">
+          <button class="button button-primary button-wide" id="exportBtn" type="button">Download campaign pack</button>
+          <button class="button button-secondary button-wide" id="copyBtn" type="button">Copy brief JSON</button>
+        </div>
+      </aside>
+    </main>
+  </div>
+  <div class="toast" id="toast" role="status" aria-live="polite"></div>
+  <script src="../gate.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
