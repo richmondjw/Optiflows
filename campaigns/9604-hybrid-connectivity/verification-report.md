@@ -30,6 +30,12 @@ Verified on the release candidate:
   site QA also passed with zero issues.
 - Preview/download labels and cache versions now identify the independent
   versions. Existing campaign copy and technical notes are preserved.
+- The deployed review URL was then checked over HTTP. The live index and
+  manifest matched the release candidate exactly; 49 representative release
+  files matched their expected byte counts and SHA-256 hashes. Live browser
+  checks at 1440, 390 and 320 CSS-pixel widths passed both brand toggles with no
+  page errors or overflow. An M2M One asset returned HTTP 200 and the retired
+  combined-logo asset returned HTTP 404.
 
 This revision updates the campaign review pack. The existing channel-activation
 requirements remain in force. Entries below retain historical verification of
