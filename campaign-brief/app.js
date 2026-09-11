@@ -13,6 +13,12 @@ const STAGES = [
   ['branches', 'Brand branches', 'Who owns the output?']
 ];
 
+const blankConsultantRun = () => ({
+  inputs: { commercialGoal: '', offer: '', decisionMaker: '', trigger: '', market: '', proofConstraints: '' },
+  research: { mode: 'Quick scan', questions: [], evidence: [], sources: [], status: 'Not prepared', preparedAt: null },
+  concepts: [], preferenceEvents: [], pendingRewriteRound: null, selectedConcept: null, handoffStatus: 'Not started', brief: null, brandBranches: [], pack: null
+});
+
 const blankState = () => ({
   meta: { campaignName: '', campaignSlug: '', product: '', market: 'Australia', campaignType: 'Demand generation', owner: '', startDate: '', endDate: '' },
   audience: { primary: '', primarySegments: [], primaryOther: '', primaryDetail: '', roles: [], rolesSelected: [], rolesOther: '', verticals: [], verticalsSelected: [], verticalsOther: '', geographies: '', trigger: '', problem: '', objections: '' },
@@ -21,7 +27,8 @@ const blankState = () => ({
   strategy: { route: '', phases: '', channels: [], tactics: '', nurture: '', recommendations: [] },
   production: { formats: ['LinkedIn organic'], creative: '', imagery: '', motion: '', assetNotes: '' },
   governance: { sources: '', rights: '', assumptions: '', gates: [], activation: 'Private review' },
-  branches: { selected: ['m2m-connectivity', 'm2m-one-au'], independent: true, higgsfield: 'Job specifications only', handoff: '' }
+  branches: { selected: ['m2m-connectivity', 'm2m-one-au'], independent: true, higgsfield: 'Job specifications only', handoff: '' },
+  consultantRun: blankConsultantRun()
 });
 
 const fixture = {
@@ -92,10 +99,13 @@ const fixture = {
 
 let state = loadState();
 let currentStage = 0;
+let currentView = 'consultant';
 
 const $ = (selector) => document.querySelector(selector);
 const formMount = $('#formMount');
 const previewMount = $('#previewMount');
+const consultantMount = $('#consultantView');
+const compilerView = $('#compilerView');
 
 function loadState() {
   try {
@@ -119,6 +129,18 @@ function normalizeState(nextState = state) {
   const objectives = nextState.objectives || (nextState.objectives = {});
   const proposition = nextState.proposition || (nextState.proposition = {});
   const strategy = nextState.strategy || (nextState.strategy = {});
+  const consultantDefaults = blankConsultantRun();
+  const consultant = nextState.consultantRun || (nextState.consultantRun = consultantDefaults);
+  consultant.inputs = { ...consultantDefaults.inputs, ...(consultant.inputs || {}) };
+  consultant.research = { ...consultantDefaults.research, ...(consultant.research || {}) };
+  consultant.research.questions = Array.isArray(consultant.research.questions) ? consultant.research.questions : [];
+  consultant.research.evidence = Array.isArray(consultant.research.evidence) ? consultant.research.evidence : [];
+  consultant.research.sources = Array.isArray(consultant.research.sources) ? consultant.research.sources : [];
+  consultant.concepts = Array.isArray(consultant.concepts) ? consultant.concepts : [];
+  consultant.preferenceEvents = Array.isArray(consultant.preferenceEvents) ? consultant.preferenceEvents : [];
+  consultant.pendingRewriteRound = consultant.pendingRewriteRound || null;
+  consultant.selectedConcept = consultant.selectedConcept || null;
+  consultant.handoffStatus = consultant.handoffStatus || 'Not started';
   const array = (value) => Array.isArray(value) ? value.filter(Boolean) : [];
   audience.primarySegments = array(audience.primarySegments);
   audience.rolesSelected = array(audience.rolesSelected);
@@ -203,6 +225,168 @@ function suggestionPanel(kind) {
     : `<article class="suggestion-card recommendation-card"><div><span class="suggestion-label">${esc(item.title)}</span><h4>${esc(item.why)}</h4><p><strong>Route:</strong> ${esc(item.route)}</p><p><strong>Phases:</strong> ${esc(item.phases)}</p><small><strong>Channels:</strong> ${esc((item.channels || []).join(', '))}</small></div><div class="suggestion-actions"><span class="suggestion-confidence">${esc(item.confidence || 'Working recommendation')}</span><button type="button" class="button button-secondary button-small" data-action="use-strategy" data-strategy="${esc(item.id)}">Use this strategy</button></div></article>`).join('') : `<div class="empty-note">${isProposition ? 'Answer the audience, product and problem questions, then generate a few message directions.' : 'Complete the decision fields, then generate a few strategic routes.'}</div>`;
   return `<section class="suggestion-panel"><div class="suggestion-head"><div><span class="suggestion-kicker">Assisted starting point</span><h3>${isProposition ? 'Generate message directions' : 'Recommend a strategy'}</h3><p>${isProposition ? 'Uses the information already in this brief to propose reviewable promise and supporting-message options.' : 'Uses the audience, objective, proposition and channels to propose a practical route.'}</p></div><button type="button" class="button button-primary button-small" data-action="${isProposition ? 'generate-suggestions' : 'recommend-strategy'}">${isProposition ? 'Suggest messages' : 'Generate strategy'}</button></div><p class="suggestion-disclaimer">These are working hypotheses from the current brief. Confirm proof, owners and gates before they enter production.</p><div class="suggestion-list">${cards}</div></section>`;
 }
+
+const CONSULTANT_QUESTIONS = [
+  ['commercialGoal', 'What are you trying to achieve commercially?', 'Pipeline, revenue, adoption, retention, partner movement or another business result.'],
+  ['offer', 'What are you trying to sell, promote or change?', 'A product, service, launch, behaviour, offer or customer decision.'],
+  ['decisionMaker', 'Who needs to act or decide?', 'Name the people, roles or organisations who can move the decision forward.'],
+  ['trigger', 'What problem or trigger makes this relevant now?', 'The moment, friction, risk or opportunity that gives the campaign urgency.'],
+  ['market', 'Where or in which market does it matter?', 'Country, region, vertical, route, account group or operating environment.'],
+  ['proofConstraints', 'What proof, constraints or known assets already exist?', 'Sources, product facts, customer evidence, rights, timing, budget or things that must be avoided.']
+];
+
+function consultantInput(path) { return get(`consultantRun.inputs.${path}`) || ''; }
+function consultantAnswer(value, fallback) { const text = String(value || '').trim(); return text && !/^i\s*don'?t\s*know$/i.test(text) ? text : fallback; }
+function consultantQuestion(path, label, hint) {
+  const value = consultantInput(path);
+  return `<div class="consultant-question"><label for="consultant-${path}">${esc(label)}<span>${esc(hint)}</span></label><textarea id="consultant-${path}" data-consultant-bind="consultantRun.inputs.${path}" placeholder="${esc(hint)}">${esc(value)}</textarea><button type="button" class="unknown-button" data-consultant-unknown="${esc(path)}">I don't know</button></div>`;
+}
+
+function buildResearchPlan() {
+  const mode = get('consultantRun.research.mode') || 'Quick scan';
+  const inputs = get('consultantRun.inputs') || {};
+  const questions = [
+    `What evidence supports the commercial goal: ${consultantAnswer(inputs.commercialGoal, 'the stated business outcome')}?`,
+    `Which approved terminology and brand rules apply to ${consultantAnswer(inputs.offer, 'the offer')} in ${consultantAnswer(inputs.market, 'the selected market')}?`,
+    `What proof can substantiate the audience problem: ${consultantAnswer(inputs.trigger, 'the stated trigger')}?`,
+    'Which claims, rights, destinations or owners need approval before activation?'
+  ];
+  const baseEvidence = [
+    { id: 'brand-brief', status: 'Confirmed', title: 'M2M Group brand brief', source: LIBRARY_META.source, date: LIBRARY_META.reviewed, detail: 'Audience, voice and brand-branch rules are available as an attributable internal reference.' },
+    { id: 'engagement-brief', status: 'Confirmed', title: 'M2M engagement and governance brief', source: 'JWR-TheOne · 07-projects/m2m-group/brief/ENGAGEMENT.md', date: LIBRARY_META.reviewed, detail: 'Business-unit values, approval boundaries and handoff expectations are available for review.' },
+    { id: 'existing-campaign', status: 'Strongly supported', title: 'Existing campaign reference', source: 'https://optiflows.com.au/campaigns/9604-hybrid-connectivity/', date: '2026-09-11', detail: 'Use the existing pack as a reference for route, production objects and evidence treatment.' },
+    { id: 'campaign-fit', status: inputs.offer && inputs.trigger ? 'Inferred' : 'Unknown', title: 'Campaign-specific evidence', source: 'Supplied in this consultant run', date: new Date().toISOString().slice(0, 10), detail: inputs.offer && inputs.trigger ? 'The current concept is inferred from the offer and trigger supplied above; verify before treating it as a claim.' : 'Supply an offer and trigger, or keep this item explicitly unknown.' },
+    { id: 'approval', status: 'Requires approval', title: 'Activation and claim approvals', source: 'Human gate', date: null, detail: 'Technical claims, rights, destination, budget, spend, send and external generation remain approval gates.' }
+  ];
+  let evidence = mode === 'No research' ? [{ id: 'no-research', status: 'Unknown', title: 'Research skipped', source: 'User selection', date: null, detail: 'Concepts use supplied information only. No source claims have been checked.' }] : baseEvidence;
+  if (mode === 'Evidence pack') evidence = [...evidence, { id: 'claims-register', status: 'Requires approval', title: 'Claims register starter', source: 'Prepared from campaign inputs', date: new Date().toISOString().slice(0, 10), detail: 'Record each claim, source, confidence, expiry and approver before publication.' }];
+  set('consultantRun.research', { mode, questions, evidence, sources: evidence.map((item) => ({ title: item.title, source: item.source, date: item.date, status: item.status })), status: mode === 'No research' ? 'Prepared without research' : 'Prepared research plan; source review remains human-controlled', preparedAt: new Date().toISOString() });
+}
+
+function conceptTemplates(inputs) {
+  const offer = consultantAnswer(inputs.offer, 'the offer');
+  const audience = consultantAnswer(inputs.decisionMaker, 'the people who need to decide');
+  const trigger = consultantAnswer(inputs.trigger, 'the moment the problem becomes urgent');
+  const market = consultantAnswer(inputs.market, 'the selected market');
+  const problem = trigger;
+  const is9604 = /9604|hybrid|iridium|satellite/i.test(`${inputs.offer || ''} ${inputs.trigger || ''} ${inputs.proofConstraints || ''}`);
+  const sharedChannels = ['LinkedIn organic', 'Landing page', 'Email nurture', 'Sales follow-up'];
+  return [
+    {
+      id: 'coverage-boundary', title: 'Coverage boundary', idea: is9604 ? 'Where does your device lose coverage?' : 'Where does the journey break?', audience, problem: `Make the boundary visible: ${problem}.`, message: is9604 ? 'Coverage is a design question. Map where the preferred path stops, then plan what happens next.' : `Make ${problem} visible before asking the market to act.`, supporting: `Give ${audience} a simple way to see where ${offer} fits and what needs to be assessed in ${market}.`, why: 'This direction turns an abstract market problem into a recognisable moment that can earn attention quickly.', proofRequirements: ['A sourced description of the boundary or trigger', 'A clear definition of what the offer can and cannot do', 'A useful assessment or checklist'], risks: ['The hook becomes generic if the boundary is not concrete', 'The audience may not recognise the moment without a real example'], cta: 'Map the next decision', route: 'Boundary signal → diagnostic guide → scoped assessment → qualified conversation', channels: sharedChannels, formats: ['LinkedIn organic', 'LinkedIn document', 'Landing page', 'Email nurture'], visual: 'A human or asset approaching a visible operating boundary; no embedded copy or invented customer proof.'
+    },
+    {
+      id: 'operational-consequence', title: 'Operational consequence', idea: is9604 ? 'What does one missed transmission cost?' : 'What does one missed signal cost?', audience, problem: `Connect the trigger to the consequence: ${problem}.`, message: 'When a message matters, the cost of silence should be visible before the system is designed.', supporting: `Show the operational decision behind ${offer}: what must travel, when it must travel and what a responsible fallback requires.`, why: 'This direction makes the commercial value tangible by linking the problem to time, risk, cost or continuity.', proofRequirements: ['A quantified or bounded consequence', 'A credible use case or customer-safe scenario', 'Evidence that supports the proposed response'], risks: ['Unverified numbers can over-promise', 'The campaign needs a concrete consequence, not a fear statement'], cta: 'Assess the cost of a missed message', route: 'Operational consequence → proof-led scenario → readiness offer → qualified conversation', channels: sharedChannels, formats: ['LinkedIn organic', 'LinkedIn document', 'Landing page', 'Email nurture', 'Sales enablement'], visual: 'A field decision interrupted at the moment it matters; show consequence through context, not alarmist overlays.'
+    },
+    {
+      id: 'engineering-proof', title: 'Engineering proof', idea: is9604 ? 'One module. Both layers. Your logic.' : 'One design. Evidence you can use.', audience, problem: `Answer the engineering question inside ${problem}.`, message: is9604 ? 'One module can expose both connectivity layers; your logic defines routing, retry and priority.' : `${offer} gives the team a basis for a defensible design; the application logic and constraints still need review.`, supporting: `Lead with the mechanism, the interfaces and the decisions that remain with the product team.`, why: 'This direction earns trust with technically literate buyers who need proof and boundaries before a sales conversation.', proofRequirements: ['Official product or service facts', 'Interface, architecture or integration evidence', 'A qualified statement of what remains developer- or customer-defined'], risks: ['A technical hook can lose non-engineering decision-makers', 'The mechanism must be explained without implying automatic outcomes'], cta: 'Review the design questions', route: 'Engineering question → technical proof → architecture checklist → design conversation', channels: sharedChannels, formats: ['LinkedIn document', 'Landing page', 'Email nurture', 'Sales enablement'], visual: 'A restrained technical field scene with room for deterministic copy and a later single-brand composition.'
+    }
+  ];
+}
+
+function generateConcepts() {
+  const inputs = get('consultantRun.inputs') || {};
+  if (!get('consultantRun.research.questions')?.length) buildResearchPlan();
+  set('consultantRun.concepts', conceptTemplates(inputs));
+  set('consultantRun.preferenceEvents', []);
+  set('consultantRun.pendingRewriteRound', null);
+  set('consultantRun.selectedConcept', null);
+  set('consultantRun.handoffStatus', 'Concepts generated; comparison not complete');
+  showToast('Three distinct campaign directions generated');
+}
+
+function comparisonRounds() {
+  const concepts = get('consultantRun.concepts') || [];
+  if (concepts.length < 3) return [];
+  const [a, b, c] = concepts;
+  return [
+    { id: 'commercial-fit', prompt: 'Which concept better matches the commercial goal?', left: { label: a.title, text: a.idea, conceptId: a.id }, right: { label: b.title, text: b.idea, conceptId: b.id } },
+    { id: 'message-believability', prompt: 'Which message feels more believable?', left: { label: a.title, text: a.message, conceptId: a.id }, right: { label: c.title, text: c.message, conceptId: c.id } },
+    { id: 'audience-sharpness', prompt: 'Which audience problem is sharper?', left: { label: b.title, text: b.problem, conceptId: b.id }, right: { label: c.title, text: c.problem, conceptId: c.id } },
+    { id: 'cta-natural', prompt: 'Which CTA feels more natural?', left: { label: a.title, text: `${a.cta} · ${a.route}`, conceptId: a.id }, right: { label: b.title, text: `${b.cta} · ${b.route}`, conceptId: b.id } },
+    { id: 'visual-direction', prompt: 'Which visual direction is stronger?', left: { label: b.title, text: b.visual, conceptId: b.id }, right: { label: c.title, text: c.visual, conceptId: c.id } }
+  ];
+}
+
+function preferenceFor(roundId) { return (get('consultantRun.preferenceEvents') || []).find((event) => event.roundId === roundId); }
+function rankedConcepts() {
+  const concepts = get('consultantRun.concepts') || [];
+  const scores = Object.fromEntries(concepts.map((concept, index) => [concept.id, { concept, score: 0, index }]));
+  (get('consultantRun.preferenceEvents') || []).forEach((event) => (event.conceptIds || []).forEach((id) => { if (scores[id]) scores[id].score += event.choice === 'combine' ? 1 : event.choice === 'none' || event.choice === 'rewrite' ? 0 : 2; }));
+  return Object.values(scores).sort((a, b) => b.score - a.score || a.index - b.index);
+}
+
+function recordPreference(roundId, choice) {
+  const round = comparisonRounds().find((item) => item.id === roundId); if (!round) return;
+  const ids = choice === 'A' ? [round.left.conceptId] : choice === 'B' ? [round.right.conceptId] : choice === 'combine' ? [round.left.conceptId, round.right.conceptId] : [];
+  const events = (get('consultantRun.preferenceEvents') || []).filter((event) => event.roundId !== roundId);
+  events.push({ roundId, prompt: round.prompt, choice, conceptIds: ids, options: [round.left, round.right], timestamp: new Date().toISOString() });
+  set('consultantRun.preferenceEvents', events); set('consultantRun.pendingRewriteRound', choice === 'rewrite' ? roundId : null); set('consultantRun.handoffStatus', `Comparison ${events.length} of ${comparisonRounds().length} recorded`); save(); renderConsultant();
+}
+
+function saveRewrite(roundId) {
+  const field = consultantMount.querySelector(`[data-consultant-rewrite="${roundId}"]`); const rewrite = field?.value?.trim(); if (!rewrite) return;
+  const events = (get('consultantRun.preferenceEvents') || []).map((event) => event.roundId === roundId ? { ...event, rewrite } : event);
+  set('consultantRun.preferenceEvents', events); set('consultantRun.pendingRewriteRound', null); set('consultantRun.handoffStatus', `Comparison ${events.length} of ${comparisonRounds().length} recorded`); save(); renderConsultant(); showToast('Rewrite recorded as a preference');
+}
+
+function chooseConcept(id) { if (!(get('consultantRun.concepts') || []).some((concept) => concept.id === id)) return; set('consultantRun.selectedConcept', id); set('consultantRun.handoffStatus', 'Concept selected; ready for compiler handoff'); save(); renderConsultant(); }
+
+function briefSnapshot() {
+  return { meta: { ...state.meta }, audience: { ...state.audience }, objectives: { ...state.objectives }, proposition: { ...state.proposition, suggestions: [] }, strategy: { ...state.strategy, recommendations: [] }, production: { ...state.production }, governance: { ...state.governance }, branches: { ...state.branches } };
+}
+
+function handoffConsultant() {
+  const ranked = rankedConcepts(); const chosenId = get('consultantRun.selectedConcept') || ranked[0]?.concept.id; const concept = (get('consultantRun.concepts') || []).find((item) => item.id === chosenId);
+  if (!concept) { showToast('Generate concepts before opening the compiler'); return; }
+  const inputs = get('consultantRun.inputs') || {};
+  set('meta.campaignName', concept.title); if (!get('meta.product') || get('meta.product') === 'I don\'t know') set('meta.product', consultantAnswer(inputs.offer, 'Define the offer')); if (!get('meta.owner')) set('meta.owner', 'Assign campaign owner');
+  set('meta.market', ['Australia', 'New Zealand', 'Australia + New Zealand', 'Global'].includes(inputs.market) ? inputs.market : get('meta.market') || 'Australia');
+  set('audience.primaryDetail', consultantAnswer(inputs.decisionMaker, 'Define the primary audience')); set('audience.primaryOther', ''); set('audience.primarySegments', []); set('audience.primary', get('audience.primaryDetail')); set('audience.trigger', consultantAnswer(inputs.trigger, 'Define the campaign trigger')); set('audience.problem', concept.problem); set('audience.objections', concept.risks.join('; '));
+  set('objectives.commercial', consultantAnswer(inputs.commercialGoal, 'Define the commercial goal')); set('objectives.marketing', `Create a qualified audience around ${concept.title.toLowerCase()} and move engaged people to the next step.`); set('objectives.communications', concept.message); set('objectives.commercialTypes', []); set('objectives.marketingTypes', []); set('objectives.communicationsTypes', []);
+  set('objectives.kpis', []); set('objectives.primaryKpi', ''); set('objectives.secondaryKpis', []);
+  set('proposition.promise', concept.message); set('proposition.supporting', concept.supporting); set('proposition.proof', concept.proofRequirements.join('; ')); set('proposition.cta', concept.cta); set('proposition.landingUrl', ''); set('strategy.route', concept.route); set('strategy.phases', 'Recognise the problem → prove the decision → invite the qualified next step'); set('strategy.channels', concept.channels); set('strategy.tactics', `Build the ${concept.title.toLowerCase()} direction across ${concept.formats.join(', ')}.`); set('strategy.nurture', 'Define scoring, response owner and handoff SLA.'); set('production.formats', concept.formats); set('production.creative', concept.visual); set('production.imagery', 'Use text-free masters and deterministic copy/logo application. Record provenance and rights before activation.'); set('production.assetNotes', 'Independent single-brand artwork; no combined lockups.');
+  const research = get('consultantRun.research') || {}; set('governance.sources', research.sources?.map((source) => `${source.title} (${source.source})`).join('; ') || 'Research not prepared'); set('governance.assumptions', [...concept.risks, ...(research.evidence || []).filter((item) => ['Unknown', 'Inferred', 'Requires approval'].includes(item.status)).map((item) => item.detail)].join('; ')); set('governance.gates', ['Technical claims reviewed', 'Brand branch reviewed', 'Landing destination and form owner confirmed', 'Creative rights and provenance recorded', 'Budget and activation owner approved']); set('governance.activation', 'Private review');
+  normalizeState(); const run = get('consultantRun'); run.selectedConcept = concept.id; run.handoffStatus = 'Handed into compiler; review unresolved fields'; run.brief = briefSnapshot(); run.brandBranches = (get('branches.selected') || []).map(brandBranch); run.pack = { schema: 'm2m-campaign-pack/v1', status: 'Compiler review required' }; currentView = 'compiler'; currentStage = 0; save(); render(); showToast('Selected campaign spine handed into the compiler');
+}
+
+function renderConsultant() {
+  if (!consultantMount) return;
+  const run = get('consultantRun') || blankConsultantRun(); const concepts = run.concepts || []; const research = run.research || {}; const ranked = rankedConcepts();
+  const questionFields = CONSULTANT_QUESTIONS.map(([path, label, hint]) => consultantQuestion(path, label, hint)).join('');
+  const researchCards = (research.evidence || []).map((item) => `<article class="evidence-card"><span class="evidence-status evidence-${slugify(item.status)}">${esc(item.status)}</span><h4>${esc(item.title)}</h4><p>${esc(item.detail)}</p><small>${esc(item.source || 'No source supplied')}${item.date ? ` · ${esc(item.date)}` : ''}</small></article>`).join('') || '<div class="empty-note">Choose a research mode, then prepare the research questions before generating concepts.</div>';
+  const conceptCards = concepts.map((concept, index) => `<article class="concept-card"><header><span class="concept-number">0${index + 1}</span><div><span class="concept-kicker">${esc(concept.title)}</span><h3>${esc(concept.idea)}</h3></div></header><div class="concept-grid"><div><strong>For</strong><p>${esc(concept.audience)}</p></div><div><strong>Problem</strong><p>${esc(concept.problem)}</p></div><div><strong>Message</strong><p>${esc(concept.message)}</p></div><div><strong>Why it might work</strong><p>${esc(concept.why)}</p></div><div><strong>Proof required</strong><p>${esc(concept.proofRequirements.join('; '))}</p></div><div><strong>Risk</strong><p>${esc(concept.risks.join('; '))}</p></div><div><strong>CTA and route</strong><p>${esc(concept.cta)} · ${esc(concept.route)}</p></div><div><strong>Visual direction</strong><p>${esc(concept.visual)}</p></div></div><footer><span class="concept-meta">${esc((concept.channels || []).join(' · '))}</span><button type="button" class="button button-secondary button-small" data-consultant-action="choose-concept" data-concept="${esc(concept.id)}">${run.selectedConcept === concept.id ? 'Selected' : 'Choose this direction'}</button></footer></article>`).join('');
+  consultantMount.innerHTML = `<div class="consultant-shell"><div class="consultant-hero"><span class="kicker">CAMPAIGN CONSULTANT / 01</span><h1>From a rough idea<br>to a campaign spine.</h1><p>Answer six short questions. The consultant proposes a brand-neutral campaign direction, shows what it knows and does not know, then hands your choice into the compiler.</p><div class="consultant-hero-actions"><button type="button" class="button button-primary" data-consultant-action="generate-concepts">Generate campaign directions <span aria-hidden="true">→</span></button><button type="button" class="button button-secondary" data-consultant-action="seed-9604">Start with the 9604 example</button><button type="button" class="button button-quiet" data-consultant-action="open-compiler">Open compiler</button></div><p class="consultant-note"><strong>Human choice stays in the loop.</strong> Suggestions are hypotheses until the evidence, brand branch and release gates are reviewed.</p></div><section class="consultant-panel consultant-intake"><div class="panel-heading"><div><span class="suggestion-kicker">01 · Intake</span><h2>Tell me enough to make a useful first proposal.</h2><p>“I don't know” is a valid answer. The consultant will label any inference and keep it visible.</p></div><span class="run-state">${esc(run.handoffStatus || 'Not started')}</span></div><div class="consultant-question-grid">${questionFields}</div></section><section class="consultant-panel research-panel"><div class="panel-heading"><div><span class="suggestion-kicker">02 · Research control</span><h2>Choose how much checking to do.</h2><p>Research questions are created first so the scan stays tied to the campaign decision.</p></div>${select('consultantRun.research.mode', 'Research mode', ['Quick scan', 'No research', 'Evidence pack'], 'Default: a bounded scan of approved brand and campaign sources.')}</div><div class="research-actions"><button type="button" class="button button-secondary button-small" data-consultant-action="prepare-research">Prepare research questions</button><span class="research-state">${esc(research.status || 'Not prepared')}</span></div><div class="research-question-list">${(research.questions || []).map((question, index) => `<span><b>Q${index + 1}</b> ${esc(question)}</span>`).join('') || '<div class="empty-note">No research questions prepared yet.</div>'}</div><div class="evidence-grid">${researchCards}</div></section><section class="consultant-panel concepts-panel"><div class="panel-heading"><div><span class="suggestion-kicker">03 · Concept directions</span><h2>Compare three distinct campaign spines.</h2><p>Each direction includes the audience problem, message, proof requirements, risks, CTA, route and visual direction.</p></div><button type="button" class="button button-primary button-small" data-consultant-action="generate-concepts">${concepts.length ? 'Regenerate directions' : 'Generate directions'}</button></div><div class="concept-list">${conceptCards || '<div class="empty-note">Complete the intake, then generate three directions. Partial answers are fine.</div>'}</div></section>${concepts.length ? `<section class="consultant-panel compare-panel"><div class="panel-heading"><div><span class="suggestion-kicker">04 · Preference rounds</span><h2>Make five meaningful choices.</h2><p>The consultant records A/B, combine, rewrite or none, then ranks the directions. You can stop at the first useful decision.</p></div><span class="decision-count">${(run.preferenceEvents || []).length} / ${comparisonRounds().length}</span></div>${renderComparisonBody(ranked)}</section>` : ''}</div>`;
+  attachConsultantEvents();
+}
+
+function renderComparisonBody(ranked) {
+  const rounds = comparisonRounds(); const pendingRewrite = get('consultantRun.pendingRewriteRound'); const next = rounds.find((round) => !preferenceFor(round.id) || pendingRewrite === round.id);
+  if (!next) return `<div class="ranking-summary"><h3>Current ranking</h3><div class="rank-list">${ranked.map((item, index) => `<div class="rank-row"><span>${index + 1}</span><strong>${esc(item.concept.title)}</strong><small>${item.score} preference points</small><button type="button" class="button button-secondary button-small" data-consultant-action="choose-concept" data-concept="${esc(item.concept.id)}">${get('consultantRun.selectedConcept') === item.concept.id ? 'Selected' : 'Select'}</button></div>`).join('')}</div><div class="handoff-callout"><strong>${get('consultantRun.selectedConcept') ? 'Your selected direction is ready.' : 'The top-ranked direction is ready.'}</strong><span>Open it in the compiler to resolve remaining fields and apply a brand plugin.</span><button type="button" class="button button-primary" data-consultant-action="handoff">Use this direction in the compiler <span aria-hidden="true">↗</span></button></div></div>`;
+  const left = next.left; const right = next.right; const rewrite = preferenceFor(next.id)?.choice === 'rewrite';
+  return `<div class="round-progress"><span>Decision ${rounds.findIndex((round) => round.id === next.id) + 1} of ${rounds.length}</span><div class="progress-track"><span style="width:${(((get('consultantRun.preferenceEvents') || []).length) / rounds.length) * 100}%"></span></div></div><h3 class="round-prompt">${esc(next.prompt)}</h3><div class="comparison-options"><article class="comparison-option"><span class="option-letter">A</span><span class="concept-kicker">${esc(left.label)}</span><p>${esc(left.text)}</p><button type="button" class="button button-secondary button-small" data-consultant-choice="A" data-round="${esc(next.id)}">Choose A</button></article><article class="comparison-option"><span class="option-letter">B</span><span class="concept-kicker">${esc(right.label)}</span><p>${esc(right.text)}</p><button type="button" class="button button-secondary button-small" data-consultant-choice="B" data-round="${esc(next.id)}">Choose B</button></article></div><div class="comparison-actions"><button type="button" class="text-action" data-consultant-choice="combine" data-round="${esc(next.id)}">Combine</button><button type="button" class="text-action" data-consultant-choice="rewrite" data-round="${esc(next.id)}">Rewrite</button><button type="button" class="text-action" data-consultant-choice="none" data-round="${esc(next.id)}">Neither</button></div>${rewrite ? `<div class="rewrite-box"><label for="rewrite-${esc(next.id)}">What would you change?</label><input id="rewrite-${esc(next.id)}" data-consultant-rewrite="${esc(next.id)}" placeholder="Write the direction you want to test"><button type="button" class="button button-primary button-small" data-consultant-action="save-rewrite" data-round="${esc(next.id)}">Save rewrite</button></div>` : ''}<div class="answered-rounds">${rounds.filter((round) => preferenceFor(round.id)).map((round) => `<span>${esc(round.prompt)} · ${esc(preferenceFor(round.id).choice)}</span>`).join('')}</div>`;
+}
+
+function attachConsultantEvents() {
+  consultantMount.querySelectorAll('[data-consultant-bind]').forEach((element) => ['input', 'change'].forEach((eventName) => element.addEventListener(eventName, () => { set(element.dataset.consultantBind, element.value); save(); })));
+  consultantMount.querySelectorAll('[data-bind]').forEach((element) => ['input', 'change'].forEach((eventName) => element.addEventListener(eventName, () => {
+    set(element.dataset.bind, element.value);
+    if (eventName === 'change' && element.dataset.bind === 'consultantRun.research.mode') {
+      set('consultantRun.research.questions', []); set('consultantRun.research.evidence', []); set('consultantRun.research.sources', []); set('consultantRun.research.status', 'Mode changed; prepare a new research plan');
+      save(); renderConsultant();
+    } else save();
+  })));
+  consultantMount.querySelectorAll('[data-consultant-unknown]').forEach((element) => element.addEventListener('click', () => { set(`consultantRun.inputs.${element.dataset.consultantUnknown}`, "I don't know"); save(); renderConsultant(); }));
+  consultantMount.querySelectorAll('[data-consultant-action="prepare-research"]').forEach((element) => element.addEventListener('click', () => { buildResearchPlan(); save(); renderConsultant(); showToast('Research questions prepared before source review'); }));
+  consultantMount.querySelectorAll('[data-consultant-action="generate-concepts"]').forEach((element) => element.addEventListener('click', () => { generateConcepts(); save(); renderConsultant(); }));
+  consultantMount.querySelectorAll('[data-consultant-action="seed-9604"]').forEach((element) => element.addEventListener('click', () => { const source = fixture; set('consultantRun.inputs.commercialGoal', source.objectives.commercial); set('consultantRun.inputs.offer', source.meta.product); set('consultantRun.inputs.decisionMaker', source.audience.primary); set('consultantRun.inputs.trigger', source.audience.trigger); set('consultantRun.inputs.market', source.meta.market); set('consultantRun.inputs.proofConstraints', source.proposition.proof); buildResearchPlan(); save(); renderConsultant(); showToast('9604 example loaded into the consultant'); }));
+  consultantMount.querySelectorAll('[data-consultant-action="open-compiler"]').forEach((element) => element.addEventListener('click', () => { currentView = 'compiler'; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }));
+  consultantMount.querySelectorAll('[data-consultant-action="choose-concept"]').forEach((element) => element.addEventListener('click', () => chooseConcept(element.dataset.concept)));
+  consultantMount.querySelectorAll('[data-consultant-action="handoff"]').forEach((element) => element.addEventListener('click', handoffConsultant));
+  consultantMount.querySelectorAll('[data-consultant-choice]').forEach((element) => element.addEventListener('click', () => { const choice = element.dataset.consultantChoice; recordPreference(element.dataset.round, choice); }));
+  consultantMount.querySelectorAll('[data-consultant-action="save-rewrite"]').forEach((element) => element.addEventListener('click', () => saveRewrite(element.dataset.round)));
+}
+
 function radio(path, label, options, hint = '') {
   const selected = get(path);
   return `<fieldset class="field full"><legend>${esc(label)}${hint ? `<span>${esc(hint)}</span>` : ''}</legend><div class="choice-grid">${options.map((option) => `<div class="choice radio"><input id="${path.replace('.', '-')}-${slugify(option)}" data-radio="${path}" type="radio" name="${path}" value="${esc(option)}" ${selected === option ? 'checked' : ''}><label for="${path.replace('.', '-')}-${slugify(option)}">${esc(option)}</label></div>`).join('')}</div></fieldset>`;
@@ -359,7 +543,7 @@ function compilePack() {
   if (!get('governance.sources')) warnings.push('No source-of-truth references supplied.');
   if (branches.length > 1 && !get('branches.independent')) warnings.push('Multiple brands selected without independent artwork enabled.');
   if (get('governance.activation') === 'Approved for activation') warnings.push('Activation approval is a human gate; this browser export does not publish or spend.');
-  return {
+  const output = {
     schema: 'm2m-campaign-pack/v1', packId: packSlug, generatedAt: new Date().toISOString(), status: get('governance.activation'),
     readiness: { score: score(), missing: missing(), warnings }, brief: state,
     brandBranches: branches, outputs: {
@@ -371,6 +555,14 @@ function compilePack() {
     higgsfieldJobs: higgsfieldJobs(branches), assistance: { propositionDirections: get('proposition.suggestions') || [], strategyRecommendations: get('strategy.recommendations') || [], method: 'Deterministic suggestions from current brief inputs; reviewable hypotheses, not external research.' }, provenance: { source: 'Interactive brief compiler', fixture: get('meta.campaignSlug') === 'coverage-beyond-the-grid' ? '9604 reverse-engineering fixture' : null, generatedMasters: 'None; job specifications only', logoApplication: 'Deterministic post-processing per brand branch' },
     gates: { required: get('governance.gates') || [], activation: 'Separate human approval required before publication, spend, send or external communication.' }
   };
+  const consultant = get('consultantRun');
+  output.consultantRun = (consultant && (consultant.concepts || []).length) ? {
+    ...consultant,
+    brief: briefSnapshot(),
+    brandBranches: branches,
+    pack: { schema: output.schema, packId: output.packId, readiness: output.readiness, status: output.status }
+  } : null;
+  return output;
 }
 
 function updateOutput() {
@@ -382,9 +574,22 @@ function updateOutput() {
 }
 
 function render() {
+  renderConsultant();
   formMount.innerHTML = renderStage(currentStage); renderNav(); attachFormEvents(); updateOutput();
+  renderView();
   $('#mobileProgressLabel').textContent = `${String(currentStage + 1).padStart(2, '0')} / ${String(STAGES.length).padStart(2, '0')}`; $('#mobileProgressBar').style.width = `${((currentStage + 1) / STAGES.length) * 100}%`;
   $('#backBtn').disabled = currentStage === 0; $('#backBtn').style.opacity = currentStage === 0 ? '.45' : '1'; $('#nextBtn').innerHTML = currentStage === STAGES.length - 1 ? 'Review pack <span aria-hidden="true">↗</span>' : 'Next <span aria-hidden="true">→</span>';
+}
+
+function renderView() {
+  consultantMount?.classList.toggle('is-hidden', currentView !== 'consultant');
+  compilerView?.classList.toggle('is-hidden', currentView !== 'compiler');
+  const topButton = $('#consultantTopBtn');
+  if (topButton) topButton.textContent = currentView === 'consultant' ? 'Open compiler' : 'Campaign consultant';
+  const resetButton = $('#resetBtn');
+  const exportButton = $('#exportTopBtn');
+  if (resetButton) resetButton.style.display = currentView === 'consultant' ? 'none' : '';
+  if (exportButton) exportButton.style.display = currentView === 'consultant' ? 'none' : '';
 }
 
 function markdown(pack) {
@@ -400,8 +605,9 @@ function exportPack() { const pack = compilePack(); const base = pack.packId; do
 
 $('#nextBtn').addEventListener('click', () => { if (currentStage < STAGES.length - 1) { currentStage += 1; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); } else { exportPack(); } });
 $('#backBtn').addEventListener('click', () => { if (currentStage > 0) { currentStage -= 1; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); } });
-$('#fixtureBtn').addEventListener('click', () => { state = normalizeState(merge(blankState(), fixture)); currentStage = 0; save(); render(); showToast('9604 campaign fixture loaded'); });
-$('#resetBtn').addEventListener('click', () => { if (!confirm('Reset this local brief?')) return; state = blankState(); currentStage = 0; localStorage.removeItem(STORAGE_KEY); render(); showToast('Draft reset'); });
+$('#consultantTopBtn').addEventListener('click', () => { currentView = currentView === 'consultant' ? 'compiler' : 'consultant'; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
+$('#fixtureBtn').addEventListener('click', () => { state = normalizeState(merge(blankState(), fixture)); currentStage = 0; currentView = 'compiler'; save(); render(); showToast('9604 campaign fixture loaded'); });
+$('#resetBtn').addEventListener('click', () => { if (!confirm('Reset this local brief?')) return; state = blankState(); currentStage = 0; currentView = 'consultant'; localStorage.removeItem(STORAGE_KEY); render(); showToast('Draft reset'); });
 $('#exportBtn').addEventListener('click', exportPack);
 $('#exportTopBtn').addEventListener('click', exportPack);
 $('#copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(JSON.stringify(compilePack(), null, 2)); showToast('Compiled brief JSON copied'); } catch { showToast('Copy unavailable; use Export pack'); } });

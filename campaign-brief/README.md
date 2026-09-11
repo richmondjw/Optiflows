@@ -11,6 +11,9 @@ The Campaign Brief Compiler is a static, browser-based master input for M2M Grou
 - Curated Vault-backed audience, role, vertical and objective libraries with checkbox selection, visible source attribution and an **Other** field for campaign-specific values.
 - Multi-KPI entry with a primary KPI selector and synchronized legacy `primaryKpi` / `secondaryKpis` fields.
 - Assisted proposition and strategy panels that generate reviewable working hypotheses from the current brief and let the planner apply one direction.
+- Campaign Consultant front door with six short inputs, valid “I don't know” answers, three brand-neutral directions and five bounded preference rounds.
+- Controlled research modes (**No research**, **Quick scan**, **Evidence pack**) that prepare decision-linked research questions and label evidence as Confirmed, Strongly supported, Inferred, Unknown or Requires approval.
+- One-click handoff from the selected or ranked concept into the existing eight-stage compiler. The export retains a `consultantRun` object with inputs, research, concepts, preference events, selected concept, brief, independent brand branches and pack summary.
 - Independent M2M Connectivity, M2M One Australia, M2M One New Zealand and Semtech plugin branches.
 - Export of a portable JSON campaign pack, print-friendly review HTML, Markdown brief, branch CSV and Higgsfield job JSON.
 - Landing page, social, email, sales-enablement and Higgsfield job specifications in the JSON pack.
@@ -27,6 +30,8 @@ Plugins live in `plugins.js`. Each plugin supplies an id, entity, market, voice,
 ## Assisted brief layer
 
 `libraries.js` contains a dated, attributable snapshot of the canonical M2M vocabulary from the JWR-TheOne vault. It is a replaceable library, not a live Vault connection; the source and review date are shown in the form and should be refreshed before external use. Message directions and strategy recommendations are deterministic starting points from the current inputs. They are exported under `assistance` and remain hypotheses until proof, owners and release gates are reviewed.
+
+The Consultant uses the same principle. Its first release is deterministic and evidence-aware: it creates research questions before presenting the approved internal references and existing 9604 campaign snapshot. It does not silently browse the open web or call a generative provider. A future server-side research adapter can add dated source retrieval while preserving the evidence statuses, preference history and human approval gates.
 
 ## Higgsfield boundary
 

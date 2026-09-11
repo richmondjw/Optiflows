@@ -19,7 +19,11 @@ const checks = [
   ['Higgsfield handoff', app.includes('higgsfieldJobs') && app.includes('text-free masters')],
   ['9604 route', fixture.route.includes('readiness guide') && fixture.promise.includes('Satellite')],
   ['curated Vault library', app.includes("from './libraries.js'") && libraries.includes('LIBRARY_META') && libraries.includes('audiences')],
-  ['assisted suggestions', app.includes('generateSuggestions') && app.includes('recommendStrategy') && app.includes('data-action')]
+  ['assisted suggestions', app.includes('generateSuggestions') && app.includes('recommendStrategy') && app.includes('data-action')],
+  ['consultant front door', html.includes('consultantView') && app.includes('CONSULTANT_QUESTIONS') && app.includes('handoffConsultant')],
+  ['comparison rounds', app.includes('comparisonRounds') && app.includes('recordPreference') && app.includes('data-consultant-choice')],
+  ['research modes', app.includes('Evidence pack') && app.includes('buildResearchPlan') && app.includes('Requires approval')],
+  ['structured consultant export', app.includes('consultantRun') && app.includes('preferenceEvents') && app.includes('assistance')]
 ];
 const failed = checks.filter(([, ok]) => !ok).map(([name]) => name);
 if (failed.length) throw new Error(`Campaign brief QA failed: ${failed.join(', ')}`);
