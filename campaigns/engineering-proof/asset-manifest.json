@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "campaignId": "engineering-proof",
-  "generatedAt": "2026-09-11T03:36:35.475Z",
+  "generatedAt": "2026-09-11T03:40:09.280Z",
   "status": "PRIVATE REVIEW · NOT ACTIVATED",
   "exclusions": [
     "provider credentials",
@@ -40,18 +40,18 @@
     },
     {
       "file": "copy/email-sequence.json",
-      "bytes": 4786,
-      "sha256": "e0c8cc46ec4e6bb157ec82efdb1219d67a25575ac295b2ce616f3ede575289bb"
+      "bytes": 4784,
+      "sha256": "508733ff545ab3cf3746af1c7e2b430f284ae3fd78f5423ef7beaeed4448384f"
     },
     {
       "file": "copy/paid-assets.json",
-      "bytes": 2192,
-      "sha256": "81941c3775531cddbc28294b8bb8585d7fe76bdb89d6e50504ea8d9ea78216a3"
+      "bytes": 2190,
+      "sha256": "64650f733652cac538f48448f32a0c18220fd27b142187a59b9bc4436ea385ec"
     },
     {
       "file": "copy/social-assets.json",
-      "bytes": 5942,
-      "sha256": "0e276408c6a3d001b30a556b201d4135c0cfe25a70dc81281ff502a5e58a4072"
+      "bytes": 5936,
+      "sha256": "1e085a5f5fe044d06eb60a86dbf827c85f8e2f2b29eaf4d77430b49d2cae2b88"
     },
     {
       "file": "creative/engineering-proof-m2m-connectivity-text-free-master.svg",
@@ -70,8 +70,8 @@
     },
     {
       "file": "downloads/campaign-pack.json",
-      "bytes": 108463,
-      "sha256": "08d523579a951800908901238f897ec8e5cdfd3f9aaed53816efd4311cfe5bfe"
+      "bytes": 108453,
+      "sha256": "1c8e140d80fff7c8ee043360dcec6276892f7f8f788f2f8d5456428aab851191"
     },
     {
       "file": "evidence/claims-register.csv",
@@ -80,8 +80,8 @@
     },
     {
       "file": "index.html",
-      "bytes": 32997,
-      "sha256": "4eaee3f0cb556001ae94c2272d6847e8741d37664f79324a49ffc5fefe157535"
+      "bytes": 32989,
+      "sha256": "bec0c4357a844027ac637627e27a345890ad19aa2b3bf8bb85cf778e025c9d64"
     },
     {
       "file": "landing-pages/m2m-connectivity/index.html",

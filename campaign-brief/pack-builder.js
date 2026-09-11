@@ -1,6 +1,6 @@
 const today = () => new Date().toISOString().slice(0, 10);
 
-const value = (input, fallback = 'TBD') => String(input || '').trim() || fallback;
+const value = (input, fallback = 'TBD') => String(input || '').trim().replace(/\.{2,}/g, '.') || fallback;
 const list = (input) => Array.isArray(input) ? input.filter(Boolean) : [];
 const slug = (input) => String(input || 'campaign').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 70) || 'campaign';
 const html = (input) => String(input || '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
@@ -71,7 +71,7 @@ function landingPage(campaign, branch) {
 function social(campaign, branch) {
   const b = branchCopy(campaign, branch);
   const base = [
-    { id: 'problem', platform: 'LinkedIn organic', hook: campaign.promise, body: `${campaign.trigger}\n\n${campaign.problem}\n\nStart with the operating question before selecting the architecture.`, cta: b.cta, visual: 'Text-free boundary visual with one approved branch identity applied in post.' },
+    { id: 'problem', platform: 'LinkedIn organic', hook: campaign.promise, body: `${sentence(campaign.trigger)}\n\n${sentence(campaign.problem)}\n\nStart with the operating question before selecting the architecture.`, cta: b.cta, visual: 'Text-free boundary visual with one approved branch identity applied in post.' },
     { id: 'proof', platform: 'LinkedIn document', hook: 'What should the system do when the preferred path is unavailable?', body: `A useful design review covers message priority, retry behaviour, power, antenna conditions and the consequence of silence.\n\n${campaign.supporting}\n\nEvidence: ${campaign.proof}`, cta: b.cta, visual: 'Five-slide text-free master set; copy is composed deterministically.' },
     { id: 'conversion', platform: 'LinkedIn retargeting', hook: 'Turn the coverage question into an engineering brief.', body: `${campaign.primaryAudience}: bring the route, the message profile and the constraints. The next step is a scoped conversation, not a generic promise.`, cta: b.cta, visual: 'Quiet proof-led visual with clear negative space for copy.' }
   ];
@@ -92,7 +92,7 @@ function paid(campaign, branch) {
   const b = branchCopy(campaign, branch);
   return [
     { id: `${branch.id}-paid-search-01`, channel: 'Paid search', headline: campaign.promise, description: `${campaign.product}: make the operating boundary visible, then plan the next design step.`, cta: b.cta, destination: b.destination },
-    { id: `${branch.id}-retargeting-01`, channel: 'Retargeting', headline: 'Design the exception path before it happens.', description: `${campaign.primaryAudience}. Review the evidence and bring the real constraints to a scoped conversation.`, cta: b.cta, destination: b.destination }
+    { id: `${branch.id}-retargeting-01`, channel: 'Retargeting', headline: 'Design the exception path before it happens.', description: `${sentence(campaign.primaryAudience)}. Review the evidence and bring the real constraints to a scoped conversation.`, cta: b.cta, destination: b.destination }
   ].map((item) => ({ ...item, brand: b.brand, approval: 'Budget, audience, claims, destination and activation owner remain gated.' }));
 }
 
