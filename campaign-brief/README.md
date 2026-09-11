@@ -8,6 +8,9 @@ The Campaign Brief Compiler is a static, browser-based master input for M2M Grou
 - Local draft persistence with reset and browser-only storage.
 - 9604 Hybrid Connectivity fixture that reverse-engineers the current “Coverage Beyond the Grid” pack.
 - Live readiness score, missing-field prompts and evidence/gate warnings.
+- Curated Vault-backed audience, role, vertical and objective libraries with checkbox selection, visible source attribution and an **Other** field for campaign-specific values.
+- Multi-KPI entry with a primary KPI selector and synchronized legacy `primaryKpi` / `secondaryKpis` fields.
+- Assisted proposition and strategy panels that generate reviewable working hypotheses from the current brief and let the planner apply one direction.
 - Independent M2M Connectivity, M2M One Australia, M2M One New Zealand and Semtech plugin branches.
 - Export of a portable JSON campaign pack, print-friendly review HTML, Markdown brief, branch CSV and Higgsfield job JSON.
 - Landing page, social, email, sales-enablement and Higgsfield job specifications in the JSON pack.
@@ -20,6 +23,10 @@ Open `/campaign-brief/` on the OptiFlows site, or serve the repository root with
 ## Plugin contract
 
 Plugins live in `plugins.js`. Each plugin supplies an id, entity, market, voice, logo asset (or an explicit missing-asset state), CTA, destination policy, palette and version. The generic core never selects a logo or changes the campaign proposition. Each selected plugin becomes a separate `brandBranches[]` entry with `independentArtwork: true` and a one-logo rule.
+
+## Assisted brief layer
+
+`libraries.js` contains a dated, attributable snapshot of the canonical M2M vocabulary from the JWR-TheOne vault. It is a replaceable library, not a live Vault connection; the source and review date are shown in the form and should be refreshed before external use. Message directions and strategy recommendations are deterministic starting points from the current inputs. They are exported under `assistance` and remain hypotheses until proof, owners and release gates are reviewed.
 
 ## Higgsfield boundary
 
