@@ -1,6 +1,6 @@
 import { BRANDS } from './plugins.js';
 import { LIBRARIES, LIBRARY_META } from './libraries.js';
-import { buildCampaignPack } from './pack-builder.js';
+import { buildCampaignPack } from './pack-builder.js?v=20260911-production';
 const STORAGE_KEY = 'm2m-campaign-brief-compiler-v1';
 
 const STAGES = [

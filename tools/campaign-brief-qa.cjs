@@ -24,7 +24,7 @@ const checks = [
   ['comparison rounds', app.includes('comparisonRounds') && app.includes('recordPreference') && app.includes('data-consultant-choice')],
   ['research modes', app.includes('Evidence pack') && app.includes('buildResearchPlan') && app.includes('Requires approval')],
   ['structured consultant export', app.includes('consultantRun') && app.includes('preferenceEvents') && app.includes('assistance')],
-  ['complete production adapter', app.includes("from './pack-builder.js'") && app.includes('buildCampaignPack') && fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('m2m-campaign-production/v1')],
+  ['complete production adapter', app.includes("from './pack-builder.js") && app.includes('buildCampaignPack') && fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('m2m-campaign-production/v1')],
   ['complete channel assets', fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('landing-pages/') && fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('social-assets.json') && fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('email-sequence.json') && fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('campaign-calendar.csv')],
   ['text-free creative masters', fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('text-free-master.svg') && fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('no embedded copy')],
   ['regeneration variants', app.includes('consultant.generation') && app.includes('boundaryIdeas') && app.includes('conceptTemplates(inputs, generation)')]
