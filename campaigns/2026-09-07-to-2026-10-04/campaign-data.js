@@ -60,7 +60,7 @@ export const campaign = {
         'We built a 90-second check to put an indicative number on one workflow:',
         'Estimate the drag: https://www.optiflows.com.au/?utm_source=outbound_email&utm_medium=email&utm_campaign=coordination-drag-2026-09&utm_content=e01-drag-check#drag-check',
         'If you would rather talk it through, reply with the workflow that creates the most chasing. I will send back the first three places I would inspect.',
-        'James Richmond\nOptiFlows\nhello@optiflows.com',
+        'James Richmond\nOptiFlows\nhello@optiflows.com.au',
         '{{consent_context}}\nUnsubscribe: {{unsubscribe_url}}\nYou can also reply with "unsubscribe".'
       ])
     },
@@ -91,7 +91,7 @@ export const campaign = {
         'The goal is not to automate everything. It is to make the movement visible, encode the routine work and keep judgment with the right human.',
         'Run the 90-second check: https://www.optiflows.com.au/?utm_source=outbound_email&utm_medium=email&utm_campaign=coordination-drag-2026-09&utm_content=e02-workflow-test#drag-check',
         'Or reply with the workflow you chose. I am happy to tell you what I would measure first.',
-        'James Richmond\nOptiFlows\nhello@optiflows.com',
+        'James Richmond\nOptiFlows\nhello@optiflows.com.au',
         '{{consent_context}}\nUnsubscribe: {{unsubscribe_url}}\nYou can also reply with "unsubscribe".'
       ])
     }

@@ -209,7 +209,7 @@ function initLeadForm() {
       dialog?.scrollTo({ top: 0, behavior: 'auto' });
       trackEvent('generate_lead', { cta_location: payload.cta_location, inquiry_type: payload.inquiry_type });
     } catch (error) {
-      status.textContent = 'Something went wrong. Email hello@optiflows.com directly.';
+      status.textContent = 'Something went wrong. Email hello@optiflows.com.au directly.';
       submit.disabled = false;
       if (submitLabel) submitLabel.textContent = 'Request my diagnostic';
       trackEvent('diagnostic_form_error', { cta_location: payload.cta_location });
