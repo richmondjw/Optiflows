@@ -15,13 +15,13 @@ The Campaign Brief Compiler is a static, browser-based master input for M2M Grou
 - Controlled research modes (**No research**, **Quick scan**, **Evidence pack**) that prepare decision-linked research questions and label evidence as Confirmed, Strongly supported, Inferred, Unknown or Requires approval.
 - One-click handoff from the selected or ranked concept into the existing eight-stage compiler. The export retains a `consultantRun` object with inputs, research, concepts, preference events, selected concept, brief, independent brand branches and pack summary.
 - Independent M2M Connectivity, M2M One Australia, M2M One New Zealand and Semtech plugin branches.
-- Export of a portable JSON campaign pack, print-friendly review HTML, Markdown brief, branch CSV and Higgsfield job JSON.
-- Landing page, social, email, sales-enablement and Higgsfield job specifications in the JSON pack.
+- One-click production adapter that turns the compiled brief into a complete draft pack: landing-page copy and HTML, social objects, email sequence, paid and retargeting copy, sales talk tracks, lead-magnet HTML, channel calendar, claims register, provenance and native text-free SVG masters.
+- Export of a portable JSON campaign pack, print-friendly review HTML, Markdown brief, branch CSV, Higgsfield job JSON and each production file for downstream review.
 - Higgsfield-safe prompts that generate text-free masters; approved copy and one branch logo are applied in deterministic post-processing.
 
 ## Use
 
-Open `/campaign-brief/` on the OptiFlows site, or serve the repository root with any static server. Choose **Load 9604 campaign** to see the reverse-engineered fixture, then edit any field. The right-hand panel is the live output contract. **Download campaign pack** produces five files named from the campaign slug.
+Open `/campaign-brief/` on the OptiFlows site, or serve the repository root with any static server. Choose **Load 9604 campaign** to see the reverse-engineered fixture, then edit any field. The right-hand panel is the live output contract and now shows the production inventory. **Download campaign pack** produces the compiler exports plus every generated production file named from the campaign slug.
 
 ## Plugin contract
 
@@ -31,11 +31,11 @@ Plugins live in `plugins.js`. Each plugin supplies an id, entity, market, voice,
 
 `libraries.js` contains a dated, attributable snapshot of the canonical M2M vocabulary from the JWR-TheOne vault. It is a replaceable library, not a live Vault connection; the source and review date are shown in the form and should be refreshed before external use. Message directions and strategy recommendations are deterministic starting points from the current inputs. They are exported under `assistance` and remain hypotheses until proof, owners and release gates are reviewed.
 
-The Consultant uses the same principle. Its first release is deterministic and evidence-aware: it creates research questions before presenting the approved internal references and existing 9604 campaign snapshot. It does not silently browse the open web or call a generative provider. A future server-side research adapter can add dated source retrieval while preserving the evidence statuses, preference history and human approval gates.
+The Consultant uses the same principle. Its first release is deterministic and evidence-aware: it creates research questions before presenting the approved internal references and existing 9604 campaign snapshot. It does not silently browse the open web or call a generative provider. A future server-side research adapter can add dated source retrieval while preserving the evidence statuses, preference history and human approval gates. The selected concept is carried into the compiler and then into `pack-builder.js`, so the campaign spine, evidence state, brand branch and production files share one structured run.
 
 ## Higgsfield boundary
 
-The browser never holds provider credentials and never activates a campaign. It exports provider-neutral job specifications with prompts, negative prompts, model intent, post-processing and a human gate. A future server connector can consume `higgsfieldJobs[]` and write provider ids and receipts back into the pack without changing the brief schema.
+The browser never holds provider credentials and never activates a campaign. It exports provider-neutral job specifications with prompts, negative prompts, model intent, post-processing and a human gate. It also creates local text-free SVG masters as safe deterministic placeholders for review; these carry no embedded copy, logo or customer proof. A future server connector can consume `higgsfieldJobs[]` and write provider ids and receipts back into the pack without changing the brief schema.
 
 For an explicit local handoff, run `node tools/campaign-brief-higgsfield.cjs <campaign-pack.json>` from the repository root. It prints the exact `higgsfield generate create ... --wait --json` commands and submits nothing. After reviewing the prompts, provider model, branches and rights, `--execute --confirm` submits them through the installed CLI. This is intentionally outside the browser and remains a human-gated action.
 
