@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /campaign-brief/
 
 # Internal report libraries. Every page under these paths also carries a
 # per-page <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,
