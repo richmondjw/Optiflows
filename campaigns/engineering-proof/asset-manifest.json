@@ -1,0 +1,127 @@
+{
+  "schemaVersion": "1.0",
+  "campaignId": "engineering-proof",
+  "generatedAt": "2026-09-11T03:36:35.475Z",
+  "status": "PRIVATE REVIEW · NOT ACTIVATED",
+  "exclusions": [
+    "provider credentials",
+    "external sends and spend",
+    "customer proof not supplied"
+  ],
+  "counts": {
+    "landingPages": 2,
+    "socialAssets": 6,
+    "emailAssets": 6,
+    "paidAssets": 4,
+    "salesTalkTracks": 2,
+    "leadMagnets": 2,
+    "calendarRows": 12,
+    "claims": 3,
+    "creativeMasters": 2,
+    "higgsfieldJobs": 6,
+    "files": 13
+  },
+  "totalFiles": 21,
+  "files": [
+    {
+      "file": "assets/brand/m2m-connectivity-logo.svg",
+      "bytes": 20670,
+      "sha256": "8a5c083ad86dab2d1238cd5a12a6351b985a0ed6e667b113e279dd0e00ed2802"
+    },
+    {
+      "file": "assets/brand/m2m-one-logo.png",
+      "bytes": 2640,
+      "sha256": "5a4c7ccb523559a2eb069184b97aabb3b4021a61934128fa39efc9b845043304"
+    },
+    {
+      "file": "campaign-data.js",
+      "bytes": 10435,
+      "sha256": "f098d3914a7f5b43d784656f3ce80fef1ae7fd924c53572d4fe328688de137fe"
+    },
+    {
+      "file": "copy/email-sequence.json",
+      "bytes": 4786,
+      "sha256": "e0c8cc46ec4e6bb157ec82efdb1219d67a25575ac295b2ce616f3ede575289bb"
+    },
+    {
+      "file": "copy/paid-assets.json",
+      "bytes": 2192,
+      "sha256": "81941c3775531cddbc28294b8bb8585d7fe76bdb89d6e50504ea8d9ea78216a3"
+    },
+    {
+      "file": "copy/social-assets.json",
+      "bytes": 5942,
+      "sha256": "0e276408c6a3d001b30a556b201d4135c0cfe25a70dc81281ff502a5e58a4072"
+    },
+    {
+      "file": "creative/engineering-proof-m2m-connectivity-text-free-master.svg",
+      "bytes": 1208,
+      "sha256": "60a62d820aab9b02252e8239d1ba805c8a64f3d20472c7b92c91169b7165dae2"
+    },
+    {
+      "file": "creative/engineering-proof-m2m-one-au-text-free-master.svg",
+      "bytes": 1209,
+      "sha256": "8e36fb5307f07d2f1254940fbc738f5491eda5a2f5cccfba1d46f2ad47ddc9bc"
+    },
+    {
+      "file": "creative/higgsfield-job-specs.json",
+      "bytes": 4725,
+      "sha256": "72c79107728a06314bc5976aa65bd12806803e80a5fba36de80290637ed82f93"
+    },
+    {
+      "file": "downloads/campaign-pack.json",
+      "bytes": 108463,
+      "sha256": "08d523579a951800908901238f897ec8e5cdfd3f9aaed53816efd4311cfe5bfe"
+    },
+    {
+      "file": "evidence/claims-register.csv",
+      "bytes": 1795,
+      "sha256": "ce941298121494412d46e95e8ac7d1f18946abe7be1665c0d457d4cd60ea5193"
+    },
+    {
+      "file": "index.html",
+      "bytes": 32997,
+      "sha256": "4eaee3f0cb556001ae94c2272d6847e8741d37664f79324a49ffc5fefe157535"
+    },
+    {
+      "file": "landing-pages/m2m-connectivity/index.html",
+      "bytes": 3485,
+      "sha256": "616b1787d0de7f519c3368eac69f14379d93b474889e7130b1f30a125c0a5b87"
+    },
+    {
+      "file": "landing-pages/m2m-one-australia/index.html",
+      "bytes": 3517,
+      "sha256": "c4046dd6a16f001607d643d164535b9fc3f015108ac34150d81705ad2f9a1f15"
+    },
+    {
+      "file": "lead-magnets/m2m-connectivity/readiness-guide.html",
+      "bytes": 1714,
+      "sha256": "01940d51ab7e27925346fc3e478201132705c2796696eae0fbd766d3aad15cae"
+    },
+    {
+      "file": "lead-magnets/m2m-one-australia/readiness-guide.html",
+      "bytes": 1730,
+      "sha256": "ed0fb5b7b4b42beaff2750e81f89da9184e0e9363dbce684c76863c02429a5f0"
+    },
+    {
+      "file": "planning/campaign-calendar.csv",
+      "bytes": 1945,
+      "sha256": "b31085ff58140090920695ea6269786a2e2fc527ed95e1c4e8736dce3e3c3e55"
+    },
+    {
+      "file": "readiness-guide.html",
+      "bytes": 1737,
+      "sha256": "7bcb9b2f7f1fd1f748894aae7d8957c8f059181bd7581a011e363bfb17d83186"
+    },
+    {
+      "file": "sales/talk-tracks.json",
+      "bytes": 2541,
+      "sha256": "831e82932e653a24fe9a592c9d4752374879b18d531891751413f78a55d7c3c9"
+    },
+    {
+      "file": "verification-report.md",
+      "bytes": 811,
+      "sha256": "80afb0b2cb9aefa282adfa78b63ce610197e814a55daf27eb790c5681de64612"
+    }
+  ]
+}

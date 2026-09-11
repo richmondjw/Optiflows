@@ -5,6 +5,11 @@ const list = (input) => Array.isArray(input) ? input.filter(Boolean) : [];
 const slug = (input) => String(input || 'campaign').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 70) || 'campaign';
 const html = (input) => String(input || '').replace(/[&<>"']/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[character]));
 const csvCell = (input) => `"${String(input ?? '').replace(/"/g, '""')}"`;
+const href = (input, fallback = '#route') => {
+  const candidate = String(input || '').trim();
+  return /^(?:https?:\/\/|\/|#)/i.test(candidate) ? candidate : fallback;
+};
+const sentence = (input) => String(input || '').trim().replace(/[.。]+$/g, '');
 
 function core(brief, consultantRun) {
   const concept = list(consultantRun?.concepts).find((item) => item.id === consultantRun?.selectedConcept) || list(consultantRun?.concepts)[0] || {};
@@ -46,16 +51,19 @@ function branchCopy(campaign, branch) {
 
 function landingPage(campaign, branch) {
   const b = branchCopy(campaign, branch);
+  const trigger = sentence(campaign.trigger);
+  const problem = sentence(campaign.problem);
+  const problemCopy = problem.toLowerCase().includes(trigger.toLowerCase()) || trigger.toLowerCase() === problem.toLowerCase() ? `${problem}.` : `${trigger}. ${problem}.`;
   const sections = [
-    { id: 'hero', label: 'Hero', heading: campaign.promise, copy: `${campaign.product}${b.suffix} for ${campaign.primaryAudience}. ${campaign.supporting}`, cta: b.cta },
-    { id: 'problem', label: 'Audience problem', heading: 'The operating problem appears at the boundary.', copy: `${campaign.trigger} ${campaign.problem}` },
+    { id: 'hero', label: 'Hero', heading: campaign.promise, copy: `${campaign.product}${b.suffix} for ${sentence(campaign.primaryAudience)}. ${sentence(campaign.supporting)}.`, cta: b.cta },
+    { id: 'problem', label: 'Audience problem', heading: 'The operating problem appears at the boundary.', copy: problemCopy },
     { id: 'argument', label: 'Argument', heading: 'Make the decision visible before you choose the production path.', copy: `Start with the messages, conditions and consequences that matter. Then connect the offer to the job it must do. ${campaign.supporting}` },
     { id: 'proof', label: 'Proof', heading: 'A claim is useful when its source and limits are clear.', copy: campaign.proof, evidence: campaign.claimsStatus },
     { id: 'route', label: 'Conversion route', heading: 'Turn the question into a scoped next step.', copy: `Use the route: ${campaign.route}`, cta: b.cta },
     { id: 'form', label: 'Form', heading: 'Bring the real context.', copy: 'Ask for the minimum information needed to qualify the conversation: operating environment, current approach, priority outcome and timing.', fields: ['Name', 'Work email', 'Company', 'Operating environment', 'What would you like to solve?'] },
     { id: 'approval', label: 'Approval note', heading: 'Review before release.', copy: 'Technical claims, destination, rights, brand branch and activation owner require approval before external publication.' }
   ];
-  const sectionsHtml = sections.map((section) => `<section id="${section.id}"><p class="eyebrow">${html(section.label)}</p><h2>${html(section.heading)}</h2><p>${html(section.copy)}</p>${section.evidence ? `<p class="evidence"><strong>Evidence status:</strong> ${html(section.evidence)}</p>` : ''}${section.fields ? `<ul>${section.fields.map((field) => `<li>${html(field)}</li>`).join('')}</ul>` : ''}${section.cta ? `<a class="cta" href="${html(b.destination)}">${html(section.cta)}</a>` : ''}</section>`).join('');
+  const sectionsHtml = sections.map((section) => `<section id="${section.id}"><p class="eyebrow">${html(section.label)}</p><h2>${html(section.heading)}</h2><p>${html(section.copy)}</p>${section.evidence ? `<p class="evidence"><strong>Evidence status:</strong> ${html(section.evidence)}</p>` : ''}${section.fields ? `<ul>${section.fields.map((field) => `<li>${html(field)}</li>`).join('')}</ul>` : ''}${section.cta ? `<a class="cta" href="${html(href(b.destination))}">${html(section.cta)}</a>` : ''}</section>`).join('');
   const document = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>${html(campaign.name)} · ${html(b.brand)}</title><style>body{margin:0;background:#f7f4ee;color:#17353b;font:16px/1.6 system-ui,sans-serif}main{max-width:920px;margin:0 auto;padding:56px 24px;background:#fff;min-height:100vh}.eyebrow{font:700 11px/1.2 ui-monospace,monospace;letter-spacing:.14em;text-transform:uppercase;color:#147f79}h1{font-size:clamp(38px,7vw,76px);line-height:1.02;max-width:12ch;margin:10px 0 22px;color:#073b43}h2{font-size:28px;line-height:1.1;color:#073b43}section{border-top:1px solid #d5dfdc;padding:34px 0}section:first-of-type{border-top:0}.cta{display:inline-block;background:#073b43;color:#fff;padding:12px 18px;text-decoration:none;border-radius:3px;font-weight:700}.evidence{background:#edf7f5;padding:12px 14px;border-left:3px solid #147f79}li{margin:6px 0}</style></head><body><main><p class="eyebrow">${html(b.brand)} · ${html(campaign.market)} · PRIVATE REVIEW</p><h1>${html(campaign.name)}</h1>${sectionsHtml}</main></body></html>`;
   return { id: `${branch.id}-landing-page`, type: 'landing-page', brand: b.brand, destination: b.destination, sections, html: document, copyStatus: 'Complete draft copy; form wiring and claims approval required.' };
 }
@@ -131,7 +139,7 @@ function claims(campaign, brief, consultantRun) {
 function leadMagnet(campaign, branch) {
   const b = branchCopy(campaign, branch);
   const questions = ['Operating regions and movement patterns', 'Known or suspected coverage boundaries', 'Message types, payload sizes and urgency', 'Power, enclosure and antenna constraints', 'Retry, acknowledgement and fallback behaviour', 'Commercial outcome and decision timeline'];
-  const document = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Readiness guide · ${html(campaign.name)}</title><style>body{font:16px/1.6 system-ui,sans-serif;background:#f7f4ee;color:#17353b;margin:0}main{max-width:820px;margin:auto;background:#fff;padding:48px 28px;min-height:100vh}h1{color:#073b43;font-size:48px;line-height:1.05}.eyebrow{font:700 11px ui-monospace,monospace;letter-spacing:.14em;color:#147f79;text-transform:uppercase}li{margin:12px 0}.note{padding:16px;background:#edf7f5;border-left:3px solid #147f79}.cta{display:inline-block;background:#073b43;color:white;text-decoration:none;padding:12px 18px;font-weight:700}</style></head><body><main><p class="eyebrow">${html(b.brand)} · WORKING GUIDE</p><h1>${html(campaign.name)} readiness questions</h1><p>${html(campaign.promise)}</p><p>${html(campaign.problem)}</p><h2>Bring these inputs</h2><ol>${questions.map((question) => `<li>${html(question)}</li>`).join('')}</ol><p class="note">This guide is a diagnostic starting point. It is not a coverage assessment, product certification or delivery guarantee.</p><a class="cta" href="${html(b.destination)}">${html(b.cta)}</a></main></body></html>`;
+  const document = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>Readiness guide · ${html(campaign.name)}</title><style>body{font:16px/1.6 system-ui,sans-serif;background:#f7f4ee;color:#17353b;margin:0}main{max-width:820px;margin:auto;background:#fff;padding:48px 28px;min-height:100vh}h1{color:#073b43;font-size:48px;line-height:1.05}.eyebrow{font:700 11px ui-monospace,monospace;letter-spacing:.14em;color:#147f79;text-transform:uppercase}li{margin:12px 0}.note{padding:16px;background:#edf7f5;border-left:3px solid #147f79}.cta{display:inline-block;background:#073b43;color:white;text-decoration:none;padding:12px 18px;font-weight:700}</style></head><body><main><p class="eyebrow">${html(b.brand)} · WORKING GUIDE</p><h1>${html(campaign.name)} readiness questions</h1><p>${html(campaign.promise)}</p><p>${html(sentence(campaign.problem))}.</p><h2>Bring these inputs</h2><ol>${questions.map((question) => `<li>${html(question)}</li>`).join('')}</ol><p class="note">This guide is a diagnostic starting point. It is not a coverage assessment, product certification or delivery guarantee.</p><a class="cta" href="${html(href(b.destination))}">${html(b.cta)}</a></main></body></html>`;
   return { id: `${branch.id}-lead-magnet`, brand: b.brand, title: `${campaign.name} readiness questions`, html: document, questions, status: 'Complete HTML lead-magnet draft; form and destination approval required.' };
 }
 
@@ -166,7 +174,10 @@ export function buildCampaignPack({ brief, branches = [], consultantRun = null, 
     activation: 'Private review only; no publication, spend, send, CRM mutation or external provider call is performed by this browser tool.'
   };
   return {
-    schema: 'm2m-campaign-production/v1', status: 'PRIVATE REVIEW · COMPLETE DRAFT PACK', generatedAt: new Date().toISOString(), summary: {
+    schema: 'm2m-campaign-production/v1', status: 'PRIVATE REVIEW · COMPLETE DRAFT PACK', generatedAt: new Date().toISOString(), publication: {
+      targetRoot: '/campaigns/', route: `/campaigns/${campaign.campaignSlug}/`, mode: 'controlled repository publisher',
+      command: 'node tools/publish-campaign-pack.cjs <campaign-pack.json> [slug]', status: 'Private review; commit and Pages deployment required.'
+    }, summary: {
       landingPages: landing.length, socialAssets: socialAssets.length, emailAssets: emailAssets.length, paidAssets: paidAssets.length, salesTalkTracks: salesAssets.length, leadMagnets: leadMagnets.length, calendarRows: calendarRows.length, claims: claimsRegister.length, creativeMasters: creativeMasters.length, higgsfieldJobs: higgsfieldJobs.length, files: files.length
     }, copy: { landing, social: socialAssets, email: emailAssets, paid: paidAssets, sales: salesAssets, leadMagnets }, calendar: calendarRows, claimsRegister, creativeMasters: creativeMasters.map(({ content, ...metadata }) => metadata), files: files.map(({ content, ...metadata }) => metadata), provenance,
     _downloadFiles: files

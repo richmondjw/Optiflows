@@ -1,0 +1,74 @@
+[
+  {
+    "id": "m2m-connectivity-hero-master",
+    "provider": "Higgsfield",
+    "jobType": "gpt_image_2",
+    "mode": "Job specifications only",
+    "branch": "m2m-connectivity",
+    "model": "GPT Image 2 / approved campaign model",
+    "prompt": "A restrained technical field scene with room for deterministic copy and a later single-brand composition. Subject: Iridium Certus 9604 Hybrid IoT. Tone: Technical, practical, direct.",
+    "negativePrompt": "No logos, no typography, no invented product claims, no customer testimonial, no UI text.",
+    "postProcess": "Apply the approved branch logo and copy in the deterministic channel renderer.",
+    "humanGate": "Creative approval and rights review before publication."
+  },
+  {
+    "id": "m2m-connectivity-social-master",
+    "provider": "Higgsfield",
+    "jobType": "gpt_image_2",
+    "mode": "Job specifications only",
+    "branch": "m2m-connectivity",
+    "model": "GPT Image 2 / approved campaign model",
+    "prompt": "A clear, human-centred visual for Product teams and system integrators whose connected devices move beyond dependable cellular coverage. showing Answer the engineering question inside A device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence... Use text-free masters and deterministic copy/logo application. Record provenance and rights before activation.",
+    "negativePrompt": "No logo lockups, no words in the image, no performance guarantee, no generic stock-tech collage.",
+    "postProcess": "Add one branch identity only; generate accessible alt text and platform copy separately.",
+    "humanGate": "Brand and technical claim review."
+  },
+  {
+    "id": "m2m-connectivity-email-visual",
+    "provider": "Higgsfield",
+    "jobType": "gpt_image_2",
+    "mode": "Job specifications only",
+    "branch": "m2m-connectivity",
+    "model": "GPT Image 2 / approved campaign model",
+    "prompt": "A restrained supporting image for an email about One module can expose both connectivity layers; your logic defines routing, retry and priority., legible at 600px wide, with clear negative space for deterministic copy.",
+    "negativePrompt": "No logos, no embedded type, no unverified feature claims.",
+    "postProcess": "Compose in email-safe HTML, with alt text and one approved logo.",
+    "humanGate": "Email and brand review."
+  },
+  {
+    "id": "m2m-one-au-hero-master",
+    "provider": "Higgsfield",
+    "jobType": "gpt_image_2",
+    "mode": "Job specifications only",
+    "branch": "m2m-one-au",
+    "model": "GPT Image 2 / approved campaign model",
+    "prompt": "A restrained technical field scene with room for deterministic copy and a later single-brand composition. Subject: Iridium Certus 9604 Hybrid IoT. Tone: Local, helpful, clear.",
+    "negativePrompt": "No logos, no typography, no invented product claims, no customer testimonial, no UI text.",
+    "postProcess": "Apply the approved branch logo and copy in the deterministic channel renderer.",
+    "humanGate": "Creative approval and rights review before publication."
+  },
+  {
+    "id": "m2m-one-au-social-master",
+    "provider": "Higgsfield",
+    "jobType": "gpt_image_2",
+    "mode": "Job specifications only",
+    "branch": "m2m-one-au",
+    "model": "GPT Image 2 / approved campaign model",
+    "prompt": "A clear, human-centred visual for Product teams and system integrators whose connected devices move beyond dependable cellular coverage. showing Answer the engineering question inside A device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence... Use text-free masters and deterministic copy/logo application. Record provenance and rights before activation.",
+    "negativePrompt": "No logo lockups, no words in the image, no performance guarantee, no generic stock-tech collage.",
+    "postProcess": "Add one branch identity only; generate accessible alt text and platform copy separately.",
+    "humanGate": "Brand and technical claim review."
+  },
+  {
+    "id": "m2m-one-au-email-visual",
+    "provider": "Higgsfield",
+    "jobType": "gpt_image_2",
+    "mode": "Job specifications only",
+    "branch": "m2m-one-au",
+    "model": "GPT Image 2 / approved campaign model",
+    "prompt": "A restrained supporting image for an email about One module can expose both connectivity layers; your logic defines routing, retry and priority., legible at 600px wide, with clear negative space for deterministic copy.",
+    "negativePrompt": "No logos, no embedded type, no unverified feature claims.",
+    "postProcess": "Compose in email-safe HTML, with alt text and one approved logo.",
+    "humanGate": "Email and brand review."
+  }
+]

@@ -1,0 +1,74 @@
+[
+  {
+    "id": "m2m-connectivity-social-problem",
+    "platform": "LinkedIn organic",
+    "hook": "One module can expose both connectivity layers; your logic defines routing, retry and priority.",
+    "body": "A device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence.\n\nAnswer the engineering question inside A device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence..\n\nStart with the operating question before selecting the architecture.",
+    "cta": "Review the design questions",
+    "visual": "Text-free boundary visual with one approved branch identity applied in post.",
+    "brand": "M2M Connectivity",
+    "destination": "Confirm campaign destination",
+    "altText": "One module can expose both connectivity layers; your logic defines routing, retry and priority.. Illustrative campaign visual for Iridium Certus 9604 Hybrid IoT; not customer proof.",
+    "approval": "Review product claims, destination and brand branch before activation."
+  },
+  {
+    "id": "m2m-connectivity-social-proof",
+    "platform": "LinkedIn document",
+    "hook": "What should the system do when the preferred path is unavailable?",
+    "body": "A useful design review covers message priority, retry behaviour, power, antenna conditions and the consequence of silence.\n\nLead with the mechanism, the interfaces and the decisions that remain with the product team.\n\nEvidence: Official product or service facts; Interface, architecture or integration evidence; A qualified statement of what remains developer- or customer-defined",
+    "cta": "Review the design questions",
+    "visual": "Five-slide text-free master set; copy is composed deterministically.",
+    "brand": "M2M Connectivity",
+    "destination": "Confirm campaign destination",
+    "altText": "What should the system do when the preferred path is unavailable?. Illustrative campaign visual for Iridium Certus 9604 Hybrid IoT; not customer proof.",
+    "approval": "Review product claims, destination and brand branch before activation."
+  },
+  {
+    "id": "m2m-connectivity-social-conversion",
+    "platform": "LinkedIn retargeting",
+    "hook": "Turn the coverage question into an engineering brief.",
+    "body": "Product teams and system integrators whose connected devices move beyond dependable cellular coverage.: bring the route, the message profile and the constraints. The next step is a scoped conversation, not a generic promise.",
+    "cta": "Review the design questions",
+    "visual": "Quiet proof-led visual with clear negative space for copy.",
+    "brand": "M2M Connectivity",
+    "destination": "Confirm campaign destination",
+    "altText": "Turn the coverage question into an engineering brief.. Illustrative campaign visual for Iridium Certus 9604 Hybrid IoT; not customer proof.",
+    "approval": "Review product claims, destination and brand branch before activation."
+  },
+  {
+    "id": "m2m-one-au-social-problem",
+    "platform": "LinkedIn organic",
+    "hook": "One module can expose both connectivity layers; your logic defines routing, retry and priority.",
+    "body": "A device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence.\n\nAnswer the engineering question inside A device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence..\n\nStart with the operating question before selecting the architecture.",
+    "cta": "Review the design questions",
+    "visual": "Text-free boundary visual with one approved branch identity applied in post.",
+    "brand": "M2M One Australia",
+    "destination": "https://m2mone.com.au",
+    "altText": "One module can expose both connectivity layers; your logic defines routing, retry and priority.. Illustrative campaign visual for Iridium Certus 9604 Hybrid IoT; not customer proof.",
+    "approval": "Review product claims, destination and brand branch before activation."
+  },
+  {
+    "id": "m2m-one-au-social-proof",
+    "platform": "LinkedIn document",
+    "hook": "What should the system do when the preferred path is unavailable?",
+    "body": "A useful design review covers message priority, retry behaviour, power, antenna conditions and the consequence of silence.\n\nLead with the mechanism, the interfaces and the decisions that remain with the product team.\n\nEvidence: Official product or service facts; Interface, architecture or integration evidence; A qualified statement of what remains developer- or customer-defined",
+    "cta": "Review the design questions",
+    "visual": "Five-slide text-free master set; copy is composed deterministically.",
+    "brand": "M2M One Australia",
+    "destination": "https://m2mone.com.au",
+    "altText": "What should the system do when the preferred path is unavailable?. Illustrative campaign visual for Iridium Certus 9604 Hybrid IoT; not customer proof.",
+    "approval": "Review product claims, destination and brand branch before activation."
+  },
+  {
+    "id": "m2m-one-au-social-conversion",
+    "platform": "LinkedIn retargeting",
+    "hook": "Turn the coverage question into an engineering brief.",
+    "body": "Product teams and system integrators whose connected devices move beyond dependable cellular coverage.: bring the route, the message profile and the constraints. The next step is a scoped conversation, not a generic promise.",
+    "cta": "Review the design questions",
+    "visual": "Quiet proof-led visual with clear negative space for copy.",
+    "brand": "M2M One Australia",
+    "destination": "https://m2mone.com.au",
+    "altText": "Turn the coverage question into an engineering brief.. Illustrative campaign visual for Iridium Certus 9604 Hybrid IoT; not customer proof.",
+    "approval": "Review product claims, destination and brand branch before activation."
+  }
+]

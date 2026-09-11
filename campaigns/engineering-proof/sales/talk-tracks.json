@@ -1,0 +1,38 @@
+[
+  {
+    "id": "m2m-connectivity-sales-talk-track",
+    "brand": "M2M Connectivity",
+    "opener": "I’m calling because a device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence.",
+    "questions": [
+      "Where does the device or workflow move beyond dependable coverage?",
+      "Which messages change a decision, and how quickly must they arrive?",
+      "What are the power, antenna, payload, retry and service constraints?",
+      "What commercial outcome would make this design worth progressing?"
+    ],
+    "proof": "Official product or service facts; Interface, architecture or integration evidence; A qualified statement of what remains developer- or customer-defined",
+    "objectionHandling": [
+      "If the prospect expects automatic failover, clarify that the application still defines routing, retry and fallback behaviour.",
+      "If the prospect asks for universal coverage or guaranteed delivery, qualify the claim and move to an engineering review.",
+      "If the prospect is early stage, offer the readiness guide before a detailed design session."
+    ],
+    "handoff": "Qualify to Primary KPI to confirm; record source, vertical, urgency and owner before sales follow-up."
+  },
+  {
+    "id": "m2m-one-au-sales-talk-track",
+    "brand": "M2M One Australia",
+    "opener": "I’m calling because a device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence.",
+    "questions": [
+      "Where does the device or workflow move beyond dependable coverage?",
+      "Which messages change a decision, and how quickly must they arrive?",
+      "What are the power, antenna, payload, retry and service constraints?",
+      "What commercial outcome would make this design worth progressing?"
+    ],
+    "proof": "Official product or service facts; Interface, architecture or integration evidence; A qualified statement of what remains developer- or customer-defined",
+    "objectionHandling": [
+      "If the prospect expects automatic failover, clarify that the application still defines routing, retry and fallback behaviour.",
+      "If the prospect asks for universal coverage or guaranteed delivery, qualify the claim and move to an engineering review.",
+      "If the prospect is early stage, offer the readiness guide before a detailed design session."
+    ],
+    "handoff": "Qualify to Primary KPI to confirm; record source, vertical, urgency and owner before sales follow-up."
+  }
+]

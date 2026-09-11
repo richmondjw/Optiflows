@@ -1,0 +1,62 @@
+[
+  {
+    "id": "m2m-connectivity-email-01",
+    "subject": "One module can expose both connectivity layers; your logic defines routing, retry and priority.",
+    "preheader": "Start with the operating boundary.",
+    "body": "Hi {{first_name}},\n\nA device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence.\n\nAnswer the engineering question inside A device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence..\n\nWe have turned the first design questions into a practical next step.\n\nReview the design questions: Confirm campaign destination\n\nRegards,\nM2M Connectivity",
+    "brand": "M2M Connectivity",
+    "destination": "Confirm campaign destination",
+    "format": "Email nurture",
+    "copyStatus": "Complete copy draft; sender, list, links and deliverability checks required."
+  },
+  {
+    "id": "m2m-connectivity-email-02",
+    "subject": "Which messages must still arrive?",
+    "preheader": "Prioritise the messages that change a decision.",
+    "body": "Hi {{first_name}},\n\nNot every message has the same operational value. Rank the events that are time-sensitive, the ones that can wait, and the ones that trigger a human decision.\n\nLead with the mechanism, the interfaces and the decisions that remain with the product team.\n\nReview the questions: Confirm campaign destination\n\nRegards,\nM2M Connectivity",
+    "brand": "M2M Connectivity",
+    "destination": "Confirm campaign destination",
+    "format": "Email nurture",
+    "copyStatus": "Complete copy draft; sender, list, links and deliverability checks required."
+  },
+  {
+    "id": "m2m-connectivity-email-03",
+    "subject": "Ready for a scoped design conversation?",
+    "preheader": "Bring the route, constraints and desired outcome.",
+    "body": "Hi {{first_name}},\n\nIf the coverage question is active for your product, the most useful next step is a focused design conversation. Bring the operating environment, message profile, power and antenna constraints, and the commercial outcome.\n\nReview the design questions: Confirm campaign destination\n\nRegards,\nM2M Connectivity",
+    "brand": "M2M Connectivity",
+    "destination": "Confirm campaign destination",
+    "format": "Email nurture",
+    "copyStatus": "Complete copy draft; sender, list, links and deliverability checks required."
+  },
+  {
+    "id": "m2m-one-au-email-01",
+    "subject": "One module can expose both connectivity layers; your logic defines routing, retry and priority.",
+    "preheader": "Start with the operating boundary.",
+    "body": "Hi {{first_name}},\n\nA device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence.\n\nAnswer the engineering question inside A device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence..\n\nWe have turned the first design questions into a practical next step.\n\nReview the design questions: https://m2mone.com.au\n\nRegards,\nM2M One Australia",
+    "brand": "M2M One Australia",
+    "destination": "https://m2mone.com.au",
+    "format": "Email nurture",
+    "copyStatus": "Complete copy draft; sender, list, links and deliverability checks required."
+  },
+  {
+    "id": "m2m-one-au-email-02",
+    "subject": "Which messages must still arrive?",
+    "preheader": "Prioritise the messages that change a decision.",
+    "body": "Hi {{first_name}},\n\nNot every message has the same operational value. Rank the events that are time-sensitive, the ones that can wait, and the ones that trigger a human decision.\n\nLead with the mechanism, the interfaces and the decisions that remain with the product team.\n\nReview the questions: https://m2mone.com.au\n\nRegards,\nM2M One Australia",
+    "brand": "M2M One Australia",
+    "destination": "https://m2mone.com.au",
+    "format": "Email nurture",
+    "copyStatus": "Complete copy draft; sender, list, links and deliverability checks required."
+  },
+  {
+    "id": "m2m-one-au-email-03",
+    "subject": "Ready for a scoped design conversation?",
+    "preheader": "Bring the route, constraints and desired outcome.",
+    "body": "Hi {{first_name}},\n\nIf the coverage question is active for your product, the most useful next step is a focused design conversation. Bring the operating environment, message profile, power and antenna constraints, and the commercial outcome.\n\nReview the design questions: https://m2mone.com.au\n\nRegards,\nM2M One Australia",
+    "brand": "M2M One Australia",
+    "destination": "https://m2mone.com.au",
+    "format": "Email nurture",
+    "copyStatus": "Complete copy draft; sender, list, links and deliverability checks required."
+  }
+]

@@ -17,11 +17,22 @@ The Campaign Brief Compiler is a static, browser-based master input for M2M Grou
 - Independent M2M Connectivity, M2M One Australia, M2M One New Zealand and Semtech plugin branches.
 - One-click production adapter that turns the compiled brief into a complete draft pack: landing-page copy and HTML, social objects, email sequence, paid and retargeting copy, sales talk tracks, lead-magnet HTML, channel calendar, claims register, provenance and native text-free SVG masters.
 - Export of a portable JSON campaign pack, print-friendly review HTML, Markdown brief, branch CSV, Higgsfield job JSON and each production file for downstream review.
+- A controlled repository publisher that turns the exported JSON into a complete HTML review workspace under `/campaigns/<slug>/`, updates the campaign library and records a hash manifest plus verification report.
 - Higgsfield-safe prompts that generate text-free masters; approved copy and one branch logo are applied in deterministic post-processing.
 
 ## Use
 
 Open `/campaign-brief/` on the OptiFlows site, or serve the repository root with any static server. Choose **Load 9604 campaign** to see the reverse-engineered fixture, then edit any field. The right-hand panel is the live output contract and now shows the production inventory. **Download campaign pack** produces the compiler exports plus every generated production file named from the campaign slug.
+
+## Publish a complete HTML pack into `/campaigns/`
+
+The browser export is portable by design. To make it a reviewable campaign workspace in the repository, run the controlled publisher from the repository root after downloading the JSON:
+
+```bash
+node tools/publish-campaign-pack.cjs path/to/<campaign>-campaign-pack.json [slug]
+```
+
+The publisher writes the landing pages, lead magnets, channel copy, calendar, claims register, independent brand assets, text-free masters, Higgsfield job specifications, `campaign-data.js`, `asset-manifest.json` and `verification-report.md` into `campaigns/<slug>/`, and adds a card to `campaigns/index.html`. The generated route is a private, noindex review surface; it does not schedule, send, spend, mutate CRM records or call an external creative provider. Review the diff and commit/push the generated workspace when it is ready for the internal library.
 
 ## Plugin contract
 
