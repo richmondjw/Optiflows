@@ -27,7 +27,7 @@ const slugify = (input) => String(input || 'campaign').toLowerCase().trim().repl
 const slug = slugify(requestedSlug || pack.packId || meta.campaignSlug || meta.campaignName);
 const target = path.resolve(campaignsDir, slug);
 if (!target.startsWith(path.resolve(campaignsDir) + path.sep)) throw new Error('Refusing to write outside campaigns/.');
-const esc = (input) => String(input ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+const esc = (input) => String(input ?? '').replace(/\.{2,}/g, '.').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 const lines = (input) => esc(input).replace(/\n/g, '<br>');
 const arr = (input) => Array.isArray(input) ? input : [];
 const first = (input, fallback = '') => arr(input)[0] || fallback;

@@ -1,7 +1,7 @@
 {
   "schemaVersion": "1.0",
   "campaignId": "engineering-proof",
-  "generatedAt": "2026-09-11T03:40:09.280Z",
+  "generatedAt": "2026-09-11T03:42:40.403Z",
   "status": "PRIVATE REVIEW · NOT ACTIVATED",
   "exclusions": [
     "provider credentials",
@@ -80,8 +80,8 @@
     },
     {
       "file": "index.html",
-      "bytes": 32989,
-      "sha256": "bec0c4357a844027ac637627e27a345890ad19aa2b3bf8bb85cf778e025c9d64"
+      "bytes": 32988,
+      "sha256": "551f685fe93dbda632cb766b5424915038bcb2806e7489c51b6266e5d3489cce"
     },
     {
       "file": "landing-pages/m2m-connectivity/index.html",
