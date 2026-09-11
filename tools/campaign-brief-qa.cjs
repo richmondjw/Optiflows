@@ -12,22 +12,23 @@ const libraries = fs.readFileSync(path.join(root, 'libraries.js'), 'utf8');
 const fixture = JSON.parse(fs.readFileSync(path.join(root, 'fixtures/9604-hybrid-connectivity.json'), 'utf8'));
 const checks = [
   ['noindex metadata', /noindex,nofollow,noarchive/.test(html)],
-  ['eight stages', (app.match(/\['foundation'|\['audience'|\['objectives'|\['proposition'|\['strategy'|\['production'|\['governance'|\['branches'/g) || []).length === 8],
-  ['pack schema', app.includes("m2m-campaign-pack/v1")],
+  ['copilot schema', app.includes("m2m-campaign-copilot-v2") && app.includes("m2m-campaign-copilot/v2")],
+  ['four-step flow', app.includes("Consult") && app.includes("Propose") && app.includes("Refine") && app.includes("Review") && app.includes("const STEPS")],
   ['brand plugin registry', Object.keys(fixture.branches).length === 2 && app.includes("from './plugins.js'") && fs.readFileSync(path.join(root, 'plugins.js'), 'utf8').includes('semtech')],
   ['independent artwork rule', app.includes('one approved logo per artwork')],
   ['Higgsfield handoff', app.includes('higgsfieldJobs') && app.includes('text-free masters')],
   ['9604 route', fixture.route.includes('readiness guide') && fixture.promise.includes('Satellite')],
   ['curated Vault library', app.includes("from './libraries.js'") && libraries.includes('LIBRARY_META') && libraries.includes('audiences')],
-  ['assisted suggestions', app.includes('generateSuggestions') && app.includes('recommendStrategy') && app.includes('data-action')],
-  ['consultant front door', html.includes('consultantView') && app.includes('CONSULTANT_QUESTIONS') && app.includes('handoffConsultant')],
-  ['comparison rounds', app.includes('comparisonRounds') && app.includes('recordPreference') && app.includes('data-consultant-choice')],
+  ['assisted proposal', app.includes('generateConcepts') && app.includes('conceptTemplates') && app.includes('data-action="build-proposal"')],
+  ['consultant front door', html.includes('appRoot') && app.includes('questionMap') && app.includes('build-proposal')],
+  ['comparison rounds', app.includes('comparisonRounds') && app.includes('data-action="preference"')],
   ['research modes', app.includes('Evidence pack') && app.includes('buildResearchPlan') && app.includes('Requires approval')],
-  ['structured consultant export', app.includes('consultantRun') && app.includes('preferenceEvents') && app.includes('assistance')],
+  ['structured consultant export', app.includes('consultantRun') && app.includes('preferenceEvents') && app.includes('campaignCore')],
   ['complete production adapter', app.includes("from './pack-builder.js") && app.includes('buildCampaignPack') && fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('m2m-campaign-production/v1')],
   ['complete channel assets', fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('landing-pages/') && fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('social-assets.json') && fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('email-sequence.json') && fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('campaign-calendar.csv')],
   ['text-free creative masters', fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('text-free-master.svg') && fs.readFileSync(path.join(root, 'pack-builder.js'), 'utf8').includes('no embedded copy')],
-  ['regeneration variants', app.includes('consultant.generation') && app.includes('boundaryIdeas') && app.includes('conceptTemplates(inputs, generation)')],
+  ['regeneration variants', app.includes('consultantRun.generation') && app.includes('boundaryIdeas') && app.includes('conceptTemplates(inputs, generation)')],
+  ['canonical brief adapter', app.includes('function toLegacyBrief') && app.includes('derivedFormats') && app.includes('approvals')],
   ['campaigns publisher', fs.existsSync(path.join(__dirname, 'publish-campaign-pack.cjs')) && fs.readFileSync(path.join(__dirname, 'publish-campaign-pack.cjs'), 'utf8').includes("published-private-review") && fs.readFileSync(path.join(__dirname, 'publish-campaign-pack.cjs'), 'utf8').includes('asset-manifest.json')]
 ];
 const failed = checks.filter(([, ok]) => !ok).map(([name]) => name);

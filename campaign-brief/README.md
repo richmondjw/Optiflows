@@ -1,19 +1,19 @@
-# Campaign Brief Compiler
+# Campaign Copilot
 
-The Campaign Brief Compiler is a static, browser-based master input for M2M Group campaign packs. It keeps campaign strategy in a generic core and applies brand-specific plugins at the final handoff.
+Campaign Copilot is a static, browser-based master input for M2M Group campaign packs. It keeps one canonical campaign core, proposes a strategy from a small amount of information, and applies brand-specific plugins only at the final handoff.
 
 ## What is functional now
 
-- Eight-stage brief wizard covering foundation, audience, commercial and communication objectives, proposition, strategy, production, evidence/gates and brand branches.
+- Four-step flow: Consult, Propose, Refine and Review. Progressive disclosure keeps the first interaction short while retaining a complete digital campaign brief underneath.
 - Local draft persistence with reset and browser-only storage.
 - 9604 Hybrid Connectivity fixture that reverse-engineers the current “Coverage Beyond the Grid” pack.
 - Live readiness score, missing-field prompts and evidence/gate warnings.
 - Curated Vault-backed audience, role, vertical and objective libraries with checkbox selection, visible source attribution and an **Other** field for campaign-specific values.
 - Multi-KPI entry with a primary KPI selector and synchronized legacy `primaryKpi` / `secondaryKpis` fields.
 - Assisted proposition and strategy panels that generate reviewable working hypotheses from the current brief and let the planner apply one direction.
-- Campaign Consultant front door with six short inputs, valid “I don't know” answers, three brand-neutral directions and five bounded preference rounds.
+- Campaign Consultant front door with five short inputs, valid “I don't know” answers, three brand-neutral directions and four bounded comparison rounds.
 - Controlled research modes (**No research**, **Quick scan**, **Evidence pack**) that prepare decision-linked research questions and label evidence as Confirmed, Strongly supported, Inferred, Unknown or Requires approval.
-- One-click handoff from the selected or ranked concept into the existing eight-stage compiler. The export retains a `consultantRun` object with inputs, research, concepts, preference events, selected concept, brief, independent brand branches and pack summary.
+- One-click handoff from the selected or ranked concept into the detailed brief. The export retains a `consultantRun` object with inputs, research, concepts, preference events, selected concept, canonical `campaignCore`, independent brand branches and pack summary.
 - Independent M2M Connectivity, M2M One Australia, M2M One New Zealand and Semtech plugin branches.
 - One-click production adapter that turns the compiled brief into a complete draft pack: landing-page copy and HTML, social objects, email sequence, paid and retargeting copy, sales talk tracks, lead-magnet HTML, channel calendar, claims register, provenance and native text-free SVG masters.
 - Export of a portable JSON campaign pack, print-friendly review HTML, Markdown brief, branch CSV, Higgsfield job JSON and each production file for downstream review.
@@ -22,7 +22,7 @@ The Campaign Brief Compiler is a static, browser-based master input for M2M Grou
 
 ## Use
 
-Open `/campaign-brief/` on the OptiFlows site, or serve the repository root with any static server. Choose **Load 9604 campaign** to see the reverse-engineered fixture, then edit any field. The right-hand panel is the live output contract and now shows the production inventory. **Download campaign pack** produces the compiler exports plus every generated production file named from the campaign slug.
+Open `/campaign-brief/` on the OptiFlows site, or serve the repository root with any static server. Choose **9604 example** to see the reverse-engineered fixture, then edit any field. The Review step is the sign-off gate: six approvals are required before **Generate campaign pack**, and Publish prepares a controlled repository handoff for `/campaigns/<slug>/`.
 
 ## Publish a complete HTML pack into `/campaigns/`
 

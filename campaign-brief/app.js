@@ -1,640 +1,427 @@
 import { BRANDS } from './plugins.js';
 import { LIBRARIES, LIBRARY_META } from './libraries.js';
 import { buildCampaignPack } from './pack-builder.js?v=20260911-production';
-const STORAGE_KEY = 'm2m-campaign-brief-compiler-v1';
 
-const STAGES = [
-  ['foundation', 'Foundation', 'What is this campaign?'],
-  ['audience', 'Audience', 'Who needs to act?'],
-  ['objectives', 'Objectives', 'What changes commercially?'],
-  ['proposition', 'Proposition', 'What should they believe?'],
-  ['strategy', 'Strategy', 'How will the idea travel?'],
-  ['production', 'Production', 'What gets made?'],
-  ['governance', 'Evidence & gates', 'What can we prove?'],
-  ['branches', 'Brand branches', 'Who owns the output?']
+const STORAGE_KEY = 'm2m-campaign-copilot-v2';
+const STEPS = [
+  { id: 'consult', label: 'Consult', title: 'Start with the decision.' },
+  { id: 'propose', label: 'Propose', title: 'Choose a campaign spine.' },
+  { id: 'refine', label: 'Refine', title: 'Shape the digital brief.' },
+  { id: 'review', label: 'Review', title: 'Approve before production.' }
+];
+const CHANNEL_FORMATS = {
+  'LinkedIn organic': ['LinkedIn organic'], 'LinkedIn document': ['LinkedIn document'], 'Email nurture': ['Email nurture'],
+  'Landing page': ['Landing page'], 'Paid search': ['Paid search'], Retargeting: ['Retargeting'],
+  'Sales follow-up': ['Sales enablement'], 'Partner outreach': ['Partner outreach'], 'Motion study': ['Motion study']
+};
+const questionMap = [
+  ['intent.commercialOutcome', 'What commercial outcome are you trying to achieve?', 'Pipeline, revenue, adoption, retention, partner movement or another business result.'],
+  ['intent.offer', 'What are you selling, promoting or changing?', 'A product, service, launch, behaviour, offer or customer decision.'],
+  ['audience.primary', 'Who needs to act or decide?', 'Name the people, roles or organisations that can move the decision forward.'],
+  ['intent.trigger', 'What makes this relevant now?', 'The moment, friction, risk or opportunity that gives the campaign urgency.'],
+  ['intent.market', 'Where will this campaign run?', 'Country, region, vertical, account group or operating environment.']
 ];
 
-const blankConsultantRun = () => ({
-  inputs: { commercialGoal: '', offer: '', decisionMaker: '', trigger: '', market: '', proofConstraints: '' },
-  research: { mode: 'Quick scan', questions: [], evidence: [], sources: [], status: 'Not prepared', preparedAt: null },
-  concepts: [], generation: 0, preferenceEvents: [], pendingRewriteRound: null, selectedConcept: null, handoffStatus: 'Not started', brief: null, brandBranches: [], pack: null
+const blankCore = () => ({
+  id: 'campaign-' + Date.now(), name: '', slug: '',
+  intent: { commercialOutcome: '', outcomeType: '', offer: '', trigger: '', market: '', owner: '', timing: '' },
+  audience: { primary: '', roles: [], rolesOther: '', verticals: [], verticalsOther: [], geography: '', problem: '', objections: '' },
+  proposition: { promise: '', supporting: '', proof: '', claimsStatus: 'Needs evidence review', cta: '', destination: '' },
+  conversionRoute: { route: '', formAction: '', handoff: '' },
+  activation: { channels: [], startDate: '', endDate: '', formats: [] },
+  measurement: { primaryKpi: '', supportingKpis: [], target: '', event: '', source: '' },
+  guardrails: { sources: '', rights: '', assumptions: '', exclusions: '', approvalNotes: '' },
+  brand: { plugins: ['m2m-connectivity', 'm2m-one-au'], independentArtwork: true, handoff: '' },
+  advanced: { creative: '', imagery: '', motion: '', nurture: '', budget: '' },
+  provenance: { fields: {}, inferred: [], generated: [], edited: [] },
+  approvals: { strategy: false, claims: false, brand: false, destination: false, rights: false, generation: false }
 });
 
-const blankState = () => ({
-  meta: { campaignName: '', campaignSlug: '', product: '', market: 'Australia', campaignType: 'Demand generation', owner: '', startDate: '', endDate: '' },
-  audience: { primary: '', primarySegments: [], primaryOther: '', primaryDetail: '', roles: [], rolesSelected: [], rolesOther: '', verticals: [], verticalsSelected: [], verticalsOther: '', geographies: '', trigger: '', problem: '', objections: '' },
-  objectives: { commercial: '', commercialTypes: [], commercialOther: '', marketing: '', marketingTypes: [], marketingOther: '', communications: '', communicationsTypes: [], communicationsOther: '', kpis: [], primaryKpi: '', secondaryKpis: [], nonGoals: '' },
-  proposition: { promise: '', supporting: '', proof: '', claimsStatus: 'Needs evidence review', cta: '', landingUrl: '', suggestions: [] },
-  strategy: { route: '', phases: '', channels: [], tactics: '', nurture: '', recommendations: [] },
-  production: { formats: ['LinkedIn organic'], creative: '', imagery: '', motion: '', assetNotes: '' },
-  governance: { sources: '', rights: '', assumptions: '', gates: [], activation: 'Private review' },
-  branches: { selected: ['m2m-connectivity', 'm2m-one-au'], independent: true, higgsfield: 'Job specifications only', handoff: '' },
-  consultantRun: blankConsultantRun()
+const blankRun = () => ({
+  inputs: {}, research: { mode: 'Quick scan', questions: [], evidence: [], sources: [], status: 'Not prepared', preparedAt: null },
+  concepts: [], generation: 0, preferenceEvents: [], pendingRewriteRound: null, selectedConcept: null,
+  status: 'Draft', pack: null, publication: null
 });
 
-const fixture = {
-  meta: { campaignName: 'Coverage Beyond the Grid', campaignSlug: 'coverage-beyond-the-grid', product: 'Iridium Certus 9604 Hybrid IoT', market: 'Australia + New Zealand', campaignType: 'Demand generation', owner: 'M2M Group', startDate: '2026-09-21', endDate: '2026-12-13' },
-  audience: {
-    primary: 'Product teams and system integrators whose connected devices move beyond dependable cellular coverage.',
-    primarySegments: ['OEM and product teams', 'System integrators and channel partners'],
-    primaryOther: '',
-    primaryDetail: 'Product teams and system integrators whose connected devices move beyond dependable cellular coverage.',
-    roles: ['Product manager', 'Embedded systems engineer', 'Solution architect', 'Operations leader'],
-    rolesSelected: ['Product manager', 'Embedded systems engineer', 'Solution architect', 'Operations leader'],
-    rolesOther: '',
-    verticals: ['Asset tracking and logistics', 'Agtech', 'Environmental monitoring', 'Remote equipment', 'Field safety'],
-    verticalsSelected: ['Asset tracking and monitoring', 'Agriculture and agtech', 'Environmental monitoring', 'Industrial automation', 'Security and field safety'],
-    verticalsOther: 'Remote equipment',
-    geographies: 'Australia and New Zealand; remote, regional and mobile operating environments.',
+const blankState = () => ({ campaignCore: blankCore(), consultantRun: blankRun() });
+
+const seed9604 = () => {
+  const core = blankCore();
+  core.id = 'fixture-9604-hybrid-connectivity';
+  core.name = 'Coverage Beyond the Grid';
+  core.slug = 'coverage-beyond-the-grid';
+  core.intent = {
+    commercialOutcome: 'Generate qualified technical conversations and sales-accepted leads for Hybrid IoT design work.',
+    outcomeType: 'Generate sales-accepted leads', offer: 'Iridium Certus 9604 Hybrid IoT',
     trigger: 'A device, asset or worker reaches the edge of the cellular operating map and a missed message has an operational consequence.',
+    market: 'Australia + New Zealand', owner: 'M2M Group', timing: '12-week demand generation campaign'
+  };
+  core.audience = {
+    primary: 'Product teams and system integrators whose connected devices move beyond dependable cellular coverage.',
+    roles: ['Product manager', 'Embedded systems engineer', 'Solution architect', 'Operations leader'], rolesOther: '',
+    verticals: ['Asset tracking and monitoring', 'Agriculture and agtech', 'Environmental monitoring', 'Industrial automation', 'Security and field safety'],
+    verticalsOther: ['Remote equipment'], geography: 'Australia and New Zealand; remote, regional and mobile operating environments.',
     problem: 'Teams need to decide which messages must travel, by which path, and what the device should do when its preferred network is unavailable.',
-    objections: 'Hybrid connectivity sounds like a magic switch; satellite claims may over-promise; architecture, power, antenna, service and commercial constraints still need review.'
-  },
-  objectives: {
-    commercial: 'Generate qualified technical conversations and sales-accepted leads for Hybrid IoT design work.',
-    commercialTypes: ['Generate sales-accepted leads'],
-    commercialOther: '',
-    marketing: 'Build a qualified audience around the coverage boundary and move engaged teams to a readiness guide.',
-    marketingTypes: ['Create qualified pipeline', 'Drive an assessment or consultation'],
-    marketingOther: '',
-    communications: 'Make the operational boundary visible, prove the design questions in credible contexts, then invite a scoped engineering conversation.',
-    communicationsTypes: ['Educate a technical market'],
-    communicationsOther: '',
-    primaryKpi: 'Qualified design-session requests and sales-accepted leads',
-    secondaryKpis: ['Readiness-guide conversion', 'Repeat visits', 'LinkedIn document completion', 'Lead response time', 'Performance by source and vertical'],
-    kpis: ['Qualified design-session requests and sales-accepted leads', 'Readiness-guide conversion', 'Repeat visits', 'LinkedIn document completion', 'Lead response time', 'Performance by source and vertical'],
-    nonGoals: 'This is not an impressions or opens campaign. It does not promise universal coverage, automatic failover or a confirmed event.'
-  },
-  proposition: {
+    objections: 'Hybrid connectivity may over-promise; architecture, power, antenna, service and commercial constraints need review.'
+  };
+  core.proposition = {
     promise: 'Cellular where you can. Satellite where you must.',
     supporting: 'One compact module makes both layers available. Your product design defines routing, retry, priority and fallback behaviour.',
     proof: 'Official Iridium 9604 product information: LTE-M cellular, Iridium Short Burst Data and GNSS in a 16 × 26 × 2.4 mm module; independent subsystem control and a unified AT-command interface.',
     claimsStatus: 'Confirmed and qualified; application behaviour remains developer-defined.',
-    cta: 'Start a Hybrid IoT design conversation',
-    landingUrl: 'https://m2mone.com.au/hybrid-iot-readiness/'
-  },
-  strategy: {
-    route: 'Coverage problem → readiness guide → qualified design conversation',
-    phases: '01 Recognise the coverage gap (weeks 1–3) → 02 Prove it in the field (weeks 4–8) → 03 Move into engineering (weeks 9–12)',
-    channels: ['LinkedIn organic', 'LinkedIn document', 'Segmented email nurture', 'Hybrid IoT landing page', 'Paid search', 'Retargeting', 'Sales and SI follow-up'],
-    tactics: 'Weekly stills, five vertical carousels, technical document posts, segmented emails, landing-page proof, readiness guide, proposed design clinic and sales talk tracks.',
-    nurture: 'Recognise → educate → diagnose → convert, with lead response and qualification owned by sales.',
-    recommendations: []
-  },
-  production: {
-    formats: ['LinkedIn organic', 'LinkedIn document', 'Email nurture', 'Landing page', 'Paid search', 'Retargeting', 'Sales enablement', 'Motion study'],
-    creative: 'Human operating moments at the coverage edge. Technical clarity over product glamour. Every claim carries an evidence label.',
-    imagery: 'Illustrative human and field settings are allowed when marked as generated and not presented as customer proof. Product and technical diagrams require source approval.',
-    motion: 'Short explainer and motion studies may be generated from text-free Higgsfield masters, then composited with approved typography and logos.',
-    assetNotes: 'Create independent M2M Connectivity and M2M One branches. Never place both logos on one artwork.'
-  },
-  governance: {
+    cta: 'Start a Hybrid IoT design conversation', destination: 'https://m2mone.com.au/hybrid-iot-readiness/'
+  };
+  core.conversionRoute = { route: 'Coverage problem → readiness guide → qualified design conversation', formAction: 'Readiness guide form', handoff: 'Sales owns response and qualification.' };
+  core.activation = {
+    channels: ['LinkedIn organic', 'LinkedIn document', 'Email nurture', 'Landing page', 'Paid search', 'Retargeting', 'Sales follow-up'],
+    startDate: '2026-09-21', endDate: '2026-12-13',
+    formats: ['LinkedIn organic', 'LinkedIn document', 'Email nurture', 'Landing page', 'Paid search', 'Retargeting', 'Sales enablement', 'Motion study']
+  };
+  core.measurement = {
+    primaryKpi: 'Qualified design-session requests and sales-accepted leads',
+    supportingKpis: ['Assessment or consultation requests', 'Landing-page conversion rate', 'Lead response time'],
+    target: '', event: 'Qualified design-session request', source: 'CRM and campaign source attribution'
+  };
+  core.guardrails = {
     sources: 'Official Iridium 9604 product information; campaign-owned readiness framework; live OptiFlows campaign pack at /campaigns/9604-hybrid-connectivity/.',
-    rights: 'Confirm image, logo, font, product-render, partner and customer permissions before publication. Generated illustrations are not case studies or testimonials.',
-    assumptions: 'Date, speaker, capacity and owner for the proposed design clinic remain unconfirmed. Final application architecture and coverage depend on engineering review.',
-    gates: ['Technical claims reviewed', 'Brand branch reviewed', 'Landing-page destination and form owner confirmed', 'Creative rights and provenance recorded', 'Budget and activation owner approved'],
-    activation: 'Private review'
-  },
-  branches: { selected: ['m2m-connectivity', 'm2m-one-au'], independent: true, higgsfield: 'Job specifications only', handoff: 'M2M marketing owns the brief; technical, brand and commercial owners approve before activation.' }
+    rights: 'Confirm image, logo, font, product-render, partner and customer permissions before publication.',
+    assumptions: 'Final application architecture and coverage depend on engineering review.',
+    exclusions: 'No universal coverage, automatic failover, safety guarantee or confirmed customer event.',
+    approvalNotes: 'Technical claims, brand, destination, rights, budget and activation owner require approval.'
+  };
+  core.brand = { plugins: ['m2m-connectivity', 'm2m-one-au'], independentArtwork: true, handoff: 'M2M marketing owns the brief; technical, brand and commercial owners approve before activation.' };
+  core.advanced = {
+    creative: 'Human operating moments at the coverage edge. Technical clarity over product glamour.',
+    imagery: 'Illustrative field settings are allowed when marked as generated and not presented as customer proof.',
+    motion: 'Short explainer and motion studies may be generated from text-free masters, then composited with approved typography and logos.',
+    nurture: 'Recognise → educate → diagnose → convert, with lead response and qualification owned by sales.', budget: ''
+  };
+  const run = blankRun();
+  run.inputs = { commercialGoal: core.intent.commercialOutcome, offer: core.intent.offer, decisionMaker: core.audience.primary, trigger: core.intent.trigger, market: core.intent.market, proofConstraints: core.proposition.proof };
+  return { campaignCore: core, consultantRun: run };
 };
 
 let state = loadState();
-let currentStage = 0;
-let currentView = 'consultant';
+let currentStep = Number(sessionStorage.getItem('m2m-campaign-copilot-step') || 0);
+let toastTimer = null;
+const appRoot = document.querySelector('#appRoot');
 
-const $ = (selector) => document.querySelector(selector);
-const formMount = $('#formMount');
-const previewMount = $('#previewMount');
-const consultantMount = $('#consultantView');
-const compilerView = $('#compilerView');
-
-function loadState() {
-  try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    const loaded = saved ? merge(blankState(), JSON.parse(saved)) : blankState();
-    return normalizeState(loaded);
-  } catch { return normalizeState(blankState()); }
-}
-
+function clone(value) { return JSON.parse(JSON.stringify(value)); }
 function merge(base, input) {
   if (!input || typeof input !== 'object') return base;
-  Object.keys(base).forEach((key) => {
-    if (input[key] && typeof base[key] === 'object' && !Array.isArray(base[key]) && typeof input[key] === 'object') base[key] = { ...base[key], ...input[key] };
+  Object.keys(input).forEach((key) => {
+    if (input[key] && typeof input[key] === 'object' && !Array.isArray(input[key]) && base[key] && typeof base[key] === 'object' && !Array.isArray(base[key])) base[key] = merge({ ...base[key] }, input[key]);
     else if (input[key] !== undefined) base[key] = input[key];
   });
   return base;
 }
-
-function normalizeState(nextState = state) {
-  const audience = nextState.audience || (nextState.audience = {});
-  const objectives = nextState.objectives || (nextState.objectives = {});
-  const proposition = nextState.proposition || (nextState.proposition = {});
-  const strategy = nextState.strategy || (nextState.strategy = {});
-  const consultantDefaults = blankConsultantRun();
-  const consultant = nextState.consultantRun || (nextState.consultantRun = consultantDefaults);
-  consultant.inputs = { ...consultantDefaults.inputs, ...(consultant.inputs || {}) };
-  consultant.research = { ...consultantDefaults.research, ...(consultant.research || {}) };
-  consultant.research.questions = Array.isArray(consultant.research.questions) ? consultant.research.questions : [];
-  consultant.research.evidence = Array.isArray(consultant.research.evidence) ? consultant.research.evidence : [];
-  consultant.research.sources = Array.isArray(consultant.research.sources) ? consultant.research.sources : [];
-  consultant.concepts = Array.isArray(consultant.concepts) ? consultant.concepts : [];
-  consultant.generation = Number.isFinite(Number(consultant.generation)) ? Number(consultant.generation) : 0;
-  consultant.preferenceEvents = Array.isArray(consultant.preferenceEvents) ? consultant.preferenceEvents : [];
-  consultant.pendingRewriteRound = consultant.pendingRewriteRound || null;
-  consultant.selectedConcept = consultant.selectedConcept || null;
-  consultant.handoffStatus = consultant.handoffStatus || 'Not started';
-  const array = (value) => Array.isArray(value) ? value.filter(Boolean) : [];
-  audience.primarySegments = array(audience.primarySegments);
-  audience.rolesSelected = array(audience.rolesSelected);
-  audience.verticalsSelected = array(audience.verticalsSelected);
-  audience.roles = array(audience.roles);
-  audience.verticals = array(audience.verticals);
-  audience.primaryOther = audience.primaryOther || '';
-  audience.rolesOther = audience.rolesOther || '';
-  audience.verticalsOther = audience.verticalsOther || '';
-  const splitKnown = (legacy, selected, other, options) => {
-    if (selected.length || !legacy.length) return { selected, other };
-    const known = legacy.filter((item) => options.includes(item));
-    const unknown = legacy.filter((item) => !options.includes(item));
-    return { selected: known, other: [other, ...unknown].filter(Boolean).join('; ') };
-  };
-  let split = splitKnown(audience.roles, audience.rolesSelected, audience.rolesOther, LIBRARIES.roles);
-  audience.rolesSelected = split.selected; audience.rolesOther = split.other;
-  split = splitKnown(audience.verticals, audience.verticalsSelected, audience.verticalsOther, LIBRARIES.verticals);
-  audience.verticalsSelected = split.selected; audience.verticalsOther = split.other;
-  if (!audience.primarySegments.length && audience.primary) audience.primaryOther = audience.primaryOther || audience.primary;
-  if (audience.primary && audience.primarySegments.length && !audience.primaryDetail) audience.primaryDetail = audience.primary;
-  audience.primary = audience.primaryDetail || [...audience.primarySegments, audience.primaryOther].filter(Boolean).join('; ') || audience.primary || '';
-  audience.roles = [...audience.rolesSelected, audience.rolesOther].filter(Boolean);
-  audience.verticals = [...audience.verticalsSelected, audience.verticalsOther].filter(Boolean);
-  objectives.commercialTypes = array(objectives.commercialTypes);
-  objectives.marketingTypes = array(objectives.marketingTypes);
-  objectives.communicationsTypes = array(objectives.communicationsTypes);
-  objectives.kpis = array(objectives.kpis);
-  objectives.secondaryKpis = array(objectives.secondaryKpis);
-  if (!objectives.kpis.length) objectives.kpis = [objectives.primaryKpi, ...objectives.secondaryKpis].filter(Boolean);
-  if (!objectives.primaryKpi && objectives.kpis.length) objectives.primaryKpi = objectives.kpis[0];
-  objectives.secondaryKpis = objectives.kpis.filter((item) => item !== objectives.primaryKpi);
-  objectives.commercialOther = objectives.commercialOther || '';
-  objectives.marketingOther = objectives.marketingOther || '';
-  objectives.communicationsOther = objectives.communicationsOther || '';
-  proposition.suggestions = array(proposition.suggestions);
-  strategy.recommendations = array(strategy.recommendations);
-  return nextState;
+function fromLegacy(input) {
+  const core = blankCore(), meta = input.meta || {}, audience = input.audience || {}, objectives = input.objectives || {}, proposition = input.proposition || {}, strategy = input.strategy || {}, production = input.production || {}, governance = input.governance || {};
+  core.name = meta.campaignName || ''; core.slug = meta.campaignSlug || '';
+  core.intent = { commercialOutcome: objectives.commercial || '', outcomeType: objectives.commercialTypes?.[0] || '', offer: meta.product || '', trigger: audience.trigger || '', market: meta.market || '', owner: meta.owner || '', timing: [meta.startDate, meta.endDate].filter(Boolean).join(' to ') };
+  core.audience = { primary: audience.primary || '', roles: audience.roles || audience.rolesSelected || [], rolesOther: audience.rolesOther || '', verticals: audience.verticals || audience.verticalsSelected || [], verticalsOther: audience.verticalsOther ? [audience.verticalsOther] : [], geography: audience.geographies || '', problem: audience.problem || '', objections: audience.objections || '' };
+  core.proposition = { promise: proposition.promise || '', supporting: proposition.supporting || '', proof: proposition.proof || '', claimsStatus: proposition.claimsStatus || 'Needs evidence review', cta: proposition.cta || '', destination: proposition.landingUrl || '' };
+  core.conversionRoute = { route: strategy.route || '', formAction: '', handoff: '' };
+  core.activation = { channels: strategy.channels || [], startDate: meta.startDate || '', endDate: meta.endDate || '', formats: production.formats || [] };
+  core.measurement = { primaryKpi: objectives.primaryKpi || objectives.kpis?.[0] || '', supportingKpis: objectives.secondaryKpis || (objectives.kpis || []).slice(1), target: '', event: objectives.primaryKpi || '', source: '' };
+  core.guardrails = { sources: governance.sources || '', rights: governance.rights || '', assumptions: governance.assumptions || '', exclusions: objectives.nonGoals || '', approvalNotes: '' };
+  core.brand = { plugins: input.branches?.selected || ['m2m-connectivity'], independentArtwork: input.branches?.independent !== false, handoff: input.branches?.handoff || '' };
+  core.advanced = { creative: production.creative || '', imagery: production.imagery || '', motion: production.motion || '', nurture: strategy.nurture || '', budget: '' };
+  return { campaignCore: core, consultantRun: merge(blankRun(), input.consultantRun || {}) };
 }
-
-function esc(value = '') {
-  return String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char]));
+function normalise(next) {
+  if (!next.campaignCore) next = fromLegacy(next);
+  const clean = merge(blankState(), next), template = blankCore(), c = clean.campaignCore;
+  ['intent', 'audience', 'proposition', 'conversionRoute', 'activation', 'measurement', 'guardrails', 'brand', 'advanced', 'approvals'].forEach((key) => { c[key] = merge(template[key], c[key]); });
+  ['roles', 'verticals', 'verticalsOther'].forEach((key) => { if (!Array.isArray(c.audience[key])) c.audience[key] = c.audience[key] ? [c.audience[key]] : []; });
+  ['channels', 'formats'].forEach((key) => { if (!Array.isArray(c.activation[key])) c.activation[key] = []; });
+  if (!Array.isArray(c.measurement.supportingKpis)) c.measurement.supportingKpis = [];
+  if (!Array.isArray(c.brand.plugins)) c.brand.plugins = [];
+  c.provenance = merge(template.provenance, c.provenance);
+  c.provenance.fields = c.provenance.fields || {};
+  ['inferred', 'generated', 'edited'].forEach((key) => { if (!Array.isArray(c.provenance[key])) c.provenance[key] = []; });
+  clean.consultantRun = merge(blankRun(), clean.consultantRun || {});
+  clean.consultantRun.research = merge(blankRun().research, clean.consultantRun.research || {});
+  ['questions', 'evidence', 'sources'].forEach((key) => { if (!Array.isArray(clean.consultantRun.research[key])) clean.consultantRun.research[key] = []; });
+  ['concepts', 'preferenceEvents'].forEach((key) => { if (!Array.isArray(clean.consultantRun[key])) clean.consultantRun[key] = []; });
+  clean.consultantRun.generation = Number(clean.consultantRun.generation || 0);
+  c.slug = c.slug || slugify(c.name);
+  c.activation.formats = derivedFormats(c.activation.channels, c.activation.formats);
+  return clean;
 }
-function get(path) { return path.split('.').reduce((obj, key) => obj?.[key], state); }
-function set(path, value) { const bits = path.split('.'); const last = bits.pop(); const target = bits.reduce((obj, key) => obj[key], state); target[last] = value; }
+function loadState() {
+  try { const stored = localStorage.getItem(STORAGE_KEY) || localStorage.getItem('m2m-campaign-brief-compiler-v1'); return normalise(stored ? JSON.parse(stored) : blankState()); }
+  catch { return normalise(blankState()); }
+}
+function save() {
+  state = normalise(state); localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+  const node = document.querySelector('#saveState'); if (node) node.textContent = 'Saved ' + new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+}
+function getPath(path) { return path.split('.').reduce((obj, key) => obj?.[key], state.campaignCore); }
+function setPath(path, value) { const bits = path.split('.'), last = bits.pop(), target = bits.reduce((obj, key) => obj[key], state.campaignCore); target[last] = value; }
+function getRun(path) { return path.split('.').reduce((obj, key) => obj?.[key], state.consultantRun); }
+function setRun(path, value) { const bits = path.split('.'), last = bits.pop(), target = bits.reduce((obj, key) => obj[key], state.consultantRun); target[last] = value; }
 function slugify(value) { return String(value || '').toLowerCase().trim().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 70); }
-function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); $('#saveState').textContent = `Saved ${new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}`; }
-function showToast(message) { const toast = $('#toast'); toast.textContent = message; toast.classList.add('show'); clearTimeout(showToast.timer); showToast.timer = setTimeout(() => toast.classList.remove('show'), 2600); }
-
-function input(path, label, hint = '', type = 'text', placeholder = '') {
-  const val = get(path) || '';
-  return `<div class="field"><label for="${path.replace('.', '-')}">${esc(label)}${hint ? `<span>${esc(hint)}</span>` : ''}</label><input id="${path.replace('.', '-')}" data-bind="${path}" type="${type}" value="${esc(val)}" placeholder="${esc(placeholder)}"></div>`;
-}
-function textarea(path, label, hint = '', placeholder = '', full = true) {
-  const val = get(path) || '';
-  return `<div class="field ${full ? 'full' : ''}"><label for="${path.replace('.', '-')}">${esc(label)}${hint ? `<span>${esc(hint)}</span>` : ''}</label><textarea id="${path.replace('.', '-')}" data-bind="${path}" placeholder="${esc(placeholder)}">${esc(val)}</textarea></div>`;
-}
-function select(path, label, options, hint = '') {
-  const current = get(path) || '';
-  const values = current && !options.includes(current) ? [options[0], current, ...options.slice(1)] : options;
-  const val = current || options[0];
-  return `<div class="field"><label for="${path.replace('.', '-')}">${esc(label)}${hint ? `<span>${esc(hint)}</span>` : ''}</label><select id="${path.replace('.', '-')}" data-bind="${path}">${values.map((option) => `<option value="${esc(option)}" ${option === val ? 'selected' : ''}>${esc(option)}</option>`).join('')}</select></div>`;
-}
-function tags(path, label, hint = '', placeholder = 'Type and press Enter') {
-  const items = get(path) || [];
-  return `<div class="field full"><label>${esc(label)}${hint ? `<span>${esc(hint)}</span>` : ''}</label><div class="tag-editor" data-tags="${path}">${items.map((item, index) => `<span class="tag">${esc(item)}<button type="button" data-remove-tag="${path}" data-index="${index}" aria-label="Remove ${esc(item)}">×</button></span>`).join('')}<input class="tag-input" data-tag-input="${path}" placeholder="${esc(placeholder)}"></div></div>`;
-}
-function libraryChoices(path, otherPath, label, options, hint = '', columns = 2) {
-  const selected = get(path) || [];
-  const source = `${LIBRARY_META.source} · reviewed ${LIBRARY_META.reviewed}`;
-  return `<fieldset class="field full library-field"><legend>${esc(label)}${hint ? `<span>${esc(hint)}</span>` : ''}</legend><p class="source-note">${esc(source)}. ${esc(LIBRARY_META.status)}</p><div class="choice-grid" style="grid-template-columns:repeat(${columns},minmax(0,1fr))">${options.map((option) => `<div class="choice"><input id="${path.replace(/\./g, '-')}-${slugify(option)}" data-check="${path}" type="checkbox" value="${esc(option)}" ${selected.includes(option) ? 'checked' : ''}><label for="${path.replace(/\./g, '-')}-${slugify(option)}">${esc(option)}</label></div>`).join('')}</div><div class="other-field">${input(otherPath, 'Other', 'Add a value that is not in the curated library.', 'text', 'Type another option')}</div></fieldset>`;
-}
-function choices(path, label, options, hint = '', columns = 2) {
-  const selected = get(path) || [];
-  return `<fieldset class="field full"><legend>${esc(label)}${hint ? `<span>${esc(hint)}</span>` : ''}</legend><div class="choice-grid" style="grid-template-columns:repeat(${columns},minmax(0,1fr))">${options.map((option) => `<div class="choice"><input id="${path.replace('.', '-')}-${slugify(option)}" data-check="${path}" type="checkbox" value="${esc(option)}" ${selected.includes(option) ? 'checked' : ''}><label for="${path.replace('.', '-')}-${slugify(option)}">${esc(option)}</label></div>`).join('')}</div></fieldset>`;
-}
-function suggestionPanel(kind) {
-  const isProposition = kind === 'proposition';
-  const items = get(isProposition ? 'proposition.suggestions' : 'strategy.recommendations') || [];
-  const cards = items.length ? items.map((item) => isProposition
-    ? `<article class="suggestion-card"><div><span class="suggestion-label">${esc(item.label)}</span><h4>${esc(item.promise)}</h4><p>${esc(item.supporting)}</p><small>${esc(item.proofNeed)}</small></div><div class="suggestion-actions"><span class="suggestion-confidence">${esc(item.confidence || 'Working hypothesis')}</span><button type="button" class="button button-secondary button-small" data-action="use-suggestion" data-suggestion="${esc(item.id)}">Use this direction</button></div></article>`
-    : `<article class="suggestion-card recommendation-card"><div><span class="suggestion-label">${esc(item.title)}</span><h4>${esc(item.why)}</h4><p><strong>Route:</strong> ${esc(item.route)}</p><p><strong>Phases:</strong> ${esc(item.phases)}</p><small><strong>Channels:</strong> ${esc((item.channels || []).join(', '))}</small></div><div class="suggestion-actions"><span class="suggestion-confidence">${esc(item.confidence || 'Working recommendation')}</span><button type="button" class="button button-secondary button-small" data-action="use-strategy" data-strategy="${esc(item.id)}">Use this strategy</button></div></article>`).join('') : `<div class="empty-note">${isProposition ? 'Answer the audience, product and problem questions, then generate a few message directions.' : 'Complete the decision fields, then generate a few strategic routes.'}</div>`;
-  return `<section class="suggestion-panel"><div class="suggestion-head"><div><span class="suggestion-kicker">Assisted starting point</span><h3>${isProposition ? 'Generate message directions' : 'Recommend a strategy'}</h3><p>${isProposition ? 'Uses the information already in this brief to propose reviewable promise and supporting-message options.' : 'Uses the audience, objective, proposition and channels to propose a practical route.'}</p></div><button type="button" class="button button-primary button-small" data-action="${isProposition ? 'generate-suggestions' : 'recommend-strategy'}">${isProposition ? 'Suggest messages' : 'Generate strategy'}</button></div><p class="suggestion-disclaimer">These are working hypotheses from the current brief. Confirm proof, owners and gates before they enter production.</p><div class="suggestion-list">${cards}</div></section>`;
-}
-
-const CONSULTANT_QUESTIONS = [
-  ['commercialGoal', 'What are you trying to achieve commercially?', 'Pipeline, revenue, adoption, retention, partner movement or another business result.'],
-  ['offer', 'What are you trying to sell, promote or change?', 'A product, service, launch, behaviour, offer or customer decision.'],
-  ['decisionMaker', 'Who needs to act or decide?', 'Name the people, roles or organisations who can move the decision forward.'],
-  ['trigger', 'What problem or trigger makes this relevant now?', 'The moment, friction, risk or opportunity that gives the campaign urgency.'],
-  ['market', 'Where or in which market does it matter?', 'Country, region, vertical, route, account group or operating environment.'],
-  ['proofConstraints', 'What proof, constraints or known assets already exist?', 'Sources, product facts, customer evidence, rights, timing, budget or things that must be avoided.']
-];
-
-function consultantInput(path) { return get(`consultantRun.inputs.${path}`) || ''; }
+function esc(value = '') { return String(value).replace(/[&<>"']/g, (char) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[char])); }
+function showToast(message) { const toast = document.querySelector('#toast'); toast.textContent = message; toast.classList.add('show'); clearTimeout(toastTimer); toastTimer = setTimeout(() => toast.classList.remove('show'), 2800); }
 function consultantAnswer(value, fallback) { const text = String(value || '').trim(); return text && !/^i\s*don'?t\s*know$/i.test(text) ? text : fallback; }
-function consultantQuestion(path, label, hint) {
-  const value = consultantInput(path);
-  return `<div class="consultant-question"><label for="consultant-${path}">${esc(label)}<span>${esc(hint)}</span></label><textarea id="consultant-${path}" data-consultant-bind="consultantRun.inputs.${path}" placeholder="${esc(hint)}">${esc(value)}</textarea><button type="button" class="unknown-button" data-consultant-unknown="${esc(path)}">I don't know</button></div>`;
+function cleanPhrase(value) { return String(value || '').trim().replace(/[.。]+$/g, ''); }
+function derivedFormats(channels, existing = []) { return [...new Set((channels || []).flatMap((channel) => CHANNEL_FORMATS[channel] || []).concat(existing || []))]; }
+function selectedBrandNames() { return (state.campaignCore.brand.plugins || []).map((id) => BRANDS[id]?.name || id); }
+function markProvenance(paths, kind) {
+  const provenance = state.campaignCore.provenance || (state.campaignCore.provenance = { fields: {}, inferred: [], generated: [], edited: [] });
+  paths.forEach((path) => { provenance.fields[path] = kind; if (Array.isArray(provenance[kind === 'Generated' ? 'generated' : kind === 'Inferred' ? 'inferred' : 'edited']) && !provenance[kind === 'Generated' ? 'generated' : kind === 'Inferred' ? 'inferred' : 'edited'].includes(path)) provenance[kind === 'Generated' ? 'generated' : kind === 'Inferred' ? 'inferred' : 'edited'].push(path); });
+}
+
+function field(path, label, hint, placeholder, type = 'text') {
+  const value = getPath(path) || '';
+  return '<div class="field"><label for="field-' + path.replace(/\./g, '-') + '">' + esc(label) + (hint ? '<span>' + esc(hint) + '</span>' : '') + '</label><input id="field-' + path.replace(/\./g, '-') + '" data-bind="' + path + '" type="' + type + '" value="' + esc(value) + '" placeholder="' + esc(placeholder || '') + '"></div>';
+}
+function area(path, label, hint, placeholder) {
+  const value = getPath(path) || '';
+  return '<div class="field"><label for="field-' + path.replace(/\./g, '-') + '">' + esc(label) + (hint ? '<span>' + esc(hint) + '</span>' : '') + '</label><textarea id="field-' + path.replace(/\./g, '-') + '" data-bind="' + path + '" placeholder="' + esc(placeholder || '') + '">' + esc(value) + '</textarea></div>';
+}
+function selectField(path, label, options, hint) {
+  const current = getPath(path) || '';
+  const values = current && !options.includes(current) ? [current].concat(options) : options;
+  return '<div class="field"><label for="field-' + path.replace(/\./g, '-') + '">' + esc(label) + (hint ? '<span>' + esc(hint) + '</span>' : '') + '</label><select id="field-' + path.replace(/\./g, '-') + '" data-bind="' + path + '"><option value="">Choose one</option>' + values.map((option) => '<option value="' + esc(option) + '"' + (option === current ? ' selected' : '') + '>' + esc(option) + '</option>').join('') + '</select></div>';
+}
+function checkboxSet(path, label, options, hint, otherPath) {
+  const selected = getPath(path) || [], choices = options.concat(otherPath ? ['Other'] : []);
+  return '<fieldset class="choice-field"><legend>' + esc(label) + (hint ? '<span>' + esc(hint) + '</span>' : '') + '</legend><div class="choice-grid">' + choices.map((option) => '<label class="choice"><input type="checkbox" data-check="' + path + '" value="' + esc(option) + '"' + (selected.includes(option) ? ' checked' : '') + '><span>' + esc(option) + '</span></label>').join('') + '</div>' + (otherPath && selected.includes('Other') ? '<div class="other-inline">' + field(otherPath, 'Tell us more', '', 'Add the missing option') + '</div>' : '') + '</fieldset>';
+}
+function brandChoices() {
+  const selected = state.campaignCore.brand.plugins || [];
+  return '<fieldset class="choice-field brand-choice"><legend>Brand branch<span>Applied after the campaign spine is selected. Each branch stays independent.</span></legend><div class="brand-grid">' + Object.entries(BRANDS).map(([id, brand]) => '<label class="brand-option"><input type="checkbox" data-brand="' + id + '"' + (selected.includes(id) ? ' checked' : '') + '><span><strong>' + esc(brand.name) + '</strong><small>' + esc(brand.entity + ' · ' + brand.market) + '</small></span></label>').join('') + '</div><p class="micro-note">Artwork is generated per branch with one approved logo. Mixed-logo lockups are disabled.</p></fieldset>';
 }
 
 function buildResearchPlan() {
-  const mode = get('consultantRun.research.mode') || 'Quick scan';
-  const inputs = get('consultantRun.inputs') || {};
+  const core = state.campaignCore, mode = state.consultantRun.research.mode || 'Quick scan';
+  const offer = consultantAnswer(core.intent.offer, 'the offer'), outcome = consultantAnswer(core.intent.commercialOutcome, 'the commercial outcome'), audience = consultantAnswer(core.audience.primary, 'the priority audience'), today = new Date().toISOString().slice(0, 10);
   const questions = [
-    `What evidence supports the commercial goal: ${consultantAnswer(inputs.commercialGoal, 'the stated business outcome')}?`,
-    `Which approved terminology and brand rules apply to ${consultantAnswer(inputs.offer, 'the offer')} in ${consultantAnswer(inputs.market, 'the selected market')}?`,
-    `What proof can substantiate the audience problem: ${consultantAnswer(inputs.trigger, 'the stated trigger')}?`,
-    'Which claims, rights, destinations or owners need approval before activation?'
+    'What evidence supports the commercial outcome: ' + outcome + '?',
+    'Which approved terminology and brand rules apply to ' + offer + ' in ' + consultantAnswer(core.intent.market, 'the selected market') + '?',
+    'What proof can substantiate the problem for ' + audience + '?',
+    'Which claims, rights, destination or owners need approval before release?'
   ];
-  const baseEvidence = [
+  let evidence = mode === 'No research' ? [{ id: 'no-research', status: 'Unknown', title: 'Research skipped', source: 'User selection', date: null, detail: 'Concepts use supplied information only. No source claims have been checked.' }] : [
     { id: 'brand-brief', status: 'Confirmed', title: 'M2M Group brand brief', source: LIBRARY_META.source, date: LIBRARY_META.reviewed, detail: 'Audience, voice and brand-branch rules are available as an attributable internal reference.' },
-    { id: 'engagement-brief', status: 'Confirmed', title: 'M2M engagement and governance brief', source: 'JWR-TheOne · 07-projects/m2m-group/brief/ENGAGEMENT.md', date: LIBRARY_META.reviewed, detail: 'Business-unit values, approval boundaries and handoff expectations are available for review.' },
-    { id: 'existing-campaign', status: 'Strongly supported', title: 'Existing campaign reference', source: 'https://optiflows.com.au/campaigns/9604-hybrid-connectivity/', date: '2026-09-11', detail: 'Use the existing pack as a reference for route, production objects and evidence treatment.' },
-    { id: 'campaign-fit', status: inputs.offer && inputs.trigger ? 'Inferred' : 'Unknown', title: 'Campaign-specific evidence', source: 'Supplied in this consultant run', date: new Date().toISOString().slice(0, 10), detail: inputs.offer && inputs.trigger ? 'The current concept is inferred from the offer and trigger supplied above; verify before treating it as a claim.' : 'Supply an offer and trigger, or keep this item explicitly unknown.' },
-    { id: 'approval', status: 'Requires approval', title: 'Activation and claim approvals', source: 'Human gate', date: null, detail: 'Technical claims, rights, destination, budget, spend, send and external generation remain approval gates.' }
+    { id: 'existing-campaign', status: 'Strongly supported', title: 'Existing campaign reference', source: 'https://optiflows.com.au/campaigns/9604-hybrid-connectivity/', date: today, detail: 'The existing pack provides a reference for route, production objects and evidence treatment.' },
+    { id: 'campaign-fit', status: core.intent.offer && core.intent.trigger ? 'Inferred' : 'Unknown', title: 'Campaign-specific evidence', source: 'Supplied in this consultant run', date: today, detail: core.intent.offer && core.intent.trigger ? 'The current campaign direction is inferred from the offer and trigger; verify before treating it as a claim.' : 'Supply an offer and trigger, or keep this item explicitly unknown.' },
+    { id: 'approval', status: 'Requires approval', title: 'Activation and claim approvals', source: 'Human gate', date: null, detail: 'Technical claims, rights, destination, budget, send and external generation remain approval gates.' }
   ];
-  let evidence = mode === 'No research' ? [{ id: 'no-research', status: 'Unknown', title: 'Research skipped', source: 'User selection', date: null, detail: 'Concepts use supplied information only. No source claims have been checked.' }] : baseEvidence;
-  if (mode === 'Evidence pack') evidence = [...evidence, { id: 'claims-register', status: 'Requires approval', title: 'Claims register starter', source: 'Prepared from campaign inputs', date: new Date().toISOString().slice(0, 10), detail: 'Record each claim, source, confidence, expiry and approver before publication.' }];
-  set('consultantRun.research', { mode, questions, evidence, sources: evidence.map((item) => ({ title: item.title, source: item.source, date: item.date, status: item.status })), status: mode === 'No research' ? 'Prepared without research' : 'Prepared research plan; source review remains human-controlled', preparedAt: new Date().toISOString() });
+  if (mode === 'Evidence pack') evidence = evidence.concat([{ id: 'claims-register', status: 'Requires approval', title: 'Claims register starter', source: 'Prepared from campaign inputs', date: today, detail: 'Record each claim, source, confidence, expiry and approver before publication.' }]);
+  state.consultantRun.research = { mode, questions, evidence, sources: evidence.map((item) => ({ title: item.title, source: item.source, date: item.date, status: item.status })), status: mode === 'No research' ? 'Prepared without research' : 'Prepared research plan; source review remains human-controlled', preparedAt: new Date().toISOString() };
 }
 
-function conceptTemplates(inputs, generation = 1) {
-  const offer = consultantAnswer(inputs.offer, 'the offer');
-  const audience = consultantAnswer(inputs.decisionMaker, 'the people who need to decide');
-  const trigger = consultantAnswer(inputs.trigger, 'the moment the problem becomes urgent');
-  const market = consultantAnswer(inputs.market, 'the selected market');
-  const problem = trigger;
-  const is9604 = /9604|hybrid|iridium|satellite/i.test(`${inputs.offer || ''} ${inputs.trigger || ''} ${inputs.proofConstraints || ''}`);
-  const variant = Math.max(0, generation - 1) % 3;
+function conceptTemplates(inputs, generation) {
+  const offer = consultantAnswer(inputs.offer, 'the offer'), audience = consultantAnswer(inputs.decisionMaker, 'the people who need to decide'), trigger = cleanPhrase(consultantAnswer(inputs.trigger, 'the moment the problem becomes urgent')), market = consultantAnswer(inputs.market, 'the selected market');
+  const is9604 = /9604|hybrid|iridium|satellite/i.test([inputs.offer, inputs.trigger, inputs.proofConstraints].join(' ')), variant = Math.max(0, Number(generation || 1) - 1) % 3;
   const boundaryIdeas = is9604 ? ['Where does your device lose coverage?', 'Where does the operating map stop?', 'Make the coverage boundary a design input.'] : ['Where does the journey break?', 'Where does the operating journey stop?', 'Make the friction boundary visible.'];
   const consequenceIdeas = is9604 ? ['What does one missed transmission cost?', 'How long can silence last?', 'Which signal earns a different path?'] : ['What does one missed signal cost?', 'How long can the gap remain invisible?', 'Which moment deserves a different response?'];
   const engineeringIdeas = is9604 ? ['One module. Both layers. Your logic.', 'Design the path before the edge case.', 'The exception path belongs in the architecture.'] : ['One design. Evidence you can use.', 'Build the proof into the decision.', 'Make the next technical step defensible.'];
-  const boundaryMessages = is9604 ? ['Coverage is a design question. Map where the preferred path stops, then plan what happens next.', 'Coverage is an operating input. Locate the boundary, then design the response around it.', 'Treat the coverage boundary as a first-class design input before selecting the response.'] : [`Make ${problem} visible before asking the market to act.`, `Name the point where ${problem} becomes a decision, then make the next step clear.`, `Turn ${problem} into a visible design question before asking for action.`];
+  const boundaryMessages = is9604 ? ['Coverage is a design question. Map where the preferred path stops, then plan what happens next.', 'Coverage is an operating input. Locate the boundary, then design the response around it.', 'Treat the coverage boundary as a first-class design input before selecting the response.'] : ['Make ' + trigger + ' visible before asking the market to act.', 'Name the point where ' + trigger + ' becomes a decision, then make the next step clear.', 'Turn ' + trigger + ' into a visible design question before asking for action.'];
   const consequenceMessages = ['When a message matters, the cost of silence should be visible before the system is designed.', 'When silence has a cost, message priority should shape the design before implementation.', 'The right response starts by deciding which moments are too valuable to leave to chance.'];
-  const engineeringMessages = is9604 ? ['One module can expose both connectivity layers; your logic defines routing, retry and priority.', 'The module makes both layers available; the product still defines routing, retry and priority.', 'A compact module can simplify the hardware footprint while leaving the important logic with your design team.'] : [`${offer} gives the team a basis for a defensible design; the application logic and constraints still need review.`, `${offer} can support a more defensible decision when the interfaces and constraints are explicit.`, `Use ${offer} as a starting point for a proof-led design review, with the application constraints still visible.`];
+  const engineeringMessages = is9604 ? ['One module can expose both connectivity layers; your logic defines routing, retry and priority.', 'The module makes both layers available; the product still defines routing, retry and priority.', 'A compact module can simplify the hardware footprint while leaving the important logic with your design team.'] : [offer + ' gives the team a basis for a defensible design; the application logic and constraints still need review.', offer + ' can support a more defensible decision when the interfaces and constraints are explicit.', 'Use ' + offer + ' as a starting point for a proof-led design review, with the application constraints still visible.'];
   const sharedChannels = ['LinkedIn organic', 'Landing page', 'Email nurture', 'Sales follow-up'];
   return [
-    {
-      id: 'coverage-boundary', title: 'Coverage boundary', idea: boundaryIdeas[variant], audience, problem: `Make the boundary visible: ${problem}.`, message: boundaryMessages[variant], supporting: `Give ${audience} a simple way to see where ${offer} fits and what needs to be assessed in ${market}.`, why: 'This direction turns an abstract market problem into a recognisable moment that can earn attention quickly.', proofRequirements: ['A sourced description of the boundary or trigger', 'A clear definition of what the offer can and cannot do', 'A useful assessment or checklist'], risks: ['The hook becomes generic if the boundary is not concrete', 'The audience may not recognise the moment without a real example'], cta: 'Map the next decision', route: 'Boundary signal → diagnostic guide → scoped assessment → qualified conversation', channels: sharedChannels, formats: ['LinkedIn organic', 'LinkedIn document', 'Landing page', 'Email nurture'], visual: 'A human or asset approaching a visible operating boundary; no embedded copy or invented customer proof.'
-    },
-    {
-      id: 'operational-consequence', title: 'Operational consequence', idea: consequenceIdeas[variant], audience, problem: `Connect the trigger to the consequence: ${problem}.`, message: consequenceMessages[variant], supporting: `Show the operational decision behind ${offer}: what must travel, when it must travel and what a responsible fallback requires.`, why: 'This direction makes the commercial value tangible by linking the problem to time, risk, cost or continuity.', proofRequirements: ['A quantified or bounded consequence', 'A credible use case or customer-safe scenario', 'Evidence that supports the proposed response'], risks: ['Unverified numbers can over-promise', 'The campaign needs a concrete consequence, not a fear statement'], cta: 'Assess the cost of a missed message', route: 'Operational consequence → proof-led scenario → readiness offer → qualified conversation', channels: sharedChannels, formats: ['LinkedIn organic', 'LinkedIn document', 'Landing page', 'Email nurture', 'Sales enablement'], visual: 'A field decision interrupted at the moment it matters; show consequence through context, not alarmist overlays.'
-    },
-    {
-      id: 'engineering-proof', title: 'Engineering proof', idea: engineeringIdeas[variant], audience, problem: `Answer the engineering question inside ${problem}.`, message: engineeringMessages[variant], supporting: `Lead with the mechanism, the interfaces and the decisions that remain with the product team.`, why: 'This direction earns trust with technically literate buyers who need proof and boundaries before a sales conversation.', proofRequirements: ['Official product or service facts', 'Interface, architecture or integration evidence', 'A qualified statement of what remains developer- or customer-defined'], risks: ['A technical hook can lose non-engineering decision-makers', 'The mechanism must be explained without implying automatic outcomes'], cta: 'Review the design questions', route: 'Engineering question → technical proof → architecture checklist → design conversation', channels: sharedChannels, formats: ['LinkedIn document', 'Landing page', 'Email nurture', 'Sales enablement'], visual: 'A restrained technical field scene with room for deterministic copy and a later single-brand composition.'
-    }
+    { id: 'coverage-boundary', title: 'Coverage boundary', idea: boundaryIdeas[variant], audience, audienceTension: trigger, problem: 'Make the boundary visible: ' + trigger + '.', message: boundaryMessages[variant], supporting: 'Give ' + audience + ' a simple way to see where ' + offer + ' fits and what needs to be assessed in ' + market + '.', why: 'Turns an abstract problem into a recognisable moment that can earn attention quickly.', proofRequirements: ['A sourced description of the boundary or trigger', 'A clear definition of what the offer can and cannot do', 'A useful assessment or checklist'], risks: ['The hook becomes generic if the boundary is not concrete', 'The audience may not recognise the moment without a real example'], cta: 'Map the next decision', route: 'Boundary signal → diagnostic guide → scoped assessment → qualified conversation', channels: sharedChannels, formats: ['LinkedIn organic', 'LinkedIn document', 'Landing page', 'Email nurture'], visual: 'A human or asset approaching a visible operating boundary; no embedded copy or invented customer proof.' },
+    { id: 'operational-consequence', title: 'Operational consequence', idea: consequenceIdeas[variant], audience, audienceTension: trigger, problem: 'Connect the trigger to the consequence: ' + trigger + '.', message: consequenceMessages[variant], supporting: 'Show the operational decision behind ' + offer + ': what must travel, when it must travel and what a responsible fallback requires.', why: 'Makes commercial value tangible by linking the problem to time, risk, cost or continuity.', proofRequirements: ['A quantified or bounded consequence', 'A credible use case or customer-safe scenario', 'Evidence that supports the proposed response'], risks: ['Unverified numbers can over-promise', 'The campaign needs a concrete consequence, not a fear statement'], cta: 'Assess the cost of a missed message', route: 'Operational consequence → proof-led scenario → readiness offer → qualified conversation', channels: sharedChannels, formats: ['LinkedIn organic', 'LinkedIn document', 'Landing page', 'Email nurture', 'Sales enablement'], visual: 'A field decision interrupted at the moment it matters; show consequence through context, not alarmist overlays.' },
+    { id: 'engineering-proof', title: 'Engineering proof', idea: engineeringIdeas[variant], audience, audienceTension: trigger, problem: 'Answer the engineering question inside ' + trigger + '.', message: engineeringMessages[variant], supporting: 'Lead with the mechanism, the interfaces and the decisions that remain with the product team.', why: 'Earns trust with technically literate buyers who need proof and boundaries before a sales conversation.', proofRequirements: ['Official product or service facts', 'Interface, architecture or integration evidence', 'A qualified statement of what remains developer- or customer-defined'], risks: ['A technical hook can lose non-engineering decision-makers', 'The mechanism must be explained without implying automatic outcomes'], cta: 'Review the design questions', route: 'Engineering question → technical proof → architecture checklist → design conversation', channels: sharedChannels, formats: ['LinkedIn document', 'Landing page', 'Email nurture', 'Sales enablement'], visual: 'A restrained technical field scene with room for deterministic copy and a later single-brand composition.' }
   ];
 }
-
 function generateConcepts() {
-  const inputs = get('consultantRun.inputs') || {};
-  if (!get('consultantRun.research.questions')?.length) buildResearchPlan();
-  const generation = Number(get('consultantRun.generation') || 0) + 1;
-  set('consultantRun.generation', generation);
-  set('consultantRun.concepts', conceptTemplates(inputs, generation));
-  set('consultantRun.preferenceEvents', []);
-  set('consultantRun.pendingRewriteRound', null);
-  set('consultantRun.selectedConcept', null);
-  set('consultantRun.handoffStatus', 'Concepts generated; comparison not complete');
-  showToast('Three distinct campaign directions generated');
+  const core = state.campaignCore;
+  if (!state.consultantRun.research.questions.length) buildResearchPlan();
+  state.consultantRun.generation = Number(state.consultantRun.generation || 0) + 1;
+  state.consultantRun.inputs = { commercialGoal: core.intent.commercialOutcome, offer: core.intent.offer, decisionMaker: core.audience.primary, trigger: core.intent.trigger, market: core.intent.market, proofConstraints: core.proposition.proof || core.guardrails.sources };
+  state.consultantRun.concepts = conceptTemplates(state.consultantRun.inputs, state.consultantRun.generation);
+  state.consultantRun.preferenceEvents = []; state.consultantRun.pendingRewriteRound = null; state.consultantRun.selectedConcept = null; state.consultantRun.status = 'Proposal generated; choose a direction';
 }
-
 function comparisonRounds() {
-  const concepts = get('consultantRun.concepts') || [];
-  if (concepts.length < 3) return [];
+  const concepts = state.consultantRun.concepts || []; if (concepts.length < 3) return [];
   const [a, b, c] = concepts;
   return [
-    { id: 'commercial-fit', prompt: 'Which concept better matches the commercial goal?', left: { label: a.title, text: a.idea, conceptId: a.id }, right: { label: b.title, text: b.idea, conceptId: b.id } },
+    { id: 'commercial-fit', prompt: 'Which concept better matches the commercial outcome?', left: { label: a.title, text: a.idea, conceptId: a.id }, right: { label: b.title, text: b.idea, conceptId: b.id } },
     { id: 'message-believability', prompt: 'Which message feels more believable?', left: { label: a.title, text: a.message, conceptId: a.id }, right: { label: c.title, text: c.message, conceptId: c.id } },
     { id: 'audience-sharpness', prompt: 'Which audience problem is sharper?', left: { label: b.title, text: b.problem, conceptId: b.id }, right: { label: c.title, text: c.problem, conceptId: c.id } },
-    { id: 'cta-natural', prompt: 'Which CTA feels more natural?', left: { label: a.title, text: `${a.cta} · ${a.route}`, conceptId: a.id }, right: { label: b.title, text: `${b.cta} · ${b.route}`, conceptId: b.id } },
-    { id: 'visual-direction', prompt: 'Which visual direction is stronger?', left: { label: b.title, text: b.visual, conceptId: b.id }, right: { label: c.title, text: c.visual, conceptId: c.id } }
+    { id: 'cta-natural', prompt: 'Which CTA feels more natural?', left: { label: a.title, text: a.cta + ' · ' + a.route, conceptId: a.id }, right: { label: b.title, text: b.cta + ' · ' + b.route, conceptId: b.id } }
   ];
 }
-
-function preferenceFor(roundId) { return (get('consultantRun.preferenceEvents') || []).find((event) => event.roundId === roundId); }
+function preferenceFor(roundId) { return (state.consultantRun.preferenceEvents || []).find((event) => event.roundId === roundId); }
 function rankedConcepts() {
-  const concepts = get('consultantRun.concepts') || [];
-  const scores = Object.fromEntries(concepts.map((concept, index) => [concept.id, { concept, score: 0, index }]));
-  (get('consultantRun.preferenceEvents') || []).forEach((event) => (event.conceptIds || []).forEach((id) => { if (scores[id]) scores[id].score += event.choice === 'combine' ? 1 : event.choice === 'none' || event.choice === 'rewrite' ? 0 : 2; }));
+  const concepts = state.consultantRun.concepts || [], scores = Object.fromEntries(concepts.map((concept, index) => [concept.id, { concept, score: 0, index }]));
+  (state.consultantRun.preferenceEvents || []).forEach((event) => (event.conceptIds || []).forEach((id) => { if (scores[id]) scores[id].score += event.choice === 'combine' ? 1 : event.choice === 'none' || event.choice === 'rewrite' ? 0 : 2; }));
   return Object.values(scores).sort((a, b) => b.score - a.score || a.index - b.index);
 }
-
-function recordPreference(roundId, choice) {
-  const round = comparisonRounds().find((item) => item.id === roundId); if (!round) return;
-  const ids = choice === 'A' ? [round.left.conceptId] : choice === 'B' ? [round.right.conceptId] : choice === 'combine' ? [round.left.conceptId, round.right.conceptId] : [];
-  const events = (get('consultantRun.preferenceEvents') || []).filter((event) => event.roundId !== roundId);
-  events.push({ roundId, prompt: round.prompt, choice, conceptIds: ids, options: [round.left, round.right], timestamp: new Date().toISOString() });
-  set('consultantRun.preferenceEvents', events); set('consultantRun.pendingRewriteRound', choice === 'rewrite' ? roundId : null); set('consultantRun.handoffStatus', `Comparison ${events.length} of ${comparisonRounds().length} recorded`); save(); renderConsultant();
+function applyConcept(concept) {
+  const core = state.campaignCore;
+  core.name = core.name || concept.title; core.slug = core.slug || slugify(core.name);
+  core.proposition.promise = concept.message; core.proposition.supporting = concept.supporting; core.proposition.proof = core.proposition.proof || concept.proofRequirements.join('; '); core.proposition.cta = concept.cta;
+  core.conversionRoute.route = concept.route; core.audience.problem = concept.problem; core.activation.channels = concept.channels.slice(); core.activation.formats = derivedFormats(concept.channels, concept.formats);
+  core.advanced.creative = concept.visual; core.advanced.imagery = 'Use text-free masters and deterministic copy/logo application. Record provenance and rights before activation.'; core.advanced.nurture = 'Recognise → educate → diagnose → convert, with lead response and qualification owned by sales.';
+  markProvenance(['proposition.promise', 'proposition.supporting', 'proposition.proof', 'proposition.cta', 'conversionRoute.route', 'audience.problem', 'activation.channels', 'activation.formats', 'advanced.creative', 'advanced.imagery', 'advanced.nurture'], 'Generated');
+  state.consultantRun.selectedConcept = concept.id; state.consultantRun.status = 'Direction handed into the brief';
 }
-
-function saveRewrite(roundId) {
-  const field = consultantMount.querySelector(`[data-consultant-rewrite="${roundId}"]`); const rewrite = field?.value?.trim(); if (!rewrite) return;
-  const events = (get('consultantRun.preferenceEvents') || []).map((event) => event.roundId === roundId ? { ...event, rewrite } : event);
-  set('consultantRun.preferenceEvents', events); set('consultantRun.pendingRewriteRound', null); set('consultantRun.handoffStatus', `Comparison ${events.length} of ${comparisonRounds().length} recorded`); save(); renderConsultant(); showToast('Rewrite recorded as a preference');
-}
-
-function chooseConcept(id) { if (!(get('consultantRun.concepts') || []).some((concept) => concept.id === id)) return; set('consultantRun.selectedConcept', id); set('consultantRun.handoffStatus', 'Concept selected; ready for compiler handoff'); save(); renderConsultant(); }
-
-function briefSnapshot() {
-  return { meta: { ...state.meta }, audience: { ...state.audience }, objectives: { ...state.objectives }, proposition: { ...state.proposition, suggestions: [] }, strategy: { ...state.strategy, recommendations: [] }, production: { ...state.production }, governance: { ...state.governance }, branches: { ...state.branches } };
-}
-
-function handoffConsultant() {
-  const ranked = rankedConcepts(); const chosenId = get('consultantRun.selectedConcept') || ranked[0]?.concept.id; const concept = (get('consultantRun.concepts') || []).find((item) => item.id === chosenId);
-  if (!concept) { showToast('Generate concepts before opening the compiler'); return; }
-  const inputs = get('consultantRun.inputs') || {};
-  set('meta.campaignName', concept.title); if (!get('meta.product') || get('meta.product') === 'I don\'t know') set('meta.product', consultantAnswer(inputs.offer, 'Define the offer')); if (!get('meta.owner')) set('meta.owner', 'Assign campaign owner');
-  set('meta.market', ['Australia', 'New Zealand', 'Australia + New Zealand', 'Global'].includes(inputs.market) ? inputs.market : get('meta.market') || 'Australia');
-  set('audience.primaryDetail', consultantAnswer(inputs.decisionMaker, 'Define the primary audience')); set('audience.primaryOther', ''); set('audience.primarySegments', []); set('audience.primary', get('audience.primaryDetail')); set('audience.trigger', consultantAnswer(inputs.trigger, 'Define the campaign trigger')); set('audience.problem', concept.problem); set('audience.objections', concept.risks.join('; '));
-  set('objectives.commercial', consultantAnswer(inputs.commercialGoal, 'Define the commercial goal')); set('objectives.marketing', `Create a qualified audience around ${concept.title.toLowerCase()} and move engaged people to the next step.`); set('objectives.communications', concept.message); set('objectives.commercialTypes', []); set('objectives.marketingTypes', []); set('objectives.communicationsTypes', []);
-  set('objectives.kpis', []); set('objectives.primaryKpi', ''); set('objectives.secondaryKpis', []);
-  set('proposition.promise', concept.message); set('proposition.supporting', concept.supporting); set('proposition.proof', concept.proofRequirements.join('; ')); set('proposition.cta', concept.cta); set('proposition.landingUrl', ''); set('strategy.route', concept.route); set('strategy.phases', 'Recognise the problem → prove the decision → invite the qualified next step'); set('strategy.channels', concept.channels); set('strategy.tactics', `Build the ${concept.title.toLowerCase()} direction across ${concept.formats.join(', ')}.`); set('strategy.nurture', 'Define scoring, response owner and handoff SLA.'); set('production.formats', concept.formats); set('production.creative', concept.visual); set('production.imagery', 'Use text-free masters and deterministic copy/logo application. Record provenance and rights before activation.'); set('production.assetNotes', 'Independent single-brand artwork; no combined lockups.');
-  const research = get('consultantRun.research') || {}; set('governance.sources', research.sources?.map((source) => `${source.title} (${source.source})`).join('; ') || 'Research not prepared'); set('governance.assumptions', [...concept.risks, ...(research.evidence || []).filter((item) => ['Unknown', 'Inferred', 'Requires approval'].includes(item.status)).map((item) => item.detail)].join('; ')); set('governance.gates', ['Technical claims reviewed', 'Brand branch reviewed', 'Landing destination and form owner confirmed', 'Creative rights and provenance recorded', 'Budget and activation owner approved']); set('governance.activation', 'Private review');
-  normalizeState(); const run = get('consultantRun'); run.selectedConcept = concept.id; run.handoffStatus = 'Handed into compiler; review unresolved fields'; run.brief = briefSnapshot(); run.brandBranches = (get('branches.selected') || []).map(brandBranch); run.pack = { schema: 'm2m-campaign-pack/v1', status: 'Compiler review required' }; currentView = 'compiler'; currentStage = 0; save(); render(); showToast('Selected campaign spine handed into the compiler');
-}
-
-function renderConsultant() {
-  if (!consultantMount) return;
-  const run = get('consultantRun') || blankConsultantRun(); const concepts = run.concepts || []; const research = run.research || {}; const ranked = rankedConcepts();
-  const questionFields = CONSULTANT_QUESTIONS.map(([path, label, hint]) => consultantQuestion(path, label, hint)).join('');
-  const researchCards = (research.evidence || []).map((item) => `<article class="evidence-card"><span class="evidence-status evidence-${slugify(item.status)}">${esc(item.status)}</span><h4>${esc(item.title)}</h4><p>${esc(item.detail)}</p><small>${esc(item.source || 'No source supplied')}${item.date ? ` · ${esc(item.date)}` : ''}</small></article>`).join('') || '<div class="empty-note">Choose a research mode, then prepare the research questions before generating concepts.</div>';
-  const conceptCards = concepts.map((concept, index) => `<article class="concept-card"><header><span class="concept-number">0${index + 1}</span><div><span class="concept-kicker">${esc(concept.title)}</span><h3>${esc(concept.idea)}</h3></div></header><div class="concept-grid"><div><strong>For</strong><p>${esc(concept.audience)}</p></div><div><strong>Problem</strong><p>${esc(concept.problem)}</p></div><div><strong>Message</strong><p>${esc(concept.message)}</p></div><div><strong>Why it might work</strong><p>${esc(concept.why)}</p></div><div><strong>Proof required</strong><p>${esc(concept.proofRequirements.join('; '))}</p></div><div><strong>Risk</strong><p>${esc(concept.risks.join('; '))}</p></div><div><strong>CTA and route</strong><p>${esc(concept.cta)} · ${esc(concept.route)}</p></div><div><strong>Visual direction</strong><p>${esc(concept.visual)}</p></div></div><footer><span class="concept-meta">${esc((concept.channels || []).join(' · '))}</span><button type="button" class="button button-secondary button-small" data-consultant-action="choose-concept" data-concept="${esc(concept.id)}">${run.selectedConcept === concept.id ? 'Selected' : 'Choose this direction'}</button></footer></article>`).join('');
-  consultantMount.innerHTML = `<div class="consultant-shell"><div class="consultant-hero"><span class="kicker">CAMPAIGN CONSULTANT / 01</span><h1>From a rough idea<br>to a campaign spine.</h1><p>Answer six short questions. The consultant proposes a brand-neutral campaign direction, shows what it knows and does not know, then hands your choice into the compiler.</p><div class="consultant-hero-actions"><button type="button" class="button button-primary" data-consultant-action="generate-concepts">Generate campaign directions <span aria-hidden="true">→</span></button><button type="button" class="button button-secondary" data-consultant-action="seed-9604">Start with the 9604 example</button><button type="button" class="button button-quiet" data-consultant-action="open-compiler">Open compiler</button></div><p class="consultant-note"><strong>Human choice stays in the loop.</strong> Suggestions are hypotheses until the evidence, brand branch and release gates are reviewed.</p></div><section class="consultant-panel consultant-intake"><div class="panel-heading"><div><span class="suggestion-kicker">01 · Intake</span><h2>Tell me enough to make a useful first proposal.</h2><p>“I don't know” is a valid answer. The consultant will label any inference and keep it visible.</p></div><span class="run-state">${esc(run.handoffStatus || 'Not started')}</span></div><div class="consultant-question-grid">${questionFields}</div></section><section class="consultant-panel research-panel"><div class="panel-heading"><div><span class="suggestion-kicker">02 · Research control</span><h2>Choose how much checking to do.</h2><p>Research questions are created first so the scan stays tied to the campaign decision.</p></div>${select('consultantRun.research.mode', 'Research mode', ['Quick scan', 'No research', 'Evidence pack'], 'Default: a bounded scan of approved brand and campaign sources.')}</div><div class="research-actions"><button type="button" class="button button-secondary button-small" data-consultant-action="prepare-research">Prepare research questions</button><span class="research-state">${esc(research.status || 'Not prepared')}</span></div><div class="research-question-list">${(research.questions || []).map((question, index) => `<span><b>Q${index + 1}</b> ${esc(question)}</span>`).join('') || '<div class="empty-note">No research questions prepared yet.</div>'}</div><div class="evidence-grid">${researchCards}</div></section><section class="consultant-panel concepts-panel"><div class="panel-heading"><div><span class="suggestion-kicker">03 · Concept directions</span><h2>Compare three distinct campaign spines.</h2><p>Each direction includes the audience problem, message, proof requirements, risks, CTA, route and visual direction.</p></div><button type="button" class="button button-primary button-small" data-consultant-action="generate-concepts">${concepts.length ? 'Regenerate directions' : 'Generate directions'}</button></div><div class="concept-list">${conceptCards || '<div class="empty-note">Complete the intake, then generate three directions. Partial answers are fine.</div>'}</div></section>${concepts.length ? `<section class="consultant-panel compare-panel"><div class="panel-heading"><div><span class="suggestion-kicker">04 · Preference rounds</span><h2>Make five meaningful choices.</h2><p>The consultant records A/B, combine, rewrite or none, then ranks the directions. You can stop at the first useful decision.</p></div><span class="decision-count">${(run.preferenceEvents || []).length} / ${comparisonRounds().length}</span></div>${renderComparisonBody(ranked)}</section>` : ''}</div>`;
-  attachConsultantEvents();
-}
-
-function renderComparisonBody(ranked) {
-  const rounds = comparisonRounds(); const pendingRewrite = get('consultantRun.pendingRewriteRound'); const next = rounds.find((round) => !preferenceFor(round.id) || pendingRewrite === round.id);
-  if (!next) return `<div class="ranking-summary"><h3>Current ranking</h3><div class="rank-list">${ranked.map((item, index) => `<div class="rank-row"><span>${index + 1}</span><strong>${esc(item.concept.title)}</strong><small>${item.score} preference points</small><button type="button" class="button button-secondary button-small" data-consultant-action="choose-concept" data-concept="${esc(item.concept.id)}">${get('consultantRun.selectedConcept') === item.concept.id ? 'Selected' : 'Select'}</button></div>`).join('')}</div><div class="handoff-callout"><strong>${get('consultantRun.selectedConcept') ? 'Your selected direction is ready.' : 'The top-ranked direction is ready.'}</strong><span>Open it in the compiler to resolve remaining fields and apply a brand plugin.</span><button type="button" class="button button-primary" data-consultant-action="handoff">Use this direction in the compiler <span aria-hidden="true">↗</span></button></div></div>`;
-  const left = next.left; const right = next.right; const rewrite = preferenceFor(next.id)?.choice === 'rewrite';
-  return `<div class="round-progress"><span>Decision ${rounds.findIndex((round) => round.id === next.id) + 1} of ${rounds.length}</span><div class="progress-track"><span style="width:${(((get('consultantRun.preferenceEvents') || []).length) / rounds.length) * 100}%"></span></div></div><h3 class="round-prompt">${esc(next.prompt)}</h3><div class="comparison-options"><article class="comparison-option"><span class="option-letter">A</span><span class="concept-kicker">${esc(left.label)}</span><p>${esc(left.text)}</p><button type="button" class="button button-secondary button-small" data-consultant-choice="A" data-round="${esc(next.id)}">Choose A</button></article><article class="comparison-option"><span class="option-letter">B</span><span class="concept-kicker">${esc(right.label)}</span><p>${esc(right.text)}</p><button type="button" class="button button-secondary button-small" data-consultant-choice="B" data-round="${esc(next.id)}">Choose B</button></article></div><div class="comparison-actions"><button type="button" class="text-action" data-consultant-choice="combine" data-round="${esc(next.id)}">Combine</button><button type="button" class="text-action" data-consultant-choice="rewrite" data-round="${esc(next.id)}">Rewrite</button><button type="button" class="text-action" data-consultant-choice="none" data-round="${esc(next.id)}">Neither</button></div>${rewrite ? `<div class="rewrite-box"><label for="rewrite-${esc(next.id)}">What would you change?</label><input id="rewrite-${esc(next.id)}" data-consultant-rewrite="${esc(next.id)}" placeholder="Write the direction you want to test"><button type="button" class="button button-primary button-small" data-consultant-action="save-rewrite" data-round="${esc(next.id)}">Save rewrite</button></div>` : ''}<div class="answered-rounds">${rounds.filter((round) => preferenceFor(round.id)).map((round) => `<span>${esc(round.prompt)} · ${esc(preferenceFor(round.id).choice)}</span>`).join('')}</div>`;
-}
-
-function attachConsultantEvents() {
-  consultantMount.querySelectorAll('[data-consultant-bind]').forEach((element) => ['input', 'change'].forEach((eventName) => element.addEventListener(eventName, () => { set(element.dataset.consultantBind, element.value); save(); })));
-  consultantMount.querySelectorAll('[data-bind]').forEach((element) => ['input', 'change'].forEach((eventName) => element.addEventListener(eventName, () => {
-    set(element.dataset.bind, element.value);
-    if (eventName === 'change' && element.dataset.bind === 'consultantRun.research.mode') {
-      set('consultantRun.research.questions', []); set('consultantRun.research.evidence', []); set('consultantRun.research.sources', []); set('consultantRun.research.status', 'Mode changed; prepare a new research plan');
-      save(); renderConsultant();
-    } else save();
-  })));
-  consultantMount.querySelectorAll('[data-consultant-unknown]').forEach((element) => element.addEventListener('click', () => { set(`consultantRun.inputs.${element.dataset.consultantUnknown}`, "I don't know"); save(); renderConsultant(); }));
-  consultantMount.querySelectorAll('[data-consultant-action="prepare-research"]').forEach((element) => element.addEventListener('click', () => { buildResearchPlan(); save(); renderConsultant(); showToast('Research questions prepared before source review'); }));
-  consultantMount.querySelectorAll('[data-consultant-action="generate-concepts"]').forEach((element) => element.addEventListener('click', () => { generateConcepts(); save(); renderConsultant(); }));
-  consultantMount.querySelectorAll('[data-consultant-action="seed-9604"]').forEach((element) => element.addEventListener('click', () => { const source = fixture; set('consultantRun.inputs.commercialGoal', source.objectives.commercial); set('consultantRun.inputs.offer', source.meta.product); set('consultantRun.inputs.decisionMaker', source.audience.primary); set('consultantRun.inputs.trigger', source.audience.trigger); set('consultantRun.inputs.market', source.meta.market); set('consultantRun.inputs.proofConstraints', source.proposition.proof); buildResearchPlan(); save(); renderConsultant(); showToast('9604 example loaded into the consultant'); }));
-  consultantMount.querySelectorAll('[data-consultant-action="open-compiler"]').forEach((element) => element.addEventListener('click', () => { currentView = 'compiler'; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); }));
-  consultantMount.querySelectorAll('[data-consultant-action="choose-concept"]').forEach((element) => element.addEventListener('click', () => chooseConcept(element.dataset.concept)));
-  consultantMount.querySelectorAll('[data-consultant-action="handoff"]').forEach((element) => element.addEventListener('click', handoffConsultant));
-  consultantMount.querySelectorAll('[data-consultant-choice]').forEach((element) => element.addEventListener('click', () => { const choice = element.dataset.consultantChoice; recordPreference(element.dataset.round, choice); }));
-  consultantMount.querySelectorAll('[data-consultant-action="save-rewrite"]').forEach((element) => element.addEventListener('click', () => saveRewrite(element.dataset.round)));
-}
-
-function radio(path, label, options, hint = '') {
-  const selected = get(path);
-  return `<fieldset class="field full"><legend>${esc(label)}${hint ? `<span>${esc(hint)}</span>` : ''}</legend><div class="choice-grid">${options.map((option) => `<div class="choice radio"><input id="${path.replace('.', '-')}-${slugify(option)}" data-radio="${path}" type="radio" name="${path}" value="${esc(option)}" ${selected === option ? 'checked' : ''}><label for="${path.replace('.', '-')}-${slugify(option)}">${esc(option)}</label></div>`).join('')}</div></fieldset>`;
-}
-function stageHeader(index, title, description) { return `<div class="section-header"><span class="section-index">${String(index + 1).padStart(2, '0')} / ${String(STAGES.length).padStart(2, '0')}</span><h2>${esc(title)}</h2><p>${esc(description)}</p></div>`; }
-
-function renderStage(index) {
-  const [id, title, desc] = STAGES[index];
-  let body = '';
-  if (id === 'foundation') body = `<div class="field-grid">${input('meta.campaignName', 'Campaign name', 'Working title; make it clear enough for sales and production.', 'text', 'e.g. Coverage Beyond the Grid')}${input('meta.campaignSlug', 'Campaign slug', 'Used for exports, URLs and file names.', 'text', 'coverage-beyond-the-grid')}${input('meta.product', 'Product, offer or focus', '', 'text', 'What is this campaign about?')}${select('meta.market', 'Market or operating region', ['Australia', 'New Zealand', 'Australia + New Zealand', 'Global', 'Other'])}${select('meta.campaignType', 'Campaign type', ['Demand generation', 'Product launch', 'Education', 'Event or webinar', 'Account-based', 'Always-on nurture', 'Other'])}${input('meta.owner', 'Campaign owner', '', 'text', 'Person or team accountable for the brief')}${input('meta.startDate', 'Proposed start', '', 'date')}${input('meta.endDate', 'Proposed end', '', 'date')}</div><div class="helper"><strong>Start with the decision.</strong> The compiler keeps the brief generic; the brand plugin is selected later so one strategy can create independent M2M or Semtech branches.</div>`;
-  if (id === 'audience') body = `<div class="field-grid">${libraryChoices('audience.primarySegments', 'audience.primaryOther', 'Primary audience', LIBRARIES.audiences, 'Select the audience groups this campaign is designed to move. Add a specific segment under Other if needed.', 2)}${textarea('audience.primaryDetail', 'Audience context', 'Add the sentence that makes the selected groups specific to this campaign.', 'e.g. Product teams whose devices move beyond dependable cellular coverage.', true)}${textarea('audience.geographies', 'Where they operate', '', 'Markets, routes, sites or regions.', false)}${libraryChoices('audience.rolesSelected', 'audience.rolesOther', 'Roles in the decision', LIBRARIES.roles, 'Select the roles who influence, approve or use the offer.', 2)}${libraryChoices('audience.verticalsSelected', 'audience.verticalsOther', 'Primary verticals', LIBRARIES.verticals, 'Select the vertical contexts that make the problem urgent or valuable.', 2)}${textarea('audience.trigger', 'Trigger or moment', 'What happened that makes this problem worth solving now?', 'The situation that starts the search.', true)}${textarea('audience.problem', 'Problem to solve', 'Describe the operational problem in their words.', 'What fails, costs time or creates risk?', true)}${textarea('audience.objections', 'Likely objections', 'Capture the reasons a credible buyer may hesitate.', 'What must the campaign answer?', true)}</div>`;
-  if (id === 'objectives') body = `<div class="field-grid">${libraryChoices('objectives.commercialTypes', 'objectives.commercialOther', 'Commercial objective type', LIBRARIES.commercialObjectiveTypes, 'Choose the business outcome this campaign should influence, then explain the commercial context.', 2)}${textarea('objectives.commercial', 'Commercial objective detail', 'The business result this campaign is expected to influence.', 'Pipeline, revenue, retention, partner or product adoption.', true)}${libraryChoices('objectives.marketingTypes', 'objectives.marketingOther', 'Marketing objective type', LIBRARIES.marketingObjectiveTypes, 'Choose the audience or behaviour marketing must move.', 2)}${textarea('objectives.marketing', 'Marketing objective detail', 'The audience or behaviour marketing must move.', 'Qualified traffic, demand, engagement or progression.', true)}${libraryChoices('objectives.communicationsTypes', 'objectives.communicationsOther', 'Communication objective type', LIBRARIES.communicationsObjectiveTypes, 'Choose the change in understanding or belief the campaign must create.', 2)}${textarea('objectives.communications', 'Communication objective detail', 'The understanding or belief that needs to change.', 'What should become clear or credible?', true)}${tags('objectives.kpis', 'KPIs', 'Add as many measures as the campaign needs. The first selected KPI is the primary measure unless you choose another below.', 'e.g. Qualified opportunities')}${select('objectives.primaryKpi', 'Primary KPI', ['Choose a primary KPI', ...(get('objectives.kpis') || [])], 'Choose one measure that decides whether the campaign worked.')}${textarea('objectives.nonGoals', 'Non-goals and guardrails', 'Prevent optimisation from drifting into the wrong outcome.', 'e.g. Not an impressions campaign.', true)}</div>`;
-  if (id === 'proposition') body = `${suggestionPanel('proposition')}<div class="field-grid">${textarea('proposition.promise', 'Core promise', 'One line the audience can remember.', 'The clearest defensible promise.', true)}${textarea('proposition.supporting', 'Supporting message', 'How the promise becomes useful in the real world.', 'The mechanism, distinction or design truth.', true)}${textarea('proposition.proof', 'Proof available', 'Use claims, sources, customer evidence or product facts.', 'What can we show or cite?', true)}${select('proposition.claimsStatus', 'Claim confidence', ['Needs evidence review', 'Confirmed and qualified', 'Strongly supported', 'Inferred from evidence', 'Contradictory or stale'])}${input('proposition.cta', 'Primary CTA', 'The action the campaign should earn.', 'text', 'e.g. Start a design conversation')}${input('proposition.landingUrl', 'Destination URL', 'Use a real URL or mark it for confirmation.', 'url', 'https://')}</div><div class="helper"><strong>Proof follows promise.</strong> If a statement cannot be sourced, it becomes an assumption or a gate in the exported pack.</div>`;
-  if (id === 'strategy') body = `${suggestionPanel('strategy')}<div class="field-grid">${textarea('strategy.route', 'Conversion route', 'Write the movement from problem to action.', 'Problem → proof → offer → qualified action.', true)}${textarea('strategy.phases', 'Strategic phases', 'Name the job of each phase and its time window.', 'Recognise → prove → convert, or your own sequence.', true)}${choices('strategy.channels', 'Channels', ['LinkedIn organic', 'LinkedIn document', 'Email nurture', 'Landing page', 'Paid search', 'Retargeting', 'Partner or SI outreach', 'Sales follow-up', 'Webinar or clinic'], 'Select the channels you want the pack to specify.', 3)}${textarea('strategy.tactics', 'Marcom tactics', 'What will each channel do, and in what order?', 'Content, nurture, offer, retargeting and sales actions.', true)}${textarea('strategy.nurture', 'Nurture and handoff', 'What happens after engagement? Name the owner.', 'Scoring, routing, response time and sales follow-up.', true)}</div>`;
-  if (id === 'production') body = `<div class="field-grid">${choices('production.formats', 'Output formats', ['LinkedIn organic', 'LinkedIn document', 'Email nurture', 'Landing page', 'Paid search', 'Retargeting', 'Sales enablement', 'Motion study', 'Lead magnet'], 'These become objects in the campaign pack.', 3)}${textarea('production.creative', 'Creative direction', 'Give production a visual and editorial north star.', 'Mood, subject, point of view and what to avoid.', true)}${textarea('production.imagery', 'Imagery and asset rules', 'Describe what may be generated, supplied or composited.', 'Rights, product renders, people, diagrams and alt text.', true)}${textarea('production.motion', 'Motion and Higgsfield direction', 'Describe motion energy and the role of generated masters.', 'What should move, and what must remain deterministic?', true)}${textarea('production.assetNotes', 'Format and brand constraints', 'Specific rules that must survive every channel.', 'e.g. Independent single-brand artwork; no combined lockups.', true)}</div>`;
-  if (id === 'governance') body = `<div class="field-grid">${textarea('governance.sources', 'Sources of truth', 'Link or name the evidence behind claims and decisions.', 'URLs, documents, CRM evidence or campaign references.', true)}${textarea('governance.rights', 'Rights and provenance', 'Record permissions and generation provenance.', 'Logo, photo, customer, product and AI-generation rights.', true)}${textarea('governance.assumptions', 'Open assumptions', 'What remains unknown, proposed or conditional?', 'Surface uncertainty instead of hiding it.', true)}${choices('governance.gates', 'Required release gates', ['Technical claims reviewed', 'Brand branch reviewed', 'Landing destination and form owner confirmed', 'Creative rights and provenance recorded', 'Budget and activation owner approved', 'Legal or privacy review'], 'The pack cannot be treated as activation approval.', 2)}${radio('governance.activation', 'Current release state', ['Private review', 'Ready for approval', 'Approved for activation'], 'Publishing, spend, sending and external communication remain separate human decisions.')}</div>`;
-  if (id === 'branches') {
-    body = `<div class="field-grid"><fieldset class="field full"><legend>Brand plugins<span>Select every independent branch this brief should produce.</span></legend><div class="brand-grid">${Object.entries(BRANDS).map(([id, brand]) => `<div class="brand-option"><input id="brand-${id}" data-brand="${id}" type="checkbox" ${get('branches.selected').includes(id) ? 'checked' : ''}><label for="brand-${id}"><span class="brand-logo ${brand.logo ? '' : 'wordmark'}">${brand.logo ? `<img src="${brand.logo}" alt="">` : esc(brand.name)}</span><span><strong>${esc(brand.name)}</strong><small>${esc(brand.entity)} · ${esc(brand.market)}</small></span></label></div>`).join('')}</div></fieldset><div class="field full"><div class="switch-row"><span><strong>Independent brand artwork</strong><small>Each artwork receives one selected brand identity and one approved logo. No combined lockups.</small></span><label class="switch"><input type="checkbox" data-toggle="branches.independent" ${get('branches.independent') ? 'checked' : ''}><span class="slider"></span></label></div></div>${radio('branches.higgsfield', 'Higgsfield handoff', ['Job specifications only', 'Server connector when approved', 'Manual creative production'], 'The browser exports safe job specs; provider credentials stay server-side.')}${textarea('branches.handoff', 'Owners and handoff notes', 'Who reviews, who produces and who accepts the lead?', 'Brand approver, technical reviewer, sales owner and next handoff.', true)}</div><div class="helper"><strong>Brand plugins are replaceable.</strong> The generic core carries the strategy. Each selected plugin adds voice, logo, CTA, market and approval metadata to its own branch.</div>`;
-  }
-  return `${stageHeader(index, title, desc)}${body}`;
-}
-
-function renderNav() {
-  const html = STAGES.map(([id, name], index) => `<button class="stage-button ${index === currentStage ? 'active' : ''} ${stageComplete(id) ? 'done' : ''}" data-stage="${index}" type="button"><span class="stage-number">${String(index + 1).padStart(2, '0')}</span><span class="stage-name">${esc(name)}</span><span class="stage-state">${stageComplete(id) ? '✓' : ''}</span></button>`).join('');
-  $('#stageNav').innerHTML = html;
-  document.querySelectorAll('[data-stage]').forEach((button) => button.addEventListener('click', () => { currentStage = Number(button.dataset.stage); render(); }));
-}
-
-const requiredByStage = {
-  foundation: ['meta.campaignName', 'meta.product', 'meta.owner'],
-  audience: ['audience.primary', 'audience.problem'],
-  objectives: ['objectives.commercial', 'objectives.communications', 'objectives.primaryKpi'],
-  proposition: ['proposition.promise', 'proposition.cta'],
-  strategy: ['strategy.route', 'strategy.channels'],
-  production: ['production.formats', 'production.creative'],
-  governance: ['governance.sources', 'governance.gates'],
-  branches: ['branches.selected', 'branches.handoff']
-};
-function hasValue(value) { return Array.isArray(value) ? value.length > 0 : String(value || '').trim().length > 0; }
-function stageComplete(id) { return (requiredByStage[id] || []).every((path) => hasValue(get(path))); }
-function missing() { return Object.values(requiredByStage).flat().filter((path) => !hasValue(get(path))); }
-function score() { const total = Object.values(requiredByStage).flat().length; const complete = total - missing().length; let value = Math.round((complete / total) * 100); if (!get('branches.independent')) value = Math.max(0, value - 7); return value; }
-
-function audienceSummary() {
-  const audience = get('audience.primary') || [...(get('audience.primarySegments') || []), get('audience.primaryOther')].filter(Boolean).join(', ');
-  return audience || 'the selected audience';
-}
-
-function generateSuggestions() {
-  const audience = audienceSummary();
-  const product = get('meta.product') || 'the offer';
-  const problem = String(get('audience.problem') || 'the operational problem').trim().replace(/[.!?]+$/, '');
-  const objective = String(get('objectives.commercial') || get('objectives.marketing') || 'move from uncertainty to a qualified next step').trim().replace(/[.!?]+$/, '');
-  set('proposition.suggestions', [
-    { id: 'problem-visible', label: 'Make the problem visible', promise: `Help ${audience} respond when ${problem}.`, supporting: `${product} gives the campaign a practical way to explain the decision, the trade-offs and the next step.`, proofNeed: `Proof to attach: evidence that supports the problem, the product mechanism and the outcome.`, confidence: 'Working hypothesis' },
-    { id: 'decision-ready', label: 'Make the decision easier', promise: `Give ${audience} a clearer path from ${problem} to a decision they can defend.`, supporting: `Turn the campaign into a useful guide: what to assess, what to ask and how ${product} may fit the context.`, proofNeed: `Proof to attach: readiness criteria, technical facts and a qualified owner for follow-up.`, confidence: 'Working hypothesis' },
-    { id: 'outcome-led', label: 'Connect the offer to the outcome', promise: `Help ${audience} make progress on ${objective}.`, supporting: `Show the design or commercial questions behind ${product}, then invite a scoped conversation rather than an unsupported guarantee.`, proofNeed: `Proof to attach: measurable outcome definition, source references and claim review.`, confidence: 'Working hypothesis' }
-  ]);
-  showToast('Three message directions generated for review');
-}
-
-function recommendStrategy() {
-  const audience = audienceSummary();
-  const problem = get('audience.problem') || 'the operational problem';
-  const promise = get('proposition.promise') || 'the campaign promise';
-  const selectedChannels = get('strategy.channels') || [];
-  const channels = selectedChannels.length ? selectedChannels : ['LinkedIn organic', 'Landing page', 'Email nurture', 'Sales follow-up'];
-  set('strategy.recommendations', [
-    { id: 'diagnose-first', title: 'Diagnose before you sell', why: `Lead ${audience} from a recognisable ${problem} to a short readiness assessment.`, route: 'Problem signal → diagnostic content → readiness assessment → qualified conversation', phases: 'Recognise the trigger → help the buyer self-assess → route high-intent responses', channels, tactics: 'Use a problem-led social series, a concise diagnostic checklist, a landing page with proof and a sales follow-up play.', nurture: 'Score assessment completion and route qualified responses to the named owner.', confidence: 'Working recommendation' },
-    { id: 'proof-led', title: 'Let proof carry the argument', why: `Build credibility around ${promise} before asking for a conversation.`, route: 'Claim or question → technical proof → use-case context → scoped conversation', phases: 'Frame the question → demonstrate the mechanism → answer objections → invite the next step', channels, tactics: 'Create a proof matrix, a technical document post, an objection-handling email and a source-linked landing page.', nurture: 'Move engaged readers into a proof-led sequence and record the evidence used in the handoff.', confidence: 'Working recommendation' },
-    { id: 'conversion-led', title: 'Design for a clear handoff', why: `Make every touchpoint point to the same qualified action for ${audience}.`, route: 'Audience need → focused proposition → offer page → form and sales response', phases: 'Create intent → remove friction → capture context → respond quickly', channels, tactics: 'Use one proposition across paid and organic entry points, a focused form, retargeting and a response-time promise.', nurture: 'Capture role, vertical and urgency in the form, then assign a response owner and SLA.', confidence: 'Working recommendation' }
-  ]);
-  showToast('Three strategy recommendations generated for review');
-}
-
-function useSuggestion(id) {
-  const item = (get('proposition.suggestions') || []).find((suggestion) => suggestion.id === id);
-  if (!item) return;
-  set('proposition.promise', item.promise); set('proposition.supporting', item.supporting);
-  if (!get('proposition.cta')) set('proposition.cta', 'Explore the next step');
-  save(); render(); showToast('Message direction applied; check proof before production');
-}
-
-function useStrategy(id) {
-  const item = (get('strategy.recommendations') || []).find((recommendation) => recommendation.id === id);
-  if (!item) return;
-  set('strategy.route', item.route); set('strategy.phases', item.phases); set('strategy.channels', item.channels || []); set('strategy.tactics', item.tactics); set('strategy.nurture', item.nurture);
-  save(); render(); showToast('Strategy recommendation applied; review owners and gates');
-}
-
-function attachFormEvents() {
-  formMount.querySelectorAll('[data-bind]').forEach((element) => ['input', 'change'].forEach((eventName) => element.addEventListener(eventName, () => {
-    set(element.dataset.bind, element.dataset.bind === 'objectives.primaryKpi' && element.value === 'Choose a primary KPI' ? '' : element.value);
-    if (element.dataset.bind === 'meta.campaignName' && !get('meta.campaignSlug')) { const slug = document.querySelector('[data-bind="meta.campaignSlug"]'); if (slug) slug.value = slugify(element.value); }
-    normalizeState(); save(); updateOutput(); renderNav();
-  })));
-  formMount.querySelectorAll('[data-check]').forEach((element) => element.addEventListener('change', () => {
-    const values = [...formMount.querySelectorAll(`[data-check="${element.dataset.check}"]:checked`)].map((item) => item.value); set(element.dataset.check, values); normalizeState(); save(); updateOutput(); renderNav();
-  }));
-  formMount.querySelectorAll('[data-radio]').forEach((element) => element.addEventListener('change', () => { if (element.checked) { set(element.dataset.radio, element.value); save(); updateOutput(); renderNav(); } }));
-  formMount.querySelectorAll('[data-toggle]').forEach((element) => element.addEventListener('change', () => { set(element.dataset.toggle, element.checked); save(); updateOutput(); renderNav(); }));
-  formMount.querySelectorAll('[data-brand]').forEach((element) => element.addEventListener('change', () => { const selected = [...formMount.querySelectorAll('[data-brand]:checked')].map((item) => item.dataset.brand); set('branches.selected', selected); save(); updateOutput(); renderNav(); }));
-  formMount.querySelectorAll('[data-tag-input]').forEach((element) => element.addEventListener('keydown', (event) => {
-    if (event.key !== 'Enter' && event.key !== ',') return; event.preventDefault(); const value = element.value.trim().replace(/,$/, ''); if (!value) return; const path = element.dataset.tagInput; set(path, [...(get(path) || []), value]); normalizeState(); element.value = ''; save(); render();
-  }));
-  formMount.querySelectorAll('[data-remove-tag]').forEach((element) => element.addEventListener('click', () => { const path = element.dataset.removeTag; const values = [...(get(path) || [])]; values.splice(Number(element.dataset.index), 1); set(path, values); save(); render(); }));
-  formMount.querySelectorAll('[data-action="generate-suggestions"]').forEach((element) => element.addEventListener('click', () => { generateSuggestions(); save(); render(); }));
-  formMount.querySelectorAll('[data-action="use-suggestion"]').forEach((element) => element.addEventListener('click', () => useSuggestion(element.dataset.suggestion)));
-  formMount.querySelectorAll('[data-action="recommend-strategy"]').forEach((element) => element.addEventListener('click', () => { recommendStrategy(); save(); render(); }));
-  formMount.querySelectorAll('[data-action="use-strategy"]').forEach((element) => element.addEventListener('click', () => useStrategy(element.dataset.strategy)));
-}
-
-function brandBranch(id) {
-  const brand = BRANDS[id];
-  const selectedFormats = get('production.formats') || [];
-  return {
-    id, plugin: `${id}@${brand.pluginVersion}`, brand: brand.name, entity: brand.entity, market: brand.market,
-    voice: brand.tone, palette: brand.palette, logo: brand.logo ? { path: brand.logo, rule: 'Use exactly one approved logo per artwork.' } : { path: null, rule: 'Supply the official Semtech logo before production.' },
-    cta: get('proposition.cta') || brand.cta, destination: get('proposition.landingUrl') || brand.url,
-    independentArtwork: Boolean(get('branches.independent')), formats: selectedFormats,
-    reviewOwner: get('branches.handoff') || 'Assign brand approver',
-    legal: { claimStatus: get('proposition.claimsStatus'), rights: get('governance.rights') || 'Required before activation' }
-  };
+function brandBranches() {
+  const core = state.campaignCore;
+  return (core.brand.plugins || []).map((id) => {
+    const brand = BRANDS[id]; return { id, plugin: id + '@' + brand.pluginVersion, brand: brand.name, entity: brand.entity, market: brand.market, voice: brand.tone, palette: brand.palette,
+      logo: brand.logo ? { path: brand.logo, rule: 'Use exactly one approved logo per artwork.' } : { path: null, rule: 'Supply the official Semtech logo before production.' },
+      cta: core.proposition.cta || brand.cta, destination: core.proposition.destination || brand.url, independentArtwork: true, formats: core.activation.formats, reviewOwner: core.brand.handoff || 'Assign brand approver',
+      legal: { claimStatus: core.proposition.claimsStatus, rights: core.guardrails.rights || 'Required before activation' } };
+  });
 }
 function higgsfieldJobs(branches) {
-  const formats = get('production.formats') || [];
-  const jobs = [];
-  branches.forEach((branch) => {
-    if (formats.includes('Landing page') || formats.includes('Motion study')) jobs.push({
-      id: `${branch.id}-hero-master`, provider: 'Higgsfield', jobType: 'gpt_image_2', mode: get('branches.higgsfield'), branch: branch.id, model: 'GPT Image 2 / approved campaign model',
-      prompt: `${get('production.creative') || 'Human operating moment at the edge of dependable connectivity.'} Subject: ${get('meta.product') || 'the campaign product'}. Tone: ${branch.voice}.`,
-      negativePrompt: 'No logos, no typography, no invented product claims, no customer testimonial, no UI text.',
-      postProcess: 'Apply the approved branch logo and copy in the deterministic channel renderer.', humanGate: 'Creative approval and rights review before publication.'
-    });
-    if (formats.includes('LinkedIn organic') || formats.includes('LinkedIn document')) jobs.push({
-      id: `${branch.id}-social-master`, provider: 'Higgsfield', jobType: 'gpt_image_2', mode: get('branches.higgsfield'), branch: branch.id, model: 'GPT Image 2 / approved campaign model',
-      prompt: `A clear, human-centred visual for ${get('audience.primary') || 'the campaign audience'} showing ${get('audience.problem') || 'the operational problem'}. ${get('production.imagery') || ''}`,
-      negativePrompt: 'No logo lockups, no words in the image, no performance guarantee, no generic stock-tech collage.',
-      postProcess: 'Add one branch identity only; generate accessible alt text and platform copy separately.', humanGate: 'Brand and technical claim review.'
-    });
-    if (formats.includes('Email nurture')) jobs.push({
-      id: `${branch.id}-email-visual`, provider: 'Higgsfield', jobType: 'gpt_image_2', mode: get('branches.higgsfield'), branch: branch.id, model: 'GPT Image 2 / approved campaign model',
-      prompt: `A restrained supporting image for an email about ${get('proposition.promise') || 'the campaign promise'}, legible at 600px wide, with clear negative space for deterministic copy.` ,
-      negativePrompt: 'No logos, no embedded type, no unverified feature claims.', postProcess: 'Compose in email-safe HTML, with alt text and one approved logo.', humanGate: 'Email and brand review.'
-    });
+  const core = state.campaignCore;
+  return branches.flatMap((branch) => {
+    const jobs = [];
+    if (core.activation.formats.includes('Landing page') || core.activation.formats.includes('Motion study')) jobs.push({ id: branch.id + '-hero-master', provider: 'Higgsfield', jobType: 'gpt_image_2', mode: 'Job specifications only', branch: branch.id, model: 'GPT Image 2 / approved campaign model', prompt: (core.advanced.creative || 'Human operating moment at the edge of dependable connectivity.') + ' Subject: ' + (core.intent.offer || 'the campaign offer') + '. Tone: ' + branch.voice + '.', negativePrompt: 'No logos, no typography, no invented product claims, no customer testimonial, no UI text.', postProcess: 'Apply the approved branch logo and copy in the deterministic channel renderer.', humanGate: 'Creative approval and rights review before publication.' });
+    if (core.activation.formats.includes('LinkedIn organic') || core.activation.formats.includes('LinkedIn document')) jobs.push({ id: branch.id + '-social-master', provider: 'Higgsfield', jobType: 'gpt_image_2', mode: 'Job specifications only', branch: branch.id, model: 'GPT Image 2 / approved campaign model', prompt: 'A clear, human-centred visual for ' + (core.audience.primary || 'the campaign audience') + ' showing ' + (core.audience.problem || 'the operating problem') + '. ' + (core.advanced.imagery || ''), negativePrompt: 'No logo lockups, no words in the image, no performance guarantee, no generic stock-tech collage.', postProcess: 'Add one branch identity only; generate accessible alt text and platform copy separately.', humanGate: 'Brand and technical claim review.' });
+    if (core.activation.formats.includes('Email nurture')) jobs.push({ id: branch.id + '-email-visual', provider: 'Higgsfield', jobType: 'gpt_image_2', mode: 'Job specifications only', branch: branch.id, model: 'GPT Image 2 / approved campaign model', prompt: 'A restrained supporting image for an email about ' + (core.proposition.promise || 'the campaign promise') + ', legible at 600px wide, with clear negative space for deterministic copy.', negativePrompt: 'No logos, no embedded type, no unverified feature claims.', postProcess: 'Compose in email-safe HTML, with alt text and one approved logo.', humanGate: 'Email and brand review.' });
+    return jobs;
   });
-  return jobs;
+}
+function toLegacyBrief() {
+  const core = state.campaignCore, formats = derivedFormats(core.activation.channels, core.activation.formats);
+  return {
+    meta: { campaignName: core.name || 'Untitled campaign', campaignSlug: core.slug || slugify(core.name), product: core.intent.offer, market: core.intent.market, campaignType: 'Demand generation', owner: core.intent.owner, startDate: core.activation.startDate, endDate: core.activation.endDate },
+    audience: { primary: core.audience.primary, primarySegments: [], primaryOther: '', primaryDetail: core.audience.primary, roles: core.audience.roles.concat(core.audience.rolesOther || []), rolesSelected: core.audience.roles, rolesOther: '', verticals: core.audience.verticals.concat(core.audience.verticalsOther || []), verticalsSelected: core.audience.verticals, verticalsOther: '', geographies: core.audience.geography, trigger: core.intent.trigger, problem: core.audience.problem, objections: core.audience.objections },
+    objectives: { commercial: core.intent.commercialOutcome, commercialTypes: [core.intent.outcomeType].filter(Boolean), commercialOther: '', marketing: 'Create a qualified audience and move engaged people to the next step.', marketingTypes: [], marketingOther: '', communications: core.proposition.promise, communicationsTypes: [], communicationsOther: '', kpis: [core.measurement.primaryKpi].concat(core.measurement.supportingKpis).filter(Boolean), primaryKpi: core.measurement.primaryKpi, secondaryKpis: core.measurement.supportingKpis, nonGoals: core.guardrails.exclusions },
+    proposition: { promise: core.proposition.promise, supporting: core.proposition.supporting, proof: core.proposition.proof, claimsStatus: core.proposition.claimsStatus, cta: core.proposition.cta, landingUrl: core.proposition.destination, suggestions: [] },
+    strategy: { route: core.conversionRoute.route, phases: 'Recognise the problem → prove the decision → invite the qualified next step', channels: core.activation.channels, tactics: 'Build the selected campaign spine across ' + formats.join(', ') + '.', nurture: core.advanced.nurture, recommendations: [] },
+    production: { formats, creative: core.advanced.creative, imagery: core.advanced.imagery, motion: core.advanced.motion, assetNotes: 'Independent single-brand artwork; no combined lockups.' },
+    governance: { sources: core.guardrails.sources, rights: core.guardrails.rights, assumptions: core.guardrails.assumptions, gates: ['Technical claims reviewed', 'Brand branch reviewed', 'Landing destination and form owner confirmed', 'Creative rights and provenance recorded', 'Budget and activation owner approved'], activation: 'Private review' },
+    branches: { selected: core.brand.plugins, independent: true, higgsfield: 'Job specifications only', handoff: core.brand.handoff }
+  };
+}
+function readiness() {
+  const c = state.campaignCore, checks = [['commercial outcome', c.intent.commercialOutcome], ['offer', c.intent.offer], ['primary audience', c.audience.primary], ['market', c.intent.market], ['campaign promise', c.proposition.promise], ['CTA', c.proposition.cta], ['conversion route', c.conversionRoute.route], ['priority channel', c.activation.channels.length], ['primary KPI', c.measurement.primaryKpi], ['brand branch', c.brand.plugins.length], ['source or evidence', c.guardrails.sources]];
+  const missing = checks.filter(([, value]) => !value).map(([label]) => 'Define the ' + label + '.');
+  const warnings = []; if (!c.proposition.proof) warnings.push('Proof is empty; claims should not enter production until evidence is attached.'); if (!c.proposition.destination) warnings.push('Destination is unresolved and needs owner confirmation.'); if (c.brand.plugins.length > 1 && !c.brand.independentArtwork) warnings.push('Multiple brands require independent artwork.');
+  return { score: Math.round(((checks.length - missing.length) / checks.length) * 100), missing, warnings };
 }
 function compilePack() {
-  const branches = (get('branches.selected') || []).map(brandBranch);
-  const packSlug = slugify(get('meta.campaignSlug') || get('meta.campaignName')) || 'untitled-campaign';
-  const warnings = [];
-  if (!get('proposition.proof')) warnings.push('Proof is empty; claims should not enter production until evidence is attached.');
-  if (!get('governance.sources')) warnings.push('No source-of-truth references supplied.');
-  if (branches.length > 1 && !get('branches.independent')) warnings.push('Multiple brands selected without independent artwork enabled.');
-  if (get('governance.activation') === 'Approved for activation') warnings.push('Activation approval is a human gate; this browser export does not publish or spend.');
-  const output = {
-    schema: 'm2m-campaign-pack/v1', packId: packSlug, generatedAt: new Date().toISOString(), status: get('governance.activation'),
-    readiness: { score: score(), missing: missing(), warnings }, brief: state,
-    brandBranches: branches, outputs: {
-      landingPage: (get('production.formats') || []).includes('Landing page') ? { route: get('proposition.landingUrl') || 'TBD', sections: ['Hero', 'Problem', 'Proof', 'Use cases', 'Readiness offer', 'Form', 'Legal'] } : null,
-      social: (get('production.formats') || []).filter((format) => format.startsWith('LinkedIn') || ['Paid search', 'Retargeting'].includes(format)).map((format) => ({ format, branches: branches.map((branch) => branch.id), copySource: 'brief.proposition + brief.strategy', artworkRule: 'one logo per branch' })),
-      email: (get('production.formats') || []).includes('Email nurture') ? { sequence: 'Build from strategy phases', owner: get('meta.owner') || 'Assign owner', branchCount: branches.length } : null,
-      salesEnablement: (get('production.formats') || []).includes('Sales enablement') ? { talkTrack: true, qualification: get('objectives.primaryKpi') || 'Define qualification measure' } : null
-    },
-    higgsfieldJobs: higgsfieldJobs(branches), assistance: { propositionDirections: get('proposition.suggestions') || [], strategyRecommendations: get('strategy.recommendations') || [], method: 'Deterministic suggestions from current brief inputs; reviewable hypotheses, not external research.' }, provenance: { source: 'Interactive brief compiler', fixture: get('meta.campaignSlug') === 'coverage-beyond-the-grid' ? '9604 reverse-engineering fixture' : null, generatedMasters: 'None; job specifications only', logoApplication: 'Deterministic post-processing per brand branch' },
-    gates: { required: get('governance.gates') || [], activation: 'Separate human approval required before publication, spend, send or external communication.' }
-  };
-  output.production = buildCampaignPack({ brief: state, branches, consultantRun: get('consultantRun'), higgsfieldJobs: output.higgsfieldJobs });
-  output.outputs = {
-    ...output.outputs,
-    completePack: {
-      schema: output.production.schema,
-      status: output.production.status,
-      summary: output.production.summary,
-      files: output.production.files,
-      activation: output.production.provenance.activation
-    }
-  };
-  const consultant = get('consultantRun');
-  output.consultantRun = (consultant && (consultant.concepts || []).length) ? {
-    ...consultant,
-    brief: briefSnapshot(),
-    brandBranches: branches,
-    pack: { schema: output.schema, packId: output.packId, readiness: output.readiness, status: output.status }
-  } : null;
-  return output;
+  const brief = toLegacyBrief(), branches = brandBranches(), jobs = higgsfieldJobs(branches), production = buildCampaignPack({ brief, branches, consultantRun: state.consultantRun, higgsfieldJobs: jobs }), ready = readiness();
+  return { schema: 'm2m-campaign-copilot/v2', packId: brief.meta.campaignSlug || 'untitled-campaign', generatedAt: new Date().toISOString(), status: 'PRIVATE REVIEW · ' + (ready.score >= 75 ? 'READY FOR REVIEW' : 'DRAFT'), readiness: ready, campaignCore: clone(state.campaignCore), brief, brandBranches: branches, consultantRun: clone(state.consultantRun), production, outputs: { completePack: production.summary, landingPage: production.copy.landing.map((item) => ({ id: item.id, brand: item.brand, destination: item.destination })), independentArtwork: true }, approvalState: clone(state.campaignCore.approvals || {}) };
 }
-
-function updateOutput() {
-  const pack = compilePack(); const value = pack.readiness.score; const title = get('meta.campaignName') || 'Untitled campaign';
-  $('#scoreValue').textContent = `${value}%`; $('#scoreRing').style.setProperty('--score', `${value}%`); $('#outputTitle').textContent = title; $('#outputSubtitle').textContent = value >= 75 ? 'Enough signal for a reviewable handoff.' : 'Complete the decision fields to compile the handoff.';
-  const pill = $('#readinessPill'); pill.textContent = value >= 75 ? 'Reviewable draft' : 'Draft'; pill.classList.toggle('ready', value >= 75);
-  const branches = pack.brandBranches;
-  const production = pack.production;
-  previewMount.innerHTML = `<div class="preview-group"><h3>Decision</h3><p>${esc(get('proposition.promise') || 'Add the promise on the Proposition stage.')}</p></div><div class="preview-group"><h3>Audience</h3><p>${esc(get('audience.primary') || 'Add a primary audience.')}</p></div><div class="preview-group"><h3>Route</h3><p>${esc(get('strategy.route') || 'Add the conversion route.')}</p></div><div class="preview-group"><h3>Outputs</h3><div class="preview-list">${(get('production.formats') || []).length ? get('production.formats').map((item) => `<span class="preview-line">${esc(item)}</span>`).join('') : '<div class="empty-note">Select the formats the pack should specify.</div>'}</div></div><div class="preview-group production-summary"><h3>Complete pack · ${production.summary.files} files</h3><div class="production-counts"><span><b>${production.summary.landingPages}</b> landing</span><span><b>${production.summary.socialAssets}</b> social</span><span><b>${production.summary.emailAssets}</b> email</span><span><b>${production.summary.paidAssets}</b> paid</span><span><b>${production.summary.salesTalkTracks}</b> sales</span><span><b>${production.summary.creativeMasters}</b> visual masters</span></div><p class="production-note">Copy, calendar, claims register, lead magnet HTML, native text-free SVG masters and safe Higgsfield job specs are ready for review. External generation and activation remain gated. Publish target: ${esc(production.publication?.route || '/campaigns/<slug>/')} via the controlled repository publisher.</p></div><div class="preview-group"><h3>Independent branches · ${branches.length}</h3><div class="preview-list">${branches.length ? branches.map((branch) => `<div class="preview-branch"><span class="branch-logo">${branch.logo.path ? `<img src="${branch.logo.path}" alt="">` : esc(branch.brand)}</span><span>${esc(branch.brand)}<small style="display:block;color:var(--muted);font-weight:500;margin-top:2px">one logo per artwork</small></span></div>`).join('') : '<div class="empty-note">Select at least one brand plugin.</div>'}</div></div><div class="preview-group"><h3>Open items · ${pack.readiness.missing.length + pack.readiness.warnings.length}</h3><div class="preview-list">${[...pack.readiness.missing.map((item) => `<span class="preview-line">Complete ${esc(item.split('.').pop())}</span>`), ...pack.readiness.warnings.map((item) => `<span class="preview-line">${esc(item)}</span>`)].slice(0, 5).join('') || '<span class="preview-line" style="color:var(--green)">No blocking gaps detected.</span>'}</div></div>`;
-}
-
-function render() {
-  renderConsultant();
-  formMount.innerHTML = renderStage(currentStage); renderNav(); attachFormEvents(); updateOutput();
-  renderView();
-  $('#mobileProgressLabel').textContent = `${String(currentStage + 1).padStart(2, '0')} / ${String(STAGES.length).padStart(2, '0')}`; $('#mobileProgressBar').style.width = `${((currentStage + 1) / STAGES.length) * 100}%`;
-  $('#backBtn').disabled = currentStage === 0; $('#backBtn').style.opacity = currentStage === 0 ? '.45' : '1'; $('#nextBtn').innerHTML = currentStage === STAGES.length - 1 ? 'Review pack <span aria-hidden="true">↗</span>' : 'Next <span aria-hidden="true">→</span>';
-}
-
-function renderView() {
-  consultantMount?.classList.toggle('is-hidden', currentView !== 'consultant');
-  compilerView?.classList.toggle('is-hidden', currentView !== 'compiler');
-  const topButton = $('#consultantTopBtn');
-  if (topButton) topButton.textContent = currentView === 'consultant' ? 'Open compiler' : 'Campaign consultant';
-  const resetButton = $('#resetBtn');
-  const exportButton = $('#exportTopBtn');
-  if (resetButton) resetButton.style.display = currentView === 'consultant' ? 'none' : '';
-  if (exportButton) exportButton.style.display = currentView === 'consultant' ? 'none' : '';
-}
-
 function markdown(pack) {
-  const b = pack.brief; const lines = [`# ${b.meta.campaignName || 'Untitled campaign'}`, '', `> Compiled ${new Date(pack.generatedAt).toLocaleString()} · ${pack.packId}`, '', '## Campaign decision', b.proposition.promise || 'Not supplied', '', '## Foundation', `- Product: ${b.meta.product || 'TBD'}`, `- Market: ${b.meta.market || 'TBD'}`, `- Owner: ${b.meta.owner || 'TBD'}`, `- Run: ${b.meta.startDate || 'TBD'} to ${b.meta.endDate || 'TBD'}`, '', '## Audience', `- Primary: ${b.audience.primary || 'TBD'}`, `- Problem: ${b.audience.problem || 'TBD'}`, `- Trigger: ${b.audience.trigger || 'TBD'}`, `- Roles: ${(b.audience.roles || []).join(', ') || 'TBD'}`, `- Verticals: ${(b.audience.verticals || []).join(', ') || 'TBD'}`, '', '## Objectives', `- Commercial: ${b.objectives.commercial || 'TBD'}`, `- Marketing: ${b.objectives.marketing || 'TBD'}`, `- Communications: ${b.objectives.communications || 'TBD'}`, `- Primary KPI: ${b.objectives.primaryKpi || 'TBD'}`, `- All KPIs: ${(b.objectives.kpis || []).join(', ') || 'TBD'}`, `- Non-goals: ${b.objectives.nonGoals || 'TBD'}`, '', '## Strategy and production', `- Route: ${b.strategy.route || 'TBD'}`, `- Phases: ${b.strategy.phases || 'TBD'}`, `- Channels: ${(b.strategy.channels || []).join(', ') || 'TBD'}`, `- Formats: ${(b.production.formats || []).join(', ') || 'TBD'}`, `- Creative: ${b.production.creative || 'TBD'}`, '', '## Independent brand branches', ...pack.brandBranches.map((branch) => `- **${branch.brand}** (${branch.market}) · ${branch.cta} · ${branch.destination} · one approved logo per artwork`), '', '## Evidence and gates', `- Sources: ${b.governance.sources || 'TBD'}`, `- Rights: ${b.governance.rights || 'TBD'}`, `- Assumptions: ${b.governance.assumptions || 'TBD'}`, `- Required gates: ${(b.governance.gates || []).join('; ') || 'TBD'}`, `- Release state: ${b.governance.activation || 'TBD'}`, '', '## Higgsfield handoff', 'The pack contains safe job specifications only. Generate text-free masters, then apply approved copy and one branch logo in deterministic post-processing. Provider credentials and activation remain server-side and human-gated.', '', '## Readiness', `- Score: ${pack.readiness.score}%`, `- Missing: ${pack.readiness.missing.join(', ') || 'None'}`, `- Warnings: ${pack.readiness.warnings.join(' | ') || 'None'}`]; return lines.join('\n');
+  const c = pack.campaignCore;
+  return ['# ' + (c.name || 'Untitled campaign'), '', '> Campaign Copilot brief · ' + pack.packId, '', '## Campaign intent', c.intent.commercialOutcome || 'Not supplied', '', '- Offer: ' + (c.intent.offer || 'TBD'), '- Market: ' + (c.intent.market || 'TBD'), '- Owner: ' + (c.intent.owner || 'TBD'), '', '## Audience', '- Primary: ' + (c.audience.primary || 'TBD'), '- Roles: ' + (c.audience.roles || []).join(', '), '- Verticals: ' + (c.audience.verticals || []).join(', '), '- Problem: ' + (c.audience.problem || 'TBD'), '- Trigger: ' + (c.intent.trigger || 'TBD'), '', '## Proposition', c.proposition.promise || 'Not supplied', '', c.proposition.supporting || 'Supporting message not supplied', '', '- Proof: ' + (c.proposition.proof || 'TBD'), '- CTA: ' + (c.proposition.cta || 'TBD'), '- Destination: ' + (c.proposition.destination || 'TBD'), '', '## Activation and measurement', '- Route: ' + (c.conversionRoute.route || 'TBD'), '- Channels: ' + (c.activation.channels || []).join(', '), '- Formats: ' + (c.activation.formats || []).join(', '), '- Primary KPI: ' + (c.measurement.primaryKpi || 'TBD'), '- Supporting KPIs: ' + (c.measurement.supportingKpis || []).join(', '), '', '## Brand branches', ...pack.brandBranches.map((branch) => '- **' + branch.brand + '** (' + branch.market + ') · one approved logo per artwork'), '', '## Evidence and gates', '- Sources: ' + (c.guardrails.sources || 'TBD'), '- Rights: ' + (c.guardrails.rights || 'TBD'), '- Approvals: strategy, claims, brand, destination and rights remain human gates.'].join('\n');
 }
-function csv(pack) { const rows = [['branch_id', 'brand', 'market', 'format', 'cta', 'destination', 'logo_rule']]; pack.brandBranches.forEach((branch) => (branch.formats || []).forEach((format) => rows.push([branch.id, branch.brand, branch.market, format, branch.cta, branch.destination, 'one approved logo per artwork']))); return rows.map((row) => row.map((cell) => `"${String(cell ?? '').replace(/"/g, '""')}"`).join(',')).join('\n'); }
-function publishInstructions(pack) { const publication = pack.production?.publication || {}; return [`# Publish ${pack.brief.meta.campaignName || 'campaign'} into /campaigns/`, '', 'The compiler export is a portable JSON handoff. Publish it as a private review workspace from the repository root:', '', '```bash', publication.command || 'node tools/publish-campaign-pack.cjs <campaign-pack.json> [slug]', '```', '', `Target route: ${publication.route || '/campaigns/<slug>/'}`, `Status: ${publication.status || 'Private review; commit and Pages deployment required.'}`, '', 'The publisher creates the complete HTML pack, updates the campaign library, writes the asset manifest and verification report, and keeps external sends, spend, CRM changes and provider generation behind approval gates.'].join('\n'); }
-function reviewHtml(pack) {
-  const b = pack.brief; const branchRows = pack.brandBranches.map((branch) => `<tr><td>${esc(branch.brand)}</td><td>${esc(branch.market)}</td><td>${esc(branch.cta)}</td><td>${esc(branch.destination)}</td><td>One approved logo per artwork</td></tr>`).join('');
-  const production = pack.production;
-  return `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex,nofollow,noarchive"><title>${esc(b.meta.campaignName || 'Campaign pack')} · Review</title><style>body{font:15px/1.6 system-ui,sans-serif;color:#102f36;background:#f7f4ee;margin:0;padding:42px}main{max-width:980px;margin:auto;background:#fff;padding:42px;box-shadow:0 12px 40px #073b431a}h1{font-size:42px;line-height:1.05;margin:8px 0 14px;color:#073b43}h2{font-size:17px;border-top:1px solid #ccd9d5;padding-top:22px;margin-top:30px;color:#073b43}p{max-width:75ch}small,.meta{color:#5b6d70}table{width:100%;border-collapse:collapse;font-size:12px}th,td{border-bottom:1px solid #ccd9d5;padding:9px;text-align:left;vertical-align:top}th{color:#5b6d70;font-size:10px;text-transform:uppercase;letter-spacing:.08em}.score{display:inline-block;background:#edf7f5;border:1px solid #a6d6bf;padding:5px 9px;border-radius:4px;font:600 12px ui-monospace,monospace}.warn{background:#fff7ef;border-left:3px solid #f26b38;padding:12px 14px;font-size:12px}.inventory{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:8px;margin:14px 0}.inventory span{background:#f2f7f5;padding:10px;border-radius:4px}.inventory b{display:block;font-size:22px;color:#073b43}.files{columns:2;font-size:12px}.files li{margin:4px 0}</style></head><body><main><small class="meta">M2M CAMPAIGN PACK · ${esc(pack.packId)} · ${esc(pack.status || 'Draft')}</small><h1>${esc(b.meta.campaignName || 'Untitled campaign')}</h1><p><strong>${esc(b.proposition.promise || 'Promise not supplied')}</strong></p><p class="score">Readiness ${pack.readiness.score}%</p><h2>Audience and route</h2><p>${esc(b.audience.primary || 'Primary audience not supplied')}</p><p>${esc(b.strategy.route || 'Conversion route not supplied')}</p><h2>Complete production inventory</h2><div class="inventory"><span><b>${production.summary.landingPages}</b>landing pages</span><span><b>${production.summary.socialAssets}</b>social objects</span><span><b>${production.summary.emailAssets}</b>email objects</span><span><b>${production.summary.paidAssets}</b>paid objects</span><span><b>${production.summary.salesTalkTracks}</b>sales talk tracks</span><span><b>${production.summary.creativeMasters}</b>text-free masters</span></div><ul class="files">${production.files.map((file) => `<li>${esc(file.path)}</li>`).join('')}</ul><h2>Independent brand branches</h2><table><thead><tr><th>Brand</th><th>Market</th><th>CTA</th><th>Destination</th><th>Artwork rule</th></tr></thead><tbody>${branchRows || '<tr><td colspan="5">No branches selected</td></tr>'}</tbody></table><h2>Evidence and gates</h2><p>${esc(b.governance.sources || 'Sources not supplied')}</p><div class="warn">${esc(pack.gates.activation)}</div><h2>Higgsfield handoff</h2><p>${pack.higgsfieldJobs.length} safe job specifications are included. Generate text-free masters, then apply approved copy and one branch logo in deterministic post-processing. Provider credentials and activation remain server-side and human-gated.</p></main></body></html>`;
+function csv(pack) {
+  const rows = [['branch_id', 'brand', 'market', 'format', 'cta', 'destination', 'logo_rule']];
+  pack.brandBranches.forEach((branch) => (branch.formats || []).forEach((format) => rows.push([branch.id, branch.brand, branch.market, format, branch.cta, branch.destination, 'one approved logo per artwork'])));
+  return rows.map((row) => row.map((cell) => '"' + String(cell ?? '').replace(/"/g, '""') + '"').join(',')).join('\n');
 }
-function download(name, content, type) { const blob = new Blob([content], { type }); const link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = name; document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(link.href), 1000); }
-function exportPack() { const pack = compilePack(); const base = pack.packId; download(`${base}-campaign-pack.json`, JSON.stringify(pack, null, 2), 'application/json'); download(`${base}-campaign-brief.md`, markdown(pack), 'text/markdown'); download(`${base}-campaign-review.html`, reviewHtml(pack), 'text/html'); download(`${base}-brand-branches.csv`, csv(pack), 'text/csv'); download(`${base}-higgsfield-jobs.json`, JSON.stringify(pack.higgsfieldJobs, null, 2), 'application/json'); download(`${base}-publish-instructions.md`, publishInstructions(pack), 'text/markdown'); (pack.production?._downloadFiles || []).forEach((file) => download(`${base}-${file.path.replace(/[^a-z0-9._-]+/gi, '-')}`, file.content, file.type)); showToast(`Complete campaign pack exported · ${pack.production?.summary.files || 0} production files`); }
+function publishInstructions(pack) {
+  const publication = pack.production.publication || {}, fence = String.fromCharCode(96).repeat(3);
+  return ['# Publish ' + (pack.campaignCore.name || 'campaign') + ' into /campaigns/', '', 'The signed Campaign Copilot export is a portable handoff. From the repository root run:', '', fence + 'bash', publication.command || 'node tools/publish-campaign-pack.cjs <campaign-pack.json> [slug]', fence, '', 'Target route: ' + (publication.route || '/campaigns/<slug>/'), 'Status: private review with noindex.', '', 'The publisher creates the complete HTML pack, updates the campaign library, writes the asset manifest and verification report, and keeps external sends, spend, CRM changes and provider generation behind approval gates.'].join('\n');
+}
+function download(name, content, type) {
+  const blob = new Blob([content], { type }), link = document.createElement('a'); link.href = URL.createObjectURL(blob); link.download = name; document.body.appendChild(link); link.click(); link.remove(); setTimeout(() => URL.revokeObjectURL(link.href), 1000);
+}
+function exportPack() {
+  const pack = compilePack(), base = pack.packId;
+  download(base + '-campaign-pack.json', JSON.stringify(pack, null, 2), 'application/json'); download(base + '-campaign-brief.md', markdown(pack), 'text/markdown'); download(base + '-campaign-branches.csv', csv(pack), 'text/csv'); download(base + '-publish-instructions.md', publishInstructions(pack), 'text/markdown');
+  (pack.production._downloadFiles || []).forEach((file) => download(base + '-' + file.path.replace(/[^a-z0-9._-]+/gi, '-'), file.content, file.type));
+  showToast('Campaign pack exported · ' + pack.production.summary.files + ' production files');
+}
+function generatePack() {
+  const pack = compilePack(); state.consultantRun.pack = { packId: pack.packId, generatedAt: pack.generatedAt, status: pack.status, readiness: pack.readiness, summary: pack.production.summary }; state.consultantRun.status = 'Pack generated; private publish is ready'; save(); showToast('Complete campaign pack generated');
+}
+function publishPack() {
+  const pack = compilePack(); state.consultantRun.publication = { status: 'Handoff ready', route: pack.production.publication.route, requestedAt: new Date().toISOString(), noindex: true, method: 'Controlled repository publisher' }; state.consultantRun.status = 'Private publish handoff ready'; save();
+  download(pack.packId + '-campaign-pack.json', JSON.stringify(pack, null, 2), 'application/json'); download(pack.packId + '-publish-instructions.md', publishInstructions(pack), 'text/markdown'); showToast('Private publish handoff prepared for ' + pack.production.publication.route); render();
+}
 
-$('#nextBtn').addEventListener('click', () => { if (currentStage < STAGES.length - 1) { currentStage += 1; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); } else { exportPack(); } });
-$('#backBtn').addEventListener('click', () => { if (currentStage > 0) { currentStage -= 1; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); } });
-$('#consultantTopBtn').addEventListener('click', () => { currentView = currentView === 'consultant' ? 'compiler' : 'consultant'; render(); window.scrollTo({ top: 0, behavior: 'smooth' }); });
-$('#fixtureBtn').addEventListener('click', () => { state = normalizeState(merge(blankState(), fixture)); currentStage = 0; currentView = 'compiler'; save(); render(); showToast('9604 campaign fixture loaded'); });
-$('#resetBtn').addEventListener('click', () => { if (!confirm('Reset this local brief?')) return; state = blankState(); currentStage = 0; currentView = 'consultant'; localStorage.removeItem(STORAGE_KEY); render(); showToast('Draft reset'); });
-$('#exportBtn').addEventListener('click', exportPack);
-$('#exportTopBtn').addEventListener('click', exportPack);
-$('#copyBtn').addEventListener('click', async () => { try { await navigator.clipboard.writeText(JSON.stringify(compilePack(), null, 2)); showToast('Compiled brief JSON copied'); } catch { showToast('Copy unavailable; use Export pack'); } });
+function evidenceCards() {
+  const evidence = state.consultantRun.research.evidence || [];
+  return evidence.length ? evidence.map((item) => '<article class="evidence-card"><span class="evidence-status status-' + slugify(item.status) + '">' + esc(item.status) + '</span><h4>' + esc(item.title) + '</h4><p>' + esc(item.detail) + '</p><small>' + esc(item.source || 'No source supplied') + (item.date ? ' · ' + item.date : '') + '</small></article>').join('') : '<div class="empty-note">Prepare a research plan after choosing a research mode.</div>';
+}
+function conceptCards() {
+  return (state.consultantRun.concepts || []).map((concept, index) => '<article class="concept-card ' + (state.consultantRun.selectedConcept === concept.id ? 'selected' : '') + '"><div class="concept-index">0' + (index + 1) + '</div><div class="concept-main"><span class="eyebrow">' + esc(concept.title) + '</span><h3>' + esc(concept.idea) + '</h3><div class="concept-grid"><div><strong>For</strong><p>' + esc(concept.audience) + '</p></div><div><strong>Problem</strong><p>' + esc(concept.problem) + '</p></div><div><strong>Message</strong><p>' + esc(concept.message) + '</p></div><div><strong>Why it might work</strong><p>' + esc(concept.why) + '</p></div><div><strong>Proof required</strong><p>' + esc(concept.proofRequirements.join('; ')) + '</p></div><div><strong>Risk</strong><p>' + esc(concept.risks.join('; ')) + '</p></div></div><div class="concept-footer"><span>' + esc(concept.channels.join(' · ')) + '</span><button class="button button-secondary button-small" data-action="choose-concept" data-concept="' + esc(concept.id) + '">' + (state.consultantRun.selectedConcept === concept.id ? 'Selected' : 'Choose direction') + '</button></div></div></article>').join('');
+}
+function comparisonHtml() {
+  const rounds = comparisonRounds(); if (!rounds.length) return '';
+  const next = rounds.find((round) => !preferenceFor(round.id));
+  if (!next) return '<div class="ranking"><p class="eyebrow">Preference result</p><h3>Your current ranking</h3>' + rankedConcepts().map((item, index) => '<div class="rank-row"><b>' + (index + 1) + '</b><strong>' + esc(item.concept.title) + '</strong><span>' + item.score + ' points</span><button class="button button-secondary button-small" data-action="choose-concept" data-concept="' + esc(item.concept.id) + '">Select</button></div>').join('') + '</div>';
+  return '<div class="comparison"><div class="comparison-meta">Decision ' + (rounds.indexOf(next) + 1) + ' of ' + rounds.length + '</div><h3>' + esc(next.prompt) + '</h3><div class="comparison-options"><button class="comparison-option" data-action="preference" data-round="' + next.id + '" data-choice="A"><span>A</span><strong>' + esc(next.left.label) + '</strong><p>' + esc(next.left.text) + '</p></button><button class="comparison-option" data-action="preference" data-round="' + next.id + '" data-choice="B"><span>B</span><strong>' + esc(next.right.label) + '</strong><p>' + esc(next.right.text) + '</p></button></div><div class="comparison-links"><button class="text-action" data-action="preference" data-round="' + next.id + '" data-choice="combine">Combine them</button><button class="text-action" data-action="preference" data-round="' + next.id + '" data-choice="rewrite">Rewrite this round</button><button class="text-action" data-action="preference" data-round="' + next.id + '" data-choice="none">Neither</button></div></div>';
+}
 
+function renderConsult() {
+  const questions = questionMap.map(([path, label, hint]) => '<div class="consult-question">' + area(path, label, hint, 'Write a short answer or choose “I don’t know”.') + '<button class="text-action" data-action="unknown" data-path="' + path + '">I don’t know</button></div>').join('');
+  return '<section class="screen consult-screen"><div class="screen-hero"><span class="eyebrow">CAMPAIGN COPILOT / 01</span><h1>Start with the decision.<br>We’ll shape the campaign.</h1><p>Five short answers are enough to create a useful campaign hypothesis. The Copilot labels inference, keeps research bounded and hands your chosen direction into one editable brief.</p><div class="hero-actions"><button class="button button-primary" data-action="build-proposal">Build my proposal <span>→</span></button><button class="button button-secondary" data-action="seed-9604">Start with the 9604 example</button></div></div><div class="panel"><div class="panel-heading"><div><span class="eyebrow">01 · High-level consult</span><h2>Tell us what matters.</h2><p>Answer in rough notes. “I don’t know” is valid and will be shown as an inference in the next step.</p></div><span class="panel-note">No duplication later</span></div><div class="consult-grid">' + questions + '</div></div><div class="panel compact-panel">' + brandChoices() + '</div></section>';
+}
+function renderPropose() {
+  const run = state.consultantRun, concepts = run.concepts || [], research = run.research || {};
+  return '<section class="screen"><div class="screen-heading"><div><span class="eyebrow">02 · Proposal</span><h1>Choose a campaign spine.</h1><p>The Copilot separates the strategic idea from brand positioning, then shows the evidence and decisions behind each direction.</p></div><button class="button button-secondary" data-action="regenerate">' + (concepts.length ? 'Regenerate directions' : 'Generate directions') + '</button></div><div class="proposal-layout"><div class="proposal-main"><div class="panel research-control"><div><span class="eyebrow">Research control</span><h2>How much checking should I do?</h2><p>Research questions are prepared before evidence is reviewed so the scan stays tied to the campaign decision.</p></div>' + selectFieldRun('research.mode', 'Research mode', ['Quick scan', 'No research', 'Evidence pack']) + '<button class="button button-secondary button-small" data-action="prepare-research">Prepare questions</button><span class="inline-status">' + esc(research.status || 'Not prepared') + '</span><div class="question-list">' + (research.questions || []).map((question, index) => '<span><b>Q' + (index + 1) + '</b>' + esc(question) + '</span>').join('') + '</div><div class="evidence-grid">' + evidenceCards() + '</div></div><div class="panel"><div class="panel-heading"><div><span class="eyebrow">Campaign directions</span><h2>Three different ways in.</h2><p>Each card includes message, audience problem, proof needs, risk, route and visual direction.</p></div></div><div class="concept-list">' + (concepts.length ? conceptCards() : '<div class="empty-note">Build the proposal from Consult to see three directions.</div>') + '</div></div>' + (concepts.length ? '<div class="panel compare-panel"><div class="panel-heading"><div><span class="eyebrow">Preference rounds</span><h2>Make only the decisions that help.</h2><p>Choose, combine, rewrite or reject. The Copilot stops after four bounded comparisons.</p></div><span class="panel-note">' + run.preferenceEvents.length + ' / ' + comparisonRounds().length + '</span></div>' + comparisonHtml() + '</div>' : '') + '</div><aside class="proposal-aside"><div class="panel sticky-panel"><span class="eyebrow">Your inputs</span><h3>' + esc(state.campaignCore.intent.offer || 'Offer not supplied') + '</h3><p>' + esc(state.campaignCore.intent.commercialOutcome || 'Commercial outcome not supplied') + '</p><div class="aside-list"><span><b>Audience</b>' + esc(state.campaignCore.audience.primary || 'Not supplied') + '</span><span><b>Market</b>' + esc(state.campaignCore.intent.market || 'Not supplied') + '</span><span><b>Brand branches</b>' + esc(selectedBrandNames().join(', ') || 'Choose a branch') + '</span></div><button class="button button-primary button-wide" data-action="to-refine" ' + (concepts.length ? '' : 'disabled') + '>Refine this brief <span>→</span></button></div></aside></div></section>';
+}
+function selectFieldRun(path, label, options) {
+  const current = getRun(path) || '';
+  return '<div class="field compact-field"><label>' + esc(label) + '</label><select data-run-bind="' + path + '">' + options.map((option) => '<option value="' + esc(option) + '"' + (option === current ? ' selected' : '') + '>' + esc(option) + '</option>').join('') + '</select></div>';
+}
+function renderRefine() {
+  const core = state.campaignCore, formats = derivedFormats(core.activation.channels, core.activation.formats);
+  return '<section class="screen"><div class="screen-heading"><div><span class="eyebrow">03 · Editable brief</span><h1>Shape the digital brief.</h1><p>Everything here is pre-populated from the consult and selected direction. Edit the decision once; downstream assets derive from it.</p></div><span class="ready-tag">' + readiness().score + '% ready</span></div><div class="refine-grid"><div class="refine-main"><details class="brief-section" open><summary><span>01</span><strong>Intent and audience</strong><small>Who, why now and what must change.</small></summary><div class="field-grid">' + field('name', 'Campaign name', 'A useful working title.', 'e.g. Coverage Beyond the Grid') + field('intent.offer', 'Offer or change', '', 'Product, service or behaviour') + selectField('intent.outcomeType', 'Outcome type', LIBRARIES.commercialObjectiveTypes, 'One primary commercial direction.') + field('intent.owner', 'Owner', '', 'Who will carry the brief?') + area('intent.commercialOutcome', 'Commercial outcome', 'Write the business result in one sentence.', 'What will be different commercially?') + area('intent.trigger', 'Why now / trigger', 'The moment or tension that makes this relevant.', 'What has changed or is at risk?') + area('audience.primary', 'Primary audience', 'The audience that must decide or act first.', 'Who is this for?') + area('audience.problem', 'Audience problem', 'The job, friction or consequence the campaign must make visible.', 'What problem are they trying to solve?') + field('intent.market', 'Market or operating context', '', 'Country, region, vertical or environment') + field('audience.geography', 'Geography', '', 'Where does the audience operate?') + checkboxSet('audience.roles', 'Decision roles', LIBRARIES.roles, 'Select all roles that influence the decision.', 'audience.rolesOther') + checkboxSet('audience.verticals', 'Primary verticals', LIBRARIES.verticals, 'Select the contexts where this campaign is relevant.', 'audience.verticalsOther') + '</div></details><details class="brief-section" open><summary><span>02</span><strong>Proposition and route</strong><small>What they should believe and do next.</small></summary><div class="field-grid">' + area('proposition.promise', 'Core promise', 'The single message the campaign should carry.', 'What should the audience believe?') + area('proposition.supporting', 'Supporting message', 'Explain the mechanism, value or boundary.', 'What makes the promise credible?') + area('proposition.proof', 'Proof available', 'List evidence, sources or proof still required.', 'What can we substantiate?') + selectField('proposition.claimsStatus', 'Claims status', ['Confirmed and qualified', 'Needs evidence review', 'Inferred; approval required', 'Unknown']) + field('proposition.cta', 'Call to action', '', 'What should they do next?') + field('proposition.destination', 'Destination', 'URL, form or route; can remain unresolved.', 'https://… or describe the route') + area('conversionRoute.route', 'Conversion route', 'The shortest path from problem to qualified action.', 'Problem → proof → offer → action') + '</div></details><details class="brief-section" open><summary><span>03</span><strong>Activation and measurement</strong><small>Where the idea travels and how success is known.</small></summary><div class="field-grid">' + checkboxSet('activation.channels', 'Priority channels', ['LinkedIn organic', 'LinkedIn document', 'Email nurture', 'Landing page', 'Paid search', 'Retargeting', 'Sales follow-up', 'Partner outreach'], 'Choose only channels that can change the decision.') + '<div class="derived-output"><span class="eyebrow">Derived production formats</span><strong>' + esc(formats.join(' · ') || 'Choose a channel to derive formats') + '</strong><p>Formats are calculated from channels so production metadata is never entered twice.</p></div>' + field('activation.startDate', 'Start date', '', '', 'date') + field('activation.endDate', 'End date', '', '', 'date') + selectField('measurement.primaryKpi', 'Primary KPI', LIBRARIES.kpis, 'One measure that matters most.') + checkboxSet('measurement.supportingKpis', 'Supporting KPIs', LIBRARIES.kpis.filter((item) => item !== core.measurement.primaryKpi).slice(0, 8), 'Choose up to three; the rest stay out of the brief.') + field('measurement.target', 'Target or value', '', 'Optional target') + field('measurement.event', 'Conversion event', '', 'What counts as success?') + field('measurement.source', 'Measurement source', '', 'CRM, analytics, platform or owner') + '</div></details><details class="brief-section"><summary><span>04</span><strong>Guardrails and brand</strong><small>Evidence, approvals and independent branches.</small></summary><div class="field-grid">' + area('guardrails.sources', 'Sources and evidence', '', 'Links, documents or approved references') + area('guardrails.rights', 'Rights and constraints', '', 'Image, logo, customer, partner or legal constraints') + area('guardrails.assumptions', 'Assumptions', '', 'What remains inferred or unresolved?') + area('guardrails.exclusions', 'Exclusions', '', 'What must the campaign avoid promising?') + brandChoices() + area('brand.handoff', 'Approval owner or handoff', '', 'Who reviews the branches and claims?') + '</div></details><details class="brief-section advanced-section"><summary><span>05</span><strong>More detail when needed</strong><small>Production guidance appears only when it helps.</small></summary><div class="field-grid">' + area('audience.objections', 'Known objections', '', 'What could make this unconvincing?') + area('advanced.creative', 'Creative direction', '', 'What should the visual world feel like?') + area('advanced.imagery', 'Imagery notes', '', 'What can and cannot be shown?') + area('advanced.motion', 'Motion notes', '', 'Optional motion or video requirement') + area('advanced.nurture', 'Nurture and handoff', '', 'Response owner, sequence or SLA') + field('advanced.budget', 'Budget', '', 'Optional planning input') + '</div></details></div><aside class="refine-aside"><div class="panel sticky-panel"><span class="eyebrow">Live brief</span><h3>' + esc(core.name || 'Untitled campaign') + '</h3><p>' + esc(core.proposition.promise || 'Add a promise to see the campaign spine.') + '</p><div class="aside-list"><span><b>Route</b>' + esc(core.conversionRoute.route || 'Not supplied') + '</span><span><b>Channels</b>' + esc(core.activation.channels.join(', ') || 'Not supplied') + '</span><span><b>Outputs</b>' + esc(formats.join(', ') || 'Derived after channel choice') + '</span></div><button class="button button-primary button-wide" data-action="to-review">Review and sign off <span>→</span></button></div></aside></div></section>';
+}
+function renderReview() {
+  const core = state.campaignCore, ready = readiness(), approvals = core.approvals || {}, pack = state.consultantRun.pack;
+  const approvalItems = [['strategy', 'I approve the campaign strategy and selected direction.'], ['claims', 'I have reviewed the proof, claims status and evidence gaps.'], ['brand', 'I confirm the brand and market branches are correct and independent.'], ['destination', 'I confirm the destination, form route and owner.'], ['rights', 'I have reviewed rights, constraints and required legal approvals.'], ['generation', 'I accept the generation scope and private-review status.']];
+  return '<section class="screen"><div class="screen-heading"><div><span class="eyebrow">04 · Review and sign-off</span><h1>Approve before production.</h1><p>This is the final strategic checkpoint. Generated fields stay visible with their provenance, and unresolved items are explicit.</p></div><span class="ready-tag ' + (ready.score >= 75 ? 'ready' : '') + '">' + ready.score + '% ready</span></div><div class="review-grid"><div class="review-main"><div class="panel review-summary"><div class="summary-header"><div><span class="eyebrow">Campaign summary</span><h2>' + esc(core.name || 'Untitled campaign') + '</h2></div><span class="source-badge">Canonical campaignCore</span></div><div class="summary-section"><h3>Decision</h3><p class="summary-lead">' + esc(core.proposition.promise || 'Promise not supplied') + '</p><dl><div><dt>Commercial outcome</dt><dd>' + esc(core.intent.commercialOutcome || 'Missing') + '</dd></div><div><dt>Offer</dt><dd>' + esc(core.intent.offer || 'Missing') + '</dd></div><div><dt>Route</dt><dd>' + esc(core.conversionRoute.route || 'Missing') + '</dd></div></dl></div><div class="summary-section"><h3>Audience</h3><p>' + esc(core.audience.primary || 'Missing') + '</p><p class="muted">' + esc(cleanPhrase(core.audience.problem) || 'Audience problem not supplied') + '.</p></div><div class="summary-section"><h3>Proposition and proof</h3><p>' + esc(core.proposition.supporting || 'Supporting message not supplied') + '</p><p class="evidence-line"><strong>' + esc(core.proposition.claimsStatus) + '</strong> · ' + esc(core.proposition.proof || 'Proof is still required') + '</p></div><div class="summary-section"><h3>Activation and measurement</h3><p>' + esc(core.activation.channels.join(' · ') || 'Channels not selected') + '</p><dl><div><dt>Primary KPI</dt><dd>' + esc(core.measurement.primaryKpi || 'Missing') + '</dd></div><div><dt>Conversion event</dt><dd>' + esc(core.measurement.event || 'Missing') + '</dd></div></dl></div><div class="summary-section"><h3>Independent branches</h3><div class="branch-pills">' + selectedBrandNames().map((name) => '<span>' + esc(name) + '</span>').join('') + '</div><p class="muted">One approved logo per artwork. Brand plugins are applied after the generic campaign spine is approved.</p></div><div class="summary-section"><h3>Open items</h3>' + (ready.missing.concat(ready.warnings).map((item) => '<p class="open-item">• ' + esc(item) + '</p>').join('') || '<p class="good-item">No blocking brief gaps detected.</p>') + '</div></div><div class="panel signoff-panel"><span class="eyebrow">Human sign-off</span><h2>Ready to generate?</h2><p>Tick each statement that has been reviewed. Generation remains disabled until all gates are acknowledged.</p><div class="approval-list">' + approvalItems.map(([key, label]) => '<label><input type="checkbox" data-approval="' + key + '"' + (approvals[key] ? ' checked' : '') + '><span>' + esc(label) + '</span></label>').join('') + '</div><button class="button button-primary button-wide" data-action="generate-pack" ' + (ready.score < 75 || !approvalItems.every(([key]) => approvals[key]) ? 'disabled' : '') + '>Generate campaign pack <span>→</span></button><button class="button button-secondary button-wide" data-action="export-pack">Download current pack</button>' + (pack ? '<div class="generated-callout"><strong>Pack generated</strong><span>' + esc(pack.summary.files + ' production files · ' + pack.status) + '</span><button class="button button-primary button-wide" data-action="publish-pack">Publish private review to /campaigns/</button></div>' : '') + '</div></div></section>';
+}
+function renderRail() {
+  const ready = readiness();
+  return '<div class="progress-head"><span class="eyebrow">CAMPAIGN COPILOT</span><span>' + (currentStep + 1) + ' / ' + STEPS.length + '</span></div><div class="rail-steps">' + STEPS.map((step, index) => '<button class="rail-step ' + (index === currentStep ? 'active' : '') + ' ' + (index < currentStep ? 'done' : '') + '" data-action="step" data-step="' + index + '"><span>' + String(index + 1).padStart(2, '0') + '</span><strong>' + esc(step.label) + '</strong><small>' + esc(step.title) + '</small></button>').join('') + '</div><div class="rail-card"><span class="eyebrow">CURRENT BRIEF</span><strong>' + esc(state.campaignCore.name || 'Untitled campaign') + '</strong><span>' + ready.score + '% ready · ' + esc(selectedBrandNames().join(', ') || 'No branch selected') + '</span></div>';
+}
+function render() {
+  currentStep = Math.max(0, Math.min(STEPS.length - 1, currentStep)); sessionStorage.setItem('m2m-campaign-copilot-step', String(currentStep));
+  const stepHtml = currentStep === 0 ? renderConsult() : currentStep === 1 ? renderPropose() : currentStep === 2 ? renderRefine() : renderReview();
+  appRoot.innerHTML = '<div class="copilot-frame"><aside class="copilot-rail">' + renderRail() + '<button class="button button-quiet rail-reset" data-action="reset">Reset local draft</button></aside><main class="copilot-main">' + stepHtml + '</main></div>';
+}
+function allApprovals() { const approvals = state.campaignCore.approvals || {}; return ['strategy', 'claims', 'brand', 'destination', 'rights', 'generation'].every((key) => approvals[key]); }
+
+appRoot.addEventListener('input', (event) => {
+  const element = event.target;
+  if (element.dataset.bind) { setPath(element.dataset.bind, element.value); markProvenance([element.dataset.bind], 'Edited'); if (element.dataset.bind === 'name' && !state.campaignCore.slug) state.campaignCore.slug = slugify(element.value); save(); updateChrome(); }
+  if (element.dataset.runBind) { setRun(element.dataset.runBind, element.value); save(); }
+});
+appRoot.addEventListener('change', (event) => {
+  const element = event.target;
+  if (element.dataset.check) {
+    let values = [...appRoot.querySelectorAll('[data-check="' + element.dataset.check + '"]:checked')].map((item) => item.value);
+    if (element.dataset.check === 'measurement.supportingKpis' && values.length > 3) { values = values.slice(0, 3); showToast('Choose up to three supporting KPIs'); }
+    setPath(element.dataset.check, values);
+    if (element.dataset.check === 'activation.channels') state.campaignCore.activation.formats = derivedFormats(values, []);
+    save(); render();
+  }
+  if (element.dataset.brand) { state.campaignCore.brand.plugins = [...appRoot.querySelectorAll('[data-brand]:checked')].map((item) => item.dataset.brand); save(); render(); }
+  if (element.dataset.approval) { state.campaignCore.approvals = state.campaignCore.approvals || {}; state.campaignCore.approvals[element.dataset.approval] = element.checked; save(); render(); }
+});
+appRoot.addEventListener('click', (event) => {
+  const button = event.target.closest('[data-action]'); if (!button) return;
+  const action = button.dataset.action;
+  if (action === 'unknown') { setPath(button.dataset.path, 'I don’t know'); markProvenance([button.dataset.path], 'Inferred'); save(); render(); return; }
+  if (action === 'build-proposal') { generateConcepts(); currentStep = 1; save(); render(); return; }
+  if (action === 'regenerate') { generateConcepts(); save(); render(); showToast('A new set of directions is ready'); return; }
+  if (action === 'prepare-research') { buildResearchPlan(); save(); render(); showToast('Research questions prepared'); return; }
+  if (action === 'choose-concept') { state.consultantRun.selectedConcept = button.dataset.concept; state.consultantRun.status = 'Direction selected'; save(); render(); return; }
+  if (action === 'preference') { const round = comparisonRounds().find((item) => item.id === button.dataset.round); if (round) { const choice = button.dataset.choice, ids = choice === 'A' ? [round.left.conceptId] : choice === 'B' ? [round.right.conceptId] : choice === 'combine' ? [round.left.conceptId, round.right.conceptId] : []; state.consultantRun.preferenceEvents = state.consultantRun.preferenceEvents.filter((item) => item.roundId !== round.id).concat([{ roundId: round.id, prompt: round.prompt, choice, conceptIds: ids, timestamp: new Date().toISOString() }]); save(); render(); } return; }
+  if (action === 'to-refine') { const selected = state.consultantRun.selectedConcept || rankedConcepts()[0]?.concept.id, concept = state.consultantRun.concepts.find((item) => item.id === selected); if (concept) applyConcept(concept); currentStep = 2; save(); render(); return; }
+  if (action === 'to-review') { currentStep = 3; save(); render(); return; }
+  if (action === 'step') { const target = Number(button.dataset.step); if (target <= currentStep || (target === currentStep + 1 && (target !== 1 || state.consultantRun.concepts.length))) { currentStep = target; render(); } return; }
+  if (action === 'generate-pack') { if (!allApprovals() || readiness().score < 75) return; generatePack(); currentStep = 3; render(); return; }
+  if (action === 'export-pack') { exportPack(); return; }
+  if (action === 'publish-pack') { publishPack(); return; }
+  if (action === 'seed-9604') { state = normalise(seed9604()); currentStep = 0; save(); render(); showToast('9604 example loaded into the Copilot'); return; }
+  if (action === 'reset') { if (!window.confirm('Reset this local campaign draft?')) return; state = blankState(); currentStep = 0; localStorage.removeItem(STORAGE_KEY); save(); render(); showToast('Draft reset'); }
+});
+document.querySelector('#fixtureTopBtn')?.addEventListener('click', () => {
+  state = normalise(seed9604());
+  currentStep = 0;
+  save();
+  render();
+  showToast('9604 example loaded into the Copilot');
+});
+function updateChrome() { const score = document.querySelector('.ready-tag'); if (score) score.textContent = readiness().score + '% ready'; }
 render();
