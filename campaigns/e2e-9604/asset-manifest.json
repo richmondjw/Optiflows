@@ -1,0 +1,140 @@
+{
+  "generatedAt": "2026-09-12T00:36:25.364Z",
+  "publicPath": "/campaigns/iridium-certus-9604-hybrid-iot-module-cellular-where-you-can-satellite/",
+  "files": [
+    {
+      "path": "assets/brand/m2m-connectivity.svg",
+      "bytes": 20670,
+      "sha256": "8a5c083ad86dab2d1238cd5a12a6351b985a0ed6e667b113e279dd0e00ed2802",
+      "kind": "svg",
+      "brandId": "m2m-connectivity"
+    },
+    {
+      "path": "assets/brand/m2m-one-au.png",
+      "bytes": 2640,
+      "sha256": "5a4c7ccb523559a2eb069184b97aabb3b4021a61934128fa39efc9b845043304",
+      "kind": "png",
+      "brandId": "m2m-one-au"
+    },
+    {
+      "path": "assets/masters/job_6cd4421aec51aace.svg",
+      "bytes": 389,
+      "sha256": "1f41751fa1f072b85af374e69da4e8248ea22af0488eb69927e01d82af31b6ad",
+      "kind": "svg"
+    },
+    {
+      "path": "assets/masters/job_ea356c29410f68f7.svg",
+      "bytes": 390,
+      "sha256": "7b2a860644319352eb5bf1a4a5cf32037e945d621eeda28608c7a170ec6af4e8",
+      "kind": "svg"
+    },
+    {
+      "path": "assets/masters/job_61da2361fc4d25a7.svg",
+      "bytes": 391,
+      "sha256": "43ed833103216c3788b229b0e88d664b3bb62c17d1db27495c543297a4cc444e",
+      "kind": "svg"
+    },
+    {
+      "path": "assets/masters/job_6e42c23ccacaa2e9.svg",
+      "bytes": 392,
+      "sha256": "b415ef4c0863698779fcf057917c58d941748440453183f7571b0294682adc33",
+      "kind": "svg"
+    },
+    {
+      "path": "assets/masters/job_a0b763955249b0a7.svg",
+      "bytes": 390,
+      "sha256": "fef003442443af0f531848fcbf86eaa5763a16aef4fad30e7032037b0dcbcde0",
+      "kind": "svg"
+    },
+    {
+      "path": "assets/masters/job_3328de4a693dae0b.svg",
+      "bytes": 391,
+      "sha256": "c77ffab6b75164ad942676aa5606b020aede470e7ea7785926681fadc63dc230",
+      "kind": "svg"
+    },
+    {
+      "path": "landing/m2m-connectivity/index.html",
+      "bytes": 2340,
+      "sha256": "b869b8d049be14eb6ace841c42024c108f72b409bbcb1ad8e25e6e80cae73ccb",
+      "kind": "html",
+      "brandId": "m2m-connectivity"
+    },
+    {
+      "path": "landing/m2m-one-au/index.html",
+      "bytes": 2259,
+      "sha256": "cdec5433a9aec8271ca4b619c888e76e516ce81abec1d553747e4fd484ea4283",
+      "kind": "html",
+      "brandId": "m2m-one-au"
+    },
+    {
+      "path": "downloads/manuscript.md",
+      "bytes": 852,
+      "sha256": "0131160950b3bb0f2fd45f274483a0dfb12b3577deb3e4638618ca909a6d9951",
+      "kind": "md"
+    },
+    {
+      "path": "downloads/campaign-calendar.csv",
+      "bytes": 2845,
+      "sha256": "785d46cac2ee48ff752c1c185bafe3f822a6026617054a2e37a8272ef8b1d90a",
+      "kind": "csv"
+    },
+    {
+      "path": "downloads/emails-m2m-connectivity.md",
+      "bytes": 2565,
+      "sha256": "44e72a624adefe16f126bb2072043ddc0d71f2074ecb941131e4337ae851e9f5",
+      "kind": "md",
+      "brandId": "m2m-connectivity"
+    },
+    {
+      "path": "downloads/copy-book-m2m-connectivity.md",
+      "bytes": 8329,
+      "sha256": "d7e17d22014c477efd9845c703d211fdd80ced177cb8eccb7aa5d4b4050903b4",
+      "kind": "md",
+      "brandId": "m2m-connectivity"
+    },
+    {
+      "path": "downloads/emails-m2m-one-au.md",
+      "bytes": 2361,
+      "sha256": "00a7959decd973f556a4583dd5fc29263eed1aab27afedbda90f2d3341e6a07a",
+      "kind": "md",
+      "brandId": "m2m-one-au"
+    },
+    {
+      "path": "downloads/copy-book-m2m-one-au.md",
+      "bytes": 8126,
+      "sha256": "63c23d6536c3b93b72505e8bf3c012ac7f53c9d6b0db76d35c500230e124ff79",
+      "kind": "md",
+      "brandId": "m2m-one-au"
+    },
+    {
+      "path": "claims-register.md",
+      "bytes": 491,
+      "sha256": "880845721650e7bb44052f7d95425b008c1c0c242c5862fb45b4f1c933ce8d1e",
+      "kind": "md"
+    },
+    {
+      "path": "verification-report.md",
+      "bytes": 1042,
+      "sha256": "d860deee28f7b89b85be35ec9618d0068bf512e401d935622b0f16664d4b0a2a",
+      "kind": "md"
+    },
+    {
+      "path": "creative-provenance.json",
+      "bytes": 5525,
+      "sha256": "f6e298eda28f3b541d948976437a5bf862e3d571b5e18f4e7e78e3aa8113a4d1",
+      "kind": "json"
+    },
+    {
+      "path": "index.html",
+      "bytes": 63595,
+      "sha256": "018bedfc73bc5cfe8e73a1726692028ad30e7b8f013fdd2fc2428d358a2fd964",
+      "kind": "html"
+    },
+    {
+      "path": "campaign-data.json",
+      "bytes": 84905,
+      "sha256": "62499f939983365d96277bc48e8218bd29f93bb910b44959a6fbcad09e97296c",
+      "kind": "json"
+    }
+  ]
+}
