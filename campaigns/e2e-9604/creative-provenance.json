@@ -1,0 +1,149 @@
+{
+  "generatedAt": "2026-09-12T00:36:25.364Z",
+  "jobs": [
+    {
+      "id": "job_6cd4421aec51aace",
+      "kind": "image",
+      "purpose": "recognise master",
+      "prompt": "Photographic, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., recognise moment, natural light",
+      "negativePrompt": "text, logo, watermark, words, letters, brand mark, signage with legible text, invented product, fake customer",
+      "constraints": [
+        "No text",
+        "No logos",
+        "No product claims",
+        "No invented customer proof"
+      ],
+      "status": "prepared",
+      "provider": {
+        "name": "higgsfield"
+      },
+      "history": [
+        {
+          "at": "2026-09-12T00:36:25.364Z",
+          "event": "prepared"
+        }
+      ],
+      "rights": "Generated master; rights per provider terms. Verify before external use."
+    },
+    {
+      "id": "job_ea356c29410f68f7",
+      "kind": "image",
+      "purpose": "prove master",
+      "prompt": "Photographic, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., prove moment, natural light",
+      "negativePrompt": "text, logo, watermark, words, letters, brand mark, signage with legible text, invented product, fake customer",
+      "constraints": [
+        "No text",
+        "No logos",
+        "No product claims",
+        "No invented customer proof"
+      ],
+      "status": "prepared",
+      "provider": {
+        "name": "higgsfield"
+      },
+      "history": [
+        {
+          "at": "2026-09-12T00:36:25.364Z",
+          "event": "prepared"
+        }
+      ],
+      "rights": "Generated master; rights per provider terms. Verify before external use."
+    },
+    {
+      "id": "job_61da2361fc4d25a7",
+      "kind": "image",
+      "purpose": "convert master",
+      "prompt": "Photographic, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., convert moment, natural light",
+      "negativePrompt": "text, logo, watermark, words, letters, brand mark, signage with legible text, invented product, fake customer",
+      "constraints": [
+        "No text",
+        "No logos",
+        "No product claims",
+        "No invented customer proof"
+      ],
+      "status": "prepared",
+      "provider": {
+        "name": "higgsfield"
+      },
+      "history": [
+        {
+          "at": "2026-09-12T00:36:25.364Z",
+          "event": "prepared"
+        }
+      ],
+      "rights": "Generated master; rights per provider terms. Verify before external use."
+    },
+    {
+      "id": "job_6e42c23ccacaa2e9",
+      "kind": "image",
+      "purpose": "segment master",
+      "prompt": "Photographic, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., segment moment, natural light",
+      "negativePrompt": "text, logo, watermark, words, letters, brand mark, signage with legible text, invented product, fake customer",
+      "constraints": [
+        "No text",
+        "No logos",
+        "No product claims",
+        "No invented customer proof"
+      ],
+      "status": "prepared",
+      "provider": {
+        "name": "higgsfield"
+      },
+      "history": [
+        {
+          "at": "2026-09-12T00:36:25.364Z",
+          "event": "prepared"
+        }
+      ],
+      "rights": "Generated master; rights per provider terms. Verify before external use."
+    },
+    {
+      "id": "job_a0b763955249b0a7",
+      "kind": "motion",
+      "purpose": "Motion study 1",
+      "prompt": "Cinematic vertical clip, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. at work, natural light, no text",
+      "negativePrompt": "text, logo, words, letters, watermark, brand mark, signage with legible text, invented product, fake customer",
+      "constraints": [
+        "No text",
+        "No logos",
+        "No product claims",
+        "No invented customer proof"
+      ],
+      "status": "prepared",
+      "provider": {
+        "name": "higgsfield"
+      },
+      "history": [
+        {
+          "at": "2026-09-12T00:36:25.364Z",
+          "event": "prepared"
+        }
+      ],
+      "rights": "Generated master; rights per provider terms. Verify before external use."
+    },
+    {
+      "id": "job_3328de4a693dae0b",
+      "kind": "motion",
+      "purpose": "Motion study 2",
+      "prompt": "Cinematic vertical clip, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. at work, natural light, no text",
+      "negativePrompt": "text, logo, words, letters, watermark, brand mark, signage with legible text, invented product, fake customer",
+      "constraints": [
+        "No text",
+        "No logos",
+        "No product claims",
+        "No invented customer proof"
+      ],
+      "status": "prepared",
+      "provider": {
+        "name": "higgsfield"
+      },
+      "history": [
+        {
+          "at": "2026-09-12T00:36:25.364Z",
+          "event": "prepared"
+        }
+      ],
+      "rights": "Generated master; rights per provider terms. Verify before external use."
+    }
+  ]
+}
