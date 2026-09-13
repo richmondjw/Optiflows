@@ -51,7 +51,7 @@ If you would rather talk it through, reply with the workflow that creates the mo
 
 James Richmond
 OptiFlows
-hello@optiflows.com
+hello@optiflows.com.au
 
 {{consent_context}}
 Unsubscribe: {{unsubscribe_url}}
@@ -96,7 +96,7 @@ Or reply with the workflow you chose. I am happy to tell you what I would measur
 
 James Richmond
 OptiFlows
-hello@optiflows.com
+hello@optiflows.com.au
 
 {{consent_context}}
 Unsubscribe: {{unsubscribe_url}}
