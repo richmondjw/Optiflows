@@ -150,10 +150,10 @@ function initLeadForm() {
   const success = document.getElementById('formSuccess');
   if (!form || !submit || !status || !success) return;
 
-  const endpoint = 'https://formspree.io/f/meelyrkd';
   const dialog = form.closest('dialog');
   const submitLabel = submit.querySelector('span');
   let formStarted = false;
+  window.OptiflowsLeadCapture?.initialise(form);
 
   const resetLeadForm = () => {
     if (success.hidden) return;
@@ -179,40 +179,22 @@ function initLeadForm() {
     if (submitLabel) submitLabel.textContent = 'Sending';
 
     const data = new FormData(form);
-    const query = new URLSearchParams(window.location.search);
-    const payload = {
-      _subject: 'Optiflows coordination drag enquiry',
-      name: String(data.get('full_name') || '').trim(),
-      email: String(data.get('email') || '').trim(),
-      company: String(data.get('company_name') || '').trim(),
-      message: String(data.get('message') || '').trim(),
-      inquiry_type: String(data.get('inquiry_type') || 'coordination_drag_audit'),
-      cta_location: String(data.get('cta_location') || 'unknown'),
-      estimated_annual_drag: String(data.get('estimated_annual_drag') || ''),
-      source_page: window.location.pathname,
-      _gotcha: String(data.get('honeypot') || ''),
-      utm_source: query.get('utm_source') || '',
-      utm_medium: query.get('utm_medium') || '',
-      utm_campaign: query.get('utm_campaign') || ''
-    };
-    trackEvent('diagnostic_form_submit', { cta_location: payload.cta_location, inquiry_type: payload.inquiry_type });
+    const ctaLocation = String(data.get('cta_location') || 'unknown');
+    const inquiryType = String(data.get('inquiry_type') || 'coordination_drag_audit');
+    trackEvent('diagnostic_form_submit', { cta_location: ctaLocation, inquiry_type: inquiryType });
 
     try {
-      const response = await fetch(endpoint, {
-        method: 'POST',
-        headers: { Accept: 'application/json', 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-      if (!response.ok) throw new Error('Submission failed');
+      if (!window.OptiflowsLeadCapture) throw new Error('lead_capture_unavailable');
+      await window.OptiflowsLeadCapture.submit(form, { source: window.location.pathname });
       form.hidden = true;
       success.hidden = false;
       dialog?.scrollTo({ top: 0, behavior: 'auto' });
-      trackEvent('generate_lead', { cta_location: payload.cta_location, inquiry_type: payload.inquiry_type });
+      trackEvent('generate_lead', { cta_location: ctaLocation, inquiry_type: inquiryType });
     } catch (error) {
-      status.textContent = 'Something went wrong. Email hello@optiflows.com.au directly.';
+      status.textContent = 'We could not securely record your enquiry. Please try again shortly.';
       submit.disabled = false;
       if (submitLabel) submitLabel.textContent = 'Request my diagnostic';
-      trackEvent('diagnostic_form_error', { cta_location: payload.cta_location });
+      trackEvent('diagnostic_form_error', { cta_location: ctaLocation });
     }
   });
 }
