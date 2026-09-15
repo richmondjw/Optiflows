@@ -1,0 +1,13 @@
+name = "optiflows-lead-capture"
+main = "lead-capture.js"
+compatibility_date = "2026-09-15"
+
+[[d1_databases]]
+binding = "LEADS_DB"
+database_name = "optiflows-leads"
+database_id = "REPLACE_AFTER_D1_CREATION"
+
+# Set as secrets, never in this file: ADMIN_API_TOKEN, NOTIFICATION_WEBHOOK_URL,
+# and TURNSTILE_SECRET when a Turnstile widget is configured on the form.
+[vars]
+PUBLIC_ORIGIN = "https://optiflows.com.au"

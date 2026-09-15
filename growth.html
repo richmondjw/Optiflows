@@ -556,7 +556,6 @@
         <div class="LeadStep" id="leadStep2">
           <button type="button" class="LeadForm-back" id="leadBackBtn">&#8592; Back</button>
           <form id="leadForm" class="LeadForm" autocomplete="on">
-            <input type="text" name="honeypot" style="display:none" tabindex="-1" autocomplete="off">
             <input type="hidden" name="inquiry_type" id="leadIntent" value="">
             <div class="LeadForm-field">
               <label class="LeadForm-label" for="lf-name">Your name</label>
@@ -657,11 +656,10 @@ document.getElementById('passwordInput').addEventListener('keydown', function(e)
 });
 </script>
 
+<script src="./lead-capture.js"></script>
 <script>
 // --- Two-Step Lead Form ---
 (function() {
-  var FORM_ENDPOINT = 'https://formspree.io/f/meelyrkd';
-
   var step1 = document.getElementById('leadStep1');
   var step2 = document.getElementById('leadStep2');
   var step3 = document.getElementById('leadStep3');
@@ -673,6 +671,7 @@ document.getElementById('passwordInput').addEventListener('keydown', function(e)
   var messageField = document.getElementById('lf-message');
 
   if (!step1 || !form) return;
+  window.OptiflowsLeadCapture.initialise(form);
 
   var messagePlaceholders = {
     growth_audit: 'What does your growth pipeline look like today?',
@@ -719,43 +718,12 @@ document.getElementById('passwordInput').addEventListener('keydown', function(e)
     submitBtn.disabled = true;
     submitBtn.querySelector('span').textContent = 'Sending...';
 
-    var fd = new FormData(form);
-    var fullName = (fd.get('full_name') || '').trim();
-    var utm = getUtm();
-
-    var payload = {
-      _subject: 'Optiflows lead submission',
-      name: fullName,
-      email: fd.get('email'),
-      company: fd.get('company_name'),
-      message: fd.get('message'),
-      inquiry_type: fd.get('inquiry_type'),
-      source_page: window.location.pathname,
-      _gotcha: fd.get('honeypot'),
-      utm_source: utm.utm_source,
-      utm_medium: utm.utm_medium,
-      utm_campaign: utm.utm_campaign,
-      utm_term: utm.utm_term,
-      utm_content: utm.utm_content
-    };
-
-    fetch(FORM_ENDPOINT, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify(payload)
-    })
-    .then(function(res) {
-      if (!res.ok) throw new Error('Request failed');
-      return res.json();
-    })
+    window.OptiflowsLeadCapture.submit(form, { source: window.location.pathname })
     .then(function() {
       showStep(3);
     })
     .catch(function() {
-      status.textContent = 'Something went wrong. Please email hello@optiflows.com.au directly.';
+      status.textContent = 'We could not securely record your enquiry. Please try again shortly.';
       status.className = 'LeadForm-status error';
       submitBtn.querySelector('span').textContent = 'Book a Conversation';
       submitBtn.disabled = false;
