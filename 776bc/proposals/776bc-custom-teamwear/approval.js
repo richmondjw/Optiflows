@@ -1,6 +1,6 @@
 
 (function(){
-  var ENDPOINT = 'https://formspree.io/f/meelyrkd';
+  var ENDPOINT = '/api/proposal-approvals';
   var KEY = 'optiflows-proposal-776bc-teamwear-v1-7-approval';
   var PROPOSAL = 'Custom Teamwear Workflow: Discover and Design (776BC), 16 September 2026, v1.7';
 
@@ -95,13 +95,30 @@
     document.getElementById('printBlank').hidden = true;
     form.hidden = true;
     document.body.classList.add('is-approved');
-    document.getElementById('statusText').textContent = 'Approval submitted ' + fmtDate(rec.date);
-    document.title = 'Custom Teamwear Workflow: Discover and Design | Approval submitted';
+    document.getElementById('statusText').textContent = rec.is_test ? 'TEST ONLY: no client approval' : 'Approval submitted ' + fmtDate(rec.date);
+    document.title = 'Custom Teamwear Workflow: Discover and Design | ' + (rec.is_test ? 'Test record' : 'Approval submitted');
   }
   try {
     var saved = localStorage.getItem(KEY);
-    if (saved){ var record = JSON.parse(saved); if(record.proposal === PROPOSAL && record.consent === CONSENT && record.record_id && /^data:image\/png;base64,/.test(record.signature || '')) render(record); }
+    if (saved && !location.hash.startsWith('#record=')){ var record = JSON.parse(saved); if(record.proposal === PROPOSAL && record.consent === CONSENT && record.record_id && /^data:image\/png;base64,/.test(record.signature || '')) render(record); }
   } catch(e){}
+
+  // The private access key stays in the URL fragment, out of HTTP/referrer logs.
+  var linked = /^#record=([a-f0-9-]{36})\.([a-f0-9]{64})$/i.exec(location.hash);
+  if (linked){
+    form.hidden = true;
+    msg.textContent = 'Loading the signed record...';
+    fetch(ENDPOINT + '/' + linked[1], {headers:{'X-Approval-Key':linked[2]}})
+      .then(function(res){ if(!res.ok) throw new Error('Record unavailable'); return res.json(); })
+      .then(function(data){
+        if(data.record.proposal !== PROPOSAL || data.record.consent !== CONSENT) throw new Error('Proposal version differs');
+        msg.textContent = '';
+        render(data.record);
+      }).catch(function(){
+        form.hidden = false;
+        msg.textContent = 'The signed record could not be loaded. Check the complete private link or contact james.richmond@optiflows.com.au.';
+      });
+  }
 
   form.addEventListener('input', function(){ if (!submitBtn.disabled) pendingRecord = null; });
   canvas.addEventListener('pointerdown', function(){ if (!submitBtn.disabled) pendingRecord = null; });
@@ -127,6 +144,7 @@
       record_id: crypto.randomUUID(),
       proposal_version: '1.7',
       consent: CONSENT,
+      consent_accepted: true,
       scope: 'Three-week Discover and Design engagement, Outputs 1–4',
       fee_aud_ex_gst: 14400,
       payment_milestones: 'A$7,200 on PMA signing before kickoff; A$7,200 on Outputs 1–4 acceptance',
@@ -152,7 +170,15 @@
       body: JSON.stringify(rec)
     }).then(function(res){
       if (!res.ok) throw new Error('HTTP ' + res.status);
+      return res.json();
+    }).then(function(data){
+      if (!data.accepted || !data.stored || !data.record || data.record.record_id !== rec.record_id) throw new Error('Approval not recorded');
+      rec = data.record;
       try { localStorage.setItem(KEY, JSON.stringify(rec)); } catch(err){}
+      if (data.record_url){
+        var savedUrl = new URL(data.record_url);
+        if (savedUrl.origin === location.origin && savedUrl.pathname === location.pathname) history.replaceState(null, '', savedUrl.href);
+      }
       msg.textContent = '';
       render(rec);
       document.getElementById('approve').scrollIntoView({ behavior: 'smooth', block: 'start' });

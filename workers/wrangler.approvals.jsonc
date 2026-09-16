@@ -1,0 +1,12 @@
+{
+  "name": "optiflows-proposal-approvals",
+  "main": "proposal-approvals.js",
+  "account_id": "20200ed2c992006bae6982480b146681",
+  "compatibility_date": "2026-09-16",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{"pattern": "optiflows.com.au/api/proposal-approvals*", "zone_name": "optiflows.com.au"}],
+  "d1_databases": [{"binding": "APPROVALS_DB", "database_name": "optiflows-leads", "database_id": "4a9afd10-7ee7-4007-b6de-02f666692fd6"}],
+  "vars": {"PUBLIC_ORIGIN": "https://optiflows.com.au", "APPROVAL_EMAIL_ENDPOINT": "https://formspree.io/f/meelyrkd"},
+  "observability": {"enabled": false}
+}
