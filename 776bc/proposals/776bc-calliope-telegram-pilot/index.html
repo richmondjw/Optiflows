@@ -157,7 +157,8 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 .btn[disabled]:hover::after{transform:none}
 
 /* approval form */
-.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px 20px}
+[hidden]{display:none!important}
+.form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px 20px}
 .field{display:flex;flex-direction:column;gap:8px}
 .field label{font-family:var(--mono);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--mid)}
 .field input[type=text],.field input[type=date]{font:inherit;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--white);color:var(--ink);min-height:52px;width:100%}
