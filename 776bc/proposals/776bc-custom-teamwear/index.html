@@ -343,6 +343,90 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 }
 
 .timeline.four-phases{grid-template-columns:repeat(2,minmax(0,1fr))}@media screen and (max-width:700px){.timeline.four-phases{grid-template-columns:minmax(0,1fr)}}
+
+/* Proposal v1.7: four phases, one current decision, supporting detail on demand. */
+.proposal-nav{display:flex;flex-wrap:wrap;gap:14px 26px;margin-top:32px;padding-top:24px;border-top:1px solid rgba(255,255,255,.18)}
+.proposal-nav a{color:var(--mist);font-size:.9rem;text-underline-offset:5px}
+.proposal-nav a:hover{color:var(--white)}
+a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offset:5px}
+.cover a:focus-visible{outline-color:var(--electric)}
+.lead{font-size:1.25rem;color:var(--dark);line-height:1.5}
+.ambition{border-top:1px solid var(--line);padding-top:24px;font-size:.95rem}
+.phase-list{list-style:none;border-top:1px solid var(--mist)}
+.phase-list>li{display:grid;grid-template-columns:220px minmax(0,1fr);gap:32px;padding:30px 0;border-bottom:1px solid var(--mist);break-inside:avoid}
+.phase-name{display:flex;flex-direction:column;gap:12px}
+.phase-name h3{font-size:1.8rem}.phase-name .mono{font-size:.68rem}
+.phase-time{font-size:.9rem;color:var(--grey)}
+.phase-copy{display:flex;flex-direction:column;gap:12px}
+.phase-copy p{font-size:.95rem}.phase-copy .phase-purpose{font-size:1.15rem;font-weight:600;color:var(--dark)}
+.phase-list .later .mono{color:var(--grey)}
+.start-here{display:grid;gap:12px}.start-here h3{font-size:1.3rem}
+.first-questions{list-style:none;counter-reset:first;display:grid;gap:22px}
+.first-questions li{counter-increment:first;display:grid;grid-template-columns:34px minmax(0,1fr);column-gap:18px;row-gap:6px}
+.first-questions li::before{content:counter(first,decimal-leading-zero);grid-row:1/3;color:var(--mid);font-family:var(--mono);font-size:.8rem;padding-top:4px}
+.first-questions h3{font-size:1.15rem}.first-questions p{grid-column:2}
+.fee-summary{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:24px;padding:28px 0;border-top:1px solid var(--mist);border-bottom:1px solid var(--mist)}
+.fee{font-size:2.5rem;line-height:1.3;letter-spacing:-.04em;color:var(--dark);font-weight:600;margin-top:8px}
+.fee span{font-size:1rem;letter-spacing:0;font-weight:400;white-space:nowrap}
+.fee-summary>p{font-size:1rem}.supporting{font-size:.95rem;color:var(--grey)}
+.text-link{font-size:.9rem;text-underline-offset:4px;padding:12px 0}
+.scope-groups{border-top:1px solid var(--line)}
+.scope-groups details{border-bottom:1px solid var(--line)}
+.scope-groups summary{cursor:pointer;padding:24px 32px 24px 0;position:relative;list-style:none;color:var(--dark);font-weight:600;font-size:1.12rem;line-height:1.35}
+.scope-groups summary::-webkit-details-marker{display:none}
+.scope-groups summary::after{content:'+';position:absolute;right:2px;top:24px;font-size:1.4rem;font-weight:400}
+.scope-groups details[open]>summary::after{content:'−'}
+.scope-groups summary span{display:block;font-size:.85rem;font-weight:400;color:var(--grey);margin-top:6px}
+.scope-body{display:grid;gap:28px;padding:0 0 30px;font-size:.97rem}
+.scope-body article{display:grid;gap:12px}.scope-body h3{font-size:1.12rem;line-height:1.3}
+.workflow-list{display:grid;gap:18px}.workflow-list>div{display:grid;grid-template-columns:190px minmax(0,1fr);gap:20px;break-inside:avoid}
+.workflow-list dt{font-weight:600;color:var(--dark)}
+#approve{border-top:1px solid var(--line)}
+@media screen and (max-width:600px){
+ .phase-list>li{grid-template-columns:minmax(0,1fr);gap:18px;padding:26px 0}
+ .phase-name{display:grid;grid-template-columns:1fr auto;gap:8px 12px;align-items:baseline}
+ .phase-name .mono{grid-column:1/-1}.phase-name h3{font-size:1.55rem}
+ .phase-time{font-size:.8rem}.fee{font-size:2.15rem}.fee-summary{align-items:flex-start}
+ .workflow-list>div{grid-template-columns:minmax(0,1fr);gap:5px}
+ .proposal-nav{gap:12px 22px}.scope-groups summary{font-size:1.05rem}
+}
+@page{size:A4;margin:15mm 17mm}
+@media print{
+ body{font-size:10pt;line-height:1.45}
+ .wrap{max-width:none;padding:0}
+ .cover{height:auto;min-height:0;padding:9mm 10mm;break-after:auto;display:block}
+ .cover::before,.cover::after{display:none}.cover-top{padding-bottom:10mm}
+ .cover h1{font-size:30pt;max-width:18ch}.cover .sub{font-size:13pt;max-width:36ch}
+ .cover .meta{margin-top:10mm;padding-top:5mm;grid-template-columns:repeat(2,minmax(0,1fr));gap:5mm}
+ .cover .meta div p{font-size:9pt}.cover .mono,.cover .pre{font-size:7pt}
+ .section{padding:10mm 0;break-before:auto}
+ .section.paper{border-top:0;break-before:auto;background:var(--white)!important}
+ .section-head{border:0;padding:0;gap:3mm}.section-head p{font-size:10pt}
+ .stack{gap:4mm}.stack-lg{gap:6mm}
+ h2{font-size:23pt}.lead{font-size:12pt}.ambition{font-size:9pt;padding-top:4mm}
+ #approach,#first,#scope{break-before:page}
+ #first{padding:0 0 5mm}#investment{padding:5mm 0}
+ #first .stack-lg,#investment .stack-lg{gap:4mm}
+ main p{max-width:none}
+ .phase-list>li{grid-template-columns:48mm minmax(0,1fr);gap:6mm;padding:7mm 0}
+ .phase-name{gap:3mm}.phase-name h3{font-size:19pt}.phase-name .mono{font-size:7pt}.phase-time{font-size:9pt}
+ .phase-copy{gap:3mm}.phase-copy p{font-size:10pt}.phase-copy .phase-purpose{font-size:12pt}
+ .first-questions{gap:4mm}.first-questions h3,.start-here h3{font-size:12pt}
+ .first-questions li{break-inside:avoid}.fee-summary{padding:5mm 0;gap:5mm;break-inside:avoid}
+ .fee{font-size:26pt}.fee span,.fee-summary>p,.supporting{font-size:10pt}
+ #scope .stack-lg{display:block}#scope .section-head{margin-bottom:6mm}
+ .scope-groups details::details-content{display:contents}
+ .scope-groups details:last-child{break-before:page}
+ .scope-groups summary{display:block;padding:5mm 0;font-size:13pt;break-inside:avoid;break-after:avoid-page;list-style:none}
+ .scope-groups summary::after{display:none}.scope-groups summary span{font-size:9pt}
+ .scope-body{display:contents;font-size:10pt}.scope-body>*{margin-bottom:5mm}.scope-body h3{font-size:11pt}
+ .scope-body article{display:block;break-inside:avoid}.scope-body h3{margin-bottom:3mm}.scope-body p+p{margin-top:3mm}
+ .workflow-list{gap:4mm}.workflow-list>div{grid-template-columns:43mm minmax(0,1fr);gap:5mm}
+ .marks{gap:3mm}.marks li{break-inside:avoid}
+ #approve{break-before:page;min-height:0;padding:0;border:0}
+ #approve::before{display:none}#approve .section-head h2{font-size:25pt}
+ .print-return{font-size:8.5pt}.sig-lines{margin-top:14mm}
+}
 </style></head><body>
 <header class="cover"><div class="wrap">
 <div class="cover-top"><a class="brand" href="https://www.optiflows.com.au/" aria-label="Optiflows">
@@ -354,81 +438,109 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
         </svg>
         <span>Optiflows</span>
       </a><a class="mono" style="color:var(--mist);text-decoration:none" href="/776bc/proposals/">All proposals →</a></div>
-<span class="pre">Design thinking project</span><h1>Custom Teamwear Workflow</h1>
-<p class="sub">Faster to market. More efficient delivery. A better customer experience.</p>
-<div class="meta"><div><span class="mono">Prepared for</span><p>Kate &amp; Cam<br>and the 776BC team</p></div><div><span class="mono">Prepared by</span><p>James Richmond<br>OptiFlows</p></div><div><span class="mono">Date</span><p>7 September 2026<br>Version 1.6</p></div><div><span class="mono">Status</span><p class="status-pill" id="statusText">Awaiting proposal approval</p></div></div>
-</div></header>
+<span class="pre">776BC | Project proposal</span><h1>Custom Teamwear Workflow</h1>
+<p class="sub">A clearer path from customer brief to production.</p>
+<div class="meta"><div><span class="mono">Prepared for</span><p>Kate &amp; Cam<br>and the 776BC team</p></div><div><span class="mono">Prepared by</span><p>James Richmond<br>OptiFlows</p></div><div><span class="mono">Date</span><p>16 September 2026<br>Version 1.7</p></div><div><span class="mono">Status</span><p class="status-pill" id="statusText">Awaiting proposal approval</p></div></div>
+<nav class="proposal-nav no-print" aria-label="Proposal sections"><a href="#approach">The approach</a><a href="#first">Where we start</a><a href="#investment">Investment</a><a href="#scope">Detailed scope</a></nav></div></header>
 
-<section class="section"><div class="wrap stack-lg">
-<div class="section-head plain"><span class="pre">The ultimate objective</span><h2>A better way to deliver<br>custom teamwear.</h2></div>
-<div class="stack"><p>Custom teamwear is at the heart of 776BC’s business and its core value chain. This project will explore how to reengineer that workflow to increase speed and efficiency to market while improving the overall customer experience.</p><p>Through Discover, Design, Develop and Deliver, we will identify where simpler processes, AI and automation can reduce repetitive work, shorten delays and make the journey easier for customers and staff. We will start with the customer brief, design, revisions, approval and production handover, then agree which improvements to develop first.</p></div>
-<div class="callout teal"><span class="pre">One clear ambition within this vision</span><p>A customer briefs 776BC today and, within 48 hours, sees a compelling, realistic presentation of a coordinated teamwear collection. This is a target to validate for the presentation, not finished garment delivery. Agree the starting point, eligible briefs and quality checks, then test it in the pilot. Designers retain creative control and Production checks manufacturing accuracy.</p></div>
-<div class="decision"><span class="pre">Recommended first investment</span><p>Begin with Discover and Design: three weeks for a combined fixed fee of A$14,400 ex GST. Understand the work, prioritise improvements and test the proposed workflow before defining the next build.</p></div>
-<div class="tiles"><div class="tile"><span class="mono">First engagement</span><strong>3 weeks<small>Discover + Design</small></strong></div><div class="tile"><span class="mono">Pricing basis</span><strong>48 hours<small>Fixed deliverables</small></strong></div><div class="tile"><span class="mono">Prototype</span><strong>Up to 6<small>Linked screens</small></strong></div><div class="tile"><span class="mono">Staff input</span><strong>8–10 hours<small>Combined estimate</small></strong></div><div class="tile"><span class="mono">Investment</span><strong>A$14,400<small>Ex GST, first engagement</small></strong></div></div>
+
+<main id="proposalContent">
+<section class="section outcome" aria-labelledby="outcome-title"><div class="wrap stack">
+<span class="pre">The outcome</span>
+<h2 id="outcome-title">Better teamwear delivery.<br>Less repeated work.</h2>
+<p class="lead">Make custom teamwear faster and easier to deliver, with a better experience for customers and the people doing the work.</p>
+<p>We will follow the journey from customer brief through design, revisions, approval and production handover. Simplify the process first, then use existing software, AI and automation where they can make a practical difference.</p>
+<p class="ambition"><strong>An ambition to test:</strong> a complete customer brief becomes a compelling, realistic collection presentation within 48 hours. Discover will define eligible briefs and quality checks; the pilot will test the target. This is presentation time, not finished garment delivery.</p>
 </div></section>
 
-<section class="section paper"><div class="wrap stack-lg">
-<div class="section-head"><span class="num">01</span><h2>The experience we want to create</h2><p>Make briefing, reviewing and approving easier for customers. Reduce repeated work and keep teams working from the same approved information.</p></div>
-<div class="steps">
-<div class="step"><h3>Brief once</h3><p>Bring colours, logos, references, sponsors and garment choices into one brief. Explore extracting information from existing emails and files for staff to confirm.</p></div>
-<div class="step"><h3>Develop concepts</h3><p>Create 3–5 starting directions using 776BC design rules, garment templates and approved assets.</p></div>
-<div class="step"><h3>Build the collection</h3><p>The designer selects and refines a master direction, then applies its design language across the selected styles.</p></div>
-<div class="step"><h3>Show it realistically</h3><p>Present front, back and side garment views that accurately reflect the editable artwork and garment construction.</p></div>
-<div class="step"><h3>Revise consistently</h3><p>Assist changes across relevant artwork, garments and presentation views, with the designer checking the result.</p></div>
-<div class="step"><h3>Approve and produce</h3><p>Record the customer’s approved version and prepare editable production outputs for Design and Production release.</p></div>
-</div>
-<div class="callout teal"><span class="pre">The starting idea</span><p>Simplify the process first. Use AI where it can assist interpretation or design, and automation where it can remove repeat tasks and handovers. Start with existing software and develop only what is needed. Test each option against quality, editability, compatibility, licensing, data handling and cost.</p></div>
+<section class="section paper" id="approach" aria-labelledby="approach-title"><div class="wrap stack-lg">
+<div class="section-head plain"><span class="pre">The approach</span><h2 id="approach-title">Discover. Design.<br>Develop. Deliver.</h2><p>Understand the work, shape the improvement, prove it works and put it into everyday use.</p></div>
+<ol class="phase-list">
+<li><div class="phase-name"><span class="mono">01 | First engagement</span><h3>Discover</h3><span class="phase-time">Week 1</span></div><div class="phase-copy"><p class="phase-purpose">Understand the work and agree the priorities.</p><p><strong>Result:</strong> a shared view of the current workflow, its friction points and what success should look like.</p><p><strong>Next decision:</strong> agree the priority workflow, garment set and acceptance tests.</p></div></li>
+<li><div class="phase-name"><span class="mono">02 | First engagement</span><h3>Design</h3><span class="phase-time">Weeks 2–3</span></div><div class="phase-copy"><p class="phase-purpose">Make the improved experience tangible.</p><p><strong>Result:</strong> a reviewed clickable prototype, feasibility findings and a development plan.</p><p><strong>Next decision:</strong> accept the design work and decide whether to commission a working proof of concept.</p></div></li>
+<li class="later"><div class="phase-name"><span class="mono">03 | Later phase</span><h3>Develop</h3><span class="phase-time">Separately approved</span></div><div class="phase-copy"><p class="phase-purpose">Build and test a reliable working system.</p><p><strong>Result:</strong> a working proof, followed by a build and pilot on live customer briefs.</p><p><strong>Next decision:</strong> approve the build after the proof, then confirm the pilot passes the launch checks.</p></div></li>
+<li class="later"><div class="phase-name"><span class="mono">04 | Later phase</span><h3>Deliver</h3><span class="phase-time">Separately approved</span></div><div class="phase-copy"><p class="phase-purpose">Help the team confidently use and own it.</p><p><strong>Result:</strong> training, editable assets and code, operating instructions and a named internal owner.</p><p><strong>Next decision:</strong> accept the handover and resolve critical defects before launch.</p></div></li>
+</ol>
 </div></section>
 
-<section class="section"><div class="wrap stack-lg">
-<div class="section-head"><span class="num">02</span><h2>Discover. Design. Develop. Deliver.</h2><p>A design thinking project: understand the work, test the idea, build the system and put it to use. Staff feedback shapes each phase.</p></div>
-<div class="timeline four-phases">
-<div class="phase"><span class="mono">01 | Week 1</span><h3>Discover</h3><p><strong>Understand the work and agree the priorities.</strong> Trace one real job from brief to production handover. Use short staff responses and a walkthrough to find delays, repeated work and customer friction.</p><p><strong>You receive:</strong> the current workflow, file inventory, priorities and agreed success measures.</p><p><strong>Approval:</strong> confirm the priority workflow, garment set and checks before detailed design.</p></div>
-<div class="phase"><span class="mono">02 | Weeks 2–3</span><h3>Design</h3><p><strong>Show how the system will work.</strong> Simplify the priority workflow, create a clickable interface prototype and test where AI and automation could help. Refine it with staff.</p><p><strong>You receive:</strong> a reviewed prototype, recommended tools and a clear development scope, tests and indicative budget.</p><p><strong>Approval:</strong> accept the design work and separately approve the working proof of concept.</p></div>
-<div class="phase"><span class="mono">03 | Later, separately approved</span><h3>Develop</h3><p><strong>Build and test the working system.</strong> First prove one historical job from brief to collection and revision. Then build and pilot with the design team.</p><p><strong>You receive:</strong> a working proof of concept, followed by a usable workflow tested on live customer briefs.</p><p><strong>Approval:</strong> Design and Production check the proof before a separate build decision. The pilot must pass agreed checks before launch.</p></div>
-<div class="phase"><span class="mono">04 | Later, separately approved</span><h3>Deliver</h3><p><strong>Put it into everyday use.</strong> Launch the agreed workflow, train the team, hand over the files and document who owns and supports it.</p><p><strong>You receive:</strong> trained users, editable assets and code, operating instructions and a named internal owner.</p><p><strong>Approval:</strong> accept the handover and resolve critical defects before launch. Review early results; ongoing support is separately agreed.</p></div>
-</div>
-<div class="tbl"><table><thead><tr><th>Business goal</th><th>Evidence of progress</th></tr></thead><tbody>
-<tr><td>Improve speed to market</td><td>Time from an agreed complete brief to customer presentation, and from customer approval to production handover. Validate the 48-hour presentation ambition.</td></tr>
-<tr><td>Increase efficiency and capacity</td><td>Staff hours, repeated tasks, waiting time and revision effort per comparable job.</td></tr>
-<tr><td>Improve the customer experience</td><td>Ease of briefing, reviewing and approving a collection, using customer feedback and avoidable clarification rounds.</td></tr>
-<tr><td>Protect design and production quality</td><td>Adherence to 776BC design rules, accuracy between garment views and editable artwork, and production handovers accepted without correction.</td></tr>
-<tr><td>Win more and larger orders</td><td>Quote-to-order conversion, styles per order and average order value, tracked over a suitable period of live use.</td></tr>
+<section class="section" id="first" aria-labelledby="first-title"><div class="wrap stack-lg">
+<div class="section-head plain"><span class="pre">Where we are now</span><h2 id="first-title">A clear direction.<br>Discover and Design come first.</h2><p>This proposal sets out the first engagement. The workflow, priorities and technical feasibility are still to be established through that work.</p></div>
+<div class="start-here"><h3>Start with one real customer job.</h3><p>Follow a representative historical job from its original brief through revisions, approval and production handover. Use the real files and the team’s experience to answer three questions.</p></div>
+<ol class="first-questions">
+<li><h3>What happens today?</h3><p>Map the people, files, tools, decisions and handovers.</p></li>
+<li><h3>Where does the work get stuck?</h3><p>Find missing information, waiting, repeated effort and avoidable corrections.</p></li>
+<li><h3>What should we improve first?</h3><p>Agree the most useful improvement and how we will measure its success.</p></li>
+</ol>
+<p>Design then turns the agreed priority workflow into a clickable prototype, with the screens needed to review it. Focused technical checks test the critical assumptions before we define the build.</p>
+</div></section>
+
+<section class="section paper" id="investment" aria-labelledby="investment-title"><div class="wrap stack-lg">
+<div class="section-head plain"><span class="pre">Investment and next step</span><h2 id="investment-title">Begin with Discover and Design.</h2></div>
+<div class="fee-summary"><div><span class="mono">Combined fixed fee</span><p class="fee">A$14,400 <span>ex GST</span></p></div><p>Three delivery weeks.<br>Four agreed outputs, detailed below.</p></div>
+<p>A$7,200 on signing the separate Project Management Agreement, before kickoff. A$7,200 on acceptance of Outputs 1–4. Invoices are payable within seven days; GST is added where applicable.</p>
+<div class="start-here"><h3>To begin</h3><p>Approve the proposal in principle and complete the Project Management Agreement. Nominate the client lead and approver, select the historical job and confirm access. Agree kickoff once the commencement payment and required inputs are available.</p></div>
+<p class="supporting">Develop and Deliver are separately scoped and approved after the findings. Their indicative allowances are included in the detailed scope.</p>
+<div class="actions no-print"><a class="btn outline" href="#scope">Review detailed scope</a><a class="text-link" href="#approve">Go to proposal approval →</a></div>
+</div></section>
+
+<section class="section" id="scope" aria-labelledby="scope-title"><div class="wrap stack-lg">
+<div class="section-head plain"><span class="pre">Supporting detail</span><h2 id="scope-title">Scope, responsibilities and terms.</h2><p>These details form part of the proposal. Expand each section to review them; all sections are included when you save a PDF.</p></div>
+<div class="scope-groups">
+<details><summary>Discover: workflow and requirements<span>Outputs 1–2 · Week 1</span></summary><div class="scope-body">
+<article><h3>Output 1. Current workflow and evidence</h3><p>One prefilled questionnaire for up to four staff, one shared asset checklist and one 60-minute walkthrough with Jonny and Production. Sales joins the relevant part.</p><p>Review one job across up to three styles. Produce the current workflow, including delays, repeated work, handovers and customer friction; an asset inventory; baseline evidence or a measurement plan; and gaps. The client lead confirms the findings.</p></article>
+<article><h3>Output 2. Agreed requirements and tests</h3><p>Rank improvements by customer value, time saved and practicality. Agree user needs, design-rule examples, the initial garment set and success measures. Use up to two 20-minute follow-ups only where material questions remain.</p><p>The approver confirms the written scope and acceptance tests before detailed prototype work.</p></article>
+</div></details>
+<details><summary>Design: prototype and development plan<span>Outputs 3–4 · Weeks 2–3</span></summary><div class="scope-body">
+<article><h3>Output 3. Prototype and feasibility evidence</h3><p>A future workflow, a clickable prototype covering the agreed priority workflow, and comparison of existing software, configured integrations and a custom solution.</p><p>Design and Production review the feasibility evidence, with demonstrated and unproven capabilities clearly distinguished. Assess options against quality, editability, compatibility, licensing, data handling and cost.</p></article>
+<article><h3>Output 4. A defined development plan</h3><p>One 45-minute joint prototype review with up to three staff and one consolidated refinement.</p><p>Produce review findings, recommended system structure, the scope and required checks for a working proof of concept, plus an indicative development budget and timetable. The final weekly review supports the next decision.</p></article>
+<article><h3>Test the critical connections early</h3><p>Up to two focused technical checks, totalling eight consultant hours across Weeks 1–2, subject to usable files and licensed access. Prioritise editable artwork to accurate garment views and controlled changes across styles. The complete working proof of concept belongs to Develop and requires separate approval.</p></article>
+</div></details>
+<details><summary>Working together and accepting the work<span>Team input · Reviews · Commercial terms</span></summary><div class="scope-body">
+<article><h3>Focused team input</h3><ul class="marks">
+<li><strong>Preparation:</strong> James drafts the workflow and requirements for staff to confirm. Role-specific questionnaires take approximately ten minutes per person, excluding file preparation. Existing approved tools can prefill, collate and flag gaps; James checks the synthesis before requirements are accepted.</li>
+<li><strong>One shared job pack:</strong> the original brief, logos, editable Illustrator files, production files, final collection, revision history and available timings. One nominated owner coordinates the files.</li>
+<li><strong>Staff time:</strong> allow an estimated 8–10 combined staff-hours across preparation, questionnaires, the walkthrough, prototype review and decisions.</li>
+<li><strong>Ownership:</strong> Kate and Cam confirm the sponsors, one day-to-day lead, one commercial approver and Design and Production reviewers. Jonny is the proposed design counterpart.</li>
+<li><strong>Reviews:</strong> one weekly 30-minute lead review and one shared decision log. Consolidated feedback within three business days; formal acceptance within five. Silence is not approval.</li>
+</ul></article>
+<article><h3>Acceptance</h3><p>Acceptance means complete, usable Outputs 1–4 against the descriptions above. One consolidated feedback round per deliverable and corrections to agreed scope are included. Record blockers and limitations; any material reduction or substitution needs written agreement. A supported recommendation to narrow the scope or stop is a valid result.</p></article>
+<article><h3>Fee basis and changes</h3><p>The fixed fee is based on 48 hours at A$300/hour, flexibly allocated across three delivery weeks. Extra effort needed to complete unchanged scope is not charged.</p><p>Additional scope requires written approval at A$300/hour in 0.5-hour units, subject to a written cap. Software, API, hosting, specialist, travel and event costs are separate and need prior written approval. Existing client access is assumed; paid tests are quoted before commitment. Delayed inputs or decisions move the schedule.</p></article>
+</div></details>
+<details><summary>The workflow we will explore<span>Customer experience · Safeguards · Boundaries</span></summary><div class="scope-body">
+<p>Discover will establish which improvements deserve priority. The starting ideas are:</p>
+<dl class="workflow-list">
+<div><dt>Brief once</dt><dd>Bring colours, logos, references, sponsors and garment choices into one brief. Explore extracting information from existing emails and files for staff to confirm.</dd></div>
+<div><dt>Develop concepts</dt><dd>Create 3–5 starting directions using 776BC design rules, garment templates and approved assets.</dd></div>
+<div><dt>Build the collection</dt><dd>The designer selects and refines a master direction, then applies its design language across the selected styles.</dd></div>
+<div><dt>Show it realistically</dt><dd>Present front, back and side garment views that accurately reflect editable artwork and garment construction.</dd></div>
+<div><dt>Revise consistently</dt><dd>Assist changes across relevant artwork, garments and presentation views, with the designer checking the result.</dd></div>
+<div><dt>Approve and produce</dt><dd>Record the customer’s approved version and prepare editable production outputs for Design and Production release.</dd></div>
+</dl>
+<article><h3>Keep throughout</h3><p>Designer judgement, editable artwork, original logo geometry and garment constraints. Design and Production check work before customer or factory release. Customer assets are used with permission through approved services.</p></article>
+<article><h3>Outside Discover and Design</h3><p>An operational system, live deployment or complete proof of concept; pattern drafting, grading, a full 3D library or major asset repair; a full design-library build, large migration or wider integrations; customer self-service and event implementation.</p><p>The engagement includes a brief assessment of an existing-design 3D event showcase using Jordan’s written input where needed. Implementation is quoted separately; live logo personalisation remains a later opportunity.</p></article>
+</div></details>
+<details><summary>How we will measure success<span>Baselines first · Pilot targets agreed together</span></summary><div class="scope-body">
+<dl class="workflow-list">
+<div><dt>Speed to market</dt><dd>Time from an agreed complete brief to customer presentation, and from customer approval to production handover.</dd></div>
+<div><dt>Efficiency and capacity</dt><dd>Staff hours, repeated tasks, waiting time and revision effort per comparable job.</dd></div>
+<div><dt>Customer experience</dt><dd>Ease of briefing, reviewing and approving, using customer feedback and avoidable clarification rounds.</dd></div>
+<div><dt>Design and production quality</dt><dd>Adherence to design rules, accuracy between garment views and editable artwork, and production handovers accepted without correction.</dd></div>
+<div><dt>Commercial performance</dt><dd>Quote-to-order conversion, styles per order and average order value over a suitable period of live use.</dd></div>
+</dl><p>Agree baselines, measurement methods and pilot targets during Discover and Design. Conversion and order value are longer-term commercial measures.</p>
+</div></details>
+<details><summary>Develop and Deliver: indicative allowances<span>Later decisions · Separately scoped and approved</span></summary><div class="scope-body">
+<p>These preliminary allowances support planning. Asset readiness and technical findings may materially change them.</p>
+<div class="tbl"><table><thead><tr><th>Later phase</th><th>Timing / effort</th><th>Fees, ex GST</th></tr></thead><tbody>
+<tr><td data-label="Later phase">Develop: working proof, build and pilot</td><td data-label="Timing / effort">8–11 weeks / 120–180 hours</td><td data-label="Fees, ex GST">A$36,000–54,000</td></tr>
+<tr><td data-label="Later phase">Deliver: launch and handover</td><td data-label="Timing / effort">2 weeks / 16–24 hours</td><td data-label="Fees, ex GST">A$4,800–7,200</td></tr>
 </tbody></table></div>
-<p>Agree baselines, measurement methods and pilot targets during Discover and Design. Conversion and order value are longer-term commercial measures. Develop and Deliver are separately scoped and approved.</p>
-</div></section>
-
-<section class="section paper"><div class="wrap stack-lg">
-<div class="section-head"><span class="num">03</span><h2>Discover and Design: the first three weeks</h2><p>These first two phases produce four agreed outputs. Start from the existing brief, ask staff to fill the gaps and test the proposed experience.</p></div>
-<div class="timeline discovery">
-<div class="phase"><span class="mono">Discover | Week 1</span><h3>Output 1. Current workflow and evidence</h3><p>One prefilled questionnaire for up to four staff, one shared asset checklist and one 60-minute walkthrough with Jonny and Production. Sales joins the relevant part.</p><p><strong>Output:</strong> current workflow showing delays, repeated work, handovers and customer friction; asset inventory; baseline evidence or measurement plan; and gaps. Review one job across up to three styles; the client lead confirms the findings.</p></div>
-<div class="phase"><span class="mono">Discover | Week 1</span><h3>Output 2. Agreed requirements and tests</h3><p>Rank improvements by customer value, time saved and practicality. Agree user needs, design-rule examples, the initial garment set and success measures. Use up to two 20-minute follow-ups only where material questions remain.</p><p><strong>Approval:</strong> the approver confirms the written scope and acceptance tests before detailed prototype work.</p></div>
-<div class="phase"><span class="mono">Design | Week 2</span><h3>Output 3. Prototype and feasibility evidence</h3><p>A future workflow, up to six linked prototype screens and comparison of existing software, configured integrations and a custom solution.</p><p><strong>Approval:</strong> Design and Production review the feasibility evidence, with demonstrated and unproven capabilities clearly distinguished.</p></div>
-<div class="phase"><span class="mono">Design | Week 3</span><h3>Output 4. A defined development plan</h3><p>One 45-minute joint prototype review with up to three staff and one consolidated refinement.</p><p><strong>Output:</strong> review findings, recommended system structure, the scope and required checks for a working proof of concept, plus an indicative development budget and timetable. The final weekly review supports the next decision.</p></div>
+<article><h3>Develop has two separate decisions</h3><p>First, a working proof of concept: 3–4 weeks, A$12,000–18,000. Then build and pilot: 5–7 weeks, A$24,000–36,000. Each needs its own agreed scope and price.</p><p>The working proof uses one historical rowing brief: three concepts on a master style, the chosen direction across two companion styles, front/back/side views and one controlled revision. Design and Production check quality, editability, accuracy and repeatability. The proposed live pilot then uses two designers and five suitable briefs, subject to volume, with the manual process retained as a fallback.</p></article>
+<article><h3>Deliver includes ownership and handover</h3><p>Training, editable assets and bespoke code, account and recovery documentation, a named internal owner and accepted operating instructions. Review early results; ongoing support is separately agreed.</p></article>
+<p><strong>Planning allowance across all four phases: A$55,200–75,600 over approximately 13–16 delivery weeks if consecutive.</strong> This is not an approved build budget. It excludes GST, third-party costs, specialists and event implementation.</p>
+</div></details>
 </div>
-<div class="callout teal"><span class="pre">Test the connections early</span><p>Up to two focused technical checks, totalling eight consultant hours across Weeks 1–2, subject to usable files and licensed access. Prioritise editable artwork to accurate garment views and controlled changes across styles. These are limited technical checks. The complete working proof of concept is part of Develop and requires separate approval.</p></div>
-<p>Acceptance means complete, usable Outputs 1–4 against the descriptions above. One consolidated feedback round per deliverable and corrections to agreed scope are included. Record blockers and limitations; any material reduction or substitution needs written agreement. A supported recommendation to narrow the scope or stop is a valid result.</p>
 </div></section>
-
-<section class="section"><div class="wrap stack-lg">
-<div class="section-head"><span class="num">04</span><h2>Less administration. Focused team input.</h2><p>James prepares the first draft of the workflow and requirements. Staff confirm what is right and show where the real work differs.</p></div>
-<ul class="marks"><li><strong>Short questionnaires:</strong> approximately ten minutes per person, excluding file preparation, with questions relevant to their role. Use existing approved tools to prefill, collate and flag gaps. James checks the synthesis before requirements are accepted.</li><li><strong>One shared job pack:</strong> the original brief, logos, editable Illustrator files, production files, final collection, revision history and available timings. One nominated owner coordinates the files.</li><li><strong>Protected working time:</strong> allow an estimated 8–10 combined staff-hours across preparation, questionnaires, the walkthrough, prototype review and decisions.</li><li><strong>Clear ownership:</strong> Kate and Cam confirm the sponsors, one day-to-day lead, one commercial approver and Design and Production reviewers. Jonny is the proposed design counterpart.</li><li><strong>Simple decisions:</strong> a weekly 30-minute lead review and one shared decision log. Consolidated feedback within three business days; formal acceptance within five. Silence is not approval.</li></ul>
-<div class="pair"><div class="panel in"><span class="pre">Keep throughout</span><ul class="marks"><li>Designer judgement and editable artwork.</li><li>Original logo geometry and garment constraints.</li><li>Design and Production checks before customer or factory release.</li><li>Customer assets used with permission through approved services.</li></ul></div><div class="panel out"><span class="pre">Defer from this engagement</span><ul class="marks"><li>Operational system, live deployment or complete proof of concept.</li><li>Pattern drafting, grading, a full 3D library or major asset repair.</li><li>Full design-library build, large migration and wider integrations.</li><li>Customer self-service and event implementation.</li></ul></div></div>
-<p><strong>Events:</strong> include a brief assessment of an existing-design 3D showcase using Jordan’s written input where needed. Quote implementation separately. Live logo personalisation remains a later opportunity.</p>
-</div></section>
-
-<section class="section paper"><div class="wrap stack-lg">
-<div class="section-head"><span class="num">05</span><h2>Investment and next step</h2><p>Approve Discover and Design now. Scope and price Develop and Deliver after the proposed approach has been tested.</p></div>
-<div class="callout dark"><span class="pre">Discover + Design | Combined fee</span><h3>A$14,400 ex GST. Fixed fee.</h3><p>A$7,200 on signing the separate Project Management Agreement, before kickoff. A$7,200 on acceptance of Outputs 1–4. Invoices are payable within seven days; GST is added where applicable.</p><p>Pricing basis: 48 hours at A$300/hour, flexibly allocated across three delivery weeks. Extra effort needed to complete unchanged scope is not charged.</p></div>
-<p>Additional scope requires written approval at A$300/hour in 0.5-hour units, subject to a written cap. Software, API, hosting, specialist, travel and event costs are separate and need prior written approval. Existing client access is assumed; paid tests are quoted before commitment.</p>
-<div class="tbl"><table><thead><tr><th>Later phase</th><th>Indicative timing / effort</th><th>Fees, ex GST</th></tr></thead><tbody><tr><td data-label="Later phase">3. Develop<br><small>Working proof, build and pilot</small></td><td data-label="Indicative timing / effort">8–11 weeks / 120–180 hours</td><td data-label="Fees, ex GST">A$36,000–54,000</td></tr><tr><td data-label="Later phase">4. Deliver<br><small>Launch and handover</small></td><td data-label="Indicative timing / effort">2 weeks / 16–24 hours</td><td data-label="Fees, ex GST">A$4,800–7,200</td></tr></tbody></table></div>
-<p><strong>Develop has two separate decisions:</strong> first, a working proof of concept (3–4 weeks, A$12,000–18,000); then build and pilot (5–7 weeks, A$24,000–36,000). Each needs its own agreed scope and price.</p>
-<p>The working proof uses one historical rowing brief: three concepts on a master style, the chosen direction across two companion styles, front/back/side views and one controlled revision. Design and Production check quality, editability, accuracy and repeatability. The proposed live pilot then uses two designers and five suitable briefs, subject to volume.</p>
-<p><strong>Planning allowance across all four phases: A$55,200–75,600 over approximately 13–16 delivery weeks if consecutive.</strong> These are preliminary allowances, not an approved build budget. They exclude GST, third-party costs, specialists and event implementation. Asset readiness and technical findings may materially change them.</p>
-<p>A live pilot retains the manual process as a fallback. Launch includes training, editable assets and bespoke code, account and recovery documentation, a named internal owner and accepted operating instructions. Ongoing support is separately agreed.</p>
-<div class="callout teal"><span class="pre">To begin</span><p>Complete the Project Management Agreement, nominate the client lead and approver, select the historical job and confirm access. Agree kickoff once the commencement payment and required inputs are available. Delayed inputs or decisions move the schedule.</p></div>
-</div></section>
-
+</main>
 <section class="section paper" id="approve">
   <div class="wrap stack-lg">
     <div class="section-head plain">
@@ -486,7 +598,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
             <dl>
               <dt>Date</dt><dd id="recDate"></dd>
               <dt>Recorded</dt><dd id="recStamp"></dd>
-              <dt>Record ID</dt><dd id="recId"></dd><dt>Approval</dt><dd id="recConsent"></dd><dt>Proposal</dt><dd>Custom Teamwear Discover and Design, 7 September 2026, v1.6</dd>
+              <dt>Record ID</dt><dd id="recId"></dd><dt>Approval</dt><dd id="recConsent"></dd><dt>Proposal</dt><dd>Custom Teamwear Discover and Design, 16 September 2026, v1.7</dd>
             </dl>
           </div>
           <div class="sigbox">
@@ -525,7 +637,6 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
     </div>
   </div>
 </section>
-<section class="section dark"><div class="wrap stack-lg"><div class="stack"><span class="pre">Next step</span><h2>A stronger teamwear business.<br>A practical first step.</h2><p style="color:var(--mist)">Once the agreement is completed and kickoff is confirmed, we will prepare the short questionnaire and begin with one real customer job.</p></div><p class="closing">Faster to market. Less repeated work. A better experience for customers.</p><div class="actions no-print"><a class="btn fill" href="#approve">Approve and sign</a><button type="button" class="btn ghost" data-print>Save PDF</button></div></div></section>
 <footer class="foot"><div class="wrap"><a class="brand" href="https://www.optiflows.com.au/" aria-label="Optiflows">
         <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
           <circle cx="16" cy="16" r="14" stroke="currentColor" stroke-width="1.5"></circle>
@@ -535,4 +646,4 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
         </svg>
         <span>Optiflows</span>
       </a><span class="mono">Confidential | Custom teamwear | optiflows.com.au</span></div></footer>
-<script src="./approval.js?v=1.6"></script></body></html>
+<script src="./approval.js?v=1.7"></script></body></html>

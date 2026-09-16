@@ -1,8 +1,8 @@
 
 (function(){
   var ENDPOINT = 'https://formspree.io/f/meelyrkd';
-  var KEY = 'optiflows-proposal-776bc-teamwear-v1-6-approval';
-  var PROPOSAL = 'Custom Teamwear Workflow: Discover and Design (776BC), 7 September 2026, v1.6';
+  var KEY = 'optiflows-proposal-776bc-teamwear-v1-7-approval';
+  var PROPOSAL = 'Custom Teamwear Workflow: Discover and Design (776BC), 16 September 2026, v1.7';
 
   var form = document.getElementById('approvalForm');
   var nameEl = document.getElementById('name');
@@ -125,13 +125,13 @@
     }
     var rec = pendingRecord || {
       record_id: crypto.randomUUID(),
-      proposal_version: '1.6',
+      proposal_version: '1.7',
       consent: CONSENT,
       scope: 'Three-week Discover and Design engagement, Outputs 1–4',
       fee_aud_ex_gst: 14400,
       payment_milestones: 'A$7,200 on PMA signing before kickoff; A$7,200 on Outputs 1–4 acceptance',
       approval_type: 'In principle; separate Project Management Agreement required',
-      proposal_text: document.body.innerText.split('Approve Discover and Design in principle')[0],
+      proposal_text: document.getElementById('proposalContent').textContent.replace(/\s+/g, ' ').trim(),
       proposal: PROPOSAL,
       client: '776BC',
       name: name,
@@ -161,6 +161,22 @@
       msg.className = 'msg';
       msg.textContent = 'The approval could not be sent. Check your connection and try again, or email james.richmond@optiflows.com.au.';
     });
+  });
+
+  /* Include every scope section in print, then restore the reader's view. */
+  var detailStates = null;
+  window.addEventListener('beforeprint', function(){
+    if (detailStates) return;
+    detailStates = Array.from(document.querySelectorAll('#scope details')).map(function(el){
+      var state = { el: el, open: el.open };
+      el.open = true;
+      return state;
+    });
+  });
+  window.addEventListener('afterprint', function(){
+    if (!detailStates) return;
+    detailStates.forEach(function(state){ state.el.open = state.open; });
+    detailStates = null;
   });
 
   /* ---- PDF ---- */
