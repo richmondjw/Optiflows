@@ -671,8 +671,6 @@ document.getElementById('passwordInput').addEventListener('keydown', function(e)
   var messageField = document.getElementById('lf-message');
 
   if (!step1 || !form) return;
-  window.OptiflowsLeadCapture.initialise(form);
-
   var messagePlaceholders = {
     growth_audit: 'What does your growth pipeline look like today?',
     operating_model_audit: 'What operational bottleneck is costing you the most right now?',

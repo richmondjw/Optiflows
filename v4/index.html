@@ -857,8 +857,6 @@ document.getElementById('passwordInput').addEventListener('keydown', function(e)
   var messageField = document.getElementById('lf-message');
 
   if (!step1 || !form) return;
-  window.OptiflowsLeadCapture.initialise(form);
-
   var messagePlaceholders = {
     operating_audit: 'Which workflow is your biggest friction point right now?',
     system_install: 'What would you want the first system to handle?',
