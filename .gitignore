@@ -1,2 +1,4 @@
 guides/peninsula-insider/.claude/
 node_modules/
+dist-public/
+dist-private/

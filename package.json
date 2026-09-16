@@ -13,7 +13,9 @@
     "social:publish:dry-run": "node tools/social-assets/publish-and-post.js --input tools/social-assets/output/optiflows-carousel/manifest.json --dry-run",
     "social:publish": "node tools/social-assets/publish-and-post.js --input tools/social-assets/output/optiflows-carousel/manifest.json",
     "campaign-brief:qa": "node tools/campaign-brief-qa.cjs",
-    "lead-capture:test": "node test/lead-capture-contract.test.mjs"
+    "lead-capture:test": "node test/lead-capture-contract.test.mjs",
+    "security:build": "node tools/build-public-site.mjs && node tools/build-private-site.mjs",
+    "security:test": "node --test test/private-content-worker.test.mjs"
   },
   "dependencies": {
     "playwright": "^1.54.2"
