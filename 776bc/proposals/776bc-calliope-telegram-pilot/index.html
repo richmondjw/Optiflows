@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en-AU">
 <head>
+<meta name="referrer" content="no-referrer">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
@@ -187,7 +188,8 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 .record .role{color:var(--grey);margin-top:4px}
 .record dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;font-size:.95rem;margin-top:18px}
 .record dt{color:var(--grey)}
-.record dd{color:var(--ink);font-variant-numeric:tabular-nums}
+.record dd{color:var(--ink);font-variant-numeric:tabular-nums;overflow-wrap:anywhere;min-width:0}
+.record>div{min-width:0}
 .record .sigbox{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
 .record .sigbox img{width:260px;max-width:100%;height:auto;display:block;border-bottom:1px solid var(--mist);padding-bottom:4px}
 @media (max-width:640px){.record{grid-template-columns:1fr}}
@@ -313,6 +315,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
   </div>
 </header>
 
+<main id="proposalContent">
 <!-- ============ PROPOSAL SUMMARY ============ -->
 <section class="section">
   <div class="wrap stack-lg">
@@ -530,6 +533,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
   </div>
 </section>
 
+</main>
 <!-- ============ APPROVAL ============ -->
 <section class="section paper" id="approve">
   <div class="wrap stack-lg">
@@ -546,7 +550,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
       </div>
       <div class="field" id="fRole">
         <label for="role">Role</label>
-        <input type="text" id="role" name="role" autocomplete="organization-title" placeholder="Co-founder, 776BC">
+        <input type="text" id="role" name="role" autocomplete="organization-title" placeholder="Co-founder, 776BC" required>
       </div>
       <div class="field" id="fDate">
         <label for="date">Date</label>
@@ -561,7 +565,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
           <div class="hint">Sign here with your mouse, finger or stylus</div>
         </div>
         <div class="pad-tools">
-          <span class="note">Submitting sends your name, role, date and signature to Optiflows via Formspree and stores a local copy in this browser for the approval record.</span>
+          <span class="note">Submitting securely records your name, role, date, signature and approval wording with OptiFlows. James receives an email and a private Telegram notification with a link to the signed record.</span>
           <button type="button" class="link-btn" id="clearSig">Clear signature</button>
         </div>
       </div>
@@ -582,12 +586,14 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
       <div class="stack">
         <div class="record">
           <div>
-            <span class="pre">Approved</span>
+            <span class="pre">Approval submitted</span>
             <p class="who" id="recName" style="margin-top:12px"></p>
             <p class="role" id="recRole"></p>
             <dl>
               <dt>Date</dt><dd id="recDate"></dd>
               <dt>Recorded</dt><dd id="recStamp"></dd>
+              <dt>Record ID</dt><dd id="recId"></dd>
+              <dt>Approval</dt><dd id="recConsent"></dd>
               <dt>Proposal</dt><dd>Calliope Telegram Pilot, 4 September 2026</dd>
             </dl>
           </div>
@@ -659,160 +665,6 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
   </div>
 </footer>
 
-<script>
-(function(){
-  var ENDPOINT = 'https://formspree.io/f/meelyrkd';
-  var KEY = 'optiflows-proposal-776bc-calliope-approval';
-  var PROPOSAL = 'Calliope Telegram Pilot (776BC), 4 September 2026';
-
-  var form = document.getElementById('approvalForm');
-  var nameEl = document.getElementById('name');
-  var roleEl = document.getElementById('role');
-  var dateEl = document.getElementById('date');
-  var consentEl = document.getElementById('consent');
-  var msg = document.getElementById('msg');
-  var submitBtn = document.getElementById('submitBtn');
-  var pad = document.getElementById('pad');
-  var canvas = document.getElementById('sigpad');
-  var ctx = canvas.getContext('2d');
-  var hasInk = false, drawing = false, last = null;
-
-  /* ---- date default: today ---- */
-  function pad2(n){ return (n < 10 ? '0' : '') + n; }
-  var now = new Date();
-  dateEl.value = now.getFullYear() + '-' + pad2(now.getMonth() + 1) + '-' + pad2(now.getDate());
-
-  /* ---- signature pad ---- */
-  function setupCanvas(){
-    var snapshot = hasInk ? canvas.toDataURL('image/png') : null;
-    var r = pad.getBoundingClientRect();
-    var dpr = window.devicePixelRatio || 1;
-    canvas.width = Math.round(r.width * dpr);
-    canvas.height = Math.round(r.height * dpr);
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    ctx.lineWidth = 2.2; ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = '#053D3D';
-    if (snapshot){
-      var im = new Image();
-      im.onload = function(){ ctx.drawImage(im, 0, 0, r.width, r.height); };
-      im.src = snapshot;
-    }
-  }
-  function pos(e){
-    var r = canvas.getBoundingClientRect();
-    return { x: e.clientX - r.left, y: e.clientY - r.top };
-  }
-  canvas.addEventListener('pointerdown', function(e){
-    e.preventDefault();
-    drawing = true; last = pos(e);
-    canvas.setPointerCapture(e.pointerId);
-    ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(last.x + 0.1, last.y + 0.1); ctx.stroke();
-    hasInk = true; pad.classList.add('inked'); pad.classList.remove('invalid');
-  });
-  canvas.addEventListener('pointermove', function(e){
-    if (!drawing) return;
-    var p = pos(e);
-    ctx.beginPath(); ctx.moveTo(last.x, last.y); ctx.lineTo(p.x, p.y); ctx.stroke();
-    last = p;
-  });
-  function stop(e){ drawing = false; last = null; }
-  canvas.addEventListener('pointerup', stop);
-  canvas.addEventListener('pointercancel', stop);
-  canvas.addEventListener('pointerleave', stop);
-  document.getElementById('clearSig').addEventListener('click', function(){
-    hasInk = false; pad.classList.remove('inked');
-    ctx.save(); ctx.setTransform(1,0,0,1,0,0); ctx.clearRect(0,0,canvas.width,canvas.height); ctx.restore();
-  });
-  setupCanvas();
-  var resizeTimer;
-  window.addEventListener('resize', function(){ clearTimeout(resizeTimer); resizeTimer = setTimeout(setupCanvas, 150); });
-
-  function exportSignature(){
-    var w = 520, h = Math.round(w * canvas.height / canvas.width);
-    var off = document.createElement('canvas'); off.width = w; off.height = h;
-    off.getContext('2d').drawImage(canvas, 0, 0, w, h);
-    return off.toDataURL('image/png');
-  }
-
-  /* ---- approval record ---- */
-  function fmtDate(iso){
-    var d = new Date(iso + 'T00:00:00');
-    return isNaN(d) ? iso : d.toLocaleDateString('en-AU', { day: 'numeric', month: 'long', year: 'numeric' });
-  }
-  function fmtStamp(iso){
-    var d = new Date(iso);
-    return d.toLocaleString('en-AU', { day: 'numeric', month: 'short', year: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' });
-  }
-  function render(rec){
-    document.getElementById('recName').textContent = rec.name;
-    document.getElementById('recRole').textContent = rec.role || '';
-    document.getElementById('recRole').hidden = !rec.role;
-    document.getElementById('recDate').textContent = fmtDate(rec.date);
-    document.getElementById('recStamp').textContent = fmtStamp(rec.approved_at);
-    document.getElementById('recSig').src = rec.signature;
-    document.getElementById('approvalRecord').hidden = false;
-    document.getElementById('printBlank').hidden = true;
-    form.hidden = true;
-    document.body.classList.add('is-approved');
-    document.getElementById('statusText').textContent = 'Approved ' + fmtDate(rec.date);
-    document.title = 'Calliope Telegram Pilot | Approved';
-  }
-  try {
-    var saved = localStorage.getItem(KEY);
-    if (saved){ render(JSON.parse(saved)); }
-  } catch(e){}
-
-  /* ---- submit ---- */
-  function mark(id, bad){ document.getElementById(id).classList.toggle('invalid', bad); }
-  form.addEventListener('submit', function(e){
-    e.preventDefault();
-    var name = nameEl.value.trim();
-    var bad = false;
-    mark('fName', !name); bad = bad || !name;
-    mark('fDate', !dateEl.value); bad = bad || !dateEl.value;
-    pad.classList.toggle('invalid', !hasInk); bad = bad || !hasInk;
-    mark('fConsent', !consentEl.checked); bad = bad || !consentEl.checked;
-    if (bad){
-      msg.className = 'msg';
-      msg.textContent = !hasInk ? 'Add your signature to approve.' : 'Complete the highlighted fields to approve.';
-      return;
-    }
-    var rec = {
-      proposal: PROPOSAL,
-      client: '776BC',
-      name: name,
-      role: roleEl.value.trim(),
-      date: dateEl.value,
-      approved_at: new Date().toISOString(),
-      signature: exportSignature(),
-      page: location.href,
-      _subject: 'APPROVED: Calliope Telegram Pilot signed by ' + name
-    };
-    submitBtn.disabled = true;
-    msg.className = 'msg ok';
-    msg.textContent = 'Recording your approval...';
-    fetch(ENDPOINT, {
-      method: 'POST',
-      headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-      body: JSON.stringify(rec)
-    }).then(function(res){
-      if (!res.ok) throw new Error('HTTP ' + res.status);
-      try { localStorage.setItem(KEY, JSON.stringify(rec)); } catch(err){}
-      msg.textContent = '';
-      render(rec);
-      document.getElementById('approve').scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }).catch(function(err){
-      submitBtn.disabled = false;
-      msg.className = 'msg';
-      msg.textContent = 'The approval could not be sent. Check your connection and try again, or email james.richmond@optiflows.com.au.';
-    });
-  });
-
-  /* ---- PDF ---- */
-  var printBtns = document.querySelectorAll('[data-print]');
-  for (var i = 0; i < printBtns.length; i++){
-    printBtns[i].addEventListener('click', function(){ window.print(); });
-  }
-})();
-</script>
+<script src="./approval.js?v=1.0-bca7a2e2fa5e"></script>
 </body>
 </html>

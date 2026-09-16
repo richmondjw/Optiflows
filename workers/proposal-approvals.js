@@ -1,4 +1,11 @@
-import contract from './proposal-contract.json' with {type:'json'};
+import teamwear from './proposal-contract.json' with {type:'json'};
+import calliope from './proposal-contract-calliope.json' with {type:'json'};
+
+const contracts = new Map([['776bc-custom-teamwear', teamwear], ['776bc-calliope-telegram-pilot', calliope]]);
+const notificationDetails = new Map([
+  [teamwear.path, {title:'776BC Custom Teamwear', next:'Project Management Agreement and commencement payment before kickoff.'}],
+  [calliope.path, {title:'776BC Calliope Telegram Pilot', next:'Confirm pilot users, launch deliverables, the review owner and kickoff date.'}]
+]);
 
 const BASE = '/api/proposal-approvals';
 const UUID = /^[a-f0-9]{8}-[a-f0-9]{4}-4[a-f0-9]{3}-[89ab][a-f0-9]{3}-[a-f0-9]{12}$/i;
@@ -13,13 +20,15 @@ async function keyFor(env, id) {
   return hex(await crypto.subtle.sign('HMAC', key, new TextEncoder().encode(id)));
 }
 const admin = (req, env) => env.APPROVAL_ADMIN_TOKEN && req.headers.get('Authorization') === `Bearer ${env.APPROVAL_ADMIN_TOKEN}`;
-const linkFor = async (env,id) => `${env.PUBLIC_ORIGIN}${contract.path}#record=${id}.${await keyFor(env,id)}`;
+const linkFor = async (env,record) => `${env.PUBLIC_ORIGIN}${record.path}#record=${record.record_id}.${await keyFor(env,record.record_id)}`;
 
 async function deliver(env, record) {
   const id = record.record_id;
-  const link = await linkFor(env,id);
-  const heading = record.is_test ? 'TEST ONLY: 776BC approval notification. No client approval.' : '776BC proposal approved in principle';
-  const message = `${heading}\n\n${record.name}, ${record.role}\nReceived: ${record.approved_at}\nProposal: v${record.proposal_version}\nA$14,400 ex GST\n\nNext: Project Management Agreement and commencement payment before kickoff.\n\nRecord: ${id}\nPrivate signed record: ${link}\n\nRemy`;
+  const link = await linkFor(env,record);
+  const details = notificationDetails.get(record.path);
+  const heading = record.is_test ? `TEST ONLY: ${details.title} approval notification. No client approval.` : `${details.title} approved in principle`;
+  const fee = new Intl.NumberFormat('en-AU').format(record.fee_aud_ex_gst);
+  const message = `${heading}\n\n${record.name}, ${record.role}\nReceived: ${record.approved_at}\nProposal: ${record.proposal}\nA$${fee} ex GST\nScope: ${record.scope}\n\nNext: ${details.next}\n\nRecord: ${id}\nPrivate signed record: ${link}\n\nRemy`;
   // One attempt per channel. Ambiguous network outcomes require operator review,
   // never an automatic replay that could duplicate an external notification.
   await Promise.all([
@@ -27,7 +36,7 @@ async function deliver(env, record) {
       let status = 'unknown';
       try {
         const response = await fetch(env.APPROVAL_EMAIL_ENDPOINT, {method:'POST', signal:AbortSignal.timeout(12000), headers:{
-          'content-type':'application/json', Accept:'application/json', origin:env.PUBLIC_ORIGIN, referer:env.PUBLIC_ORIGIN + contract.path
+          'content-type':'application/json', Accept:'application/json', origin:env.PUBLIC_ORIGIN, referer:env.PUBLIC_ORIGIN + record.path
         }, body:JSON.stringify({_subject:heading, name:record.name, message, record_id:id, approval_type:record.approval_type, is_test:record.is_test, signed_record:link})});
         status = response.ok ? 'accepted' : 'failed';
       } catch (_) {}
@@ -60,6 +69,9 @@ async function post(req, env, ctx) {
   let input;
   try { input=JSON.parse(new TextDecoder().decode(bytes)); } catch (_) { return json({error:'invalid_json'},400); }
   if (!input || typeof input!=='object') return json({error:'invalid_submission'},422);
+  // Omitted ID preserves the deployed Teamwear client's contract and retry hash.
+  const contract = contracts.get(input.proposal_id === undefined ? '776bc-custom-teamwear' : input.proposal_id);
+  if (!contract) return json({error:'unknown_proposal'},422);
   const isTest = input.is_test === true;
   if (isTest && !admin(req,env)) return json({error:'unauthorised_test'},403);
   if (!UUID.test(input.record_id || '') || typeof input.name!=='string' || !input.name.trim() || input.name.length>160 ||
@@ -68,6 +80,7 @@ async function post(req, env, ctx) {
       input.proposal_version!==contract.proposal_version || input.consent!==contract.consent || input.consent_accepted!==true ||
       typeof input.signature!=='string' || input.signature.length>100000 || !/^data:image\/png;base64,iVBORw0KGgo[A-Za-z0-9+/=]+$/.test(input.signature)) return json({error:'invalid_submission'},422);
   const payload = {name:input.name.trim(),role:input.role.trim(),date:input.date,signature:input.signature,is_test:isTest,proposal_version:contract.proposal_version,consent:contract.consent};
+  if (contract.proposal_id) payload.proposal_id = contract.proposal_id;
   const payloadHash = await hash(JSON.stringify(payload));
   const record = {...contract,...payload,record_id:input.record_id,approved_at:new Date().toISOString(),consent_accepted:true};
   const stored = await env.APPROVALS_DB.prepare('INSERT INTO proposal_approvals (id,payload_hash,received_at,is_test,record_json) VALUES (?,?,?,?,?) ON CONFLICT(id) DO NOTHING')
@@ -75,10 +88,11 @@ async function post(req, env, ctx) {
   if (!stored.meta.changes) {
     const prior = await env.APPROVALS_DB.prepare('SELECT * FROM proposal_approvals WHERE id = ?').bind(record.record_id).first();
     if (prior.payload_hash!==payloadHash) return json({error:'record_conflict'},409);
-    return json({accepted:true,stored:true,duplicate:true,record:JSON.parse(prior.record_json),record_url:await linkFor(env,record.record_id)});
+    const savedRecord = JSON.parse(prior.record_json);
+    return json({accepted:true,stored:true,duplicate:true,record:savedRecord,record_url:await linkFor(env,savedRecord)});
   }
   ctx.waitUntil(deliver(env,record));
-  return json({accepted:true,stored:true,duplicate:false,record,record_url:await linkFor(env,record.record_id)},201);
+  return json({accepted:true,stored:true,duplicate:false,record,record_url:await linkFor(env,record)},201);
 }
 
 export default { async fetch(req,env,ctx) {

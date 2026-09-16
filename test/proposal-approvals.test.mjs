@@ -3,6 +3,7 @@ import {DatabaseSync} from 'node:sqlite';
 import fs from 'node:fs';
 import worker from '../workers/proposal-approvals.js';
 import contract from '../workers/proposal-contract.json' with {type:'json'};
+import calliope from '../workers/proposal-contract-calliope.json' with {type:'json'};
 const db=new DatabaseSync(':memory:');
 db.exec(fs.readFileSync(new URL('../workers/proposal-approvals.sql',import.meta.url),'utf8'));
 const env={PUBLIC_ORIGIN:'https://optiflows.com.au', RECORD_SIGNING_KEY:'test-only-key', APPROVAL_ADMIN_TOKEN:'test-admin', REMY_TELEGRAM_BOT_TOKEN:'test-bot', REMY_TELEGRAM_CHAT_ID:'test-chat', APPROVAL_EMAIL_ENDPOINT:'https://email.example.test',
@@ -33,11 +34,27 @@ try{
   assert.equal((await res.json()).record.name,input.name);
   res=await worker.fetch(new Request(recordUrl,{headers:{Authorization:'Bearer test-admin'}}),env,{});
   const receipt=await res.json();assert.equal(receipt.telegram_status,'accepted');assert.equal(receipt.telegram_message_id,'42');assert.equal(receipt.email_status,'accepted');
+  const pilot={...input,record_id:crypto.randomUUID(),proposal_id:calliope.proposal_id,proposal_version:calliope.proposal_version,consent:calliope.consent,path:contract.path,fee_aud_ex_gst:14400};
+  assert.equal((await post({...pilot,proposal_id:'unknown-proposal'})).status,422);
+  assert.equal((await post({...pilot,proposal_id:undefined})).status,422);
+  assert.equal((await post({...pilot,consent:contract.consent})).status,422);
+  assert.equal((await post({...pilot,record_id:input.record_id})).status,409);
+  res=await post(pilot);assert.equal(res.status,201);const pilotSaved=await res.json();
+  assert.equal(pilotSaved.record.fee_aud_ex_gst,5000);
+  assert.equal(pilotSaved.record.proposal_text,calliope.proposal_text);
+  assert.match(pilotSaved.record_url,/776bc-calliope-telegram-pilot\/#record=/);
+  await Promise.all(waits);assert.equal(calls.length,4);
+  const pilotEmail=calls[2],pilotTelegram=calls[3];
+  assert.match(pilotEmail.body._subject,/Calliope Telegram Pilot approved in principle/);
+  assert.match(pilotTelegram.body.text,/A\$5,000 ex GST/);
+  assert.match(pilotTelegram.body.text,/20 development hours/);
+  assert.doesNotMatch(pilotTelegram.body.text,/14,400|Project Management Agreement/);
+  assert.equal((await (await post(pilot)).json()).duplicate,true);assert.equal(calls.length,4);
   globalThis.fetch=async()=>{throw new Error('timeout');};
   const test={...input,record_id:crypto.randomUUID(),is_test:true};
   assert.equal((await post(test,{Authorization:'Bearer test-admin'})).status,201);
   await Promise.all(waits);
   assert.equal(db.prepare('SELECT telegram_status FROM proposal_approvals WHERE id=?').get(test.record_id).telegram_status,'unknown');
-  assert.equal(db.prepare('SELECT count(*) AS n FROM proposal_approvals').get().n,2);
-  console.log('PASS: persistence, canonical scope/fee, validation, private reads, duplicate/conflict handling, independent receipts, protected tests and ambiguous delivery');
+  assert.equal(db.prepare('SELECT count(*) AS n FROM proposal_approvals').get().n,3);
+  console.log('PASS: both proposals, isolated scope/fee/consent and links, persistence, validation, private reads, duplicate/conflict handling, independent receipts, protected tests and ambiguous delivery');
 }finally{globalThis.fetch=originalFetch;db.close();}

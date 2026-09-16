@@ -1,9 +1,10 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
-import contract from '../workers/proposal-contract.json' with {type:'json'};
-const source=fs.readFileSync(new URL('../776bc/proposals/776bc-custom-teamwear/approval.js',import.meta.url),'utf8');
-function harness(response){
+import teamwear from '../workers/proposal-contract.json' with {type:'json'};
+import calliope from '../workers/proposal-contract-calliope.json' with {type:'json'};
+function harness(response,contract){
+  const source=fs.readFileSync(new URL('..'+contract.path+'approval.js',import.meta.url),'utf8');
   const nodes=new Map(), events={}, stored=new Map(), requests=[];
   const ctx={setTransform(){},beginPath(){},moveTo(){},lineTo(){},stroke(){},drawImage(){},save(){},restore(){},clearRect(){}};
   function node(id){if(!nodes.has(id))nodes.set(id,{hidden:false,value:'',checked:false,textContent:'',classList:{add(){},remove(){},toggle(){}},listeners:{},addEventListener(type,fn){(this.listeners[type]??=[]).push(fn);},getBoundingClientRect(){return {width:520,height:200,left:0,top:0};},getContext(){return ctx;},setPointerCapture(){},scrollIntoView(){},toDataURL(){return 'data:image/png;base64,iVBORw0KGgoAAAA';}});return nodes.get(id);}
@@ -18,9 +19,12 @@ function harness(response){
     node('approvalForm').listeners.submit[0]({preventDefault(){}});await new Promise(setImmediate);await new Promise(setImmediate);}
   return {submit,node,requests,stored,location};
 }
-let h=harness(p=>({ok:true,json:async()=>({accepted:true,stored:true,record:{...p,approved_at:'2026-09-16T08:00:00Z'},record_url:'https://optiflows.com.au'+contract.path+'#record='+p.record_id+'.'+'a'.repeat(64)})}));
+for(const contract of [teamwear,calliope]){
+let h=harness(p=>({ok:true,json:async()=>({accepted:true,stored:true,record:{...p,approved_at:'2026-09-16T08:00:00Z'},record_url:'https://optiflows.com.au'+contract.path+'#record='+p.record_id+'.'+'a'.repeat(64)})}),contract);
 await h.submit();assert.equal(h.requests[0].url,'/api/proposal-approvals');assert.equal(h.requests[0].payload.consent_accepted,true);assert.equal(h.node('approvalForm').hidden,true);assert.equal(h.stored.size,1);assert.match(h.location.href,/#record=/);
+assert.equal(h.requests[0].payload.fee_aud_ex_gst,contract.fee_aud_ex_gst);assert.equal(h.requests[0].payload.proposal_id,contract.proposal_id);
 for(const response of [{ok:false,status:503},{ok:true,json:async()=>({stored:false})}]){
-  h=harness(()=>response);await h.submit();assert.equal(h.node('approvalForm').hidden,false);assert.equal(h.stored.size,0);assert.equal(h.node('submitBtn').disabled,false);assert.match(h.node('msg').textContent,/could not be sent/);
+  h=harness(()=>response,contract);await h.submit();assert.equal(h.node('approvalForm').hidden,false);assert.equal(h.stored.size,0);assert.equal(h.node('submitBtn').disabled,false);assert.match(h.node('msg').textContent,/could not be sent/);
 }
-console.log('PASS: browser submit contract, stored acknowledgement, server timestamp, private URL and failure recovery');
+}
+console.log('PASS: both browser submit contracts, stored acknowledgement, server timestamp, private URL and failure recovery');
