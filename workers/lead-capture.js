@@ -18,7 +18,11 @@ async function notify(env, lead, id) {
   if (!env.FORMSPREE_EMAIL_ENDPOINT) return 'not_configured';
   try {
     const response = await fetch(env.FORMSPREE_EMAIL_ENDPOINT, {
-      method: 'POST', headers: { 'content-type': 'application/json' },
+      method: 'POST', headers: {
+        'content-type': 'application/json',
+        'origin': env.PUBLIC_ORIGIN,
+        'referer': `${env.PUBLIC_ORIGIN}/`
+      },
       body: JSON.stringify({
         full_name: lead.full_name,
         email: lead.email,

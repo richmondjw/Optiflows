@@ -79,6 +79,8 @@ assert.equal(rows.size, 1);
 assert.equal(notifications.length, 1);
 assert.equal(notifications[0].body.lead_id, [...rows.values()][0].id);
 assert.equal(notifications[0].body.email, body.email);
+assert.equal(notifications[0].options.headers.origin, env.PUBLIC_ORIGIN);
+assert.equal(notifications[0].options.headers.referer, `${env.PUBLIC_ORIGIN}/`);
 const duplicate = await leadWorker.fetch(makeRequest(), env, { waitUntil() {} });
 assert.equal(duplicate.status, 200);
 assert.equal((await duplicate.json()).duplicate, true);
