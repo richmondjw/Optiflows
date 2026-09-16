@@ -65,7 +65,7 @@ const waits = [];
 const originalFetch = globalThis.fetch;
 const notifications = [];
 globalThis.fetch = async (url, options) => {
-  notifications.push({ url, body: JSON.parse(options.body) });
+  notifications.push({ url, options, body: JSON.parse(options.body) });
   return new Response('{}', { status: 200 });
 };
 const env = { LEADS_DB: db, PUBLIC_ORIGIN: 'https://optiflows.example.test', FORMSPREE_EMAIL_ENDPOINT: 'https://delivery.example.test/forms/lead' };
