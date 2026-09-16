@@ -1,0 +1,16 @@
+{
+  "objects": [
+    {
+      "key": "776bc/proposals/example/index.html",
+      "source": "private-source/776bc/proposals/example/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "allowed_emails": ["recipient@example.invalid"]
+    },
+    {
+      "key": "reports/example/index.html",
+      "source": "private-source/reports/example/index.html",
+      "content_type": "text/html; charset=utf-8",
+      "allowed_emails": ["james@example.invalid"]
+    }
+  ]
+}

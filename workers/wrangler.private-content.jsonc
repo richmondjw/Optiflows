@@ -1,0 +1,12 @@
+{
+  "name": "optiflows-private-content",
+  "main": "private-content.js",
+  "account_id": "20200ed2c992006bae6982480b146681",
+  "compatibility_date": "2026-09-16",
+  "workers_dev": false,
+  "preview_urls": false,
+  "routes": [{"pattern": "private.optiflows.com.au/*", "zone_name": "optiflows.com.au"}],
+  "r2_buckets": [{"binding": "PRIVATE_CONTENT", "bucket_name": "optiflows-private-content"}],
+  // Set ACCESS_TEAM_DOMAIN and ACCESS_AUD as deployment-time environment vars.
+  "observability": {"enabled": true}
+}
