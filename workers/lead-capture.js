@@ -1,4 +1,4 @@
-/* Cloudflare Worker: store first, then optionally emit an ID-only notification. */
+/* Cloudflare Worker: store first, then notify through a configured delivery sink. */
 const json = (body, status = 200) => new Response(JSON.stringify(body), {
   status,
   headers: { 'content-type': 'application/json', 'cache-control': 'no-store', 'x-content-type-options': 'nosniff' }
@@ -14,12 +14,23 @@ function sameOrigin(request, env) {
   return Boolean(origin) && origin === env.PUBLIC_ORIGIN;
 }
 
-async function notify(env, id) {
-  if (!env.NOTIFICATION_WEBHOOK_URL) return 'not_configured';
+async function notify(env, lead, id) {
+  if (!env.FORMSPREE_EMAIL_ENDPOINT) return 'not_configured';
   try {
-    const response = await fetch(env.NOTIFICATION_WEBHOOK_URL, {
+    const response = await fetch(env.FORMSPREE_EMAIL_ENDPOINT, {
       method: 'POST', headers: { 'content-type': 'application/json' },
-      body: JSON.stringify({ event: 'lead.stored', id })
+      body: JSON.stringify({
+        full_name: lead.full_name,
+        email: lead.email,
+        company_name: lead.company_name,
+        message: lead.message,
+        inquiry_type: lead.inquiry_type,
+        cta_location: lead.cta_location,
+        estimated_annual_drag: lead.estimated_annual_drag,
+        source: lead.source,
+        lead_id: id,
+        _subject: 'New OptiFlows website enquiry'
+      })
     });
     return response.ok ? 'sent' : 'failed';
   } catch (_) {
@@ -71,7 +82,7 @@ async function handlePost(request, env, ctx) {
     return json({ accepted: true, id: existing.id, duplicate: true, stored: true });
   }
   ctx.waitUntil((async () => {
-    const status = await notify(env, id);
+    const status = await notify(env, lead, id);
     await env.LEADS_DB.prepare('UPDATE leads SET notification_status = ?, notification_checked_at = ? WHERE id = ?').bind(status, new Date().toISOString(), id).run();
   })());
   return json({ accepted: true, id, duplicate: false, stored: true }, 201);

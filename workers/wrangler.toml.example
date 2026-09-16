@@ -7,7 +7,7 @@ binding = "LEADS_DB"
 database_name = "optiflows-leads"
 database_id = "REPLACE_AFTER_D1_CREATION"
 
-# Set as secrets, never in this file: ADMIN_API_TOKEN, NOTIFICATION_WEBHOOK_URL,
+# Set as secrets, never in this file: ADMIN_API_TOKEN, FORMSPREE_EMAIL_ENDPOINT,
 # and TURNSTILE_SECRET when a Turnstile widget is configured on the form.
 [vars]
 PUBLIC_ORIGIN = "https://optiflows.com.au"

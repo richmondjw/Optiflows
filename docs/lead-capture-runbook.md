@@ -2,12 +2,12 @@
 
 ## Architecture
 
-Public forms send only to `POST /api/leads`. The Worker writes the D1 record first with server timestamp, source, status and an idempotency key. A notification contains only the record ID and is asynchronous; failure can never reject or remove a stored lead. No client-side or Worker logging may include submitted fields.
+Public forms send only to `POST /api/leads`. The Worker writes the D1 record first with server timestamp, source, status and an idempotency key. It then sends a copy to the configured Formspree email action asynchronously so the existing receiving mailbox remains the operational notification channel. A notification failure can never reject or remove a stored lead. No client-side or Worker logging may include submitted fields.
 
 ## Deploy in order (approval required)
 
 1. Create the D1 database and apply `workers/schema.sql`.
-2. Set `ADMIN_API_TOKEN` and, only if an approved internal notification receiver exists, `NOTIFICATION_WEBHOOK_URL` as Worker secrets. The notification receiver must receive an ID only and use the protected export/read path; do not forward lead contents to third parties.
+2. Set `ADMIN_API_TOKEN` and `FORMSPREE_EMAIL_ENDPOINT` as Worker secrets. The Formspree endpoint is retained solely as the downstream email-delivery action; public forms never post to it directly. The endpoint receives the lead fields only after D1 has acknowledged the stored record.
 3. Set `PUBLIC_ORIGIN`, deploy the Worker at the same origin, and verify `POST /api/leads` routes to it **before** publishing the form changes.
 4. Restrict the export endpoint to an approved operator channel. It returns personal data and must never be placed in logs, tickets or Asana comments.
 
@@ -24,4 +24,4 @@ Use a newly created non-personal test identity. Submit once per form surface (ho
 
 ## Formspree reconciliation and MX verification (explicit approval required)
 
-Do not call Formspree or modify DNS as part of deployment. An approved operator may export recoverable Formspree submissions, map only records not already represented by an idempotency/source/timestamp reconciliation rule, import them into the first-party store with `source = formspree_backfill`, and record aggregate counts only. Verify the receiving mailbox's MX records and a notification receipt separately; never include addresses or submission contents in tickets.
+Do not call Formspree for historical reconciliation or modify DNS as part of deployment. An approved operator may export recoverable Formspree submissions, map only records not already represented by an idempotency/source/timestamp reconciliation rule, import them into the first-party store with `source = formspree_backfill`, and record aggregate counts only. Verify the receiving mailbox's MX records and a notification receipt separately; never include addresses or submission contents in tickets.
