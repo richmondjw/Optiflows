@@ -33,11 +33,14 @@ jobs:
         uses: actions/checkout@v4
       - name: Setup Pages
         uses: actions/configure-pages@v5
+      - name: Build default-private public artifact
+        run: node tools/build-public-site.mjs
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          # Publish only the explicit public allowlist. Internal reports,
+          # proposals, campaigns and tools remain outside the Pages artifact.
+          path: './dist-public'
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
