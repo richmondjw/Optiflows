@@ -1,0 +1,70 @@
+{
+  "campaign": "Where in the Peninsula is PI? — Case 01 Social Promotion",
+  "created": "2026-09-18T11:40:00Z",
+  "status": "review-only",
+  "plates": [
+    {
+      "id": "plate-01-mornington-feed-4x5",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "e28bdfe2-8302-4ad7-b1c0-f99bbf66382f",
+      "dimensions": "1792x2240",
+      "aspect_ratio": "4:5",
+      "resolution": "2k",
+      "quality": "high",
+      "subject": "Mornington pier, painted bathing boxes, Saturday market setting up, golden morning light",
+      "classification": "original editorial illustration",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_2wnAy4CBkJ7KVn8zNXeQPNjMb3I/hf_20260918_113419_e28bdfe2-8302-4ad7-b1c0-f99bbf66382f.png",
+      "local_path": "exports/plate-01-mornington-feed-4x5.png",
+      "text_in_image": false
+    },
+    {
+      "id": "plate-02-mornington-wide-16x9",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "f41a5079-4fea-497a-9b13-7009d6a48250",
+      "dimensions": "2688x1520",
+      "aspect_ratio": "16:9",
+      "resolution": "2k",
+      "quality": "high",
+      "subject": "Wide Mornington panorama, pier stretching into bay, bathing boxes along foreshore, market stalls, boats",
+      "classification": "original editorial illustration",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_2wnAy4CBkJ7KVn8zNXeQPNjMb3I/hf_20260918_113658_f41a5079-4fea-497a-9b13-7009d6a48250.png",
+      "local_path": "exports/plate-02-mornington-wide-16x9.png",
+      "text_in_image": false
+    },
+    {
+      "id": "plate-03-cape-schanck-story-9x16",
+      "provider": "Higgsfield",
+      "model": "GPT Image 2 (gpt_image_2)",
+      "job_id": "b07cc614-1528-4502-b0d6-ba40830548c3",
+      "dimensions": "1520x2688",
+      "aspect_ratio": "9:16",
+      "resolution": "2k",
+      "quality": "high",
+      "subject": "Cape Schanck boardwalk through tea-tree scrub toward lighthouse headland and open ocean, golden hour",
+      "classification": "original editorial illustration",
+      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_2wnAy4CBkJ7KVn8zNXeQPNjMb3I/hf_20260918_113841_b07cc614-1528-4502-b0d6-ba40830548c3.png",
+      "local_path": "exports/plate-03-cape-schanck-story-9x16.png",
+      "text_in_image": false
+    }
+  ],
+  "brand_lock": {
+    "palette": "Harbour (production 2026-07-25)",
+    "display_font": "Sora 600/700",
+    "body_font": "Figtree 400",
+    "primary": "#10527E",
+    "dark_ground": "#0B2E4A",
+    "warm_signal": "#F5C177"
+  },
+  "copy": {
+    "version": "Option A, Case 01",
+    "approved_by": "James",
+    "headline": "She took her coffee to go. Can you find her?",
+    "prize_line": "Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.",
+    "cta": "play.peninsulainsider.com.au",
+    "draw_closes": "Sunday 11 October 2026"
+  },
+  "style_token": "impressionist gouache over anime cel characters, cream sand and sea-glass teal, terracotta figures, copper-amber clue glow, golden-hour light",
+  "review_file": "game-social-tiles-case01.html"
+}
