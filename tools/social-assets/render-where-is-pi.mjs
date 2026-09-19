@@ -44,6 +44,11 @@ const JOBS = [
 
 const onlyArg = process.argv.indexOf("--only");
 const only = onlyArg > -1 ? new Set(process.argv[onlyArg + 1].split(",")) : null;
+// --release drops the REVIEW ONLY badge and writes to exports/release/ so review and releasable
+// tiles can never be confused for one another.
+const release = process.argv.includes("--release");
+const releaseDir = path.join(campaign, "assets/exports/release");
+if (release) await fs.mkdir(releaseDir, { recursive: true });
 
 const browser = await chromium.launch({
   headless: true,
@@ -58,22 +63,26 @@ for (const [id, format, file] of JOBS) {
   const problems = [];
   page.on("console", (m) => { if (m.type() === "error") problems.push(m.text()); });
   page.on("requestfailed", (r) => problems.push("request failed: " + r.url()));
-  await page.goto(`${rendererUrl}?asset=${id}&capture=1`, { waitUntil: "networkidle" });
+  await page.goto(`${rendererUrl}?asset=${id}&capture=1${release ? "&release=1" : ""}`, { waitUntil: "networkidle" });
   await page.evaluate(() => document.fonts.ready);
   // Every declared face must actually be loaded; a fallback face is a silent brand failure.
   const fonts = await page.evaluate(() => [...document.fonts].map((f) => `${f.family} ${f.weight} ${f.status}`));
   const notLoaded = fonts.filter((f) => !f.endsWith("loaded"));
   if (notLoaded.length) problems.push("fonts not loaded: " + notLoaded.join(", "));
-  const out = path.join(outDir, `${file}.png`);
+  // A release capture must not carry the review badge; fail loudly rather than ship a watermark.
+  const badgeVisible = await page.locator(".badge").isVisible().catch(() => false);
+  if (release && badgeVisible) problems.push("release capture still shows the REVIEW ONLY badge");
+  if (!release && !badgeVisible) problems.push("review capture is missing the REVIEW ONLY badge");
+  const out = path.join(release ? releaseDir : outDir, `${file}.png`);
   await page.screenshot({ path: out, type: "png" });
   const meta = await page.evaluate(() => window.__PI_ASSET__);
   manifest.push({ id, file: `${file}.png`, width, height, url: meta.url, note: meta.note, problems });
-  console.log(`${problems.length ? "WARN" : "ok  "} ${id.padEnd(12)} ${width}x${height} -> exports/png/${file}.png${problems.length ? "  " + problems.join(" | ") : ""}`);
+  console.log(`${problems.length ? "WARN" : "ok  "} ${id.padEnd(12)} ${width}x${height} -> exports/${release ? "release" : "png"}/${file}.png${problems.length ? "  " + problems.join(" | ") : ""}`);
   await page.close();
 }
 await browser.close();
 // A --only run must not drop the other captures from the manifest: merge onto what is already recorded.
-const manifestPath = path.join(outDir, "capture-manifest.json");
+const manifestPath = path.join(release ? releaseDir : outDir, "capture-manifest.json");
 const previous = await fs.readFile(manifestPath, "utf8").then((t) => JSON.parse(t).captures ?? []).catch(() => []);
 const merged = [...previous.filter((p) => !manifest.some((m) => m.id === p.id)), ...manifest]
   .sort((a, b) => JOBS.findIndex((j) => j[0] === a.id) - JOBS.findIndex((j) => j[0] === b.id));
