@@ -29,8 +29,28 @@ const prizeMatch = renderer.match(/const PRIZE = "([^"]+)"/);
 const expectedPrize = `${provenance.copy.prize_line} Draw closes ${provenance.copy.draw_closes}.`;
 urlMatch?.[1] === provenance.copy.cta ? ok(`CTA URL matches provenance: ${urlMatch[1]}`) : fail.push(`CTA URL drift: renderer "${urlMatch?.[1]}" vs provenance "${provenance.copy.cta}"`);
 prizeMatch?.[1] === expectedPrize ? ok("prize line matches provenance") : fail.push(`prize line drift:\n  renderer:   ${prizeMatch?.[1]}\n  provenance: ${expectedPrize}`);
-if (/Mornington to Cape Schanck|Cape Schanck to Main Ridge|Main Ridge to Red Hill/.test(renderer + page)) fail.push("Case 01 route appears in public copy (spoils the game)");
-else ok("route not present in public copy");
+// Case 01's answer is the route mornington -> cape-schanck -> main-ridge -> red-hill, venue Montalto.
+// Mornington is the premise (the game's own title card gives it away), so it is allowed. Every other
+// stop, the final venue, and the witness tells that resolve it must not appear anywhere the public sees:
+// not in tile copy, not in page copy, and not as the subject of a plate a tile renders.
+// An earlier version of this check tested three hand-written phrases and passed a pack that published
+// the whole route as pictures. Check the names and the plate filenames, not the sentences.
+const SOLUTION = ["cape schanck", "cape-schanck", "main ridge", "main-ridge", "red hill", "red-hill", "montalto"];
+const TELLS = ["somewhere with a view", "walk before lunch", "sculpture", "ten minutes by tractor", "paringa"];
+const visibleText = page.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>|<!--[\s\S]*?-->/g, "").replace(/<[^>]+>/g, " ");
+const rendererStrings = [...renderer.matchAll(/(?:kicker|headline|deck|cta|note|meta):\s*(?:"([^"]*)"|\[([^\]]*)\])/g)]
+  .map((m) => m[1] ?? m[2]).join(" ");
+const publicText = (visibleText + " " + rendererStrings).toLowerCase();
+const leaked = SOLUTION.filter((t) => publicText.includes(t));
+const tells = TELLS.filter((t) => publicText.includes(t));
+// Which plates do the tiles actually render? A painting of a route stop leaks it without naming it.
+const plateMap = Object.fromEntries([...renderer.matchAll(/(\w+):\s*"(assets\/masters\/[^"]+)"/g)].map((m) => [m[1], m[2]]));
+const platesUsed = [...new Set([...renderer.matchAll(/plate:\s*"(\w+)"/g)].map((m) => m[1]).filter(Boolean))];
+const platesLeaking = platesUsed.filter((k) => SOLUTION.some((t) => (plateMap[k] ?? "").toLowerCase().includes(t.replace(/ /g, "-"))));
+if (leaked.length) fail.push(`Case 01 solution named in public copy: ${leaked.join(", ")}`);
+if (tells.length) fail.push(`Case 01 witness tell reused as public copy: ${tells.join(", ")}`);
+if (platesLeaking.length) fail.push(`tiles render plates of Case 01 route stops: ${platesLeaking.join(", ")}`);
+if (!leaked.length && !tells.length && !platesLeaking.length) ok(`no Case 01 solution leak (checked ${SOLUTION.length} names, ${TELLS.length} tells, ${platesUsed.length} plates in use)`);
 
 // 3. exports referenced vs on disk
 const stated = { feed: [1080, 1350], story: [1080, 1920], wide: [1920, 1080] };

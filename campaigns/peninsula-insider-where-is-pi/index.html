@@ -13,7 +13,7 @@
     @font-face{font-family:Figtree;src:url('assets/fonts/figtree-500.woff2') format('woff2');font-weight:500;font-display:swap}
     :root{--deep:#0B2E4A;--harbour:#10527E;--sand:#F5C177;--sand-text:#8A5620;--signal:#E2562F;--paper:#F2EFEA;--white:#FDFCFA;--ink:#14202A;--soft:#4c5d67;--line:rgba(11,46,74,.16)}
     *{box-sizing:border-box}
-    html{width:100%;max-width:100%;scroll-behavior:smooth}
+    html{width:100%;max-width:100%}@media(prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
     body{margin:0;width:100%;max-width:100%;overflow-x:hidden;background:var(--paper);color:var(--ink);font-family:Figtree,Arial,sans-serif;line-height:1.45}
     button,a{font:inherit}
     a{color:inherit}
@@ -35,7 +35,7 @@
     .meta-strip{position:absolute;left:64px;right:64px;bottom:52px;display:flex;flex-wrap:wrap;gap:12px}
     .pill{border:1px solid rgba(253,252,250,.3);border-radius:999px;padding:9px 13px;font-size:12px;letter-spacing:.08em;text-transform:uppercase}
     .hero-art{border-radius:24px;overflow:hidden;min-height:560px;background:var(--white);position:relative}
-    .hero-art img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+    .hero-art img{width:100%;height:100%;object-fit:contain;object-position:center;position:absolute;inset:0;background:var(--deep)}
     .hero-art .caption{position:absolute;left:20px;right:20px;bottom:20px;background:rgba(253,252,250,.92);border-radius:14px;padding:13px 16px;font-size:12px;color:var(--deep);display:flex;justify-content:space-between;gap:20px;backdrop-filter:blur(8px)}
     .nav{display:flex;gap:10px;flex-wrap:wrap;margin:32px 0 20px}
     .nav button{border:1px solid var(--line);background:var(--white);color:var(--deep);border-radius:999px;padding:12px 17px;cursor:pointer;font-weight:600}
@@ -63,6 +63,8 @@
     .group-head span{font-size:12px;text-transform:uppercase;letter-spacing:.11em;color:var(--soft)}
     .wide-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
     .wide-grid--hero{grid-template-columns:minmax(0,1fr);max-width:1100px}
+    /* a 4:5 and a 9:16 side by side need their own row, not two cells of a three-column grid */
+    .wide-grid--pair{grid-template-columns:repeat(2,minmax(0,1fr));max-width:820px;align-items:start}
     .card{min-width:0;background:var(--white);border:1px solid var(--line);border-radius:18px;overflow:hidden}
     .card img{display:block;width:100%;height:auto;background:var(--paper);cursor:zoom-in}
     .card-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 15px;font-size:12px;color:var(--soft)}.card-meta strong{color:var(--deep)}
@@ -71,7 +73,7 @@
     .copy-panel h3{font-size:34px}.copy-panel p{margin:12px 0 0;color:rgba(253,252,250,.78)}
     .copy-list{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.copy-item{border:1px solid rgba(253,252,250,.18);border-radius:13px;padding:16px}.copy-item small{display:block;color:var(--sand);font-size:12px;letter-spacing:.1em;text-transform:uppercase}.copy-item strong{display:block;margin-top:7px;font-family:Sora;font-size:18px}.copy-item span{display:block;margin-top:7px;color:rgba(253,252,250,.74);font-size:14px}
     .motion-lab{margin:34px 0 18px;padding:34px;background:var(--white);border:1px solid var(--line);border-radius:22px}.motion-head{display:grid;grid-template-columns:1fr .9fr;gap:30px;align-items:end;margin-bottom:24px}.motion-head h2{font-size:clamp(38px,4vw,62px);color:var(--deep)}.motion-head p{margin:0;color:var(--soft);font-size:16px;line-height:1.6}.motion-card{margin:0;min-width:0}.motion-card--study{width:min(100%,430px)}.motion-frame{position:relative;overflow:hidden;background:var(--deep);border-radius:16px;box-shadow:0 12px 36px rgba(11,46,74,.12)}.motion-frame video{display:block;width:100%;height:auto}.motion-brand{position:absolute;z-index:2;top:14px;left:14px;display:inline-flex;align-items:center;gap:7px;padding:5px 9px 5px 5px;background:rgba(253,252,250,.94);border-radius:9px;color:var(--ink);font:700 12px/1 Sora,Arial,sans-serif;letter-spacing:-.02em;pointer-events:none;backdrop-filter:blur(8px)}.motion-brand img{width:27px;height:27px;border-radius:6px}.motion-brand strong{color:var(--harbour)}.motion-meta{padding:13px 3px 0}.motion-meta strong{display:block;color:var(--deep);font-family:Sora;font-size:17px}.motion-meta span{display:block;margin-top:5px;color:var(--soft);font-size:13px;line-height:1.45}
-    .evidence{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:28px}.evidence article{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px}.evidence h3{font-size:21px;color:var(--deep);margin-bottom:13px}.evidence p,.evidence li{font-size:14px;color:var(--soft)}.evidence ul{margin:0;padding-left:19px}.evidence li+li{margin-top:8px}
+    .decision{margin:34px 0 0;padding:44px;background:var(--white);border:2px solid var(--deep);border-radius:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.85fr);gap:34px}.decision h2{font-size:clamp(34px,3.6vw,52px);color:var(--deep);margin-top:12px}.decision p{margin:16px 0 0;font-size:17px;color:#40515d;line-height:1.55;max-width:620px}.decision .kicker{color:var(--sand-text)}.decision-default{padding:18px 20px;background:var(--paper);border-radius:12px;font-size:15px}.decision-default strong{color:var(--deep)}.decision-facts{margin:0;padding:0;list-style:none;display:grid;gap:12px;align-content:start}.decision-facts li{padding:18px 20px;background:var(--paper);border-radius:12px;font-size:14px;line-height:1.5;color:#40515d}.decision-facts strong{color:var(--deep)}.decision-facts code{font-size:12.5px;background:rgba(11,46,74,.08);padding:2px 5px;border-radius:4px;word-break:break-all}@media(max-width:1050px){.decision{grid-template-columns:1fr;padding:28px}}.evidence{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:28px}.evidence article{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px}.evidence h3{font-size:21px;color:var(--deep);margin-bottom:13px}.evidence p,.evidence li{font-size:14px;color:var(--soft)}.evidence ul{margin:0;padding-left:19px}.evidence li+li{margin-top:8px}
     .footer{margin-top:40px;padding:26px 4px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;font-size:13px;color:var(--soft)}.footer a{font-weight:600;color:var(--harbour)}
     .hidden{display:none!important}
     /* Full-resolution inspection. Defects live at 1:1; the grid hides them. */
@@ -85,7 +87,7 @@
     .lightbox-stage img.is-actual{max-width:none;max-height:none;cursor:zoom-out}
     @media(prefers-reduced-motion:no-preference){.lightbox[open]{animation:lb .18s ease-out}@keyframes lb{from{opacity:0}to{opacity:1}}}
     @media(max-width:1050px){.hero{grid-template-columns:1fr}.hero-copy{min-height:520px}.wide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wide-grid--hero{grid-template-columns:1fr}.feed-sequence{grid-template-columns:repeat(3,1fr)}.story-sequence{grid-template-columns:repeat(3,1fr)}.copy-panel{grid-template-columns:1fr}.evidence{grid-template-columns:1fr 1fr}.calendar-head,.motion-head{grid-template-columns:1fr}.calendar-grid{grid-template-columns:1fr}.motion-card--study{justify-self:start}}
-    @media(max-width:680px){.shell{padding:12px 12px 54px}.topbar{border-radius:12px;gap:9px 16px;flex-wrap:wrap}.brand{font-size:18px}.brand img{width:34px;height:34px}.status{max-width:220px;font-size:12px;letter-spacing:.06em;line-height:1.25}.status span{white-space:normal}.hero-copy{padding:36px 28px;min-height:530px}.hero-copy .kicker{font-size:12px;overflow-wrap:anywhere}.hero-copy h1{font-size:54px}.hero-copy p{font-size:19px}.meta-strip{left:28px;right:28px;bottom:30px}.hero-art{min-height:420px}.calendar{padding:27px 18px}.calendar-grid{grid-template-columns:minmax(0,1fr)}.motion-lab{padding:24px 18px}.motion-head{gap:14px}.week-head{grid-template-columns:minmax(0,1fr)}.week-head h2{font-size:38px}.week-head p{max-width:100%;font-size:16px;overflow-wrap:anywhere}.week-number{display:none}.wide-grid{grid-template-columns:minmax(0,1fr)}.feed-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.story-sequence{grid-template-columns:repeat(3,minmax(0,1fr))}.copy-list{grid-template-columns:minmax(0,1fr)}.copy-panel{padding:24px}.hero-art .caption{display:block}.hero-art .caption span{display:block;margin-top:5px}.evidence{grid-template-columns:minmax(0,1fr)}}
+    @media(max-width:680px){.shell{padding:12px 12px 54px}.topbar{border-radius:12px;gap:9px 16px;flex-wrap:wrap}.brand{font-size:18px}.brand img{width:34px;height:34px}.status{max-width:220px;font-size:12px;letter-spacing:.06em;line-height:1.25}.status span{white-space:normal}.hero-copy{padding:36px 28px;min-height:530px}.hero-copy .kicker{font-size:12px;overflow-wrap:anywhere}.hero-copy h1{font-size:54px}.hero-copy p{font-size:19px}.meta-strip{left:28px;right:28px;bottom:30px}.hero-art{min-height:420px}.calendar{padding:27px 18px}.calendar-grid{grid-template-columns:minmax(0,1fr)}.motion-lab{padding:24px 18px}.motion-head{gap:14px}.week-head{grid-template-columns:minmax(0,1fr)}.week-head h2{font-size:38px}.week-head p{max-width:100%;font-size:16px;overflow-wrap:anywhere}.week-number{display:none}.wide-grid{grid-template-columns:minmax(0,1fr)}.feed-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.story-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.copy-list{grid-template-columns:minmax(0,1fr)}.copy-panel{padding:24px}.hero-art .caption{display:block}.hero-art .caption span{display:block;margin-top:5px}.evidence{grid-template-columns:minmax(0,1fr)}}
   </style>
   <script defer src="/gate.js"></script>
 </head>
@@ -94,14 +96,14 @@
     <a class="library-back" href="/campaigns/">← OptiFlows campaign library</a>
     <div class="topbar">
       <div class="brand"><img src="assets/pi-site-icon.svg" alt=""><span>Peninsula <strong>Insider</strong></span></div>
-      <div class="status"><span>PRIVATE REVIEW · CAMPAIGN UNPUBLISHED</span></div>
+      <div class="status" role="status"><span>PRIVATE REVIEW · CAMPAIGN UNPUBLISHED</span></div>
     </div>
 
     <section class="hero">
       <div class="hero-copy">
         <div class="kicker">WHERE IN THE PENINSULA IS PI? · CASE 01 SOCIAL CAMPAIGN</div>
         <h1>She took her coffee to go.</h1>
-        <p>Find the Insider across four real Peninsula towns. Fourteen static tiles across feed, carousel, stories and two wide heroes, plus one motion study, every tile rendered from one source on the Harbour palette, with PI leaving every frame.</p>
+        <p>Find the Insider across four real Peninsula towns. Fourteen static tiles across feed, carousel, stories and two wide heroes, plus one motion study, every tile rendered from one source on the Harbour palette. PI leaves the frame in every painted tile; the hook slide is her mark and the witness slide is deliberately empty, because she has already gone.</p>
         <div class="meta-strip">
           <span class="pill">Case 01</span><span class="pill">14 static tiles</span><span class="pill">1 motion study</span><span class="pill">15 illustration plates</span><span class="pill">Regenerates from source</span>
         </div>
@@ -121,8 +123,8 @@
 
     <section class="calendar" aria-labelledby="calendar-title">
       <header class="calendar-head">
-        <div><div class="kicker">THREE-WEEK CAMPAIGN CALENDAR · REVIEW ONLY</div><h2 id="calendar-title">The campaign, staged.</h2><p>Three weeks across feed, carousel, stories, web/email heroes and motion. Every static asset is built; the only entry still to be built is the 1080 × 1920 motion cut. Each entry remains held until its release gate passes. Draw closes Sunday 11 October 2026.</p></div>
-        <div class="calendar-summary" aria-label="Calendar summary"><div><strong>03</strong><span>campaign weeks</span></div><div><strong>15</strong><span>assets built</span></div><div><strong>00</strong><span>scheduled</span></div></div>
+        <div><div class="kicker">THREE-WEEK CAMPAIGN CALENDAR · REVIEW ONLY</div><h2 id="calendar-title">The campaign, staged.</h2><p>Three weeks across feed, carousel, stories, web/email heroes and motion. All fourteen static tiles are built. The 1080 × 1920 motion cut is the one entry still to be built. Each entry remains held until its release gate passes. Draw closes Sunday 11 October 2026.</p></div>
+        <div class="calendar-summary" aria-label="Calendar summary"><div><strong>03</strong><span>campaign weeks</span></div><div><strong>14</strong><span>tiles built</span></div><div><strong>00</strong><span>scheduled</span></div></div>
       </header>
       <div class="calendar-grid">
         <article class="calendar-week">
@@ -144,7 +146,7 @@
             <span>Reshare, hero and motion</span>
           </header>
           <div class="calendar-items">
-            <a class="calendar-item" href="#week-2"><time>Mon</time><strong>Feed tile</strong><small>She’s still out there. Main Ridge.</small></a>
+            <a class="calendar-item" href="#week-2"><time>Mon</time><strong>Feed tile</strong><small>She’s still out there</small></a>
             <a class="calendar-item" href="#week-2"><time>Wed</time><strong>Web/email hero</strong><small>Wide hero for site and newsletter</small></a>
             <a class="calendar-item is-pending" href="#motion"><time>Fri</time><strong>Motion piece</strong><small>1080 × 1920 Stories cut; the current file is a 3:4 study</small></a>
           </div>
@@ -157,7 +159,7 @@
           </header>
           <div class="calendar-items">
             <a class="calendar-item" href="#week-1"><time>Mon</time><strong>Carousel reshare</strong><small>Week 1 slides, unchanged</small></a>
-            <a class="calendar-item" href="#week-3"><time>Wed</time><strong>Urgency tile + wide hero</strong><small>Draw closes Sunday. Red Hill at last light.</small></a>
+            <a class="calendar-item" href="#week-3"><time>Wed</time><strong>Urgency tile + wide hero</strong><small>Draw closes Sunday</small></a>
             <a class="calendar-item" href="#week-3"><time>Fri</time><strong>Countdown story</strong><small>Final 48 hours</small></a>
           </div>
         </article>
@@ -231,7 +233,7 @@
       <div class="asset-group">
         <div class="group-head"><h3>Feed tile</h3><span>1 asset · 1080 × 1350</span></div>
         <div class="wide-grid">
-          <article class="card"><img loading="lazy" src="assets/exports/feed-02-sustain.webp" width="1080" height="1350" alt="Week 2 feed tile: She’s still out there. Main Ridge strawberry rows with PI walking away" data-asset="FEED-02"><div class="card-meta"><strong>FEED-02</strong><span>review export</span></div></article>
+          <article class="card"><img loading="lazy" src="assets/exports/feed-02-sustain.webp" width="1080" height="1350" alt="Week 2 feed tile: She’s still out there, with PI walking away down a Peninsula street" data-asset="FEED-02"><div class="card-meta"><strong>FEED-02</strong><span>review export</span></div></article>
         </div>
       </div>
 
@@ -249,23 +251,23 @@
         <div>
           <div class="kicker">WEEK 3 · CLOSE</div>
           <h2>Drive urgency.</h2>
-          <p>Final push: an urgency tile and a countdown story on Red Hill at last light, a closing wide hero for the site and the newsletter, and a reshare of the Week 1 carousel. Draw closes Sunday 11 October 2026.</p>
+          <p>Final push: an urgency tile and a countdown story, a closing wide hero for the site and the newsletter, and a reshare of the Week 1 carousel. Draw closes Sunday 11 October 2026.</p>
         </div>
         <div class="week-number">03</div>
       </header>
 
       <div class="asset-group">
         <div class="group-head"><h3>Urgency assets</h3><span>2 assets · 1080 × 1350 and 1080 × 1920</span></div>
-        <div class="wide-grid">
-          <article class="card"><img loading="lazy" src="assets/exports/feed-03-urgency.webp" width="1080" height="1350" alt="Week 3 urgency tile: Draw closes Sunday. Red Hill vineyard rows at last light with PI walking away" data-asset="FEED-03"><div class="card-meta"><strong>FEED-03</strong><span>urgency tile</span></div></article>
-          <article class="card"><img loading="lazy" src="assets/exports/story-04-countdown.webp" width="1080" height="1920" alt="Week 3 countdown story: Last light on the ridge. Final 48 hours" data-asset="STORY-04"><div class="card-meta"><strong>STORY-04</strong><span>countdown story</span></div></article>
+        <div class="wide-grid wide-grid--pair">
+          <article class="card"><img loading="lazy" src="assets/exports/feed-03-urgency.webp" width="1080" height="1350" alt="Week 3 urgency tile: Draw closes Sunday, with PI walking away on the ocean side" data-asset="FEED-03"><div class="card-meta"><strong>FEED-03</strong><span>urgency tile</span></div></article>
+          <article class="card"><img loading="lazy" src="assets/exports/story-04-countdown.webp" width="1080" height="1920" alt="Week 3 countdown story: Last chance to find her. Final 48 hours" data-asset="STORY-04"><div class="card-meta"><strong>STORY-04</strong><span>countdown story</span></div></article>
         </div>
       </div>
 
       <div class="asset-group">
         <div class="group-head"><h3>Closing web/email hero</h3><span>1 asset · 1920 × 1080</span></div>
         <div class="wide-grid wide-grid--hero">
-          <article class="card"><img loading="lazy" src="assets/exports/hero-wide-02-urgency.webp" width="1920" height="1080" alt="Closing wide hero: Draw closes Sunday. Red Hill plateau at last light" data-asset="HERO-WIDE-02"><div class="card-meta"><strong>HERO-WIDE-02</strong><span>review export</span></div></article>
+          <article class="card"><img loading="lazy" src="assets/exports/hero-wide-02-urgency.webp" width="1920" height="1080" alt="Closing wide hero: Draw closes Sunday, with PI walking away at the Peninsula tip" data-asset="HERO-WIDE-02"><div class="card-meta"><strong>HERO-WIDE-02</strong><span>review export</span></div></article>
         </div>
       </div>
 
@@ -292,9 +294,23 @@
       </figure>
     </section>
 
+    <section class="decision" aria-labelledby="decision-title">
+      <div>
+        <div class="kicker">THE DECISION</div>
+        <h2 id="decision-title">Release Week 1 to scheduling?</h2>
+        <p>Everything below is built and verified. Two holds actually gate a release: legal review of the prize terms, and written confirmation from Doot Doot Doot / Jackalope. Until both clear, nothing can be scheduled.</p>
+        <p class="decision-default"><strong>Default if there is no answer:</strong> the pack stays held and nothing is scheduled.</p>
+      </div>
+      <ul class="decision-facts">
+        <li><strong>These are review renders.</strong> Every export carries the REVIEW ONLY badge in its pixels. Release files come from <code>node tools/social-assets/render-where-is-pi.mjs --release</code>, which writes to <code>assets/exports/release/</code> and refuses to produce a watermarked file.</li>
+        <li><strong>The campaign shows four Peninsula places, none of them on the Case 01 route</strong> beyond Mornington, which the game itself gives away on its title card. Sorrento, Flinders and Arthurs Seat are the wrong turns the game already authors, so the campaign misdirects exactly as the game does.</li>
+        <li><strong>The prize sits under the call to action on eight tiles,</strong> never as a headline.</li>
+      </ul>
+    </section>
+
     <!-- EVIDENCE -->
     <section class="evidence">
-      <article><h3>Confirmed</h3><ul><li>Fifteen illustration plates via Higgsfield: three generation-1 scenes (GPT Image 2) and twelve generation-2 plates with PI leaving each frame across Mornington, Cape Schanck, Main Ridge and Red Hill (GPT Image 2.5, one character reference).</li><li>Fourteen static tiles rendered from <code>asset-renderer.html</code> on the Harbour palette; renderer, capture script and palette guard committed, so the pack regenerates from source.</li><li>One 3:4 motion study from the Mornington plate.</li><li>Copy approved by James (Option A, Case 01); prize placed under the call to action; the route never appears in public copy.</li><li>Game URL: play.peninsulainsider.com.au</li></ul></article>
+      <article><h3>Confirmed</h3><ul><li>Twenty illustration plates via Higgsfield: three generation-1 scenes (GPT Image 2) and seventeen generation-2 plates with PI leaving each frame (GPT Image 2.5, one character reference holding her across every plate). The campaign uses Mornington plus three places the game authors as wrong turns; plates of the solution stops are held and unused. See <code>spoiler_policy</code> in the provenance receipt.</li><li>Fourteen static tiles rendered from <code>asset-renderer.html</code> on the Harbour palette; renderer, capture script and guard committed, so the pack regenerates from source. The guard fails the build on an off-token colour, copy that drifts from this receipt, a solution leak, a wrong dimension or an em-dash.</li><li>One 3:4 motion study from the Mornington plate.</li><li>Copy approved by James (Option A, Case 01); prize placed under the call to action; the route never appears in public copy.</li><li>Game URL: play.peninsulainsider.com.au</li></ul></article>
       <article><h3>Still held</h3><ul><li>1080 × 1920 Stories motion cut.</li><li>Game build completion and QA pass.</li><li>Prize terms and conditions legal review.</li><li>Doot Doot Doot / Jackalope partnership confirmation.</li><li>Social release scheduling and executor assignment.</li><li>Draw mechanic and winner notification process.</li></ul></article>
       <article><h3>Not authorised</h3><ul><li>No social post, story or reel publication.</li><li>No email send or newsletter inclusion.</li><li>No paid distribution or boost.</li><li>No game URL activation or public access.</li><li>No prize draw commencement or commercial commitment.</li></ul></article>
     </section>

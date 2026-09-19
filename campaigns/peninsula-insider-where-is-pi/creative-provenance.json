@@ -1,9 +1,9 @@
 {
   "campaign": "Where in the Peninsula is PI? Case 01 Social Promotion",
   "created": "2026-09-18T11:40:00Z",
-  "revised": "2026-09-19T01:35:00Z",
+  "revised": "2026-09-19T02:10:00Z",
   "status": "review-only",
-  "revision_note": "2026-09-19 rebuild after Impeccable critique (17/36): every tile re-rendered from asset-renderer.html on the Harbour palette; prize demoted to a footnote under the call to action; route removed from public copy; PI added to the plates via GPT Image 2.5; stale local_path and review_file corrected. 2026-09-19 (later): hook slide mark replaced with the supplied pi-concierge painted disc.",
+  "revision_note": "2026-09-19 rebuild after Impeccable critique (17/36): every tile re-rendered from asset-renderer.html on the Harbour palette; prize demoted to a footnote under the call to action; PI added to the plates via GPT Image 2.5; stale local_path and review_file corrected. Later the same day: hook-slide mark replaced with the supplied pi-concierge disc; release capture mode added; and, after a second critique, the Case 01 route was removed from the campaign entirely.",
   "renderer": "asset-renderer.html",
   "capture_script": "../../tools/social-assets/render-where-is-pi.mjs",
   "guard_script": "../../tools/social-assets/check-where-is-pi.mjs",
@@ -87,7 +87,7 @@
     }
   ],
   "generation_2_run": {
-    "note": "Eleven further plates generated 2026-09-19 on gpt_image_2_5 (3 credits each, 33 total) with plate-01-mornington-feed-4x5-v2.png as the image reference for character consistency. Prompts in prompts/; STYLE FORMULA byte-identical to the game brief. Unused plates (Cape Schanck wide, Main Ridge story and wide) are held for the Stories motion cut and any further variants.",
+    "note": "Eleven further plates generated 2026-09-19 on gpt_image_2_5 (3 credits each, 33 total) with plate-01-mornington-feed-4x5-v2.png as the image reference for character consistency. Prompts in prompts/; STYLE FORMULA byte-identical to the game brief. Unused plates (Cape Schanck wide, Main Ridge story and wide) are held for the Stories motion cut and any further variants. Six further decoy-town plates (Sorrento feed and wide, Arthurs Seat feed and story, Flinders feed and story) were generated 2026-09-19 after the spoiler finding; the Cape Schanck, Main Ridge and Red Hill plates are retained but are not usable in campaign creative while spoiler_policy stands.",
     "style_formula_file": "prompts/style-formula.txt",
     "plates": [
       {
@@ -152,7 +152,8 @@
         "sha256": "9f2601ae28bbd2728e6a9bc476c9c9e062ad60a670726fa4d505c00d10d88994",
         "text_in_image": false,
         "subject": "Cape Schanck: 1859 lighthouse on the headland, boardwalk through tea-tree, basalt shelf, open ocean; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
-        "used_by": []
+        "used_by": [],
+        "status": "held: route stop, not usable in campaign creative under spoiler_policy"
       },
       {
         "id": "plate-main-ridge-feed-4x5-v2",
@@ -194,7 +195,8 @@
         "sha256": "fdb73dbb50364d4a426e923714679f39f4ca9bf291a314c072e86f8e59f6587d",
         "text_in_image": false,
         "subject": "Main Ridge: strawberry rows under big gums, gravel road, dairy gate, mist lifting from the gullies; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
-        "used_by": []
+        "used_by": [],
+        "status": "held: route stop, not usable in campaign creative under spoiler_policy"
       },
       {
         "id": "plate-main-ridge-wide-16x9-v2",
@@ -214,7 +216,8 @@
         "sha256": "785ab9c43d14fbfa60bb3b11234be58d6bedda84b2749404fd677c053bfb4c50",
         "text_in_image": false,
         "subject": "Main Ridge: strawberry rows under big gums, gravel road, dairy gate, mist lifting from the gullies; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
-        "used_by": []
+        "used_by": [],
+        "status": "held: route stop, not usable in campaign creative under spoiler_policy"
       },
       {
         "id": "plate-mornington-story-9x16-v2",
@@ -346,7 +349,7 @@
     "approved_by": "James",
     "headline": "She took her coffee to go. Can you find her?",
     "prize_line": "Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.",
-    "prize_placement": "footnote under the call to action on feed-01, carousel-05, story-03 and hero-wide; never a headline (decision 2026-09-19)",
+    "prize_placement": "footnote under the call to action on feed-01, carousel-05, story-03, hero-wide, feed-02, feed-03, story-04 and hero-wide-02 (eight tiles); never a headline. Decision 2026-09-19.",
     "cta": "play.peninsulainsider.com.au",
     "draw_closes": "Sunday 11 October 2026",
     "route_in_public_copy": false
@@ -356,5 +359,11 @@
     "engine": "Impeccable 4.3.1 critique, dual-agent",
     "before": "17/36 (47%), 2 P0, 3 P1",
     "snapshot": "../../.impeccable/critique/2026-09-18T23-40-38Z__campaigns-peninsula-insider-where-is-pi-index-html.md"
+  },
+  "spoiler_policy": {
+    "rule": "Mornington may appear: the game's own title card names it as the last-known sighting. No other Case 01 stop (Cape Schanck, Main Ridge, Red Hill), the final venue (Montalto), or any witness tell that resolves them may appear in tile copy, page copy, alt text, or as the subject of a plate a tile renders.",
+    "why": "The first build published the correct route in order across the three-week schedule (Mornington, Cape Schanck, Main Ridge, Red Hill) and reused the 'somewhere with a view' tell as ad copy. Anyone following the account for three weeks would have had the answer before opening the case, defeating the brief's section 13 no-leak criterion from outside the game.",
+    "fix": "Weeks 2 and 3 and the two mechanic tiles now use decoy towns the brief already authors as wrong turns: Sorrento, Flinders and Arthurs Seat. The campaign misdirects exactly as the game does.",
+    "enforced_by": "tools/social-assets/check-where-is-pi.mjs fails on any route name, final venue, witness tell, or route-stop plate reaching a public surface. The previous check tested three hand-written phrases and passed the leak."
   }
 }
