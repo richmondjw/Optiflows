@@ -72,6 +72,11 @@ for (const [id, format, file] of JOBS) {
   await page.close();
 }
 await browser.close();
-await fs.writeFile(path.join(outDir, "capture-manifest.json"), JSON.stringify({ generatedAt: new Date().toISOString(), renderer: "asset-renderer.html", captures: manifest }, null, 2));
+// A --only run must not drop the other captures from the manifest: merge onto what is already recorded.
+const manifestPath = path.join(outDir, "capture-manifest.json");
+const previous = await fs.readFile(manifestPath, "utf8").then((t) => JSON.parse(t).captures ?? []).catch(() => []);
+const merged = [...previous.filter((p) => !manifest.some((m) => m.id === p.id)), ...manifest]
+  .sort((a, b) => JOBS.findIndex((j) => j[0] === a.id) - JOBS.findIndex((j) => j[0] === b.id));
+await fs.writeFile(manifestPath, JSON.stringify({ generatedAt: new Date().toISOString(), renderer: "asset-renderer.html", captures: merged }, null, 2));
 const failed = manifest.filter((m) => m.problems.length);
 if (failed.length) { console.error(`${failed.length} capture(s) reported problems`); process.exit(2); }

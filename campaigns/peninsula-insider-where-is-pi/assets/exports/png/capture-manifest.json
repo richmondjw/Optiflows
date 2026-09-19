@@ -1,7 +1,16 @@
 {
-  "generatedAt": "2026-09-19T01:35:47.739Z",
+  "generatedAt": "2026-09-19T01:37:28.924Z",
   "renderer": "asset-renderer.html",
   "captures": [
+    {
+      "id": "feed-01",
+      "file": "feed-tile.png",
+      "width": 1080,
+      "height": 1350,
+      "url": "play.peninsulainsider.com.au",
+      "note": "Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026.",
+      "problems": []
+    },
     {
       "id": "carousel-01",
       "file": "carousel-01-hook.png",
@@ -9,6 +18,114 @@
       "height": 1350,
       "url": "",
       "note": "",
+      "problems": []
+    },
+    {
+      "id": "carousel-02",
+      "file": "carousel-02-case.png",
+      "width": 1080,
+      "height": 1350,
+      "url": "",
+      "note": "",
+      "problems": []
+    },
+    {
+      "id": "carousel-03",
+      "file": "carousel-03-mechanic.png",
+      "width": 1080,
+      "height": 1350,
+      "url": "",
+      "note": "",
+      "problems": []
+    },
+    {
+      "id": "carousel-04",
+      "file": "carousel-04-witness.png",
+      "width": 1080,
+      "height": 1350,
+      "url": "",
+      "note": "",
+      "problems": []
+    },
+    {
+      "id": "carousel-05",
+      "file": "carousel-05-cta.png",
+      "width": 1080,
+      "height": 1350,
+      "url": "play.peninsulainsider.com.au",
+      "note": "Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026.",
+      "problems": []
+    },
+    {
+      "id": "story-01",
+      "file": "story-01-hook.png",
+      "width": 1080,
+      "height": 1920,
+      "url": "",
+      "note": "",
+      "problems": []
+    },
+    {
+      "id": "story-02",
+      "file": "story-02-challenge.png",
+      "width": 1080,
+      "height": 1920,
+      "url": "",
+      "note": "",
+      "problems": []
+    },
+    {
+      "id": "story-03",
+      "file": "story-03-cta.png",
+      "width": 1080,
+      "height": 1920,
+      "url": "play.peninsulainsider.com.au",
+      "note": "Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026.",
+      "problems": []
+    },
+    {
+      "id": "hero-wide",
+      "file": "hero-wide.png",
+      "width": 1920,
+      "height": 1080,
+      "url": "play.peninsulainsider.com.au",
+      "note": "Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026.",
+      "problems": []
+    },
+    {
+      "id": "feed-02",
+      "file": "feed-02-sustain.png",
+      "width": 1080,
+      "height": 1350,
+      "url": "play.peninsulainsider.com.au",
+      "note": "Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026.",
+      "problems": []
+    },
+    {
+      "id": "feed-03",
+      "file": "feed-03-urgency.png",
+      "width": 1080,
+      "height": 1350,
+      "url": "play.peninsulainsider.com.au",
+      "note": "Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026.",
+      "problems": []
+    },
+    {
+      "id": "story-04",
+      "file": "story-04-countdown.png",
+      "width": 1080,
+      "height": 1920,
+      "url": "play.peninsulainsider.com.au",
+      "note": "Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026.",
+      "problems": []
+    },
+    {
+      "id": "hero-wide-02",
+      "file": "hero-wide-02-urgency.png",
+      "width": 1920,
+      "height": 1080,
+      "url": "play.peninsulainsider.com.au",
+      "note": "Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026.",
       "problems": []
     }
   ]
