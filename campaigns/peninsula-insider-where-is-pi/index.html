@@ -75,6 +75,38 @@
     .motion-lab{margin:34px 0 18px;padding:34px;background:var(--white);border:1px solid var(--line);border-radius:22px}.motion-head{display:grid;grid-template-columns:1fr .9fr;gap:30px;align-items:end;margin-bottom:24px}.motion-head h2{font-size:clamp(38px,4vw,62px);color:var(--deep)}.motion-head p{margin:0;color:var(--soft);font-size:16px;line-height:1.6}.motion-card{margin:0;min-width:0}.motion-card--study{width:min(100%,430px)}.motion-frame{position:relative;overflow:hidden;background:var(--deep);border-radius:16px;box-shadow:0 12px 36px rgba(11,46,74,.12)}.motion-frame video{display:block;width:100%;height:auto}.motion-brand{position:absolute;z-index:2;top:14px;left:14px;display:inline-flex;align-items:center;gap:7px;padding:5px 9px 5px 5px;background:rgba(253,252,250,.94);border-radius:9px;color:var(--ink);font:700 12px/1 Sora,Arial,sans-serif;letter-spacing:-.02em;pointer-events:none;backdrop-filter:blur(8px)}.motion-brand img{width:27px;height:27px;border-radius:6px}.motion-brand strong{color:var(--harbour)}.motion-meta{padding:13px 3px 0}.motion-meta strong{display:block;color:var(--deep);font-family:Sora;font-size:17px}.motion-meta span{display:block;margin-top:5px;color:var(--soft);font-size:13px;line-height:1.45}
     .decision{margin:34px 0 0;padding:44px;background:var(--white);border:2px solid var(--deep);border-radius:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.85fr);gap:34px}.decision h2{font-size:clamp(34px,3.6vw,52px);color:var(--deep);margin-top:12px}.decision p{margin:16px 0 0;font-size:17px;color:#40515d;line-height:1.55;max-width:620px}.decision .kicker{color:var(--sand-text)}.decision-default{padding:18px 20px;background:var(--paper);border-radius:12px;font-size:15px}.decision-default strong{color:var(--deep)}.decision-facts{margin:0;padding:0;list-style:none;display:grid;gap:12px;align-content:start}.decision-facts li{padding:18px 20px;background:var(--paper);border-radius:12px;font-size:14px;line-height:1.5;color:#40515d}.decision-facts strong{color:var(--deep)}.decision-facts code{font-size:12.5px;background:rgba(11,46,74,.08);padding:2px 5px;border-radius:4px;word-break:break-all}@media(max-width:1050px){.decision{grid-template-columns:1fr;padding:28px}}.evidence{display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-top:28px}.evidence article{background:var(--white);border:1px solid var(--line);border-radius:16px;padding:24px}.evidence h3{font-size:21px;color:var(--deep);margin-bottom:13px}.evidence p,.evidence li{font-size:14px;color:var(--soft)}.evidence ul{margin:0;padding-left:19px}.evidence li+li{margin-top:8px}
     .footer{margin-top:40px;padding:26px 4px 0;border-top:1px solid var(--line);display:flex;justify-content:space-between;gap:20px;font-size:13px;color:var(--soft)}.footer a{font-weight:600;color:var(--harbour)}
+
+    /* Copy that travels with each post, rendered from the inlined campaign-copy block so the page
+       can never disagree with the renderer or the receipt. */
+    .post-copy{margin:0 0 16px;background:var(--deep);color:var(--white);border-radius:16px;padding:22px 24px}
+    .post-copy header{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:12px}
+    .post-copy h4{margin:0;font:600 12px/1 Sora,Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--sand)}
+    .post-copy .caption{margin:0;white-space:pre-wrap;font-size:15px;line-height:1.6;color:rgba(253,252,250,.92)}
+    .copy-btn{border:1px solid rgba(253,252,250,.4);background:transparent;color:var(--white);border-radius:999px;padding:8px 15px;cursor:pointer;font:600 12px/1 Sora,Arial,sans-serif;letter-spacing:.08em}
+    .copy-btn:hover{background:rgba(253,252,250,.12)}
+    .copy-btn[data-done="1"]{border-color:var(--sand);color:var(--sand)}
+    .card-copy{padding:0 15px 15px}
+    .card-copy dl{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;margin:0;padding-top:13px;border-top:1px solid var(--line);font-size:13px}
+    .card-copy dt{color:var(--soft);font-size:10.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;padding-top:2px}
+    .card-copy dd{margin:0;color:var(--deep)}
+    .card-copy .alt{margin:11px 0 0;font-size:12.5px;line-height:1.5;color:var(--soft)}
+    .card-copy .alt b{color:var(--deep);font-weight:600}
+    .card-copy .dl{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:12px 0 0}
+    .card-copy .dl a{display:inline-flex;align-items:center;gap:6px;padding:7px 12px;border:1px solid var(--line);border-radius:999px;font-size:12px;font-weight:600;color:var(--harbour);text-decoration:none;background:var(--paper)}
+    .card-copy .dl a:hover{border-color:var(--harbour)}
+    .card-copy .dl span{font-size:11px;letter-spacing:.09em;text-transform:uppercase;color:var(--soft);margin-left:auto}
+    .downloads{margin:34px 0 0;padding:44px;background:var(--deep);color:var(--white);border-radius:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(320px,.9fr);gap:34px;position:relative;overflow:hidden}
+    .downloads:after{content:"";position:absolute;right:-130px;bottom:-150px;width:340px;height:340px;border:76px solid rgba(245,193,119,.1);border-radius:50%;pointer-events:none}
+    .downloads h2{font-size:clamp(34px,3.6vw,52px);margin-top:12px}
+    .downloads p{margin:16px 0 0;color:rgba(253,252,250,.78);font-size:16px;line-height:1.55;max-width:560px}
+    .downloads code{font-size:14px;background:rgba(253,252,250,.14);padding:2px 6px;border-radius:5px}
+    .dl-list{position:relative;z-index:1;display:grid;gap:11px;align-content:start}
+    .dl-list a{display:grid;grid-template-columns:1fr auto;gap:3px 14px;padding:17px 19px;background:rgba(253,252,250,.1);border:1px solid rgba(253,252,250,.16);border-radius:14px;text-decoration:none;color:var(--white)}
+    .dl-list a:hover{background:rgba(253,252,250,.17)}
+    .dl-list strong{font:700 16px/1.2 Sora,Arial,sans-serif}
+    .dl-list em{grid-column:1/-1;font-style:normal;font-size:13px;color:rgba(253,252,250,.72)}
+    .dl-list span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--sand);white-space:nowrap}
+    @media(max-width:1050px){.downloads{grid-template-columns:1fr;padding:28px}}
     .hidden{display:none!important}
     /* Full-resolution inspection. Defects live at 1:1; the grid hides them. */
     .lightbox{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh}
@@ -92,6 +124,9 @@
   <script defer src="/gate.js"></script>
 </head>
 <body>
+  <!-- COPY-DATA:START -->
+  <script type="application/json" id="campaign-copy">{"campaign":"Where in the Peninsula is PI? Case 01 Social Promotion","generatedAt":"2026-09-19T03:42:32.302Z","cta":"play.peninsulainsider.com.au","prize":"Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026.","assets":{"feed-01":{"id":"feed-01","format":"feed","size":"1080 x 1350","file":"feed-tile","onTile":[["kicker","Case 01 · Last seen, Mornington"],["headline","She took her coffee to go."],["deck","Can you find her?"],["cta","Play Case 01"]],"alt":"Painted illustration of Mornington on a Saturday morning: the market setting up along the foreshore, the pier reaching into the bay, bathing boxes on the sand, and a woman in a sun hat and terracotta dress walking away down the path with a small dog on a lead. Headline: She took her coffee to go. Can you find her?"},"carousel-01":{"id":"carousel-01","format":"feed","size":"1080 x 1350","file":"carousel-01-hook","onTile":[["kicker","Case 01 is open"],["headline","Where in the Peninsula is PI?"],["deck","Four towns. One Insider. Find her before Sunday 11 October."]],"alt":"Deep navy slide carrying the Peninsula Insider mark, a painted disc of a wide-brimmed sun hat. Headline: Where in the Peninsula is PI? Four towns. One Insider. Find her before Sunday 11 October."},"carousel-02":{"id":"carousel-02","format":"feed","size":"1080 x 1350","file":"carousel-02-case","onTile":[["kicker","Last seen"],["headline","Mornington pier. Saturday, 8:10am."],["deck","Flat white, takeaway. The dog was with her."]],"alt":"Painted illustration of the Mornington foreshore at morning, market stalls and bathing boxes. Headline: Mornington pier. Saturday, 8:10am. Flat white, takeaway. The dog was with her."},"carousel-03":{"id":"carousel-03","format":"feed","size":"1080 x 1350","file":"carousel-03-mechanic","onTile":[["kicker","How it works"],["headline","The sun moves only when you do."],["deck","Ask the witnesses. Search the scene. Read the land. Catch her before last light."]],"alt":"Painted illustration of a high lookout above the bay with a chairlift running over the treetops, and a woman in a sun hat walking away down a ridge path with a small dog. Headline: The sun moves only when you do."},"carousel-04":{"id":"carousel-04","format":"feed","size":"1080 x 1350","file":"carousel-04-witness","onTile":[["kicker","Witness · The barista"],["headline","“Took her coffee to go. Asked me which way the wind was blowing.”"],["deck","Three witnesses at every stop. One of them is sending you the wrong way."]],"alt":"Painted illustration of the Mornington market with no one in the foreground. Headline, quoting a witness: Took her coffee to go. Asked me which way the wind was blowing."},"carousel-05":{"id":"carousel-05","format":"feed","size":"1080 x 1350","file":"carousel-05-cta","onTile":[["kicker","Case 01 · Open now"],["headline","Play Case 01."],["deck","Find her before Sunday 11 October."],["cta","Open the case"]],"alt":"Painted illustration of Mornington with a woman in a sun hat walking away toward the pier. Headline: Play Case 01. Find her before Sunday 11 October."},"story-01":{"id":"story-01","format":"story","size":"1080 x 1920","file":"story-01-hook","onTile":[["kicker","Case 01"],["headline","She took her coffee to go."],["deck","Can you find her?"]],"alt":"Vertical painted illustration of Mornington at golden hour, the pier and moored boats below, a woman in a sun hat walking away with a small dog. Headline: She took her coffee to go. Can you find her?"},"story-02":{"id":"story-02","format":"story","size":"1080 x 1920","file":"story-02-challenge","onTile":[["kicker","How it works"],["headline","Four towns. One Insider. One afternoon."],["deck","The sun moves only when you do."]],"alt":"Vertical painted illustration of a lookout high above the bay, sailing boats far below and a chairlift on the slope. Headline: Four towns. One Insider. One afternoon. The sun moves only when you do."},"story-03":{"id":"story-03","format":"story","size":"1080 x 1920","file":"story-03-cta","onTile":[["kicker","Case 01 · Open now"],["headline","Play Case 01."],["deck","Find her before Sunday 11 October."],["cta","Open the case"]],"alt":"Vertical painted illustration of Mornington, the market and pier below, a woman in a sun hat walking away. Headline: Play Case 01. Find her before Sunday 11 October."},"hero-wide":{"id":"hero-wide","format":"wide","size":"1920 x 1080","file":"hero-wide","onTile":[["kicker","Case 01 · Last seen, Mornington"],["headline","She took her coffee to go."],["deck","Can you find her? Case 01 of Where in the Peninsula is PI? is open."],["cta","Play Case 01"]],"alt":"Wide painted illustration of Mornington, the market street on the left running down to the pier and the bay, a woman in a sun hat walking away with a small dog. Headline: She took her coffee to go."},"feed-02":{"id":"feed-02","format":"feed","size":"1080 x 1350","file":"feed-02-sustain","onTile":[["kicker","Case 01 · Still open"],["headline","She’s still out there."],["deck","Play before Sunday 11 October."],["cta","Play Case 01"]],"alt":"Painted illustration of a limestone village street at the tip of the Peninsula, the ferry standing off the pier, and a woman in a sun hat walking away downhill with a small dog. Headline: She is still out there. Play before Sunday 11 October."},"feed-03":{"id":"feed-03","format":"feed","size":"1080 x 1350","file":"feed-03-urgency","onTile":[["kicker","Case 01 · Closing"],["headline","Draw closes Sunday."],["deck","Find her before Sunday 11 October."],["cta","Play Case 01"]],"alt":"Painted illustration of a village on the ocean side of the Peninsula, the general store and a steep paddock down to the water. Headline: Draw closes Sunday. Find her before Sunday 11 October."},"story-04":{"id":"story-04","format":"story","size":"1080 x 1920","file":"story-04-countdown","onTile":[["kicker","Case 01 · Final 48 hours"],["headline","Last chance to find her."],["deck","Draw closes Sunday 11 October."],["cta","Open the case"]],"alt":"Vertical painted illustration of a village on the ocean side of the Peninsula, green paddocks running down to a rocky coast. Headline: Last chance to find her. Draw closes Sunday 11 October."},"hero-wide-02":{"id":"hero-wide-02","format":"wide","size":"1920 x 1080","file":"hero-wide-02-urgency","onTile":[["kicker","Case 01 · Closing"],["headline","Draw closes Sunday."],["deck","Find her before Sunday 11 October."],["cta","Play Case 01"]],"alt":"Wide painted illustration of a limestone village at the tip of the Peninsula with the ferry at the pier, a woman in a sun hat walking away along the dune path. Headline: Draw closes Sunday."}},"posts":[{"id":"w1-feed","week":1,"day":"Monday","channel":"Instagram feed","assets":["feed-01"],"caption":"She took her coffee to go.\n\nCase 01 of Where in the Peninsula is PI? is open. Four towns, one Insider, and a sun that only moves when you do.\n\nAsk the witnesses. Search the scene. Read the land. Catch her before last light and she will tell you what to order.\n\nPlay at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026."},{"id":"w1-carousel","week":1,"day":"Wednesday","channel":"Instagram feed carousel","assets":["carousel-01","carousel-02","carousel-03","carousel-04","carousel-05"],"caption":"Where in the Peninsula is PI?\n\nSwipe for the case. Last seen on Mornington pier, Saturday, 8:10am. Flat white, takeaway. The dog was with her.\n\nThree witnesses at every stop. One of them is sending you the wrong way.\n\nPlay at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026."},{"id":"w1-stories","week":1,"day":"Friday","channel":"Instagram stories","assets":["story-01","story-02","story-03"],"caption":"Three frames, posted in order. Frame 1 hooks, frame 2 explains the mechanic, frame 3 carries the call to action.\n\nLink sticker on frame 3 to play.peninsulainsider.com.au, placed in the lower third inside the safe area. No text stickers over the artwork: every frame already carries its own words."},{"id":"w2-feed","week":2,"day":"Monday","channel":"Instagram feed","assets":["feed-02"],"caption":"She is still out there.\n\nCase 01 is open until Sunday. She is twenty minutes ahead of you, as usual.\n\nPlay at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026."},{"id":"w2-hero","week":2,"day":"Wednesday","channel":"Website and newsletter hero","assets":["hero-wide"],"caption":"Not a social post. This is the wide hero for the Peninsula Insider site and the newsletter.\n\nSuggested email subject: She took her coffee to go.\nSuggested preheader: Case 01 is open. Find her before Sunday 11 October.\n\nButton: Play Case 01, linking to play.peninsulainsider.com.au"},{"id":"w2-motion","week":2,"day":"Friday","channel":"Instagram reel or story","assets":["motion-01"],"caption":"Mornington pier, in motion. Sound on.\n\nCase 01 is open. Play at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026.\n\nProduction note: the current file is a 3:4 study and is not a release asset. The Stories cut is specified at 1080 x 1920, built on the sun arc, ending on the call-to-action card."},{"id":"w3-urgency","week":3,"day":"Wednesday","channel":"Instagram feed","assets":["feed-03"],"caption":"Draw closes Sunday.\n\nLast chance to find her. Case 01 closes at the end of Sunday 11 October.\n\nPlay at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026."},{"id":"w3-countdown","week":3,"day":"Friday","channel":"Instagram stories","assets":["story-04"],"caption":"Final 48 hours. One frame, posted Friday and repeated Saturday.\n\nLink sticker to play.peninsulainsider.com.au in the lower third, inside the safe area.\n\nCountdown sticker to Sunday 11 October, 11:59pm."},{"id":"w3-hero","week":3,"day":"Wednesday","channel":"Website and newsletter hero","assets":["hero-wide-02"],"caption":"Not a social post. Closing hero for the site and the final newsletter.\n\nSuggested email subject: Draw closes Sunday.\nSuggested preheader: Last chance to find her before 11 October.\n\nButton: Play Case 01, linking to play.peninsulainsider.com.au"},{"id":"w3-reshare","week":3,"day":"Monday","channel":"Instagram feed carousel","assets":["carousel-05"],"caption":"Reshare of the Week 1 call-to-action slide, unchanged. Same asset, closing caption.\n\nCase 01 closes Sunday. Play at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026."}]}</script>
+  <!-- COPY-DATA:END -->
   <div class="shell">
     <a class="library-back" href="/campaigns/">← OptiFlows campaign library</a>
     <div class="topbar">
@@ -109,7 +144,7 @@
         </div>
       </div>
       <div class="hero-art">
-        <img src="assets/exports/hero-wide.webp" alt="Where in the Peninsula is PI? Case 01 wide hero: the Mornington pier illustration with the campaign headline">
+        <img data-copy-id="hero-wide" src="assets/exports/hero-wide.webp" alt="Where in the Peninsula is PI? Case 01 wide hero: the Mornington pier illustration with the campaign headline">
         <div class="caption"><strong>ORIGINAL ILLUSTRATION</strong><span>Higgsfield plate · type set by the campaign renderer</span></div>
       </div>
     </section>
@@ -177,30 +212,30 @@
         <div class="week-number">01</div>
       </header>
 
-      <div class="asset-group">
+      <div class="asset-group" data-post="w1-feed">
         <div class="group-head"><h3>Feed tile</h3><span>1 asset · 1080 × 1350</span></div>
         <div class="wide-grid">
-          <article class="card"><img loading="lazy" src="assets/exports/feed-tile.webp" width="1080" height="1350" alt="Feed tile: She took her coffee to go. Can you find her?" data-asset="FEED-01"><div class="card-meta"><strong>FEED-01</strong><span>review export</span></div></article>
+          <article class="card"><img data-copy-id="feed-01" loading="lazy" src="assets/exports/feed-tile.webp" width="1080" height="1350" alt="Feed tile: She took her coffee to go. Can you find her?" data-asset="FEED-01"><div class="card-meta"><strong>FEED-01</strong><span>review export</span></div></article>
         </div>
       </div>
 
-      <div class="asset-group">
+      <div class="asset-group" data-post="w1-carousel">
         <div class="group-head"><h3>Carousel</h3><span>5 slides · 1080 × 1350</span></div>
         <div class="sequence feed-sequence">
-          <article class="card"><img loading="lazy" src="assets/exports/carousel-01-hook.webp" width="1080" height="1350" alt="Carousel slide 1, hook: Where in the Peninsula is PI? with the PI mark" data-asset="CAROUSEL 1/5"><div class="card-meta"><strong>CAROUSEL · 1/5</strong><span>hook</span></div></article>
-          <article class="card"><img loading="lazy" src="assets/exports/carousel-02-case.webp" width="1080" height="1350" alt="Carousel slide 2, the case: Mornington pier, Saturday 8:10am" data-asset="CAROUSEL 2/5"><div class="card-meta"><strong>CAROUSEL · 2/5</strong><span>the case</span></div></article>
-          <article class="card"><img loading="lazy" src="assets/exports/carousel-03-mechanic.webp" width="1080" height="1350" alt="Carousel slide 3, how it works: the sun moves only when you do" data-asset="CAROUSEL 3/5"><div class="card-meta"><strong>CAROUSEL · 3/5</strong><span>how it works</span></div></article>
-          <article class="card"><img loading="lazy" src="assets/exports/carousel-04-witness.webp" width="1080" height="1350" alt="Carousel slide 4, a witness line from the barista" data-asset="CAROUSEL 4/5"><div class="card-meta"><strong>CAROUSEL · 4/5</strong><span>witness</span></div></article>
-          <article class="card"><img loading="lazy" src="assets/exports/carousel-05-cta.webp" width="1080" height="1350" alt="Carousel slide 5, call to action: Play Case 01 at play.peninsulainsider.com.au" data-asset="CAROUSEL 5/5"><div class="card-meta"><strong>CAROUSEL · 5/5</strong><span>call to action</span></div></article>
+          <article class="card"><img data-copy-id="carousel-01" loading="lazy" src="assets/exports/carousel-01-hook.webp" width="1080" height="1350" alt="Carousel slide 1, hook: Where in the Peninsula is PI? with the PI mark" data-asset="CAROUSEL 1/5"><div class="card-meta"><strong>CAROUSEL · 1/5</strong><span>hook</span></div></article>
+          <article class="card"><img data-copy-id="carousel-02" loading="lazy" src="assets/exports/carousel-02-case.webp" width="1080" height="1350" alt="Carousel slide 2, the case: Mornington pier, Saturday 8:10am" data-asset="CAROUSEL 2/5"><div class="card-meta"><strong>CAROUSEL · 2/5</strong><span>the case</span></div></article>
+          <article class="card"><img data-copy-id="carousel-03" loading="lazy" src="assets/exports/carousel-03-mechanic.webp" width="1080" height="1350" alt="Carousel slide 3, how it works: the sun moves only when you do" data-asset="CAROUSEL 3/5"><div class="card-meta"><strong>CAROUSEL · 3/5</strong><span>how it works</span></div></article>
+          <article class="card"><img data-copy-id="carousel-04" loading="lazy" src="assets/exports/carousel-04-witness.webp" width="1080" height="1350" alt="Carousel slide 4, a witness line from the barista" data-asset="CAROUSEL 4/5"><div class="card-meta"><strong>CAROUSEL · 4/5</strong><span>witness</span></div></article>
+          <article class="card"><img data-copy-id="carousel-05" loading="lazy" src="assets/exports/carousel-05-cta.webp" width="1080" height="1350" alt="Carousel slide 5, call to action: Play Case 01 at play.peninsulainsider.com.au" data-asset="CAROUSEL 5/5"><div class="card-meta"><strong>CAROUSEL · 5/5</strong><span>call to action</span></div></article>
         </div>
       </div>
 
-      <div class="asset-group">
+      <div class="asset-group" data-post="w1-stories">
         <div class="group-head"><h3>Story sequence</h3><span>3 frames · 1080 × 1920</span></div>
         <div class="sequence story-sequence">
-          <article class="card"><img loading="lazy" src="assets/exports/story-01-hook.webp" width="1080" height="1920" alt="Story frame 1, hook: She took her coffee to go" data-asset="STORY 1/3"><div class="card-meta"><strong>STORY · 1/3</strong><span>hook</span></div></article>
-          <article class="card"><img loading="lazy" src="assets/exports/story-02-challenge.webp" width="1080" height="1920" alt="Story frame 2, challenge: Four towns. One Insider. One afternoon." data-asset="STORY 2/3"><div class="card-meta"><strong>STORY · 2/3</strong><span>challenge</span></div></article>
-          <article class="card"><img loading="lazy" src="assets/exports/story-03-cta.webp" width="1080" height="1920" alt="Story frame 3, call to action: Play Case 01" data-asset="STORY 3/3"><div class="card-meta"><strong>STORY · 3/3</strong><span>call to action</span></div></article>
+          <article class="card"><img data-copy-id="story-01" loading="lazy" src="assets/exports/story-01-hook.webp" width="1080" height="1920" alt="Story frame 1, hook: She took her coffee to go" data-asset="STORY 1/3"><div class="card-meta"><strong>STORY · 1/3</strong><span>hook</span></div></article>
+          <article class="card"><img data-copy-id="story-02" loading="lazy" src="assets/exports/story-02-challenge.webp" width="1080" height="1920" alt="Story frame 2, challenge: Four towns. One Insider. One afternoon." data-asset="STORY 2/3"><div class="card-meta"><strong>STORY · 2/3</strong><span>challenge</span></div></article>
+          <article class="card"><img data-copy-id="story-03" loading="lazy" src="assets/exports/story-03-cta.webp" width="1080" height="1920" alt="Story frame 3, call to action: Play Case 01" data-asset="STORY 3/3"><div class="card-meta"><strong>STORY · 3/3</strong><span>call to action</span></div></article>
         </div>
       </div>
 
@@ -230,17 +265,17 @@
         <div class="week-number">02</div>
       </header>
 
-      <div class="asset-group">
+      <div class="asset-group" data-post="w2-feed">
         <div class="group-head"><h3>Feed tile</h3><span>1 asset · 1080 × 1350</span></div>
         <div class="wide-grid">
-          <article class="card"><img loading="lazy" src="assets/exports/feed-02-sustain.webp" width="1080" height="1350" alt="Week 2 feed tile: She’s still out there, with PI walking away down a Peninsula street" data-asset="FEED-02"><div class="card-meta"><strong>FEED-02</strong><span>review export</span></div></article>
+          <article class="card"><img data-copy-id="feed-02" loading="lazy" src="assets/exports/feed-02-sustain.webp" width="1080" height="1350" alt="Week 2 feed tile: She’s still out there, with PI walking away down a Peninsula street" data-asset="FEED-02"><div class="card-meta"><strong>FEED-02</strong><span>review export</span></div></article>
         </div>
       </div>
 
-      <div class="asset-group">
+      <div class="asset-group" data-post="w2-hero">
         <div class="group-head"><h3>Web/email hero</h3><span>1 asset · 1920 × 1080</span></div>
         <div class="wide-grid wide-grid--hero">
-          <article class="card"><img loading="lazy" src="assets/exports/hero-wide.webp" width="1920" height="1080" alt="Wide hero: Mornington pier panorama with the campaign headline and call to action" data-asset="HERO-WIDE"><div class="card-meta"><strong>HERO-WIDE</strong><span>review export</span></div></article>
+          <article class="card"><img data-copy-id="hero-wide" loading="lazy" src="assets/exports/hero-wide.webp" width="1920" height="1080" alt="Wide hero: Mornington pier panorama with the campaign headline and call to action" data-asset="HERO-WIDE"><div class="card-meta"><strong>HERO-WIDE</strong><span>review export</span></div></article>
         </div>
       </div>
     </section>
@@ -256,25 +291,31 @@
         <div class="week-number">03</div>
       </header>
 
-      <div class="asset-group">
-        <div class="group-head"><h3>Urgency assets</h3><span>2 assets · 1080 × 1350 and 1080 × 1920</span></div>
+      <div class="asset-group" data-post="w3-urgency">
+        <div class="group-head"><h3>Urgency tile</h3><span>1 asset · 1080 × 1350</span></div>
         <div class="wide-grid wide-grid--pair">
-          <article class="card"><img loading="lazy" src="assets/exports/feed-03-urgency.webp" width="1080" height="1350" alt="Week 3 urgency tile: Draw closes Sunday, with PI walking away on the ocean side" data-asset="FEED-03"><div class="card-meta"><strong>FEED-03</strong><span>urgency tile</span></div></article>
-          <article class="card"><img loading="lazy" src="assets/exports/story-04-countdown.webp" width="1080" height="1920" alt="Week 3 countdown story: Last chance to find her. Final 48 hours" data-asset="STORY-04"><div class="card-meta"><strong>STORY-04</strong><span>countdown story</span></div></article>
+          <article class="card"><img data-copy-id="feed-03" loading="lazy" src="assets/exports/feed-03-urgency.webp" width="1080" height="1350" alt="Week 3 urgency tile: Draw closes Sunday, with PI walking away on the ocean side" data-asset="FEED-03"><div class="card-meta"><strong>FEED-03</strong><span>urgency tile</span></div></article>
         </div>
       </div>
 
-      <div class="asset-group">
+      <div class="asset-group" data-post="w3-countdown">
+        <div class="group-head"><h3>Countdown story</h3><span>1 asset · 1080 × 1920</span></div>
+        <div class="wide-grid wide-grid--pair">
+          <article class="card"><img data-copy-id="story-04" loading="lazy" src="assets/exports/story-04-countdown.webp" width="1080" height="1920" alt="Week 3 countdown story: Last chance to find her. Final 48 hours" data-asset="STORY-04"><div class="card-meta"><strong>STORY-04</strong><span>countdown story</span></div></article>
+        </div>
+      </div>
+
+      <div class="asset-group" data-post="w3-hero">
         <div class="group-head"><h3>Closing web/email hero</h3><span>1 asset · 1920 × 1080</span></div>
         <div class="wide-grid wide-grid--hero">
-          <article class="card"><img loading="lazy" src="assets/exports/hero-wide-02-urgency.webp" width="1920" height="1080" alt="Closing wide hero: Draw closes Sunday, with PI walking away at the Peninsula tip" data-asset="HERO-WIDE-02"><div class="card-meta"><strong>HERO-WIDE-02</strong><span>review export</span></div></article>
+          <article class="card"><img data-copy-id="hero-wide-02" loading="lazy" src="assets/exports/hero-wide-02-urgency.webp" width="1920" height="1080" alt="Closing wide hero: Draw closes Sunday, with PI walking away at the Peninsula tip" data-asset="HERO-WIDE-02"><div class="card-meta"><strong>HERO-WIDE-02</strong><span>review export</span></div></article>
         </div>
       </div>
 
-      <div class="asset-group">
+      <div class="asset-group" data-post="w3-reshare">
         <div class="group-head"><h3>Reshare</h3><span>Week 1 carousel, unchanged</span></div>
         <div class="wide-grid">
-          <article class="card"><img loading="lazy" src="assets/exports/carousel-05-cta.webp" width="1080" height="1350" alt="Week 1 call-to-action slide, reshared unchanged" data-asset="RESHARE · CAROUSEL 5/5"><div class="card-meta"><strong>RESHARE</strong><span>Week 1 call to action</span></div></article>
+          <article class="card"><img data-copy-id="carousel-05" loading="lazy" src="assets/exports/carousel-05-cta.webp" width="1080" height="1350" alt="Week 1 call-to-action slide, reshared unchanged" data-asset="RESHARE · CAROUSEL 5/5"><div class="card-meta"><strong>RESHARE</strong><span>Week 1 call to action</span></div></article>
         </div>
       </div>
     </section>
@@ -292,6 +333,20 @@
         </div>
         <figcaption class="motion-meta"><strong>Mornington pier · motion study, 3:4</strong><span>Review only · not a release asset · sound on recommended</span></figcaption>
       </figure>
+    </section>
+
+    <section class="downloads" aria-labelledby="downloads-title">
+      <div>
+        <div class="kicker">DOWNLOADS</div>
+        <h2 id="downloads-title">Take the pack with you.</h2>
+        <p>Every asset with the copy that goes with it. The images are review renders and carry the watermark in their pixels; release files come from the <code>--release</code> capture once the holds clear.</p>
+      </div>
+      <div class="dl-list">
+        <a href="assets/downloads/where-is-pi-case-01-campaign-pack.pdf" download><strong>Campaign pack</strong><span>PDF</span><em>Every post, its creative, caption, alt text and the words set on each tile.</em></a>
+        <a href="assets/downloads/where-is-pi-case-01-assets.zip" download><strong>All assets</strong><span>ZIP</span><em>Fourteen JPEGs, the motion file, captions.txt and the PDF.</em></a>
+        <a href="assets/motion/motion-01-mornington-pier-9x16.mp4" download><strong>Motion study</strong><span>MP4</span><em>834 x 1112, five seconds, no type. Not a release asset.</em></a>
+        <a href="assets/downloads/captions.txt" download><strong>Captions and alt text</strong><span>TXT</span><em>Plain text for pasting straight into the channel.</em></a>
+      </div>
     </section>
 
     <section class="decision" aria-labelledby="decision-title">
@@ -332,6 +387,55 @@
       document.querySelectorAll('[data-week-section]').forEach(s=>s.classList.toggle('hidden',chosen!=='all'&&s.dataset.weekSection!==chosen));
       if(chosen!=='all'){const el=document.querySelector(`[data-week-section="${chosen}"]`);if(el)el.scrollIntoView({behavior:'smooth',block:'start'});}
     }));
+
+
+    // Copy that travels with each post. Source is the inlined campaign-copy block, which
+    // build-where-is-pi-pack.mjs generates from the renderer, campaign-copy.json and the receipt.
+    (function () {
+      var node = document.getElementById('campaign-copy');
+      if (!node) return;
+      var pack;
+      try { pack = JSON.parse(node.textContent); } catch (e) { return; }
+      var esc = function (t) { return String(t).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); };
+
+      document.querySelectorAll('[data-copy-id]').forEach(function (img) {
+        var a = pack.assets[img.dataset.copyId];
+        if (!a) return;
+        if (a.alt) img.alt = a.alt;
+        var card = img.closest('.card');
+        if (!card || card.querySelector('.card-copy')) return;
+        var box = document.createElement('div');
+        box.className = 'card-copy';
+        box.innerHTML =
+          (a.onTile.length ? '<dl>' + a.onTile.map(function (p) { return '<dt>' + esc(p[0]) + '</dt><dd>' + esc(p[1]) + '</dd>'; }).join('') + '</dl>' : '') +
+          '<p class="alt"><b>Alt.</b> ' + esc(a.alt) + '</p>' +
+          '<p class="dl"><a href="assets/exports/jpg/' + a.file + '.jpg" download>JPG</a>' +
+          '<a href="assets/exports/' + a.file + '.webp" download>WebP</a><span>' + esc(a.size) + '</span></p>';
+        card.appendChild(box);
+      });
+
+      document.querySelectorAll('[data-post]').forEach(function (group) {
+        var post = pack.posts.filter(function (p) { return p.id === group.dataset.post; })[0];
+        if (!post || group.querySelector('.post-copy')) return;
+        var box = document.createElement('div');
+        box.className = 'post-copy';
+        box.innerHTML =
+          '<header><h4>Caption \u00b7 Week ' + post.week + ' \u00b7 ' + esc(post.day) + ' \u00b7 ' + esc(post.channel) + '</h4>' +
+          '<button type="button" class="copy-btn">Copy caption</button></header>' +
+          '<p class="caption">' + esc(post.caption) + '</p>';
+        var head = group.querySelector('.group-head');
+        if (head) { head.after(box); } else { group.prepend(box); }
+        box.querySelector('.copy-btn').addEventListener('click', function (e) {
+          var b = e.currentTarget;
+          navigator.clipboard.writeText(post.caption).then(
+            function () { b.textContent = 'Copied'; },
+            function () { b.textContent = 'Select and copy'; }
+          );
+          b.dataset.done = '1';
+          setTimeout(function () { b.textContent = 'Copy caption'; delete b.dataset.done; }, 2400);
+        });
+      });
+    })();
 
     // Lightbox: any tile opens at full resolution; "Actual pixels" shows it 1:1 so text defects cannot hide.
     const lb=document.getElementById('lightbox'),lbImg=document.getElementById('lightbox-img'),lbTitle=document.getElementById('lightbox-title');

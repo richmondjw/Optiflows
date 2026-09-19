@@ -3,6 +3,8 @@
 //  2. The CTA URL and prize line in the renderer are byte-identical to creative-provenance.json.
 //  3. Every export referenced by index.html exists, has the stated dimensions, and nothing on disk is unreferenced.
 //  4. No em-dash anywhere in the renderer's strings or the page's visible copy (house rule).
+//  5. No Case 01 solution leak in tile copy, page copy, captions, alt text or the plates a tile renders.
+//  6. The copy register covers every card and post, and every download the page offers exists.
 import fs from "node:fs/promises";
 import path from "node:path";
 
@@ -17,6 +19,7 @@ const ALLOWED = new Set(["#0B2E4A", "#10527E", "#F5C177", "#E2562F", "#F2EFEA", 
 const renderer = await read("asset-renderer.html");
 const provenance = JSON.parse(await read("creative-provenance.json"));
 const page = await read("index.html");
+const copyRegister = JSON.parse(await read("campaign-copy.json"));
 
 // 1. palette
 const hexes = [...new Set((renderer.match(/#[0-9a-fA-F]{6}\b/g) || []).map((h) => h.toUpperCase()))];
@@ -40,7 +43,11 @@ const TELLS = ["somewhere with a view", "walk before lunch", "sculpture", "ten m
 const visibleText = page.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>|<!--[\s\S]*?-->/g, "").replace(/<[^>]+>/g, " ");
 const rendererStrings = [...renderer.matchAll(/(?:kicker|headline|deck|cta|note|meta):\s*(?:"([^"]*)"|\[([^\]]*)\])/g)]
   .map((m) => m[1] ?? m[2]).join(" ");
-const publicText = (visibleText + " " + rendererStrings).toLowerCase();
+const copyText = [
+  ...copyRegister.posts.map((x) => `${x.caption} ${x.channel} ${x.day}`),
+  ...Object.values(copyRegister.alt),
+].join(" ");
+const publicText = (visibleText + " " + rendererStrings + " " + copyText).toLowerCase();
 const leaked = SOLUTION.filter((t) => publicText.includes(t));
 const tells = TELLS.filter((t) => publicText.includes(t));
 // Which plates do the tiles actually render? A painting of a route stop leaks it without naming it.
@@ -73,6 +80,37 @@ for (const f of refs.filter((f) => onDisk.includes(f))) {
   const [ew, eh] = stated[kind];
   w === ew && h === eh ? ok(`${f} ${w}x${h}`) : fail.push(`${f} is ${w}x${h}, expected ${ew}x${eh}`);
 }
+
+// --- 5. the copy register and the downloadable pack -------------------------------------------
+const packMatch = page.match(/<script type="application\/json" id="campaign-copy">([\s\S]*?)<\/script>/);
+if (!packMatch) {
+  fail.push("index.html has no generated campaign-copy block (run build-where-is-pi-pack.mjs)");
+} else {
+  let pack;
+  try { pack = JSON.parse(packMatch[1]); } catch (e) { pack = null; fail.push("the generated campaign-copy block is not valid JSON"); }
+  if (pack) {
+    const expectedPrize = `${provenance.copy.prize_line} Draw closes ${provenance.copy.draw_closes}.`;
+    pack.cta === provenance.copy.cta || fail.push("generated copy block CTA does not match the receipt");
+    pack.prize === expectedPrize || fail.push("generated copy block prize does not match the receipt");
+    const tagged = [...new Set([...page.matchAll(/data-copy-id="([^"]+)"/g)].map((m) => m[1]))];
+    const untagged = tagged.filter((id) => !pack.assets[id]);
+    untagged.length ? fail.push(`cards tagged with unknown copy ids: ${untagged.join(", ")}`) : ok(`${tagged.length} cards carry copy, ${pack.posts.length} posts carry a caption`);
+    for (const post of pack.posts) {
+      const unknown = post.assets.filter((id) => !pack.assets[id] && id !== "motion-01");
+      if (unknown.length) fail.push(`post ${post.id} names unknown assets: ${unknown.join(", ")}`);
+    }
+    const noAlt = Object.values(pack.assets).filter((a) => !a.alt).map((a) => a.id);
+    if (noAlt.length) fail.push(`assets with no alt text: ${noAlt.join(", ")}`);
+  }
+}
+
+// every download the page offers must exist, and every tile needs its JPEG
+const exists = async (rel) => !!(await fs.stat(path.join(dir, rel)).catch(() => null));
+const offered = [...new Set([...page.matchAll(/href="(assets\/(?:downloads|motion)\/[^"]+)"/g)].map((m) => m[1]))];
+for (const rel of offered) (await exists(rel)) ? ok(`download present: ${rel.split("/").pop()}`) : fail.push(`page offers a download that does not exist: ${rel}`);
+const jpgMissing = [];
+for (const f of refs.map((f) => f.replace(/\.webp$/, ".jpg"))) if (!(await exists(`assets/exports/jpg/${f}`))) jpgMissing.push(f);
+jpgMissing.length ? fail.push(`missing download JPEGs: ${jpgMissing.join(", ")}`) : ok(`${refs.length} download JPEGs present`);
 
 // 4. house rule
 const visible = page.replace(/<style[\s\S]*?<\/style>|<script[\s\S]*?<\/script>/g, "");

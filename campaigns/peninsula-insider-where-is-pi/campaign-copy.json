@@ -1,0 +1,113 @@
+{
+  "_readme": [
+    "Single source of truth for the words that travel WITH each post: the caption typed into the",
+    "channel, and the alt text posted alongside it. The words set ON each creative are not here;",
+    "they are read straight out of asset-renderer.html by build-where-is-pi-pack.mjs, so what the",
+    "review page shows as on-tile copy is literally what the renderer draws.",
+    "",
+    "Rules that apply to everything in this file, enforced by check-where-is-pi.mjs:",
+    "  - No Case 01 solution: no Cape Schanck, Main Ridge, Red Hill or Montalto, and none of the",
+    "    witness tells that resolve them. Mornington is allowed; the game's title card gives it away.",
+    "  - No em-dashes, no exclamation marks, no tourism adjectives.",
+    "  - The prize sentence and the URL are quoted from creative-provenance.json and must match it."
+  ],
+  "posts": [
+    {
+      "id": "w1-feed",
+      "week": 1,
+      "day": "Monday",
+      "channel": "Instagram feed",
+      "assets": ["feed-01"],
+      "caption": "She took her coffee to go.\n\nCase 01 of Where in the Peninsula is PI? is open. Four towns, one Insider, and a sun that only moves when you do.\n\nAsk the witnesses. Search the scene. Read the land. Catch her before last light and she will tell you what to order.\n\nPlay at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026."
+    },
+    {
+      "id": "w1-carousel",
+      "week": 1,
+      "day": "Wednesday",
+      "channel": "Instagram feed carousel",
+      "assets": ["carousel-01", "carousel-02", "carousel-03", "carousel-04", "carousel-05"],
+      "caption": "Where in the Peninsula is PI?\n\nSwipe for the case. Last seen on Mornington pier, Saturday, 8:10am. Flat white, takeaway. The dog was with her.\n\nThree witnesses at every stop. One of them is sending you the wrong way.\n\nPlay at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026."
+    },
+    {
+      "id": "w1-stories",
+      "week": 1,
+      "day": "Friday",
+      "channel": "Instagram stories",
+      "assets": ["story-01", "story-02", "story-03"],
+      "caption": "Three frames, posted in order. Frame 1 hooks, frame 2 explains the mechanic, frame 3 carries the call to action.\n\nLink sticker on frame 3 to play.peninsulainsider.com.au, placed in the lower third inside the safe area. No text stickers over the artwork: every frame already carries its own words."
+    },
+    {
+      "id": "w2-feed",
+      "week": 2,
+      "day": "Monday",
+      "channel": "Instagram feed",
+      "assets": ["feed-02"],
+      "caption": "She is still out there.\n\nCase 01 is open until Sunday. She is twenty minutes ahead of you, as usual.\n\nPlay at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026."
+    },
+    {
+      "id": "w2-hero",
+      "week": 2,
+      "day": "Wednesday",
+      "channel": "Website and newsletter hero",
+      "assets": ["hero-wide"],
+      "caption": "Not a social post. This is the wide hero for the Peninsula Insider site and the newsletter.\n\nSuggested email subject: She took her coffee to go.\nSuggested preheader: Case 01 is open. Find her before Sunday 11 October.\n\nButton: Play Case 01, linking to play.peninsulainsider.com.au"
+    },
+    {
+      "id": "w2-motion",
+      "week": 2,
+      "day": "Friday",
+      "channel": "Instagram reel or story",
+      "assets": ["motion-01"],
+      "caption": "Mornington pier, in motion. Sound on.\n\nCase 01 is open. Play at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026.\n\nProduction note: the current file is a 3:4 study and is not a release asset. The Stories cut is specified at 1080 x 1920, built on the sun arc, ending on the call-to-action card."
+    },
+    {
+      "id": "w3-urgency",
+      "week": 3,
+      "day": "Wednesday",
+      "channel": "Instagram feed",
+      "assets": ["feed-03"],
+      "caption": "Draw closes Sunday.\n\nLast chance to find her. Case 01 closes at the end of Sunday 11 October.\n\nPlay at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026."
+    },
+    {
+      "id": "w3-countdown",
+      "week": 3,
+      "day": "Friday",
+      "channel": "Instagram stories",
+      "assets": ["story-04"],
+      "caption": "Final 48 hours. One frame, posted Friday and repeated Saturday.\n\nLink sticker to play.peninsulainsider.com.au in the lower third, inside the safe area.\n\nCountdown sticker to Sunday 11 October, 11:59pm."
+    },
+    {
+      "id": "w3-hero",
+      "week": 3,
+      "day": "Wednesday",
+      "channel": "Website and newsletter hero",
+      "assets": ["hero-wide-02"],
+      "caption": "Not a social post. Closing hero for the site and the final newsletter.\n\nSuggested email subject: Draw closes Sunday.\nSuggested preheader: Last chance to find her before 11 October.\n\nButton: Play Case 01, linking to play.peninsulainsider.com.au"
+    },
+    {
+      "id": "w3-reshare",
+      "week": 3,
+      "day": "Monday",
+      "channel": "Instagram feed carousel",
+      "assets": ["carousel-05"],
+      "caption": "Reshare of the Week 1 call-to-action slide, unchanged. Same asset, closing caption.\n\nCase 01 closes Sunday. Play at play.peninsulainsider.com.au\n\nPlay and go in the draw for $250 to dine at Doot Doot Doot, Jackalope. Draw closes Sunday 11 October 2026."
+    }
+  ],
+  "alt": {
+    "feed-01": "Painted illustration of Mornington on a Saturday morning: the market setting up along the foreshore, the pier reaching into the bay, bathing boxes on the sand, and a woman in a sun hat and terracotta dress walking away down the path with a small dog on a lead. Headline: She took her coffee to go. Can you find her?",
+    "carousel-01": "Deep navy slide carrying the Peninsula Insider mark, a painted disc of a wide-brimmed sun hat. Headline: Where in the Peninsula is PI? Four towns. One Insider. Find her before Sunday 11 October.",
+    "carousel-02": "Painted illustration of the Mornington foreshore at morning, market stalls and bathing boxes. Headline: Mornington pier. Saturday, 8:10am. Flat white, takeaway. The dog was with her.",
+    "carousel-03": "Painted illustration of a high lookout above the bay with a chairlift running over the treetops, and a woman in a sun hat walking away down a ridge path with a small dog. Headline: The sun moves only when you do.",
+    "carousel-04": "Painted illustration of the Mornington market with no one in the foreground. Headline, quoting a witness: Took her coffee to go. Asked me which way the wind was blowing.",
+    "carousel-05": "Painted illustration of Mornington with a woman in a sun hat walking away toward the pier. Headline: Play Case 01. Find her before Sunday 11 October.",
+    "story-01": "Vertical painted illustration of Mornington at golden hour, the pier and moored boats below, a woman in a sun hat walking away with a small dog. Headline: She took her coffee to go. Can you find her?",
+    "story-02": "Vertical painted illustration of a lookout high above the bay, sailing boats far below and a chairlift on the slope. Headline: Four towns. One Insider. One afternoon. The sun moves only when you do.",
+    "story-03": "Vertical painted illustration of Mornington, the market and pier below, a woman in a sun hat walking away. Headline: Play Case 01. Find her before Sunday 11 October.",
+    "story-04": "Vertical painted illustration of a village on the ocean side of the Peninsula, green paddocks running down to a rocky coast. Headline: Last chance to find her. Draw closes Sunday 11 October.",
+    "feed-02": "Painted illustration of a limestone village street at the tip of the Peninsula, the ferry standing off the pier, and a woman in a sun hat walking away downhill with a small dog. Headline: She is still out there. Play before Sunday 11 October.",
+    "feed-03": "Painted illustration of a village on the ocean side of the Peninsula, the general store and a steep paddock down to the water. Headline: Draw closes Sunday. Find her before Sunday 11 October.",
+    "hero-wide": "Wide painted illustration of Mornington, the market street on the left running down to the pier and the bay, a woman in a sun hat walking away with a small dog. Headline: She took her coffee to go.",
+    "hero-wide-02": "Wide painted illustration of a limestone village at the tip of the Peninsula with the ferry at the pier, a woman in a sun hat walking away along the dune path. Headline: Draw closes Sunday.",
+    "motion-01": "Motion study of the Mornington pier illustration with light moving on the water. No text on screen."
+  }
+}

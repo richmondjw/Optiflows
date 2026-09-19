@@ -1,9 +1,9 @@
 {
   "campaign": "Where in the Peninsula is PI? Case 01 Social Promotion",
   "created": "2026-09-18T11:40:00Z",
-  "revised": "2026-09-19T02:10:00Z",
+  "revised": "2026-09-19T03:55:00Z",
   "status": "review-only",
-  "revision_note": "2026-09-19 rebuild after Impeccable critique (17/36): every tile re-rendered from asset-renderer.html on the Harbour palette; prize demoted to a footnote under the call to action; PI added to the plates via GPT Image 2.5; stale local_path and review_file corrected. Later the same day: hook-slide mark replaced with the supplied pi-concierge disc; release capture mode added; and, after a second critique, the Case 01 route was removed from the campaign entirely.",
+  "revision_note": "2026-09-19 rebuild after Impeccable critique (17/36): every tile re-rendered from asset-renderer.html on the Harbour palette; prize demoted to a footnote under the call to action; PI added to the plates via GPT Image 2.5; stale local_path and review_file corrected. Later the same day: hook-slide mark replaced with the supplied pi-concierge disc; release capture mode added; and, after a second critique, the Case 01 route was removed from the campaign entirely. Later still: downloadable pack added (PDF, per-asset JPEGs, zip, captions.txt) and the caption for every post surfaced under its creative on the review page.",
   "renderer": "asset-renderer.html",
   "capture_script": "../../tools/social-assets/render-where-is-pi.mjs",
   "guard_script": "../../tools/social-assets/check-where-is-pi.mjs",
@@ -365,5 +365,16 @@
     "why": "The first build published the correct route in order across the three-week schedule (Mornington, Cape Schanck, Main Ridge, Red Hill) and reused the 'somewhere with a view' tell as ad copy. Anyone following the account for three weeks would have had the answer before opening the case, defeating the brief's section 13 no-leak criterion from outside the game.",
     "fix": "Weeks 2 and 3 and the two mechanic tiles now use decoy towns the brief already authors as wrong turns: Sorrento, Flinders and Arthurs Seat. The campaign misdirects exactly as the game does.",
     "enforced_by": "tools/social-assets/check-where-is-pi.mjs fails on any route name, final venue, witness tell, or route-stop plate reaching a public surface. The previous check tested three hand-written phrases and passed the leak."
+  },
+  "copy_register": "campaign-copy.json",
+  "downloadable_pack": {
+    "built_by": "../../tools/social-assets/build-where-is-pi-pack.mjs",
+    "outputs": [
+      "assets/downloads/where-is-pi-case-01-campaign-pack.pdf",
+      "assets/downloads/where-is-pi-case-01-assets.zip",
+      "assets/downloads/captions.txt",
+      "assets/exports/jpg/*.jpg"
+    ],
+    "note": "The words ON each creative are parsed out of asset-renderer.html at build time, so the page, the PDF and captions.txt cannot disagree with what the renderer draws. Captions and alt text come from campaign-copy.json; the CTA and prize come from this receipt. Every image in the pack is a review render and carries the watermark; release files come from render-where-is-pi.mjs --release."
   }
 }

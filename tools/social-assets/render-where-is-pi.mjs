@@ -75,6 +75,10 @@ for (const [id, format, file] of JOBS) {
   if (!release && !badgeVisible) problems.push("review capture is missing the REVIEW ONLY badge");
   const out = path.join(release ? releaseDir : outDir, `${file}.png`);
   await page.screenshot({ path: out, type: "png" });
+  // JPEG alongside the PNG: it is what the channels and the download links actually want.
+  const jpgDir = path.join(campaign, release ? "assets/exports/release/jpg" : "assets/exports/jpg");
+  await fs.mkdir(jpgDir, { recursive: true });
+  await page.screenshot({ path: path.join(jpgDir, `${file}.jpg`), type: "jpeg", quality: 92 });
   const meta = await page.evaluate(() => window.__PI_ASSET__);
   manifest.push({ id, file: `${file}.png`, width, height, url: meta.url, note: meta.note, problems });
   console.log(`${problems.length ? "WARN" : "ok  "} ${id.padEnd(12)} ${width}x${height} -> exports/${release ? "release" : "png"}/${file}.png${problems.length ? "  " + problems.join(" | ") : ""}`);
