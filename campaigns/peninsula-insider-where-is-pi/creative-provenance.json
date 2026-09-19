@@ -1,10 +1,17 @@
 {
-  "campaign": "Where in the Peninsula is PI? — Case 01 Social Promotion",
+  "campaign": "Where in the Peninsula is PI? Case 01 Social Promotion",
   "created": "2026-09-18T11:40:00Z",
+  "revised": "2026-09-19T00:20:00Z",
   "status": "review-only",
+  "revision_note": "2026-09-19 rebuild after Impeccable critique (17/36): every tile re-rendered from asset-renderer.html on the Harbour palette; prize demoted to a footnote under the call to action; route removed from public copy; PI added to the plates via GPT Image 2.5; stale local_path and review_file corrected.",
+  "renderer": "asset-renderer.html",
+  "capture_script": "../../tools/social-assets/render-where-is-pi.mjs",
+  "guard_script": "../../tools/social-assets/check-where-is-pi.mjs",
+  "review_file": "index.html",
   "plates": [
     {
       "id": "plate-01-mornington-feed-4x5",
+      "generation": 1,
       "provider": "Higgsfield",
       "model": "GPT Image 2 (gpt_image_2)",
       "job_id": "e28bdfe2-8302-4ad7-b1c0-f99bbf66382f",
@@ -12,14 +19,18 @@
       "aspect_ratio": "4:5",
       "resolution": "2k",
       "quality": "high",
-      "subject": "Mornington pier, painted bathing boxes, Saturday market setting up, golden morning light",
+      "subject": "Mornington pier, painted bathing boxes, Saturday market setting up, golden morning light. No figure.",
       "classification": "original editorial illustration",
-      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_2wnAy4CBkJ7KVn8zNXeQPNjMb3I/hf_20260918_113419_e28bdfe2-8302-4ad7-b1c0-f99bbf66382f.png",
-      "local_path": "exports/plate-01-mornington-feed-4x5.png",
-      "text_in_image": false
+      "local_path": "assets/masters/plate-01-mornington-feed-4x5.png",
+      "text_in_image": false,
+      "used_by": [
+        "carousel-02",
+        "carousel-04"
+      ]
     },
     {
       "id": "plate-02-mornington-wide-16x9",
+      "generation": 1,
       "provider": "Higgsfield",
       "model": "GPT Image 2 (gpt_image_2)",
       "job_id": "f41a5079-4fea-497a-9b13-7009d6a48250",
@@ -27,14 +38,16 @@
       "aspect_ratio": "16:9",
       "resolution": "2k",
       "quality": "high",
-      "subject": "Wide Mornington panorama, pier stretching into bay, bathing boxes along foreshore, market stalls, boats",
+      "subject": "Wide Mornington panorama, pier stretching into bay, bathing boxes along foreshore, market stalls, boats. No figure.",
       "classification": "original editorial illustration",
-      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_2wnAy4CBkJ7KVn8zNXeQPNjMb3I/hf_20260918_113658_f41a5079-4fea-497a-9b13-7009d6a48250.png",
-      "local_path": "exports/plate-02-mornington-wide-16x9.png",
-      "text_in_image": false
+      "local_path": "assets/masters/plate-02-mornington-wide-16x9.png",
+      "text_in_image": false,
+      "used_by": [],
+      "status": "held (superseded on hero-wide by the generation-2 plate)"
     },
     {
       "id": "plate-03-cape-schanck-story-9x16",
+      "generation": 1,
       "provider": "Higgsfield",
       "model": "GPT Image 2 (gpt_image_2)",
       "job_id": "b07cc614-1528-4502-b0d6-ba40830548c3",
@@ -42,29 +55,305 @@
       "aspect_ratio": "9:16",
       "resolution": "2k",
       "quality": "high",
-      "subject": "Cape Schanck boardwalk through tea-tree scrub toward lighthouse headland and open ocean, golden hour",
+      "subject": "Cape Schanck boardwalk through tea-tree scrub toward lighthouse headland and open ocean, golden hour. No figure.",
       "classification": "original editorial illustration",
-      "result_url": "https://d8j0ntlcm91z4.cloudfront.net/user_2wnAy4CBkJ7KVn8zNXeQPNjMb3I/hf_20260918_113841_b07cc614-1528-4502-b0d6-ba40830548c3.png",
-      "local_path": "exports/plate-03-cape-schanck-story-9x16.png",
-      "text_in_image": false
+      "local_path": "assets/masters/plate-03-cape-schanck-story-9x16.png",
+      "text_in_image": false,
+      "used_by": [],
+      "status": "held (superseded by generation-2 Cape Schanck plates)"
+    },
+    {
+      "id": "plate-01-mornington-feed-4x5-v2",
+      "generation": 2,
+      "provider": "Higgsfield",
+      "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+      "job_id": "bfb4784c-64a9-4bc8-9094-260f44e45391",
+      "dimensions": "1792x2240",
+      "aspect_ratio": "4:5",
+      "resolution": "2k",
+      "quality": "high",
+      "credits": 3,
+      "prompt_file": "prompts/plate-01-mornington-feed-4x5.txt",
+      "subject": "Mornington Main Street down to the pier, bathing boxes, market, boats; PI (sun hat, terracotta linen, canvas tote, coffee, small scruffy dog on a rope lead) walking away in the lower third.",
+      "classification": "original editorial illustration",
+      "local_path": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+      "text_in_image": false,
+      "character_reference_for": "every generation-2 plate",
+      "used_by": [
+        "feed-01",
+        "carousel-05",
+        "story-03"
+      ]
     }
   ],
+  "generation_2_run": {
+    "note": "Eleven further plates generated 2026-09-19 on gpt_image_2_5 (3 credits each, 33 total) with plate-01-mornington-feed-4x5-v2.png as the image reference for character consistency. Prompts in prompts/; STYLE FORMULA byte-identical to the game brief. Unused plates (Cape Schanck wide, Main Ridge story and wide) are held for the Stories motion cut and any further variants.",
+    "style_formula_file": "prompts/style-formula.txt",
+    "plates": [
+      {
+        "id": "plate-cape-schanck-feed-4x5-v2",
+        "generation": 2,
+        "provider": "Higgsfield",
+        "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+        "job_id": "0289d0fa-1ab3-4c47-b55b-d23d3bc8d176",
+        "dimensions": "1792x2240",
+        "aspect_ratio": "4:5",
+        "resolution": "2k",
+        "quality": "high",
+        "credits": 3,
+        "prompt_file": "prompts/plate-cape-schanck-feed-4x5.txt",
+        "image_reference": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+        "classification": "original editorial illustration",
+        "local_path": "assets/masters/v2/plate-cape-schanck-feed-4x5-v2.png",
+        "sha256": "bc9368f846c030e60e32d8f19cb8033969e007948e87808376653a8b7bb16161",
+        "text_in_image": false,
+        "subject": "Cape Schanck: 1859 lighthouse on the headland, boardwalk through tea-tree, basalt shelf, open ocean; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
+        "used_by": [
+          "carousel-03"
+        ]
+      },
+      {
+        "id": "plate-cape-schanck-story-9x16-v2",
+        "generation": 2,
+        "provider": "Higgsfield",
+        "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+        "job_id": "9f809bc8-0815-424e-b60f-96526f935d85",
+        "dimensions": "1520x2688",
+        "aspect_ratio": "9:16",
+        "resolution": "2k",
+        "quality": "high",
+        "credits": 3,
+        "prompt_file": "prompts/plate-cape-schanck-story-9x16.txt",
+        "image_reference": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+        "classification": "original editorial illustration",
+        "local_path": "assets/masters/v2/plate-cape-schanck-story-9x16-v2.png",
+        "sha256": "92131b3955e067fa20d8cd0bf2e3a4e0790c28baa93c74eba35ffdc38d228625",
+        "text_in_image": false,
+        "subject": "Cape Schanck: 1859 lighthouse on the headland, boardwalk through tea-tree, basalt shelf, open ocean; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
+        "used_by": [
+          "story-02"
+        ]
+      },
+      {
+        "id": "plate-cape-schanck-wide-16x9-v2",
+        "generation": 2,
+        "provider": "Higgsfield",
+        "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+        "job_id": "6abc2a9b-2ac8-4c6c-8307-f9fe3a546a96",
+        "dimensions": "2688x1520",
+        "aspect_ratio": "16:9",
+        "resolution": "2k",
+        "quality": "high",
+        "credits": 3,
+        "prompt_file": "prompts/plate-cape-schanck-wide-16x9.txt",
+        "image_reference": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+        "classification": "original editorial illustration",
+        "local_path": "assets/masters/v2/plate-cape-schanck-wide-16x9-v2.png",
+        "sha256": "9f2601ae28bbd2728e6a9bc476c9c9e062ad60a670726fa4d505c00d10d88994",
+        "text_in_image": false,
+        "subject": "Cape Schanck: 1859 lighthouse on the headland, boardwalk through tea-tree, basalt shelf, open ocean; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
+        "used_by": []
+      },
+      {
+        "id": "plate-main-ridge-feed-4x5-v2",
+        "generation": 2,
+        "provider": "Higgsfield",
+        "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+        "job_id": "8514ce21-f7ff-4806-8963-935457a01bea",
+        "dimensions": "1792x2240",
+        "aspect_ratio": "4:5",
+        "resolution": "2k",
+        "quality": "high",
+        "credits": 3,
+        "prompt_file": "prompts/plate-main-ridge-feed-4x5.txt",
+        "image_reference": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+        "classification": "original editorial illustration",
+        "local_path": "assets/masters/v2/plate-main-ridge-feed-4x5-v2.png",
+        "sha256": "4557d2c424cd7870c829c546abd0572964eee94d3a9c345fdb463f53f40d5ff9",
+        "text_in_image": false,
+        "subject": "Main Ridge: strawberry rows under big gums, gravel road, dairy gate, mist lifting from the gullies; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
+        "used_by": [
+          "feed-02"
+        ]
+      },
+      {
+        "id": "plate-main-ridge-story-9x16-v2",
+        "generation": 2,
+        "provider": "Higgsfield",
+        "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+        "job_id": "a3c2b6f3-a4aa-4c68-813a-d9641a6bc237",
+        "dimensions": "1520x2688",
+        "aspect_ratio": "9:16",
+        "resolution": "2k",
+        "quality": "high",
+        "credits": 3,
+        "prompt_file": "prompts/plate-main-ridge-story-9x16.txt",
+        "image_reference": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+        "classification": "original editorial illustration",
+        "local_path": "assets/masters/v2/plate-main-ridge-story-9x16-v2.png",
+        "sha256": "fdb73dbb50364d4a426e923714679f39f4ca9bf291a314c072e86f8e59f6587d",
+        "text_in_image": false,
+        "subject": "Main Ridge: strawberry rows under big gums, gravel road, dairy gate, mist lifting from the gullies; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
+        "used_by": []
+      },
+      {
+        "id": "plate-main-ridge-wide-16x9-v2",
+        "generation": 2,
+        "provider": "Higgsfield",
+        "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+        "job_id": "f6b7f811-fb49-45a8-9b8f-10ba164924c8",
+        "dimensions": "2688x1520",
+        "aspect_ratio": "16:9",
+        "resolution": "2k",
+        "quality": "high",
+        "credits": 3,
+        "prompt_file": "prompts/plate-main-ridge-wide-16x9.txt",
+        "image_reference": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+        "classification": "original editorial illustration",
+        "local_path": "assets/masters/v2/plate-main-ridge-wide-16x9-v2.png",
+        "sha256": "785ab9c43d14fbfa60bb3b11234be58d6bedda84b2749404fd677c053bfb4c50",
+        "text_in_image": false,
+        "subject": "Main Ridge: strawberry rows under big gums, gravel road, dairy gate, mist lifting from the gullies; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
+        "used_by": []
+      },
+      {
+        "id": "plate-mornington-story-9x16-v2",
+        "generation": 2,
+        "provider": "Higgsfield",
+        "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+        "job_id": "a4a0459d-cb57-4005-a392-eddc23980c56",
+        "dimensions": "1520x2688",
+        "aspect_ratio": "9:16",
+        "resolution": "2k",
+        "quality": "high",
+        "credits": 3,
+        "prompt_file": "prompts/plate-mornington-story-9x16.txt",
+        "image_reference": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+        "classification": "original editorial illustration",
+        "local_path": "assets/masters/v2/plate-mornington-story-9x16-v2.png",
+        "sha256": "76f27efa9c6eb952231741b0abbd45c10a93666ff3ac976b21329b499959e250",
+        "text_in_image": false,
+        "subject": "Mornington Main Street to the pier, bathing boxes, market, boats; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
+        "used_by": [
+          "story-01"
+        ]
+      },
+      {
+        "id": "plate-mornington-wide-16x9-v2",
+        "generation": 2,
+        "provider": "Higgsfield",
+        "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+        "job_id": "7de76914-6098-42a3-b701-f1afbcabca16",
+        "dimensions": "2688x1520",
+        "aspect_ratio": "16:9",
+        "resolution": "2k",
+        "quality": "high",
+        "credits": 3,
+        "prompt_file": "prompts/plate-mornington-wide-16x9.txt",
+        "image_reference": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+        "classification": "original editorial illustration",
+        "local_path": "assets/masters/v2/plate-mornington-wide-16x9-v2.png",
+        "sha256": "2620b9b0ad689f69acf182cc0011c966b5471bf1b1e8c7b0640dafcceaedd8b3",
+        "text_in_image": false,
+        "subject": "Mornington Main Street to the pier, bathing boxes, market, boats; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
+        "used_by": [
+          "hero-wide"
+        ]
+      },
+      {
+        "id": "plate-red-hill-feed-4x5-v2",
+        "generation": 2,
+        "provider": "Higgsfield",
+        "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+        "job_id": "f919c9dc-7c17-4e21-9091-688e60cfe9d8",
+        "dimensions": "1792x2240",
+        "aspect_ratio": "4:5",
+        "resolution": "2k",
+        "quality": "high",
+        "credits": 3,
+        "prompt_file": "prompts/plate-red-hill-feed-4x5.txt",
+        "image_reference": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+        "classification": "original editorial illustration",
+        "local_path": "assets/masters/v2/plate-red-hill-feed-4x5-v2.png",
+        "sha256": "a96de4deec128c70e6ab9cc97d72642bbe4911ddc19f36f46016fe918073e179",
+        "text_in_image": false,
+        "subject": "Red Hill: vineyard rows on the plateau, long table under a tree, winery set back from the road, last light; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
+        "used_by": [
+          "feed-03"
+        ]
+      },
+      {
+        "id": "plate-red-hill-story-9x16-v2",
+        "generation": 2,
+        "provider": "Higgsfield",
+        "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+        "job_id": "63504f8a-c1bd-4a28-9786-7dd4718185fc",
+        "dimensions": "1520x2688",
+        "aspect_ratio": "9:16",
+        "resolution": "2k",
+        "quality": "high",
+        "credits": 3,
+        "prompt_file": "prompts/plate-red-hill-story-9x16.txt",
+        "image_reference": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+        "classification": "original editorial illustration",
+        "local_path": "assets/masters/v2/plate-red-hill-story-9x16-v2.png",
+        "sha256": "dbad2a5022e7d3f91f915ceef5b04ddcfcff51e5628ead405c44293e6ba89c65",
+        "text_in_image": false,
+        "subject": "Red Hill: vineyard rows on the plateau, long table under a tree, winery set back from the road, last light; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
+        "used_by": [
+          "story-04"
+        ]
+      },
+      {
+        "id": "plate-red-hill-wide-16x9-v2",
+        "generation": 2,
+        "provider": "Higgsfield",
+        "model": "GPT Image 2.5 (gpt_image_2_5, variant flare)",
+        "job_id": "15f124a2-9982-4a42-b431-5b1927bf71d8",
+        "dimensions": "2688x1520",
+        "aspect_ratio": "16:9",
+        "resolution": "2k",
+        "quality": "high",
+        "credits": 3,
+        "prompt_file": "prompts/plate-red-hill-wide-16x9.txt",
+        "image_reference": "assets/masters/v2/plate-01-mornington-feed-4x5-v2.png",
+        "classification": "original editorial illustration",
+        "local_path": "assets/masters/v2/plate-red-hill-wide-16x9-v2.png",
+        "sha256": "ba1de1e6080df91c46405cf98b08e28e7067ac0ca66fdefe12f56fbca8c38f24",
+        "text_in_image": false,
+        "subject": "Red Hill: vineyard rows on the plateau, long table under a tree, winery set back from the road, last light; PI (sun hat, terracotta linen, canvas tote, small scruffy dog on a rope lead) walking away in the lower third.",
+        "used_by": [
+          "hero-wide-02"
+        ]
+      }
+    ]
+  },
   "brand_lock": {
     "palette": "Harbour (production 2026-07-25)",
-    "display_font": "Sora 600/700",
-    "body_font": "Figtree 400",
+    "display_font": "Sora 700/800",
+    "body_font": "Figtree 400/600",
     "primary": "#10527E",
     "dark_ground": "#0B2E4A",
-    "warm_signal": "#F5C177"
+    "warm_signal": "#F5C177",
+    "signal": "#E2562F",
+    "enforced_by": "tools/social-assets/check-where-is-pi.mjs (every hex in the renderer must be a Harbour token)",
+    "masthead": "assets/pi-site-icon.svg in a white pill, top left, as on the spring 2026 tiles",
+    "character_mark": "assets/pi-mark.svg (hook slide)"
   },
   "copy": {
     "version": "Option A, Case 01",
     "approved_by": "James",
     "headline": "She took her coffee to go. Can you find her?",
     "prize_line": "Play and go in the draw for $250 to dine at Doot Doot Doot, Jackalope.",
+    "prize_placement": "footnote under the call to action on feed-01, carousel-05, story-03 and hero-wide; never a headline (decision 2026-09-19)",
     "cta": "play.peninsulainsider.com.au",
-    "draw_closes": "Sunday 11 October 2026"
+    "draw_closes": "Sunday 11 October 2026",
+    "route_in_public_copy": false
   },
   "style_token": "impressionist gouache over anime cel characters, cream sand and sea-glass teal, terracotta figures, copper-amber clue glow, golden-hour light",
-  "review_file": "game-social-tiles-case01.html"
+  "critique": {
+    "engine": "Impeccable 4.3.1 critique, dual-agent",
+    "before": "17/36 (47%), 2 P0, 3 P1",
+    "snapshot": "../../.impeccable/critique/2026-09-18T23-40-38Z__campaigns-peninsula-insider-where-is-pi-index-html.md"
+  }
 }
