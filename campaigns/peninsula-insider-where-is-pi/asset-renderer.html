@@ -50,8 +50,10 @@
     .frame[data-meta="left"] .foot{justify-content:flex-start;gap:18px}
     .frame[data-meta="left"] .meta{margin-left:0;text-align:left}
 
-    /* PI mark for the hook slide: the character's own disc replaces a stock question mark. */
-    .mark{position:absolute;z-index:2;right:-5%;bottom:-6%;width:72%;aspect-ratio:1;display:none}
+    /* PI mark for the hook slide: the character's own disc replaces a stock question mark.
+       pi-concierge.svg is inset within its square canvas (the brim reaches the edges, the disc does not),
+       so it runs larger and further off the corner than a disc that filled its viewBox would. */
+    .mark{position:absolute;z-index:2;right:-1%;bottom:-8%;width:72%;aspect-ratio:1;display:none}
     .mark img{width:100%;height:100%;display:block;filter:drop-shadow(0 30px 60px rgba(0,0,0,.28))}
     .frame[data-mark="pi"] .mark{display:block}
     .frame[data-mark="pi"] .plate{display:none}
@@ -88,7 +90,7 @@
 <body>
   <main class="frame" id="frame">
     <img class="plate" id="plate" alt="">
-    <div class="mark" aria-hidden="true"><img src="assets/pi-mark.svg" alt=""></div>
+    <div class="mark" aria-hidden="true"><img src="assets/pi-concierge.svg" alt=""></div>
     <div class="safe">
       <header class="mast">
         <div class="brand"><img src="assets/pi-site-icon.svg" alt=""><span>Peninsula <b>Insider</b></span></div>

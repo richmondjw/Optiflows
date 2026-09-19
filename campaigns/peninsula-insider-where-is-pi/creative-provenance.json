@@ -1,9 +1,9 @@
 {
   "campaign": "Where in the Peninsula is PI? Case 01 Social Promotion",
   "created": "2026-09-18T11:40:00Z",
-  "revised": "2026-09-19T00:20:00Z",
+  "revised": "2026-09-19T01:35:00Z",
   "status": "review-only",
-  "revision_note": "2026-09-19 rebuild after Impeccable critique (17/36): every tile re-rendered from asset-renderer.html on the Harbour palette; prize demoted to a footnote under the call to action; route removed from public copy; PI added to the plates via GPT Image 2.5; stale local_path and review_file corrected.",
+  "revision_note": "2026-09-19 rebuild after Impeccable critique (17/36): every tile re-rendered from asset-renderer.html on the Harbour palette; prize demoted to a footnote under the call to action; route removed from public copy; PI added to the plates via GPT Image 2.5; stale local_path and review_file corrected. 2026-09-19 (later): hook slide mark replaced with the supplied pi-concierge painted disc.",
   "renderer": "asset-renderer.html",
   "capture_script": "../../tools/social-assets/render-where-is-pi.mjs",
   "guard_script": "../../tools/social-assets/check-where-is-pi.mjs",
@@ -338,7 +338,8 @@
     "signal": "#E2562F",
     "enforced_by": "tools/social-assets/check-where-is-pi.mjs (every hex in the renderer must be a Harbour token)",
     "masthead": "assets/pi-site-icon.svg in a white pill, top left, as on the spring 2026 tiles",
-    "character_mark": "assets/pi-mark.svg (hook slide)"
+    "character_mark": "assets/pi-concierge.svg on the hook slide (carousel-01). Supplied by James 2026-09-19; the generator's opaque #FCFCFC full-canvas ground was removed so the cream disc sits directly on the Harbour ground. Supersedes the flat geometric pi-mark.svg.",
+    "character_mark_sha256": "eb476c0a53871aea58f814b0d1e70877e321255b4840d3b18a541e9c54517187"
   },
   "copy": {
     "version": "Option A, Case 01",
