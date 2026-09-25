@@ -1,6 +1,8 @@
 {
-  "status": "pass_with_release_gates",
+  "status": "approved_for_rollout_with_release_gates",
   "checked_at": "2026-09-07 Australia/Sydney",
+  "release_decision_at": "2026-09-25T11:42:20Z",
+  "release_decision_source": "Asana task 1218668312093402",
   "environment": "local private-review release candidate",
   "scope": "OptiFlows campaign review pack only",
   "passes": [
@@ -66,5 +68,5 @@
     "Published a deterministic 1080 by 1920 slow camera treatment for Chapter 01 review instead",
     "Accepted Chapter 04 motion for private review at 720 by 1280 pixels only"
   ],
-  "boundary": "The OptiFlows pack is review-ready. No Peninsula Insider site, newsletter, social channel or campaign schedule has been changed."
+  "boundary": "The October campaign system is approved for rollout from 1 October. No release gate is waived; current activation state is recorded in release-plan.json. The Spring pack is retained as a retired archive."
 }

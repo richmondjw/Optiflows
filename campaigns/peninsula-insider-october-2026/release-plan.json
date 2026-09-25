@@ -1,0 +1,41 @@
+{
+  "campaign_id": "pi-october-2026",
+  "status": "approved_for_rollout",
+  "approved_at": "2026-09-25T11:42:20Z",
+  "approval_source": {
+    "system": "Asana",
+    "task_gid": "1218668312093402",
+    "decision": "Go"
+  },
+  "supersedes": {
+    "campaign_id": "peninsula-insider-spring-2026",
+    "status": "retired",
+    "destructive_change": false,
+    "archive_retained": true
+  },
+  "activation": {
+    "timezone": "Australia/Melbourne",
+    "starts_on": "2026-10-01",
+    "channels": ["instagram", "facebook"],
+    "scheduler": "pi-buffer-scheduler",
+    "scheduler_health_checked_at": "2026-09-25T15:52:05Z",
+    "scheduler_health": "ready",
+    "linkedin_in_scope": false
+  },
+  "content_dependency": {
+    "url": "https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/",
+    "status": "live",
+    "verified_at": "2026-09-25T15:52:08Z",
+    "covers": [
+      "Victorian school holidays from 21 September to 2 October 2026",
+      "Friday 25 September AFL Grand Final public holiday operating warning",
+      "unpatrolled ocean-beach safety guidance"
+    ]
+  },
+  "release_controls": [
+    "Complete each registered 72-hour or same-day source read-back before scheduling.",
+    "Use the Western Port fallback unless Coolart access is confirmed by current sources.",
+    "Confirm Chapter 03 bookings and Chapter 04 route and hospitality inventory before release.",
+    "Keep Chapter 04 motion blocked until a 1080 by 1920 delivery exists."
+  ]
+}

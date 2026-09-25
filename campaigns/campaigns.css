@@ -80,6 +80,10 @@ a { color: inherit; }
 .campaign-card { display: grid; grid-template-columns: minmax(0, 1.05fr) minmax(420px, .95fr); max-width: 1500px; margin: 0 auto; overflow: hidden; background: var(--white); border: 1px solid rgba(5,61,61,.12); border-top: 5px solid var(--mint); border-radius: 22px; box-shadow: 0 28px 80px rgba(5,61,61,.11); }
 .campaign-card + .campaign-card { margin-top: 44px; }
 .campaign-card--pi { border-top-color: var(--amber); }
+.campaign-card--retired { border-top-color: #8c9795; box-shadow: none; }
+.campaign-card--retired .campaign-card__visual img { filter: saturate(.45) brightness(.72); }
+.campaign-card--retired .status i, .campaign-card__phases .is-retired i { background: #8c9795; box-shadow: none; }
+.section-heading--archive { margin-top: 88px; }
 .campaign-card__visual { position: relative; min-height: 760px; overflow: hidden; background: var(--deepest); }
 .campaign-card__visual::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(3,41,41,.16), transparent 35%, rgba(3,41,41,.58)); pointer-events: none; }
 .campaign-card__visual video, .campaign-card__visual img { width: 100%; height: 100%; object-fit: cover; }
@@ -106,6 +110,7 @@ a { color: inherit; }
 .campaign-card__phases span { color: var(--muted); font: 700 8px var(--mono); letter-spacing: .05em; text-transform: uppercase; }
 .campaign-card__phases strong { color: var(--deep); font-size: 12px; }
 .campaign-card__phases .is-gated i { background: var(--amber); }
+.campaign-card__phases .is-approved i { background: #2f9166; }
 .campaign-card__actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 34px; }
 .button { display: inline-flex; align-items: center; justify-content: center; gap: 14px; min-height: 54px; padding: 0 20px; color: var(--deepest); background: var(--mint); border: 1px solid var(--mint); border-radius: 5px; font: 700 10px var(--mono); letter-spacing: .06em; text-decoration: none; text-transform: uppercase; transition: transform .2s ease, box-shadow .2s ease; }
 .button:hover { transform: translateY(-2px); box-shadow: 0 12px 28px rgba(5,61,61,.15); }

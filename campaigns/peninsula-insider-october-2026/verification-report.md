@@ -1,8 +1,10 @@
 # October 2026 production pack verification
 
-**Status:** Pass for private OptiFlows review, with four external-release gates open
+**Status:** Approved for rollout from 1 October 2026, with four per-drop release gates enforced
 
 **Checked:** 7 September 2026, Australia/Sydney
+
+**Release decision recorded:** 25 September 2026, Australia/Melbourne
 
 **Scope:** Campaign review artefacts only
 
@@ -48,4 +50,4 @@ Headless Chrome cancelled four open MP4 range requests when the QA page closed. 
 3. Confirm Chapter 03 booking details and Chapter 04 route and hospitality inventory.
 4. Rerender Chapter 04 motion at 1080 by 1920 before external use.
 
-The OptiFlows review pack is ready to publish. No Peninsula Insider site, newsletter, social channel or campaign schedule has been changed or authorised by this verification.
+James approved the October rollout on 25 September 2026 in Asana task `1218668312093402`. The Spring pack is retired without deleting its archive. Approval authorises the campaign system and October start; it does not waive the four release gates above. Activation state and live dependency evidence are recorded in `release-plan.json`.
