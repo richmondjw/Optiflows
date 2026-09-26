@@ -89,6 +89,9 @@ const safeObjectKey = pathname => {
 const allowedEmails = metadata => (metadata?.['x-optiflows-allowed-emails'] || '')
   .split(',').map(email => email.trim().toLowerCase()).filter(Boolean);
 
+const ownerEmails = env => (env.PRIVATE_CONTENT_OWNER_EMAILS || '')
+  .split(',').map(email => email.trim().toLowerCase()).filter(Boolean);
+
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
@@ -104,7 +107,8 @@ export default {
     const object = await env.PRIVATE_CONTENT.head(key);
     if (!object) return json({error: 'not_found'}, 404);
     const emails = allowedEmails(object.customMetadata);
-    if (!emails.length || !emails.includes(claims.email.toLowerCase())) return json({error: 'forbidden'}, 403);
+    const email = claims.email.trim().toLowerCase();
+    if (!ownerEmails(env).includes(email) && !emails.includes(email)) return json({error: 'forbidden'}, 403);
 
     const response = request.method === 'HEAD' ? null : await env.PRIVATE_CONTENT.get(key);
     if (request.method !== 'HEAD' && !response) return json({error: 'not_found'}, 404);

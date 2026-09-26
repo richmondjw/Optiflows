@@ -6,7 +6,7 @@ Status: implementation prepared, production cutover pending Cloudflare credentia
 
 GitHub Pages is public delivery. It must contain only intentionally public marketing output. Reports, proposals, prototypes, internal campaign material and other IP must not be copied into the Pages artifact. `noindex`, `robots.txt`, obscure URLs and browser JavaScript gates are defense in depth only; they are not authorization.
 
-The protected origin is the `optiflows-private-content` Worker backed by the private R2 bucket `optiflows-private-content`. The Worker validates the Cloudflare Access JWT and checks the requested R2 object's `x-optiflows-allowed-emails` metadata. This gives each proposal object a recipient allow-list without shared browser passwords.
+The protected origin is the `optiflows-private-content` Worker backed by the private R2 bucket `optiflows-private-content`. The Worker validates the Cloudflare Access JWT and checks the requested R2 object's `x-optiflows-allowed-emails` metadata. James's verified Access email, supplied as `PRIVATE_CONTENT_OWNER_EMAILS` at deployment, may read every existing private object without appearing in each object's metadata. Other recipients remain limited to their mapped objects. This avoids shared browser passwords.
 
 ## Cutover order
 
