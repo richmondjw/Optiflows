@@ -7,7 +7,7 @@
   "preview_urls": false,
   "routes": [{"pattern": "private.optiflows.com.au/*", "zone_name": "optiflows.com.au"}],
   "r2_buckets": [{"binding": "PRIVATE_CONTENT", "bucket_name": "optiflows-private-content"}],
-  // Set ACCESS_TEAM_DOMAIN, ACCESS_AUD and PRIVATE_CONTENT_OWNER_EMAILS at deployment.
-  // The owner email must be the verified Cloudflare Access identity for James.
+  "vars": {"PRIVATE_CONTENT_OWNER_EMAILS": "james.richmondau@gmail.com"},
+  // Set ACCESS_TEAM_DOMAIN and ACCESS_AUD at deployment from the Access application.
   "observability": {"enabled": true}
 }
