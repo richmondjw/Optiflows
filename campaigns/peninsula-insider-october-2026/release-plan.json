@@ -23,14 +23,24 @@
     "linkedin_in_scope": false
   },
   "content_dependency": {
-    "url": "https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/",
+    "url": "https://peninsulainsider.com.au/explore/plans/one-more-hour-after-five-peninsula/",
     "status": "live",
-    "verified_at": "2026-09-25T15:52:08Z",
+    "verified_at": "2026-09-26T06:39:37Z",
     "covers": [
-      "Victorian school holidays from 21 September to 2 October 2026",
-      "Friday 25 September AFL Grand Final public holiday operating warning",
-      "unpatrolled ocean-beach safety guidance"
-    ]
+      "three lower-risk after-five Peninsula plan shapes",
+      "same-day weather, warning, access and service checks",
+      "daylight-saving transition on 4 October 2026"
+    ],
+    "supporting_refresh": {
+      "url": "https://peninsulainsider.com.au/explore/plans/the-school-holidays-survival-guide/",
+      "status": "live",
+      "verified_at": "2026-09-26T06:04:00Z",
+      "covers": [
+        "Victorian school holidays from 21 September to 2 October 2026",
+        "Friday 25 September AFL Grand Final public holiday operating warning",
+        "unpatrolled ocean-beach safety guidance"
+      ]
+    }
   },
   "release_controls": [
     "Complete each registered 72-hour or same-day source read-back before scheduling.",

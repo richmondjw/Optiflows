@@ -29,7 +29,7 @@ const PI_OCTOBER_PRODUCTION = {
           { label: "Decision 02", title: "Keep a weather alternative", body: "Wind, rain and access can change the right answer. Check the released guide again before leaving." }
         ],
         button: "Open the October field guide",
-        destination: "Released October after-five guide",
+        destination: "https://peninsulainsider.com.au/explore/plans/one-more-hour-after-five-peninsula/",
         textLinks: ["Check the current access and weather notes"],
         signoff: ["James Richmond", "Peninsula Insider"],
         footer: "You received this email because you subscribed to Peninsula Insider. Manage preferences | Unsubscribe",
