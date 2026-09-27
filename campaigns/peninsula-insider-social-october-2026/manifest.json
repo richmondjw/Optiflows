@@ -1,7 +1,7 @@
 {
   "campaign": "Peninsula Insider — Spring after five",
   "status": "review_ready_motion_replacement",
-  "generated_at": "2026-09-27T14:16:01Z",
+  "generated_at": "2026-09-27T14:49:33Z",
   "publication_gate": "Human schedule action in authenticated Buffer",
   "posts": [
     {
@@ -13,7 +13,7 @@
       "asset": "assets/exports/post-01-1080x1350.png",
       "linkedin_asset": "assets/exports/linkedin/post-01-1200x627.png",
       "motion_asset": "assets/exports/motion/post-01-864x1080.mp4",
-      "motion_generation": "32796268-c9b0-4c5d-9648-b8c9e4376ebc",
+      "motion_generation": "598e3162-381c-4559-b990-9fd2efc88f77",
       "source_generation": "a96c0a75-126d-430b-8281-dc38d1cce66d",
       "url": "https://peninsulainsider.com.au/journal/insider-picks-2026-09-27/"
     },
@@ -25,7 +25,7 @@
       "due_at": "2026-10-01 20:00 Australia/Melbourne",
       "asset": "assets/exports/post-02-1080x1350.png",
       "motion_asset": "assets/exports/motion/post-02-864x1080.mp4",
-      "motion_generation": "aedaf4f2-09c9-4241-918b-dbde64e9eaa6",
+      "motion_generation": "9cf3d873-0b2c-40d5-beee-af51e6fdd3bb",
       "source_generation": "aa754972-1c3f-4b61-b4fc-557975b44ae6",
       "url": "https://peninsulainsider.com.au/journal/one-more-hour-after-five-peninsula/"
     },
@@ -37,7 +37,7 @@
       "due_at": "2026-10-03 09:00 Australia/Melbourne",
       "asset": "assets/exports/post-03-1080x1350.png",
       "motion_asset": "assets/exports/motion/post-03-864x1080.mp4",
-      "motion_generation": "21deeec4-4d33-400c-be4c-8fdad4394190",
+      "motion_generation": "5cee350d-8963-4110-b181-3a69696edf64",
       "source_generation": "da404dce-8290-480c-8ef8-627d6638e6c8",
       "url": "https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/"
     },
@@ -50,7 +50,7 @@
       "asset": "assets/exports/post-04-1080x1350.png",
       "linkedin_asset": "assets/exports/linkedin/post-04-1200x627.png",
       "motion_asset": "assets/exports/motion/post-04-864x1080.mp4",
-      "motion_generation": "f2fbf43e-fbb8-4728-b94a-77903381bd14",
+      "motion_generation": "ae131ee8-30b1-4543-a80e-d71b7d3ca95f",
       "source_generation": "4395b202-21d4-40e5-8024-9681c6f05456",
       "url": "https://peninsulainsider.com.au/journal/one-more-hour-after-five-peninsula/"
     }
