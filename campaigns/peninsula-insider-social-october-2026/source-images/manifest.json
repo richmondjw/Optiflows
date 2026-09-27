@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "campaign": "peninsula-insider-social-october-2026",
+  "created_at": "2026-09-27T14:00:00Z",
+  "assets": [
+    {"post_id":"post-01","source_type":"Higgsfield generated image","generation_id":"a96c0a75-126d-430b-8281-dc38d1cce66d","location_claim":"general Peninsula coast only; no named-location claim"},
+    {"post_id":"post-02","source_type":"Higgsfield generated image","generation_id":"aa754972-1c3f-4b61-b4fc-557975b44ae6","location_claim":"general Peninsula twilight only; no named-location claim"},
+    {"post_id":"post-03","source_type":"Higgsfield generated image","generation_id":"da404dce-8290-480c-8ef8-627d6638e6c8","location_claim":"editorial Red Hill market treatment; confirm factual venue details in linked post"},
+    {"post_id":"post-04","source_type":"Higgsfield generated image","generation_id":"4395b202-21d4-40e5-8024-9681c6f05456","location_claim":"general Peninsula coastal-path treatment; no named-location claim"}
+  ],
+  "external_sources": [],
+  "note": "No Unsplash image was selected for this replacement. Add page URL, creator, licence and location validation here before any Unsplash image is used."
+}
