@@ -1,0 +1,12 @@
+{
+  "campaign": "Peninsula Insider — Spring after five",
+  "status": "review_ready",
+  "generated_at": "2026-09-27T11:45:00Z",
+  "publication_gate": "Human schedule action in authenticated Buffer",
+  "posts": [
+    {"id":"post-01","title":"The weekly edit","platform":"LinkedIn","buffer_draft_id":"6ab8cd874b4b9f2c1c6784ba","due_at":"2026-10-01 08:30 Australia/Melbourne","asset":"assets/exports/post-01-1080x1350.png","source_generation":"a96c0a75-126d-430b-8281-dc38d1cce66d","url":"https://peninsulainsider.com.au/journal/insider-picks-2026-09-27/"},
+    {"id":"post-02","title":"One more useful hour","platform":"Instagram","buffer_draft_id":"6ab8cd889f89edbefe8e6934","due_at":"2026-10-01 20:00 Australia/Melbourne","asset":"assets/exports/post-02-1080x1350.png","source_generation":"aa754972-1c3f-4b61-b4fc-557975b44ae6","url":"https://peninsulainsider.com.au/journal/one-more-hour-after-five-peninsula/"},
+    {"id":"post-03","title":"Saturday starts in Red Hill","platform":"Instagram","buffer_draft_id":"6ab8cd890f79a37c5d4a7c77","due_at":"2026-10-03 09:00 Australia/Melbourne","asset":"assets/exports/post-03-1080x1350.png","source_generation":"da404dce-8290-480c-8ef8-627d6638e6c8","url":"https://peninsulainsider.com.au/whats-on/hill-ridge-community-market-september-2026-restart/"},
+    {"id":"post-04","title":"Use the extra hour","platform":"LinkedIn","buffer_draft_id":"6ab8cd8a9f89edbefe8e695c","due_at":"2026-10-06 08:30 Australia/Melbourne","asset":"assets/exports/post-04-1080x1350.png","source_generation":"4395b202-21d4-40e5-8024-9681c6f05456","url":"https://peninsulainsider.com.au/journal/one-more-hour-after-five-peninsula/"}
+  ]
+}
