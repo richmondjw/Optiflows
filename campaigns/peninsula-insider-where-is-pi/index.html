@@ -109,6 +109,9 @@
     .dl-list em{grid-column:1/-1;font-style:normal;font-size:13px;color:rgba(253,252,250,.72)}
     .dl-list span{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--sand);white-space:nowrap}
     @media(max-width:1050px){.downloads{grid-template-columns:1fr;padding:28px}}
+    .platform-packs{margin-top:18px;padding:24px;background:var(--white);border:1px solid var(--line);border-radius:18px}
+    .platform-packs>header{display:flex;align-items:end;justify-content:space-between;gap:20px;margin-bottom:16px}.platform-packs>header h4{margin:0;color:var(--deep);font:700 22px/1.15 Sora,Arial,sans-serif}.platform-packs>header p{max-width:680px;margin:6px 0 0;color:var(--soft);font-size:14px}
+    .platform-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.platform-pack{padding:18px;background:var(--paper);border:1px solid var(--line);border-radius:14px}.platform-pack h5{margin:0;color:var(--deep);font:700 18px/1.2 Sora,Arial,sans-serif}.platform-pack .format{display:block;margin-top:5px;color:var(--harbour);font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}.platform-pack p{min-height:62px;margin:12px 0 0;color:var(--soft);font-size:13px;line-height:1.5}.platform-pack .handoff__actions{margin-top:14px}.platform-pack .action{min-height:40px;padding:8px 12px;font-size:12px}
     .hidden{display:none!important}
     /* Full-resolution inspection. Defects live at 1:1; the grid hides them. */
     .lightbox{border:0;padding:0;background:transparent;max-width:none;max-height:none;width:100vw;height:100vh}
@@ -121,7 +124,8 @@
     .lightbox-stage img.is-actual{max-width:none;max-height:none;cursor:zoom-out}
     @media(prefers-reduced-motion:no-preference){.lightbox[open]{animation:lb .18s ease-out}@keyframes lb{from{opacity:0}to{opacity:1}}}
     @media(max-width:1050px){.hero{grid-template-columns:1fr}.hero-copy{min-height:520px}.wide-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wide-grid--hero{grid-template-columns:1fr}.feed-sequence{grid-template-columns:repeat(3,1fr)}.story-sequence{grid-template-columns:repeat(3,1fr)}.copy-panel{grid-template-columns:1fr}.evidence{grid-template-columns:1fr 1fr}.calendar-head,.motion-head{grid-template-columns:1fr}.calendar-grid{grid-template-columns:1fr}.motion-card--study{justify-self:start}}
-    @media(max-width:680px){.shell{padding:12px 12px 54px}.topbar{border-radius:12px;gap:9px 16px;flex-wrap:wrap}.brand{font-size:18px}.brand img{width:34px;height:34px}.status{max-width:220px;font-size:12px;letter-spacing:.06em;line-height:1.25}.status span{white-space:normal}.hero-copy{padding:36px 28px;min-height:530px}.hero-copy .kicker{font-size:12px;overflow-wrap:anywhere}.hero-copy h1{font-size:54px}.hero-copy p{font-size:19px}.meta-strip{left:28px;right:28px;bottom:30px}.hero-art{min-height:420px}.calendar{padding:27px 18px}.calendar-grid{grid-template-columns:minmax(0,1fr)}.motion-lab{padding:24px 18px}.motion-head{gap:14px}.week-head{grid-template-columns:minmax(0,1fr)}.week-head h2{font-size:38px}.week-head p{max-width:100%;font-size:16px;overflow-wrap:anywhere}.week-number{display:none}.wide-grid{grid-template-columns:minmax(0,1fr)}.feed-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.story-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.copy-list{grid-template-columns:minmax(0,1fr)}.copy-panel{padding:24px}.hero-art .caption{display:block}.hero-art .caption span{display:block;margin-top:5px}.evidence{grid-template-columns:minmax(0,1fr)}}
+    @media(max-width:1050px){.platform-grid{grid-template-columns:1fr}}
+    @media(max-width:680px){.shell{padding:12px 12px 54px}.topbar{border-radius:12px;gap:9px 16px;flex-wrap:wrap}.brand{font-size:18px}.brand img{width:34px;height:34px}.status{max-width:220px;font-size:12px;letter-spacing:.06em;line-height:1.25}.status span{white-space:normal}.hero-copy{padding:36px 28px;min-height:530px}.hero-copy .kicker{font-size:12px;overflow-wrap:anywhere}.hero-copy h1{font-size:54px}.hero-copy p{font-size:19px}.meta-strip{left:28px;right:28px;bottom:30px}.hero-art{min-height:420px}.calendar{padding:27px 18px}.calendar-grid{grid-template-columns:minmax(0,1fr)}.motion-lab{padding:24px 18px}.motion-head{gap:14px}.week-head{grid-template-columns:minmax(0,1fr)}.week-head h2{font-size:38px}.week-head p{max-width:100%;font-size:16px;overflow-wrap:anywhere}.week-number{display:none}.wide-grid{grid-template-columns:minmax(0,1fr)}.feed-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.story-sequence{grid-template-columns:repeat(2,minmax(0,1fr))}.copy-list{grid-template-columns:minmax(0,1fr)}.copy-panel{padding:24px}.hero-art .caption{display:block}.hero-art .caption span{display:block;margin-top:5px}.evidence{grid-template-columns:minmax(0,1fr)}.platform-packs{padding:18px}.platform-packs>header{display:block}.platform-packs>header p{margin-top:8px}.platform-pack p{min-height:0}}
   </style>
   <script defer src="/gate.js"></script>
 </head>
@@ -230,6 +234,14 @@
           <article class="card"><img data-copy-id="carousel-04" loading="lazy" src="assets/exports/carousel-04-witness.webp" width="1080" height="1350" alt="Carousel slide 4, a witness line from the barista" data-asset="CAROUSEL 4/5"><div class="card-meta"><strong>CAROUSEL · 4/5</strong><span>witness</span></div></article>
           <article class="card"><img data-copy-id="carousel-05" loading="lazy" src="assets/exports/carousel-05-cta.webp" width="1080" height="1350" alt="Carousel slide 5, call to action: Play Case 01 at play.peninsulainsider.com.au" data-asset="CAROUSEL 5/5"><div class="card-meta"><strong>CAROUSEL · 5/5</strong><span>call to action</span></div></article>
         </div>
+        <section class="platform-packs" aria-labelledby="carousel-platform-title">
+          <header><div><h4 id="carousel-platform-title">Production carousel packs</h4><p>Each pack contains five numbered, production-size JPG slides, a multi-page PDF and a README. Choose the channel below; the posting method is different for LinkedIn.</p></div></header>
+          <div class="platform-grid">
+            <article class="platform-pack"><h5>Instagram</h5><span class="format">1080 × 1350 · 5-image carousel</span><p>Upload the five JPG slides to the Instagram carousel draft in numbered order. The PDF is an approval proof only.</p><div class="handoff__actions"><a class="action" href="assets/downloads/platforms/instagram/where-is-pi-instagram-production-pack.zip" download>Download Instagram ZIP</a><a class="action action--secondary" href="assets/downloads/platforms/instagram/where-is-pi-instagram-carousel-proof.pdf" download>PDF proof</a></div></article>
+            <article class="platform-pack"><h5>Facebook</h5><span class="format">1200 × 1500 · 5-image carousel</span><p>Upload the five JPG slides to the Facebook draft in numbered order. The PDF is an approval proof only.</p><div class="handoff__actions"><a class="action" href="assets/downloads/platforms/facebook/where-is-pi-facebook-production-pack.zip" download>Download Facebook ZIP</a><a class="action action--secondary" href="assets/downloads/platforms/facebook/where-is-pi-facebook-carousel-proof.pdf" download>PDF proof</a></div></article>
+            <article class="platform-pack"><h5>LinkedIn</h5><span class="format">1200 × 1500 · document carousel</span><p>Upload the PDF to the LinkedIn draft as a document carousel. The ZIP also contains five JPG production sources.</p><div class="handoff__actions"><a class="action" href="assets/downloads/platforms/linkedin/where-is-pi-linkedin-production-pack.zip" download>Download LinkedIn ZIP</a><a class="action action--secondary" href="assets/downloads/platforms/linkedin/where-is-pi-linkedin-document-carousel.pdf" download>Carousel PDF</a></div></article>
+          </div>
+        </section>
       </div>
 
       <div class="asset-group" data-post="w1-stories">
@@ -342,11 +354,14 @@
       <div>
         <div class="kicker">DOWNLOADS</div>
         <h2 id="downloads-title">Take the pack with you.</h2>
-        <p>Every asset with the copy that goes with it. Release-ready PNG and JPEG exports are available alongside the campaign PDF, captions and motion file.</p>
+        <p>Every asset with the copy that goes with it. The carousel is packaged separately for Instagram, Facebook and LinkedIn, with numbered production files and channel instructions.</p>
       </div>
       <div class="dl-list">
         <a href="assets/downloads/where-is-pi-case-01-campaign-pack.pdf" download><strong>Campaign pack</strong><span>PDF</span><em>Every post, its creative, caption, alt text and the words set on each tile.</em></a>
         <a href="assets/downloads/where-is-pi-case-01-assets.zip" download><strong>All assets</strong><span>ZIP</span><em>Fourteen JPEGs, the motion file, captions.txt and the PDF.</em></a>
+        <a href="assets/downloads/platforms/instagram/where-is-pi-instagram-production-pack.zip" download><strong>Instagram carousel</strong><span>ZIP · 1080 × 1350</span><em>Five numbered posting JPGs, PDF proof and channel instructions.</em></a>
+        <a href="assets/downloads/platforms/facebook/where-is-pi-facebook-production-pack.zip" download><strong>Facebook carousel</strong><span>ZIP · 1200 × 1500</span><em>Five numbered posting JPGs, PDF proof and channel instructions.</em></a>
+        <a href="assets/downloads/platforms/linkedin/where-is-pi-linkedin-production-pack.zip" download><strong>LinkedIn document carousel</strong><span>ZIP + PDF · 1200 × 1500</span><em>Upload-ready multi-page PDF, five source JPGs and channel instructions.</em></a>
         <a href="assets/motion/motion-01-mornington-pier-story-1080x1920.mp4" download><strong>Motion asset</strong><span>MP4</span><em>1080 × 1920, five seconds, ready for a Buffer draft.</em></a>
         <a href="assets/downloads/captions.txt" download><strong>Captions and alt text</strong><span>TXT</span><em>Plain text for pasting straight into the channel.</em></a>
       </div>
@@ -355,8 +370,8 @@
     <section class="decision" aria-labelledby="decision-title">
       <div>
         <div class="kicker">OPERATING STATUS</div>
-        <h2 id="decision-title">All creative is in Buffer as drafts.</h2>
-        <p>The pack now supports active campaign handling rather than approval paperwork. Drafts can be opened individually below or reviewed together in Buffer. Scheduling and publishing remain deliberate actions inside the authenticated Buffer workspace.</p>
+        <h2 id="decision-title">Platform drafts and production files.</h2>
+        <p>Instagram, Facebook and LinkedIn are labelled separately. Open the matching channel draft, confirm the assets and copy, select a date and time, then schedule inside authenticated Buffer.</p>
       </div>
       <ul class="decision-facts">
         <li><strong>Release exports are separate from review renders.</strong> Buffer uses only files from <code>assets/exports/release/</code>.</li>
@@ -366,9 +381,9 @@
     </section>
 
     <section class="bulk-buffer" aria-labelledby="bulk-buffer-title">
-      <h2 id="bulk-buffer-title">Review all drafts in Buffer.</h2>
-      <p>All social-capable campaign units have been prepared as drafts. Open the Buffer calendar to review timing and make any final channel edits.</p>
-      <a class="action" href="https://publish.buffer.com/profile/69f5f6ca5c4c051afa0243e0/tab/drafts" target="_blank" rel="noopener">Open all drafts in Buffer →</a>
+      <h2 id="bulk-buffer-title">Open the right channel in Buffer.</h2>
+      <p>Choose the channel below. Drafts are unscheduled: open the matching draft, confirm the copy and creative, select a date and time, then use Buffer’s Schedule button.</p>
+      <div class="handoff__actions" style="justify-content:center"><a class="action" href="https://publish.buffer.com/profile/69f5f6ca5c4c051afa0243e0/tab/drafts" target="_blank" rel="noopener">Instagram drafts →</a><a class="action" href="https://publish.buffer.com/profile/69f5f7a55c4c051afa024938/tab/drafts" target="_blank" rel="noopener">Facebook drafts →</a><a class="action" href="https://publish.buffer.com/profile/69e58e43031bfa423c20f0bf/tab/drafts" target="_blank" rel="noopener">LinkedIn drafts →</a></div>
       <small>This button opens Buffer. It does not schedule or publish from this public page.</small>
     </section>
 
@@ -447,9 +462,15 @@
         if (draft) {
           var handoff = document.createElement('div');
           handoff.className = 'handoff';
-          var items = draft.items || [{ id: draft.id, label: 'Open draft in Buffer' }];
-          handoff.innerHTML = '<div class="handoff__head"><strong>Buffer draft ready</strong><span>' + esc(draft.platform) + '</span></div>' +
-            '<div class="handoff__actions">' + items.map(function (item) { return '<a class="action" target="_blank" rel="noopener" href="https://publish.buffer.com/profile/69f5f6ca5c4c051afa0243e0/tab/drafts?postId=' + encodeURIComponent(item.id) + '">' + esc(item.label) + '</a>'; }).join('') + '</div>' +
+          var entries = draft.platforms || [draft];
+          var items = [];
+          entries.forEach(function (entry) {
+            (entry.items || [{ id: entry.id, label: entry.platform || 'Open draft in Buffer' }]).forEach(function (item) {
+              items.push({ id: item.id, label: item.label || entry.platform, platform: entry.platform, channelId: entry.channelId || draft.channelId || pack.bufferChannelId || '69f5f6ca5c4c051afa0243e0' });
+            });
+          });
+          handoff.innerHTML = '<div class="handoff__head"><strong>Buffer drafts ready</strong><span>' + esc(entries.map(function (entry) { return entry.platform; }).join(' · ')) + '</span></div>' +
+            '<div class="handoff__actions">' + items.map(function (item) { return '<a class="action" target="_blank" rel="noopener" href="https://publish.buffer.com/profile/' + encodeURIComponent(item.channelId) + '/tab/drafts?postId=' + encodeURIComponent(item.id) + '">Open ' + esc(item.label) + '</a>'; }).join('') + '</div>' +
             '<p class="handoff__id">' + items.map(function (item) { return 'Draft ' + esc(item.id); }).join(' · ') + '</p>';
           box.after(handoff);
         }

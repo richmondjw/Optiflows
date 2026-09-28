@@ -1,0 +1,144 @@
+{
+  "campaign": "Where in the Peninsula is PI?",
+  "slideOrder": [
+    "carousel-01-hook.jpg",
+    "carousel-02-case.jpg",
+    "carousel-03-mechanic.jpg",
+    "carousel-04-witness.jpg",
+    "carousel-05-cta.jpg"
+  ],
+  "platforms": {
+    "instagram": {
+      "usage": "Upload the five JPG slides to the Instagram carousel draft in numbered order. The PDF is a proof only; Instagram publishing uses the JPG slides.",
+      "pdf": "assets/downloads/platforms/instagram/where-is-pi-instagram-carousel-proof.pdf",
+      "pdfSha256": "5067566380e4e341252d73ed3d1e12261c0e014d1280d5973fe96341b8532b5a",
+      "zip": "assets/downloads/platforms/instagram/where-is-pi-instagram-production-pack.zip",
+      "zipSha256": "2e7a02e2198489ae74afd82fc1d475160bfc69618cbd168f10a0ac02cf57e48f",
+      "slides": [
+        {
+          "order": 1,
+          "file": "assets/downloads/platforms/instagram/slides/01-carousel-01-hook.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "e0527ca067c4049fa86ad0a499bc2cfb425933940f3a3816671faf42a1ca589f"
+        },
+        {
+          "order": 2,
+          "file": "assets/downloads/platforms/instagram/slides/02-carousel-02-case.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "8df2d69b4e536d95786f031897e20c283f9b589577e7307004bc4ff54b0de503"
+        },
+        {
+          "order": 3,
+          "file": "assets/downloads/platforms/instagram/slides/03-carousel-03-mechanic.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "159d054b710f04a90af521693c8d3100acd1653092e921680f4fe307ade2940f"
+        },
+        {
+          "order": 4,
+          "file": "assets/downloads/platforms/instagram/slides/04-carousel-04-witness.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "a91ab705f0e56fafe8a7d8e6e050f4c70562f11b9568963a85421fa60127aa2a"
+        },
+        {
+          "order": 5,
+          "file": "assets/downloads/platforms/instagram/slides/05-carousel-05-cta.jpg",
+          "width": 1080,
+          "height": 1350,
+          "sha256": "a0b1f8d985331190ee88d92058ff3594048824aba0e2cc969a8e5020826f58b1"
+        }
+      ]
+    },
+    "facebook": {
+      "usage": "Upload the five JPG slides to the Facebook carousel draft in numbered order. The PDF is a proof only; Facebook publishing uses the JPG slides.",
+      "pdf": "assets/downloads/platforms/facebook/where-is-pi-facebook-carousel-proof.pdf",
+      "pdfSha256": "b15343c9c0aadb7226ab871d88fb6eed5af9944bc555f0e8a845e2c49cac0aa7",
+      "zip": "assets/downloads/platforms/facebook/where-is-pi-facebook-production-pack.zip",
+      "zipSha256": "3ec2c602621b2b4859b11f8e0601f691db9eb06abd4d252157a02be883f81a46",
+      "slides": [
+        {
+          "order": 1,
+          "file": "assets/downloads/platforms/facebook/slides/01-carousel-01-hook.jpg",
+          "width": 1200,
+          "height": 1500,
+          "sha256": "8d9fdeaee16751f719c32eaa2110ef25802f21d0d0714b0dd9650b13c8922ce2"
+        },
+        {
+          "order": 2,
+          "file": "assets/downloads/platforms/facebook/slides/02-carousel-02-case.jpg",
+          "width": 1200,
+          "height": 1500,
+          "sha256": "59e9e8179f4574db3ec2c9939d2f4e428ab49907b7337fa11bd07e4c47e8f5a7"
+        },
+        {
+          "order": 3,
+          "file": "assets/downloads/platforms/facebook/slides/03-carousel-03-mechanic.jpg",
+          "width": 1200,
+          "height": 1500,
+          "sha256": "435ad0548a3e412844d7b52ded8a8d42f0773a02a6ef529f30e382b02924cb1c"
+        },
+        {
+          "order": 4,
+          "file": "assets/downloads/platforms/facebook/slides/04-carousel-04-witness.jpg",
+          "width": 1200,
+          "height": 1500,
+          "sha256": "4e8c6d0409231e4e80dce5e703697d613b0f1b57ccadea1bb3bb2542b92105a4"
+        },
+        {
+          "order": 5,
+          "file": "assets/downloads/platforms/facebook/slides/05-carousel-05-cta.jpg",
+          "width": 1200,
+          "height": 1500,
+          "sha256": "2082f9e18aa699e8dd96e7377dbd1587e34426e3848599cfbcdf4407c37d701c"
+        }
+      ]
+    },
+    "linkedin": {
+      "usage": "Upload the PDF to the LinkedIn draft as a document carousel. The five JPG slides are included as production sources and a fallback.",
+      "pdf": "assets/downloads/platforms/linkedin/where-is-pi-linkedin-document-carousel.pdf",
+      "pdfSha256": "5cf7c087bc8c42c43b3c136f0f00bf1fa91c68359000af19deb0cb62721327ba",
+      "zip": "assets/downloads/platforms/linkedin/where-is-pi-linkedin-production-pack.zip",
+      "zipSha256": "45df4e863952132459d8b4827a98a1a0594f4ac4fef8b36df0e937ea70b90ea5",
+      "slides": [
+        {
+          "order": 1,
+          "file": "assets/downloads/platforms/linkedin/slides/01-carousel-01-hook.jpg",
+          "width": 1200,
+          "height": 1500,
+          "sha256": "8d9fdeaee16751f719c32eaa2110ef25802f21d0d0714b0dd9650b13c8922ce2"
+        },
+        {
+          "order": 2,
+          "file": "assets/downloads/platforms/linkedin/slides/02-carousel-02-case.jpg",
+          "width": 1200,
+          "height": 1500,
+          "sha256": "59e9e8179f4574db3ec2c9939d2f4e428ab49907b7337fa11bd07e4c47e8f5a7"
+        },
+        {
+          "order": 3,
+          "file": "assets/downloads/platforms/linkedin/slides/03-carousel-03-mechanic.jpg",
+          "width": 1200,
+          "height": 1500,
+          "sha256": "435ad0548a3e412844d7b52ded8a8d42f0773a02a6ef529f30e382b02924cb1c"
+        },
+        {
+          "order": 4,
+          "file": "assets/downloads/platforms/linkedin/slides/04-carousel-04-witness.jpg",
+          "width": 1200,
+          "height": 1500,
+          "sha256": "4e8c6d0409231e4e80dce5e703697d613b0f1b57ccadea1bb3bb2542b92105a4"
+        },
+        {
+          "order": 5,
+          "file": "assets/downloads/platforms/linkedin/slides/05-carousel-05-cta.jpg",
+          "width": 1200,
+          "height": 1500,
+          "sha256": "2082f9e18aa699e8dd96e7377dbd1587e34426e3848599cfbcdf4407c37d701c"
+        }
+      ]
+    }
+  }
+}
