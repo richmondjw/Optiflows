@@ -30,6 +30,9 @@ await fs.mkdir(downloads, { recursive: true });
 const renderer = await fs.readFile(path.join(dir, "asset-renderer.html"), "utf8");
 const copyFile = JSON.parse(await fs.readFile(path.join(dir, "campaign-copy.json"), "utf8"));
 const provenance = JSON.parse(await fs.readFile(path.join(dir, "creative-provenance.json"), "utf8"));
+const bufferDrafts = await fs.readFile(path.join(dir, "buffer-drafts.json"), "utf8")
+  .then((text) => JSON.parse(text).drafts ?? {})
+  .catch(() => ({}));
 
 // --- 1. the words the renderer actually draws, per asset -------------------------------------
 const FILES = {
@@ -66,6 +69,7 @@ const pack = {
   prize: `${provenance.copy.prize_line} Draw closes ${provenance.copy.draw_closes}.`,
   assets,
   posts: copyFile.posts,
+  bufferDrafts,
 };
 
 // --- 2. inline the copy into the review page --------------------------------------------------
@@ -79,7 +83,7 @@ await fs.writeFile(path.join(dir, "index.html"), page);
 
 // --- 3. captions.txt --------------------------------------------------------------------------
 const rule = "-".repeat(78);
-const lines = [pack.campaign, `Generated ${pack.generatedAt}`, "", "REVIEW ONLY. Nothing in this pack is authorised for publication.", ""];
+const lines = [pack.campaign, `Generated ${pack.generatedAt}`, "", "DRAFT READY. Social-capable units are prepared in Buffer; nothing is scheduled or published.", ""];
 for (const post of pack.posts) {
   lines.push(rule, `WEEK ${post.week} / ${post.day} / ${post.channel}`, rule, "");
   lines.push("FILES:");
