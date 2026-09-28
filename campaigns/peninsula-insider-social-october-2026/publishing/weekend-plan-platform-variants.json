@@ -1,0 +1,37 @@
+{
+  "asset": "Your Peninsula weekend, planned",
+  "status": "creative-ready; not attached, scheduled, or published",
+  "destination": "https://peninsulainsider.com.au/",
+  "source_image": "assets/source/post-03-red-hill-market.png",
+  "disclosure": "AI-generated source artwork; apply the platform disclosure setting where available before publication.",
+  "variants": [
+    {
+      "platform": "Instagram",
+      "format": "Feed portrait 4:5",
+      "dimensions": "1080x1350",
+      "asset": "assets/exports/weekend-plan/pi-weekend-plan-instagram-feed-1080x1350.png",
+      "caption": "A good Peninsula weekend does not need an overstuffed itinerary.\n\nStart with coffee. Choose one local table. Leave enough room for a walk. Keep one good finish close.\n\nOur weekend edit helps you make the most of the time you actually have—without turning it into a checklist.\n\nExplore the weekend plan via the link in bio.\n\n#MorningtonPeninsula #PeninsulaInsider #WeekendPlans #VisitVictoria"
+    },
+    {
+      "platform": "Facebook",
+      "format": "Feed portrait 4:5",
+      "dimensions": "1200x1500",
+      "asset": "assets/exports/weekend-plan/pi-weekend-plan-facebook-feed-1200x1500.png",
+      "caption": "Your Peninsula weekend, planned.\n\nCoffee, a local table, a walk and one good finish—shaped around the time you actually have.\n\nExplore the weekend plan: https://peninsulainsider.com.au/"
+    },
+    {
+      "platform": "Instagram",
+      "format": "Story / Reel cover",
+      "dimensions": "1080x1920",
+      "asset": "assets/exports/weekend-plan/pi-weekend-plan-instagram-story-1080x1920.png",
+      "caption": "Your Peninsula weekend, planned. Tap through to explore the weekend plan."
+    },
+    {
+      "platform": "LinkedIn",
+      "format": "Landscape 1.91:1",
+      "dimensions": "1200x627",
+      "asset": "assets/exports/weekend-plan/pi-weekend-plan-linkedin-1200x627.png",
+      "caption": "The best local plans do not ask people to do more. They make it easier to choose well.\n\nPeninsula Insider’s weekend edit turns a blank weekend into a considered sequence: one local stop, a walk, and a finish worth keeping time for.\n\nExplore the weekend plan: https://peninsulainsider.com.au/\n\n#MorningtonPeninsula #LocalTourism #EditorialPlanning"
+    }
+  ]
+}
