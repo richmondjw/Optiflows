@@ -72,6 +72,13 @@ a { color: inherit; }
 .hero__status strong { color: var(--mint); font: 700 32px var(--mono); }
 .hero__status span { color: rgba(255,255,255,.65); font: 700 10px var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 
+.company-ribbon { position: sticky; z-index: 80; top: 84px; display: flex; align-items: center; gap: 10px; padding: 14px clamp(24px, 6vw, 96px); overflow-x: auto; color: var(--white); background: rgba(5,61,61,.97); border-top: 1px solid rgba(255,255,255,.08); border-bottom: 1px solid var(--line); scrollbar-width: thin; }
+.company-ribbon__label { flex: 0 0 auto; margin-right: 8px; color: rgba(255,255,255,.52); font: 700 9px var(--mono); letter-spacing: .1em; text-transform: uppercase; }
+.company-filter { flex: 0 0 auto; min-height: 40px; padding: 0 15px; color: rgba(255,255,255,.72); background: transparent; border: 1px solid rgba(255,255,255,.16); border-radius: 999px; cursor: pointer; font: 700 10px var(--mono); letter-spacing: .05em; text-transform: uppercase; }
+.company-filter:hover { color: var(--white); border-color: rgba(255,255,255,.35); }
+.company-filter[aria-pressed="true"] { color: var(--deepest); background: var(--mint); border-color: var(--mint); }
+.campaign-card[hidden] { display: none; }
+
 .library { padding: clamp(80px, 9vw, 140px) clamp(24px, 6vw, 96px); }
 .section-heading { display: grid; grid-template-columns: 1fr .8fr; gap: 60px; align-items: end; max-width: 1500px; margin: 0 auto 54px; }
 .section-heading h2, .operating-model h2 { margin: 0; font-size: clamp(52px, 6vw, 88px); line-height: .88; letter-spacing: -.07em; }
@@ -146,6 +153,7 @@ footer { display: flex; justify-content: space-between; gap: 20px; padding: 28px
   .section-heading, .operating-model { grid-template-columns: 1fr; }
   .section-heading { gap: 26px; }
   .operating-model > div { justify-self: start; }
+  .company-ribbon { top: 72px; padding-inline: 18px; }
 }
 
 @media (max-width: 540px) {
