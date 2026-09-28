@@ -1,0 +1,576 @@
+{
+  "campaign": "Peninsula Insider Spring 2026",
+  "status": "draft-ready",
+  "weeks": [
+    {
+      "id": "s1",
+      "title": "Paper before lunch",
+      "instagram": {
+        "slides": [
+          "production/s1/instagram/01-s1-instagram-1080x1350.jpg",
+          "production/s1/instagram/02-s1-instagram-1080x1350.jpg",
+          "production/s1/instagram/03-s1-instagram-1080x1350.jpg",
+          "production/s1/instagram/04-s1-instagram-1080x1350.jpg",
+          "production/s1/instagram/05-s1-instagram-1080x1350.jpg"
+        ],
+        "proof_pdf": "production/s1/s1-instagram-carousel-proof.pdf",
+        "zip": "production/s1/s1-instagram-posting-pack.zip"
+      },
+      "facebook": {
+        "slides": [
+          "production/s1/facebook/01-s1-facebook-1200x1500.jpg",
+          "production/s1/facebook/02-s1-facebook-1200x1500.jpg",
+          "production/s1/facebook/03-s1-facebook-1200x1500.jpg",
+          "production/s1/facebook/04-s1-facebook-1200x1500.jpg",
+          "production/s1/facebook/05-s1-facebook-1200x1500.jpg"
+        ],
+        "proof_pdf": "production/s1/s1-facebook-carousel-proof.pdf",
+        "zip": "production/s1/s1-facebook-posting-pack.zip"
+      },
+      "linkedin": {
+        "slides": [
+          "production/s1/linkedin/01-s1-linkedin-1200x1500.jpg",
+          "production/s1/linkedin/02-s1-linkedin-1200x1500.jpg",
+          "production/s1/linkedin/03-s1-linkedin-1200x1500.jpg",
+          "production/s1/linkedin/04-s1-linkedin-1200x1500.jpg",
+          "production/s1/linkedin/05-s1-linkedin-1200x1500.jpg"
+        ],
+        "document_pdf": "production/s1/s1-linkedin-document-carousel.pdf",
+        "zip": "production/s1/s1-linkedin-document-pack.zip"
+      }
+    },
+    {
+      "id": "s2",
+      "title": "One walk, two lengths",
+      "instagram": {
+        "slides": [
+          "production/s2/instagram/01-s2-instagram-1080x1350.jpg",
+          "production/s2/instagram/02-s2-instagram-1080x1350.jpg",
+          "production/s2/instagram/03-s2-instagram-1080x1350.jpg",
+          "production/s2/instagram/04-s2-instagram-1080x1350.jpg",
+          "production/s2/instagram/05-s2-instagram-1080x1350.jpg"
+        ],
+        "proof_pdf": "production/s2/s2-instagram-carousel-proof.pdf",
+        "zip": "production/s2/s2-instagram-posting-pack.zip"
+      },
+      "facebook": {
+        "slides": [
+          "production/s2/facebook/01-s2-facebook-1200x1500.jpg",
+          "production/s2/facebook/02-s2-facebook-1200x1500.jpg",
+          "production/s2/facebook/03-s2-facebook-1200x1500.jpg",
+          "production/s2/facebook/04-s2-facebook-1200x1500.jpg",
+          "production/s2/facebook/05-s2-facebook-1200x1500.jpg"
+        ],
+        "proof_pdf": "production/s2/s2-facebook-carousel-proof.pdf",
+        "zip": "production/s2/s2-facebook-posting-pack.zip"
+      },
+      "linkedin": {
+        "slides": [
+          "production/s2/linkedin/01-s2-linkedin-1200x1500.jpg",
+          "production/s2/linkedin/02-s2-linkedin-1200x1500.jpg",
+          "production/s2/linkedin/03-s2-linkedin-1200x1500.jpg",
+          "production/s2/linkedin/04-s2-linkedin-1200x1500.jpg",
+          "production/s2/linkedin/05-s2-linkedin-1200x1500.jpg"
+        ],
+        "document_pdf": "production/s2/s2-linkedin-document-carousel.pdf",
+        "zip": "production/s2/s2-linkedin-document-pack.zip"
+      }
+    },
+    {
+      "id": "s3",
+      "title": "Choose the day shape",
+      "instagram": {
+        "slides": [
+          "production/s3/instagram/01-s3-instagram-1080x1350.jpg",
+          "production/s3/instagram/02-s3-instagram-1080x1350.jpg",
+          "production/s3/instagram/03-s3-instagram-1080x1350.jpg",
+          "production/s3/instagram/04-s3-instagram-1080x1350.jpg",
+          "production/s3/instagram/05-s3-instagram-1080x1350.jpg"
+        ],
+        "proof_pdf": "production/s3/s3-instagram-carousel-proof.pdf",
+        "zip": "production/s3/s3-instagram-posting-pack.zip"
+      },
+      "facebook": {
+        "slides": [
+          "production/s3/facebook/01-s3-facebook-1200x1500.jpg",
+          "production/s3/facebook/02-s3-facebook-1200x1500.jpg",
+          "production/s3/facebook/03-s3-facebook-1200x1500.jpg",
+          "production/s3/facebook/04-s3-facebook-1200x1500.jpg",
+          "production/s3/facebook/05-s3-facebook-1200x1500.jpg"
+        ],
+        "proof_pdf": "production/s3/s3-facebook-carousel-proof.pdf",
+        "zip": "production/s3/s3-facebook-posting-pack.zip"
+      },
+      "linkedin": {
+        "slides": [
+          "production/s3/linkedin/01-s3-linkedin-1200x1500.jpg",
+          "production/s3/linkedin/02-s3-linkedin-1200x1500.jpg",
+          "production/s3/linkedin/03-s3-linkedin-1200x1500.jpg",
+          "production/s3/linkedin/04-s3-linkedin-1200x1500.jpg",
+          "production/s3/linkedin/05-s3-linkedin-1200x1500.jpg"
+        ],
+        "document_pdf": "production/s3/s3-linkedin-document-carousel.pdf",
+        "zip": "production/s3/s3-linkedin-document-pack.zip"
+      }
+    },
+    {
+      "id": "s4",
+      "title": "The Spring reset weekend",
+      "instagram": {
+        "slides": [
+          "production/s4/instagram/01-s4-instagram-1080x1350.jpg",
+          "production/s4/instagram/02-s4-instagram-1080x1350.jpg",
+          "production/s4/instagram/03-s4-instagram-1080x1350.jpg",
+          "production/s4/instagram/04-s4-instagram-1080x1350.jpg",
+          "production/s4/instagram/05-s4-instagram-1080x1350.jpg"
+        ],
+        "proof_pdf": "production/s4/s4-instagram-carousel-proof.pdf",
+        "zip": "production/s4/s4-instagram-posting-pack.zip"
+      },
+      "facebook": {
+        "slides": [
+          "production/s4/facebook/01-s4-facebook-1200x1500.jpg",
+          "production/s4/facebook/02-s4-facebook-1200x1500.jpg",
+          "production/s4/facebook/03-s4-facebook-1200x1500.jpg",
+          "production/s4/facebook/04-s4-facebook-1200x1500.jpg",
+          "production/s4/facebook/05-s4-facebook-1200x1500.jpg"
+        ],
+        "proof_pdf": "production/s4/s4-facebook-carousel-proof.pdf",
+        "zip": "production/s4/s4-facebook-posting-pack.zip"
+      },
+      "linkedin": {
+        "slides": [
+          "production/s4/linkedin/01-s4-linkedin-1200x1500.jpg",
+          "production/s4/linkedin/02-s4-linkedin-1200x1500.jpg",
+          "production/s4/linkedin/03-s4-linkedin-1200x1500.jpg",
+          "production/s4/linkedin/04-s4-linkedin-1200x1500.jpg",
+          "production/s4/linkedin/05-s4-linkedin-1200x1500.jpg"
+        ],
+        "document_pdf": "production/s4/s4-linkedin-document-carousel.pdf",
+        "zip": "production/s4/s4-linkedin-document-pack.zip"
+      }
+    }
+  ],
+  "files": [
+    {
+      "path": "production/s1/facebook/01-s1-facebook-1200x1500.jpg",
+      "bytes": 217363,
+      "sha256": "83bf7210d6fa2468b49dc0720fa52c1848299c15ab528c0e0e50dfd6164c87d0"
+    },
+    {
+      "path": "production/s1/facebook/02-s1-facebook-1200x1500.jpg",
+      "bytes": 304211,
+      "sha256": "32e7b7e0ea503107430bcf96d2394608a315a3e4c05c4ed74c57fbea24f5dbd0"
+    },
+    {
+      "path": "production/s1/facebook/03-s1-facebook-1200x1500.jpg",
+      "bytes": 299455,
+      "sha256": "5016c3831489a8af561e9fd51291ebe358c132448e7faeb396189819d6056b2f"
+    },
+    {
+      "path": "production/s1/facebook/04-s1-facebook-1200x1500.jpg",
+      "bytes": 309860,
+      "sha256": "bbd78e59b0375b5a784febfb86311801fe9eee919034f90703661b5cf8fb3bd4"
+    },
+    {
+      "path": "production/s1/facebook/05-s1-facebook-1200x1500.jpg",
+      "bytes": 218241,
+      "sha256": "fb321bebeacd24de485ba7e2ad28952c2e3427e04b4c099068e16d68d6b04745"
+    },
+    {
+      "path": "production/s1/instagram/01-s1-instagram-1080x1350.jpg",
+      "bytes": 174170,
+      "sha256": "f92e333fdde86db89a1b45798ee0f7590187f592f5dacedf8356e0d2b98a5b00"
+    },
+    {
+      "path": "production/s1/instagram/02-s1-instagram-1080x1350.jpg",
+      "bytes": 257328,
+      "sha256": "133461c059ca1bb44e9b2e55e4f6a7fad67efafc48eeb4b704c24ac63f64b7c6"
+    },
+    {
+      "path": "production/s1/instagram/03-s1-instagram-1080x1350.jpg",
+      "bytes": 252746,
+      "sha256": "ede688e5036cb997ac2ab8308b4ecf02cfd8caba6967e2a4a0108d1e298a6d8f"
+    },
+    {
+      "path": "production/s1/instagram/04-s1-instagram-1080x1350.jpg",
+      "bytes": 261051,
+      "sha256": "96b579f9f5a619140e7289728e7a1a9b10010e3198a6fa0b95e817da83dc8818"
+    },
+    {
+      "path": "production/s1/instagram/05-s1-instagram-1080x1350.jpg",
+      "bytes": 174957,
+      "sha256": "86676b3ba516a11b21142726684c334d6099d619ed5d27fb1a10abbc9581ccc1"
+    },
+    {
+      "path": "production/s1/linkedin/01-s1-linkedin-1200x1500.jpg",
+      "bytes": 217363,
+      "sha256": "83bf7210d6fa2468b49dc0720fa52c1848299c15ab528c0e0e50dfd6164c87d0"
+    },
+    {
+      "path": "production/s1/linkedin/02-s1-linkedin-1200x1500.jpg",
+      "bytes": 304211,
+      "sha256": "32e7b7e0ea503107430bcf96d2394608a315a3e4c05c4ed74c57fbea24f5dbd0"
+    },
+    {
+      "path": "production/s1/linkedin/03-s1-linkedin-1200x1500.jpg",
+      "bytes": 299455,
+      "sha256": "5016c3831489a8af561e9fd51291ebe358c132448e7faeb396189819d6056b2f"
+    },
+    {
+      "path": "production/s1/linkedin/04-s1-linkedin-1200x1500.jpg",
+      "bytes": 309860,
+      "sha256": "bbd78e59b0375b5a784febfb86311801fe9eee919034f90703661b5cf8fb3bd4"
+    },
+    {
+      "path": "production/s1/linkedin/05-s1-linkedin-1200x1500.jpg",
+      "bytes": 218241,
+      "sha256": "fb321bebeacd24de485ba7e2ad28952c2e3427e04b4c099068e16d68d6b04745"
+    },
+    {
+      "path": "production/s1/s1-facebook-carousel-proof.pdf",
+      "bytes": 679634,
+      "sha256": "a14d05d571cca0fd4105c57175b6da5c438cb05d726780d84e9529c3f4e13086"
+    },
+    {
+      "path": "production/s1/s1-facebook-posting-pack.zip",
+      "bytes": 1940126,
+      "sha256": "6f4e44449ac85163f6ca2e87fa97e5dde3e6a6f4a0acb90bcc43867c1946093e"
+    },
+    {
+      "path": "production/s1/s1-instagram-carousel-proof.pdf",
+      "bytes": 575580,
+      "sha256": "e6b2977708515848f08e9af5f0ec42c67045e6a90d36da71bfbd7cacf6f02ec4"
+    },
+    {
+      "path": "production/s1/s1-instagram-posting-pack.zip",
+      "bytes": 1617037,
+      "sha256": "9b24e3864302374f1d1ed701fd005dddfe037f132dcd8c017435b08eb2ad4acf"
+    },
+    {
+      "path": "production/s1/s1-linkedin-document-carousel.pdf",
+      "bytes": 679640,
+      "sha256": "600076f1753af619923f314e066bfa33be12c1e601f5ae5e8632caa664701c62"
+    },
+    {
+      "path": "production/s1/s1-linkedin-document-pack.zip",
+      "bytes": 1940139,
+      "sha256": "4df9808a5282eaf4cb0c43959f1b6b83e8749b1acf237e3e0bb7b98fb1f7ede4"
+    },
+    {
+      "path": "production/s2/facebook/01-s2-facebook-1200x1500.jpg",
+      "bytes": 236820,
+      "sha256": "79f6bcce9ac65702cedd906c692fe282e57ab433db845c0c975d581178017395"
+    },
+    {
+      "path": "production/s2/facebook/02-s2-facebook-1200x1500.jpg",
+      "bytes": 328467,
+      "sha256": "7b4c7c063dc79d4cde39f573a65ac7849728a9d1e03e988afcf32236b7b54161"
+    },
+    {
+      "path": "production/s2/facebook/03-s2-facebook-1200x1500.jpg",
+      "bytes": 331596,
+      "sha256": "500a999bf770ec8b9ddc5f87387797a0bf604f68d639208a70f1eb6ba36a3d1d"
+    },
+    {
+      "path": "production/s2/facebook/04-s2-facebook-1200x1500.jpg",
+      "bytes": 334123,
+      "sha256": "f1dd61e50845782015f15743aa998e157a4e5ab9c1675e3170249bf6ff84a7fb"
+    },
+    {
+      "path": "production/s2/facebook/05-s2-facebook-1200x1500.jpg",
+      "bytes": 240581,
+      "sha256": "1a56bcabf7743f080b94b3c3dcccedde8c247aa7437b1c82cb2dd2422d18491a"
+    },
+    {
+      "path": "production/s2/instagram/01-s2-instagram-1080x1350.jpg",
+      "bytes": 192246,
+      "sha256": "ea1e9da34d53e989e729dcaadea2cf10a06d703c34b3d9e6a70a37affc663607"
+    },
+    {
+      "path": "production/s2/instagram/02-s2-instagram-1080x1350.jpg",
+      "bytes": 282160,
+      "sha256": "584b952013d006546ed7d3bba053fb8b93a92029920c7cf46c93fde74847ef52"
+    },
+    {
+      "path": "production/s2/instagram/03-s2-instagram-1080x1350.jpg",
+      "bytes": 285171,
+      "sha256": "ba3ba0434cece0c021cb2b8766907d60a053db573833daebb3475c7e5e7062f1"
+    },
+    {
+      "path": "production/s2/instagram/04-s2-instagram-1080x1350.jpg",
+      "bytes": 287511,
+      "sha256": "83945a092636ac4087d1a844acae4d3429d710411020bb5901f75585e61a11ed"
+    },
+    {
+      "path": "production/s2/instagram/05-s2-instagram-1080x1350.jpg",
+      "bytes": 195512,
+      "sha256": "45b414364c49943940f9c9ca6319cd6b5798730147247146fe61bc18adacfb88"
+    },
+    {
+      "path": "production/s2/linkedin/01-s2-linkedin-1200x1500.jpg",
+      "bytes": 236820,
+      "sha256": "79f6bcce9ac65702cedd906c692fe282e57ab433db845c0c975d581178017395"
+    },
+    {
+      "path": "production/s2/linkedin/02-s2-linkedin-1200x1500.jpg",
+      "bytes": 328467,
+      "sha256": "7b4c7c063dc79d4cde39f573a65ac7849728a9d1e03e988afcf32236b7b54161"
+    },
+    {
+      "path": "production/s2/linkedin/03-s2-linkedin-1200x1500.jpg",
+      "bytes": 331596,
+      "sha256": "500a999bf770ec8b9ddc5f87387797a0bf604f68d639208a70f1eb6ba36a3d1d"
+    },
+    {
+      "path": "production/s2/linkedin/04-s2-linkedin-1200x1500.jpg",
+      "bytes": 334123,
+      "sha256": "f1dd61e50845782015f15743aa998e157a4e5ab9c1675e3170249bf6ff84a7fb"
+    },
+    {
+      "path": "production/s2/linkedin/05-s2-linkedin-1200x1500.jpg",
+      "bytes": 240581,
+      "sha256": "1a56bcabf7743f080b94b3c3dcccedde8c247aa7437b1c82cb2dd2422d18491a"
+    },
+    {
+      "path": "production/s2/s2-facebook-carousel-proof.pdf",
+      "bytes": 745277,
+      "sha256": "625607509ff62111276bf53ae68a8ef2136c8558a0234bc83b87430de3764d9d"
+    },
+    {
+      "path": "production/s2/s2-facebook-posting-pack.zip",
+      "bytes": 2141386,
+      "sha256": "3c28c8986fa3e50b074f26129a4ea7c8919c89a9649228c6bcf7eb447536fdff"
+    },
+    {
+      "path": "production/s2/s2-instagram-carousel-proof.pdf",
+      "bytes": 639585,
+      "sha256": "2ff321379d2f2530454e75039fe887691205f33b6f98e6a927c577f15ed0ac69"
+    },
+    {
+      "path": "production/s2/s2-instagram-posting-pack.zip",
+      "bytes": 1810283,
+      "sha256": "059bed82fce2d8d2c49ba3907a0561fcd7695678aec961efd34ec64bc5e508b1"
+    },
+    {
+      "path": "production/s2/s2-linkedin-document-carousel.pdf",
+      "bytes": 745283,
+      "sha256": "a0335334b5ca6a534eef5569424f659a220edd5434e2214e24ff8bd63c42489d"
+    },
+    {
+      "path": "production/s2/s2-linkedin-document-pack.zip",
+      "bytes": 2141398,
+      "sha256": "042ba800a5d9eced08a8afd4693d0b4c88d56e6c9fda762c86d4b73879cb32da"
+    },
+    {
+      "path": "production/s3/facebook/01-s3-facebook-1200x1500.jpg",
+      "bytes": 205901,
+      "sha256": "869e133cb506a9fb8e95a6555be42b429c1c0b2bf4ba153b1c776ee6a67bc653"
+    },
+    {
+      "path": "production/s3/facebook/02-s3-facebook-1200x1500.jpg",
+      "bytes": 299926,
+      "sha256": "53041e92b4e268042af1d36c2c7c5085684340b562c1f21f5d6535d495458dc3"
+    },
+    {
+      "path": "production/s3/facebook/03-s3-facebook-1200x1500.jpg",
+      "bytes": 301222,
+      "sha256": "912d435ce868b81c8131cfbd3f8d9c81b0127bb72f4b73f4caba9248952dc253"
+    },
+    {
+      "path": "production/s3/facebook/04-s3-facebook-1200x1500.jpg",
+      "bytes": 296350,
+      "sha256": "9d034fd684368dac41237b6059efa8c82cbb5614c3452c87d9abb36ac35cd847"
+    },
+    {
+      "path": "production/s3/facebook/05-s3-facebook-1200x1500.jpg",
+      "bytes": 191570,
+      "sha256": "a0067956c236f0c2c34dbed64e1663ba6939b29a2e0335274251924a8f86f681"
+    },
+    {
+      "path": "production/s3/instagram/01-s3-instagram-1080x1350.jpg",
+      "bytes": 165682,
+      "sha256": "67e800690f5ad6891009b78df0a4c72a88e5275150f522abab16c7b995679bfc"
+    },
+    {
+      "path": "production/s3/instagram/02-s3-instagram-1080x1350.jpg",
+      "bytes": 253620,
+      "sha256": "d6fa6e0f3421a6eb27b291676762c5aed6f10a1d2101ea522f314dc7e0d1e692"
+    },
+    {
+      "path": "production/s3/instagram/03-s3-instagram-1080x1350.jpg",
+      "bytes": 255058,
+      "sha256": "1ff747bdf51fedd15d06507c6cefedbe4463e3244605f0b6c20611afaaba534d"
+    },
+    {
+      "path": "production/s3/instagram/04-s3-instagram-1080x1350.jpg",
+      "bytes": 250333,
+      "sha256": "085acb44f63c51a7685855fb176058df49a27bbe1dda6f234ae67ca2c565e527"
+    },
+    {
+      "path": "production/s3/instagram/05-s3-instagram-1080x1350.jpg",
+      "bytes": 152327,
+      "sha256": "c91f073e3f9192b97b241147c1b251d5b6caee916aed7e5458634e7ede0d229e"
+    },
+    {
+      "path": "production/s3/linkedin/01-s3-linkedin-1200x1500.jpg",
+      "bytes": 205901,
+      "sha256": "869e133cb506a9fb8e95a6555be42b429c1c0b2bf4ba153b1c776ee6a67bc653"
+    },
+    {
+      "path": "production/s3/linkedin/02-s3-linkedin-1200x1500.jpg",
+      "bytes": 299926,
+      "sha256": "53041e92b4e268042af1d36c2c7c5085684340b562c1f21f5d6535d495458dc3"
+    },
+    {
+      "path": "production/s3/linkedin/03-s3-linkedin-1200x1500.jpg",
+      "bytes": 301222,
+      "sha256": "912d435ce868b81c8131cfbd3f8d9c81b0127bb72f4b73f4caba9248952dc253"
+    },
+    {
+      "path": "production/s3/linkedin/04-s3-linkedin-1200x1500.jpg",
+      "bytes": 296350,
+      "sha256": "9d034fd684368dac41237b6059efa8c82cbb5614c3452c87d9abb36ac35cd847"
+    },
+    {
+      "path": "production/s3/linkedin/05-s3-linkedin-1200x1500.jpg",
+      "bytes": 191570,
+      "sha256": "a0067956c236f0c2c34dbed64e1663ba6939b29a2e0335274251924a8f86f681"
+    },
+    {
+      "path": "production/s3/s3-facebook-carousel-proof.pdf",
+      "bytes": 658810,
+      "sha256": "06543e414d3638de9ee55d9186bab752f07485322c934bc8b981f40567988d18"
+    },
+    {
+      "path": "production/s3/s3-facebook-posting-pack.zip",
+      "bytes": 1860119,
+      "sha256": "10e7ccd6b3a1f708ee3f1bfd4e7f9ee6eae9b84aa90b091bfb6f650ab2c7f69b"
+    },
+    {
+      "path": "production/s3/s3-instagram-carousel-proof.pdf",
+      "bytes": 561735,
+      "sha256": "dbf9706ea5b797428c5f51bf0a1025ca5d22c986d3820d85b916551fc1dedf5c"
+    },
+    {
+      "path": "production/s3/s3-instagram-posting-pack.zip",
+      "bytes": 1556195,
+      "sha256": "d018f26176b3241975d77dd8860815134cfd56491c0cc4291713b651199d7c5c"
+    },
+    {
+      "path": "production/s3/s3-linkedin-document-carousel.pdf",
+      "bytes": 658816,
+      "sha256": "c5a4e03bbd61f6d1a40a8d7072e794ae33f46d43de4069924b6da9aea133870c"
+    },
+    {
+      "path": "production/s3/s3-linkedin-document-pack.zip",
+      "bytes": 1860131,
+      "sha256": "810f070bd0372261d17313cb15cf4b088e8fab11adec3bb8f2612d13cd0b8568"
+    },
+    {
+      "path": "production/s4/facebook/01-s4-facebook-1200x1500.jpg",
+      "bytes": 179454,
+      "sha256": "2e3808a83d4ef11f95a2b9fa754f9c36eaf8fd776024dc11cd377a050878fb49"
+    },
+    {
+      "path": "production/s4/facebook/02-s4-facebook-1200x1500.jpg",
+      "bytes": 254032,
+      "sha256": "d810cd5efe9e8f2e258acdcbdb3dd42344f3dfa12f537a1c62f45d40731e074b"
+    },
+    {
+      "path": "production/s4/facebook/03-s4-facebook-1200x1500.jpg",
+      "bytes": 259323,
+      "sha256": "fc35a1c0583d9b3177404785c5649f82bc8253d9be52db3046b16ccec001af1c"
+    },
+    {
+      "path": "production/s4/facebook/04-s4-facebook-1200x1500.jpg",
+      "bytes": 265671,
+      "sha256": "0547d20021d1c2654f06ab39ecda26bb330329dfd43e7e7a072339992e84a3d2"
+    },
+    {
+      "path": "production/s4/facebook/05-s4-facebook-1200x1500.jpg",
+      "bytes": 181910,
+      "sha256": "66fa1a064718c9be5e909a07cde2f04d3e4c6c3d868723e59306886854348c50"
+    },
+    {
+      "path": "production/s4/instagram/01-s4-instagram-1080x1350.jpg",
+      "bytes": 143007,
+      "sha256": "bc9a715be8092407f2cc677ee3d0aba99351b15bd5e0a6ab65729a3b77c27827"
+    },
+    {
+      "path": "production/s4/instagram/02-s4-instagram-1080x1350.jpg",
+      "bytes": 212717,
+      "sha256": "6f783423b7a53595cb6712885876bff47eb4803b12b4484aa0135b54e878d6c5"
+    },
+    {
+      "path": "production/s4/instagram/03-s4-instagram-1080x1350.jpg",
+      "bytes": 216899,
+      "sha256": "d4e15510a428d9bea862388cf6bbfff2b4680e0b3653666f435532606ce50eef"
+    },
+    {
+      "path": "production/s4/instagram/04-s4-instagram-1080x1350.jpg",
+      "bytes": 222676,
+      "sha256": "fc6d32c1d262ad9a665cb27539750aadf21f79ee8ce8e82ba829d89e1474ec79"
+    },
+    {
+      "path": "production/s4/instagram/05-s4-instagram-1080x1350.jpg",
+      "bytes": 143765,
+      "sha256": "05429e4ef3748a303990b26d2fdac5f0440e7f4ed18e29bd7545e011bc1fb001"
+    },
+    {
+      "path": "production/s4/linkedin/01-s4-linkedin-1200x1500.jpg",
+      "bytes": 179454,
+      "sha256": "2e3808a83d4ef11f95a2b9fa754f9c36eaf8fd776024dc11cd377a050878fb49"
+    },
+    {
+      "path": "production/s4/linkedin/02-s4-linkedin-1200x1500.jpg",
+      "bytes": 254032,
+      "sha256": "d810cd5efe9e8f2e258acdcbdb3dd42344f3dfa12f537a1c62f45d40731e074b"
+    },
+    {
+      "path": "production/s4/linkedin/03-s4-linkedin-1200x1500.jpg",
+      "bytes": 259323,
+      "sha256": "fc35a1c0583d9b3177404785c5649f82bc8253d9be52db3046b16ccec001af1c"
+    },
+    {
+      "path": "production/s4/linkedin/04-s4-linkedin-1200x1500.jpg",
+      "bytes": 265671,
+      "sha256": "0547d20021d1c2654f06ab39ecda26bb330329dfd43e7e7a072339992e84a3d2"
+    },
+    {
+      "path": "production/s4/linkedin/05-s4-linkedin-1200x1500.jpg",
+      "bytes": 181910,
+      "sha256": "66fa1a064718c9be5e909a07cde2f04d3e4c6c3d868723e59306886854348c50"
+    },
+    {
+      "path": "production/s4/s4-facebook-carousel-proof.pdf",
+      "bytes": 586273,
+      "sha256": "c6fe688b2e424fb2a09d18ac049722d0da6a677044cb726fcdb11874c52820a8"
+    },
+    {
+      "path": "production/s4/s4-facebook-posting-pack.zip",
+      "bytes": 1628818,
+      "sha256": "812720b2958baf40f1c84252b62dbf2e87bc6bb47f26184ee5009385661bfa4d"
+    },
+    {
+      "path": "production/s4/s4-instagram-carousel-proof.pdf",
+      "bytes": 498928,
+      "sha256": "632acc82777f28942c35e74f25be928919c81778fdb0c71b099d2e5ef222a891"
+    },
+    {
+      "path": "production/s4/s4-instagram-posting-pack.zip",
+      "bytes": 1353980,
+      "sha256": "98fd7042c95c57d10086a2083f7917167c8a61dc1368771beeae401e76ab0db1"
+    },
+    {
+      "path": "production/s4/s4-linkedin-document-carousel.pdf",
+      "bytes": 586279,
+      "sha256": "b0009426ce68d69aee1b6c006d2ab1c32be20833eea5a6577c69051bd183e794"
+    },
+    {
+      "path": "production/s4/s4-linkedin-document-pack.zip",
+      "bytes": 1628830,
+      "sha256": "343c4156ee90835bc6ddadb0da61c486924b282e0d91b2b5b32229c44e62518b"
+    }
+  ]
+}
