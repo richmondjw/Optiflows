@@ -449,7 +449,7 @@
           handoff.className = 'handoff';
           var items = draft.items || [{ id: draft.id, label: 'Open draft in Buffer' }];
           handoff.innerHTML = '<div class="handoff__head"><strong>Buffer draft ready</strong><span>' + esc(draft.platform) + '</span></div>' +
-            '<div class="handoff__actions">' + items.map(function (item) { return '<a class="action" target="_blank" rel="noopener" href="https://publish.buffer.com/calendar/week?postId=' + encodeURIComponent(item.id) + '">' + esc(item.label) + '</a>'; }).join('') + '</div>' +
+            '<div class="handoff__actions">' + items.map(function (item) { return '<a class="action" target="_blank" rel="noopener" href="https://publish.buffer.com/profile/69f5f6ca5c4c051afa0243e0/tab/drafts?postId=' + encodeURIComponent(item.id) + '">' + esc(item.label) + '</a>'; }).join('') + '</div>' +
             '<p class="handoff__id">' + items.map(function (item) { return 'Draft ' + esc(item.id); }).join(' · ') + '</p>';
           box.after(handoff);
         }
