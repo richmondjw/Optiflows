@@ -1,0 +1,23 @@
+{
+  "organization": "My Organization",
+  "channel": "peninsula_insider",
+  "channelId": "69f5f6ca5c4c051afa0243e0",
+  "generatedAt": "2026-09-28T03:53:22Z",
+  "drafts": {
+    "w1-feed": {"id": "6ab9e4ab36a0dcfcb3eefad5", "platform": "Instagram feed"},
+    "w1-carousel": {"id": "6ab9e4ab70ec211d1d325a6c", "platform": "Instagram carousel"},
+    "w1-stories": {
+      "platform": "Instagram Stories",
+      "items": [
+        {"id": "6ab9e4ac54f1e60c7e857a5c", "label": "Story 1"},
+        {"id": "6ab9e4ad70ec211d1d325a8f", "label": "Story 2"},
+        {"id": "6ab9e4ad54f1e60c7e857a83", "label": "Story 3"}
+      ]
+    },
+    "w2-feed": {"id": "6ab9e4ae70ec211d1d325ad0", "platform": "Instagram feed"},
+    "w2-motion": {"id": "6ab9e4afa94ef4516f285df0", "platform": "Instagram Reel"},
+    "w3-urgency": {"id": "6ab9e4b0612c9e6ac93e3a13", "platform": "Instagram feed"},
+    "w3-countdown": {"id": "6ab9e4b070ec211d1d325afc", "platform": "Instagram Story"},
+    "w3-reshare": {"id": "6ab9e4b154f1e60c7e857b17", "platform": "Instagram feed"}
+  }
+}
