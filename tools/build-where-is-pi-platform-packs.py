@@ -78,7 +78,7 @@ def main() -> None:
             images.append(image)
             files.append({
                 "order": index,
-                "file": str(target.relative_to(CAMPAIGN)),
+                "file": target.relative_to(CAMPAIGN).as_posix(),
                 "width": image.width,
                 "height": image.height,
                 "sha256": sha256(target),
@@ -93,7 +93,7 @@ def main() -> None:
             "Order:\n"
             + "\n".join(f"{index:02d}. {filename}" for index, filename in enumerate(SLIDES, start=1))
             + "\n\nNothing in this pack schedules or publishes automatically. Review the draft in Buffer, choose a time, then schedule inside the authenticated Buffer workspace.\n",
-            encoding="utf-8",
+            encoding="utf-8", newline="\n",
         )
         zip_path = platform_dir / spec["zip"]
         with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
@@ -104,20 +104,20 @@ def main() -> None:
                 archive.write(slide_path, f"slides/{slide_path.name}")
         manifest["platforms"][platform] = {
             "usage": spec["instructions"],
-            "pdf": str(pdf_path.relative_to(CAMPAIGN)),
+            "pdf": pdf_path.relative_to(CAMPAIGN).as_posix(),
             "pdfSha256": sha256(pdf_path),
-            "zip": str(zip_path.relative_to(CAMPAIGN)),
+            "zip": zip_path.relative_to(CAMPAIGN).as_posix(),
             "zipSha256": sha256(zip_path),
             "slides": files,
         }
 
     manifest_path = OUTPUT / "manifest.json"
-    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+    manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8", newline="\n")
     checksums = []
     for path in sorted(OUTPUT.rglob("*")):
         if path.is_file() and path != OUTPUT / "SHA256SUMS.txt":
-            checksums.append(f"{sha256(path)}  {path.relative_to(OUTPUT)}")
-    (OUTPUT / "SHA256SUMS.txt").write_text("\n".join(checksums) + "\n", encoding="utf-8")
+            checksums.append(f"{sha256(path)}  {path.relative_to(OUTPUT).as_posix()}")
+    (OUTPUT / "SHA256SUMS.txt").write_text("\n".join(checksums) + "\n", encoding="utf-8", newline="\n")
 
 
 if __name__ == "__main__":

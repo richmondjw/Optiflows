@@ -66,7 +66,7 @@ const pack = {
   campaign: provenance.campaign,
   generatedAt: new Date().toISOString(),
   cta: provenance.copy.cta,
-  prize: `${provenance.copy.prize_line} Draw closes ${provenance.copy.draw_closes}.`,
+  prize: `${provenance.copy.prize_line} Entries close ${provenance.copy.draw_closes}; winner drawn ${provenance.copy.winner_drawn}.`,
   assets,
   posts: copyFile.posts,
   bufferDrafts,
@@ -208,8 +208,11 @@ await fs.copyFile(path.join(dir, "assets/motion/motion-01-mornington-pier-9x16.m
 await fs.copyFile(path.join(downloads, "captions.txt"), path.join(staging, "captions.txt"));
 await fs.copyFile(pdfPath, path.join(staging, "where-is-pi-case-01-campaign-pack.pdf"));
 const execFileAsync = promisify(execFile);
+const toWindowsPath = async (value) => (await execFileAsync("wslpath", ["-w", value])).stdout.trim();
+const stagingWindows = await toWindowsPath(staging);
+const zipWindows = await toWindowsPath(zipPath);
 await execFileAsync("powershell.exe", ["-NoProfile", "-NonInteractive", "-Command",
-  `Compress-Archive -Path '${staging}\\*' -DestinationPath '${zipPath}' -Force`]);
+  `Compress-Archive -Path '${stagingWindows}\\*' -DestinationPath '${zipWindows}' -Force`]);
 await fs.rm(staging, { recursive: true, force: true });
 
 const kb = async (f) => Math.round((await fs.stat(f)).size / 1024);
