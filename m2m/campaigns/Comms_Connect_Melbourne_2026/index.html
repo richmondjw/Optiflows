@@ -93,6 +93,10 @@ h1.sec-title{font-size:var(--t-2xl);font-weight:600;color:var(--dark-teal);margi
   border-bottom:2px solid var(--rule);padding:10px 12px}
 .sec-body td{border-bottom:1px solid var(--rule-soft);padding:10px 12px;
   vertical-align:top}
+.yn{display:inline-flex;gap:6px}
+.yn button{min-width:44px;min-height:44px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);font:inherit;font-weight:700;border-radius:6px;cursor:pointer}
+.yn button[aria-pressed="true"][data-v="Y"]{background:var(--teal);border-color:var(--teal);color:#fff}
+.yn button[aria-pressed="true"][data-v="N"]{background:var(--cool-gray);border-color:var(--cool-gray);color:#fff}
 .table-scroll{overflow-x:auto}
 .cover{background:var(--surface);border:1px solid var(--rule);border-top:4px solid var(--teal);
   border-radius:12px;padding:var(--s-4);margin-bottom:var(--s-5)}
@@ -525,57 +529,57 @@ ul:has(>li.todo){padding-left:0;margin:var(--s-2) 0}
 <tbody>
 <tr>
 <td>Peter Austin</td>
-<td>TBC</td>
-<td>TBC</td>
+<td><span class="yn" data-p="peter-austin" data-d="wed"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
+<td><span class="yn" data-p="peter-austin" data-d="thu"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
 </tr>
 <tr>
 <td>Tony Chen</td>
-<td>TBC</td>
-<td>TBC</td>
+<td><span class="yn" data-p="tony-chen" data-d="wed"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
+<td><span class="yn" data-p="tony-chen" data-d="thu"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
 </tr>
 <tr>
 <td>Giana Cortese</td>
-<td>TBC</td>
-<td>TBC</td>
+<td><span class="yn" data-p="giana-cortese" data-d="wed"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
+<td><span class="yn" data-p="giana-cortese" data-d="thu"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
 </tr>
 <tr>
 <td>Georgia Eierweis</td>
-<td>TBC</td>
-<td>TBC</td>
+<td><span class="yn" data-p="georgia-eierweis" data-d="wed"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
+<td><span class="yn" data-p="georgia-eierweis" data-d="thu"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
 </tr>
 <tr>
 <td>Ken MacRaild</td>
-<td>TBC</td>
-<td>TBC</td>
+<td><span class="yn" data-p="ken-macraild" data-d="wed"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
+<td><span class="yn" data-p="ken-macraild" data-d="thu"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
 </tr>
 <tr>
 <td>James Richmond</td>
-<td>TBC</td>
-<td>TBC</td>
+<td><span class="yn" data-p="james-richmond" data-d="wed"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
+<td><span class="yn" data-p="james-richmond" data-d="thu"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
 </tr>
 <tr>
 <td>Liam Velkos</td>
-<td>TBC</td>
-<td>TBC</td>
+<td><span class="yn" data-p="liam-velkos" data-d="wed"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
+<td><span class="yn" data-p="liam-velkos" data-d="thu"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
 </tr>
 <tr>
 <td>Eerin Haselgrove</td>
-<td>TBC</td>
-<td>TBC</td>
+<td><span class="yn" data-p="eerin-haselgrove" data-d="wed"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
+<td><span class="yn" data-p="eerin-haselgrove" data-d="thu"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
 </tr>
 <tr>
 <td>Jeff Ma</td>
-<td>TBC</td>
-<td>TBC</td>
+<td><span class="yn" data-p="jeff-ma" data-d="wed"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
+<td><span class="yn" data-p="jeff-ma" data-d="thu"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
 </tr>
 <tr>
 <td>Byron Thanopoulos</td>
-<td>TBC</td>
-<td>TBC</td>
+<td><span class="yn" data-p="byron-thanopoulos" data-d="wed"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
+<td><span class="yn" data-p="byron-thanopoulos" data-d="thu"><button type="button" data-v="Y" aria-pressed="false">Y</button><button type="button" data-v="N" aria-pressed="false">N</button></span></td>
 </tr>
 </tbody>
 </table></div>
-<aside class="callout gap" role="note"><span class="tag">Roster to come</span><p>Registrations are still being finalised. Stand shifts for Wednesday 14 and Thursday 15 October will be added here.</p></aside>
+<aside class="callout gap" role="note"><span class="tag">Roster to come</span><p>Registrations are still being finalised. Tap Y or N under each day to show who is on the stand. Choices save for everyone.</p></aside>
 <h2>Event timetable</h2>
 <h3>Tuesday 13 October — move-in</h3>
 <div class="table-scroll"><table>
@@ -809,6 +813,21 @@ document.querySelectorAll('li.todo').forEach(function(li,i){
   li.addEventListener('click',t);
   li.addEventListener('keydown',function(e){if(e.key===' '||e.key==='Enter'){e.preventDefault();t()}});
 });})();
+</script>
+<script>
+(function(){var U='https://falling-cell-dc6f.james-richmondau.workers.dev',D='cc26-roster',LK='cc26-roster-local',st={};
+try{st=JSON.parse(localStorage.getItem(LK)||'{}')}catch(e){}
+function paint(){document.querySelectorAll('.yn').forEach(function(g){var r=st[g.dataset.p]||{},v=r[g.dataset.d]||'';
+g.querySelectorAll('button').forEach(function(b){b.setAttribute('aria-pressed',b.dataset.v===v?'true':'false')})})}
+function load(){fetch(U,{cache:'no-store'}).then(function(r){return r.json()}).then(function(a){
+(a||[]).forEach(function(c){if(c&&c.doc===D&&c.person&&!c.dirty){st[c.person]={wed:c.wed||'',thu:c.thu||''}}});
+try{localStorage.setItem(LK,JSON.stringify(st))}catch(e){}paint()}).catch(function(){})}
+document.querySelectorAll('.yn button').forEach(function(b){b.addEventListener('click',function(){
+var g=b.parentNode,p=g.dataset.p,d=g.dataset.d,r=st[p]=st[p]||{wed:'',thu:''};
+r[d]=r[d]===b.dataset.v?'':b.dataset.v;paint();
+try{localStorage.setItem(LK,JSON.stringify(st))}catch(e){}
+fetch(U,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({id:D+'-'+p,doc:D,person:p,wed:r.wed,thu:r.thu,ts:Date.now()})}).catch(function(){})})});
+paint();load();setInterval(load,15000);})();
 </script>
 </body>
 </html>
