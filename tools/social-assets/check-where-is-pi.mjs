@@ -29,7 +29,7 @@ off.length ? fail.push(`renderer uses off-token colours: ${off.join(", ")}`) : o
 // 2. copy source of truth
 const urlMatch = renderer.match(/const URL_CTA = "([^"]+)"/);
 const prizeMatch = renderer.match(/const PRIZE = "([^"]+)"/);
-const expectedPrize = `${provenance.copy.prize_line} Draw closes ${provenance.copy.draw_closes}.`;
+const expectedPrize = `${provenance.copy.prize_line} Entries close ${provenance.copy.draw_closes}; winner drawn ${provenance.copy.winner_drawn}.`;
 urlMatch?.[1] === provenance.copy.cta ? ok(`CTA URL matches provenance: ${urlMatch[1]}`) : fail.push(`CTA URL drift: renderer "${urlMatch?.[1]}" vs provenance "${provenance.copy.cta}"`);
 prizeMatch?.[1] === expectedPrize ? ok("prize line matches provenance") : fail.push(`prize line drift:\n  renderer:   ${prizeMatch?.[1]}\n  provenance: ${expectedPrize}`);
 // Case 01's answer is the route mornington -> cape-schanck -> main-ridge -> red-hill, venue Montalto.
@@ -89,7 +89,7 @@ if (!packMatch) {
   let pack;
   try { pack = JSON.parse(packMatch[1]); } catch (e) { pack = null; fail.push("the generated campaign-copy block is not valid JSON"); }
   if (pack) {
-    const expectedPrize = `${provenance.copy.prize_line} Draw closes ${provenance.copy.draw_closes}.`;
+    const expectedPrize = `${provenance.copy.prize_line} Entries close ${provenance.copy.draw_closes}; winner drawn ${provenance.copy.winner_drawn}.`;
     pack.cta === provenance.copy.cta || fail.push("generated copy block CTA does not match the receipt");
     pack.prize === expectedPrize || fail.push("generated copy block prize does not match the receipt");
     const tagged = [...new Set([...page.matchAll(/data-copy-id="([^"]+)"/g)].map((m) => m[1]))];
