@@ -1,4 +1,4 @@
-# Comms Connect Melbourne 2026 — Pre-Event Sales Briefing (private draft v0.3)
+# Comms Connect Melbourne 2026 — Pre-Event Sales Briefing (private draft v0.4)
 
 - Published path: /m2m/campaigns/Comms_Connect_Melbourne_2026/ (noindex, internal M2M Group sales use)
 - Pack id: comms-connect-melbourne-sales-kickoff-2026 (marketing mode, Semtech palette, Titillium Web)
