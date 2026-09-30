@@ -310,6 +310,28 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 .ws .marks{gap:9px}
 .ws .two-col{gap:9px 40px}
 
+/* delivery plan: workstream, outcome, hours */
+.plan td:first-child{width:27%}
+.plan th:last-child,.plan td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;width:12%}
+.plan td:last-child{font-weight:600;color:var(--dark)}
+.plan tr.total td{font-weight:600;color:var(--dark);background:var(--light-teal)}
+@media (max-width:600px){
+  .plan thead{display:none}
+  .plan tr{display:grid;grid-template-columns:1fr auto;gap:6px 16px;padding:16px 18px;border-bottom:1px solid var(--line)}
+  .plan tr:last-child{border-bottom:none}
+  .plan td{display:block;padding:0;border:none;width:auto!important}
+  .plan td:nth-child(1){grid-column:1;grid-row:1}
+  .plan td:nth-child(3){grid-column:2;grid-row:1}
+  .plan td:nth-child(3)::after{content:" h";font-weight:400;color:var(--grey)}
+  .plan tr.total td:nth-child(3)::after{content:none}
+  .plan td:nth-child(2){grid-column:1/-1;grid-row:2;font-size:.95rem}
+  .plan tr.total{background:var(--light-teal)}
+  .plan tr.total td:nth-child(2){display:none}
+}
+.panel.white{background:var(--white)}
+.panel.white h3{font-size:1.2rem}
+.panel.white p{font-size:.98rem;max-width:none}
+
 /* hours table */
 .hours td:first-child{width:auto}
 .hours th:last-child,.hours td:last-child{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
@@ -339,7 +361,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 @media print{
   main{page:content}
   /* The decision and its sign-off share the final page. */
-  #approve{page:content;break-before:avoid;min-height:0;margin-top:6mm}
+  #approve{page:content;break-before:auto;break-inside:avoid;min-height:0;margin-top:6mm}
   .section{padding:4mm 17mm 6mm}
   .section.paper{break-before:auto}
   .section.page-start{break-before:page}
@@ -372,6 +394,10 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
   .yes,.no{font-size:7pt}
   .phase .marks{font-size:8.5pt;gap:1.6mm}
   .callout.white{background:var(--white)}
+  .panel.white{border:1px solid var(--line)}
+  .panel.white h3{font-size:12pt}
+  .panel.white p{font-size:8.8pt}
+  .panel p+p,.panel h3+p{margin-top:2.5mm}
   .record{grid-template-columns:1.7fr 1fr;padding:6mm 7mm;gap:4mm 8mm;border-radius:3mm}
   .record .who{font-size:14pt}
   .record dl{font-size:8.8pt;margin-top:3mm;gap:1.2mm 4mm}
@@ -415,8 +441,8 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
     <div class="stack">
       <p>Following your review of 776BC’s approach to AI-supported copywriting, I recommend adapting the proposed Calliope pilot into a native Claude Skill.</p>
       <p>The objective is to give the 776BC team a simple, repeatable way to create and review selected content inside Claude while protecting the human authorship that underpins the authenticity of the brand.</p>
-      <p>This revised approach removes the need for an external Telegram, Slack or Teams interface. Instead, the capability will operate directly within Claude as a dedicated 776BC Content &amp; Copy Skill.</p>
-      <p>The commercial investment remains unchanged. The effort previously allocated to external access and channel integration will instead be directed towards brand-canon preparation, authorship controls, skill development, evaluation and team deployment.</p>
+      <p>The Skill will review copy against the approved 776BC brand canon and produce website, print collateral and social copy. Campaigns, blogs and articles remain human-authored: the Skill may review them but not write them. Every output requires human approval before it is published.</p>
+      <p>This approach removes the need for an external Telegram, Slack or Teams interface. The commercial investment remains unchanged. The effort previously allocated to channel integration will instead be directed towards brand-canon preparation, authorship controls, skill development, evaluation and team deployment.</p>
     </div>
     <div class="decision">
       <span class="pre">Recommended decision</span>
@@ -439,41 +465,13 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
   </div>
 </section>
 
-<!-- ============ 2. PROJECT OBJECTIVE ============ -->
-<section class="section mist">
+<!-- ============ 2. WHAT THE SKILL DOES ============ -->
+<section class="section paper">
   <div class="wrap stack-lg">
     <div class="section-head">
       <span class="num">02</span>
-      <h2>Project objective</h2>
-      <p>Design, build and deploy a production-ready Claude Skill that:</p>
-    </div>
-    <ul class="marks">
-      <li>Reviews copy against the approved 776BC brand canon</li>
-      <li>Produces website, print collateral and social copy</li>
-      <li>Protects campaign, blog and article content as human-authored categories</li>
-      <li>Gives users clear, practical and prioritised editorial advice</li>
-      <li>Distinguishes between content it may create and content it may only review</li>
-      <li>Requires human approval before any output is published</li>
-      <li>Can be installed and used by nominated 776BC team members within Claude</li>
-    </ul>
-    <div class="callout white">
-      <span class="pre">Content marking</span>
-      <p>The Skill will not attempt to remove, alter or circumvent Claude’s content-marking mechanisms.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 3. PROPOSED CAPABILITY ============ -->
-<section class="section">
-  <div class="wrap stack-lg">
-    <div class="section-head">
-      <span class="num">03</span>
-      <h2>Proposed capability</h2>
-      <p>The user will access one clear capability within Claude:</p>
-    </div>
-    <div class="stack keep">
-      <h3>776BC Content &amp; Copy Skill</h3>
-      <p>The Skill will identify the type of content being requested and apply the appropriate operating mode.</p>
+      <h2>What the Skill does</h2>
+      <p>The team will use one capability within Claude: the 776BC Content &amp; Copy Skill. It identifies the type of content being requested and applies the appropriate operating mode.</p>
     </div>
     <div class="tbl">
       <table class="matrix">
@@ -487,174 +485,44 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
         </tbody>
       </table>
     </div>
-    <div class="callout teal">
-      <span class="pre">Ambiguous requests</span>
-      <p>Where a request is ambiguous, the Skill will seek clarification or default to the more conservative review-only mode.</p>
+    <div class="pair">
+      <div class="panel white">
+        <h3>Copy review</h3>
+        <p>The Skill assesses submitted copy against the 776BC brand canon. It returns an overall assessment, brand-alignment scoring, strengths to preserve, issues ranked by importance and a recommendation on readiness for approval. It flags prohibited or off-brand language and unsupported claims.</p>
+        <p>For campaigns, blogs and articles, Claude acts as a critic rather than a co-writer. It diagnoses and advises without returning publishable replacement copy.</p>
+      </div>
+      <div class="panel white">
+        <h3>Approved copywriting</h3>
+        <p>For website, collateral and social content, the Skill creates and revises copy using the approved brand canon, relevant source material and the user’s brief.</p>
+        <p>Generated drafts remain subject to human review and approval.</p>
+      </div>
     </div>
-    <div class="stack keep">
-      <h3>Copy review</h3>
-      <p>The Skill will assess submitted copy against the 776BC brand canon and provide:</p>
-      <ul class="marks two-col">
-        <li>An overall assessment</li>
-        <li>Brand-alignment scoring</li>
-        <li>Strengths to preserve</li>
-        <li>Issues ranked by importance</li>
-        <li>Prohibited or off-brand language</li>
-        <li>Unsupported or potentially risky claims</li>
-        <li>Structural and editorial guidance</li>
-        <li>Questions for the human writer</li>
-        <li>A recommendation on readiness for approval</li>
-      </ul>
-      <p>For campaigns, blogs and articles, Claude will act as a critic rather than a co-writer. It will diagnose and advise without returning publishable replacement copy.</p>
-    </div>
-    <div class="stack keep">
-      <h3>Approved copywriting</h3>
-      <p>For website, collateral and social content, the Skill will be permitted to create and revise copy.</p>
-      <p>It will use the approved brand canon, relevant source material and the user’s brief to produce channel-appropriate drafts. Generated outputs will remain subject to human review and approval.</p>
-    </div>
+    <ul class="marks">
+      <li>Where a request is ambiguous, the Skill will seek clarification or default to the more conservative review-only mode.</li>
+      <li>The Skill will not attempt to remove, alter or circumvent Claude’s content-marking mechanisms.</li>
+    </ul>
   </div>
 </section>
 
-<!-- ============ 4. IMPLEMENTATION APPROACH ============ -->
-<section class="section paper page-start">
-  <div class="wrap stack-lg">
-    <div class="section-head">
-      <span class="num">04</span>
-      <h2>Implementation approach</h2>
-      <p>This is not simply the creation of a general prompt.</p>
-    </div>
-    <div class="stack">
-      <p>The existing 776BC vault contains substantial brand intelligence, including voice principles, writing rules, vocabulary, prohibited language, storytelling structures, audience knowledge and existing Calliope instructions.</p>
-      <p>That material must be assessed, curated and translated into a focused Claude capability. The complete vault should not be transferred wholesale into the Skill. Only the information required for the agreed use cases will be included.</p>
-      <p>The work will be delivered across six workstreams.</p>
-    </div>
-    <div class="stack">
-      <article class="ws">
-        <div class="ws-head"><span class="mono">Workstream 1</span><span class="hrs">Effort: 2 hours</span></div>
-        <h3>Confirm the authorship policy</h3>
-        <p>A focused working session will confirm:</p>
-        <ul class="marks two-col">
-          <li>The five content classifications</li>
-          <li>Boundaries between website and campaign copy</li>
-          <li>How campaign landing pages should be treated</li>
-          <li>What Claude may and may not do when reviewing human-authored work</li>
-          <li>Whether grammar corrections are permitted in review-only categories</li>
-          <li>Approval responsibilities</li>
-          <li>Initial users and representative test cases</li>
-        </ul>
-      </article>
-      <article class="ws">
-        <div class="ws-head"><span class="mono">Workstream 2</span><span class="hrs">Effort: 4 hours</span></div>
-        <h3>Prepare the approved brand knowledge</h3>
-        <p>The current canon will be reviewed and a controlled content subset prepared for the Skill.</p>
-        <p>This will include the brand guidance required to govern:</p>
-        <ul class="marks two-col">
-          <li>Voice and tone</li>
-          <li>Writing style</li>
-          <li>Storytelling structure</li>
-          <li>Approved vocabulary</li>
-          <li>Prohibited terms</li>
-          <li>Commercial restraint</li>
-          <li>Audience respect</li>
-          <li>Product and performance claims</li>
-          <li>Channel-specific behaviour</li>
-        </ul>
-        <p>This process will also identify conflicting, duplicated or outdated instructions that could produce inconsistent results.</p>
-      </article>
-      <article class="ws">
-        <div class="ws-head"><span class="mono">Workstream 3</span><span class="hrs">Effort: 6 hours</span></div>
-        <h3>Design and build the Claude Skill</h3>
-        <p>The Skill will be configured to:</p>
-        <ul class="marks two-col">
-          <li>Recognise relevant requests</li>
-          <li>Classify the content type</li>
-          <li>Apply the appropriate authorship rule</li>
-          <li>Select the correct review or creation behaviour</li>
-          <li>Reference the approved canon</li>
-          <li>Ask only for material missing information</li>
-          <li>Return content in consistent, usable formats</li>
-          <li>Explain when and why a request has been limited</li>
-          <li>Preserve mandatory human review</li>
-        </ul>
-        <p>The detailed instruction structure, internal decision logic and implementation method will be developed during delivery and are not reproduced in this proposal.</p>
-      </article>
-      <article class="ws">
-        <div class="ws-head"><span class="mono">Workstream 4</span><span class="hrs">Effort: 4 hours</span></div>
-        <h3>Evaluation and refinement</h3>
-        <p>A representative evaluation set will be created to test:</p>
-        <ul class="marks two-col">
-          <li>Website creation</li>
-          <li>Collateral creation</li>
-          <li>Social creation</li>
-          <li>Campaign review</li>
-          <li>Article review</li>
-          <li>Ambiguous content requests</li>
-          <li>Mixed requests containing permitted and restricted content</li>
-          <li>Attempts to override the authorship policy</li>
-          <li>Brand voice drift</li>
-          <li>Prohibited language</li>
-          <li>Unsupported claims</li>
-          <li>Insufficient source material</li>
-        </ul>
-        <p>Testing will focus on both output quality and boundary behaviour. Material issues identified during evaluation will be corrected before pilot release.</p>
-        <p>The evaluation framework and detailed test cases form part of the implementation methodology and will be developed during the engagement.</p>
-      </article>
-      <article class="ws">
-        <div class="ws-head"><span class="mono">Workstream 5</span><span class="hrs">Effort: 2 hours</span></div>
-        <h3>Deployment and handover</h3>
-        <p>The completed Skill will be packaged for installation within Claude.</p>
-        <p>Handover will include:</p>
-        <ul class="marks two-col">
-          <li>Production-ready Claude Skill package</li>
-          <li>Approved brand reference set</li>
-          <li>Installation instructions</li>
-          <li>Short user guide</li>
-          <li>Example invocation patterns</li>
-          <li>Known limitations</li>
-          <li>Ownership and version record</li>
-          <li>Pilot feedback process</li>
-        </ul>
-        <p>Deployment will depend on the 776BC Claude account structure. Claude Team or Enterprise may support internal sharing or organisation-level publication. Individual accounts may require separate installation by each user.</p>
-      </article>
-      <article class="ws">
-        <div class="ws-head"><span class="mono">Workstream 6</span><span class="hrs">Effort: 2 hours</span></div>
-        <h3>Controlled pilot and final refinement</h3>
-        <p>The Skill will enter a four-week controlled pilot using real 776BC content tasks.</p>
-        <p>Feedback will be collected around:</p>
-        <ul class="marks two-col">
-          <li>Accuracy of content classification</li>
-          <li>Usefulness of reviews</li>
-          <li>Brand alignment</li>
-          <li>Quality of generated copy</li>
-          <li>Incorrect or overly restrictive behaviour</li>
-          <li>Time saved</li>
-          <li>User confidence</li>
-          <li>Missing canon guidance</li>
-        </ul>
-        <p>The engagement includes up to two hours of consolidated refinement following the pilot. Feedback should be collected and prioritised before this work is undertaken.</p>
-      </article>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 5. EFFORT AND TIMELINE ============ -->
+<!-- ============ 3. HOW IT IS DELIVERED ============ -->
 <section class="section mist">
   <div class="wrap stack-lg">
     <div class="section-head">
-      <span class="num">05</span>
-      <h2>Effort and timeline</h2>
+      <span class="num">03</span>
+      <h2>How it is delivered</h2>
+      <p>This is not simply the creation of a general prompt. The existing 776BC vault holds substantial brand intelligence that must be assessed, curated and translated into a focused Claude capability. Only the material required for the agreed use cases will be included.</p>
     </div>
     <div class="tbl">
-      <table class="hours">
-        <thead><tr><th>Workstream</th><th>Hours</th></tr></thead>
+      <table class="plan">
+        <thead><tr><th>Workstream</th><th>Outcome</th><th>Hours</th></tr></thead>
         <tbody>
-          <tr><td>Authorship policy confirmation</td><td>2</td></tr>
-          <tr><td>Brand-canon preparation</td><td>4</td></tr>
-          <tr><td>Skill design and development</td><td>6</td></tr>
-          <tr><td>Evaluation and refinement</td><td>4</td></tr>
-          <tr><td>Deployment and handover</td><td>2</td></tr>
-          <tr><td>Pilot refinement allowance</td><td>2</td></tr>
-          <tr class="total"><td>Total</td><td>20 hours</td></tr>
+          <tr><td>Confirm the authorship policy</td><td>A working session to confirm the five content classifications, the boundary between website and campaign copy, what Claude may do when reviewing human-authored work, approval responsibilities and the initial users.</td><td>2</td></tr>
+          <tr><td>Prepare the approved brand knowledge</td><td>A controlled subset of the canon covering voice, style, vocabulary, prohibited terms, claims and channel behaviour, with conflicting or outdated instructions identified.</td><td>4</td></tr>
+          <tr><td>Design and build the Claude Skill</td><td>A Skill that classifies each request, applies the authorship rule, references the approved canon and explains when a request has been limited.</td><td>6</td></tr>
+          <tr><td>Evaluation and refinement</td><td>Testing of output quality and boundary behaviour, including ambiguous requests and attempts to override the authorship policy. Material issues are corrected before release.</td><td>4</td></tr>
+          <tr><td>Deployment and handover</td><td>Installation package, user guide and team handover. Sharing options depend on the 776BC Claude account structure; individual accounts may require separate installation by each user.</td><td>2</td></tr>
+          <tr><td>Controlled pilot and final refinement</td><td>Four weeks of use on real 776BC content tasks, followed by consolidated refinement from prioritised feedback.</td><td>2</td></tr>
+          <tr class="total"><td>Total</td><td></td><td>20 hours</td></tr>
         </tbody>
       </table>
     </div>
@@ -663,30 +531,18 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
       <div class="timeline">
         <div class="phase">
           <span class="mono">Week 1</span>
-          <ul class="marks">
-            <li>Kick-off and policy confirmation</li>
-            <li>Review and preparation of brand material</li>
-            <li>Skill architecture</li>
-            <li>Initial working version</li>
-          </ul>
+          <h3>Policy and preparation</h3>
+          <p>Kick-off, authorship policy, brand material and an initial working version.</p>
         </div>
         <div class="phase">
           <span class="mono">Week 2</span>
-          <ul class="marks">
-            <li>Skill development</li>
-            <li>Evaluation and refinement</li>
-            <li>Installation and release</li>
-            <li>Team handover</li>
-          </ul>
+          <h3>Build and release</h3>
+          <p>Skill development, evaluation, installation and team handover.</p>
         </div>
         <div class="phase live">
           <span class="mono">Weeks 3 to 6</span>
-          <ul class="marks">
-            <li>Controlled team pilot</li>
-            <li>Feedback capture</li>
-            <li>Consolidated final refinement</li>
-            <li>Pilot review and recommendation</li>
-          </ul>
+          <h3>Controlled pilot</h3>
+          <p>Team pilot, feedback capture, final refinement and a pilot review with recommendation.</p>
         </div>
       </div>
       <p>The implementation will commence once the proposal is approved, the initial payment is received and the required Claude and source-material access is available.</p>
@@ -694,90 +550,66 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
   </div>
 </section>
 
-<!-- ============ 6. DELIVERABLES ============ -->
+<!-- ============ 4. WHAT YOU RECEIVE ============ -->
 <section class="section">
   <div class="wrap stack-lg">
     <div class="section-head">
-      <span class="num">06</span>
-      <h2>Deliverables</h2>
-      <p>776BC will receive:</p>
+      <span class="num">04</span>
+      <h2>What you receive</h2>
     </div>
     <ul class="marks two-col">
-      <li>One user-facing 776BC Content &amp; Copy Skill for Claude</li>
-      <li>Review, website and collateral, and social-copy operating modes</li>
+      <li>One 776BC Content &amp; Copy Skill for Claude, with review and copywriting modes</li>
       <li>Encoded human-authorship policy</li>
       <li>Curated 776BC brand reference set</li>
       <li>Copy-review and scoring framework</li>
-      <li>Evaluated production release</li>
-      <li>Installation package</li>
-      <li>User and administration guide</li>
+      <li>Installation package and user guide</li>
       <li>Four-week controlled pilot</li>
       <li>Up to two hours of post-pilot refinement</li>
       <li>Recommended next steps following the pilot</li>
     </ul>
-  </div>
-</section>
-
-<!-- ============ 7. SUCCESS CRITERIA ============ -->
-<section class="section paper">
-  <div class="wrap stack-lg keep">
-    <div class="section-head">
-      <span class="num">07</span>
-      <h2>Success criteria</h2>
-      <p>The pilot will be considered successful when:</p>
+    <div class="stack keep">
+      <h3>The pilot succeeds when</h3>
+      <ul class="marks">
+        <li>The Skill correctly identifies the agreed content categories across the release test set</li>
+        <li>Campaigns, blogs and articles remain in review-only mode</li>
+        <li>Website, collateral and social requests produce usable first drafts</li>
+        <li>Reviews identify brand-language violations and give clear, actionable guidance</li>
+        <li>Nominated users can install and use the Skill reliably</li>
+      </ul>
     </div>
-    <ul class="marks">
-      <li>The Skill correctly identifies the agreed content categories across the release test set</li>
-      <li>Campaigns, blogs and articles remain in review-only mode</li>
-      <li>Website, collateral and social requests produce usable first drafts</li>
-      <li>Hard-block brand-language violations are identified</li>
-      <li>Reviews provide clear and actionable guidance</li>
-      <li>The Skill reflects the approved 776BC voice and writing principles</li>
-      <li>Nominated users can install and use the Skill reliably</li>
-      <li>No content is published without human approval</li>
-    </ul>
-    <div class="callout white">
+    <div class="callout teal">
       <span class="pre">Human approval remains mandatory</span>
       <p>Claude Skills guide model behaviour rather than operating as a technically locked publishing system. Model outputs can vary between requests. Human approval therefore remains a mandatory part of the operating model.</p>
     </div>
   </div>
 </section>
 
-<!-- ============ 8. SCOPE EXCLUSIONS ============ -->
-<section class="section">
+<!-- ============ 5. NOT INCLUDED ============ -->
+<section class="section paper">
   <div class="wrap stack-lg">
     <div class="section-head">
-      <span class="num">08</span>
-      <h2>Scope exclusions</h2>
-      <p>The following are not included in this engagement:</p>
+      <span class="num">05</span>
+      <h2>Not included</h2>
     </div>
-    <div class="panel out">
-      <ul class="marks two-col">
-        <li>Telegram, Slack or Microsoft Teams integration</li>
-        <li>A separate Hermes or OpenClaw agent</li>
-        <li>Social-media scheduling or publishing</li>
-        <li>CMS integration or automated website publishing</li>
-        <li>Creation of campaign copy, blogs or articles</li>
-        <li>Full live access to the complete 776BC vault</li>
-        <li>Modification of the existing Flowstate or Workbench platforms</li>
-        <li>New n8n workflows</li>
-        <li>Visual design or image generation</li>
-        <li>Legal verification of marketing claims</li>
-        <li>Claude subscription or account fees</li>
-        <li>Ongoing content production</li>
-        <li>Ongoing support beyond the included pilot refinement</li>
-      </ul>
-    </div>
+    <ul class="marks two-col">
+      <li>Telegram, Slack or Microsoft Teams integration</li>
+      <li>Social-media scheduling, CMS integration or automated publishing</li>
+      <li>Creation of campaign copy, blogs or articles</li>
+      <li>Live access to the complete 776BC vault, or changes to Flowstate, Workbench or n8n</li>
+      <li>Legal verification of marketing claims</li>
+      <li>Claude subscription or account fees</li>
+      <li>Ongoing content production, or support beyond the included pilot refinement</li>
+    </ul>
     <p>Any additional integration, content category or workflow will be scoped separately before work begins.</p>
   </div>
 </section>
 
-<!-- ============ 9. INVESTMENT ============ -->
-<section class="section paper">
-  <div class="wrap stack-lg keep">
+<!-- ============ 6. INVESTMENT AND TERMS ============ -->
+<section class="section">
+  <div class="wrap stack-lg">
     <div class="section-head">
-      <span class="num">09</span>
-      <h2>Investment</h2>
+      <span class="num">06</span>
+      <h2>Investment and terms</h2>
     </div>
     <div class="callout dark">
       <span class="pre">Fixed project fee</span>
@@ -794,36 +626,11 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
       </ul>
       <p>This proposal is valid for 14 days.</p>
     </div>
-  </div>
-</section>
-
-<!-- ============ 10. INTELLECTUAL PROPERTY ============ -->
-<section class="section">
-  <div class="wrap stack-lg">
-    <div class="section-head">
-      <span class="num">10</span>
-      <h2>Intellectual property</h2>
-    </div>
-    <div class="stack">
+    <div class="stack keep">
+      <h3>Intellectual property</h3>
       <p>776BC retains ownership of its existing brand material, source content and confidential business information.</p>
-      <p>Following full payment, 776BC will receive an ongoing internal-use licence for the completed 776BC-specific Skill package, curated brand references and operating documentation.</p>
-      <p>OptiFlows retains ownership of its pre-existing and reusable methods, frameworks, evaluation approaches, underlying templates, implementation techniques and general know-how.</p>
-      <p>The completed Skill may be used internally by 776BC but may not be resold, redistributed or provided to third parties as a standalone product without written agreement.</p>
-      <p>Detailed implementation logic, working materials and proprietary evaluation methods are produced as part of the engagement and are not transferred through this proposal document.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============ 11. RECOMMENDED DECISION ============ -->
-<section class="section mist page-start">
-  <div class="wrap stack-lg">
-    <div class="section-head">
-      <span class="num">11</span>
-      <h2>Recommended decision</h2>
-    </div>
-    <div class="stack">
-      <p class="statement">Approve the 20-hour Claude Skill implementation and controlled pilot.</p>
-      <p>This provides 776BC with a contained and practical way to improve content quality and production efficiency while preserving the human authorship that gives the brand its credibility.</p>
+      <p>Following full payment, 776BC will receive an ongoing internal-use licence for the completed 776BC-specific Skill package, curated brand references and operating documentation. The Skill may not be resold, redistributed or provided to third parties as a standalone product without written agreement.</p>
+      <p>OptiFlows retains ownership of its pre-existing and reusable methods, frameworks, evaluation approaches, underlying templates, implementation techniques and general know-how. Detailed implementation logic, working materials and proprietary evaluation methods are produced as part of the engagement and are not transferred through this proposal document.</p>
     </div>
   </div>
 </section>
@@ -887,7 +694,7 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
               <dt>Recorded</dt><dd id="recStamp"></dd>
               <dt>Record ID</dt><dd id="recId"></dd>
               <dt>Approval</dt><dd id="recConsent"></dd>
-              <dt>Proposal</dt><dd>776BC Content &amp; Copy Skill for Claude, 30 September 2026, v1.0</dd>
+              <dt>Proposal</dt><dd>776BC Content &amp; Copy Skill for Claude, 30 September 2026, v1.1</dd>
             </dl>
           </div>
           <div class="sigbox">
@@ -953,6 +760,6 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
   </div>
 </footer>
 
-<script src="./approval.js?v=1.0-5bb0c340491a"></script>
+<script src="./approval.js?v=1.1-e19e373b2cfc"></script>
 </body>
 </html>

@@ -1,8 +1,8 @@
 
 (function(){
   var ENDPOINT = '/api/proposal-approvals';
-  var KEY = 'optiflows-proposal-776bc-content-copy-skill-v1-0-approval';
-  var PROPOSAL = '776BC Content & Copy Skill for Claude (776BC), 30 September 2026, v1.0';
+  var KEY = 'optiflows-proposal-776bc-content-copy-skill-v1-1-approval';
+  var PROPOSAL = '776BC Content & Copy Skill for Claude (776BC), 30 September 2026, v1.1';
 
   var form = document.getElementById('approvalForm');
   var nameEl = document.getElementById('name');
@@ -143,7 +143,7 @@
     var rec = pendingRecord || {
       record_id: crypto.randomUUID(),
       proposal_id: '776bc-content-copy-skill',
-      proposal_version: '1.0',
+      proposal_version: '1.1',
       consent: CONSENT,
       consent_accepted: true,
       scope: 'Up to 20 hours of Claude Skill implementation over two weeks, followed by a four-week controlled pilot',
