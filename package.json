@@ -16,6 +16,7 @@
     "lead-capture:test": "node test/lead-capture-contract.test.mjs"
   },
   "dependencies": {
+    "@resvg/resvg-js": "^2.6.2",
     "playwright": "^1.54.2"
   }
 }

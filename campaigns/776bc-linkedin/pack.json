@@ -1,0 +1,40 @@
+{
+  "id": "776bc-linkedin-case-study-2026-09-30",
+  "title": "One story. Several ways in.",
+  "owner": "Optiflows",
+  "client": "776BC",
+  "channel": "LinkedIn",
+  "state": "Private review. Not scheduled or published.",
+  "cadence": "Three posts over 7 to 10 days after release gates clear.",
+  "posts": [
+    {
+      "id": "post-01",
+      "stage": "The source",
+      "headline": "The story starts on the water.",
+      "asset": "assets/post-01-source-1200x1500.png",
+      "alt": "A silhouetted rower looks across the water. Text reads: One story. Several ways in.",
+      "caption": "Rowers race toward a finish line they cannot see.\n\nThat observation sits at the heart of 776BC’s As One / The Pursuit. It is specific to the sport, and strong enough to carry beyond its first telling.\n\nThis case study follows the idea as it moves through a small editorial system: the source story, a pull quote, a long read and selected stills.\n\nThe question behind the work: how do you give more people a way into the same story without losing what made it matter?\n\n#776BC #BrandStorytelling"
+    },
+    {
+      "id": "post-02",
+      "stage": "The extensions",
+      "headline": "Different formats. The same idea.",
+      "asset": "assets/post-02-extensions-1200x1500.png",
+      "alt": "An editorial composition showing a Pursuit pull quote, long-read excerpt and selected rowing stills.",
+      "caption": "A story can meet people in different moments.\n\nFor 776BC’s The Pursuit, the same central idea appears as a pull quote, a longer editorial read and a sequence of selected stills. Each gives the audience a different way in. Each stays close to the source.\n\nThe examples here are drawn from the Pursuit page. They show the editorial range of one story, not a claim about reach or performance.\n\nExplore the Pursuit page: https://optiflows.com.au/776bc/pursuit/\n\n#776BC #ContentSystems"
+    },
+    {
+      "id": "post-03",
+      "stage": "The method",
+      "headline": "The system is in the decisions.",
+      "asset": "assets/post-03-method-1200x1500.png",
+      "alt": "A four-step editorial workflow: source story, draft versions, editorial review, approved distribution.",
+      "caption": "The useful part of a content system is the sequence of decisions.\n\nStart with a story worth carrying. Draft only the versions that serve a purpose. Check each one for meaning, context and brand. Then decide what is ready to distribute.\n\nThat is the operating model this 776BC case study is designed to show. The goal is consistency and human control as the story moves across formats, not a bigger asset count for its own sake.\n\nSee the original Pursuit story: https://optiflows.com.au/776bc/pursuit/\n\n#776BC #EditorialSystems"
+    }
+  ],
+  "releaseGates": [
+    "776BC/Lux clears external use of the case study copy and supplied stills.",
+    "Optiflows homepage case-study section is live and checked on the public URL.",
+    "A human reviews each caption and image in Buffer before moving drafts to the queue."
+  ]
+}
