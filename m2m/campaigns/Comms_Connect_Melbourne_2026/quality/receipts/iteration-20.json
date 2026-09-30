@@ -1,0 +1,98 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 98,
+        "clarity": 96,
+        "tightness_organisation": 96,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “See … On the day” points to section 05, which is outside the supplied text and cannot be checked here.",
+        "Clarity: “specific counts, stages or outcomes” could be mistaken for the project stage reps are instructed to record.",
+        "Tightness and organisation: “90 sec read” and “90-second brief” repeat the same label.",
+        "Actionability: “bring in a specialist” in the opener leaves the immediate handover choice to section 02."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 98,
+        "clarity": 98,
+        "tightness_organisation": 97,
+        "actionability": 97,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: The transition from priority visitors to the messaging in section 02 is implicit.",
+        "Clarity: “qualified, owned follow-up” requires the later qualification and assignment explanation.",
+        "Tightness and organisation: “The event purpose and priority visitors” repeats the heading without adding guidance.",
+        "Actionability: “someone willing to discuss a next step” gives no prompt for discovering that willingness."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 98,
+        "clarity": 97,
+        "tightness_organisation": 96,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “record the exact question and agree a specialist follow-up” relies on the capture procedure in section 04 without pointing to it.",
+        "Clarity: “when the need is clear” leaves the threshold for specialist handover somewhat subjective.",
+        "Tightness and organisation: The single-path exposure question closely repeats the brief’s proposed opener.",
+        "Actionability: “ask Eerin or Gajan if they are available” does not say how to locate them at the stand."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 99,
+        "clarity": 97,
+        "tightness_organisation": 96,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “daily debrief” depends on the section 05 timetable, which was not supplied for this read.",
+        "Clarity: “relevant action” is defined only after its first use in the handoff paragraph.",
+        "Tightness and organisation: “agree what M2M will do and when” and “agree a specific timing with each visitor” repeat the same instruction.",
+        "Actionability: The response to “We are comparing providers” gives a topic to return to but no specific question to ask."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 99,
+        "clarity": 97,
+        "tightness_organisation": 96,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: The fallback ends at a confirmed hand-off, while the assignment step appears back in section 03 without a reference.",
+        "Clarity: “organiser’s contact” does not specify whether this is a person, phone number or support address.",
+        "Tightness and organisation: “Press SUBMIT after every scan” and “Press SUBMIT before starting the next conversation” repeat the save rule.",
+        "Actionability: “keep the note secure” gives no concrete storage method while awaiting receipt."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "All scored dimensions in sections 00–04 meet the 95 threshold; no visible critical confidentiality or lead-save failure was found.",
+    "Section 05 was excluded and its text was not supplied, so live roster and timetable preservation could not be assessed."
+  ],
+  "pass": true,
+  "hard_check_issues": [],
+  "minimum_score": 96,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 114,
+    "message": 254,
+    "stand": 279,
+    "scan": 341
+  }
+}

@@ -1,0 +1,83 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 97,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “Proposed 30-second opener” leaves its status as rep copy slightly unclear."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “qualified, owned follow-up” is explained only later, in section 03."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “other time-sensitive promises” does not say which promises need flagging at the debrief."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 93,
+        "clarity": 97,
+        "tightness_organisation": 100,
+        "actionability": 92,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “If a scan or submission fails” omits the no-action reason required by section 03 and the normal scan path.",
+        "Clarity: “Cameron Walsh is the stand contact for operational issues” follows app-support directions without clarifying whether app failures also go to Cameron.",
+        "Actionability: The failed-scan fallback asks for an “agreed action and timing” but gives no instruction when the visitor agrees to no action."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "Section 04 fails the 95-per-dimension threshold because its fallback does not cover conversations with no agreed action.",
+    "Section 05 was excluded and not supplied; roster and timetable preservation cannot be checked from this excerpt."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 92,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 114,
+    "message": 254,
+    "stand": 279,
+    "scan": 335
+  }
+}

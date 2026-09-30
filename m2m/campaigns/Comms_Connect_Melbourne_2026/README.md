@@ -5,7 +5,7 @@
 - Editorial source of the current review draft: `index.html`. An earlier local pack does not contain the later roster/review controls or this editorial revision; do not rebuild over the current page from that pack.
 - Review and roster controls: Cloudflare Worker backed in the deployed page.
 - Status: draft for sales leadership; gaps marked in yellow. Not for attendee distribution until James approves.
-- Eerin and Kat review (30 September): no named customers or projects without prior approval for this audience; do not expose Peplink partner project detail from internal updates. The broad experience wording remains subject to sales-leadership review.
-- Editorial acceptance: `quality/RUBRIC.md`, `quality/grade.py`, and `quality/acceptance.json` record the grading loop. Sections 00–04 passed every dimension at 97 or above in iteration 13. Section 05 timetable and availability were excluded at James's request; the roster total was added there on his later instruction. Grading does not approve pending claims, products, targets or final distribution.
+- Eerin and Kat review (30 September): no named customers or projects without prior approval for this audience; do not expose Peplink partner project detail from internal updates. The proposed experience statement was removed on James's instruction.
+- Editorial acceptance: `quality/RUBRIC.md`, `quality/grade.py`, and `quality/acceptance.json` record the grading loop. Sections 00–04 passed every dimension at 96 or above in iteration 20. Section 05 timetable and availability were excluded at James's request; the roster total was added there on his later instruction. Grading does not approve pending claims, products, targets or final distribution.
 - Republish: edit this page, run the quality grader for substantive editorial changes, retain roster/review controls, then commit and push. Do not overwrite it with an unreviewed local rebuild.
 - Remove: delete this folder, commit, push. The URL then 404s.

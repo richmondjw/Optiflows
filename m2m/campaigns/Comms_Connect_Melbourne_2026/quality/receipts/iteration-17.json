@@ -1,0 +1,84 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “bring in a specialist” leaves the person unnamed here; section 02 supplies the handover guidance."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “telemetry” in the emergency-services prompt may need a plainer word for a rep reading quickly."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 100,
+        "clarity": 97,
+        "tightness_organisation": 100,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “credible next action” does not say what makes an action credible, though the following paragraph gives examples of what to record.",
+        "Actionability: “flag other time-sensitive promises” at the daily debrief leaves unclear whether a promise due before that debrief should also be raised immediately; the preceding sentence covers commitments due before it."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 94,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “If a scan fails” does not explicitly say whether the same fallback applies when scanning works but SUBMIT fails.",
+        "Actionability: the save rule requires SUBMIT, but the failure procedure does not explicitly cover an unsuccessful submission or tell the rep how to confirm the record was saved."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "Section 04 falls below the 95 threshold on actionability; specify the failed-submission path.",
+    "The overview repeats the stand purpose usefully, and the brief’s next-step summary leads into the detailed qualification and capture instructions. No confidentiality critical gate is evident in sections 00–04.",
+    "Section 05 roster and timetable were outside this scoring pass."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 94,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 113,
+    "message": 254,
+    "stand": 279,
+    "scan": 324
+  }
+}

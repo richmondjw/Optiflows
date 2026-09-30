@@ -1,0 +1,89 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “someone involved” is less specific than the stakeholder prompts in “Qualify and close.”",
+        "Actionability: “agree a specific next action” points to later guidance but gives no example in the 90-second brief."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 96,
+        "tightness_organisation": 100,
+        "actionability": 97,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “Welcome channel partners as guests” leaves their place in the visitor-priority order unclear.",
+        "Actionability: “bring in the right M2M specialist” gives no handover cue; section 02 supplies one for product questions."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 98,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation: “where a single network or coverage path leaves the visitor exposed” closely repeats the brief’s opener without adding a new prompt."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 98,
+        "clarity": 97,
+        "tightness_organisation": 100,
+        "actionability": 97,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Use the lead-capture procedure” points forward without using the next section’s heading, “Lead scanning app.”",
+        "Clarity: “credible next action” leaves the qualification threshold to the rep’s interpretation.",
+        "Actionability: “flag other time-sensitive promises” does not say whether to flag them immediately or wait for the debrief."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 97,
+        "tightness_organisation": 97,
+        "actionability": 94,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “contact route” in the failed-scan procedure could specify a usable phone number or email address.",
+        "Tightness and organisation: the “If a scan fails” paragraph combines lead recovery, app support and stand operations in one block.",
+        "Actionability: the failed-scan handoff says to give notes to Peter or Eerin that day but gives no next step if neither is reachable."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "Section 04 does not meet the 95-per-dimension threshold because its failed-scan handoff lacks a fallback recipient or route.",
+    "No critical confidentiality or lead-save failure is apparent in sections 00–04. Section 05 was excluded from scoring and was not supplied, so its timetable and roster cannot be checked."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 94,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 113,
+    "message": 254,
+    "stand": 279,
+    "scan": 293
+  }
+}

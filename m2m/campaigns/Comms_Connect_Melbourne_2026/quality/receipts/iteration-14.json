@@ -1,0 +1,98 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 98,
+        "clarity": 96,
+        "tightness_organisation": 97,
+        "actionability": 99,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “See Qualify and close, Lead scanning app, and On the day” points to three destinations without distinguishing the immediate next step.",
+        "Clarity: “14–15 Oct Wednesday and Thursday exhibition days” and “1 goal relevant conversations” read like labels with missing punctuation.",
+        "Tightness and organisation: “Before the visitor leaves: agree who will do what and when” repeats the close instruction in section 03."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 99,
+        "clarity": 99,
+        "tightness_organisation": 99,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: The section ends after “bring in the right M2M specialist” without pointing the reader to the conversation guidance in section 02.",
+        "Clarity: “qualified, owned follow-up” is less concrete than the ownership process explained in section 03.",
+        "Tightness and organisation: “relevant conversations” repeats the brief’s goal without adding much at that point.",
+        "Actionability: “Focus on emergency services, government fleets, utilities and remote operations” names priorities but gives no tie-breaker when several visitors need attention."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 99,
+        "clarity": 98,
+        "tightness_organisation": 98,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: The handover guidance says to “record the exact question” but leaves the recording method to later sections without a pointer.",
+        "Clarity: “when their expertise helps” in section 01 becomes specific here, but “other product, carrier, partner or technical questions” leaves the Peplink versus other-partner split slightly hard to parse.",
+        "Tightness and organisation: The final “Products and demonstrations” paragraph is an internal distribution gate inside otherwise rep-facing talk guidance.",
+        "Actionability: “ask Eerin or Gajan if they are available” gives no direct handover step when one is present."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 93,
+        "clarity": 98,
+        "tightness_organisation": 97,
+        "actionability": 93,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “A relevant action is a visitor-requested follow-up” narrows the earlier rule to agree what M2M will do; a visitor could accept an M2M-proposed action without requesting it.",
+        "Clarity: “records without a clear owner” appears before the explanation that Peter and Eerin assign owners after the debrief.",
+        "Tightness and organisation: “Before the visitor leaves, agree what M2M will do and when” repeats the brief’s close instruction.",
+        "Actionability: The “visitor-requested follow-up” definition could cause reps to omit an agreed action proposed by M2M from the assignment workflow."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 98,
+        "clarity": 98,
+        "tightness_organisation": 96,
+        "actionability": 99,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Sales leadership to confirm” interrupts the scan-to-failure-recovery sequence.",
+        "Clarity: “Cameron Walsh is the stand contact for operational issues” does not specify whether a failed scan should go to Cameron before or after the registration desk.",
+        "Tightness and organisation: “Press SUBMIT after every scan” and “Press SUBMIT before starting the next conversation” repeat the same save rule.",
+        "Actionability: The failed-scan path names the registration desk for app support but does not say what the rep should do if scanning remains unavailable."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "The draft does not pass: section 03 falls below 95 on continuity and actionability because its definition of a relevant action may exclude an agreed follow-up.",
+    "The visible text retains the section 04 SUBMIT instruction and contains no named customer or project, unapproved count or outcome, or visible contradiction of the confidentiality rule.",
+    "Section 05 is outside this pass; its roster and timetable were not supplied for a preservation check."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 93,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 113,
+    "message": 254,
+    "stand": 273,
+    "scan": 293
+  }
+}

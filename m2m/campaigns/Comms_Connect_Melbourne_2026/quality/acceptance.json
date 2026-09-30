@@ -1,6 +1,6 @@
 {
-  "grader_receipt": "receipts/iteration-13.json",
-  "minimum_score": 97,
+  "grader_receipt": "receipts/iteration-20.json",
+  "minimum_score": 96,
   "graded_sections": [
     "brief",
     "overview",
@@ -11,10 +11,10 @@
   "excluded_section": "operate — timetable and availability deferred by James; requested roster totals added",
   "section_sha256": {
     "brief": "979b0425466e65bb6bc0748857ecb4e489c747db27a07f1ec0e735fa6858857d",
-    "overview": "34644abd88a391b68a0fe9fc2a14e07d2ed9f25b1206965c7f9ffc1849ce4344",
+    "overview": "c0c57d3a1e277e4624e37b174df39d978af097c71690fbf93884a9f769405ba5",
     "message": "21acbb818edcc2a18745501fe88ef8991c20f96da8ec88e973b527f94cda4d0c",
-    "stand": "f6cbd4ecf598db2e3d7c821e176bce79d6cc04d6e28e7b0180ac47e1cd2786b0",
-    "scan": "cd51947bcc676b5a210a165f78b85d88e20cd82fa69aae2f342f3fbe52942ef4"
+    "stand": "18408c6248cbd7b3196d5e828602cce4d477ba692fdf11aac216f8a0fea42b54",
+    "scan": "94fb6ae570d9a17e9e4c2bb0cad797cf43e9bec8538adcb69d0b4569a59b98d7"
   },
-  "page_sha256": "eadde9c8da7b9c7ff0c9bc1c08dd501859118469a471b0bcb00380147bdfdefd"
+  "page_sha256": "2f96757b85b2ded51caa03f128b9c7df1764c6773db350738076217b9a7d4d49"
 }

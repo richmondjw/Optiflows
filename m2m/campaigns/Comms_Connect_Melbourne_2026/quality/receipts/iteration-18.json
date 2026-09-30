@@ -1,0 +1,89 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “See Qualify and close , Lead scanning app , and On the day .” has stray spaces around the punctuation, making the references harder to scan.",
+        "Tightness and organisation: the opener’s “one network or coverage path” question is repeated closely in section 02; the brief needs only the shortest version."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 94,
+        "clarity": 96,
+        "tightness_organisation": 100,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Why this event, why now” promises a reason for the timing, but “Why we are there” gives only the event purpose.",
+        "Clarity: “why now” remains unanswered, so the heading overstates what the section explains.",
+        "Actionability: “Welcome channel partners as guests” does not say what a rep should do next when a partner conversation merits follow-up."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation: “Ask where a single network or coverage path leaves the visitor exposed” closely repeats the brief’s opener without adding a new prompt."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 98,
+        "clarity": 100,
+        "tightness_organisation": 93,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “After the event” begins with a commitment due “before the daily debrief,” which blurs when that instruction applies.",
+        "Tightness and organisation: immediate escalation, daily debrief, post-event assignment and the pending deadline are split between “After the event” and “Follow-up timing”; the sequence takes extra effort to scan."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 96,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “If a scan or submission fails” does not explicitly include an app login failure at the stand.",
+        "Actionability: the fallback gives a clear path for failed scans and submissions, but a rep locked out of the app during the event must infer that the same path applies."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "Sections 01 and 03 fall below the 95 threshold; the other three sections pass on the supplied text.",
+    "No supplied section contains a named customer or project, an unapproved count or outcome, or a contradiction of the confidentiality rule. Section 04 preserves the SUBMIT instruction.",
+    "Section 05 was excluded from scoring and was not supplied. Preservation of its live roster and event times cannot be checked from this excerpt."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 93,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 113,
+    "message": 254,
+    "stand": 279,
+    "scan": 335
+  }
+}
