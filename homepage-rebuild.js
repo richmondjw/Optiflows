@@ -69,6 +69,18 @@ function initInterface() {
     revealItems.forEach((item) => observer.observe(item));
   }
 
+  const visibleVideos = document.querySelectorAll('video[data-autoplay-visible]');
+  if (!prefersReducedMotion && 'IntersectionObserver' in window) {
+    const videoObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const video = entry.target;
+        if (entry.isIntersecting) video.play().catch(() => {});
+        else video.pause();
+      });
+    }, { threshold: 0.35 });
+    visibleVideos.forEach((video) => videoObserver.observe(video));
+  }
+
   const placeholders = {
     coordination_drag_audit: 'A handoff, approval, recurring decision or workflow that keeps pulling someone back into the loop.',
     system_install: 'What should the first production system handle, and what must always remain a human decision?',
