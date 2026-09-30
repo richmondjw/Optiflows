@@ -1,18 +1,25 @@
 # 776BC proposal approvals
 
-Both Custom Teamwear and Calliope Telegram Pilot post to `/api/proposal-approvals`. The separate Cloudflare Worker
+Custom Teamwear and the 776BC Content & Copy Skill for Claude post to `/api/proposal-approvals`.
+The Calliope Telegram Pilot was superseded by the Skill proposal on 30 September 2026: its page now
+forwards to `/776bc/proposals/776bc-content-copy-skill/` and no longer ships a signing script, but its
+contract stays registered so stored records keep their own terms. The separate Cloudflare Worker
 `optiflows-proposal-approvals` uses a dedicated `proposal_approvals` table in the
 existing `optiflows-leads` D1 database. It does not change the lead-capture Worker.
 
 The server owns the proposal version, full text, consent, fee and payment terms
 in `workers/proposal-contract.json` (Teamwear) and
-`workers/proposal-contract-calliope.json` (Calliope). Update the matching snapshot with each proposal
+`workers/proposal-contract-calliope.json` (Calliope) and
+`workers/proposal-contract-copy-skill.json` (Content & Copy Skill). Update the matching snapshot with each proposal
 version. Never silently reinterpret an earlier signed record against new terms.
 
 Calliope sends `proposal_id: 776bc-calliope-telegram-pilot`; omitted IDs retain the
 original Teamwear contract and retry hash. Unknown IDs and mismatched consent or
 version are rejected. Notification amounts, scope, next steps and private links
 are specific to the stored proposal. Calliope has no Teamwear PMA/payment terms.
+The Skill proposal sends `proposal_id: 776bc-content-copy-skill`, version 1.0. It is a full approval of
+scope, fixed fee and payment terms (50% on approval, 50% on release to the pilot), not approval in
+principle, so its notification reads "approved" and carries the payment line.
 Calliope's existing commercial content and consent remain unchanged; its stored
 contract version is 1.0. Historical browser-only Calliope copies remain under
 their original localStorage key; they are not silently promoted or replayed.
@@ -62,5 +69,8 @@ submission without extra sends. Public submissions cannot set the test flag.
 Calliope rollback: restore its previous frontend and the prior Worker version
 4a5f1cf4-63e1-42ae-ad82-734b13d35106; this preserves Teamwear service. Do not
 remove the shared approval route when rolling back just one proposal.
+Content & Copy Skill rollback: restore the forwarding pages and index from the commit before
+its publication and the prior Worker version 0ea6c653-f209-42b6-a3f5-e08c7b6ed1cb (the Skill
+contract went live in 3861ee9c-24eb-41cc-9ae4-01bf20a75cb2 on 30 September 2026).
 Preserve all stored approval records and secrets.
 Do not revert the database or modify the existing enquiry service.

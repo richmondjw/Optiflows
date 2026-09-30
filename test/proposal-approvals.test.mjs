@@ -4,6 +4,7 @@ import fs from 'node:fs';
 import worker from '../workers/proposal-approvals.js';
 import contract from '../workers/proposal-contract.json' with {type:'json'};
 import calliope from '../workers/proposal-contract-calliope.json' with {type:'json'};
+import copySkill from '../workers/proposal-contract-copy-skill.json' with {type:'json'};
 const db=new DatabaseSync(':memory:');
 db.exec(fs.readFileSync(new URL('../workers/proposal-approvals.sql',import.meta.url),'utf8'));
 const env={PUBLIC_ORIGIN:'https://optiflows.com.au', RECORD_SIGNING_KEY:'test-only-key', APPROVAL_ADMIN_TOKEN:'test-admin', REMY_TELEGRAM_BOT_TOKEN:'test-bot', REMY_TELEGRAM_CHAT_ID:'test-chat', APPROVAL_EMAIL_ENDPOINT:'https://email.example.test',
@@ -50,11 +51,24 @@ try{
   assert.match(pilotTelegram.body.text,/20 development hours/);
   assert.doesNotMatch(pilotTelegram.body.text,/14,400|Project Management Agreement/);
   assert.equal((await (await post(pilot)).json()).duplicate,true);assert.equal(calls.length,4);
+  const skill={...input,record_id:crypto.randomUUID(),proposal_id:copySkill.proposal_id,proposal_version:copySkill.proposal_version,consent:copySkill.consent,fee_aud_ex_gst:1};
+  assert.equal((await post({...skill,consent:calliope.consent})).status,422);
+  assert.equal((await post({...skill,proposal_version:'0.9'})).status,422);
+  res=await post(skill);assert.equal(res.status,201);const skillSaved=await res.json();
+  assert.equal(skillSaved.record.fee_aud_ex_gst,5000);
+  assert.equal(skillSaved.record.proposal_text,copySkill.proposal_text);
+  assert.match(skillSaved.record_url,/776bc-content-copy-skill\/#record=/);
+  await Promise.all(waits);assert.equal(calls.length,6);
+  assert.equal(calls[4].body._subject,'776BC Content & Copy Skill for Claude approved');
+  assert.match(calls[5].body.text,/Payment: 50% on approval and commencement; 50% on release of the Skill to the controlled pilot/);
+  assert.doesNotMatch(calls[5].body.text,/in principle|Telegram Pilot|Project Management Agreement/);
+  assert.doesNotMatch(calls[3].body.text,/Payment:/);
+  assert.equal((await (await post(skill)).json()).duplicate,true);assert.equal(calls.length,6);
   globalThis.fetch=async()=>{throw new Error('timeout');};
   const test={...input,record_id:crypto.randomUUID(),is_test:true};
   assert.equal((await post(test,{Authorization:'Bearer test-admin'})).status,201);
   await Promise.all(waits);
   assert.equal(db.prepare('SELECT telegram_status FROM proposal_approvals WHERE id=?').get(test.record_id).telegram_status,'unknown');
-  assert.equal(db.prepare('SELECT count(*) AS n FROM proposal_approvals').get().n,3);
-  console.log('PASS: both proposals, isolated scope/fee/consent and links, persistence, validation, private reads, duplicate/conflict handling, independent receipts, protected tests and ambiguous delivery');
+  assert.equal(db.prepare('SELECT count(*) AS n FROM proposal_approvals').get().n,4);
+  console.log('PASS: all three proposal contracts, isolated scope/fee/consent and links, persistence, validation, private reads, duplicate/conflict handling, independent receipts, protected tests and ambiguous delivery');
 }finally{globalThis.fetch=originalFetch;db.close();}

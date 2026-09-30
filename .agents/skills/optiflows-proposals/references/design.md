@@ -1,7 +1,7 @@
 # OptiFlows proposal design
 
 Authoritative visual examples in richmondjw/Optiflows:
-- `776bc/proposals/776bc-calliope-telegram-pilot/index.html`: original proposal pattern.
+- `776bc/proposals/776bc-content-copy-skill/index.html`: current pattern, with permission matrix, workstream cards and print pagination on a margined named page. It superseded the original Calliope Telegram Pilot page on 30 September 2026; that source is in Git history.
 - `776bc/proposals/776bc-custom-teamwear/index.html`: Discovery engagement and separate-agreement variant.
 
 Design tokens:

@@ -1,10 +1,16 @@
 import teamwear from './proposal-contract.json' with {type:'json'};
 import calliope from './proposal-contract-calliope.json' with {type:'json'};
 
-const contracts = new Map([['776bc-custom-teamwear', teamwear], ['776bc-calliope-telegram-pilot', calliope]]);
+import copySkill from './proposal-contract-copy-skill.json' with {type:'json'};
+
+// The Calliope contract stays registered after its page was superseded on
+// 30 September 2026 so stored records keep resolving against their own terms.
+const contracts = new Map([['776bc-custom-teamwear', teamwear], ['776bc-calliope-telegram-pilot', calliope], ['776bc-content-copy-skill', copySkill]]);
 const notificationDetails = new Map([
   [teamwear.path, {title:'776BC Custom Teamwear', next:'Project Management Agreement and commencement payment before kickoff.'}],
-  [calliope.path, {title:'776BC Calliope Telegram Pilot', next:'Confirm pilot users, launch deliverables, the review owner and kickoff date.'}]
+  [calliope.path, {title:'776BC Calliope Telegram Pilot', next:'Confirm pilot users, launch deliverables, the review owner and kickoff date.'}],
+  // Not "in principle": this proposal carries its own payment terms and needs no separate agreement.
+  [copySkill.path, {title:'776BC Content & Copy Skill for Claude', outcome:'approved', payment:true, next:'Issue the commencement invoice (50%), confirm Claude and source-material access, and book the authorship policy session.'}]
 ]);
 
 const BASE = '/api/proposal-approvals';
@@ -26,9 +32,10 @@ async function deliver(env, record) {
   const id = record.record_id;
   const link = await linkFor(env,record);
   const details = notificationDetails.get(record.path);
-  const heading = record.is_test ? `TEST ONLY: ${details.title} approval notification. No client approval.` : `${details.title} approved in principle`;
+  const heading = record.is_test ? `TEST ONLY: ${details.title} approval notification. No client approval.` : `${details.title} ${details.outcome ?? 'approved in principle'}`;
   const fee = new Intl.NumberFormat('en-AU').format(record.fee_aud_ex_gst);
-  const message = `${heading}\n\n${record.name}, ${record.role}\nReceived: ${record.approved_at}\nProposal: ${record.proposal}\nA$${fee} ex GST\nScope: ${record.scope}\n\nNext: ${details.next}\n\nRecord: ${id}\nPrivate signed record: ${link}\n\nRemy`;
+  const payment = details.payment ? `\nPayment: ${record.payment_milestones}` : '';
+  const message = `${heading}\n\n${record.name}, ${record.role}\nReceived: ${record.approved_at}\nProposal: ${record.proposal}\nA$${fee} ex GST\nScope: ${record.scope}${payment}\n\nNext: ${details.next}\n\nRecord: ${id}\nPrivate signed record: ${link}\n\nRemy`;
   // One attempt per channel. Ambiguous network outcomes require operator review,
   // never an automatic replay that could duplicate an external notification.
   await Promise.all([

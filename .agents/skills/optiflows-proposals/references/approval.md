@@ -1,6 +1,6 @@
 # Signature and PDF behaviour
 
-The existing Calliope implementation uses an HTML signature canvas, explicit consent, a Formspree POST, browser localStorage and `window.print()`. The teamwear implementation is at `776bc/proposals/776bc-custom-teamwear/approval.js`. Inspect the current source before reuse. The endpoint is an existing production destination; do not submit tests to it or copy it into unrelated clients' infrastructure without authorisation.
+The implementations at `776bc/proposals/776bc-custom-teamwear/approval.js` and `776bc/proposals/776bc-content-copy-skill/approval.js` use an HTML signature canvas, explicit consent, a POST to the `/api/proposal-approvals` Worker (see `docs/proposal-approvals-runbook.md`), browser localStorage and `window.print()`. Each proposal version needs its own server contract in `workers/`, deployed before the page goes live. Inspect the current source before reuse. The endpoint is an existing production destination; do not submit tests to it or copy it into unrelated clients' infrastructure without authorisation.
 
 Required adaptation:
 - New proposal identifier, slug, version, date, page title, submission subject and storage key for every proposal/revision.

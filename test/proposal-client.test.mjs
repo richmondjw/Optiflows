@@ -2,7 +2,7 @@ import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import vm from 'node:vm';
 import teamwear from '../workers/proposal-contract.json' with {type:'json'};
-import calliope from '../workers/proposal-contract-calliope.json' with {type:'json'};
+import copySkill from '../workers/proposal-contract-copy-skill.json' with {type:'json'};
 function harness(response,contract){
   const source=fs.readFileSync(new URL('..'+contract.path+'approval.js',import.meta.url),'utf8');
   const nodes=new Map(), events={}, stored=new Map(), requests=[];
@@ -19,10 +19,11 @@ function harness(response,contract){
     node('approvalForm').listeners.submit[0]({preventDefault(){}});await new Promise(setImmediate);await new Promise(setImmediate);}
   return {submit,node,requests,stored,location};
 }
-for(const contract of [teamwear,calliope]){
+for(const contract of [teamwear,copySkill]){
 let h=harness(p=>({ok:true,json:async()=>({accepted:true,stored:true,record:{...p,approved_at:'2026-09-16T08:00:00Z'},record_url:'https://optiflows.com.au'+contract.path+'#record='+p.record_id+'.'+'a'.repeat(64)})}),contract);
 await h.submit();assert.equal(h.requests[0].url,'/api/proposal-approvals');assert.equal(h.requests[0].payload.consent_accepted,true);assert.equal(h.node('approvalForm').hidden,true);assert.equal(h.stored.size,1);assert.match(h.location.href,/#record=/);
 assert.equal(h.requests[0].payload.fee_aud_ex_gst,contract.fee_aud_ex_gst);assert.equal(h.requests[0].payload.proposal_id,contract.proposal_id);
+if(contract===copySkill){for(const k of ['proposal','proposal_version','consent','scope','payment_milestones','approval_type','proposal_text'])assert.equal(h.requests[0].payload[k],contract[k],k);}
 for(const response of [{ok:false,status:503},{ok:true,json:async()=>({stored:false})}]){
   h=harness(()=>response,contract);await h.submit();assert.equal(h.node('approvalForm').hidden,false);assert.equal(h.stored.size,0);assert.equal(h.node('submitBtn').disabled,false);assert.match(h.node('msg').textContent,/could not be sent/);
 }

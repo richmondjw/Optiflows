@@ -1,8 +1,8 @@
 
 (function(){
   var ENDPOINT = '/api/proposal-approvals';
-  var KEY = 'optiflows-proposal-776bc-calliope-v1-0-approval';
-  var PROPOSAL = 'Calliope Telegram Pilot (776BC), 4 September 2026';
+  var KEY = 'optiflows-proposal-776bc-content-copy-skill-v1-0-approval';
+  var PROPOSAL = '776BC Content & Copy Skill for Claude (776BC), 30 September 2026, v1.0';
 
   var form = document.getElementById('approvalForm');
   var nameEl = document.getElementById('name');
@@ -96,7 +96,7 @@
     form.hidden = true;
     document.body.classList.add('is-approved');
     document.getElementById('statusText').textContent = rec.is_test ? 'TEST ONLY: no client approval' : 'Approval submitted ' + fmtDate(rec.date);
-    document.title = 'Calliope Telegram Pilot | ' + (rec.is_test ? 'Test record' : 'Approval submitted');
+    document.title = '776BC Content & Copy Skill for Claude | ' + (rec.is_test ? 'Test record' : 'Approval submitted');
   }
   try {
     var saved = localStorage.getItem(KEY);
@@ -142,13 +142,14 @@
     }
     var rec = pendingRecord || {
       record_id: crypto.randomUUID(),
-      proposal_id: '776bc-calliope-telegram-pilot',
+      proposal_id: '776bc-content-copy-skill',
       proposal_version: '1.0',
       consent: CONSENT,
       consent_accepted: true,
-      scope: 'Up to 20 development hours over two weeks, followed by a four-week controlled pilot',
+      scope: 'Up to 20 hours of Claude Skill implementation over two weeks, followed by a four-week controlled pilot',
       fee_aud_ex_gst: 5000,
-      approval_type: 'Approval in principle of the Calliope Telegram Pilot and its stated commercial structure',
+      payment_milestones: '50% on approval and commencement; 50% on release of the Skill to the controlled pilot',
+      approval_type: 'Approval of the proposal, including its stated scope, fixed fee and payment terms',
       proposal_text: document.getElementById('proposalContent').textContent.replace(/\s+/g, ' ').trim(),
       proposal: PROPOSAL,
       client: '776BC',
@@ -158,7 +159,7 @@
       approved_at: new Date().toISOString(),
       signature: exportSignature(),
       page: location.href,
-      _subject: 'PROPOSAL APPROVAL IN PRINCIPLE: Calliope Telegram Pilot signed by ' + name
+      _subject: 'PROPOSAL APPROVAL: 776BC Content & Copy Skill for Claude signed by ' + name
     };
     pendingRecord = rec;
     submitBtn.disabled = true;
