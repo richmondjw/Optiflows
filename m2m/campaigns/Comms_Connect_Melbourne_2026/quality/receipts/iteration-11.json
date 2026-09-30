@@ -1,0 +1,86 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation −3: “agree a specific next action” in Conversation path repeats the closing instruction to “agree who will do what and when.”"
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity −2: “qualified, owned follow-up” is abstract here; the ownership process appears later in Qualify and close."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 96
+      },
+      "deductions": [
+        "Evidence and confidentiality −4: “Built for uptime” can sound like a performance promise beside the instruction that product claims still need confirmation."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 93,
+        "clarity": 94,
+        "tightness_organisation": 100,
+        "actionability": 94,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −7: “Before the visitor leaves, state the action, owner and timing” conflicts with the later step where Peter and Eerin assign the action to a salesperson.",
+        "Clarity −6: “owner” does not distinguish the person promised to the visitor from the salesperson assigned after the event.",
+        "Actionability −6: The two ownership steps leave a rep unsure whom to name when agreeing the next step."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 94,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 93,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −6: The normal scan note asks for an “agreed next step” but omits the owner and timing required in Qualify and close.",
+        "Actionability −7: Unlike the failed-scan note, the normal saved record need not contain timing or an owner, which can weaken the promised hand-off."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "Sections 03 and 04 do not meet the 95-in-every-dimension threshold because the agreed owner and timing are not carried consistently into the saved lead.",
+    "No critical confidentiality or lead-save failure is visible in sections 00–04. Section 05 was not supplied, so roster and timetable preservation cannot be assessed."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 93,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 197,
+    "message": 254,
+    "stand": 254,
+    "scan": 273
+  }
+}

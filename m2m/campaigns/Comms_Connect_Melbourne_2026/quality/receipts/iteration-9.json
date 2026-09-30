@@ -1,0 +1,84 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 93,
+        "clarity": 93,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: The opening promises “the line, the pitch, the proof and the questions,” but this section provides no proof and no clear route to approved proof elsewhere.",
+        "Clarity: “Proof” suggests a usable supporting claim, while the overview says its experience statement still needs approval."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 91,
+        "clarity": 91,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Approved claims below” points to a list that does not appear in this section.",
+        "Clarity: The same phrase makes it unclear whether any claims on the page are already approved for stand use.",
+        "Tightness and organisation: The instruction to record a requirement and arrange specialist follow-up appears in both “Explain the stand line” and “Know when to hand over.”"
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 98,
+        "clarity": 100,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Use the lead-capture procedure” would point more directly to the next section if it named “Lead scanning app.”",
+        "Tightness and organisation: “Daily debrief” instructions occur in both “After the event” and “Follow-up timing.”"
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    }
+  ],
+  "overall_findings": [
+    "Sections 00 and 02 fall below the 95 threshold. The brief promises proof that is not available, and the message section points to nonexistent approved claims.",
+    "No confidentiality or lead-save critical gate fails in the supplied sections.",
+    "Section 05 and the built page were not supplied, so the live roster, full timetable and page-level preservation checks cannot be verified."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 91,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 197,
+    "message": 234,
+    "stand": 249,
+    "scan": 273
+  }
+}

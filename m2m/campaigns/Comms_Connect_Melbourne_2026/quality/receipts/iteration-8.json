@@ -1,0 +1,97 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 92,
+        "clarity": 96,
+        "tightness_organisation": 98,
+        "actionability": 96,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: the opener says to check which “approved options might fit,” while section 02 says to record the requirement and arrange specialist follow-up until the product list is confirmed.",
+        "Clarity: “approved options” does not tell a rep what they may discuss while approval is pending.",
+        "Tightness and organisation: “Before the visitor leaves” repeats the close instruction developed in section 03.",
+        "Actionability: the opener does not give the rep the section 02 fallback when a visitor immediately asks which options are available."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “Welcome channel partners as guests” leaves the intended handling of a partner conversation slightly unclear.",
+        "Actionability: the partner instruction says to bring in “the right M2M specialist” without identifying how a rep should choose or reach that person."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 92,
+        "clarity": 90,
+        "tightness_organisation": 98,
+        "actionability": 96,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: its instruction to defer option discussion until approval conflicts with the section 00 opener’s invitation to check options.",
+        "Clarity: “Discuss a specific cellular, satellite or network equipment used on site only if Eerin and Peter have confirmed it” is grammatically unclear about whether approval applies to the visitor’s existing equipment or M2M’s proposed products.",
+        "Tightness and organisation: the pending product approval appears both under “Explain the stand line” and “Products and demonstrations.”",
+        "Actionability: the ambiguous equipment sentence makes it harder to decide what can be discussed before the approved list arrives."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 98,
+        "clarity": 97,
+        "tightness_organisation": 98,
+        "actionability": 96,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “flag any time-sensitive promise” at the daily debrief leaves the immediate handoff for a promise due before that debrief unstated.",
+        "Clarity: “the appropriate M2M Zoho CRM” does not identify which record destination is appropriate.",
+        "Tightness and organisation: “record the reason in the lead note” repeats an instruction in section 04.",
+        "Actionability: the daily-debrief instruction gives no immediate escalation path for a commitment due sooner."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 96,
+        "clarity": 99,
+        "tightness_organisation": 96,
+        "actionability": 93,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: the failed-scan notes omit the agreed timing required by section 03’s close procedure.",
+        "Clarity: “confirm they have them for the Zoho hand-off” does not say how that receipt should be confirmed.",
+        "Tightness and organisation: the SUBMIT instruction appears in the save rule and again in the stand steps, with a third reminder implicit in “before starting the next conversation.”",
+        "Actionability: the failed-scan procedure does not ask the rep to capture when the agreed next step is due, leaving the fallback record incomplete for assignment."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "Sections 00 and 02 need a single consistent instruction for discussing options before product approval.",
+    "Section 04’s failed-scan fallback needs the agreed follow-up timing from section 03.",
+    "Section 05 was not supplied. Its roster and event times, and the “On the day” reference, cannot be checked in this pass."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 90,
+  "section_word_counts": {
+    "brief": 212,
+    "overview": 197,
+    "message": 253,
+    "stand": 249,
+    "scan": 269
+  }
+}

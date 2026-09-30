@@ -1,0 +1,98 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 98,
+        "clarity": 99,
+        "tightness_organisation": 98,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −2: “See … On the day” points to a section absent from the supplied text, so the reference cannot be checked.",
+        "Clarity −1: “1 goal relevant conversations” reads like a compressed label rather than a complete instruction.",
+        "Tightness and organisation −2: “Before the visitor leaves” repeats the close instruction in section 03, though the reminder is useful here.",
+        "Actionability −2: “bring in a specialist” in the opener has no immediate handover cue; the procedure appears in section 02."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 99,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −1: “Peter: set the event targets” introduces a leadership task without saying where reps will find the confirmed targets.",
+        "Clarity −2: “qualified, owned follow-up” is shorthand; the concrete ownership process appears later in section 03.",
+        "Actionability −2: The priority list names audiences, but gives no tie-breaker when several visitors need attention at once."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 99,
+        "clarity": 97,
+        "tightness_organisation": 98,
+        "actionability": 99,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −1: “handover guidance below” resolves specialist questions, but does not point directly to section 03 for closing the conversation.",
+        "Clarity −3: “Choose a relevant conversation” labels a set of audience prompts rather than explaining how to choose.",
+        "Tightness and organisation −2: The “Products and demonstrations” approval instruction repeats the earlier requirement to confirm product details and claims.",
+        "Actionability −1: “ask Eerin or Gajan if they are available” does not say how to locate them at the stand."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 99,
+        "clarity": 98,
+        "tightness_organisation": 97,
+        "actionability": 99,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −1: “daily debrief” depends on an event-day reference that was not supplied for this review.",
+        "Clarity −2: “credible next action” is subjective until the later definition of a “relevant action.”",
+        "Tightness and organisation −3: The no-agreed-action note instruction appears again in section 04; both locations are useful, but the procedure is repeated.",
+        "Actionability −1: “flag other time-sensitive promises” leaves the threshold for urgent escalation to rep judgment."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 99,
+        "clarity": 98,
+        "tightness_organisation": 98,
+        "actionability": 99,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −1: The fallback notes go to Peter or Eerin for the Zoho hand-off, but the section relies on section 03 to explain who assigns the salesperson.",
+        "Clarity −2: “practice QR code from the organiser's setup email” gives no alternative if the email arrives without that code.",
+        "Tightness and organisation −2: The note fields and no-agreed-action rule partly repeat section 03’s close procedure.",
+        "Actionability −1: For a failed scan, “note their contact route” does not specify a safe format for keeping the note until hand-off."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "All scored dimensions meet the 95 threshold. No critical confidentiality or lead-save failure appears in sections 00–04.",
+    "The brief’s summary and the repeated close and capture reminders are mostly useful; the main avoidable repetition is between sections 03 and 04.",
+    "Section 05 was not supplied. Its live roster, event times, and the “On the day” reference cannot be checked, so the whole-page deterministic preservation gate remains unverified."
+  ],
+  "pass": true,
+  "hard_check_issues": [],
+  "minimum_score": 97,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 197,
+    "message": 254,
+    "stand": 273,
+    "scan": 293
+  }
+}

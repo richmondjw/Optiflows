@@ -1,0 +1,89 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity −2: “which approved options might fit” leaves a rep to infer from section 02 that the event product list is still pending."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 97,
+        "tightness_organisation": 100,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity −3: “Welcome channel partners as guests” does not make the intended treatment of a partner conversation clear.",
+        "Actionability −2: “bring in the right M2M specialist” gives no route for identifying that specialist; section 02 names contacts only for Peplink questions."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 94,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity −2: “on-site networking capability” is broad enough that a rep may need a plainer example.",
+        "Actionability −6: “Leave solution design to a product specialist” and “when to hand over” do not identify a handoff route for questions outside Peplink."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 96,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 94,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −4: “If there is no agreed action, record the reason” has no matching instruction in section 04's scan-note procedure.",
+        "Clarity −2: “material need” gives little guidance on what makes a need material.",
+        "Actionability −6: The no-action path says to “record the reason” but does not say where to enter it in the lead record."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 94,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 94,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −6: “add a note with ... agreed next step” omits section 03's case where no action was agreed.",
+        "Actionability −6: The scan instructions give no field or note instruction for recording the reason when a conversation ends without an agreed action."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "The draft does not pass: sections 02, 03 and 04 have dimensions below 95. Align the no-action capture instructions in sections 03 and 04, and specify a handoff route for specialist questions outside Peplink.",
+    "No supplied section contains a named internal customer or project, an unapproved outcome, a confidentiality contradiction, or a broken lead-save instruction.",
+    "Section 05 was not supplied, so roster and timetable preservation could not be checked."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 94,
+  "section_word_counts": {
+    "brief": 212,
+    "overview": 197,
+    "message": 247,
+    "stand": 241,
+    "scan": 259
+  }
+}

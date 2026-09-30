@@ -1,0 +1,84 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation: the agreed next step appears in the goal, Conversation path, and closing instruction; the last two substantially repeat the same action."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 97,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “qualified, owned follow-up” is shorthand whose meaning becomes clear only in Qualify and close."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “when the need is clear” leaves the handover threshold to interpretation."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “a credible next action” is subjective; the later definition of a relevant action is more precise."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 93,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Actionability: Set up before travelling gives a route for missing registration details and the setup email, but none for a missing event code or PIN."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "No critical confidentiality breach or broken lead-save instruction appears in the supplied sections.",
+    "Section 05 was not supplied. Its roster and event times, and the Brief’s “On the day” reference, cannot be checked in this pass.",
+    "Scan does not meet the 95-per-dimension threshold."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 93,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 197,
+    "message": 254,
+    "stand": 273,
+    "scan": 280
+  }
+}

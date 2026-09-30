@@ -1,0 +1,86 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 97,
+        "clarity": 96,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: The overview tells reps to use the brief’s opener, while the brief labels it “Proposed”; its status is not consistent across sections.",
+        "Clarity: “Proposed 30-second opener” leaves a rep unsure whether to use those exact words now."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 90,
+        "tightness_organisation": 100,
+        "actionability": 92,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “Explain the stand line through their problem” repeats the line but never explains what “hybrid connectivity” means.",
+        "Actionability: The section promises “How to explain the stand line,” yet gives a discovery question without a plain-language explanation a rep can use when asked."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 94,
+        "clarity": 97,
+        "tightness_organisation": 100,
+        "actionability": 91,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Flag any time-sensitive promise” at the daily debrief leaves no handoff for a promise due before that debrief.",
+        "Clarity: “The appropriate M2M Zoho CRM” does not identify which destination the reviewers should use.",
+        "Actionability: “Flag urgent commitments at the daily debrief” gives no immediate escalation step when the agreed timing is sooner."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 97,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: In the failed-scan procedure, “contact route” does not specify which contact detail or preferred method the rep should record."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "The supplied sections preserve the SUBMIT instruction and state the customer and partner confidentiality rule. No critical confidentiality breach appears in sections 00–04.",
+    "The draft does not reach a full pass because the message and stand sections have dimensions below 95.",
+    "Section 05 and the built page were not supplied, so preservation of the live roster and event times cannot be verified from this text."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 90,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 197,
+    "message": 234,
+    "stand": 249,
+    "scan": 273
+  }
+}

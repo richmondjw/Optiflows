@@ -1,5 +1,5 @@
 {
-  "grader_receipt": "receipts/iteration-6.json",
+  "grader_receipt": "receipts/iteration-13.json",
   "minimum_score": 97,
   "graded_sections": [
     "brief",
@@ -8,13 +8,13 @@
     "stand",
     "scan"
   ],
-  "excluded_section": "operate \u2014 timetable and availability deferred by James",
+  "excluded_section": "operate — timetable and availability deferred by James; requested roster totals added",
   "section_sha256": {
-    "brief": "eaf42b0ec4600dbec2eb13a45ac3698082751995a8b835f6a9d04c8aed2f16db",
+    "brief": "979b0425466e65bb6bc0748857ecb4e489c747db27a07f1ec0e735fa6858857d",
     "overview": "34644abd88a391b68a0fe9fc2a14e07d2ed9f25b1206965c7f9ffc1849ce4344",
-    "message": "7ed2aecf49af741012911cd999d2489460ceb7d841dfe7bc2444c6ef1df7e6cb",
-    "stand": "6f78a6ff0bbfd9613e5934874dc9e20c907841bfb670a6aae946a1dc784ddca2",
-    "scan": "7e3c72aaa8b02d3fcd72e060c0a82c7e8f717214cbb57a0d2c154d2709dc60e7"
+    "message": "21acbb818edcc2a18745501fe88ef8991c20f96da8ec88e973b527f94cda4d0c",
+    "stand": "f6cbd4ecf598db2e3d7c821e176bce79d6cc04d6e28e7b0180ac47e1cd2786b0",
+    "scan": "cd51947bcc676b5a210a165f78b85d88e20cd82fa69aae2f342f3fbe52942ef4"
   },
-  "page_sha256": "c1f636698e56452b401752f4ed73c2ced4a8e8b8c195e5aa60d84261a1f4bfbe"
+  "page_sha256": "eadde9c8da7b9c7ff0c9bc1c08dd501859118469a471b0bcb00380147bdfdefd"
 }
