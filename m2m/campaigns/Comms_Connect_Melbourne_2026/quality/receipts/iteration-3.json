@@ -1,0 +1,111 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 88,
+        "clarity": 96,
+        "tightness_organisation": 93,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Eerin and Gajan can answer” points to Gajan, who is absent from the stand roster.",
+        "Clarity: “edge options” is unexplained.",
+        "Tightness and organisation: The agreed-next-step instruction appears in “The job,” “Conversation path,” and the closing line.",
+        "Actionability: “Agree a useful next step” relies on the later qualification section to specify what to record."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 98,
+        "clarity": 93,
+        "tightness_organisation": 100,
+        "actionability": 94,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Why this event, why now” does not explain the timing.",
+        "Clarity: “category-level line” is editorial shorthand that a rep may not understand on first reading.",
+        "Actionability: “Peter: set the event targets” leaves the success target unset for this draft."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 87,
+        "clarity": 94,
+        "tightness_organisation": 98,
+        "actionability": 92,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Ask Eerin or Gajan on the stand” depends on Gajan, who is absent from the roster; the brief also invites discussion of options before this section introduces the approved-product-list restriction.",
+        "Clarity: “edge capability” is unexplained.",
+        "Tightness and organisation: The three audience prompts are useful but repeat the brief’s instruction to locate an outage exposure.",
+        "Actionability: The product list and demonstrations remain unconfirmed, so the section cannot yet guide a rep to a specific approved capability."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 92,
+        "clarity": 94,
+        "tightness_organisation": 97,
+        "actionability": 91,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “After the event” begins with an instruction for the daily debrief, obscuring when review and assignment happen.",
+        "Clarity: “appropriate M2M Zoho CRM” does not identify the destination or who chooses it.",
+        "Tightness and organisation: The instruction to agree an action, owner and timing repeats the brief’s closing instruction.",
+        "Actionability: “confirm the triage and assignment deadline” leaves the internal follow-up handoff without a deadline."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 97,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: In the failed-scan procedure, “contact route” could specify the contact detail to capture."
+      ]
+    },
+    {
+      "id": "operate",
+      "scores": {
+        "continuity": 86,
+        "clarity": 84,
+        "tightness_organisation": 100,
+        "actionability": 87,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: Gajan is named as an on-stand specialist elsewhere but is absent from this roster.",
+        "Clarity: Each roster cell reads “Y N” in the supplied visible text; no selected choice is apparent.",
+        "Actionability: “These answers are not shift assignments” and “Peter will publish the confirmed stand shifts” leave actual coverage unresolved."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "The supplied text preserves the event timetable and the instruction to press SUBMIT after every scan. The roster is present, but it is an availability poll with no visible selections or confirmed shifts; a live shift roster is therefore missing and the preservation gate cannot pass.",
+    "The Gajan handoff conflicts with the roster and affects the brief, message and on-the-day sections.",
+    "No named customer or project, unapproved count or outcome, or contradiction of the confidentiality rule appears in the supplied text. This grading does not establish factual approval or live-page status."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 84,
+  "section_word_counts": {
+    "brief": 237,
+    "overview": 197,
+    "message": 228,
+    "stand": 241,
+    "scan": 259,
+    "operate": 444
+  }
+}

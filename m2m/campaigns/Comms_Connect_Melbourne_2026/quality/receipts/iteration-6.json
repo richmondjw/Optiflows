@@ -1,0 +1,93 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 97,
+        "tightness_organisation": 97,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: the opening metadata runs together at “Stand 76 MCEC, Melbourne 1 goal,” slowing a first read.",
+        "Tightness and organisation: the brief repeats the next-step instruction in “Conversation path” and “Before the visitor leaves.”",
+        "Actionability: “Ask Eerin or Gajan when they are available” leaves the immediate Peplink path incomplete; section 02 supplies the fallback."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 97,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “category-level line” is editorial language that a rep may have to interpret.",
+        "Actionability: “Welcome channel partners as guests” gives no prompt for identifying when a specialist should join."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 99,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 99,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “The confirmed list will appear in ‘Products and demonstrations’ below” points to a section that currently contains only an approval instruction.",
+        "Clarity: “on-site networking capability” may need plainer language for a quick stand briefing.",
+        "Actionability: “when the need is clear” leaves the threshold for bringing in a product specialist slightly subjective."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 99,
+        "actionability": 99,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “appropriate M2M Zoho CRM” assumes the reader knows which CRM receives the action.",
+        "Tightness and organisation: the action, owner and timing instruction appears in both “Agree the next step” and “Follow-up timing.”",
+        "Actionability: “record the reason” when no action is agreed does not say where in the lead record to put it."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 99,
+        "tightness_organisation": 98,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “practice QR code from the organiser's setup email” assumes the reader can recognise the correct code without a label or example.",
+        "Tightness and organisation: “Press SUBMIT” appears in both “The save rule” and “At the stand”; the repetition is useful but costs some space."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "All five scored sections meet the 95 threshold in every dimension.",
+    "The repeated next-step and SUBMIT instructions reinforce the workflow; the brief and section 03 have the clearest opportunities to trim duplication.",
+    "No scored section contains a named customer or project, an unapproved count or outcome, a contradiction of the confidentiality rule, or a broken lead-save instruction.",
+    "Section 05 was excluded from scoring. Its live roster and event times were not supplied, so their preservation cannot be assessed from this text."
+  ],
+  "pass": true,
+  "hard_check_issues": [],
+  "minimum_score": 97,
+  "section_word_counts": {
+    "brief": 225,
+    "overview": 197,
+    "message": 247,
+    "stand": 241,
+    "scan": 259
+  }
+}

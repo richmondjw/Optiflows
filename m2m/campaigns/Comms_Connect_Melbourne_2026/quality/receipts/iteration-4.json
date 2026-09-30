@@ -1,0 +1,103 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 97,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity: “Proposed 30-second opener” leaves its approval status unclear until the Overview explains what reps should use.",
+        "Tightness and organisation: “Agree a useful next step” recurs in The job, Conversation path and the closing instruction."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 92,
+        "clarity": 97,
+        "tightness_organisation": 100,
+        "actionability": 91,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Ask Eerin or Gajan on the stand” assumes Gajan is available, but Gajan does not appear in the stand roster.",
+        "Clarity: “Edge capability” is not explained in visitor-facing terms.",
+        "Actionability: “Ask Peter on the stand” gives no hand-off route when Peter is unavailable."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 97,
+        "clarity": 97,
+        "tightness_organisation": 100,
+        "actionability": 94,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Record the reason” for no agreed action is not carried into the Scan section’s specified note contents.",
+        "Clarity: “Appropriate M2M Zoho CRM” does not identify how Peter and Eerin choose the destination.",
+        "Actionability: “Record the reason” does not tell a rep where to put it in the lead record."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 97,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: The note contents omit the Stand section’s instruction to record why a conversation ended without an agreed action."
+      ]
+    },
+    {
+      "id": "operate",
+      "scores": {
+        "continuity": 92,
+        "clarity": 90,
+        "tightness_organisation": 100,
+        "actionability": 91,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Peter will publish the confirmed stand shifts after the poll” lacks a pre-distribution gate, leaving stand coverage unresolved.",
+        "Clarity: Every roster row displays “Y N” for both days in the supplied text, so a reader cannot tell whether anyone has responded.",
+        "Actionability: “These answers are not shift assignments” leaves reps without a confirmed coverage instruction or a stated deadline for receiving shifts."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "The draft does not pass: Message, Stand, Scan and Operate have dimensions below 95.",
+    "The supplied text retains the roster table, event timetable and instruction to press SUBMIT. No critical confidentiality breach is visible in the supplied sections.",
+    "Scores assess the supplied section text; the built page was not checked."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 90,
+  "section_word_counts": {
+    "brief": 237,
+    "overview": 197,
+    "message": 228,
+    "stand": 241,
+    "scan": 259,
+    "operate": 444
+  }
+}

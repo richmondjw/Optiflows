@@ -1,0 +1,121 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 93,
+        "clarity": 94,
+        "tightness_organisation": 91,
+        "actionability": 96,
+        "evidence_confidentiality": 92
+      },
+      "deductions": [
+        "Continuity: The finished-sounding opener conflicts with Overview's request to approve the broad experience sentence before distribution.",
+        "Clarity: “Peplink Eerin and Gajan can help” is compressed enough to obscure their role.",
+        "Tightness and organisation: “Before they leave” repeats the next-action and capture guidance developed in Stand and Scan.",
+        "Actionability: “Capture the conversation in the scanning app or in complete notes” does not say when notes are an acceptable alternative.",
+        "Evidence and confidentiality: “We help emergency services and other critical operators keep ... connected” reads as an approved experience claim, while Overview still asks leadership to approve the broad experience sentence."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 96,
+        "clarity": 94,
+        "tightness_organisation": 97,
+        "actionability": 92,
+        "evidence_confidentiality": 96
+      },
+      "deductions": [
+        "Continuity: “Sales leadership to confirm” has no stated handoff into the Brief opener already presented as usable copy.",
+        "Clarity: “Set any numeric targets ... before team distribution” leaves the decision owner within sales leadership unspecified.",
+        "Tightness and organisation: “Foot traffic and badge scans alone do not show success” repeats Stand's qualification point, though it usefully frames the event purpose.",
+        "Actionability: “Approve the broad experience sentence” does not identify the exact sentence to approve.",
+        "Evidence and confidentiality: “M2M supports critical communications use cases” is a broad experience claim still awaiting the approval requested below it."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 94,
+        "clarity": 92,
+        "tightness_organisation": 96,
+        "actionability": 93,
+        "evidence_confidentiality": 96
+      },
+      "deductions": [
+        "Continuity: “Eerin and Gajan” handle Peplink overviews, but “Eerin and Peter” confirm demonstrations; the handoff between those roles is unstated.",
+        "Clarity: “Vehicle as a Node (VaaN)” expands the acronym without explaining what a rep should mean by it.",
+        "Tightness and organisation: “Hybrid connectivity. Built for uptime.” repeats the Brief stand line, though it anchors the explanation here.",
+        "Actionability: “Bring in the relevant specialist” gives no way to choose or reach that person for carrier or partner questions.",
+        "Evidence and confidentiality: “Explore Vehicle as a Node (VaaN)” introduces a specific offering without saying whether it is among the products and claims still awaiting confirmation."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 96,
+        "clarity": 96,
+        "tightness_organisation": 94,
+        "actionability": 95,
+        "evidence_confidentiality": 99
+      },
+      "deductions": [
+        "Continuity: “Peter and Eerin review the event records” leaves the same-day handoff for failed scans in Scan disconnected from the review process.",
+        "Clarity: “Triage them across the group” does not tell a rep which group receives a record.",
+        "Tightness and organisation: The next-action, owner and timing instruction repeats the Brief close almost verbatim.",
+        "Actionability: The Zoho CRM handoff names the reviewers and eventual salesperson, but gives no timing for assigning accepted follow-up.",
+        "Evidence and confidentiality: “Capture that agreement with the relevant context” does not remind reps to keep unapproved customer or partner project details out of shared notes."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 94,
+        "clarity": 94,
+        "tightness_organisation": 95,
+        "actionability": 92,
+        "evidence_confidentiality": 96
+      },
+      "deductions": [
+        "Continuity: “Give them to the event lead that day” does not connect failed-scan notes to Stand's Peter-and-Eerin review or Zoho handoff.",
+        "Clarity: “Event lead” is unnamed, while Cameron is separately called the stand contact for operational issues.",
+        "Tightness and organisation: “Press SUBMIT after every scan” and “Submit the record before starting the next conversation” repeat the same save instruction, though the repetition protects a critical step.",
+        "Actionability: “If a scan fails” gives no procedure for identifying the visitor in complete notes or confirming that the notes reached a lead owner.",
+        "Evidence and confidentiality: The instruction to note “their problem, project stage and agreed next step” lacks a reminder about the restrictions on internal customer and Peplink partner project details."
+      ]
+    },
+    {
+      "id": "operate",
+      "scores": {
+        "continuity": 95,
+        "clarity": 87,
+        "tightness_organisation": 89,
+        "actionability": 91,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Times to be set by the event lead” leaves the proposed huddle and debrief without a clear owner or confirmed meeting point.",
+        "Clarity: Each roster row renders as “Y N Y N” under two day headings, so a rep cannot tell which attendance state applies.",
+        "Tightness and organisation: “Where and when Stand 76 we are M2M...” repeats the venue, dates and stand details immediately below in a hard-to-scan line.",
+        "Actionability: “Roster to come” conflicts with the displayed names and Y/N controls; the team cannot reliably tell who is scheduled for either day."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "No stated critical gate is visibly triggered: the submit instruction, event times and a roster are present, and no named customer or project, unapproved count or outcome, or Peplink partner project detail appears.",
+    "The page does not pass because multiple sections score below 95. The most consequential issues are the ambiguous roster, the failed-scan handoff, and the experience claim presented for use while approval is still requested.",
+    "Next-action capture is repeated across Brief, Stand and Scan. Keep the summary in Brief, the qualification and ownership rule in Stand, and the save and recovery procedure in Scan."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 87,
+  "section_word_counts": {
+    "brief": 247,
+    "overview": 183,
+    "message": 204,
+    "stand": 205,
+    "scan": 232,
+    "operate": 454
+  }
+}

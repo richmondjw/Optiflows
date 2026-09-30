@@ -1,0 +1,120 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 97,
+        "clarity": 91,
+        "tightness_organisation": 92,
+        "actionability": 97,
+        "evidence_confidentiality": 88
+      },
+      "deductions": [
+        "Continuity: The closing references use labels such as “lead capture” that differ from the visible section heading “Lead scanning app.”",
+        "Clarity: The opening metadata runs together: “14–15 Oct Wednesday and Thursday exhibition days Stand 76…”",
+        "Tightness and organisation: The three questions substantially repeat qualification prompts in “Qualify and close.”",
+        "Actionability: “Agree a useful next step” leaves the owner and timing to a later section.",
+        "Evidence and confidentiality: The proposed opener says “We help…keep…connected” and promises “deployment support through trusted channel partners” before those claims are confirmed for the event."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 98,
+        "clarity": 93,
+        "tightness_organisation": 96,
+        "actionability": 96,
+        "evidence_confidentiality": 96
+      },
+      "deductions": [
+        "Continuity: The proposed experience line has no explicit handoff to the approved wording reps should use in “What to say.”",
+        "Clarity: “Proposed line for leadership approval” appears inside rep-facing copy without saying what to use until approval.",
+        "Tightness and organisation: “Relevant conversations” and “qualified, owned follow-up” restate the brief’s goal.",
+        "Actionability: Numeric targets are deferred to Peter, so reps cannot yet use them to prioritise effort.",
+        "Evidence and confidentiality: The experience statement is clearly marked proposed, but its broad “supports critical communications use cases” claim still needs the stated approval."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 97,
+        "clarity": 94,
+        "tightness_organisation": 97,
+        "actionability": 95,
+        "evidence_confidentiality": 98
+      },
+      "deductions": [
+        "Continuity: The section ends with demonstrations awaiting confirmation but gives no interim instruction for visitors asking to see one.",
+        "Clarity: “Confirmed for this event” does not identify where reps find the approved capability claims.",
+        "Tightness and organisation: The stand line and single-path question repeat the brief’s opener, though they support this section’s purpose.",
+        "Actionability: The handover route names Peter and specialists but does not say how to reach them during a live conversation.",
+        "Evidence and confidentiality: “Deployment support” is offered as a discussion topic before the approved claims are listed."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 94,
+        "clarity": 94,
+        "tightness_organisation": 98,
+        "actionability": 91,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Peter and Eerin review submitted scans…then assign” leaves the handoff between a promised stand action and post-event assignment unresolved.",
+        "Clarity: “Accepted follow-up” is not defined.",
+        "Tightness and organisation: “A badge scan by itself is not qualification” repeats the overview’s point about badge scans.",
+        "Actionability: The triage deadline is still “to confirm,” leaving reps without a reliable follow-up timeframe."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 98,
+        "clarity": 92,
+        "tightness_organisation": 96,
+        "actionability": 96,
+        "evidence_confidentiality": 99
+      },
+      "deductions": [
+        "Continuity: The fallback says to confirm notes reached Peter or Eerin but does not tell the rep how to check that the eventual CRM handoff occurred.",
+        "Clarity: “Save the record” should repeat the exact “Press SUBMIT” action at the point of use.",
+        "Tightness and organisation: The need for context is stated in both the note instruction and “A scan without context is not a usable hand-off.”",
+        "Actionability: “Contact Julie through the organiser’s setup email” depends on finding an earlier email without a more direct route.",
+        "Evidence and confidentiality: The description of full database access is an operational claim whose permission settings are not established by the supplied draft."
+      ]
+    },
+    {
+      "id": "operate",
+      "scores": {
+        "continuity": 98,
+        "clarity": 82,
+        "tightness_organisation": 94,
+        "actionability": 90,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: The proposed daily huddle depends on times and a meeting point that Peter has yet to confirm.",
+        "Clarity: The roster has two day headings but four values per person, such as “Y N Y N,” with no labels explaining the pairs.",
+        "Tightness and organisation: The availability poll explanation interrupts the roster before the event timetable.",
+        "Actionability: The roster is explicitly “not a confirmed shift schedule,” so coverage assignments remain unavailable."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "No named internal customer or project, unapproved count, or partner project detail appears in the supplied text. The explicit SUBMIT instruction and event timetable are present.",
+    "The roster is present, but its four unlabeled Y/N values per person prevent a reader from using it reliably.",
+    "The page does not pass: several dimensions score below 95, chiefly because approval-dependent claims and instructions remain in rep copy, the live roster is unclear, and follow-up timing is unresolved."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 82,
+  "section_word_counts": {
+    "brief": 234,
+    "overview": 188,
+    "message": 204,
+    "stand": 216,
+    "scan": 262,
+    "operate": 437
+  }
+}

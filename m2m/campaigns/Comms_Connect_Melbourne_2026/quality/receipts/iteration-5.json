@@ -1,0 +1,99 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 92,
+        "clarity": 97,
+        "tightness_organisation": 96,
+        "actionability": 97,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: The opener says to “discuss relevant cellular, satellite and edge options,” while section 02 limits capability discussion to the approved product list.",
+        "Clarity: “Peplink help” reads like a note label rather than a clear instruction to a rep.",
+        "Tightness and organisation: “Stand render supplied by MER Events. Swipe to pan on mobile” interrupts the briefing copy.",
+        "Actionability: The opener does not carry section 02’s approved-list condition into its instruction to discuss options."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 98,
+        "clarity": 97,
+        "tightness_organisation": 98,
+        "actionability": 97,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Welcome channel partners” is not connected to the visitor priorities immediately above it.",
+        "Clarity: “Appropriate M2M specialist” leaves the first hand-off unclear here; section 02 supplies the route.",
+        "Tightness and organisation: “Qualified, owned follow-up” repeats the goal without adding a concrete measure.",
+        "Actionability: “Peter: set the event targets” names the owner but leaves the proposed target decision unspecified."
+      ]
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 92,
+        "clarity": 98,
+        "tightness_organisation": 98,
+        "actionability": 97,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: The approved-product-list rule under “Explain the stand line” conflicts with the broader options instruction in section 00.",
+        "Clarity: “Approved event product list” has no named place for a rep to check it.",
+        "Tightness and organisation: The three audience prompts repeat the same “ask what an outage interrupts” pattern.",
+        "Actionability: “Ask a specialist to explain any requested capability” gives no fallback if the specialist cannot confirm an approved claim."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 98,
+        "clarity": 96,
+        "tightness_organisation": 98,
+        "actionability": 97,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Use the lead-capture procedure” relies on the reader finding section 04; a direct section reference would make the hand-off clearer.",
+        "Clarity: “Appropriate M2M Zoho CRM” does not tell a rep what determines the destination.",
+        "Tightness and organisation: The “After the event” paragraph combines debrief escalation, CRM assignment and salesperson follow-up in one dense block.",
+        "Actionability: “Flag any time-sensitive promise” does not say how the debrief owner will identify it in the submitted record."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 98,
+        "clarity": 97,
+        "tightness_organisation": 97,
+        "actionability": 98,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity: “Cameron Walsh is the stand contact for operational issues” appears after the failed-scan procedure without saying when to involve Cameron.",
+        "Clarity: “The event code from your sales manager” does not identify which manager supplies it.",
+        "Tightness and organisation: “Press SUBMIT” appears in both “The save rule” and “At the stand”; the repetition is useful but occupies two instruction blocks.",
+        "Actionability: The failed-scan path says to give notes to Peter or Eerin that day, but gives no immediate step if neither is available before the visitor leaves."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "Sections 00 and 02 need one consistent rule for discussing cellular, satellite and edge options before the event product list is approved.",
+    "No supplied section names a customer or project, gives an unapproved count or outcome, or contradicts the stated confidentiality boundary. Section 04 retains the SUBMIT instruction.",
+    "Section 05 was not supplied, so preservation of its live roster and event timetable cannot be verified in this pass."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 92,
+  "section_word_counts": {
+    "brief": 237,
+    "overview": 197,
+    "message": 228,
+    "stand": 241,
+    "scan": 259
+  }
+}

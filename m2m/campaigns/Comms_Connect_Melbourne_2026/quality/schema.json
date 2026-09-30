@@ -1,0 +1,16 @@
+{
+  "$schema":"http://json-schema.org/draft-07/schema#",
+  "type":"object",
+  "additionalProperties":false,
+  "required":["sections","overall_findings"],
+  "properties":{
+    "sections":{"type":"array","minItems":5,"maxItems":5,"items":{"type":"object","additionalProperties":false,"required":["id","scores","deductions"],"properties":{
+      "id":{"type":"string","enum":["brief","overview","message","stand","scan"]},
+      "scores":{"type":"object","additionalProperties":false,"required":["continuity","clarity","tightness_organisation","actionability","evidence_confidentiality"],"properties":{
+        "continuity":{"type":"integer","minimum":0,"maximum":100},"clarity":{"type":"integer","minimum":0,"maximum":100},"tightness_organisation":{"type":"integer","minimum":0,"maximum":100},"actionability":{"type":"integer","minimum":0,"maximum":100},"evidence_confidentiality":{"type":"integer","minimum":0,"maximum":100}
+      }},
+      "deductions":{"type":"array","items":{"type":"string"}}
+    }}},
+    "overall_findings":{"type":"array","items":{"type":"string"}}
+  }
+}
