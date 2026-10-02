@@ -2,7 +2,7 @@
 
 This desk creates an **unscheduled beehiiv draft**, after approval of the exact import body, subject and preheader. It has no subscriber send or scheduling action.
 
-1. Start the installed local email desk launcher on James’s computer.
+1. Start **Open PI Email Desk.cmd** local launcher on James’s computer.
 2. Open the October Insider Note review page and choose **Connect beehiiv**. Allow the local connection window and, if the browser requests it, access to this computer’s local email desk.
 3. Review the **beehiiv import layout** and select the subject/preheader pair.
 4. Select **Approve this version for a beehiiv draft**.
@@ -37,3 +37,5 @@ Bind address is only `127.0.0.1:8792`. Mutation requires the ephemeral local tok
 The connected Peninsula Insider publication and current posts have been read successfully. Automated tests exercise approval, stale hashes, duplicate prevention, asynchronous creation and uncertain outcomes with a simulated provider. No October email is approved, transferred, scheduled or sent by installing this tool. The first approved transfer will confirm current account write entitlement and actual beehiiv rendering; an API rejection is surfaced rather than represented as a successful push.
 
 Official API reference: [Create post](https://developers.beehiiv.com/api-reference/posts/create), [Get post](https://developers.beehiiv.com/api-reference/posts/show).
+
+If the hosted page cannot connect because local network access is blocked, allow local access for OptiFlows in the browser’s site permissions and reconnect, or use the launcher’s local review page directly. The local page uses the same version/hash checks and draft-only boundary. [Chrome local network permission reference](https://developer.chrome.com/blog/local-network-access).

@@ -39,7 +39,7 @@ function choose(i){
 }
 async function connected(){
  try{const j=await api('/api/status');$('connection-note').textContent='Connected to '+j.publication+'. Review the import layout, then approve an unscheduled draft.';$('connect').textContent='beehiiv connected';$('approve').disabled=!$('import-mode').checked;}
- catch(e){token=null;$('approve').disabled=true;status(e.message);}
+ catch(e){token=null;$('approve').disabled=true;status(e instanceof TypeError?'Could not reach the local email desk. Start the Windows launcher, allow this page’s local-access request, then reconnect. You can also open the local desk directly.':e.message);}
 }
 $('connect').addEventListener('click',()=>{
  const w=window.open(BRIDGE+'/connect?origin='+encodeURIComponent(location.origin),'pi-beehiiv-connect','width=520,height=480');
