@@ -1,6 +1,8 @@
 {
-  "grader_receipt": "receipts/iteration-20.json",
-  "minimum_score": 96,
+  "grader_receipt": "receipts/iteration-21.json",
+  "minimum_score": 90,
+  "pass": false,
+  "status": "Requested content markers applied; incomplete content remains intentionally pending per James. Earlier 96% acceptance is superseded.",
   "graded_sections": [
     "brief",
     "overview",
@@ -8,14 +10,13 @@
     "stand",
     "scan"
   ],
-  "excluded_section": "operate — timetable and availability deferred by James; requested roster totals added",
+  "excluded_section": "operate — timetable and availability deferred",
   "section_sha256": {
     "brief": "979b0425466e65bb6bc0748857ecb4e489c747db27a07f1ec0e735fa6858857d",
     "overview": "c0c57d3a1e277e4624e37b174df39d978af097c71690fbf93884a9f769405ba5",
-    "message": "21acbb818edcc2a18745501fe88ef8991c20f96da8ec88e973b527f94cda4d0c",
-    "stand": "18408c6248cbd7b3196d5e828602cce4d477ba692fdf11aac216f8a0fea42b54",
-    "scan": "94fb6ae570d9a17e9e4c2bb0cad797cf43e9bec8538adcb69d0b4569a59b98d7"
+    "message": "b1c35cbda9617dc6d7fcc12ac2bbef4569ceb9a294ad46527675b4b6dd654901",
+    "stand": "ce7c4454770ca97ba3b5c87300260071566f7524435e0695dcea5518689c0f2d",
+    "scan": "1be1f73e43cae606f8a4d0560ca1d7d911a7c9fe08338f35fea53e581efe6255"
   },
-  "page_sha256": "0f5c2566ba19c22041685c17956efa567547938c90ae7bedcc1fe98e122bcb0c",
-  "post_grade_check": "Navigation label, map link and section 05 checklist aligned with approved confidentiality instructions; graded sections 00–04 unchanged."
+  "page_sha256": "37ad2dfd8bcadfafa7ff7a49a5d20a14f5b853c9c60ac1b1e7ff9fcd49ccdaa3"
 }

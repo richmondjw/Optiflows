@@ -1,0 +1,90 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity −2: “Proposed 30-second opener” leaves reps unsure whether this wording is ready to use or awaiting approval."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 98,
+        "clarity": 93,
+        "tightness_organisation": 100,
+        "actionability": 92,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −2: “Products and demonstrations” ends with unresolved preparation rather than a handoff or reference for obtaining approved demonstration guidance.",
+        "Clarity −7: “Eerin and Peter to confirm” assigns the product list, but “To be provided” does not clearly assign the screen demonstrations, presenters and approved claims or state a pre-distribution gate.",
+        "Actionability −8: “Products and demonstrations” gives no interim instruction for reps when demonstration guidance remains unavailable; the specialist rule covers questions but does not resolve whether or how to demonstrate."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 92,
+        "clarity": 92,
+        "tightness_organisation": 100,
+        "actionability": 90,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −8: “Handoff and follow-up” requires assignment in Zoho CRM, but the following placeholder leaves the receiving coordinator and assignment process unresolved.",
+        "Clarity −8: “To be provided: follow-up coordinator, triage and assignment deadline, and escalation contact” has no owner for resolving these items or explicit pre-distribution gate.",
+        "Actionability −10: “Each follow-up…needs enough context” does not say who receives ordinary commitments or confirms assignment; the stand-lead and debrief instructions address urgent or incomplete records without supplying a complete interim handoff."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 94,
+        "tightness_organisation": 97,
+        "actionability": 94,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity −6: “To be provided: the programmed qualifying questions” lacks an owner, an explicit interim instruction and a pre-distribution gate.",
+        "Tightness and organisation −3: “The app captures…” and “Keep the note specific enough…” repeat the immediately preceding capture instruction and section 03's handoff-context requirement without adding a concrete step.",
+        "Actionability −6: “Answer the programmed questions” assumes the questions are available; the qualifying-questions placeholder gives no instruction for proceeding if they are missing."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "Sections 00 and 01 pass. Sections 02, 03 and 04 fail because at least one dimension is below 95.",
+    "Pending external decisions are not themselves defects. Deductions concern missing ownership, interim instructions, distribution gates or handoffs in their written treatment.",
+    "The brief's repeated stand line, conversation path and confidentiality rule serve its overview purpose. Detailed capture requirements generally have their appropriate home in section 04.",
+    "No supplied text names an internal customer or project, asserts an unapproved count or outcome, contradicts the confidentiality rule, or breaks the lead-save instruction. The SUBMIT instruction and submission-failure path are explicit.",
+    "Section 05 was not supplied and is outside scoring scope. Preservation of its live roster and event timetable cannot be verified from this excerpt."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 90,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 114,
+    "message": 197,
+    "stand": 236,
+    "scan": 315
+  }
+}
