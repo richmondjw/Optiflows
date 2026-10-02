@@ -1,0 +1,452 @@
+{
+  "version": 1,
+  "owner": "remy",
+  "project": "peninsula-insider",
+  "approval_scope": "One selected website treatment per week. Approval schedules an exact-version update job; it does not post social content or send email.",
+  "proposals": [
+    {
+      "id": "2026-10-07-band",
+      "week": "2026-10-07",
+      "name": "A quiet homepage feature",
+      "placement": "Immediately after HomeCover on the homepage",
+      "rationale": "Connect the cover’s atmosphere to one useful weekly plan, without changing the hero video.",
+      "props": {
+        "variant": "band",
+        "title": "One more useful hour",
+        "body": "Start with a short Mornington foreshore out-and-back, then keep dinner in town. Set your turn-back time before leaving and check the forecast and access. If the wind or rain wins, make it a table-led evening instead.",
+        "href": "https://peninsulainsider.com.au/journal/one-more-hour-after-five-peninsula/",
+        "start": "2026-10-07T08:00:00+11:00",
+        "end": "2026-10-14T08:00:00+11:00",
+        "campaignKey": "2026-10-07-band"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": true,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-07",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-10-14T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Recheck Coolart conditions and live festival bookings. The September closure notice is absent in the current park page, but access can change.",
+        "Confirm issue IX after resolving the existing September issue VIII draft.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "60d30d75c7d4ee15249df356b77628308e97f8e9d58ba10c8d93c33122fd8dc4"
+    },
+    {
+      "id": "2026-10-07-badge",
+      "week": "2026-10-07",
+      "name": "A small weekly badge",
+      "placement": "After HomeWeekend on the homepage",
+      "rationale": "A concise reminder alongside current weekend ideas, with a dismiss control.",
+      "props": {
+        "variant": "badge",
+        "title": "Where in the Peninsula is PI?",
+        "body": "Put your local knowledge to work. Follow the clues.",
+        "href": "https://play.peninsulainsider.com.au/",
+        "start": "2026-10-07T08:00:00+11:00",
+        "end": "2026-10-14T08:00:00+11:00",
+        "campaignKey": "2026-10-07-badge"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": false,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-07",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-10-14T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Recheck Coolart conditions and live festival bookings. The September closure notice is absent in the current park page, but access can change.",
+        "Confirm issue IX after resolving the existing September issue VIII draft.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "af45a7415a28363db697c735a2807308d92997f90d5d395afc0d098ace3d1473"
+    },
+    {
+      "id": "2026-10-07-slide",
+      "week": "2026-10-07",
+      "name": "An invitation that opens on click",
+      "placement": "Homepage, after HomeDispatch",
+      "rationale": "A visitor opens the suggestion themselves. No timed pop-up, forced signup or obstruction on arrival.",
+      "props": {
+        "variant": "slide",
+        "title": "One more useful hour",
+        "body": "Start with a short Mornington foreshore out-and-back, then keep dinner in town. Set your turn-back time before leaving and check the forecast and access. If the wind or rain wins, make it a table-led evening instead.",
+        "href": "https://peninsulainsider.com.au/journal/one-more-hour-after-five-peninsula/",
+        "start": "2026-10-07T08:00:00+11:00",
+        "end": "2026-10-14T08:00:00+11:00",
+        "campaignKey": "2026-10-07-slide"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": false,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-07",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-10-14T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Recheck Coolart conditions and live festival bookings. The September closure notice is absent in the current park page, but access can change.",
+        "Confirm issue IX after resolving the existing September issue VIII draft.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "5204827ace95f484ce374dd705df35869cf48a6d5af9108668dbc127d8ddf1bd"
+    },
+    {
+      "id": "2026-10-14-band",
+      "week": "2026-10-14",
+      "name": "A quiet homepage feature",
+      "placement": "Immediately after HomeCover on the homepage",
+      "rationale": "Connect the cover’s atmosphere to one useful weekly plan, without changing the hero video.",
+      "props": {
+        "variant": "band",
+        "title": "Keep the weekend",
+        "body": "Choose the 5km or 10km community walk, finishing at Rosebud Village Green. The organiser says profit after event costs supports locals undergoing breast cancer treatment. Register first, then leave the afternoon open rather than adding another cross-Peninsula drive.",
+        "href": "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
+        "start": "2026-10-14T08:00:00+11:00",
+        "end": "2026-10-21T08:00:00+11:00",
+        "campaignKey": "2026-10-14-band"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": true,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-14",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-10-21T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Check walk registration, start-line instructions, workshop places and high-tea availability.",
+        "Do not promote the cancelled Main Street festival or Emu Plains market.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "4a9f93a98a249a03224ba5abdee0cf9c72842a800d39a748e45b562a7d4aa91e"
+    },
+    {
+      "id": "2026-10-14-badge",
+      "week": "2026-10-14",
+      "name": "A small weekly badge",
+      "placement": "After HomeWeekend on the homepage",
+      "rationale": "A concise reminder alongside current weekend ideas, with a dismiss control.",
+      "props": {
+        "variant": "badge",
+        "title": "Where in the Peninsula is PI?",
+        "body": "Put your local knowledge to work. Follow the clues.",
+        "href": "https://play.peninsulainsider.com.au/",
+        "start": "2026-10-14T08:00:00+11:00",
+        "end": "2026-10-21T08:00:00+11:00",
+        "campaignKey": "2026-10-14-badge"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": false,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-14",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-10-21T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Check walk registration, start-line instructions, workshop places and high-tea availability.",
+        "Do not promote the cancelled Main Street festival or Emu Plains market.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "79983a437a92f867be82ef647361a900f8db40938cf139d67e08c8212653f9f5"
+    },
+    {
+      "id": "2026-10-14-slide",
+      "week": "2026-10-14",
+      "name": "An invitation that opens on click",
+      "placement": "Homepage, after HomeDispatch",
+      "rationale": "A visitor opens the suggestion themselves. No timed pop-up, forced signup or obstruction on arrival.",
+      "props": {
+        "variant": "slide",
+        "title": "Keep the weekend",
+        "body": "Choose the 5km or 10km community walk, finishing at Rosebud Village Green. The organiser says profit after event costs supports locals undergoing breast cancer treatment. Register first, then leave the afternoon open rather than adding another cross-Peninsula drive.",
+        "href": "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
+        "start": "2026-10-14T08:00:00+11:00",
+        "end": "2026-10-21T08:00:00+11:00",
+        "campaignKey": "2026-10-14-slide"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": false,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-14",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-10-21T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Check walk registration, start-line instructions, workshop places and high-tea availability.",
+        "Do not promote the cancelled Main Street festival or Emu Plains market.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "1b2a9112280d19d7e0024383b34d765bcae3e9df7f434e821529a9fd11d7bace"
+    },
+    {
+      "id": "2026-10-21-band",
+      "week": "2026-10-21",
+      "name": "A quiet homepage feature",
+      "placement": "Immediately after HomeCover on the homepage",
+      "rationale": "Connect the cover’s atmosphere to one useful weekly plan, without changing the hero video.",
+      "props": {
+        "variant": "band",
+        "title": "The long finish",
+        "body": "Sunday’s supported 35km route starts at Quarantine Station and finishes at Martha Cove Marina. If you’ve trained for it, check registration and shuttle details before committing; supporters should follow the organiser’s route guidance. Prefer a shorter day? The walking story below is the useful alternative.",
+        "href": "https://www.bloodylongwalk.com.au/mornington-peninsula/",
+        "start": "2026-10-21T08:00:00+11:00",
+        "end": "2026-10-28T08:00:00+11:00",
+        "campaignKey": "2026-10-21-band"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": true,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-21",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-10-28T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Recheck walk inventory, shuttle arrangements and organiser updates. Do not frame 35km as a casual outing.",
+        "Read back the seafood operator’s current booking page; destination listing alone does not prove inventory.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "9872a3df96efb2c3fb45910697d3c8ad6d1f999c20456faa1c50e426a86ed31d"
+    },
+    {
+      "id": "2026-10-21-badge",
+      "week": "2026-10-21",
+      "name": "A small weekly badge",
+      "placement": "After HomeWeekend on the homepage",
+      "rationale": "A concise reminder alongside current weekend ideas, with a dismiss control.",
+      "props": {
+        "variant": "badge",
+        "title": "Where in the Peninsula is PI?",
+        "body": "Put your local knowledge to work. Follow the clues.",
+        "href": "https://play.peninsulainsider.com.au/",
+        "start": "2026-10-21T08:00:00+11:00",
+        "end": "2026-10-28T08:00:00+11:00",
+        "campaignKey": "2026-10-21-badge"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": false,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-21",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-10-28T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Recheck walk inventory, shuttle arrangements and organiser updates. Do not frame 35km as a casual outing.",
+        "Read back the seafood operator’s current booking page; destination listing alone does not prove inventory.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "588564735459d1e94016338568a9282817adf751fab0337c92a3acd18ba24e9e"
+    },
+    {
+      "id": "2026-10-21-slide",
+      "week": "2026-10-21",
+      "name": "An invitation that opens on click",
+      "placement": "Homepage, after HomeDispatch",
+      "rationale": "A visitor opens the suggestion themselves. No timed pop-up, forced signup or obstruction on arrival.",
+      "props": {
+        "variant": "slide",
+        "title": "The long finish",
+        "body": "Sunday’s supported 35km route starts at Quarantine Station and finishes at Martha Cove Marina. If you’ve trained for it, check registration and shuttle details before committing; supporters should follow the organiser’s route guidance. Prefer a shorter day? The walking story below is the useful alternative.",
+        "href": "https://www.bloodylongwalk.com.au/mornington-peninsula/",
+        "start": "2026-10-21T08:00:00+11:00",
+        "end": "2026-10-28T08:00:00+11:00",
+        "campaignKey": "2026-10-21-slide"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": false,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-21",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-10-28T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Recheck walk inventory, shuttle arrangements and organiser updates. Do not frame 35km as a casual outing.",
+        "Read back the seafood operator’s current booking page; destination listing alone does not prove inventory.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "ff13134cb1473a54bc024c12d4d23f103e3d9aaf952b86344a1fa94efee5249f"
+    },
+    {
+      "id": "2026-10-28-band",
+      "week": "2026-10-28",
+      "name": "A quiet homepage feature",
+      "placement": "Immediately after HomeCover on the homepage",
+      "rationale": "Connect the cover’s atmosphere to one useful weekly plan, without changing the hero video.",
+      "props": {
+        "variant": "band",
+        "title": "Two nights, well spent",
+        "body": "Start on the ridge with Montalto, then let the coast shape the next day. The two-night plan puts accommodation and dining decisions first, with park access and weather checked before each walk. Cup Day is Tuesday 3 November; Monday still needs its own leave decision.",
+        "href": "https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/",
+        "start": "2026-10-28T08:00:00+11:00",
+        "end": "2026-11-04T08:00:00+11:00",
+        "campaignKey": "2026-10-28-band"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": true,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-28",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-11-04T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Verify the studio-tour organiser listing in a live booking session; the research fetch was rate-limited.",
+        "Confirm Halloween programme, accommodation and dining availability. Monday 2 November is not a public holiday.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "0c638eaa6c8425478cdc541692bd17b782ee90d1bb6e6a5b442524e8ae9e490f"
+    },
+    {
+      "id": "2026-10-28-badge",
+      "week": "2026-10-28",
+      "name": "A small weekly badge",
+      "placement": "After HomeWeekend on the homepage",
+      "rationale": "A concise reminder alongside current weekend ideas, with a dismiss control.",
+      "props": {
+        "variant": "badge",
+        "title": "Where in the Peninsula is PI?",
+        "body": "Put your local knowledge to work. Follow the clues.",
+        "href": "https://play.peninsulainsider.com.au/",
+        "start": "2026-10-28T08:00:00+11:00",
+        "end": "2026-11-04T08:00:00+11:00",
+        "campaignKey": "2026-10-28-badge"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": false,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-28",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-11-04T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Verify the studio-tour organiser listing in a live booking session; the research fetch was rate-limited.",
+        "Confirm Halloween programme, accommodation and dining availability. Monday 2 November is not a public holiday.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "bb6905a36df3276915ec9ef3333161ea26303ebb5df7e33e900d989c43ff4c3b"
+    },
+    {
+      "id": "2026-10-28-slide",
+      "week": "2026-10-28",
+      "name": "An invitation that opens on click",
+      "placement": "Homepage, after HomeDispatch",
+      "rationale": "A visitor opens the suggestion themselves. No timed pop-up, forced signup or obstruction on arrival.",
+      "props": {
+        "variant": "slide",
+        "title": "Two nights, well spent",
+        "body": "Start on the ridge with Montalto, then let the coast shape the next day. The two-night plan puts accommodation and dining decisions first, with park access and weather checked before each walk. Cup Day is Tuesday 3 November; Monday still needs its own leave decision.",
+        "href": "https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/",
+        "start": "2026-10-28T08:00:00+11:00",
+        "end": "2026-11-04T08:00:00+11:00",
+        "campaignKey": "2026-10-28-slide"
+      },
+      "component": "website/OctoberCampaign.astro",
+      "component_sha256": "241638df67dea23886fcb005b5bbf4e0161728db4133ebf36113262e31e086e1",
+      "recommended": false,
+      "execution": {
+        "owner": "remy",
+        "project": "peninsula-insider",
+        "date": "2026-10-28",
+        "time": "08:00",
+        "timezone": "Australia/Melbourne",
+        "scope": "Apply this exact component and props to the homepage only; preserve hero video, SEO metadata, content and navigation. Verify sources, mobile behavior, expiry and conflicts before deployment. Stop if checks fail.",
+        "expiry": "2026-11-04T08:00:00+11:00",
+        "rollback": "Remove only the approved OctoberCampaign insertion and import; preserve all unrelated changes."
+      },
+      "required_checks": [
+        "Verify the studio-tour organiser listing in a live booking session; the research fetch was rate-limited.",
+        "Confirm Halloween programme, accommodation and dining availability. Monday 2 November is not a public holiday.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ],
+      "sha256": "436f6c33c38b2fef9adc5bd2512a8deb9a423ffb0591a511304473f2114cfbdd"
+    }
+  ]
+}

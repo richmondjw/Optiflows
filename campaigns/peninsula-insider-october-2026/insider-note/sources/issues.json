@@ -82,7 +82,7 @@
         "https://play.peninsulainsider.com.au/"
       ]
     ],
-    "cover": "mornington",
+    "cover": null,
     "checks": [
       "Recheck Coolart conditions and live festival bookings. The September closure notice is absent in the current park page, but access can change.",
       "Confirm issue IX after resolving the existing September issue VIII draft.",
@@ -282,7 +282,7 @@
         "https://play.peninsulainsider.com.au/"
       ]
     ],
-    "cover": "point-nepean",
+    "cover": null,
     "checks": [
       "Recheck walk inventory, shuttle arrangements and organiser updates. Do not frame 35km as a casual outing.",
       "Read back the seafood operator’s current booking page; destination listing alone does not prove inventory.",
@@ -382,7 +382,7 @@
         "https://play.peninsulainsider.com.au/"
       ]
     ],
-    "cover": "montalto",
+    "cover": null,
     "checks": [
       "Verify the studio-tour organiser listing in a live booking session; the research fetch was rate-limited.",
       "Confirm Halloween programme, accommodation and dining availability. Monday 2 November is not a public holiday.",

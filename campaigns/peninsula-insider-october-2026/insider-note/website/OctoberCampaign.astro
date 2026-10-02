@@ -1,0 +1,24 @@
+---
+interface Props { variant: 'band' | 'badge' | 'slide'; title: string; body: string; href: string; start: string; end: string; campaignKey: string; }
+const { variant, title, body, href, start, end, campaignKey } = Astro.props;
+---
+<section class:list={['pi-october', `pi-october--${variant}`]} data-pi-october data-start={start} data-end={end} data-campaign-key={campaignKey} hidden aria-label="This week on the Peninsula">
+  {variant === 'slide' && <button class="pi-october__open" data-open type="button" aria-expanded="false">A little Peninsula this week</button>}
+  <div class="pi-october__panel" data-panel hidden={variant === 'slide'}>
+    <div><h2>{title}</h2>{variant !== 'badge' && <p>{body}</p>}<a href={href}>{variant === 'badge' ? 'Explore this week' : 'Open the plan'}</a></div>
+    {variant !== 'band' && <button class="pi-october__close" data-close type="button" aria-label="Dismiss this week’s suggestion">×</button>}
+  </div>
+</section>
+<style>
+.pi-october{margin:28px auto;max-width:1200px;padding:0 24px;color:#0B2E4A;font-family:Figtree,Arial,sans-serif}.pi-october [hidden],.pi-october[hidden]{display:none!important}.pi-october__panel{position:relative;padding:28px 38px;background:#F2EFEA;border-top:1px solid #CAC7BF;border-bottom:1px solid #CAC7BF}.pi-october h2{margin:0 40px 12px 0;font-family:Sora,Arial,sans-serif;font-size:clamp(22px,3vw,32px);line-height:1.2;letter-spacing:-.03em}.pi-october p{max-width:65ch;font-size:16px;line-height:1.55;margin:0 0 18px}.pi-october a{color:#0B2E4A;font-weight:600;text-decoration:underline;text-underline-offset:4px}.pi-october button{font:600 15px/1.4 Figtree,Arial,sans-serif;cursor:pointer;border:1px solid #0B2E4A;background:#F2EFEA;color:#0B2E4A;min-height:44px}.pi-october button:focus-visible,.pi-october a:focus-visible{outline:3px solid #26739B;outline-offset:4px}.pi-october__close{position:absolute;right:12px;top:12px;width:44px;font-size:24px!important;border:0!important}.pi-october--badge .pi-october__panel{padding:18px 68px 18px 24px}.pi-october--badge h2{font-size:18px;margin-bottom:8px}.pi-october--slide{margin:0;padding:0}.pi-october__open{position:fixed;bottom:24px;right:24px;padding:12px 20px;z-index:40}.pi-october--slide .pi-october__panel{position:fixed;right:24px;bottom:24px;width:min(390px,calc(100vw - 32px));padding:28px;z-index:41;border:1px solid #CAC7BF;border-radius:12px;box-shadow:0 12px 40px #0B2E4A26}.pi-october--slide h2{font-size:24px;margin-right:30px}.pi-october--slide .pi-october__panel:not([hidden]){animation:pi-panel .25s cubic-bezier(.16,1,.3,1)}@keyframes pi-panel{from{clip-path:inset(100% 0 0)}to{clip-path:inset(0)}}@media(max-width:600px){.pi-october{padding:0 16px}.pi-october__panel{padding:24px}.pi-october__open{right:16px;bottom:16px;max-width:calc(100vw - 32px)}.pi-october--slide .pi-october__panel{right:16px;bottom:16px}.pi-october--slide{padding:0}}@media(prefers-reduced-motion:reduce){.pi-october--slide .pi-october__panel:not([hidden]){animation:none}}
+</style>
+<script>
+function initializeOctober(){document.querySelectorAll<HTMLElement>('[data-pi-october]').forEach(el=>{
+ if(el.dataset.initialized)return;el.dataset.initialized='true';
+ const key='pi-october-dismiss-'+el.dataset.campaignKey;const panel=el.querySelector<HTMLElement>('[data-panel]');const opener=el.querySelector<HTMLElement>('[data-open]');
+ let dismissed=false;try{dismissed=sessionStorage.getItem(key)==='1'}catch{}
+ const update=()=>{const n=Date.now();el.hidden=!(n>=Date.parse(el.dataset.start||'')&&n<Date.parse(el.dataset.end||''))||dismissed;};update();const timer=setInterval(()=>{update();if(!el.isConnected)clearInterval(timer)},60000);
+ opener?.addEventListener('click',()=>{if(panel){panel.hidden=false;opener.hidden=true;opener.setAttribute('aria-expanded','true');panel.querySelector<HTMLButtonElement>('[data-close]')?.focus()}});
+ const close=()=>{dismissed=true;try{sessionStorage.setItem(key,'1')}catch{}el.hidden=true;};el.querySelector('[data-close]')?.addEventListener('click',close);el.addEventListener('keydown',e=>{if(e.key==='Escape'&&panel&&!panel.hidden){close();}});
+})}initializeOctober();document.addEventListener('astro:page-load',initializeOctober);
+</script>

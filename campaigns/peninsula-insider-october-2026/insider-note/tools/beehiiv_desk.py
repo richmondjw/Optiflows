@@ -6,6 +6,7 @@ from html.parser import HTMLParser
 from collections import Counter
 from http.server import ThreadingHTTPServer, SimpleHTTPRequestHandler
 from pathlib import Path
+from website_jobs import WebsiteJobs
 
 PUBLICATION='pub_91e9b723-53c4-456e-a857-9faa2d61864b'
 ORIGINS={'https://www.optiflows.com.au','https://optiflows.com.au','http://127.0.0.1:8792','http://localhost:8792'}
@@ -39,6 +40,7 @@ def complete_body_matches(approved,actual):
 class Desk:
  def __init__(self,root,state,credential_file=None,transport=None):
   self.root=Path(root).resolve();self.state=Path(state).resolve();self.state.mkdir(parents=True,exist_ok=True);os.chmod(self.state,0o700)
+  self.website=WebsiteJobs(self.root,self.state)
   self.db=self.state/'desk.sqlite';self.credentials=credential_file;self.transport=transport or self.provider
   with self.connect() as c:
    c.execute('CREATE TABLE IF NOT EXISTS approvals (hash TEXT PRIMARY KEY, issue TEXT, variant INTEGER, actor TEXT, created TEXT, revoked INTEGER DEFAULT 0)')
@@ -141,6 +143,11 @@ class Handler(SimpleHTTPRequestHandler):
   if path.path=='/api/session':
    if self.headers.get('Origin') not in [None,'http://127.0.0.1:8792','http://localhost:8792']:return self.json_response(403,{'error':'Connect through the local approval window.'})
    return self.json_response(200,{'token':TOKEN})
+  if path.path=='/api/website/status':
+   if not self.authorised():return self.json_response(401,{'error':'Connect the local approval desk first.'})
+   try:return self.json_response(200,self.desk.website.ready())
+   except ValueError as e:return self.json_response(503,{'error':str(e)})
+   except Exception:return self.json_response(503,{'error':'The native scheduler is unavailable. No website update has been scheduled.'})
   if path.path=='/api/status':
    if not self.authorised():return self.json_response(401,{'error':'Connect the local email desk first.'})
    try:
@@ -152,7 +159,7 @@ class Handler(SimpleHTTPRequestHandler):
    origin=urllib.parse.parse_qs(path.query).get('origin',[''])[0]
    if origin not in ORIGINS:return self.json_response(403,{'error':'Connect from the Peninsula Insider preview.'})
    # Human action required on this local page; token is only sent to the allowlisted opener.
-   text='''<!doctype html><html lang="en-AU"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Connect the PI email desk</title><body style="margin:0;padding:36px;background:#F2EFEA;color:#0B2E4A;font-family:Arial,sans-serif;line-height:1.6"><h1 style="font-size:28px;line-height:1.2">Connect Peninsula Insider</h1><p>Allow the review page to create approved, unscheduled drafts using this computer’s existing beehiiv account.</p><p>No email will be scheduled or sent. The account key stays on this computer.</p><button id="connect" style="padding:14px 20px;background:#0B2E4A;color:white;border:0;font-size:16px;cursor:pointer">Connect this preview</button><p id="status" role="status"></p><script>document.getElementById('connect').onclick=()=>{if(!window.opener){document.getElementById('status').textContent='Open Connect beehiiv from the preview page.';return;}window.opener.postMessage({type:'pi-beehiiv-connected',token:__TOKEN__},__ORIGIN__);document.getElementById('status').textContent='Connected. Return to the preview to approve an email.';document.getElementById('connect').disabled=true;};</script></body></html>'''.replace('__TOKEN__',json.dumps(TOKEN)).replace('__ORIGIN__',json.dumps(origin))
+   text='''<!doctype html><html lang="en-AU"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Connect the PI email desk</title><body style="margin:0;padding:36px;background:#F2EFEA;color:#0B2E4A;font-family:Arial,sans-serif;line-height:1.6"><h1 style="font-size:28px;line-height:1.2">Connect Peninsula Insider</h1><p>Allow this preview to create approved, unscheduled beehiiv drafts and schedule separately approved website update jobs for Remy.</p><p>Each action requires its own exact-version approval. No email will be scheduled or sent, and no social post will be published. The account key stays on this computer.</p><button id="connect" style="padding:14px 20px;background:#0B2E4A;color:white;border:0;font-size:16px;cursor:pointer">Connect this preview</button><p id="status" role="status"></p><script>document.getElementById('connect').onclick=()=>{if(!window.opener){document.getElementById('status').textContent='Open Connect beehiiv from the preview page.';return;}window.opener.postMessage({type:'pi-beehiiv-connected',token:__TOKEN__},__ORIGIN__);document.getElementById('status').textContent='Connected. Return to the preview to approve the specific email or website treatment.';document.getElementById('connect').disabled=true;};</script></body></html>'''.replace('__TOKEN__',json.dumps(TOKEN)).replace('__ORIGIN__',json.dumps(origin))
    self.send_response(200);self.send_header('Content-Type','text/html; charset=utf-8');self.send_header('Cache-Control','no-store');self.send_header('X-Frame-Options','DENY');self.send_header('Referrer-Policy','no-referrer');self.end_headers();self.wfile.write(text.encode());return
   if path.path.startswith('/api/'):return self.json_response(404,{'error':'Unknown action.'})
   if path.path=='/gate.js':
@@ -164,7 +171,9 @@ class Handler(SimpleHTTPRequestHandler):
    size=int(self.headers.get('Content-Length','0'))
    if not 0<size<2048:raise ValueError('Invalid request size.')
    d=json.loads(self.rfile.read(size));path=urllib.parse.urlsplit(self.path).path
-   if path=='/api/version':_,digest=self.desk.version(d['id'],d.get('variant',0),d.get('base_sha256'));result={'sha256':digest}
+   if path=='/api/website/schedule':
+    with LOCK:result=self.desk.website.schedule(d['id'],d['sha256'],d.get('confirmed',False))
+   elif path=='/api/version':_,digest=self.desk.version(d['id'],d.get('variant',0),d.get('base_sha256'));result={'sha256':digest}
    elif path=='/api/approve':result=self.desk.approve(d['id'],d['variant'],d['sha256'])
    elif path=='/api/revoke':result=self.desk.revoke(d['sha256'])
    elif path=='/api/push':result=self.desk.push(d['id'],d['variant'],d['sha256'])

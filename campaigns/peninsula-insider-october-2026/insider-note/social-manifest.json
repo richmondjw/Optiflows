@@ -1,0 +1,296 @@
+{
+  "version": 1,
+  "format": "Portrait feed",
+  "editable": "HTML text and separate licensed image layers; tile.css; draft captions",
+  "release": "Preview only, not scheduled or posted",
+  "tiles": [
+    {
+      "id": "2026-10-07-plan",
+      "week": "2026-10-07",
+      "kind": "plan",
+      "title": "One more hour. Use it well.",
+      "source": "social/2026-10-07-plan.html",
+      "file": "social/2026-10-07-plan.png",
+      "caption": "social/2026-10-07-plan-caption.txt",
+      "destination": "https://peninsulainsider.com.au/journal/one-more-hour-after-five-peninsula/",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": "vv-163846",
+      "alt": "One more hour. Use it well.. Choose a short foreshore segment and set a turn-back time.",
+      "required_checks": [
+        "Recheck Coolart conditions and live festival bookings. The September closure notice is absent in the current park page, but access can change.",
+        "Confirm issue IX after resolving the existing September issue VIII draft.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-07-editorial",
+      "week": "2026-10-07",
+      "kind": "editorial",
+      "title": "The case for a spring weekend.",
+      "source": "social/2026-10-07-editorial.html",
+      "file": "social/2026-10-07-editorial.png",
+      "caption": "social/2026-10-07-editorial-caption.txt",
+      "destination": "https://peninsulainsider.com.au/journal/the-spring-peninsula/",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": "vv-163880",
+      "alt": "The case for a spring weekend.. Choose less. Stay a little longer. Let the Peninsula set the pace.",
+      "required_checks": [
+        "Recheck Coolart conditions and live festival bookings. The September closure notice is absent in the current park page, but access can change.",
+        "Confirm issue IX after resolving the existing September issue VIII draft.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-07-game",
+      "week": "2026-10-07",
+      "kind": "game",
+      "title": "One more hour. One more clue.",
+      "source": "social/2026-10-07-game.html",
+      "file": "social/2026-10-07-game.png",
+      "caption": "social/2026-10-07-game-caption.txt",
+      "destination": "https://play.peninsulainsider.com.au/",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": null,
+      "alt": "One more hour. One more clue.. Finish your after-five plan with a little local discovery.",
+      "required_checks": [
+        "Recheck Coolart conditions and live festival bookings. The September closure notice is absent in the current park page, but access can change.",
+        "Confirm issue IX after resolving the existing September issue VIII draft.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-14-plan",
+      "week": "2026-10-14",
+      "kind": "plan",
+      "title": "Keep the weekend.",
+      "source": "social/2026-10-14-plan.html",
+      "file": "social/2026-10-14-plan.png",
+      "caption": "social/2026-10-14-plan-caption.txt",
+      "destination": "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": null,
+      "alt": "Keep the weekend.. Choose the community walk or paper workshop; they overlap.",
+      "required_checks": [
+        "Check walk registration, start-line instructions, workshop places and high-tea availability.",
+        "Do not promote the cancelled Main Street festival or Emu Plains market.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-14-editorial",
+      "week": "2026-10-14",
+      "kind": "editorial",
+      "title": "A gallery visit, given time.",
+      "source": "social/2026-10-14-editorial.html",
+      "file": "social/2026-10-14-editorial.png",
+      "caption": "social/2026-10-14-editorial-caption.txt",
+      "destination": "https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": null,
+      "alt": "A gallery visit, given time.. National Works on Paper is the quieter companion to an active weekend.",
+      "required_checks": [
+        "Check walk registration, start-line instructions, workshop places and high-tea availability.",
+        "Do not promote the cancelled Main Street festival or Emu Plains market.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-14-game",
+      "week": "2026-10-14",
+      "kind": "game",
+      "title": "Keep a little mystery in the weekend.",
+      "source": "social/2026-10-14-game.html",
+      "file": "social/2026-10-14-game.png",
+      "caption": "social/2026-10-14-game-caption.txt",
+      "destination": "https://play.peninsulainsider.com.au/",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": null,
+      "alt": "Keep a little mystery in the weekend.. Between the weekend plans, put your Peninsula knowledge to work.",
+      "required_checks": [
+        "Check walk registration, start-line instructions, workshop places and high-tea availability.",
+        "Do not promote the cancelled Main Street festival or Emu Plains market.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-21-plan",
+      "week": "2026-10-21",
+      "kind": "plan",
+      "title": "Give the coast a whole day.",
+      "source": "social/2026-10-21-plan.html",
+      "file": "social/2026-10-21-plan.png",
+      "caption": "social/2026-10-21-plan-caption.txt",
+      "destination": "https://www.bloodylongwalk.com.au/mornington-peninsula/",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": "vv-164529",
+      "alt": "Give the coast a whole day.. Commit to 35km only if you have prepared for it.",
+      "required_checks": [
+        "Recheck walk inventory, shuttle arrangements and organiser updates. Do not frame 35km as a casual outing.",
+        "Read back the seafood operator’s current booking page; destination listing alone does not prove inventory.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-21-editorial",
+      "week": "2026-10-21",
+      "kind": "editorial",
+      "title": "A shorter walk. A better finish.",
+      "source": "social/2026-10-21-editorial.html",
+      "file": "social/2026-10-21-editorial.png",
+      "caption": "social/2026-10-21-editorial-caption.txt",
+      "destination": "https://peninsulainsider.com.au/journal/the-peninsulas-best-late-afternoon-walks/",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": "vv-163846",
+      "alt": "A shorter walk. A better finish.. Leave enough light for the return, and keep dinner nearby.",
+      "required_checks": [
+        "Recheck walk inventory, shuttle arrangements and organiser updates. Do not frame 35km as a casual outing.",
+        "Read back the seafood operator’s current booking page; destination listing alone does not prove inventory.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-21-game",
+      "week": "2026-10-21",
+      "kind": "game",
+      "title": "Know the coast? Follow the clues.",
+      "source": "social/2026-10-21-game.html",
+      "file": "social/2026-10-21-game.png",
+      "caption": "social/2026-10-21-game-caption.txt",
+      "destination": "https://play.peninsulainsider.com.au/",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": null,
+      "alt": "Know the coast? Follow the clues.. After the walking plans, explore the Peninsula another way.",
+      "required_checks": [
+        "Recheck walk inventory, shuttle arrangements and organiser updates. Do not frame 35km as a casual outing.",
+        "Read back the seafood operator’s current booking page; destination listing alone does not prove inventory.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-28-plan",
+      "week": "2026-10-28",
+      "kind": "plan",
+      "title": "Two nights, well spent.",
+      "source": "social/2026-10-28-plan.html",
+      "file": "social/2026-10-28-plan.png",
+      "caption": "social/2026-10-28-plan-caption.txt",
+      "destination": "https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": "vv-160358",
+      "alt": "Two nights, well spent.. Reserve the nights and the tables before shaping the drive.",
+      "required_checks": [
+        "Verify the studio-tour organiser listing in a live booking session; the research fetch was rate-limited.",
+        "Confirm Halloween programme, accommodation and dining availability. Monday 2 November is not a public holiday.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-28-editorial",
+      "week": "2026-10-28",
+      "kind": "editorial",
+      "title": "Sorrento, beyond the summer strip.",
+      "source": "social/2026-10-28-editorial.html",
+      "file": "social/2026-10-28-editorial.png",
+      "caption": "social/2026-10-28-editorial-caption.txt",
+      "destination": "https://peninsulainsider.com.au/journal/the-sorrento-weekend/",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": "vv-163880",
+      "alt": "Sorrento, beyond the summer strip.. Give the village time, then let the bay and back beach shape your day.",
+      "required_checks": [
+        "Verify the studio-tour organiser listing in a live booking session; the research fetch was rate-limited.",
+        "Confirm Halloween programme, accommodation and dining availability. Monday 2 November is not a public holiday.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-28-game",
+      "week": "2026-10-28",
+      "kind": "game",
+      "title": "Take the scenic clue.",
+      "source": "social/2026-10-28-game.html",
+      "file": "social/2026-10-28-game.png",
+      "caption": "social/2026-10-28-game-caption.txt",
+      "destination": "https://play.peninsulainsider.com.au/",
+      "dimensions": [
+        1080,
+        1350
+      ],
+      "status": "draft",
+      "image_asset": null,
+      "alt": "Take the scenic clue.. Before the long weekend, follow a different kind of Peninsula detour.",
+      "required_checks": [
+        "Verify the studio-tour organiser listing in a live booking session; the research fetch was rate-limited.",
+        "Confirm Halloween programme, accommodation and dining availability. Monday 2 November is not a public holiday.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    }
+  ]
+}
