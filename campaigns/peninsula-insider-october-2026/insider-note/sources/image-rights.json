@@ -1,0 +1,67 @@
+{
+  "policy": "Licensed READY photographs only, no AI generation or editing. Resize/reframe only. Exact credit and place beside every photograph. Incidental distant figures only; no recognisable portrait used.",
+  "images": {
+    "mornington": {
+      "assetKey": "vv-163846",
+      "src": "/images/visit-victoria/vv-163846-bathing-boxes-at-mornington.webp",
+      "alt": "A row of colourful painted bathing boxes along the beach at Mornington, reflected in calm water, with a few beachgoers",
+      "credit": "Courtesy of Visit Victoria",
+      "caption": "Mornington, Mornington Peninsula.",
+      "orientation": "landscape",
+      "people": "incidental",
+      "showsEntity": [
+        "places/mornington",
+        "pages/places-hub",
+        "regions/mornington-bay-coast"
+      ],
+      "exactMatch": true,
+      "derivativeAlt": "Colourful Mornington bathing boxes reflected in the calm bay water",
+      "reframe": "Crop original to x=185..835, y=260..671; excludes all people. Resize only."
+    },
+    "point-nepean": {
+      "assetKey": "vv-164529",
+      "src": "/images/visit-victoria/vv-164529-bike-riding-at-point-nepean.webp",
+      "alt": "Two cyclists on a road winding through coastal scrub and sandy dunes at Point Nepean above rocky headlands and a grey sea",
+      "credit": "Jesse Hisco, courtesy of Visit Victoria",
+      "caption": "Point Nepean National Park, Mornington Peninsula.",
+      "orientation": "landscape",
+      "people": "incidental",
+      "showsEntity": [
+        "experiences/point-nepean-national-park",
+        "places/point-nepean",
+        "regions/peninsula-tip"
+      ],
+      "exactMatch": true
+    },
+    "montalto": {
+      "assetKey": "vv-160358",
+      "src": "/images/visit-victoria/vv-160358-montalto.webp",
+      "alt": "A patinated metal sculpture of a figure stands on the lawn in front of the Montalto restaurant and its white umbrellas",
+      "credit": "Two Palms Australia, courtesy of Visit Victoria",
+      "caption": "Montalto Vineyard & Olive Grove, Red Hill, Mornington Peninsula.",
+      "orientation": "landscape",
+      "people": "none",
+      "showsEntity": [
+        "venues/montalto",
+        "itineraries/ridge-to-sea-two-night-escape",
+        "itineraries/the-peninsula-golf-weekend",
+        "articles/first-time-peninsula"
+      ],
+      "exactMatch": true
+    },
+    "sorrento": {
+      "assetKey": "vv-163880",
+      "src": "/images/visit-victoria/vv-163880-millionaire-s-walk.webp",
+      "alt": "Clifftop lawn and weatherboard houses above a bay dotted with moored boats and jetties along Millionaire's Walk",
+      "credit": "Courtesy of Visit Victoria",
+      "caption": "Sorrento, Mornington Peninsula.",
+      "orientation": "landscape",
+      "people": "none",
+      "showsEntity": [
+        "places/sorrento",
+        "articles/the-sorrento-weekend"
+      ],
+      "exactMatch": true
+    }
+  }
+}

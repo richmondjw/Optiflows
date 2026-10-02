@@ -1,0 +1,125 @@
+{
+  "observed": "2026-10-02",
+  "sources": [
+    {
+      "id": 1,
+      "title": "Daylight saving",
+      "url": "https://business.vic.gov.au/business-information/daylight-saving",
+      "finding": "Victoria changes clocks on 4 October 2026."
+    },
+    {
+      "id": 2,
+      "title": "Victorian school calendar",
+      "url": "https://www.vic.gov.au/school-term-dates-and-holidays-victoria",
+      "finding": "Term 4 begins 5 October 2026 in government schools."
+    },
+    {
+      "id": 3,
+      "title": "Western Port Writes programme",
+      "url": "https://westernportwrites.com.au/program-2026/",
+      "finding": "Festival at Coolart 10 and 11 October; opening at Somers General on 9 October. Programme includes a stale Sunday year heading; use festival-level 2026 dates."
+    },
+    {
+      "id": 4,
+      "title": "Coolart access",
+      "url": "https://www.parks.vic.gov.au/places-to-see/parks/coolart-historic-area",
+      "finding": "2 October read shows park open daily 9am to 5pm, with no prior industrial-action closure notice. Homestead notice has a duplicated Saturday typo. Do not promise homestead access; recheck park conditions before visiting."
+    },
+    {
+      "id": 5,
+      "title": "Jetty Road Oktoberfest",
+      "url": "https://www.jettyroad.com.au/oktoberfest",
+      "finding": "9 to 11 October, Hoppy German special release and German-inspired pours. Current primary page read 2 October."
+    },
+    {
+      "id": 6,
+      "title": "Breast Foot Forward",
+      "url": "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
+      "finding": "17 October 2026, 8:30am to noon, 5km and 10km starts, Rosebud Village Green finish. Profit after event costs supports locals undergoing breast cancer treatment."
+    },
+    {
+      "id": 7,
+      "title": "Rose Garden high tea",
+      "url": "https://www.morningtonrosegardens.com.au/high-tea/",
+      "finding": "18 October 2026. Inventory not checked; reader must check booking availability."
+    },
+    {
+      "id": 8,
+      "title": "Jacky Cheng workshop",
+      "url": "https://mprg.mornpen.vic.gov.au/Events/Tessellation-Folding-Workshop-with-Jacky-Cheng",
+      "finding": "17 October 2026, 9:30am to 12:30pm, MPRG. A dated artist-led programme, not a new venue."
+    },
+    {
+      "id": 9,
+      "title": "National Works on Paper",
+      "url": "https://mprg.mornpen.vic.gov.au/Exhibitions/Current-exhibitions/National-Works-On-Paper-2026",
+      "finding": "5 September to 22 November 2026. Primary gallery regular hours Tuesday to Sunday 11am to 4pm."
+    },
+    {
+      "id": 10,
+      "title": "Bloody Long Walk",
+      "url": "https://www.bloodylongwalk.com.au/mornington-peninsula/",
+      "finding": "25 October, 35km, Quarantine Station to Martha Cove Marina, through Sorrento, Rye, Rosebud, Dromana and Safety Beach. Availability and operational details require near-send recheck."
+    },
+    {
+      "id": 11,
+      "title": "Seafood workshop",
+      "url": "https://www.visitmorningtonpeninsula.org/Things-To-Do/Trails/Wine-Food-Farmgate/View/_8b88faebbfcadb08c4d7a0e4/crc32",
+      "finding": "Destination listing advertises Sensational Seafood at Peninsula Gourmet Cooking School, Sunday 25 October 2026, 11am to 3pm. Operator booking details require a near-send recheck."
+    },
+    {
+      "id": 12,
+      "title": "MPRG studio tour",
+      "url": "https://www.eventbrite.com.au/e/local-artists-at-work-a-national-works-on-paper-studio-tour-tickets-2002486956392",
+      "finding": "Gallery-organised listing advertises Friday 30 October 2026, 9:30am to 3:30pm. Search index verified; direct research retrieval rate-limited. Hold for live organiser/booking read-back before sending."
+    },
+    {
+      "id": 13,
+      "title": "Halloweekend",
+      "url": "https://www.visitmorningtonpeninsula.org/whats-on/view/18175/halloweekend-at-the-big-goose",
+      "finding": "31 October to 1 November 2026, The Big Goose, Moorooduc. Destination listing advertises Golden Pumpkins, costume parade and themed farm activities; operator confirmation needed before send."
+    },
+    {
+      "id": 14,
+      "title": "Cup Day",
+      "url": "https://business.vic.gov.au/business-information/public-holidays/victorian-public-holidays-2026",
+      "finding": "Tuesday 3 November 2026. Monday 2 November is not represented as a public holiday."
+    },
+    {
+      "id": 15,
+      "title": "Where in the Peninsula is PI",
+      "url": "https://play.peninsulainsider.com.au",
+      "finding": "Chromium live browser 2 October returned 200 and showed playable Case 01 and Case 02. Older September production pack has unresolved prize/legal/partner holds. Carry evergreen game invitation only; no prize, winner, draw date or release claims."
+    },
+    {
+      "id": 16,
+      "title": "Fresh PI after-five plan",
+      "url": "https://peninsulainsider.com.au/journal/one-more-hour-after-five-peninsula/",
+      "finding": "Published 26 September 2026, live browser 200. Connects with existing October social drafts; no claim those drafts were posted."
+    },
+    {
+      "id": 17,
+      "title": "Gallery editorial",
+      "url": "https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/",
+      "finding": "Published 17 September 2026. Existing live service story, not newly published this week."
+    },
+    {
+      "id": 18,
+      "title": "Late-afternoon walks",
+      "url": "https://peninsulainsider.com.au/journal/the-peninsulas-best-late-afternoon-walks/",
+      "finding": "Existing evergreen editorial. Access, sunset and weather are not inferred from old article details."
+    },
+    {
+      "id": 19,
+      "title": "Sorrento editorial",
+      "url": "https://peninsulainsider.com.au/journal/the-sorrento-weekend/",
+      "finding": "Existing April editorial. Do not repeat old venue claims or assume current accommodation inventory."
+    },
+    {
+      "id": 20,
+      "title": "Ridge to Sea plan",
+      "url": "https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/",
+      "finding": "Existing itinerary, Montalto and Red Hill to the coast. Booking and park conditions must be checked on the day."
+    }
+  ]
+}

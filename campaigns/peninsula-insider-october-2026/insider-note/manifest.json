@@ -1,0 +1,95 @@
+{
+  "version": 1,
+  "project": "peninsula-insider",
+  "owner": "remy",
+  "observed": "2026-10-02",
+  "publication_id": "pub_91e9b723-53c4-456e-a857-9faa2d61864b",
+  "issue_numbering": "IX to XII provisional; September VIII remains draft in beehiiv.",
+  "publication_boundary": "OptiFlows review previews only. No subscriber sending, scheduling or PI editorial publication.",
+  "issues": [
+    {
+      "id": "2026-10-07",
+      "issue": "IX",
+      "title": "One more useful hour",
+      "subject": "Mornington after five on Thursday",
+      "preheader": "One short foreshore loop, a literary weekend on the other coast, and a fresh pour in Dromana.",
+      "email": "emails/insider-note-2026-10-07.html",
+      "beehiiv_html": "emails/insider-note-2026-10-07-beehiiv.html",
+      "payload": "emails/insider-note-2026-10-07-beehiiv.json",
+      "sha256": "4d76b9dc7179ba3505c9c30b72e65a93e047e94f9a5069d47603e7407ccb7ef6",
+      "approved": false,
+      "status": "preview",
+      "send_authorised": false,
+      "required_checks": [
+        "Recheck Coolart conditions and live festival bookings. The September closure notice is absent in the current park page, but access can change.",
+        "Confirm issue IX after resolving the existing September issue VIII draft.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-14",
+      "issue": "X",
+      "title": "Keep the weekend",
+      "subject": "Rosebud has a purpose this Saturday",
+      "preheader": "Choose a community walk, try an artist-led paper workshop, or make Sunday a garden afternoon.",
+      "email": "emails/insider-note-2026-10-14.html",
+      "beehiiv_html": "emails/insider-note-2026-10-14-beehiiv.html",
+      "payload": "emails/insider-note-2026-10-14-beehiiv.json",
+      "sha256": "6f3d04f230617f7e1aeae518ad70288d5f1de7f1cc33f69aaf4970722f6418cb",
+      "approved": false,
+      "status": "preview",
+      "send_authorised": false,
+      "required_checks": [
+        "Check walk registration, start-line instructions, workshop places and high-tea availability.",
+        "Do not promote the cancelled Main Street festival or Emu Plains market.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-21",
+      "issue": "XI",
+      "title": "The long finish",
+      "subject": "Point Nepean starts a long Sunday",
+      "preheader": "A supported coastal challenge, a seafood workshop, and a shorter walk for those keeping it local.",
+      "email": "emails/insider-note-2026-10-21.html",
+      "beehiiv_html": "emails/insider-note-2026-10-21-beehiiv.html",
+      "payload": "emails/insider-note-2026-10-21-beehiiv.json",
+      "sha256": "149312a187d97495050ec90d34030fb9b9549da31065d82738e07599faa9c481",
+      "approved": false,
+      "status": "preview",
+      "send_authorised": false,
+      "required_checks": [
+        "Recheck walk inventory, shuttle arrangements and organiser updates. Do not frame 35km as a casual outing.",
+        "Read back the seafood operator’s current booking page; destination listing alone does not prove inventory.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    },
+    {
+      "id": "2026-10-28",
+      "issue": "XII",
+      "title": "Two nights, well spent",
+      "subject": "Red Hill starts a two-night Friday",
+      "preheader": "A ridge-to-coast escape, a studio day, and a family Halloween option before Tuesday’s Cup Day.",
+      "email": "emails/insider-note-2026-10-28.html",
+      "beehiiv_html": "emails/insider-note-2026-10-28-beehiiv.html",
+      "payload": "emails/insider-note-2026-10-28-beehiiv.json",
+      "sha256": "4e146bdded6f6a28b47479045537fcc4682b4b424f4cf61f4f7fcdcb74ff165e",
+      "approved": false,
+      "status": "preview",
+      "send_authorised": false,
+      "required_checks": [
+        "Verify the studio-tour organiser listing in a live booking session; the research fetch was rate-limited.",
+        "Confirm Halloween programme, accommodation and dining availability. Monday 2 November is not a public holiday.",
+        "Final weather and sunset check on send day; no future forecast invented.",
+        "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+        "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+      ]
+    }
+  ]
+}
