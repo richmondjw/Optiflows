@@ -9,7 +9,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
 PAGE = ROOT.parent / 'index.html'
-PAGE_IDS = ('brief', 'overview', 'message', 'stand', 'scan', 'operate')
+PAGE_IDS = ('brief', 'overview', 'message', 'stand', 'scan', 'operate', 'contacts')
 IDS = PAGE_IDS[:5]
 DIMENSIONS = ('continuity', 'clarity', 'tightness_organisation', 'actionability', 'evidence_confidentiality')
 
