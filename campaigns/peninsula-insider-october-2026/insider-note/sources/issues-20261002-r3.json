@@ -1,0 +1,402 @@
+[
+  {
+    "id": "2026-10-07",
+    "num": 9,
+    "roman": "IX",
+    "title": "One more useful hour",
+    "context": "Daylight saving has begun and school routine returns. Carry the existing Spring after five campaign into one achievable evening, with a literary weekend on the other coast.",
+    "standfirst": "The clocks moved forward. School routine returned. The best October plan left room for an unhurried finish.",
+    "subject": "Mornington after five on Thursday",
+    "preheader": "One short foreshore loop, a literary weekend on the other coast, and a fresh pour in Dromana.",
+    "variants": [
+      [
+        "Mornington after five on Thursday",
+        "One short foreshore loop, a literary weekend on the other coast, and a fresh pour in Dromana."
+      ],
+      [
+        "Somers is the move this Saturday",
+        "Choose a festival session, pack a picnic, and give the longer evening something useful to do."
+      ],
+      [
+        "Dromana has a new pour this Friday",
+        "The week starts by the water and ends with stories at Coolart, with a brewery stop if it suits."
+      ]
+    ],
+    "lead": {
+      "day": "Thursday 8",
+      "place": "Mornington · EXPLORE",
+      "headline": "Leave room for the evening",
+      "event": "One more hour, used well",
+      "body": "Start with a short Mornington foreshore out-and-back, then keep dinner in town. Set your turn-back time before leaving and check the forecast and access. If the wind or rain wins, make it a table-led evening instead.",
+      "url": "https://peninsulainsider.com.au/journal/one-more-hour-after-five-peninsula/",
+      "cta": "Choose your evening",
+      "image": "mornington"
+    },
+    "picks": [
+      {
+        "day": "Saturday",
+        "num": "10",
+        "place": "Somers · CULTURE",
+        "headline": "Read the other coast",
+        "body": "Western Port Writes runs at Coolart on 10 and 11 October, with a Somers opening on Friday. Choose one session and plan your picnic before you leave.",
+        "url": "https://westernportwrites.com.au/program-2026/",
+        "label": "Choose a festival session",
+        "kind": "What’s on"
+      },
+      {
+        "day": "Friday",
+        "num": "9",
+        "place": "Dromana · EAT",
+        "headline": "A fresh pour for October",
+        "body": "Jetty Road’s Oktoberfest runs from 9 to 11 October, with German-inspired brews and a special Hoppy German release. Keep the brewery as your one stop for the afternoon.",
+        "url": "https://www.jettyroad.com.au/oktoberfest",
+        "label": "See the brewery programme",
+        "kind": "What’s new"
+      }
+    ],
+    "editorial": {
+      "when": "From the Journal",
+      "headline": "The case for a spring weekend",
+      "body": "Spring changes the shape of a Peninsula weekend. Our seasonal story makes the case for doing less, choosing a base and leaving room for the coast.",
+      "url": "https://peninsulainsider.com.au/journal/the-spring-peninsula/",
+      "label": "Explore the spring story",
+      "image": null
+    },
+    "rail": [
+      [
+        "Friday 9",
+        "Somers",
+        "Western Port Writes opening",
+        "https://westernportwrites.com.au/program-2026/"
+      ],
+      [
+        "Sat 10 to Sun 11",
+        "Coolart",
+        "Festival conversations and workshops",
+        "https://westernportwrites.com.au/program-2026/"
+      ],
+      [
+        "When you have a moment",
+        "Across the Peninsula",
+        "Where in the Peninsula is PI? Open a case.",
+        "https://play.peninsulainsider.com.au/"
+      ]
+    ],
+    "cover": null,
+    "checks": [
+      "Recheck Coolart conditions and live festival bookings. The September closure notice is absent in the current park page, but access can change.",
+      "Confirm issue IX after resolving the existing September issue VIII draft.",
+      "Final weather and sunset check on send day; no future forecast invented.",
+      "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+      "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+    ],
+    "approved": false,
+    "release_state": "Editorial preview; no send or schedule approval",
+    "send_date": "2026-10-07",
+    "plan_steps": [
+      "Choose a short foreshore segment and set a turn-back time.",
+      "Keep the final meal in Mornington.",
+      "Use a town-centre or table-led fallback when conditions change."
+    ]
+  },
+  {
+    "id": "2026-10-14",
+    "num": 10,
+    "roman": "X",
+    "title": "Keep the weekend",
+    "context": "Breast Cancer Awareness Month gives the community walk a real reason to lead. The cancelled Main Street festival is excluded. Art-making and Sunday high tea are separate choices, not replacement festival events.",
+    "standfirst": "October brought a reason to walk together. This weekend’s shape is simple: one good commitment, then time left over.",
+    "subject": "Rosebud has a purpose this Saturday",
+    "preheader": "Choose a community walk, try an artist-led paper workshop, or make Sunday a garden afternoon.",
+    "variants": [
+      [
+        "Rosebud has a purpose this Saturday",
+        "Choose a community walk, try an artist-led paper workshop, or make Sunday a garden afternoon."
+      ],
+      [
+        "Mornington makes things this Saturday",
+        "A paper-folding workshop and a proper gallery afternoon, with Sunday high tea if a table is free."
+      ],
+      [
+        "Mornington has a garden Sunday",
+        "Book a rose-garden afternoon, or start the weekend with a coastal walk that gives back locally."
+      ]
+    ],
+    "lead": {
+      "day": "Saturday 17",
+      "place": "Rosebud · EXPLORE",
+      "headline": "Walk for something close to home",
+      "event": "Breast Foot Forward",
+      "body": "Choose the 5km or 10km community walk, finishing at Rosebud Village Green. The organiser says profit after event costs supports locals undergoing breast cancer treatment. Register first, then leave the afternoon open rather than adding another cross-Peninsula drive.",
+      "url": "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026",
+      "cta": "Choose the walk",
+      "image": null
+    },
+    "picks": [
+      {
+        "day": "Saturday",
+        "num": "17",
+        "place": "Mornington · CULTURE",
+        "headline": "Fold something worth keeping",
+        "body": "Artist Jacky Cheng leads a tessellation-folding workshop at MPRG, 9:30am to 12:30pm. Check places before making this your morning, then leave time for the exhibition.",
+        "url": "https://mprg.mornpen.vic.gov.au/Events/Tessellation-Folding-Workshop-with-Jacky-Cheng",
+        "label": "Check the workshop details",
+        "kind": "What’s new"
+      },
+      {
+        "day": "Sunday",
+        "num": "18",
+        "place": "Mornington · EXPLORE",
+        "headline": "Let Sunday stay in the garden",
+        "body": "The rose gardens list high tea for Sunday 18 October. Check booking availability first and give the afternoon one destination rather than a list of stops.",
+        "url": "https://www.morningtonrosegardens.com.au/high-tea/",
+        "label": "Check high tea bookings",
+        "kind": "What’s on"
+      }
+    ],
+    "editorial": {
+      "when": "Published 17 September",
+      "headline": "A gallery afternoon, properly planned",
+      "body": "National Works on Paper runs until 22 November. Our practical spring guide helps you shape a visit to MPRG, with time to look rather than rushing through on the way somewhere else.",
+      "url": "https://peninsulainsider.com.au/journal/practical-spring-visit-national-works-on-paper/",
+      "label": "Plan the gallery afternoon",
+      "image": null
+    },
+    "rail": [
+      [
+        "Saturday 17",
+        "Rosebud",
+        "Breast Foot Forward, 8:30am to noon",
+        "https://events.humanitix.com/breast-foot-forward-annual-community-walk-2026"
+      ],
+      [
+        "Sunday 18",
+        "Mornington",
+        "Rose Garden high tea",
+        "https://www.morningtonrosegardens.com.au/high-tea/"
+      ],
+      [
+        "When you have a moment",
+        "Across the Peninsula",
+        "PI took the long way to dinner. Follow the clues.",
+        "https://play.peninsulainsider.com.au/"
+      ]
+    ],
+    "cover": null,
+    "checks": [
+      "Check walk registration, start-line instructions, workshop places and high-tea availability.",
+      "Do not promote the cancelled Main Street festival or Emu Plains market.",
+      "Final weather and sunset check on send day; no future forecast invented.",
+      "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+      "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+    ],
+    "approved": false,
+    "release_state": "Editorial preview; no send or schedule approval",
+    "send_date": "2026-10-14",
+    "plan_steps": [
+      "Choose the community walk or paper workshop; they overlap.",
+      "Leave Saturday afternoon open.",
+      "Book Sunday high tea only if a place is available."
+    ]
+  },
+  {
+    "id": "2026-10-21",
+    "num": 11,
+    "roman": "XI",
+    "title": "The long finish",
+    "context": "The Bloody Long Walk gives the bay a Sunday story. Offer a properly trained challenge, a supporter’s day or a shorter route, while new cooking programming gives non-walkers an equally considered alternative.",
+    "standfirst": "The longer evenings changed the pace. This week’s choice is about distance: a big commitment, or a smaller day done well.",
+    "subject": "Point Nepean starts a long Sunday",
+    "preheader": "A supported coastal challenge, a seafood workshop, and a shorter walk for those keeping it local.",
+    "variants": [
+      [
+        "Point Nepean starts a long Sunday",
+        "A supported coastal challenge, a seafood workshop, and a shorter walk for those keeping it local."
+      ],
+      [
+        "Dromana has a different Sunday plan",
+        "Leave the big coastal challenge to the trained legs, and put the afternoon into a seafood class."
+      ],
+      [
+        "Mornington can be a shorter Sunday",
+        "Choose the distance that suits, keep the food stop close, and check the conditions before leaving."
+      ]
+    ],
+    "lead": {
+      "day": "Sunday 25",
+      "place": "Point Nepean to Martha Cove · EXPLORE",
+      "headline": "Give the coast a whole day",
+      "event": "The Bloody Long Walk",
+      "body": "Sunday’s supported 35km route starts at Quarantine Station and finishes at Martha Cove Marina. If you’ve trained for it, check registration and shuttle details before committing; supporters should follow the organiser’s route guidance. Prefer a shorter day? The walking story below is the useful alternative.",
+      "url": "https://www.bloodylongwalk.com.au/mornington-peninsula/",
+      "cta": "Check the route",
+      "image": "point-nepean"
+    },
+    "picks": [
+      {
+        "day": "Sunday",
+        "num": "25",
+        "place": "Dromana · EAT",
+        "headline": "Bring the sea into the kitchen",
+        "body": "The destination calendar lists a Sensational Seafood workshop at Peninsula Gourmet Cooking School on 25 October, 11am to 3pm. Check operator availability before building your Sunday around it.",
+        "url": "https://www.visitmorningtonpeninsula.org/Things-To-Do/Trails/Wine-Food-Farmgate/View/_8b88faebbfcadb08c4d7a0e4/crc32",
+        "label": "Check the cooking programme",
+        "kind": "What’s new"
+      },
+      {
+        "day": "Saturday",
+        "num": "24",
+        "place": "Mornington · CULTURE",
+        "headline": "Save the coast for tomorrow",
+        "body": "Keep Saturday indoors at National Works on Paper, then have lunch in Mornington. The exhibition continues through 22 November, so you can give it time without racing another deadline.",
+        "url": "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/",
+        "label": "Plan the gallery visit",
+        "kind": "What’s on"
+      }
+    ],
+    "editorial": {
+      "when": "From the Journal",
+      "headline": "A shorter walk, with a better finish",
+      "body": "Not every coastal day needs 35 kilometres. Our late-afternoon walking story helps you choose a smaller outing, then leave enough light for the return and dinner nearby. Check current access and conditions before setting off.",
+      "url": "https://peninsulainsider.com.au/journal/the-peninsulas-best-late-afternoon-walks/",
+      "label": "Choose the shorter walk",
+      "image": null
+    },
+    "rail": [
+      [
+        "Saturday 24",
+        "Mornington",
+        "National Works on Paper, 11am to 4pm",
+        "https://peninsulainsider.com.au/whats-on/national-works-on-paper-2026-nwop/"
+      ],
+      [
+        "Sunday 25",
+        "Bay coast",
+        "Bloody Long Walk, Quarantine Station to Martha Cove",
+        "https://www.bloodylongwalk.com.au/mornington-peninsula/"
+      ],
+      [
+        "When you have a moment",
+        "Across the Peninsula",
+        "Know these coastlines? Put your local knowledge to work.",
+        "https://play.peninsulainsider.com.au/"
+      ]
+    ],
+    "cover": null,
+    "checks": [
+      "Recheck walk inventory, shuttle arrangements and organiser updates. Do not frame 35km as a casual outing.",
+      "Read back the seafood operator’s current booking page; destination listing alone does not prove inventory.",
+      "Final weather and sunset check on send day; no future forecast invented.",
+      "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+      "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+    ],
+    "approved": false,
+    "release_state": "Editorial preview; no send or schedule approval",
+    "send_date": "2026-10-21",
+    "plan_steps": [
+      "Commit to 35km only if you have prepared for it.",
+      "Check registration, transport and support arrangements.",
+      "Non-participants can choose the gallery, seafood class or a shorter walk instead."
+    ]
+  },
+  {
+    "id": "2026-10-28",
+    "num": 12,
+    "roman": "XII",
+    "title": "Two nights, well spent",
+    "context": "Halloween falls on Saturday and Cup Day follows on Tuesday 3 November. Promote a two-night ridge-to-coast plan, with a family option and an artist-studio programme. Do not imply Monday is a public holiday or that rooms are available.",
+    "standfirst": "October left a longer weekend within reach. The useful decision came first: choose the base, then choose how much to do.",
+    "subject": "Red Hill starts a two-night Friday",
+    "preheader": "A ridge-to-coast escape, a studio day, and a family Halloween option before Tuesday’s Cup Day.",
+    "variants": [
+      [
+        "Red Hill starts a two-night Friday",
+        "A ridge-to-coast escape, a studio day, and a family Halloween option before Tuesday’s Cup Day."
+      ],
+      [
+        "Moorooduc gives Saturday a costume",
+        "Keep Halloween to one farm visit, or take two nights and let the Peninsula widen as you go."
+      ],
+      [
+        "Sorrento deserves a slower Sunday",
+        "Choose your base before the weekend, with a Friday studio tour and a family option for Halloween."
+      ]
+    ],
+    "lead": {
+      "day": "Friday 30 to Sunday 1",
+      "place": "Red Hill to the coast · STAY",
+      "headline": "Let the weekend widen",
+      "event": "Ridge to Sea, two nights",
+      "body": "Start on the ridge with Montalto, then let the coast shape the next day. The two-night plan puts accommodation and dining decisions first, with park access and weather checked before each walk. Cup Day is Tuesday 3 November; Monday still needs its own leave decision.",
+      "url": "https://peninsulainsider.com.au/explore/plans/ridge-to-sea-two-night-escape/",
+      "cta": "Open the plan",
+      "image": "montalto"
+    },
+    "picks": [
+      {
+        "day": "Friday",
+        "num": "30",
+        "place": "Mornington · CULTURE",
+        "headline": "See where the work begins",
+        "body": "MPRG’s Local artists at work studio tour is listed for Friday 30 October, 9:30am to 3:30pm. Check the gallery’s current booking details before making it your first day.",
+        "url": "https://www.eventbrite.com.au/e/local-artists-at-work-a-national-works-on-paper-studio-tour-tickets-2002486956392",
+        "label": "Check the studio tour",
+        "kind": "What’s new"
+      },
+      {
+        "day": "Saturday",
+        "num": "31",
+        "place": "Moorooduc · EXPLORE",
+        "headline": "One farm, a Halloween afternoon",
+        "body": "The Big Goose’s Halloweekend is listed for 31 October and 1 November, with Golden Pumpkins and a costume parade. Check the operator’s programme and make this the family day’s anchor.",
+        "url": "https://www.visitmorningtonpeninsula.org/whats-on/view/18175/halloweekend-at-the-big-goose",
+        "label": "Check the family programme",
+        "kind": "What’s on"
+      }
+    ],
+    "editorial": {
+      "when": "From the Journal",
+      "headline": "Sorrento beyond the summer strip",
+      "body": "Sorrento works as a base when you give the village some time. Our weekend story is the companion to a slower stay, with the bay and back beach shaping the day rather than another trip up the ridge.",
+      "url": "https://peninsulainsider.com.au/journal/the-sorrento-weekend/",
+      "label": "Explore the Sorrento story",
+      "image": "sorrento"
+    },
+    "rail": [
+      [
+        "Friday 30",
+        "Mornington",
+        "Local artists at work, gallery studio tour",
+        "https://www.eventbrite.com.au/e/local-artists-at-work-a-national-works-on-paper-studio-tour-tickets-2002486956392"
+      ],
+      [
+        "Sat 31 to Sun 1",
+        "Moorooduc",
+        "Halloweekend at The Big Goose",
+        "https://www.visitmorningtonpeninsula.org/whats-on/view/18175/halloweekend-at-the-big-goose"
+      ],
+      [
+        "When you have a moment",
+        "Across the Peninsula",
+        "One more Peninsula detour. Where is PI?",
+        "https://play.peninsulainsider.com.au/"
+      ]
+    ],
+    "cover": null,
+    "checks": [
+      "Verify the studio-tour organiser listing in a live booking session; the research fetch was rate-limited.",
+      "Confirm Halloween programme, accommodation and dining availability. Monday 2 November is not a public holiday.",
+      "Final weather and sunset check on send day; no future forecast invented.",
+      "Verify sender, reply-to, registered street address and beehiiv-rendered mobile preview before any send.",
+      "Recheck the game is playable; omit the plug if unavailable. Prize/draw terms are outside these emails."
+    ],
+    "approved": false,
+    "release_state": "Editorial preview; no send or schedule approval",
+    "send_date": "2026-10-28",
+    "plan_steps": [
+      "Reserve the nights and the tables before shaping the drive.",
+      "Start on the ridge; keep the coast for the second day.",
+      "Choose the studio tour or family Halloween outing rather than adding both."
+    ]
+  }
+]
