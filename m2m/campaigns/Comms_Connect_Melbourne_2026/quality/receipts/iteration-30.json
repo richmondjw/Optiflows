@@ -1,0 +1,82 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 94,
+        "clarity": 100,
+        "tightness_organisation": 98,
+        "actionability": 100,
+        "evidence_confidentiality": 80
+      },
+      "deductions": [
+        "Continuity −6: The instruction to share the named KeyWatcher Australia case study conflicts with section 00’s prior-approval requirement for naming customers; audience approval is not stated.",
+        "Tightness and organisation −2: 'Case study: ... case study is a great case study' repeats the label three times and adds an evaluative phrase without helping the rep.",
+        "Evidence and confidentiality −20, critical-gate cap: 'KeyWatcher Australia ... is a great case study to share with visitors' gives unconditional permission to share named customer material without establishing prior approval for this audience. 'Rather than quoting its figures' addresses counts but does not satisfy the customer-naming rule."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation −3: Under 'Agree the next step', 'Record your name ... alongside the agreed action and timing' and the instruction to record why no action was agreed duplicate section 04’s detailed capture instructions. The agreement belongs here; the recording requirements already have their procedural home in section 04."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    }
+  ],
+  "overall_findings": [
+    "Sections 00, 01, 03 and 04 meet the editorial threshold. Section 02 fails continuity and evidence/confidentiality, including the confidentiality critical gate.",
+    "The page otherwise progresses coherently from briefing and priorities to messaging, qualification and capture. Section 00’s summary repetition is useful; section 03 repeats some procedural capture detail unnecessarily.",
+    "The pending demonstrations, approved product claims and programmed app questions have named owners, interim instructions and pre-distribution gates. Their pending status earns no deduction.",
+    "The SUBMIT instruction is present and unambiguous, with a recovery procedure for failed scans or submissions. No broken lead-save instruction was found.",
+    "Section 05 was not supplied and is not scored. Preservation of its live roster and event times, and the destinations of operational references, cannot be verified from the supplied text. No tools or external sources were used."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 80,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 114,
+    "message": 403,
+    "stand": 248,
+    "scan": 320
+  }
+}

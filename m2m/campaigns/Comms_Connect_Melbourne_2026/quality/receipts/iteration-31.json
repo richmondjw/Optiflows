@@ -1,0 +1,85 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 98,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity −2: “Leave solution design to a product specialist” sits under “Forestry, mining and remote assets”, making a general instruction initially appear specific to that audience.",
+        "Tightness and organisation −3: The product and datasheet inventory separates the conversation prompts from “Know when to hand over”. Put the handover guidance immediately after the prompts to keep the conversational sequence easy to scan."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 97,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −3: “Leads are then assigned” does not explain how the recorded stand contact knows responsibility for the agreed action has transferred. The named triage team provides a destination, but ownership acceptance remains implicit."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 97,
+        "actionability": 97,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation −3: “At the stand” and the failure procedure repeat nearly the entire note checklist and the no-action instruction already introduced in section 03. Establish the common note requirements once, then specify the fallback’s additional contact details.",
+        "Actionability −3: “Keep the note secure and flag it to the stand lead” gives no concrete storage or transfer method for a failed scan. The receipt and escalation instructions are useful, but the rep must still choose how to preserve and deliver the manual record."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "All supplied sections meet the editorial threshold: every dimension is at least 95.",
+    "The page follows a coherent purpose → message → qualification → capture sequence. The brief’s repeated stand line, next-step instruction and confidentiality boundary serve its summary function.",
+    "The pending demonstrations, approved claims and app questions identify owners, interim instructions and pre-distribution gates; their pending status warrants no deduction.",
+    "The KeyWatcher story is explicitly marked approved for this audience. No unapproved counts, outcomes or internal partner-project details appear in the supplied text.",
+    "The SUBMIT instruction and submission-failure route are present; no broken lead-save instruction is evident.",
+    "Section 05 was not supplied and was not scored. Its live roster, event times and incoming references cannot be checked, so a complete deterministic preservation pass cannot be established."
+  ],
+  "pass": true,
+  "hard_check_issues": [],
+  "minimum_score": 97,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 114,
+    "message": 407,
+    "stand": 248,
+    "scan": 320
+  }
+}
