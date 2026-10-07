@@ -1,23 +1,24 @@
 {
-  "grader_receipt": "receipts/iteration-21.json",
-  "minimum_score": 90,
+  "grader_receipt": "receipts/iteration-24.json",
+  "minimum_score": null,
   "pass": false,
-  "status": "Operational contacts and organiser-supplied shared event code added; previous grading is historical. Intentional content gaps remain.",
-  "graded_sections": [
+  "status": "Local-only product list and Tuesday team bump-in update prepared. Deterministic checks pass; fresh independent editorial grading is blocked by CLI model availability and automatic approval review. Publication approval pending.",
+  "graded_sections": [],
+  "attempted_sections": [
     "brief",
     "overview",
     "message",
     "stand",
     "scan"
   ],
-  "excluded_section": "operate — timetable and availability deferred",
+  "excluded_section": "operate - timetable and availability excluded from editorial model scoring; authorised Tuesday arrival paragraph checked locally",
   "section_sha256": {
     "brief": "979b0425466e65bb6bc0748857ecb4e489c747db27a07f1ec0e735fa6858857d",
     "overview": "c0c57d3a1e277e4624e37b174df39d978af097c71690fbf93884a9f769405ba5",
-    "message": "b1c35cbda9617dc6d7fcc12ac2bbef4569ceb9a294ad46527675b4b6dd654901",
+    "message": "5b2f3ee782ab233bc1b400074a1c4c79235ae55b8af5f3d25bf6cd40e8b3f5c1",
     "stand": "d22ffece29f707b8e4332ab37b39a4a2803716ed2e2e3bdb8fa54b041fa0ee2a",
     "scan": "3c6f91b7c3fdad6f5d2ba06c71e4d615ec1b2d94845796453ec43d5cea8a83b2"
   },
-  "page_sha256": "5c2cdd46a7111ae5d89f79ab4242d761b5c12c6660c514c17ae76b22f211e223",
-  "post_grade_check": "James confirmed established post-event process: Peter, Eerin and Jane review and triage; leads assigned and loaded into Zoho. Coordinator placeholder removed; no personal contact details added."
+  "page_sha256": "bc6e449459729e301f6ac423c289a420b05c6d801587156ccbba584637daef61",
+  "post_grade_check": "No editorial pass is claimed. Product links, responsive layouts, unchanged icons/roster/review scripts and supplied logistics were checked locally."
 }

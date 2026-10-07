@@ -1,0 +1,80 @@
+{
+  "iteration": 24,
+  "checked_at_utc": "2026-10-07T00:59:53.359660+00:00",
+  "base_commit": "3c16221c396188382814584f5d69878ad166b691",
+  "scope": "Local-only product references and Tuesday team bump-in recommendation. No publication approval.",
+  "pass": false,
+  "minimum_score": null,
+  "sections": [],
+  "hard_check_issues": [],
+  "deterministic_preservation_checks_pass": true,
+  "page_sha256": "bc6e449459729e301f6ac423c289a420b05c6d801587156ccbba584637daef61",
+  "section_sha256": {
+    "brief": "979b0425466e65bb6bc0748857ecb4e489c747db27a07f1ec0e735fa6858857d",
+    "overview": "c0c57d3a1e277e4624e37b174df39d978af097c71690fbf93884a9f769405ba5",
+    "message": "5b2f3ee782ab233bc1b400074a1c4c79235ae55b8af5f3d25bf6cd40e8b3f5c1",
+    "stand": "d22ffece29f707b8e4332ab37b39a4a2803716ed2e2e3bdb8fa54b041fa0ee2a",
+    "scan": "3c6f91b7c3fdad6f5d2ba06c71e4d615ec1b2d94845796453ec43d5cea8a83b2"
+  },
+  "grader_status": "blocked; no fresh editorial scores produced",
+  "attempts": [
+    {
+      "command": "python quality/grade.py --iteration 22",
+      "result": "Windows default cp1252 could not decode the UTF-8 page."
+    },
+    {
+      "command": "python -X utf8 quality/grade.py --iteration 22",
+      "result": "Windows could not launch the bare codex command."
+    },
+    {
+      "command": "python -X utf8 qa/run_grade_windows.py --iteration 22 and --iteration 23",
+      "result": "Unchanged grading logic reached the CLI; configured gpt-6.1-sol rejected as unsupported for the ChatGPT CLI account. No scores."
+    },
+    {
+      "command": "PACK_GRADER_MODEL=gpt-5.4 python -X utf8 qa/run_grade_windows.py --iteration 24",
+      "result": "Not executed. Automatic approval review rejected transmitting private sales-pack content to an unverified external model destination not specifically authorised by the user. No workaround attempted."
+    }
+  ],
+  "required_next_step": "Explicit approval of a verified independent grader destination is required before obtaining fresh editorial scores. Publication also remains pending.",
+  "logistics_evidence": {
+    "source_filename": "d81efe0e-b22a-4577-9c2a-4b64e15a4074.pdf",
+    "library_id": "libfile_b3f017b69abc81918f2995260e7ba222",
+    "page": "PDF page 1 / printed Exhibitor Manual page 4",
+    "heading": "EVENT AT A GLANCE — Key dates and times",
+    "provenance": "Verified native document review supplied by source thread 01a0f1b7-81e5-7708-bb11-bafaceeaf037",
+    "official_tuesday": {
+      "custom_build": "9:00am–6:00pm",
+      "shell_6x6_6x3": "12:00pm–6:00pm",
+      "shell_3x3_3x2": "1:00pm–6:00pm"
+    },
+    "team_recommendation": "James: arrive no earlier than 12 noon; no stand build type inferred"
+  },
+  "prior_acceptance": {
+    "grader_receipt": "receipts/iteration-21.json",
+    "minimum_score": 90,
+    "pass": false,
+    "status": "Operational contacts and organiser-supplied shared event code added; previous grading is historical. Intentional content gaps remain.",
+    "graded_sections": [
+      "brief",
+      "overview",
+      "message",
+      "stand",
+      "scan"
+    ],
+    "excluded_section": "operate — timetable and availability deferred",
+    "section_sha256": {
+      "brief": "979b0425466e65bb6bc0748857ecb4e489c747db27a07f1ec0e735fa6858857d",
+      "overview": "c0c57d3a1e277e4624e37b174df39d978af097c71690fbf93884a9f769405ba5",
+      "message": "b1c35cbda9617dc6d7fcc12ac2bbef4569ceb9a294ad46527675b4b6dd654901",
+      "stand": "d22ffece29f707b8e4332ab37b39a4a2803716ed2e2e3bdb8fa54b041fa0ee2a",
+      "scan": "3c6f91b7c3fdad6f5d2ba06c71e4d615ec1b2d94845796453ec43d5cea8a83b2"
+    },
+    "page_sha256": "5c2cdd46a7111ae5d89f79ab4242d761b5c12c6660c514c17ae76b22f211e223",
+    "post_grade_check": "James confirmed established post-event process: Peter, Eerin and Jane review and triage; leads assigned and loaded into Zoho. Coordinator placeholder removed; no personal contact details added."
+  },
+  "qa_evidence": [
+    "qa/results/browser-qa.json",
+    "qa/results/link-qa.json"
+  ],
+  "local_only": true
+}
