@@ -1,0 +1,83 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 94,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 80
+      },
+      "deductions": [
+        "Continuity −6: The KeyWatcher paragraph instructs reps to ‘Share the link’ without reconciling that instruction with section 00’s requirement for prior customer/project approval for this audience.",
+        "Evidence and confidentiality −20: ‘KeyWatcher Australia Managed Failover case study’ names a customer and authorises sharing without an audience-approval condition. Publication does not establish the required approval. The unconditional instruction contradicts section 00’s confidentiality rule, triggering the critical-gate cap of 80."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation −3: ‘Agree the next step’ repeats the name, action, timing and no-action lead-note instructions detailed in section 04. Keep agreement and ownership here, with capture mechanics in section 04."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 98,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation −2: ‘The app captures the contact details, answers and notes entered for each visitor’ restates the immediately preceding scan-and-entry procedure without adding an action."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "Sections 00, 01, 03 and 04 pass every editorial dimension. Section 02 fails continuity and evidence/confidentiality; the draft does not achieve a full pass.",
+    "The opening summary provides useful repetition. The substantive duplication is the lead-note procedure across sections 03 and 04.",
+    "Pending demonstrations and programmed qualifying questions are handled clearly: Eerin and Peter own confirmation, interim instructions are supplied, and confirmation is required before final distribution. No deduction applies merely because these inputs remain pending.",
+    "The SUBMIT instruction and submission-failure recovery path are present. Section 05 was not supplied, so preservation of the live roster, event times and operational references cannot be verified. Section 05 is not scored.",
+    "These scores assess the supplied text; they do not establish factual approval or live-page preservation."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 80,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 114,
+    "message": 406,
+    "stand": 248,
+    "scan": 320
+  }
+}

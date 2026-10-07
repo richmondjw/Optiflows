@@ -1,0 +1,83 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 94,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 80
+      },
+      "deductions": [
+        "Continuity −6: Managed Failover presents outcome promises as usable stand copy, although 00 requires exact-statement approval and this section says approved product claims are still 'To be provided'.",
+        "Evidence and confidentiality −20, critical-gate cap: 'keep them online' and 'so there is no bill shock' promise outcomes without supplied substantiation or stated approval. Remove or qualify these assurances pending approval."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation −3: 'Record your name as the stand contact' and 'If there is no agreed action, record the reason' duplicate capture instructions in 04. Keep agreement and ownership here; consolidate recording details in the linked procedure."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 94,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation −6: 'Qualifying questions' repeats the problem, project stage, action and timing fields already specified under 'At the stand'. Together with repeated recording instructions in 03, this obscures the primary scan-and-save sequence. Retain the pending owner and distribution gate, but refer to the existing note requirements."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "The draft does not pass: 02 fails continuity and the evidence critical gate; 04 fails tightness and organisation.",
+    "The page otherwise follows a coherent purpose-to-message-to-qualification-to-capture sequence. The brief's summary repetition is useful.",
+    "Pending demonstration details and programmed questions identify owners, interim instructions and pre-distribution gates; their pending status is not itself a defect.",
+    "The SUBMIT instruction and submission-failure recovery are present and coherent. No named customer/project or specific deployment count appears in the supplied sections.",
+    "Section 05 was not supplied and is not scored. Preservation of its live roster and event times, and the destinations of operational references, cannot be verified from this excerpt."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 80,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 114,
+    "message": 348,
+    "stand": 248,
+    "scan": 324
+  }
+}

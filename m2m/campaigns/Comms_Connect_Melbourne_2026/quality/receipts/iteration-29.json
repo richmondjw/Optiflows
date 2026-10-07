@@ -1,0 +1,80 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 98,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation −2: The lengthy “Products we’re showcasing” block separates the conversation prompts from “Know when to hand over”. Placing the handover guidance beside those prompts would improve phone scanning."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation −3: “Record your name … alongside the agreed action and timing” and “If there is no agreed action, record the reason” repeat detailed capture instructions under SCAN’s “At the stand”. The existing lead-capture reference could carry those details."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    }
+  ],
+  "overall_findings": [
+    "Sections 00–04 pass the editorial threshold: every dimension scores at least 95.",
+    "The sequence moves coherently from briefing and visitor priorities through messaging, qualification, handoff and lead capture. Brief-level repetition usefully summarises the workflow.",
+    "Pending demonstrations, claims and app questions have named owners, interim instructions and pre-distribution gates; their pending status incurs no deduction.",
+    "KeyWatcher naming and link sharing have explicit approval in the supplied text; its figures remain excluded from stand statements. No supplied passage triggers a confidentiality or lead-save critical gate.",
+    "The SUBMIT instruction and recovery handoff are present. Section 05 was not supplied and is not scored; roster and timetable preservation cannot be verified from this extract."
+  ],
+  "pass": true,
+  "hard_check_issues": [],
+  "minimum_score": 97,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 114,
+    "message": 425,
+    "stand": 248,
+    "scan": 320
+  }
+}
