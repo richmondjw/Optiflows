@@ -1,13 +1,10 @@
-# Comms Connect Melbourne 2026: Sales Briefing (private draft v0.8)
+# Comms Connect Melbourne 2026: Sales Briefing (v1.0 final)
 
-- Published path: /m2m/campaigns/Comms_Connect_Melbourne_2026/ (noindex, internal M2M Group sales use)
-- Pack id: comms-connect-melbourne-sales-kickoff-2026 (marketing mode, Semtech palette, Titillium Web)
-- Editorial source of the current review draft: `index.html`. An earlier local pack does not contain the later roster/review controls or this editorial revision; do not rebuild over the current page from that pack.
-- Review and roster controls: Cloudflare Worker backed in the deployed page.
-- Status: draft for sales leadership; gaps marked in yellow. Not for attendee distribution until James approves.
-- Eerin and Kat review (30 September): no named customers or projects without prior approval for this audience; do not expose Peplink partner project detail from internal updates. The proposed experience statement was removed on James's instruction.
-- Editorial acceptance: `quality/RUBRIC.md`, `quality/grade.py`, and `quality/acceptance.json` record the grading loop. Iteration 31 (7 October) is the current pass, minimum score 97 (iteration 26 was the first full pass), run through the WSL Codex CLI invocation James approved (recorded in acceptance.json). Iteration 24 recorded a blocked grader; iteration 25 failed only on the qualifying-questions gap, fixed in 26. Section 05 timetable and availability remain outside model scoring and are covered by browser QA. Grading does not approve pending demonstrations, claims, targets or final distribution.
-- 7 October release: six Peplink models with official datasheet links (Balance 310 5G HW3, with the HW1–2 sheet as an older reference), the Semtech AirLink range at range level, and a request to read them before the event. Demonstrations, presenters and approved product claims remain unconfirmed. Logistics from printed page 4 of the exhibitor manual: Tuesday team arrival no earlier than 12 noon (James's guidance, kept distinct from official access), Wednesday access 7:30am via concourse door 15, Thursday access 8:00am, bump-out 4:00–8:00pm Thursday.
-- 7 October follow-up: M2M One Managed Failover added in 'What to say' (M2M One's description only; no uptime or cost promises). James approved naming KeyWatcher Australia and linking M2M One's published case study for Comms Connect visitors; its figures are not approved stand statements.
-- Republish: edit this page, run the quality grader for substantive editorial changes, retain roster/review controls, then commit and push. Do not overwrite it with an unreviewed local rebuild.
-- Remove: delete this folder, commit, push. The URL then 404s.
+- Published path: /m2m/campaigns/Comms_Connect_Melbourne_2026/ (noindex, internal M2M Group sales use).
+- James approved the final content and publication on 7 October 2026. The briefing may be updated later.
+- Editorial source: `index.html`. Preserve current roster identities, conversation icons and operational controls; do not rebuild from an older local pack.
+- The final pack includes six Peplink products and official datasheets, the Semtech AirLink range, video product showcases, hardware preparation, confirmed team contacts, official logistics, lead capture, next-week allocation and same-day urgent escalation.
+- Balance 310 5G datasheets are explicitly labelled HW3 and HW1–2. Use the sheet matching the hardware. Other product limitations and safe capture/handling guidance remain.
+- The shared roster uses the existing Cloudflare Worker endpoint and document/person schema. Saves are verified by read-back; unresolved changes remain local until confirmed. Offline copies disable writes and keep external references external.
+- Editorial review uses the frozen `quality/RUBRIC.md` and `quality/grade.py`. Every receipt must be assessed against its exact source hash; historical scores do not establish acceptance of later content. Factual approval and deployment verification are separate checks.
+- Republish: edit the current source, run the required editorial and factual/browser checks, retain the functional roster, commit only the intended pack changes, and push only with publication approval. Main pushes deploy GitHub Pages.
