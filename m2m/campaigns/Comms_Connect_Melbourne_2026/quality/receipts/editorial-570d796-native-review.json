@@ -1,0 +1,79 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation (-3): Within section 00, the quick-reference 'Conversation: critical task → connection risk → decision stage → agreed action/time', the separate 'Conversation path' paragraph, and 'Before the visitor leaves: agree who will do what and when' repeat substantially the same close. Overview repetition is useful, but the extra Conversation path paragraph adds little to this deliberately short brief."
+      ]
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 96,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity (-4): Section 02's offline callout says 'Use the included facts and questions below', although the product cards containing those facts and questions are above the callout; the walkthrough below mainly points back to them. In the same callout, 'an HTML-only reference conversation' is implementation-oriented wording rather than an immediately natural instruction for a rep. Separately, 'Vehicle inputs / edge processing' and 'edge computing' are used in the chooser and Transit Pro E card without a short plain-language explanation. These are local reading frictions, not a broken conversation or escalation procedure.",
+        "Tightness and organisation (-3): In section 02, the 'Video product showcases' callout says staff should explain displayed hardware using cards and datasheets, and the nearby 'Use a product reference' opener repeats 'Use a product reference alongside the video showcases. Use a relevant card'. Consolidating those adjacent presentation instructions would shorten the reference without losing an action."
+      ]
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 97,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation (-3): Section 03 repeats the same urgent-lead routing in 'Priority cues', the first 'Handoff and follow-up' paragraph, and again at the end of 'Confirmed normal post-event process': 'flagged directly to Peter or Eerin on the event day'. The first two placements serve different reading paths; the final repetition is unnecessary within the same handoff block."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 99,
+        "tightness_organisation": 98,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity (-1): Section 04's fictional-example explanation uses the unexplained acronym 'SLA' in 'not a team response SLA'. The surrounding sentence makes the intent recoverable, but 'standard team response deadline' would be immediately clear to every rep.",
+        "Tightness and organisation (-2): Under section 04's 'If a scan or submission fails', step 3 ends with 'flag unresolved handoffs to Peter or Eerin', then step 4 immediately covers an unaccepted handoff, retaining it as unresolved, and agreeing transfer with Peter or Eerin. The distinct secure-transfer safeguard is valuable; the duplicated unresolved-handoff instruction can be consolidated."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "PASS under the frozen quality/RUBRIC.md threshold: all 25 section-dimension scores are at least 95. Minimum score: 96, section message, clarity. No failing sections or dimensions.",
+    "Verified source SHA256 using sha256sum: c9fc6673abde2bc6dd4e044ee6aab5f02f044595be32be7df5bcc9085ea8ade8. Exact reviewed source: Comms-Connect-2026-v1.0-editorial-fix-source.html in the supplied bundle for commit 570d7964929f87516d186a7d5167d2227dceeeef.",
+    "Actual method: fresh native read-only model review; quality/grade.py was not executed. Read the frozen grading request, quality/RUBRIC.md, quality/schema.json, and relevant exact HTML source. All seven supplied visible sections were considered as context; only brief, overview, message, stand, and scan were scored. No previous review receipt or other version was opened. No external research, browser action, source execution, source change, or publication was performed.",
+    "This is an editorial readiness assessment for sales-leadership review, not independent factual approval, manufacturer validation, live-page verification, app rehearsal, or a replacement for deterministic preservation checks. The source visibly retains the roster, event-time material, and SUBMIT instruction; runtime roster and app behaviour were not tested.",
+    "No editorial critical gate failure found in the reviewed material. The named KeyWatcher case is explicitly labelled approved for Comms Connect visitors and linked as a published story; this review assesses that stated audience boundary without independently certifying its approval. Internal Peplink customer/project details and unsupported customer counts or outcomes are not offered as stand talking points. The example's three sites and deadline are explicitly fictional training content.",
+    "Section 02 now defines WAN and SpeedFusion, distinguishes one modem with redundant SIM slots from two modems, gives a concrete BR1 Mini/BR2 Pro comparison, conditions Balance specifications on matching hardware, and supplies an offline reference path plus specialist escalation. Those instructions are usable without treating the product cards as a guaranteed solution design.",
+    "Section 04's dated commitment is unambiguously a fictional example, expressly distinguished from a team response deadline, and accompanied by an instruction to agree the actual visitor action and timing. Sections 03 and 06 preserve visitor commitments through triage and distinguish an acknowledged handoff from an unresolved record. The lead-save and recovery instructions remain explicit and coherent.",
+    "The remaining deductions are optional editorial refinements: local wording and repeated instructions. None requires resolving the excluded timetable or availability work, inventing a standard response deadline, or treating unperformed operational checks as an editorial failure."
+  ]
+}

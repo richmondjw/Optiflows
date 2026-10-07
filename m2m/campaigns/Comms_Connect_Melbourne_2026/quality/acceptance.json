@@ -1,8 +1,7 @@
 {
-  "grader_receipt": "receipts/iteration-31.json",
-  "minimum_score": 97,
+  "grader_receipt": "receipts/editorial-570d796-native-review.json",
   "pass": true,
-  "status": "7 October follow-up: M2M One Managed Failover added to 'What to say' as M2M One's own description with a no-outcome-promise rule, plus the KeyWatcher Australia case study link, approved by James for Comms Connect visitors (figures not approved as stand statements). Iteration 27 failed on outcome promises in the failover copy; iteration 28 failed because the case study lacked a stated audience approval; iteration 29 passes. Later the same day, at James's request, the case-study line no longer names him as approver and calls it a great case study; iteration 30 failed because no audience approval was stated, iteration 31 passes with 'approved for Comms Connect visitors' kept in the label.",
+  "minimum_score": 96,
   "graded_sections": [
     "brief",
     "overview",
@@ -10,15 +9,20 @@
     "stand",
     "scan"
   ],
-  "excluded_section": "operate - timetable, logistics and availability are outside model scoring; checked by deterministic and browser QA",
-  "grader_invocation": "CODEX_HOME=/home/james/.codex-cli python3 quality/grade.py --iteration N (WSL Codex CLI, ChatGPT login, configured default model gpt-6-astra, read-only, ephemeral) - approved by James 7 October 2026",
+  "page_sha256": "c9fc6673abde2bc6dd4e044ee6aab5f02f044595be32be7df5bcc9085ea8ade8",
   "section_sha256": {
-    "brief": "979b0425466e65bb6bc0748857ecb4e489c747db27a07f1ec0e735fa6858857d",
+    "brief": "54b073eb2f4f1cc42e73d61b31a866bebd2cfb360944c41593b3e661226691ae",
     "overview": "c0c57d3a1e277e4624e37b174df39d978af097c71690fbf93884a9f769405ba5",
-    "message": "19bfbd25bd409fced232b96e6af7cf20ae6a8544047c27675194b0989eb47146",
-    "stand": "d22ffece29f707b8e4332ab37b39a4a2803716ed2e2e3bdb8fa54b041fa0ee2a",
-    "scan": "3e2619b3db9a297ad8f296e98384a8d76de694ea3b918e6e3b5eb20593ff784e"
+    "message": "1820f842b4f36f5786bf63471345bda1ae9e932cd90c180201ea4cbc5d994e23",
+    "stand": "0be966d04cb9542fd393652daae57e6edd6493147cafabc5d30cef3f1cb99759",
+    "scan": "62ae4ce04de020b9740671c02097add9a2dfd0d5505cff61a71bc66ac072fcd1"
   },
-  "page_sha256": "11cb2b953b2b2e9cf33c4b98467a18bd7e8e51cae8f04d60ecdb60f563554408",
-  "post_grade_check": "Browser QA at 1440/390/320 px passes (anchors, navigation, roster Y/N and totals, review notes, icons, logistics, product and failover links, no overflow or runtime errors); all ten external links return HTTP 200. A grader pass does not approve demonstrations, product claims, targets or final distribution."
+  "status": "Independent editorial PASS for this exact final source, using the one-release mechanism substitution approved by James. Publication authorised; normal technical checks pass. Deployment must be verified separately.",
+  "grading_method": "Fresh native read-only independent model review; the original CLI grading invocation was not run.",
+  "mechanism_substitution_scope": "This release only; future release gates are unchanged.",
+  "release_evidence": "release-evidence-20261007.json",
+  "receipt_sha256": "c54267a7cf51812681d343f736f4d6eff2bc60bf1081f65eb746142d50c0dbd9",
+  "dimension_count": 25,
+  "operational_readiness_score": null,
+  "operational_readiness_note": "Separate assessment; no operational readiness or98+ score claimed by this editorial pass."
 }

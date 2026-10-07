@@ -1,0 +1,245 @@
+{
+  "release": "Comms Connect Melbourne2026 v1.0 final",
+  "prepared_at_utc": "2026-10-07T21:51:29.537395+00:00",
+  "repository": "richmondjw/Optiflows",
+  "target_branch": "main",
+  "main_baseline": "9b5664f5ac842be7437a016b28436ffc62a82ba9",
+  "reviewed_source_commit": "570d7964929f87516d186a7d5167d2227dceeeef",
+  "page_sha256": "c9fc6673abde2bc6dd4e044ee6aab5f02f044595be32be7df5bcc9085ea8ade8",
+  "section_sha256": {
+    "brief": "54b073eb2f4f1cc42e73d61b31a866bebd2cfb360944c41593b3e661226691ae",
+    "overview": "c0c57d3a1e277e4624e37b174df39d978af097c71690fbf93884a9f769405ba5",
+    "message": "1820f842b4f36f5786bf63471345bda1ae9e932cd90c180201ea4cbc5d994e23",
+    "stand": "0be966d04cb9542fd393652daae57e6edd6493147cafabc5d30cef3f1cb99759",
+    "scan": "62ae4ce04de020b9740671c02097add9a2dfd0d5505cff61a71bc66ac072fcd1"
+  },
+  "publication_approved_by": "James",
+  "publication_approval_date": "2026-10-07",
+  "grading_mechanism": {
+    "scope": "This release only",
+    "approved_by": "James",
+    "approved_at_utc": "2026-10-07T21:44:00Z",
+    "approved_substitution": "Fresh native read-only independent model review under the unchanged frozen editorial rubric, retaining report and normal technical checks.",
+    "original_cli_grading_invocation_executed": false,
+    "blocked_external_grader_route_retried_or_bypassed": false,
+    "receipt": "receipts/editorial-570d796-native-review.json",
+    "receipt_sha256": "c54267a7cf51812681d343f736f4d6eff2bc60bf1081f65eb746142d50c0dbd9",
+    "retained_library_file_id": "libfile_ec128368045881918bea15ae2f2f6052",
+    "reviewed_dimensions": 25,
+    "minimum_dimension_score": 96,
+    "all_dimensions_pass": true,
+    "rubric_sha256": "8c63f32e8aefa7c1c99538a0610d925d9a8e811b161aac313ee68382c30d72a0"
+  },
+  "technical_checks": {
+    "browser-qa.json": {
+      "sourceSha256": "c9fc6673abde2bc6dd4e044ee6aab5f02f044595be32be7df5bcc9085ea8ade8",
+      "sourceOfApprovedContent": "aa5e2b4",
+      "scope": "Only two identified editorial gaps addressed; one glossary paragraph added, one reference step and one fictional example updated",
+      "views": [
+        {
+          "name": "desktop",
+          "width": 1440,
+          "height": 1000,
+          "layout": {
+            "width": 1440,
+            "content": 1440
+          },
+          "runtimeErrors": [],
+          "externalRequests": [],
+          "mockedCalls": 6,
+          "mockedSaveAndFailurePass": true,
+          "offlineReadOnlyPass": true,
+          "internalAnchorsPass": true
+        },
+        {
+          "name": "mobile",
+          "width": 390,
+          "height": 844,
+          "layout": {
+            "width": 390,
+            "content": 390
+          },
+          "runtimeErrors": [],
+          "externalRequests": [],
+          "mockedCalls": 6,
+          "mockedSaveAndFailurePass": true,
+          "offlineReadOnlyPass": true,
+          "internalAnchorsPass": true
+        },
+        {
+          "name": "narrow",
+          "width": 320,
+          "height": 844,
+          "layout": {
+            "width": 320,
+            "content": 320
+          },
+          "runtimeErrors": [],
+          "externalRequests": [],
+          "mockedCalls": 6,
+          "mockedSaveAndFailurePass": true,
+          "offlineReadOnlyPass": true,
+          "internalAnchorsPass": true
+        }
+      ],
+      "preservation": {
+        "exactScope": true,
+        "allScripts": true,
+        "styles": true,
+        "allTables": true,
+        "completeWorkerClient": true,
+        "embeddedAssets": 5,
+        "conversationIcons": true
+      },
+      "actualEventsAIRZohoRehearsal": false,
+      "liveRosterWrites": 0,
+      "pass": true
+    },
+    "deterministic-qa.json": {
+      "sha256": "c9fc6673abde2bc6dd4e044ee6aab5f02f044595be32be7df5bcc9085ea8ade8",
+      "pass": true,
+      "hard_check_issues": [],
+      "section_sha256": {
+        "brief": "54b073eb2f4f1cc42e73d61b31a866bebd2cfb360944c41593b3e661226691ae",
+        "overview": "c0c57d3a1e277e4624e37b174df39d978af097c71690fbf93884a9f769405ba5",
+        "message": "1820f842b4f36f5786bf63471345bda1ae9e932cd90c180201ea4cbc5d994e23",
+        "stand": "0be966d04cb9542fd393652daae57e6edd6493147cafabc5d30cef3f1cb99759",
+        "scan": "62ae4ce04de020b9740671c02097add9a2dfd0d5505cff61a71bc66ac072fcd1"
+      },
+      "links": [
+        "https://download.peplink.com/resources/balance_310_5G_datasheet.pdf",
+        "https://download.peplink.com/resources/br1_pro_5g_datasheet.pdf",
+        "https://download.peplink.com/resources/peplink_br2_pro_datasheet.pdf",
+        "https://download.peplink.com/resources/peplink_max_br1_mini_5g_datasheet.pdf",
+        "https://download.peplink.com/resources/peplink_transit_pro_e_datasheet.pdf",
+        "https://download.peplink.com/resources/pepwave_antenna_max_s_datasheet.pdf",
+        "https://download.peplink.com/resources/pepwave_balance_310_5g_5gd_datasheet.pdf",
+        "https://m2mone.com.au/case-studies/keywatcher-australia-managed-failover/",
+        "https://m2mone.com.au/managed-failover/",
+        "https://www.google.com/maps/search/?api=1&query=Melbourne+Convention+and+Exhibition+Centre",
+        "https://www.peplink.com/technology/speedfusion-bonding-technology/",
+        "https://www.sierrawireless.com/router-solutions/airlink/"
+      ],
+      "weekday_for_fictional_deadline": "Tuesday, verified",
+      "unchanged_graded_sections": [
+        "brief",
+        "overview",
+        "stand"
+      ],
+      "new_reference_link_only": "https://www.peplink.com/technology/speedfusion-bonding-technology/"
+    },
+    "link-qa.json": {
+      "checked_at_utc": "2026-10-07T20:50:17.132354+00:00",
+      "method": "read-only HEAD with redirects",
+      "links": [
+        {
+          "url": "https://download.peplink.com/resources/balance_310_5G_datasheet.pdf",
+          "status": 200,
+          "content_type": "application/pdf",
+          "final_url": "https://download.peplink.com/resources/balance_310_5G_datasheet.pdf",
+          "pass": true
+        },
+        {
+          "url": "https://download.peplink.com/resources/br1_pro_5g_datasheet.pdf",
+          "status": 200,
+          "content_type": "application/pdf",
+          "final_url": "https://download.peplink.com/resources/br1_pro_5g_datasheet.pdf",
+          "pass": true
+        },
+        {
+          "url": "https://download.peplink.com/resources/peplink_br2_pro_datasheet.pdf",
+          "status": 200,
+          "content_type": "application/pdf",
+          "final_url": "https://download.peplink.com/resources/peplink_br2_pro_datasheet.pdf",
+          "pass": true
+        },
+        {
+          "url": "https://download.peplink.com/resources/peplink_max_br1_mini_5g_datasheet.pdf",
+          "status": 200,
+          "content_type": "application/pdf",
+          "final_url": "https://download.peplink.com/resources/peplink_max_br1_mini_5g_datasheet.pdf",
+          "pass": true
+        },
+        {
+          "url": "https://download.peplink.com/resources/peplink_transit_pro_e_datasheet.pdf",
+          "status": 200,
+          "content_type": "application/pdf",
+          "final_url": "https://download.peplink.com/resources/peplink_transit_pro_e_datasheet.pdf",
+          "pass": true
+        },
+        {
+          "url": "https://download.peplink.com/resources/pepwave_antenna_max_s_datasheet.pdf",
+          "status": 200,
+          "content_type": "application/pdf",
+          "final_url": "https://download.peplink.com/resources/pepwave_antenna_max_s_datasheet.pdf",
+          "pass": true
+        },
+        {
+          "url": "https://download.peplink.com/resources/pepwave_balance_310_5g_5gd_datasheet.pdf",
+          "status": 200,
+          "content_type": "application/pdf",
+          "final_url": "https://download.peplink.com/resources/pepwave_balance_310_5g_5gd_datasheet.pdf",
+          "pass": true
+        },
+        {
+          "url": "https://m2mone.com.au/case-studies/keywatcher-australia-managed-failover/",
+          "status": 200,
+          "content_type": "text/html; charset=UTF-8",
+          "final_url": "https://m2mone.com.au/case-studies/keywatcher-australia-managed-failover/",
+          "pass": true
+        },
+        {
+          "url": "https://m2mone.com.au/managed-failover/",
+          "status": 200,
+          "content_type": "text/html; charset=UTF-8",
+          "final_url": "https://m2mone.com.au/managed-failover/",
+          "pass": true
+        },
+        {
+          "url": "https://www.google.com/maps/search/?api=1&query=Melbourne+Convention+and+Exhibition+Centre",
+          "status": 200,
+          "content_type": "text/html; charset=UTF-8",
+          "final_url": "https://www.google.com/maps/search/?api=1&query=Melbourne+Convention+and+Exhibition+Centre",
+          "pass": true
+        },
+        {
+          "url": "https://www.peplink.com/technology/speedfusion-bonding-technology/",
+          "status": 200,
+          "content_type": "text/html; charset=utf-8",
+          "final_url": "https://www.peplink.com/technology/speedfusion-bonding-technology/",
+          "pass": true
+        },
+        {
+          "url": "https://www.sierrawireless.com/router-solutions/airlink/",
+          "status": 200,
+          "content_type": "text/html; charset=UTF-8",
+          "final_url": "https://www.sierrawireless.com/router-solutions/airlink/",
+          "pass": true
+        }
+      ],
+      "pass": true
+    },
+    "preview-qa.json": {
+      "previewSha256": "3ba573e4b6c7aadaafcf6120fea6606dccd9b9264460e075cde754028bc38c3d",
+      "externalRequests": [],
+      "runtimeErrors": [],
+      "pass": true,
+      "readOnlyRosterVerified": true,
+      "sharedAttendanceOmitted": true
+    }
+  },
+  "test_limits": {
+    "live_roster_or_test_lead_mutations": 0,
+    "actual_EventsAIR_Zoho_or_demo_rehearsal_claimed": false,
+    "author_assigned_editorial_scores": false,
+    "editorial_review_is_operational_readiness_score": false
+  },
+  "source_preservation": {
+    "all_roster_and_event_timetable_tables": true,
+    "complete_Worker_client": true,
+    "five_embedded_assets": true,
+    "conversation_icons": true,
+    "Julian_Lee_Ken_MacRaild_and_other_roster_identities": true
+  },
+  "release_scope": "Pack HTML/README, exact independent receipt, source-bound acceptance and this technical/method evidence only. Unrelated PI changes and private unresolved implementation notes excluded."
+}
