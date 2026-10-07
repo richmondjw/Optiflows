@@ -1,0 +1,81 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 96,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation (-4): Under 'Agree the next step', 'Record your name ... alongside the agreed action and timing' and the no-action note instruction duplicate the detailed capture instructions in section 04. Keep the agreement step here and consolidate recording requirements in section 04."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 93,
+        "tightness_organisation": 100,
+        "actionability": 96,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Clarity (-7): 'To be provided: the programmed qualifying questions' is an unresolved editorial placeholder without a named owner or pre-distribution gate. Unlike section 02's demonstration placeholder, its status is not clearly managed.",
+        "Actionability (-4): Under 'Qualifying questions', nobody is assigned to obtain or confirm the missing question set. The scan and fallback procedures remain usable, but this preparation step has no accountable next action."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "Sections 00–03 pass. Section 04 fails because clarity is below 95; the draft does not achieve a full editorial pass.",
+    "The supplied sections progress coherently from purpose and messaging to qualification, handoff and capture. Brief-level repetition is useful; detailed recording instructions overlap between sections 03 and 04.",
+    "Section 02 handles pending demonstrations appropriately: Eerin and Peter own confirmation before final distribution, and reps have an interim specialist referral instruction.",
+    "No visible confidentiality critical gate fails: no internal customer/project examples or unapproved deployment counts/outcomes appear, and the SUBMIT instruction and recovery procedure are explicit.",
+    "Section 05 was not supplied and is not scored. Preservation of its live roster and event times cannot be verified from this excerpt. No external factual approval or live-page verification is implied."
+  ],
+  "pass": false,
+  "hard_check_issues": [],
+  "minimum_score": 93,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 114,
+    "message": 288,
+    "stand": 248,
+    "scan": 293
+  }
+}

@@ -1,24 +1,24 @@
 {
-  "grader_receipt": "receipts/iteration-24.json",
-  "minimum_score": null,
-  "pass": false,
-  "status": "Local-only product list and Tuesday team bump-in update prepared. Deterministic checks pass; fresh independent editorial grading is blocked by CLI model availability and automatic approval review. Publication approval pending.",
-  "graded_sections": [],
-  "attempted_sections": [
+  "grader_receipt": "receipts/iteration-26.json",
+  "minimum_score": 96,
+  "pass": true,
+  "status": "7 October release: Peplink product datasheets and Semtech AirLink range in 'What to say'; exhibitor access, exhibition, drinks and bump-out times in 'On the day'; owner and interim instruction for the qualifying-questions gap. Iteration 25 failed only on that gap (scan clarity 93); iteration 26 is the first full pass.",
+  "graded_sections": [
     "brief",
     "overview",
     "message",
     "stand",
     "scan"
   ],
-  "excluded_section": "operate - timetable and availability excluded from editorial model scoring; authorised Tuesday arrival paragraph checked locally",
+  "excluded_section": "operate - timetable, logistics and availability are outside model scoring; checked by deterministic and browser QA",
+  "grader_invocation": "CODEX_HOME=/home/james/.codex-cli python3 quality/grade.py --iteration N (WSL Codex CLI, ChatGPT login, configured default model gpt-6-astra, read-only, ephemeral) - approved by James 7 October 2026",
   "section_sha256": {
     "brief": "979b0425466e65bb6bc0748857ecb4e489c747db27a07f1ec0e735fa6858857d",
     "overview": "c0c57d3a1e277e4624e37b174df39d978af097c71690fbf93884a9f769405ba5",
-    "message": "5b2f3ee782ab233bc1b400074a1c4c79235ae55b8af5f3d25bf6cd40e8b3f5c1",
+    "message": "4ed1183ee3ad7820e1ac9678c873775a1bc3dcb964d19466e36f5b5800e7fdaf",
     "stand": "d22ffece29f707b8e4332ab37b39a4a2803716ed2e2e3bdb8fa54b041fa0ee2a",
-    "scan": "3c6f91b7c3fdad6f5d2ba06c71e4d615ec1b2d94845796453ec43d5cea8a83b2"
+    "scan": "b315f2d500439182071fc6f3a8a6fa616d25391a24d512a147a3450f1ef2aa3b"
   },
-  "page_sha256": "bc6e449459729e301f6ac423c289a420b05c6d801587156ccbba584637daef61",
-  "post_grade_check": "No editorial pass is claimed. Product links, responsive layouts, unchanged icons/roster/review scripts and supplied logistics were checked locally."
+  "page_sha256": "d59b37de3e7ccb89b54a1e1b28b2d13c884cd1afe17a2ff5e58059f397970593",
+  "post_grade_check": "Browser QA at 1440/390/320 px (anchors, navigation, roster Y/N and totals, review notes, icons, no overflow, no runtime errors, logistics and product assertions) and HTTP 200 on all eight product links. A grader pass does not approve demonstrations, product claims, targets or final distribution."
 }

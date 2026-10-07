@@ -1,0 +1,81 @@
+{
+  "sections": [
+    {
+      "id": "brief",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "overview",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "message",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": []
+    },
+    {
+      "id": "stand",
+      "scores": {
+        "continuity": 97,
+        "clarity": 100,
+        "tightness_organisation": 100,
+        "actionability": 96,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Continuity −3: 'Leads are then assigned' leaves the transfer from named stand contact to follow-up owner implicit; it does not say when responsibility passes.",
+        "Actionability −4: 'through the established lead follow-up process' gives no instruction for the stand contact to confirm that the assigned owner has accepted the promised action and timing."
+      ]
+    },
+    {
+      "id": "scan",
+      "scores": {
+        "continuity": 100,
+        "clarity": 100,
+        "tightness_organisation": 96,
+        "actionability": 100,
+        "evidence_confidentiality": 100
+      },
+      "deductions": [
+        "Tightness and organisation −4: 'Qualifying questions' repeats the problem, project stage, agreed action and timing fields already specified under 'At the stand'. The pending-question owner and distribution gate can remain without repeating that capture checklist."
+      ]
+    }
+  ],
+  "overall_findings": [
+    "All supplied sections 00–04 meet the editorial threshold: every dimension scores at least 95.",
+    "The sequence moves coherently from brief to priorities, messaging, qualification and capture. Brief-level repetition is useful; the substantive duplication is within section 04.",
+    "Pending demonstrations, approved claims and programmed questions have named owners, interim instructions and pre-distribution gates; their pending status is not a deduction.",
+    "No named customer/project disclosure, unapproved count/outcome, confidentiality contradiction or broken lead-save instruction appears in the supplied text. SUBMIT and submission-failure recovery are explicit.",
+    "Section 05 was not supplied and is not scored. Live roster and event-time preservation, and references into that section, cannot be verified. This editorial pass does not establish a complete deterministic preservation pass, live-page correctness or factual approval."
+  ],
+  "pass": true,
+  "hard_check_issues": [],
+  "minimum_score": 96,
+  "section_word_counts": {
+    "brief": 214,
+    "overview": 114,
+    "message": 288,
+    "stand": 248,
+    "scan": 324
+  }
+}
