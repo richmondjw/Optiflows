@@ -1,0 +1,2422 @@
+{
+  "meta": {
+    "name": "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must.",
+    "slug": "iridium-certus-9604-hybrid-iot-module-cellular-where-you-can-satellite",
+    "owner": "",
+    "marketModel": "b2b",
+    "offeringId": "iridium-certus-9604",
+    "product": "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must."
+  },
+  "status": "ready_for_approval",
+  "version": 6,
+  "campaignCore": {
+    "meta": {
+      "name": "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must.",
+      "slug": "iridium-certus-9604-hybrid-iot-module-cellular-where-you-can-satellite",
+      "owner": "",
+      "marketModel": "b2b",
+      "offeringId": "iridium-certus-9604",
+      "product": "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must."
+    },
+    "intent": {
+      "commercialOutcome": "Generate qualified technical conversations with product teams, solution integrators and operators whose connected devices move beyond dependable cellular coverage.",
+      "outcomeType": "",
+      "opportunity": "",
+      "nonGoals": ""
+    },
+    "audience": {
+      "primary": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.",
+      "decisionRoles": [],
+      "verticals": [],
+      "geography": [
+        "Australia and New Zealand: asset tracking, agtech and environmental monitoring, remote equipment, field safety, integrators."
+      ],
+      "problem": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.",
+      "trigger": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.",
+      "tension": ""
+    },
+    "proposition": {
+      "coreMessage": "One module. Both layers. Your logic.",
+      "supporting": [
+        "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must. is built for exactly this situation.",
+        "You keep control of the decision."
+      ],
+      "proofRequirements": [
+        "Documented capability",
+        "Approved scenario"
+      ],
+      "claimsStatus": "needs_review"
+    },
+    "conversion": {
+      "cta": "Book a design conversation",
+      "destination": "https://m2mone.com.au/hybrid-iot-readiness/",
+      "route": "Coverage problem → readiness guide → qualified design conversation",
+      "conversionType": ""
+    },
+    "channels": {
+      "channels": [
+        "LinkedIn",
+        "Email",
+        "Landing page",
+        "Paid search",
+        "Retargeting",
+        "Sales enablement"
+      ],
+      "formats": [
+        "LinkedIn post",
+        "LinkedIn document carousel",
+        "LinkedIn video",
+        "Email sequence",
+        "Landing page",
+        "Search ad copy",
+        "Retargeting copy",
+        "Talk track",
+        "Lead magnet"
+      ],
+      "phases": []
+    },
+    "kpis": {
+      "primary": {
+        "name": "Qualified design-session requests and sales-accepted leads"
+      },
+      "supporting": [
+        {
+          "name": "Readiness-guide conversion"
+        },
+        {
+          "name": "LinkedIn document completion"
+        }
+      ]
+    },
+    "guardrails": {
+      "exclusions": [
+        "guaranteed coverage",
+        "automatic failover"
+      ],
+      "rights": [],
+      "legal": [],
+      "approvalOwners": [
+        "Engineering / Product",
+        "James"
+      ]
+    },
+    "brand": {
+      "branches": [
+        "m2m-connectivity",
+        "m2m-one-au"
+      ]
+    },
+    "creative": {
+      "visualDirection": "Australia and New Zealand: asset tracking, agtech and environmental monitoring, remote equipment, field safety, integrators. in daily use. Subject: Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.. Mood: Honest, real, unposed.",
+      "tone": "",
+      "motion": "",
+      "existingAssets": [
+        "Iridium product page and availability announcement; M2M One hybrid IoT readiness page; supplied reference art for mood only; no approved customer proof; never promise universal coverage or automatic failover; M2M Connectivity and M2M One artwork must stay independent."
+      ]
+    },
+    "approvals": {
+      "brand": {
+        "acknowledged": true,
+        "by": "user",
+        "at": "2026-09-12T14:25:48.481Z",
+        "note": "e2e"
+      },
+      "claims": {
+        "acknowledged": true,
+        "by": "user",
+        "at": "2026-09-12T14:25:48.423Z",
+        "note": "e2e"
+      },
+      "rights": {
+        "acknowledged": true,
+        "by": "user",
+        "at": "2026-09-12T14:25:48.597Z",
+        "note": "e2e"
+      },
+      "strategy": {
+        "acknowledged": true,
+        "by": "user",
+        "at": "2026-09-12T14:25:48.367Z",
+        "note": "e2e"
+      },
+      "generation": {
+        "acknowledged": true,
+        "by": "user",
+        "at": "2026-09-12T14:25:48.654Z",
+        "note": "e2e"
+      },
+      "destination": {
+        "acknowledged": true,
+        "by": "user",
+        "at": "2026-09-12T14:25:48.538Z",
+        "note": "e2e"
+      }
+    }
+  },
+  "production": {
+    "schema": "campaign-copilot/production/v1",
+    "generatedAt": "2026-09-12T14:25:48.717Z",
+    "pins": {
+      "strategy": {
+        "provider": "mock",
+        "model": "mock",
+        "effort": "high",
+        "promptId": "production.strategy",
+        "promptVersion": "1",
+        "promptHash": "485371b46b97fb7257202c8dc05c91d437ebd322216e353dd2c0b70f42cd5b36",
+        "schemaHash": "006d763a90d0f031eb23dc7af192a52b716277152d9b663bf7eca94cf63d85cb",
+        "inputHash": "baded789366e102c6ab4335cedebdfa11f3fa45eea1ccdc4ce8dbac31cf4af14",
+        "packId": "m2m-group",
+        "packVersion": "1.0",
+        "profileId": "b2b",
+        "profileVersion": "1",
+        "attempt": 1,
+        "retryReasons": [],
+        "at": "2026-09-12T14:25:48.714Z",
+        "usage": {
+          "inputTokens": 0,
+          "outputTokens": 0
+        }
+      },
+      "channels": {
+        "provider": "mock",
+        "model": "mock",
+        "effort": "high",
+        "promptId": "production.channels",
+        "promptVersion": "1",
+        "promptHash": "35c5bf4a003f68f3d429a1933359c068d1603b051b1f59961fd7ed00c4a9a954",
+        "schemaHash": "dc8efa3b2bfe4f0bb6c3afad23629ce4764d9206894194224029136250ed6d95",
+        "inputHash": "0d6998117748a1e5de4b18b9e0255562bb6fb72ca9c1fa75d45576d161de2a00",
+        "packId": "m2m-group",
+        "packVersion": "1.0",
+        "profileId": "b2b",
+        "profileVersion": "1",
+        "attempt": 1,
+        "retryReasons": [],
+        "at": "2026-09-12T14:25:48.715Z",
+        "usage": {
+          "inputTokens": 0,
+          "outputTokens": 0
+        }
+      },
+      "enablement": {
+        "provider": "mock",
+        "model": "mock",
+        "effort": "high",
+        "promptId": "production.enablement",
+        "promptVersion": "1",
+        "promptHash": "c3492e2939d611df7f889d58bc556dbc57e64e3ae4354e3b0a5a3bcfa8e00076",
+        "schemaHash": "a8f95a3fc67c62270e3e2cba5ec37b9cbb951aa232791b949c6d5b09bdbecfdf",
+        "inputHash": "6c2b8d2b98bb89b4dfd06767f5ed693a2520fbb002c27b8642aa58fbf8aebbff",
+        "packId": "m2m-group",
+        "packVersion": "1.0",
+        "profileId": "b2b",
+        "profileVersion": "1",
+        "attempt": 1,
+        "retryReasons": [],
+        "at": "2026-09-12T14:25:48.716Z",
+        "usage": {
+          "inputTokens": 0,
+          "outputTokens": 0
+        }
+      }
+    },
+    "strategy": {
+      "manuscriptMarkdown": "# Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must.\n\n## The argument\n\nOne module. Both layers. Your logic.\n\n## Phases\n\n### Recognise (Weeks 1-3)\n\nMake Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026. visible to Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products..\n\n### Prove (Weeks 4-8)\n\nShow the mechanism behind Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must. in real contexts.\n\n### Convert (Weeks 9-12)\n\nGive engaged readers a practical tool and a clear next step.\n\n## Measurement\n\nPrimary KPI tracked weekly; diagnostic measures per channel.",
+      "problem": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.",
+      "value": "One module. Both layers. Your logic.",
+      "action": "Take the next step.",
+      "narrative": [
+        {
+          "phaseId": "recognise",
+          "name": "Recognise",
+          "argument": "Make Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026. visible to Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.. (Weeks 1-3)"
+        },
+        {
+          "phaseId": "prove",
+          "name": "Prove",
+          "argument": "Show the mechanism behind Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must. in real contexts. (Weeks 4-8)"
+        },
+        {
+          "phaseId": "convert",
+          "name": "Convert",
+          "argument": "Give engaged readers a practical tool and a clear next step. (Weeks 9-12)"
+        }
+      ]
+    },
+    "weeks": [
+      {
+        "week": 1,
+        "phaseId": "recognise",
+        "theme": "Week 1 theme",
+        "message": "One module. Both layers. Your logic.",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 1 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 1 Email piece"
+          }
+        ]
+      },
+      {
+        "week": 2,
+        "phaseId": "recognise",
+        "theme": "Week 2 theme",
+        "message": "One module. Both layers. Your logic. (week 2)",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 2 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 2 Email piece"
+          }
+        ]
+      },
+      {
+        "week": 3,
+        "phaseId": "recognise",
+        "theme": "Week 3 theme",
+        "message": "One module. Both layers. Your logic. (week 3)",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 3 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 3 Email piece"
+          }
+        ]
+      },
+      {
+        "week": 4,
+        "phaseId": "prove",
+        "theme": "Week 4 theme",
+        "message": "One module. Both layers. Your logic. (week 4)",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 4 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 4 Email piece"
+          }
+        ]
+      },
+      {
+        "week": 5,
+        "phaseId": "prove",
+        "theme": "Week 5 theme",
+        "message": "One module. Both layers. Your logic. (week 5)",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 5 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 5 Email piece"
+          }
+        ]
+      },
+      {
+        "week": 6,
+        "phaseId": "prove",
+        "theme": "Week 6 theme",
+        "message": "One module. Both layers. Your logic. (week 6)",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 6 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 6 Email piece"
+          }
+        ]
+      },
+      {
+        "week": 7,
+        "phaseId": "prove",
+        "theme": "Week 7 theme",
+        "message": "One module. Both layers. Your logic. (week 7)",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 7 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 7 Email piece"
+          }
+        ]
+      },
+      {
+        "week": 8,
+        "phaseId": "prove",
+        "theme": "Week 8 theme",
+        "message": "One module. Both layers. Your logic. (week 8)",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 8 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 8 Email piece"
+          }
+        ]
+      },
+      {
+        "week": 9,
+        "phaseId": "convert",
+        "theme": "Week 9 theme",
+        "message": "One module. Both layers. Your logic. (week 9)",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 9 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 9 Email piece"
+          }
+        ]
+      },
+      {
+        "week": 10,
+        "phaseId": "convert",
+        "theme": "Week 10 theme",
+        "message": "One module. Both layers. Your logic. (week 10)",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 10 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 10 Email piece"
+          }
+        ]
+      },
+      {
+        "week": 11,
+        "phaseId": "convert",
+        "theme": "Week 11 theme",
+        "message": "One module. Both layers. Your logic. (week 11)",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 11 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 11 Email piece"
+          }
+        ]
+      },
+      {
+        "week": 12,
+        "phaseId": "convert",
+        "theme": "Week 12 theme",
+        "message": "One module. Both layers. Your logic. (week 12)",
+        "actions": [
+          {
+            "channel": "LinkedIn",
+            "action": "Publish week 12 LinkedIn piece"
+          },
+          {
+            "channel": "Email",
+            "action": "Publish week 12 Email piece"
+          }
+        ]
+      }
+    ],
+    "branches": [
+      {
+        "brandId": "m2m-connectivity",
+        "name": "M2M Connectivity",
+        "entity": "M2M Connectivity Pty Ltd",
+        "market": "Australia",
+        "voice": "Technical, practical, direct",
+        "cta": "Talk to an IoT specialist",
+        "destination": "https://m2mone.com.au/hybrid-iot-readiness/",
+        "logo": "assets/m2m-connectivity-logo.svg",
+        "palettePrimary": "#0b6f73",
+        "independentArtwork": true,
+        "pluginVersion": "1.0"
+      },
+      {
+        "brandId": "m2m-one-au",
+        "name": "M2M One Australia",
+        "entity": "M2M One Pty Ltd",
+        "market": "Australia",
+        "voice": "Local, helpful, clear",
+        "cta": "Get connected",
+        "destination": "https://m2mone.com.au",
+        "logo": "assets/m2m-one-logo.png",
+        "palettePrimary": "#0b6f73",
+        "independentArtwork": true,
+        "pluginVersion": "1.0"
+      }
+    ],
+    "landingPages": [
+      {
+        "id": "lp-m2m-connectivity",
+        "brandId": "m2m-connectivity",
+        "title": "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must.",
+        "sections": [
+          {
+            "id": "hero",
+            "label": "hero",
+            "heading": "One module. Both layers. Your logic.",
+            "copy": "One module. Both layers. Your logic.. (hero)",
+            "cta": "Talk to an IoT specialist"
+          },
+          {
+            "id": "problem",
+            "label": "problem",
+            "heading": "problem heading",
+            "copy": "One module. Both layers. Your logic.. (problem)"
+          },
+          {
+            "id": "argument",
+            "label": "argument",
+            "heading": "argument heading",
+            "copy": "One module. Both layers. Your logic.. (argument)"
+          },
+          {
+            "id": "proof",
+            "label": "proof",
+            "heading": "proof heading",
+            "copy": "One module. Both layers. Your logic.. (proof)"
+          },
+          {
+            "id": "how",
+            "label": "how",
+            "heading": "how heading",
+            "copy": "One module. Both layers. Your logic.. (how)"
+          },
+          {
+            "id": "objections",
+            "label": "objections",
+            "heading": "objections heading",
+            "copy": "One module. Both layers. Your logic.. (objections)"
+          },
+          {
+            "id": "ask",
+            "label": "ask",
+            "heading": "ask heading",
+            "copy": "One module. Both layers. Your logic.. (ask)",
+            "cta": "Talk to an IoT specialist"
+          }
+        ],
+        "seo": {
+          "title": "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must. | M2M Connectivity",
+          "description": "One module. Both layers. Your logic."
+        }
+      },
+      {
+        "id": "lp-m2m-one-au",
+        "brandId": "m2m-one-au",
+        "title": "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must.",
+        "sections": [
+          {
+            "id": "hero",
+            "label": "hero",
+            "heading": "One module. Both layers. Your logic.",
+            "copy": "One module. Both layers. Your logic.. (hero)",
+            "cta": "Get connected"
+          },
+          {
+            "id": "problem",
+            "label": "problem",
+            "heading": "problem heading",
+            "copy": "One module. Both layers. Your logic.. (problem)"
+          },
+          {
+            "id": "argument",
+            "label": "argument",
+            "heading": "argument heading",
+            "copy": "One module. Both layers. Your logic.. (argument)"
+          },
+          {
+            "id": "proof",
+            "label": "proof",
+            "heading": "proof heading",
+            "copy": "One module. Both layers. Your logic.. (proof)"
+          },
+          {
+            "id": "how",
+            "label": "how",
+            "heading": "how heading",
+            "copy": "One module. Both layers. Your logic.. (how)"
+          },
+          {
+            "id": "objections",
+            "label": "objections",
+            "heading": "objections heading",
+            "copy": "One module. Both layers. Your logic.. (objections)"
+          },
+          {
+            "id": "ask",
+            "label": "ask",
+            "heading": "ask heading",
+            "copy": "One module. Both layers. Your logic.. (ask)",
+            "cta": "Get connected"
+          }
+        ],
+        "seo": {
+          "title": "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must. | M2M One Australia",
+          "description": "One module. Both layers. Your logic."
+        }
+      }
+    ],
+    "social": [
+      {
+        "id": "so-m2m-connectivity-01",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 1,
+        "headline": "One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week1"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-connectivity-02",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 2,
+        "headline": "Week 2: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week2"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-connectivity-03",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 3,
+        "headline": "Week 3: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week3"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-connectivity-04",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 4,
+        "headline": "Week 4: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week4"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-connectivity-05",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 5,
+        "headline": "Week 5: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week5"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-connectivity-06",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 6,
+        "headline": "Week 6: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week6"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-connectivity-07",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 7,
+        "headline": "Week 7: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week7"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-connectivity-08",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 8,
+        "headline": "Week 8: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week8"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-connectivity-09",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 9,
+        "headline": "Week 9: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week9"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-connectivity-10",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 10,
+        "headline": "Week 10: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week10"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-connectivity-11",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 11,
+        "headline": "Week 11: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week11"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-connectivity-12",
+        "brandId": "m2m-connectivity",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 12,
+        "headline": "Week 12: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Talk to an IoT specialist",
+        "hashtags": [
+          "#campaign",
+          "#week12"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-01",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 1,
+        "headline": "One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week1"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-02",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 2,
+        "headline": "Week 2: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week2"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-03",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 3,
+        "headline": "Week 3: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week3"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-04",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 4,
+        "headline": "Week 4: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week4"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-05",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 5,
+        "headline": "Week 5: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week5"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-06",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 6,
+        "headline": "Week 6: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week6"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-07",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 7,
+        "headline": "Week 7: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week7"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-08",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 8,
+        "headline": "Week 8: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week8"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-09",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 9,
+        "headline": "Week 9: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week9"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-10",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 10,
+        "headline": "Week 10: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week10"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-11",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 11,
+        "headline": "Week 11: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week11"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      },
+      {
+        "id": "so-m2m-one-au-12",
+        "brandId": "m2m-one-au",
+        "channel": "LinkedIn",
+        "format": "LinkedIn post",
+        "week": 12,
+        "headline": "Week 12: One module. Both layers. Your logic.",
+        "body": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..",
+        "cta": "Get connected",
+        "hashtags": [
+          "#campaign",
+          "#week12"
+        ],
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. in context, no text"
+      }
+    ],
+    "carousels": [
+      {
+        "id": "car-m2m-connectivity-01",
+        "brandId": "m2m-connectivity",
+        "story": "Story 1: Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.",
+        "vertical": "Segment 1",
+        "slides": [
+          {
+            "index": 1,
+            "title": "One module. Both layers. Your logic.",
+            "body": "One module. Both layers. Your logic. in segment 1, slide 1."
+          },
+          {
+            "index": 2,
+            "title": "Slide 2",
+            "body": "One module. Both layers. Your logic. in segment 1, slide 2."
+          },
+          {
+            "index": 3,
+            "title": "Slide 3",
+            "body": "One module. Both layers. Your logic. in segment 1, slide 3."
+          },
+          {
+            "index": 4,
+            "title": "Slide 4",
+            "body": "One module. Both layers. Your logic. in segment 1, slide 4."
+          },
+          {
+            "index": 5,
+            "title": "Slide 5",
+            "body": "Here is the next step. Talk to an IoT specialist."
+          }
+        ],
+        "altText": "Story 1 carousel"
+      },
+      {
+        "id": "car-m2m-connectivity-02",
+        "brandId": "m2m-connectivity",
+        "story": "Story 2: Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.",
+        "vertical": "Segment 2",
+        "slides": [
+          {
+            "index": 1,
+            "title": "One module. Both layers. Your logic.",
+            "body": "One module. Both layers. Your logic. in segment 2, slide 1."
+          },
+          {
+            "index": 2,
+            "title": "Slide 2",
+            "body": "One module. Both layers. Your logic. in segment 2, slide 2."
+          },
+          {
+            "index": 3,
+            "title": "Slide 3",
+            "body": "One module. Both layers. Your logic. in segment 2, slide 3."
+          },
+          {
+            "index": 4,
+            "title": "Slide 4",
+            "body": "One module. Both layers. Your logic. in segment 2, slide 4."
+          },
+          {
+            "index": 5,
+            "title": "Slide 5",
+            "body": "Here is the next step. Talk to an IoT specialist."
+          }
+        ],
+        "altText": "Story 2 carousel"
+      },
+      {
+        "id": "car-m2m-connectivity-03",
+        "brandId": "m2m-connectivity",
+        "story": "Story 3: Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.",
+        "vertical": "Segment 3",
+        "slides": [
+          {
+            "index": 1,
+            "title": "One module. Both layers. Your logic.",
+            "body": "One module. Both layers. Your logic. in segment 3, slide 1."
+          },
+          {
+            "index": 2,
+            "title": "Slide 2",
+            "body": "One module. Both layers. Your logic. in segment 3, slide 2."
+          },
+          {
+            "index": 3,
+            "title": "Slide 3",
+            "body": "One module. Both layers. Your logic. in segment 3, slide 3."
+          },
+          {
+            "index": 4,
+            "title": "Slide 4",
+            "body": "One module. Both layers. Your logic. in segment 3, slide 4."
+          },
+          {
+            "index": 5,
+            "title": "Slide 5",
+            "body": "Here is the next step. Talk to an IoT specialist."
+          }
+        ],
+        "altText": "Story 3 carousel"
+      },
+      {
+        "id": "car-m2m-one-au-01",
+        "brandId": "m2m-one-au",
+        "story": "Story 1: Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.",
+        "vertical": "Segment 1",
+        "slides": [
+          {
+            "index": 1,
+            "title": "One module. Both layers. Your logic.",
+            "body": "One module. Both layers. Your logic. in segment 1, slide 1."
+          },
+          {
+            "index": 2,
+            "title": "Slide 2",
+            "body": "One module. Both layers. Your logic. in segment 1, slide 2."
+          },
+          {
+            "index": 3,
+            "title": "Slide 3",
+            "body": "One module. Both layers. Your logic. in segment 1, slide 3."
+          },
+          {
+            "index": 4,
+            "title": "Slide 4",
+            "body": "One module. Both layers. Your logic. in segment 1, slide 4."
+          },
+          {
+            "index": 5,
+            "title": "Slide 5",
+            "body": "Here is the next step. Get connected."
+          }
+        ],
+        "altText": "Story 1 carousel"
+      },
+      {
+        "id": "car-m2m-one-au-02",
+        "brandId": "m2m-one-au",
+        "story": "Story 2: Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.",
+        "vertical": "Segment 2",
+        "slides": [
+          {
+            "index": 1,
+            "title": "One module. Both layers. Your logic.",
+            "body": "One module. Both layers. Your logic. in segment 2, slide 1."
+          },
+          {
+            "index": 2,
+            "title": "Slide 2",
+            "body": "One module. Both layers. Your logic. in segment 2, slide 2."
+          },
+          {
+            "index": 3,
+            "title": "Slide 3",
+            "body": "One module. Both layers. Your logic. in segment 2, slide 3."
+          },
+          {
+            "index": 4,
+            "title": "Slide 4",
+            "body": "One module. Both layers. Your logic. in segment 2, slide 4."
+          },
+          {
+            "index": 5,
+            "title": "Slide 5",
+            "body": "Here is the next step. Get connected."
+          }
+        ],
+        "altText": "Story 2 carousel"
+      },
+      {
+        "id": "car-m2m-one-au-03",
+        "brandId": "m2m-one-au",
+        "story": "Story 3: Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.",
+        "vertical": "Segment 3",
+        "slides": [
+          {
+            "index": 1,
+            "title": "One module. Both layers. Your logic.",
+            "body": "One module. Both layers. Your logic. in segment 3, slide 1."
+          },
+          {
+            "index": 2,
+            "title": "Slide 2",
+            "body": "One module. Both layers. Your logic. in segment 3, slide 2."
+          },
+          {
+            "index": 3,
+            "title": "Slide 3",
+            "body": "One module. Both layers. Your logic. in segment 3, slide 3."
+          },
+          {
+            "index": 4,
+            "title": "Slide 4",
+            "body": "One module. Both layers. Your logic. in segment 3, slide 4."
+          },
+          {
+            "index": 5,
+            "title": "Slide 5",
+            "body": "Here is the next step. Get connected."
+          }
+        ],
+        "altText": "Story 3 carousel"
+      }
+    ],
+    "emails": [
+      {
+        "id": "em-m2m-connectivity-01",
+        "brandId": "m2m-connectivity",
+        "sequenceIndex": 1,
+        "sendOffsetDays": 0,
+        "purpose": "Email 1 purpose",
+        "subjectOptions": [
+          "Subject A 1",
+          "Subject B 1"
+        ],
+        "preheader": "Preheader 1",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Talk to an IoT specialist",
+        "destination": "https://m2mone.com.au/hybrid-iot-readiness/"
+      },
+      {
+        "id": "em-m2m-connectivity-02",
+        "brandId": "m2m-connectivity",
+        "sequenceIndex": 2,
+        "sendOffsetDays": 4,
+        "purpose": "Email 2 purpose",
+        "subjectOptions": [
+          "Subject A 2",
+          "Subject B 2"
+        ],
+        "preheader": "Preheader 2",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Talk to an IoT specialist",
+        "destination": "https://m2mone.com.au/hybrid-iot-readiness/"
+      },
+      {
+        "id": "em-m2m-connectivity-03",
+        "brandId": "m2m-connectivity",
+        "sequenceIndex": 3,
+        "sendOffsetDays": 8,
+        "purpose": "Email 3 purpose",
+        "subjectOptions": [
+          "Subject A 3",
+          "Subject B 3"
+        ],
+        "preheader": "Preheader 3",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Talk to an IoT specialist",
+        "destination": "https://m2mone.com.au/hybrid-iot-readiness/"
+      },
+      {
+        "id": "em-m2m-connectivity-04",
+        "brandId": "m2m-connectivity",
+        "sequenceIndex": 4,
+        "sendOffsetDays": 12,
+        "purpose": "Email 4 purpose",
+        "subjectOptions": [
+          "Subject A 4",
+          "Subject B 4"
+        ],
+        "preheader": "Preheader 4",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Talk to an IoT specialist",
+        "destination": "https://m2mone.com.au/hybrid-iot-readiness/"
+      },
+      {
+        "id": "em-m2m-connectivity-05",
+        "brandId": "m2m-connectivity",
+        "sequenceIndex": 5,
+        "sendOffsetDays": 16,
+        "purpose": "Email 5 purpose",
+        "subjectOptions": [
+          "Subject A 5",
+          "Subject B 5"
+        ],
+        "preheader": "Preheader 5",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Talk to an IoT specialist",
+        "destination": "https://m2mone.com.au/hybrid-iot-readiness/"
+      },
+      {
+        "id": "em-m2m-connectivity-06",
+        "brandId": "m2m-connectivity",
+        "sequenceIndex": 6,
+        "sendOffsetDays": 20,
+        "purpose": "Email 6 purpose",
+        "subjectOptions": [
+          "Subject A 6",
+          "Subject B 6"
+        ],
+        "preheader": "Preheader 6",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Talk to an IoT specialist",
+        "destination": "https://m2mone.com.au/hybrid-iot-readiness/"
+      },
+      {
+        "id": "em-m2m-one-au-01",
+        "brandId": "m2m-one-au",
+        "sequenceIndex": 1,
+        "sendOffsetDays": 0,
+        "purpose": "Email 1 purpose",
+        "subjectOptions": [
+          "Subject A 1",
+          "Subject B 1"
+        ],
+        "preheader": "Preheader 1",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Get connected",
+        "destination": "https://m2mone.com.au"
+      },
+      {
+        "id": "em-m2m-one-au-02",
+        "brandId": "m2m-one-au",
+        "sequenceIndex": 2,
+        "sendOffsetDays": 4,
+        "purpose": "Email 2 purpose",
+        "subjectOptions": [
+          "Subject A 2",
+          "Subject B 2"
+        ],
+        "preheader": "Preheader 2",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Get connected",
+        "destination": "https://m2mone.com.au"
+      },
+      {
+        "id": "em-m2m-one-au-03",
+        "brandId": "m2m-one-au",
+        "sequenceIndex": 3,
+        "sendOffsetDays": 8,
+        "purpose": "Email 3 purpose",
+        "subjectOptions": [
+          "Subject A 3",
+          "Subject B 3"
+        ],
+        "preheader": "Preheader 3",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Get connected",
+        "destination": "https://m2mone.com.au"
+      },
+      {
+        "id": "em-m2m-one-au-04",
+        "brandId": "m2m-one-au",
+        "sequenceIndex": 4,
+        "sendOffsetDays": 12,
+        "purpose": "Email 4 purpose",
+        "subjectOptions": [
+          "Subject A 4",
+          "Subject B 4"
+        ],
+        "preheader": "Preheader 4",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Get connected",
+        "destination": "https://m2mone.com.au"
+      },
+      {
+        "id": "em-m2m-one-au-05",
+        "brandId": "m2m-one-au",
+        "sequenceIndex": 5,
+        "sendOffsetDays": 16,
+        "purpose": "Email 5 purpose",
+        "subjectOptions": [
+          "Subject A 5",
+          "Subject B 5"
+        ],
+        "preheader": "Preheader 5",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Get connected",
+        "destination": "https://m2mone.com.au"
+      },
+      {
+        "id": "em-m2m-one-au-06",
+        "brandId": "m2m-one-au",
+        "sequenceIndex": 6,
+        "sendOffsetDays": 20,
+        "purpose": "Email 6 purpose",
+        "subjectOptions": [
+          "Subject A 6",
+          "Subject B 6"
+        ],
+        "preheader": "Preheader 6",
+        "bodyMarkdown": "Hi,\n\nDevices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.. One module. Both layers. Your logic..\n\nMore in the next note.",
+        "cta": "Get connected",
+        "destination": "https://m2mone.com.au"
+      }
+    ],
+    "paid": [
+      {
+        "id": "paid-search-m2m-connectivity",
+        "brandId": "m2m-connectivity",
+        "kind": "search",
+        "headlines": [
+          "Headline 1",
+          "Headline 2",
+          "Headline 3",
+          "Headline 4",
+          "Headline 5",
+          "Headline 6",
+          "Headline 7",
+          "Headline 8",
+          "Headline 9",
+          "Headline 10",
+          "Headline 11",
+          "Headline 12",
+          "Headline 13",
+          "Headline 14",
+          "Headline 15"
+        ],
+        "descriptions": [
+          "Description 1: One module. Both layers. Your logic.",
+          "Description 2: One module. Both layers. Your logic.",
+          "Description 3: One module. Both layers. Your logic.",
+          "Description 4: One module. Both layers. Your logic."
+        ],
+        "keywords": [
+          "keyword 1",
+          "keyword 2",
+          "keyword 3",
+          "keyword 4",
+          "keyword 5",
+          "keyword 6",
+          "keyword 7",
+          "keyword 8",
+          "keyword 9",
+          "keyword 10",
+          "keyword 11",
+          "keyword 12",
+          "keyword 13",
+          "keyword 14",
+          "keyword 15",
+          "keyword 16",
+          "keyword 17",
+          "keyword 18",
+          "keyword 19",
+          "keyword 20"
+        ]
+      },
+      {
+        "id": "paid-retarget-m2m-connectivity",
+        "brandId": "m2m-connectivity",
+        "kind": "retargeting",
+        "headlines": [
+          "Come back 1",
+          "Come back 2",
+          "Come back 3",
+          "Come back 4",
+          "Come back 5",
+          "Come back 6",
+          "Come back 7",
+          "Come back 8"
+        ],
+        "descriptions": [
+          "Still thinking? 1",
+          "Still thinking? 2",
+          "Still thinking? 3",
+          "Still thinking? 4"
+        ],
+        "keywords": [],
+        "audience": "Landing-page visitors who did not convert"
+      },
+      {
+        "id": "paid-search-m2m-one-au",
+        "brandId": "m2m-one-au",
+        "kind": "search",
+        "headlines": [
+          "Headline 1",
+          "Headline 2",
+          "Headline 3",
+          "Headline 4",
+          "Headline 5",
+          "Headline 6",
+          "Headline 7",
+          "Headline 8",
+          "Headline 9",
+          "Headline 10",
+          "Headline 11",
+          "Headline 12",
+          "Headline 13",
+          "Headline 14",
+          "Headline 15"
+        ],
+        "descriptions": [
+          "Description 1: One module. Both layers. Your logic.",
+          "Description 2: One module. Both layers. Your logic.",
+          "Description 3: One module. Both layers. Your logic.",
+          "Description 4: One module. Both layers. Your logic."
+        ],
+        "keywords": [
+          "keyword 1",
+          "keyword 2",
+          "keyword 3",
+          "keyword 4",
+          "keyword 5",
+          "keyword 6",
+          "keyword 7",
+          "keyword 8",
+          "keyword 9",
+          "keyword 10",
+          "keyword 11",
+          "keyword 12",
+          "keyword 13",
+          "keyword 14",
+          "keyword 15",
+          "keyword 16",
+          "keyword 17",
+          "keyword 18",
+          "keyword 19",
+          "keyword 20"
+        ]
+      },
+      {
+        "id": "paid-retarget-m2m-one-au",
+        "brandId": "m2m-one-au",
+        "kind": "retargeting",
+        "headlines": [
+          "Come back 1",
+          "Come back 2",
+          "Come back 3",
+          "Come back 4",
+          "Come back 5",
+          "Come back 6",
+          "Come back 7",
+          "Come back 8"
+        ],
+        "descriptions": [
+          "Still thinking? 1",
+          "Still thinking? 2",
+          "Still thinking? 3",
+          "Still thinking? 4"
+        ],
+        "keywords": [],
+        "audience": "Landing-page visitors who did not convert"
+      }
+    ],
+    "talkTracks": [
+      {
+        "id": "tt-m2m-connectivity-1",
+        "brandId": "m2m-connectivity",
+        "audience": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.",
+        "opener": "Where does Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026. show up for you?",
+        "discoveryQuestions": [
+          "Question 1?",
+          "Question 2?",
+          "Question 3?",
+          "Question 4?",
+          "Question 5?"
+        ],
+        "proofPoints": [
+          "See proof requirement 1"
+        ],
+        "objections": [
+          {
+            "objection": "Objection 1",
+            "response": "Response 1"
+          },
+          {
+            "objection": "Objection 2",
+            "response": "Response 2"
+          },
+          {
+            "objection": "Objection 3",
+            "response": "Response 3"
+          },
+          {
+            "objection": "Objection 4",
+            "response": "Response 4"
+          }
+        ],
+        "close": "Shall we take the next step? Talk to an IoT specialist."
+      },
+      {
+        "id": "tt-m2m-connectivity-2",
+        "brandId": "m2m-connectivity",
+        "audience": "Partner",
+        "opener": "Where does Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026. show up for you?",
+        "discoveryQuestions": [
+          "Question 1?",
+          "Question 2?",
+          "Question 3?",
+          "Question 4?",
+          "Question 5?"
+        ],
+        "proofPoints": [
+          "See proof requirement 1"
+        ],
+        "objections": [
+          {
+            "objection": "Objection 1",
+            "response": "Response 1"
+          },
+          {
+            "objection": "Objection 2",
+            "response": "Response 2"
+          },
+          {
+            "objection": "Objection 3",
+            "response": "Response 3"
+          },
+          {
+            "objection": "Objection 4",
+            "response": "Response 4"
+          }
+        ],
+        "close": "Shall we take the next step? Talk to an IoT specialist."
+      },
+      {
+        "id": "tt-m2m-one-au-1",
+        "brandId": "m2m-one-au",
+        "audience": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.",
+        "opener": "Where does Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026. show up for you?",
+        "discoveryQuestions": [
+          "Question 1?",
+          "Question 2?",
+          "Question 3?",
+          "Question 4?",
+          "Question 5?"
+        ],
+        "proofPoints": [
+          "See proof requirement 1"
+        ],
+        "objections": [
+          {
+            "objection": "Objection 1",
+            "response": "Response 1"
+          },
+          {
+            "objection": "Objection 2",
+            "response": "Response 2"
+          },
+          {
+            "objection": "Objection 3",
+            "response": "Response 3"
+          },
+          {
+            "objection": "Objection 4",
+            "response": "Response 4"
+          }
+        ],
+        "close": "Shall we take the next step? Get connected."
+      },
+      {
+        "id": "tt-m2m-one-au-2",
+        "brandId": "m2m-one-au",
+        "audience": "Partner",
+        "opener": "Where does Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026. show up for you?",
+        "discoveryQuestions": [
+          "Question 1?",
+          "Question 2?",
+          "Question 3?",
+          "Question 4?",
+          "Question 5?"
+        ],
+        "proofPoints": [
+          "See proof requirement 1"
+        ],
+        "objections": [
+          {
+            "objection": "Objection 1",
+            "response": "Response 1"
+          },
+          {
+            "objection": "Objection 2",
+            "response": "Response 2"
+          },
+          {
+            "objection": "Objection 3",
+            "response": "Response 3"
+          },
+          {
+            "objection": "Objection 4",
+            "response": "Response 4"
+          }
+        ],
+        "close": "Shall we take the next step? Get connected."
+      }
+    ],
+    "leadMagnets": [
+      {
+        "id": "lm-m2m-connectivity",
+        "brandId": "m2m-connectivity",
+        "title": "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must. readiness guide",
+        "format": "PDF guide",
+        "outline": [
+          {
+            "heading": "Section 1",
+            "copy": "One module. Both layers. Your logic., section 1."
+          },
+          {
+            "heading": "Section 2",
+            "copy": "One module. Both layers. Your logic., section 2."
+          },
+          {
+            "heading": "Section 3",
+            "copy": "One module. Both layers. Your logic., section 3."
+          },
+          {
+            "heading": "Section 4",
+            "copy": "One module. Both layers. Your logic., section 4."
+          },
+          {
+            "heading": "Section 5",
+            "copy": "One module. Both layers. Your logic., section 5."
+          },
+          {
+            "heading": "Section 6",
+            "copy": "One module. Both layers. Your logic., section 6."
+          }
+        ]
+      },
+      {
+        "id": "lm-m2m-one-au",
+        "brandId": "m2m-one-au",
+        "title": "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must. readiness guide",
+        "format": "PDF guide",
+        "outline": [
+          {
+            "heading": "Section 1",
+            "copy": "One module. Both layers. Your logic., section 1."
+          },
+          {
+            "heading": "Section 2",
+            "copy": "One module. Both layers. Your logic., section 2."
+          },
+          {
+            "heading": "Section 3",
+            "copy": "One module. Both layers. Your logic., section 3."
+          },
+          {
+            "heading": "Section 4",
+            "copy": "One module. Both layers. Your logic., section 4."
+          },
+          {
+            "heading": "Section 5",
+            "copy": "One module. Both layers. Your logic., section 5."
+          },
+          {
+            "heading": "Section 6",
+            "copy": "One module. Both layers. Your logic., section 6."
+          }
+        ]
+      }
+    ],
+    "motion": [
+      {
+        "id": "mo-01",
+        "week": 1,
+        "title": "Motion study 1",
+        "durationSeconds": 8,
+        "aspect": "9:16",
+        "storyboard": [
+          {
+            "t": 0,
+            "frame": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. at work",
+            "overlay": "One module. Both layers. Your logic."
+          },
+          {
+            "t": 4,
+            "frame": "The moment the problem appears",
+            "overlay": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026."
+          },
+          {
+            "t": 7,
+            "frame": "Resolution",
+            "overlay": ""
+          }
+        ],
+        "prompt": "Cinematic vertical clip, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. at work, natural light, no text",
+        "negativePrompt": "text, logo"
+      },
+      {
+        "id": "mo-02",
+        "week": 2,
+        "title": "Motion study 2",
+        "durationSeconds": 8,
+        "aspect": "9:16",
+        "storyboard": [
+          {
+            "t": 0,
+            "frame": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. at work",
+            "overlay": "One module. Both layers. Your logic."
+          },
+          {
+            "t": 4,
+            "frame": "The moment the problem appears",
+            "overlay": "Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026."
+          },
+          {
+            "t": 7,
+            "frame": "Resolution",
+            "overlay": ""
+          }
+        ],
+        "prompt": "Cinematic vertical clip, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. at work, natural light, no text",
+        "negativePrompt": "text, logo"
+      }
+    ],
+    "creativeJobs": [
+      {
+        "id": "job-img-01",
+        "kind": "image",
+        "purpose": "recognise master",
+        "aspectRatio": "4:5",
+        "resolution": "2k",
+        "prompt": "Photographic, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., recognise moment, natural light",
+        "negativePrompt": "text, logo, watermark, words, letters, brand mark, signage with legible text, invented product, fake customer",
+        "constraints": [
+          "No text",
+          "No logos",
+          "No product claims",
+          "No invented customer proof"
+        ],
+        "postProcessing": "Approved copy and ONE brand logo applied deterministically after generation.",
+        "status": "prepared",
+        "provider": {
+          "name": "higgsfield"
+        },
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., recognise moment",
+        "usageNotes": "Social and carousel backgrounds",
+        "rights": "Generated master; rights per provider terms. Verify before external use.",
+        "history": [
+          {
+            "at": "2026-09-12T14:25:48.716Z",
+            "event": "prepared"
+          }
+        ],
+        "pin": {
+          "provider": "mock",
+          "model": "mock",
+          "effort": "high",
+          "promptId": "production.enablement",
+          "promptVersion": "1",
+          "promptHash": "c3492e2939d611df7f889d58bc556dbc57e64e3ae4354e3b0a5a3bcfa8e00076",
+          "schemaHash": "a8f95a3fc67c62270e3e2cba5ec37b9cbb951aa232791b949c6d5b09bdbecfdf",
+          "inputHash": "6c2b8d2b98bb89b4dfd06767f5ed693a2520fbb002c27b8642aa58fbf8aebbff",
+          "packId": "m2m-group",
+          "packVersion": "1.0",
+          "profileId": "b2b",
+          "profileVersion": "1",
+          "attempt": 1,
+          "retryReasons": [],
+          "at": "2026-09-12T14:25:48.716Z",
+          "usage": {
+            "inputTokens": 0,
+            "outputTokens": 0
+          }
+        }
+      },
+      {
+        "id": "job-img-02",
+        "kind": "image",
+        "purpose": "prove master",
+        "aspectRatio": "4:5",
+        "resolution": "2k",
+        "prompt": "Photographic, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., prove moment, natural light",
+        "negativePrompt": "text, logo, watermark, words, letters, brand mark, signage with legible text, invented product, fake customer",
+        "constraints": [
+          "No text",
+          "No logos",
+          "No product claims",
+          "No invented customer proof"
+        ],
+        "postProcessing": "Approved copy and ONE brand logo applied deterministically after generation.",
+        "status": "prepared",
+        "provider": {
+          "name": "higgsfield"
+        },
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., prove moment",
+        "usageNotes": "Social and carousel backgrounds",
+        "rights": "Generated master; rights per provider terms. Verify before external use.",
+        "history": [
+          {
+            "at": "2026-09-12T14:25:48.716Z",
+            "event": "prepared"
+          }
+        ],
+        "pin": {
+          "provider": "mock",
+          "model": "mock",
+          "effort": "high",
+          "promptId": "production.enablement",
+          "promptVersion": "1",
+          "promptHash": "c3492e2939d611df7f889d58bc556dbc57e64e3ae4354e3b0a5a3bcfa8e00076",
+          "schemaHash": "a8f95a3fc67c62270e3e2cba5ec37b9cbb951aa232791b949c6d5b09bdbecfdf",
+          "inputHash": "6c2b8d2b98bb89b4dfd06767f5ed693a2520fbb002c27b8642aa58fbf8aebbff",
+          "packId": "m2m-group",
+          "packVersion": "1.0",
+          "profileId": "b2b",
+          "profileVersion": "1",
+          "attempt": 1,
+          "retryReasons": [],
+          "at": "2026-09-12T14:25:48.716Z",
+          "usage": {
+            "inputTokens": 0,
+            "outputTokens": 0
+          }
+        }
+      },
+      {
+        "id": "job-img-03",
+        "kind": "image",
+        "purpose": "convert master",
+        "aspectRatio": "4:5",
+        "resolution": "2k",
+        "prompt": "Photographic, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., convert moment, natural light",
+        "negativePrompt": "text, logo, watermark, words, letters, brand mark, signage with legible text, invented product, fake customer",
+        "constraints": [
+          "No text",
+          "No logos",
+          "No product claims",
+          "No invented customer proof"
+        ],
+        "postProcessing": "Approved copy and ONE brand logo applied deterministically after generation.",
+        "status": "prepared",
+        "provider": {
+          "name": "higgsfield"
+        },
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., convert moment",
+        "usageNotes": "Social and carousel backgrounds",
+        "rights": "Generated master; rights per provider terms. Verify before external use.",
+        "history": [
+          {
+            "at": "2026-09-12T14:25:48.716Z",
+            "event": "prepared"
+          }
+        ],
+        "pin": {
+          "provider": "mock",
+          "model": "mock",
+          "effort": "high",
+          "promptId": "production.enablement",
+          "promptVersion": "1",
+          "promptHash": "c3492e2939d611df7f889d58bc556dbc57e64e3ae4354e3b0a5a3bcfa8e00076",
+          "schemaHash": "a8f95a3fc67c62270e3e2cba5ec37b9cbb951aa232791b949c6d5b09bdbecfdf",
+          "inputHash": "6c2b8d2b98bb89b4dfd06767f5ed693a2520fbb002c27b8642aa58fbf8aebbff",
+          "packId": "m2m-group",
+          "packVersion": "1.0",
+          "profileId": "b2b",
+          "profileVersion": "1",
+          "attempt": 1,
+          "retryReasons": [],
+          "at": "2026-09-12T14:25:48.716Z",
+          "usage": {
+            "inputTokens": 0,
+            "outputTokens": 0
+          }
+        }
+      },
+      {
+        "id": "job-img-04",
+        "kind": "image",
+        "purpose": "segment master",
+        "aspectRatio": "4:5",
+        "resolution": "2k",
+        "prompt": "Photographic, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., segment moment, natural light",
+        "negativePrompt": "text, logo, watermark, words, letters, brand mark, signage with legible text, invented product, fake customer",
+        "constraints": [
+          "No text",
+          "No logos",
+          "No product claims",
+          "No invented customer proof"
+        ],
+        "postProcessing": "Approved copy and ONE brand logo applied deterministically after generation.",
+        "status": "prepared",
+        "provider": {
+          "name": "higgsfield"
+        },
+        "altText": "Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products., segment moment",
+        "usageNotes": "Social and carousel backgrounds",
+        "rights": "Generated master; rights per provider terms. Verify before external use.",
+        "history": [
+          {
+            "at": "2026-09-12T14:25:48.716Z",
+            "event": "prepared"
+          }
+        ],
+        "pin": {
+          "provider": "mock",
+          "model": "mock",
+          "effort": "high",
+          "promptId": "production.enablement",
+          "promptVersion": "1",
+          "promptHash": "c3492e2939d611df7f889d58bc556dbc57e64e3ae4354e3b0a5a3bcfa8e00076",
+          "schemaHash": "a8f95a3fc67c62270e3e2cba5ec37b9cbb951aa232791b949c6d5b09bdbecfdf",
+          "inputHash": "6c2b8d2b98bb89b4dfd06767f5ed693a2520fbb002c27b8642aa58fbf8aebbff",
+          "packId": "m2m-group",
+          "packVersion": "1.0",
+          "profileId": "b2b",
+          "profileVersion": "1",
+          "attempt": 1,
+          "retryReasons": [],
+          "at": "2026-09-12T14:25:48.716Z",
+          "usage": {
+            "inputTokens": 0,
+            "outputTokens": 0
+          }
+        }
+      },
+      {
+        "id": "job-mo-01",
+        "kind": "motion",
+        "purpose": "Motion study 1",
+        "aspectRatio": "9:16",
+        "resolution": "1080p",
+        "durationSeconds": 8,
+        "prompt": "Cinematic vertical clip, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. at work, natural light, no text",
+        "negativePrompt": "text, logo, words, letters, watermark, brand mark, signage with legible text, invented product, fake customer",
+        "constraints": [
+          "No text",
+          "No logos",
+          "No product claims",
+          "No invented customer proof"
+        ],
+        "postProcessing": "Overlays and ONE brand logo composed deterministically after generation.",
+        "status": "prepared",
+        "provider": {
+          "name": "higgsfield"
+        },
+        "altText": "Motion study 1: Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. at work; The moment the problem appears; Resolution",
+        "usageNotes": "8s, 9:16, silent; storyboard in the pack.",
+        "rights": "Generated master; rights per provider terms. Verify before external use.",
+        "history": [
+          {
+            "at": "2026-09-12T14:25:48.716Z",
+            "event": "prepared"
+          }
+        ],
+        "pin": {
+          "provider": "mock",
+          "model": "mock",
+          "effort": "high",
+          "promptId": "production.enablement",
+          "promptVersion": "1",
+          "promptHash": "c3492e2939d611df7f889d58bc556dbc57e64e3ae4354e3b0a5a3bcfa8e00076",
+          "schemaHash": "a8f95a3fc67c62270e3e2cba5ec37b9cbb951aa232791b949c6d5b09bdbecfdf",
+          "inputHash": "6c2b8d2b98bb89b4dfd06767f5ed693a2520fbb002c27b8642aa58fbf8aebbff",
+          "packId": "m2m-group",
+          "packVersion": "1.0",
+          "profileId": "b2b",
+          "profileVersion": "1",
+          "attempt": 1,
+          "retryReasons": [],
+          "at": "2026-09-12T14:25:48.716Z",
+          "usage": {
+            "inputTokens": 0,
+            "outputTokens": 0
+          }
+        }
+      },
+      {
+        "id": "job-mo-02",
+        "kind": "motion",
+        "purpose": "Motion study 2",
+        "aspectRatio": "9:16",
+        "resolution": "1080p",
+        "durationSeconds": 8,
+        "prompt": "Cinematic vertical clip, Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. at work, natural light, no text",
+        "negativePrompt": "text, logo, words, letters, watermark, brand mark, signage with legible text, invented product, fake customer",
+        "constraints": [
+          "No text",
+          "No logos",
+          "No product claims",
+          "No invented customer proof"
+        ],
+        "postProcessing": "Overlays and ONE brand logo composed deterministically after generation.",
+        "status": "prepared",
+        "provider": {
+          "name": "higgsfield"
+        },
+        "altText": "Motion study 2: Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products. at work; The moment the problem appears; Resolution",
+        "usageNotes": "8s, 9:16, silent; storyboard in the pack.",
+        "rights": "Generated master; rights per provider terms. Verify before external use.",
+        "history": [
+          {
+            "at": "2026-09-12T14:25:48.716Z",
+            "event": "prepared"
+          }
+        ],
+        "pin": {
+          "provider": "mock",
+          "model": "mock",
+          "effort": "high",
+          "promptId": "production.enablement",
+          "promptVersion": "1",
+          "promptHash": "c3492e2939d611df7f889d58bc556dbc57e64e3ae4354e3b0a5a3bcfa8e00076",
+          "schemaHash": "a8f95a3fc67c62270e3e2cba5ec37b9cbb951aa232791b949c6d5b09bdbecfdf",
+          "inputHash": "6c2b8d2b98bb89b4dfd06767f5ed693a2520fbb002c27b8642aa58fbf8aebbff",
+          "packId": "m2m-group",
+          "packVersion": "1.0",
+          "profileId": "b2b",
+          "profileVersion": "1",
+          "attempt": 1,
+          "retryReasons": [],
+          "at": "2026-09-12T14:25:48.716Z",
+          "usage": {
+            "inputTokens": 0,
+            "outputTokens": 0
+          }
+        }
+      }
+    ],
+    "claims": [
+      {
+        "id": "clm-01",
+        "claim": "Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must. documented capabilities",
+        "status": "confirmed",
+        "usedIn": [
+          "strategy"
+        ],
+        "sources": [
+          {
+            "title": "Business pack evidence",
+            "date": "2026-09-01",
+            "excerpt": "Supports: Business pack evidence",
+            "origin": "pack"
+          }
+        ],
+        "approved": false
+      },
+      {
+        "id": "clm-02",
+        "claim": "Customer results",
+        "status": "unknown",
+        "usedIn": [
+          "strategy"
+        ],
+        "sources": [],
+        "approvalOwner": "Sales",
+        "approved": false
+      },
+      {
+        "id": "clm-proof-1",
+        "claim": "Documented capability",
+        "status": "requires_approval",
+        "usedIn": [
+          "proposition"
+        ],
+        "sources": [],
+        "approvalOwner": "Engineering / Product",
+        "approved": false
+      },
+      {
+        "id": "clm-proof-2",
+        "claim": "Approved scenario",
+        "status": "requires_approval",
+        "usedIn": [
+          "proposition"
+        ],
+        "sources": [],
+        "approvalOwner": "Engineering / Product",
+        "approved": false
+      }
+    ],
+    "manifest": [],
+    "verification": [
+      {
+        "check": "twelve-week calendar",
+        "passed": true,
+        "detail": "12 weeks"
+      },
+      {
+        "check": "every branch has a landing page, emails, social, carousels, paid, talk tracks and a lead magnet",
+        "passed": true
+      },
+      {
+        "check": "no banned terminology in copy",
+        "passed": true,
+        "detail": "clean"
+      },
+      {
+        "check": "creative masters are text-free and brand-free",
+        "passed": true,
+        "detail": "clean"
+      },
+      {
+        "check": "every branch destination is set",
+        "passed": true,
+        "detail": "all set"
+      },
+      {
+        "check": "every claim has a status",
+        "passed": true
+      },
+      {
+        "check": "all six gates acknowledged",
+        "passed": true
+      }
+    ],
+    "releaseSequence": [
+      {
+        "step": "Approve technical and evidence claims",
+        "gate": "claims register: every requires_approval / unknown resolved",
+        "owner": "Sales"
+      },
+      {
+        "step": "Approve creative masters",
+        "gate": "each Higgsfield job approved by a human before submission",
+        "owner": "Engineering / Product"
+      },
+      {
+        "step": "Confirm destinations and attribution",
+        "gate": "landing page live, UTM and consent verified",
+        "owner": "Marketing ops"
+      },
+      {
+        "step": "Approve release set",
+        "gate": "exact copy, creative, dates and destinations",
+        "owner": "James"
+      },
+      {
+        "step": "Activate channels",
+        "gate": "explicit human action per channel; never automatic",
+        "owner": "Campaign owner"
+      }
+    ]
+  },
+  "research": {
+    "mode": "quick_scan",
+    "summary": "M2M Group (M2M One Pty Ltd, M2M Connectivity Pty Ltd, M2M One NZ Ltd) can win by attaching Iridium Certus 9604 Hybrid IoT module: cellular where you can, satellite where you must. to the moment \"Devices go dark outside cellular coverage and the missed transmission costs more than the module. Iridium's hybrid module became commercially available in June 2026.\" becomes visible to Product managers and embedded engineers who spec the device; operations leaders who own the cost of a dark asset; system integrators building connected products.. Documented facts are usable; customer proof is not yet approved. Alternatives compete on price and reach rather than the specific problem. The campaign should name the problem first and prove the mechanism second.",
+    "insights": [
+      {
+        "id": "ins-01",
+        "category": "proof",
+        "framework": "product_research",
+        "statement": "the offer has documented capabilities that can be cited by name.",
+        "implication": "Lead with documented facts; keep undocumented claims out of copy.",
+        "evidenceStatus": "strongly_supported",
+        "sources": [
+          {
+            "title": "Business pack evidence",
+            "date": "2026-09-01",
+            "excerpt": "Supports: Business pack evidence",
+            "origin": "pack"
+          }
+        ],
+        "decision": "confirmed",
+        "answersQuestionIds": [
+          "rq-01"
+        ]
+      },
+      {
+        "id": "ins-01",
+        "category": "proof",
+        "framework": "product_research",
+        "statement": "Routing between layers is designed by the developer, never automatic.",
+        "implication": "Never promise automatic failover or universal coverage.",
+        "evidenceStatus": "inferred",
+        "sources": [
+          {
+            "title": "Business pack evidence",
+            "date": "2026-09-01",
+            "excerpt": "Supports: Business pack evidence",
+            "origin": "pack"
+          }
+        ],
+        "decision": "confirmed",
+        "answersQuestionIds": [
+          "rq-01"
+        ]
+      },
+      {
+        "id": "ins-03",
+        "category": "demand_driver",
+        "framework": "pestel",
+        "statement": "\"a change that makes the current approach less reliable\" is becoming more visible to the people who decide in Australia and New Zealand.",
+        "implication": "Attach the campaign to this trigger; timing beats reach.",
+        "evidenceStatus": "strongly_supported",
+        "sources": [
+          {
+            "title": "Business pack evidence",
+            "date": "2026-09-01",
+            "excerpt": "Supports: Business pack evidence",
+            "origin": "pack"
+          }
+        ],
+        "decision": "confirmed",
+        "answersQuestionIds": [
+          "rq-03"
+        ]
+      },
+      {
+        "id": "ins-04",
+        "category": "audience",
+        "framework": "buying_committee",
+        "statement": "the people who decide are the people who feel the problem first and shape the decision.",
+        "implication": "Address them first; give them a way to make the case internally.",
+        "evidenceStatus": "strongly_supported",
+        "sources": [
+          {
+            "title": "Business pack evidence",
+            "date": "2026-09-01",
+            "excerpt": "Supports: Business pack evidence",
+            "origin": "pack"
+          }
+        ],
+        "decision": "confirmed",
+        "answersQuestionIds": [
+          "rq-05"
+        ]
+      },
+      {
+        "id": "ins-05",
+        "category": "competitor",
+        "framework": "competitor_analysis",
+        "statement": "Alternatives in the buyer's consideration set compete on price and reach, not on the specific problem.",
+        "implication": "Own the problem statement; avoid a feature-versus-feature message.",
+        "evidenceStatus": "strongly_supported",
+        "sources": [
+          {
+            "title": "Business pack evidence",
+            "date": "2026-09-01",
+            "excerpt": "Supports: Business pack evidence",
+            "origin": "pack"
+          }
+        ],
+        "decision": "confirmed",
+        "answersQuestionIds": [
+          "rq-07"
+        ]
+      },
+      {
+        "id": "ins-06",
+        "category": "positioning",
+        "framework": "porter_five_forces",
+        "lens": "generic strategy",
+        "statement": "The campaign can win by naming the moment the problem becomes visible, not by listing features.",
+        "implication": "Core message = the boundary or trigger; proof follows.",
+        "evidenceStatus": "inferred",
+        "sources": [],
+        "decision": "confirmed",
+        "answersQuestionIds": [
+          "rq-09"
+        ]
+      }
+    ]
+  },
+  "provenance": {
+    "meta.name": {
+      "kind": "user",
+      "source": "consultation",
+      "at": "2026-09-12T14:25:47.567Z"
+    },
+    "meta.slug": {
+      "kind": "user",
+      "source": "consultation",
+      "at": "2026-09-12T14:25:47.567Z"
+    },
+    "kpis.primary": {
+      "kind": "user",
+      "source": "edit:user",
+      "at": "2026-09-12T14:25:48.127Z"
+    },
+    "meta.product": {
+      "kind": "user",
+      "source": "consultation",
+      "at": "2026-09-12T14:25:47.567Z"
+    },
+    "conversion.cta": {
+      "kind": "generated",
+      "source": "concept:con_g1_engineering-proof",
+      "at": "2026-09-12T14:25:48.077Z"
+    },
+    "approvals.brand": {
+      "kind": "approved",
+      "source": "user",
+      "at": "2026-09-12T14:25:48.481Z"
+    },
+    "kpis.supporting": {
+      "kind": "user",
+      "source": "edit:user",
+      "at": "2026-09-12T14:25:48.127Z"
+    },
+    "approvals.claims": {
+      "kind": "approved",
+      "source": "user",
+      "at": "2026-09-12T14:25:48.423Z"
+    },
+    "approvals.rights": {
+      "kind": "approved",
+      "source": "user",
+      "at": "2026-09-12T14:25:48.597Z"
+    },
+    "audience.primary": {
+      "kind": "user",
+      "source": "consultation",
+      "at": "2026-09-12T14:25:47.567Z"
+    },
+    "audience.problem": {
+      "kind": "generated",
+      "source": "concept:con_g1_engineering-proof",
+      "at": "2026-09-12T14:25:48.077Z"
+    },
+    "audience.trigger": {
+      "kind": "user",
+      "source": "consultation",
+      "at": "2026-09-12T14:25:47.567Z"
+    },
+    "channels.formats": {
+      "kind": "generated",
+      "source": "concept:con_g1_engineering-proof",
+      "at": "2026-09-12T14:25:48.077Z"
+    },
+    "conversion.route": {
+      "kind": "user",
+      "source": "edit:user",
+      "at": "2026-09-12T14:25:48.127Z"
+    },
+    "channels.channels": {
+      "kind": "user",
+      "source": "edit:user",
+      "at": "2026-09-12T14:25:48.127Z"
+    },
+    "approvals.strategy": {
+      "kind": "approved",
+      "source": "user",
+      "at": "2026-09-12T14:25:48.367Z"
+    },
+    "audience.geography": {
+      "kind": "user",
+      "source": "consultation",
+      "at": "2026-09-12T14:25:47.567Z"
+    },
+    "approvals.generation": {
+      "kind": "approved",
+      "source": "user",
+      "at": "2026-09-12T14:25:48.654Z"
+    },
+    "approvals.destination": {
+      "kind": "approved",
+      "source": "user",
+      "at": "2026-09-12T14:25:48.538Z"
+    },
+    "guardrails.exclusions": {
+      "kind": "user",
+      "source": "edit:user",
+      "at": "2026-09-12T14:25:48.127Z"
+    },
+    "conversion.destination": {
+      "kind": "user",
+      "source": "edit:user",
+      "at": "2026-09-12T14:25:48.127Z"
+    },
+    "proposition.supporting": {
+      "kind": "generated",
+      "source": "concept:con_g1_engineering-proof",
+      "at": "2026-09-12T14:25:48.077Z"
+    },
+    "creative.existingAssets": {
+      "kind": "user",
+      "source": "consultation",
+      "at": "2026-09-12T14:25:47.567Z"
+    },
+    "proposition.coreMessage": {
+      "kind": "generated",
+      "source": "concept:con_g1_engineering-proof",
+      "at": "2026-09-12T14:25:48.077Z"
+    },
+    "creative.visualDirection": {
+      "kind": "generated",
+      "source": "concept:con_g1_engineering-proof",
+      "at": "2026-09-12T14:25:48.077Z"
+    },
+    "intent.commercialOutcome": {
+      "kind": "user",
+      "source": "consultation",
+      "at": "2026-09-12T14:25:47.567Z"
+    },
+    "guardrails.approvalOwners": {
+      "kind": "user",
+      "source": "edit:user",
+      "at": "2026-09-12T14:25:48.127Z"
+    },
+    "proposition.proofRequirements": {
+      "kind": "generated",
+      "source": "concept:con_g1_engineering-proof",
+      "at": "2026-09-12T14:25:48.077Z"
+    }
+  }
+}
