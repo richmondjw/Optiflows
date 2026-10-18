@@ -1,0 +1,56 @@
+{
+  "campaign": "sizzle-launch-20261001",
+  "owner": "Remy",
+  "state": "review-pack-not-live",
+  "strategy": "launch-strategy.md",
+  "copy": "campaign-copy.md",
+  "assets": [
+    {
+      "id": "confidence-portrait",
+      "path": "assets/confidence-portrait.png",
+      "status": "prepared-not-published",
+      "bytes": 1470132,
+      "sha256": "13177f3e6b2c95fcc45e0343c4af7e17de63b1bedd5892a93b109c386baea7ef"
+    },
+    {
+      "id": "confidence-square",
+      "path": "assets/confidence-square.png",
+      "status": "prepared-not-published",
+      "bytes": 1274491,
+      "sha256": "384c2e5f431023a5ad5a946976c673810905494d68bf77c11181b628c1ec2ae3"
+    },
+    {
+      "id": "costing-square",
+      "path": "assets/costing-square.png",
+      "status": "prepared-not-published",
+      "bytes": 1271124,
+      "sha256": "bf00e335d9487246984887121a251c0868389068c88c148ef3759b6080d1bc98"
+    },
+    {
+      "id": "hero",
+      "path": "assets/hero.webp",
+      "status": "prepared-not-published",
+      "bytes": 368006,
+      "sha256": "973338d34d5a9a1006d523e4d44762d64a113d3dad45a3d3bcf611c1d489ab1b"
+    },
+    {
+      "id": "launch-motion",
+      "path": "assets/launch-motion.mp4",
+      "status": "prepared-not-published",
+      "bytes": 509445,
+      "sha256": "787f4ddb1e6194eb9fb73bda213cc998c023644706089b0a43309bc70683d445"
+    }
+  ],
+  "destinations": {
+    "campaign": "optiflows.com.au/campaigns/sizzle-launch/ (proposed; user spelling clarification pending)",
+    "app": "unconfirmed; cookwithsizzle.com shortlisted, not registered"
+  },
+  "release_blockers": [
+    "Domain/registrar and exact campaign destination",
+    "Registration model confirmation",
+    "Server-side paid-content gating; current bundle exposes paid content",
+    "Live merchant and checkout/activation/refund verification",
+    "Technical payment/security and culinary review",
+    "Consented audience and release authorisation"
+  ]
+}

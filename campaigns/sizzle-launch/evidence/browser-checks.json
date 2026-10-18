@@ -1,0 +1,32 @@
+[
+  {
+    "surface": "hub",
+    "width": 1440,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "surface": "hub",
+    "width": 390,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "surface": "hub",
+    "width": 320,
+    "overflow": false,
+    "errors": []
+  },
+  {
+    "route": "/#/app/modules",
+    "rendered": true
+  },
+  {
+    "route": "/#/app/settings",
+    "rendered": true
+  },
+  {
+    "route": "/#/tools/food-cost",
+    "rendered": true
+  }
+]

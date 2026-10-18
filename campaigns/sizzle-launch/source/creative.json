@@ -1,0 +1,34 @@
+{
+  "id": "sizzle-launch-20261001",
+  "brand": "SIZZLE",
+  "status": "prepared-not-published",
+  "positioning": "Cook with confidence. Start with the foundations.",
+  "concepts": [
+    {
+      "id": "confidence",
+      "title": "Cook with confidence.",
+      "subtitle": "Start with the foundations.",
+      "detail": "Free knife-skills and seasoning modules.",
+      "cta": "Start free.",
+      "footer": "No account needed to start."
+    },
+    {
+      "id": "costing",
+      "title": "From good food to a costed menu.",
+      "subtitle": "Explore the free food-cost tool.",
+      "detail": "",
+      "cta": "",
+      "footer": ""
+    }
+  ],
+  "artwork": {
+    "file": "../assets/hero.webp",
+    "type": "AI-generated editorial illustration",
+    "provider": "built-in image_gen",
+    "not": "Higgsfield or a documented recipe result"
+  },
+  "review": {
+    "strategy_sha256": "2fc6c2cc6daa27af7849cabe35b9061e8ba6f672c508ae772849c8e015be786a",
+    "copy_sha256": "462d2cd4fc720ae5787a6eac400cb38ddd7cdbdbbd895fa376010072e9600b4d"
+  }
+}
