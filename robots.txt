@@ -13,3 +13,7 @@ Disallow: /design/
 Disallow: /campaigns/2026-09-07-to-2026-10-04/
 
 Sitemap: https://www.optiflows.com.au/sitemap.xml
+
+# Permit crawling of the noindex playbook so search engines can read its directive.
+Allow: /m2m/campaigns/$
+Allow: /m2m/campaigns/index.html$
