@@ -5,6 +5,7 @@ import worker from '../workers/proposal-approvals.js';
 import contract from '../workers/proposal-contract.json' with {type:'json'};
 import calliope from '../workers/proposal-contract-calliope.json' with {type:'json'};
 import copySkill from '../workers/proposal-contract-copy-skill.json' with {type:'json'};
+import feedbackLoop from '../workers/proposal-contract-workbench-feedback-loop.json' with {type:'json'};
 const db=new DatabaseSync(':memory:');
 db.exec(fs.readFileSync(new URL('../workers/proposal-approvals.sql',import.meta.url),'utf8'));
 const env={PUBLIC_ORIGIN:'https://optiflows.com.au', RECORD_SIGNING_KEY:'test-only-key', APPROVAL_ADMIN_TOKEN:'test-admin', REMY_TELEGRAM_BOT_TOKEN:'test-bot', REMY_TELEGRAM_CHAT_ID:'test-chat', APPROVAL_EMAIL_ENDPOINT:'https://email.example.test',
@@ -64,11 +65,22 @@ try{
   assert.doesNotMatch(calls[5].body.text,/in principle|Telegram Pilot|Project Management Agreement/);
   assert.doesNotMatch(calls[3].body.text,/Payment:/);
   assert.equal((await (await post(skill)).json()).duplicate,true);assert.equal(calls.length,6);
+  const loop={...input,record_id:crypto.randomUUID(),proposal_id:feedbackLoop.proposal_id,proposal_version:feedbackLoop.proposal_version,consent:feedbackLoop.consent,fee_aud_ex_gst:1};
+  assert.equal((await post({...loop,consent:copySkill.consent})).status,422);
+  res=await post(loop);assert.equal(res.status,201);const loopSaved=await res.json();
+  assert.equal(loopSaved.record.fee_aud_ex_gst,2400);
+  assert.equal(loopSaved.record.proposal_text,feedbackLoop.proposal_text);
+  assert.match(loopSaved.record_url,/776bc-workbench-feedback-loop\/#record=/);
+  await Promise.all(waits);assert.equal(calls.length,8);
+  assert.equal(calls[6].body._subject,'776BC Workbench Feedback Loop approved');
+  assert.match(calls[7].body.text,/A\$2,400 ex GST/);
+  assert.match(calls[7].body.text,/Payment: 50% on approval and commencement; 50% on release to the 776BC team/);
+  assert.doesNotMatch(calls[7].body.text,/in principle|Copy Skill|Project Management Agreement/);
   globalThis.fetch=async()=>{throw new Error('timeout');};
   const test={...input,record_id:crypto.randomUUID(),is_test:true};
   assert.equal((await post(test,{Authorization:'Bearer test-admin'})).status,201);
   await Promise.all(waits);
   assert.equal(db.prepare('SELECT telegram_status FROM proposal_approvals WHERE id=?').get(test.record_id).telegram_status,'unknown');
-  assert.equal(db.prepare('SELECT count(*) AS n FROM proposal_approvals').get().n,4);
-  console.log('PASS: all three proposal contracts, isolated scope/fee/consent and links, persistence, validation, private reads, duplicate/conflict handling, independent receipts, protected tests and ambiguous delivery');
+  assert.equal(db.prepare('SELECT count(*) AS n FROM proposal_approvals').get().n,5);
+  console.log('PASS: all four proposal contracts, isolated scope/fee/consent and links, persistence, validation, private reads, duplicate/conflict handling, independent receipts, protected tests and ambiguous delivery');
 }finally{globalThis.fetch=originalFetch;db.close();}

@@ -2,15 +2,17 @@ import teamwear from './proposal-contract.json' with {type:'json'};
 import calliope from './proposal-contract-calliope.json' with {type:'json'};
 
 import copySkill from './proposal-contract-copy-skill.json' with {type:'json'};
+import feedbackLoop from './proposal-contract-workbench-feedback-loop.json' with {type:'json'};
 
 // The Calliope contract stays registered after its page was superseded on
 // 30 September 2026 so stored records keep resolving against their own terms.
-const contracts = new Map([['776bc-custom-teamwear', teamwear], ['776bc-calliope-telegram-pilot', calliope], ['776bc-content-copy-skill', copySkill]]);
+const contracts = new Map([['776bc-custom-teamwear', teamwear], ['776bc-calliope-telegram-pilot', calliope], ['776bc-content-copy-skill', copySkill], ['776bc-workbench-feedback-loop', feedbackLoop]]);
 const notificationDetails = new Map([
   [teamwear.path, {title:'776BC Custom Teamwear', next:'Project Management Agreement and commencement payment before kickoff.'}],
   [calliope.path, {title:'776BC Calliope Telegram Pilot', next:'Confirm pilot users, launch deliverables, the review owner and kickoff date.'}],
   // Not "in principle": this proposal carries its own payment terms and needs no separate agreement.
-  [copySkill.path, {title:'776BC Content & Copy Skill for Claude', outcome:'approved', payment:true, next:'Issue the commencement invoice (50%), confirm Claude and source-material access, and book the authorship policy session.'}]
+  [copySkill.path, {title:'776BC Content & Copy Skill for Claude', outcome:'approved', payment:true, next:'Issue the commencement invoice (50%), confirm Claude and source-material access, and book the authorship policy session.'}],
+  [feedbackLoop.path, {title:'776BC Workbench Feedback Loop', outcome:'approved', payment:true, next:'Issue the commencement invoice (50%), get a recent Hero pack with feedback for the test, and confirm team Workbench sign-ins.'}]
 ]);
 
 const BASE = '/api/proposal-approvals';

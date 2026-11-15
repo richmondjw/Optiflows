@@ -73,5 +73,9 @@ Content & Copy Skill rollback: restore the forwarding pages and index from the c
 its publication and the prior Worker version 0ea6c653-f209-42b6-a3f5-e08c7b6ed1cb (the Skill
 contract went live in 3861ee9c-24eb-41cc-9ae4-01bf20a75cb2 on 30 September 2026; v1.1 is
 Worker version 59c46975-9745-44ac-900e-dfd0c65a7621).
+Workbench Feedback Loop (proposal_id 776bc-workbench-feedback-loop, v1.0, A$2,400 ex GST, 15 November 2026):
+contract in workers/proposal-contract-workbench-feedback-loop.json, live in Worker version
+787b5686-a2b7-4189-8185-307f2b8b10ed; rollback restores 59c46975-9745-44ac-900e-dfd0c65a7621 and the index
+from the commit before its publication.
 Preserve all stored approval records and secrets.
 Do not revert the database or modify the existing enquiry service.
