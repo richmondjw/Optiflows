@@ -61,7 +61,8 @@
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json', 'Idempotency-Key': body.idempotency_key },
       body: JSON.stringify(body),
-      credentials: 'omit'
+      credentials: 'omit',
+      signal: options && options.signal
     });
     if (!response.ok) throw new Error('submission_unavailable');
     var result = await response.json();
