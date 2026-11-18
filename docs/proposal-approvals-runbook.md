@@ -77,5 +77,8 @@ Workbench Feedback Loop (proposal_id 776bc-workbench-feedback-loop, v1.0, A$2,40
 contract in workers/proposal-contract-workbench-feedback-loop.json, live in Worker version
 787b5686-a2b7-4189-8185-307f2b8b10ed; rollback restores 59c46975-9745-44ac-900e-dfd0c65a7621 and the index
 from the commit before its publication.
+Custom Teamwear v1.8 (18 November 2026, A$16,800 ex GST at A$350/hour, staged-programme framing; nobody signed v1.7):
+contract in workers/proposal-contract.json, live in Worker version fad7e1ff-cdaf-4215-8829-bfb2580174e1; rollback restores
+787b5686-a2b7-4189-8185-307f2b8b10ed and the proposal page, approval script and index from the commit before its publication.
 Preserve all stored approval records and secrets.
 Do not revert the database or modify the existing enquiry service.
