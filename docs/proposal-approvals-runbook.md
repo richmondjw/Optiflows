@@ -85,5 +85,8 @@ approval of scope, fee, payment and general terms (first A$8,400 due on approval
 Its notification reads "approved" and carries the payment line. Live in Worker version e6cd6b40-1d39-4d83-8721-46d5253fe195;
 rollback restores fad7e1ff-cdaf-4215-8829-bfb2580174e1 (v1.8) and the proposal page and approval script from the commit before it.
 Nobody signed v1.8.
+Custom Teamwear v2.0 (18 November 2026): same terms as v1.9, with Outputs 1-4 listed in the Investment section. Live in Worker
+version 30a385ab-2e55-42d0-9a38-1c9df8153dc9; rollback restores e6cd6b40-1d39-4d83-8721-46d5253fe195 (v1.9) and the page and
+approval script from the commit before it. Nobody signed v1.9.
 Preserve all stored approval records and secrets.
 Do not revert the database or modify the existing enquiry service.
