@@ -1,8 +1,8 @@
 
 (function(){
   var ENDPOINT = '/api/proposal-approvals';
-  var KEY = 'optiflows-proposal-776bc-teamwear-v1-8-approval';
-  var PROPOSAL = 'Custom Teamwear Workflow: Discover and Design (776BC), 18 November 2026, v1.8';
+  var KEY = 'optiflows-proposal-776bc-teamwear-v1-9-approval';
+  var PROPOSAL = 'Custom Teamwear Workflow: Discover and Design (776BC), 18 November 2026, v1.9';
 
   var form = document.getElementById('approvalForm');
   var nameEl = document.getElementById('name');
@@ -142,13 +142,13 @@
     }
     var rec = pendingRecord || {
       record_id: crypto.randomUUID(),
-      proposal_version: '1.8',
+      proposal_version: '1.9',
       consent: CONSENT,
       consent_accepted: true,
       scope: 'Three-week Discover and Design engagement, Outputs 1–4',
       fee_aud_ex_gst: 16800,
-      payment_milestones: 'A$8,400 on PMA signing before kickoff; A$8,400 on Outputs 1–4 acceptance',
-      approval_type: 'In principle; separate Project Management Agreement required',
+      payment_milestones: 'A$8,400 on approval before kickoff; A$8,400 on Outputs 1–4 acceptance',
+      approval_type: 'Approval of scope, fee, payment and general terms; this proposal is the agreement',
       proposal_text: document.getElementById('proposalContent').textContent.replace(/\s+/g, ' ').trim(),
       proposal: PROPOSAL,
       client: '776BC',
@@ -158,7 +158,7 @@
       approved_at: new Date().toISOString(),
       signature: exportSignature(),
       page: location.href,
-      _subject: 'PROPOSAL APPROVAL IN PRINCIPLE: Custom Teamwear Workflow: Discover and Design signed by ' + name
+      _subject: 'PROPOSAL APPROVED: Custom Teamwear Workflow: Discover and Design signed by ' + name
     };
     pendingRecord = rec;
     submitBtn.disabled = true;

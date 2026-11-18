@@ -25,7 +25,7 @@ try{
   assert.equal(saved.record.fee_aud_ex_gst,contract.fee_aud_ex_gst);
   assert.equal(saved.record.proposal_text,contract.proposal_text);
   await Promise.all(waits);assert.equal(calls.length,2);
-  assert.match(calls[1].body.text,/approved in principle/);
+  assert.match(calls[1].body.text,/776BC Custom Teamwear approved\n/);assert.doesNotMatch(calls[1].body.text,/in principle/);
   assert.ok(!calls[1].body.text.includes(input.signature));
   res=await post();assert.equal((await res.json()).duplicate,true);assert.equal(calls.length,2);
   assert.equal((await post({...input,name:'Different signer'})).status,409);
