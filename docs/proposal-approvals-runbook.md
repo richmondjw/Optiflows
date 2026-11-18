@@ -80,5 +80,10 @@ from the commit before its publication.
 Custom Teamwear v1.8 (18 November 2026, A$16,800 ex GST at A$350/hour, staged-programme framing; nobody signed v1.7):
 contract in workers/proposal-contract.json, live in Worker version fad7e1ff-cdaf-4215-8829-bfb2580174e1; rollback restores
 787b5686-a2b7-4189-8185-307f2b8b10ed and the proposal page, approval script and index from the commit before its publication.
+Custom Teamwear v1.9 (18 November 2026): the approved proposal is itself the agreement for Discover and Design, so it is a full
+approval of scope, fee, payment and general terms (first A$8,400 due on approval), no longer approval in principle with a separate PMA.
+Its notification reads "approved" and carries the payment line. Live in Worker version e6cd6b40-1d39-4d83-8721-46d5253fe195;
+rollback restores fad7e1ff-cdaf-4215-8829-bfb2580174e1 (v1.8) and the proposal page and approval script from the commit before it.
+Nobody signed v1.8.
 Preserve all stored approval records and secrets.
 Do not revert the database or modify the existing enquiry service.
