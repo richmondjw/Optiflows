@@ -1677,6 +1677,14 @@
 
 <!-- ============ FOOTER ============ -->
 <footer>
+  <div class="wrap" hidden id="consulting-return">
+    <p><a href="/?via=case_study#contact">Discuss this workflow with James at OptiFlows ↗</a></p>
+  </div>
+  <script>
+    if (new URLSearchParams(location.search).get('from') === 'optiflows') {
+      document.getElementById('consulting-return').hidden = false;
+    }
+  </script>
   <div class="wrap">
     <div class="foot-grid">
       <a href="#top" class="wordmark" aria-label="776BC home"><img src="./assets/brand/776bc-logo-gold.png" alt="776BC" /></a>

@@ -62,6 +62,8 @@
   transition: border-color 0.2s, background 0.2s, transform 0.15s;
   text-align: center;
 }
+.IntentCard { font: inherit; text-align: left; color: inherit; }
+.IntentCard:focus-visible { outline: 3px solid currentColor; }
 .IntentCard:hover {
   border-color: var(--mid-teal, #0A6E6E);
   background: rgba(255,255,255,0.95);
@@ -214,22 +216,22 @@
       <span class="of-brand-wordmark"><span>Opti</span><strong>Flows</strong></span>
     </a>
     <nav class="of-desktop-nav" aria-label="Primary navigation">
-      <a href="/#method">Method</a>
-      <a href="/#capabilities">Capabilities</a>
-      <a href="/#engagements">Engagements</a>
+      <a href="/#process">How it works</a>
+      <a href="/#help">How I help</a>
+      <a href="/#example">Client work</a>
       <a href="/blog/" aria-current="page">Thinking</a>
     </nav>
-    <a class="of-nav-cta" href="/#start">Book diagnostic</a>
+    <a class="of-nav-cta" href="/?via=blog#contact">Request a call</a>
     <button class="of-menu-toggle" type="button" aria-expanded="false" aria-controls="ofMobileNav" aria-label="Open menu" data-of-menu-toggle>
       <span></span><span></span>
     </button>
   </div>
   <nav class="of-mobile-nav" id="ofMobileNav" aria-label="Mobile navigation" data-of-mobile-nav>
-    <a href="/#method">Method</a>
-    <a href="/#capabilities">Capabilities</a>
-    <a href="/#engagements">Engagements</a>
+    <a href="/#process">How it works</a>
+    <a href="/#help">How I help</a>
+    <a href="/#example">Client work</a>
     <a href="/blog/" aria-current="page">Thinking</a>
-    <a class="of-mobile-nav-cta" href="/#start">Book a 20-minute diagnostic</a>
+    <a class="of-mobile-nav-cta" href="/?via=blog#contact">Request a workflow call</a>
   </nav>
 </header>
 
@@ -238,7 +240,7 @@
   <div class="BlogHero-inner">
     <div class="PreTitle animate-div">Thinking</div>
     <h1 class="BlogHero-title animate-div">The gap between AI excitement and operational reality.</h1>
-    <p class="BlogHero-sub animate-div">Practical writing on AI adoption, agent systems, and operating model design for mid-market businesses. No hype. No frontier-lab assumptions. Just what actually works.</p>
+    <p class="BlogHero-sub animate-div">Field notes for founders and operations leads on handoffs, shared knowledge and using AI in everyday work.</p>
   </div>
 </section>
 
@@ -269,28 +271,28 @@
     <div class="CTAPanel CTAPanel--form animate-div">
       <div>
         <div class="CTAPanel-brand">Optiflows</div>
-        <p class="CTAPanel-sub">Practical AI for mid-market businesses. Start with one workflow. Build something that lasts.</p>
+        <p class="CTAPanel-sub">Bring one workflow that keeps getting stuck. James will reply with a suggested time for a 20-minute call.</p>
       </div>
       <div class="CTAPanel-formWrap">
 
         <div class="LeadStep active" id="leadStep1">
           <p class="LeadStep-title">What are you looking for?</p>
           <div class="IntentCards">
-            <div class="IntentCard" data-intent="operating_audit">
+            <button type="button" class="IntentCard" data-intent="operating_audit">
               <span class="IntentCard-icon">&#9881;</span>
-              <div class="IntentCard-label">Operating Audit</div>
-              <div class="IntentCard-desc">Map the 1–3 workflows costing you the most and build a clear case for fixing them</div>
-            </div>
-            <div class="IntentCard" data-intent="first_system_build">
+              <span class="IntentCard-label">Operating Audit</span>
+              <span class="IntentCard-desc">Map the 1–3 workflows costing you the most and build a clear case for fixing them</span>
+            </button>
+            <button type="button" class="IntentCard" data-intent="first_system_build">
               <span class="IntentCard-icon">&#9650;</span>
-              <div class="IntentCard-label">First System Build</div>
-              <div class="IntentCard-desc">Design and ship your first agent system — wired in, guardrails included, owned by your team</div>
-            </div>
-            <div class="IntentCard" data-intent="general_enquiry">
+              <span class="IntentCard-label">First System Build</span>
+              <span class="IntentCard-desc">Design and ship your first agent system — wired in, guardrails included, owned by your team</span>
+            </button>
+            <button type="button" class="IntentCard" data-intent="general_enquiry">
               <span class="IntentCard-icon">&#9993;</span>
-              <div class="IntentCard-label">Start a Conversation</div>
-              <div class="IntentCard-desc">Ask a question or just see if there's a fit</div>
-            </div>
+              <span class="IntentCard-label">Start a Conversation</span>
+              <span class="IntentCard-desc">Ask a question or just see if there's a fit</span>
+            </button>
           </div>
         </div>
 
@@ -298,6 +300,7 @@
           <button type="button" class="LeadForm-back" id="leadBackBtn">&#8592; Back</button>
           <form id="leadForm" class="LeadForm" autocomplete="on">
             <input type="hidden" name="inquiry_type" id="leadIntent" value="">
+            <input type="hidden" name="cta_location" value="blog_form">
             <div class="LeadForm-field">
               <label class="LeadForm-label" for="lf-name">Your name</label>
               <input type="text" name="full_name" id="lf-name" required class="LeadForm-input" autocomplete="name">
@@ -307,24 +310,24 @@
               <input type="email" name="email" id="lf-email" required class="LeadForm-input" autocomplete="email">
             </div>
             <div class="LeadForm-field">
-              <label class="LeadForm-label" for="lf-company">Company</label>
-              <input type="text" name="company_name" id="lf-company" required class="LeadForm-input" autocomplete="organization">
+              <label class="LeadForm-label" for="lf-company">Company (optional)</label>
+              <input type="text" name="company_name" id="lf-company" class="LeadForm-input" autocomplete="organization">
             </div>
             <div class="LeadForm-field">
               <label class="LeadForm-label" for="lf-message">Message <span style="text-transform:none;letter-spacing:0;font-family:var(--font-primary,'General Sans',sans-serif);color:var(--mid-grey,#6f6f6f)">(optional)</span></label>
               <textarea name="message" id="lf-message" rows="3" class="LeadForm-input LeadForm-textarea"></textarea>
             </div>
-            <button type="submit" class="Button Button--filled Button--formSubmit" id="leadSubmitBtn"><span>Book a Conversation</span></button>
-            <p class="LeadForm-trust">We respond within 24 hours. No spam, ever.</p>
-            <p class="LeadForm-status" id="leadFormStatus"></p>
+            <button type="submit" class="Button Button--filled Button--formSubmit" id="leadSubmitBtn"><span>Request a workflow call</span></button>
+            <p class="LeadForm-trust">James uses these details to reply to your enquiry. <a href="/#privacy">Privacy details</a>.</p>
+            <p class="LeadForm-status" id="leadFormStatus" role="status" aria-live="polite"></p>
           </form>
         </div>
 
-        <div class="LeadStep" id="leadStep3">
+        <div class="LeadStep" id="leadStep3" tabindex="-1">
           <div class="LeadForm-success">
             <span class="LeadForm-success-icon">&#10003;</span>
             <div class="LeadForm-success-title">Thank you</div>
-            <p class="LeadForm-success-text">We have received your enquiry and will be in touch within 24 hours.<br>In the meantime, explore our latest thinking.</p>
+            <p class="LeadForm-success-text">Your request is recorded. James will email you a suggested time to talk.</p>
           </div>
         </div>
 
@@ -400,6 +403,7 @@
       var intent = this.getAttribute('data-intent');
       intentInput.value = intent;
       messageField.placeholder = messagePlaceholders[intent] || '';
+      window.OptiflowsLeadCapture.initialise(form);
       showStep(2);
       document.getElementById('lf-name').focus();
     });
@@ -430,11 +434,13 @@
     window.OptiflowsLeadCapture.submit(form, { source: window.location.pathname })
     .then(function() {
       showStep(3);
+      step3.focus();
+      if (typeof window.gtag === 'function') window.gtag('event', 'generate_lead', {cta_location: 'blog_form', inquiry_type: intentInput.value});
     })
     .catch(function() {
       status.textContent = 'We could not securely record your enquiry. Please try again shortly.';
       status.className = 'LeadForm-status error';
-      submitBtn.querySelector('span').textContent = 'Book a Conversation';
+      submitBtn.querySelector('span').textContent = 'Request a workflow call';
       submitBtn.disabled = false;
     });
   });

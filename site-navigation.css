@@ -234,3 +234,6 @@ body.of-menu-open { overflow: hidden; }
   .of-site-header *::before,
   .of-site-header *::after { transition-duration: .01ms !important; }
 }
+
+.of-article-enquiry { padding: 1.5rem; margin: 0; text-align: center; background: #053d3d; }
+.of-article-enquiry a { color: white; text-decoration: underline; text-underline-offset: .22em; }

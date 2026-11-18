@@ -46,3 +46,13 @@ html:not(.js) .hero-canvas{display:none}
 }
 @media(max-width:900px){.js .process-visual{height:clamp(220px,32svh,300px)}}
 @media(max-width:760px) and (min-height:600px) and (prefers-reduced-motion:no-preference){.js .process-visual{position:sticky;top:0;z-index:2;margin-inline:-20px;background:linear-gradient(#e8eee8 88%,rgba(232,238,232,0))}}
+
+.hero-proof { display: inline-block; margin-top: 1rem; color: #fff; }
+
+.audit-example {
+  margin-top: 2rem;
+  padding-block: 1rem;
+  border-block: 1px solid #b9c9c0;
+}
+.audit-example summary { font-weight: 650; }
+.audit-example p { max-width: 68ch; }
