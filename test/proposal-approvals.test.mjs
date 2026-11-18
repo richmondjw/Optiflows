@@ -12,7 +12,7 @@ const env={PUBLIC_ORIGIN:'https://optiflows.com.au', RECORD_SIGNING_KEY:'test-on
   APPROVALS_DB:{prepare(sql){return {bind(...args){return {async run(){const r=db.prepare(sql).run(...args);return {meta:{changes:Number(r.changes)}};},async first(){return db.prepare(sql).get(...args);}};}};}}};
 const originalFetch=globalThis.fetch, calls=[], waits=[];
 globalThis.fetch=async(url,options)=>{calls.push({url,body:JSON.parse(options.body)});return new Response(JSON.stringify({ok:true,result:{message_id:42}}));};
-const input={record_id:crypto.randomUUID(),name:'TEST ONLY',role:'Integration verification',date:'2026-09-16',signature:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jvU8AAAAASUVORK5CYII=',consent:contract.consent,proposal_version:'1.7',consent_accepted:true,fee_aud_ex_gst:1};
+const input={record_id:crypto.randomUUID(),name:'TEST ONLY',role:'Integration verification',date:'2026-09-16',signature:'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jvU8AAAAASUVORK5CYII=',consent:contract.consent,proposal_version:contract.proposal_version,consent_accepted:true,fee_aud_ex_gst:1};
 async function post(body=input,headers={}){return worker.fetch(new Request(env.PUBLIC_ORIGIN+'/api/proposal-approvals',{method:'POST',headers:{Origin:env.PUBLIC_ORIGIN,'Content-Type':'application/json',...headers},body:JSON.stringify(body)}),env,{waitUntil(p){waits.push(p);}});}
 try{
   assert.equal((await post(input,{Origin:'https://wrong.test'})).status,403);
@@ -22,7 +22,7 @@ try{
   assert.equal((await post({...input,padding:'x'.repeat(180000)})).status,413);
   assert.equal(calls.length,0);
   let res=await post();assert.equal(res.status,201);const saved=await res.json();
-  assert.equal(saved.record.fee_aud_ex_gst,14400);
+  assert.equal(saved.record.fee_aud_ex_gst,contract.fee_aud_ex_gst);
   assert.equal(saved.record.proposal_text,contract.proposal_text);
   await Promise.all(waits);assert.equal(calls.length,2);
   assert.match(calls[1].body.text,/approved in principle/);

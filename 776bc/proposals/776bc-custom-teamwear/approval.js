@@ -1,8 +1,8 @@
 
 (function(){
   var ENDPOINT = '/api/proposal-approvals';
-  var KEY = 'optiflows-proposal-776bc-teamwear-v1-7-approval';
-  var PROPOSAL = 'Custom Teamwear Workflow: Discover and Design (776BC), 16 September 2026, v1.7';
+  var KEY = 'optiflows-proposal-776bc-teamwear-v1-8-approval';
+  var PROPOSAL = 'Custom Teamwear Workflow: Discover and Design (776BC), 18 November 2026, v1.8';
 
   var form = document.getElementById('approvalForm');
   var nameEl = document.getElementById('name');
@@ -142,12 +142,12 @@
     }
     var rec = pendingRecord || {
       record_id: crypto.randomUUID(),
-      proposal_version: '1.7',
+      proposal_version: '1.8',
       consent: CONSENT,
       consent_accepted: true,
       scope: 'Three-week Discover and Design engagement, Outputs 1–4',
-      fee_aud_ex_gst: 14400,
-      payment_milestones: 'A$7,200 on PMA signing before kickoff; A$7,200 on Outputs 1–4 acceptance',
+      fee_aud_ex_gst: 16800,
+      payment_milestones: 'A$8,400 on PMA signing before kickoff; A$8,400 on Outputs 1–4 acceptance',
       approval_type: 'In principle; separate Project Management Agreement required',
       proposal_text: document.getElementById('proposalContent').textContent.replace(/\s+/g, ' ').trim(),
       proposal: PROPOSAL,
