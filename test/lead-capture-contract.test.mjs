@@ -29,7 +29,11 @@ for (const page of formPages) {
 for (const page of ['../blog/index.html', '../growth.html', '../v4/index.html']) {
   const html = fs.readFileSync(new URL(page, import.meta.url), 'utf8');
   assert.match(html, /OptiflowsLeadCapture\.submit\(form/);
-  assert.doesNotMatch(html, /OptiflowsLeadCapture\.initialise\(form\)/);
+  if (page === '../blog/index.html') {
+    assert.match(html, /OptiflowsLeadCapture\.initialise\(form\);\s*showStep\(2\)/);
+  } else {
+    assert.doesNotMatch(html, /OptiflowsLeadCapture\.initialise\(form\)/);
+  }
 }
 
 const rows = new Map();

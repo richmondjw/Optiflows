@@ -24,7 +24,7 @@ for (const viewport of [{ name: 'desktop', width: 1440, height: 900 }, { name: '
       await expect(form).toBeVisible();
       await form.locator('[name="full_name"]').fill('Synthetic lead');
       await form.locator('[name="email"]').fill('synthetic@example.test');
-      await form.locator('[name="company_name"]').fill('Synthetic organisation');
+      if (surface.path !== '/') await form.locator('[name="company_name"]').fill('Synthetic organisation');
       await form.locator('button[type="submit"]').click();
       await page.waitForTimeout(100);
       expect(pageErrors).toEqual([]);

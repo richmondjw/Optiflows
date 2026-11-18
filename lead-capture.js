@@ -20,6 +20,25 @@
     return String(value || '').trim().slice(0, limit);
   }
 
+  // Keep only campaign tags, scoped to this tab. A newly tagged visit replaces the previous campaign.
+  var campaignFields = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+  var query = new URLSearchParams(global.location.search);
+  var tagged = campaignFields.some(function (name) { return query.has(name); });
+  var campaignKey = 'optiflows.campaign';
+  try {
+    if (tagged) {
+      var campaign = new URLSearchParams();
+      campaignFields.forEach(function (name) {
+        if (query.has(name)) campaign.set(name, clean(query.get(name), 256));
+      });
+      global.sessionStorage.setItem(campaignKey, campaign.toString());
+    } else {
+      query = new URLSearchParams(global.sessionStorage.getItem(campaignKey) || '');
+    }
+  } catch {
+    // Browser privacy settings may disable storage. Current-page tags still work.
+  }
+
   function payload(form, extra) {
     var data = new FormData(form);
     var lead = {
@@ -33,8 +52,8 @@
       var limit = name === 'message' ? 4000 : 256;
       lead[name] = clean(data.get(name), limit);
     });
-    ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'].forEach(function (name) {
-      lead.utm[name] = clean(new URLSearchParams(global.location.search).get(name), 256);
+    campaignFields.forEach(function (name) {
+      lead.utm[name] = clean(query.get(name), 256);
     });
     return lead;
   }
