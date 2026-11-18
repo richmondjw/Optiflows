@@ -1,8 +1,8 @@
 
 (function(){
   var ENDPOINT = '/api/proposal-approvals';
-  var KEY = 'optiflows-proposal-776bc-teamwear-v1-9-approval';
-  var PROPOSAL = 'Custom Teamwear Workflow: Discover and Design (776BC), 18 November 2026, v1.9';
+  var KEY = 'optiflows-proposal-776bc-teamwear-v2-0-approval';
+  var PROPOSAL = 'Custom Teamwear Workflow: Discover and Design (776BC), 18 November 2026, v2.0';
 
   var form = document.getElementById('approvalForm');
   var nameEl = document.getElementById('name');
@@ -142,7 +142,7 @@
     }
     var rec = pendingRecord || {
       record_id: crypto.randomUUID(),
-      proposal_version: '1.9',
+      proposal_version: '2.0',
       consent: CONSENT,
       consent_accepted: true,
       scope: 'Three-week Discover and Design engagement, Outputs 1–4',
