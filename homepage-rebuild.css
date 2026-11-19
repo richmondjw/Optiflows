@@ -82,3 +82,5 @@ html:not(.js) .hero-canvas{display:none}
 .footer-links{display:flex;flex-wrap:wrap;gap:8px 28px}.footer-links a{min-height:44px;display:flex;align-items:center}
 @media(max-width:1000px){.different{gap:24px}.audit-head,.audit-grid{gap:40px}}
 @media(max-width:760px){.different,.audit-head,.audit-grid,.own-practice{grid-template-columns:1fr;gap:24px}.audit-head{margin-bottom:32px}.audit-facts>div{grid-template-columns:96px 1fr;gap:16px}.own-practice{padding:20px;margin-top:28px}.audit-sample{padding:20px}.faq-list summary{font-size:17px}}
+.audit-facts.plain{margin-top:8px}.audit-facts.plain>div{grid-template-columns:150px 1fr}.audit-facts.plain>div dd{font-size:17px;letter-spacing:0}
+@media(max-width:760px){.audit-facts.plain>div{grid-template-columns:1fr;gap:4px}}
