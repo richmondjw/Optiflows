@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
+  <meta name="referrer" content="no-referrer">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' blob:; media-src 'self' blob:; connect-src 'self'; form-action 'none'; base-uri 'none'">
+  <title>December campaign preview | Peninsula Insider</title>
+  <link rel="stylesheet" href="./gallery.css">
+  <script src="./gallery.js" defer></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to preview</a>
+  <header class="mast">
+    <span class="wordmark">Peninsula<span>Insider</span></span>
+    <nav id="navigation" aria-label="Preview sections" hidden>
+      <a href="#artwork">Artwork</a><a href="#posts">Post copy</a>
+    </nav>
+  </header>
+  <main id="main" tabindex="-1">
+    <section id="entry" class="entry" aria-labelledby="entry-title">
+      <p class="kicker">December 2026</p><h1 id="entry-title">Campaign preview</h1>
+      <p id="entry-state" role="status">Opening the campaign gallery…</p>
+      <form id="unlock" hidden>
+        <label for="access-link">Private review link</label>
+        <div class="field"><input id="access-link" type="password" autocomplete="off" spellcheck="false" required><button class="solid" type="submit">Open preview</button></div>
+      </form>
+      <noscript><p>Enable JavaScript to open the private campaign preview.</p></noscript>
+    </section>
+    <div id="campaign" hidden>
+      <section id="artwork" aria-labelledby="campaign-title" tabindex="-1">
+        <div class="intro"><p class="kicker">Social artwork · December 2026</p><h1 id="campaign-title">Campaign preview</h1></div>
+        <div id="tray" class="tray" role="group" aria-label="Choose an artwork set"></div>
+        <article class="showcase" aria-labelledby="asset-title">
+          <div class="stage"><div id="primary-media" class="media"></div></div>
+          <div class="notes">
+            <div class="byline" id="asset-format"></div>
+            <h2 id="asset-title"></h2>
+            <div id="variants" class="variants" role="group" aria-label="Choose a slide, frame or version"></div>
+            <div id="caption" class="caption"></div>
+            <div class="actions"><button id="expand" type="button">View full size</button><a id="asset-guide" target="_blank" rel="noopener noreferrer">Open PI guide</a></div>
+            <details id="description"><summary>Image description</summary><div id="description-text"></div></details>
+            <span id="asset-live" class="sr" aria-live="polite"></span>
+          </div>
+        </article>
+      </section>
+      <section id="posts" class="post-section" aria-labelledby="posts-title" tabindex="-1">
+        <div class="post-heading"><div><p class="kicker">1–31 December 2026</p><h2 id="posts-title">Post copy</h2></div><p>79 planned posts across Facebook, Instagram and LinkedIn.</p></div>
+        <div class="date-field"><label for="date">Browse by date</label><select id="date"></select></div>
+        <div id="post-list"></div>
+        <span id="date-live" class="sr" aria-live="polite"></span>
+      </section>
+    </div>
+  </main>
+  <footer><span>Peninsula Insider</span><span>December 2026</span></footer>
+  <dialog id="enlarged" aria-labelledby="large-title">
+    <div class="dialog-bar"><h2 id="large-title">Artwork</h2><button id="close" type="button">Close</button></div>
+    <div id="large-media"></div><p id="large-credit" class="credit" hidden></p><div id="large-controls" class="variants"></div>
+  </dialog>
+</body>
+</html>
