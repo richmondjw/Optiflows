@@ -3,10 +3,18 @@
   "main": "proposal-approvals.js",
   "account_id": "20200ed2c992006bae6982480b146681",
   "compatibility_date": "2026-09-16",
+  "compatibility_flags": ["nodejs_compat"],
   "workers_dev": false,
   "preview_urls": false,
   "routes": [{"pattern": "optiflows.com.au/api/proposal-approvals*", "zone_name": "optiflows.com.au"}],
   "d1_databases": [{"binding": "APPROVALS_DB", "database_name": "optiflows-leads", "database_id": "4a9afd10-7ee7-4007-b6de-02f666692fd6"}],
-  "vars": {"PUBLIC_ORIGIN": "https://optiflows.com.au", "APPROVAL_EMAIL_ENDPOINT": "https://formspree.io/f/meelyrkd"},
+  // Signed-copy email: the Worker renders the signed page with Browser Rendering and sends it through Resend.
+  // RESEND_API_KEY is an encrypted secret (from 1Password "Resend_Api_optiflows"). Switch CONFIRM_FROM to the
+  // root domain once optiflows.com.au is verified in Resend; reminders.optiflows.com.au is verified today.
+  "browser": {"binding": "BROWSER"},
+  // R2 is not enabled on this account (2026-11-27). Once enabled, create bucket optiflows-proposal-records and add:
+  // "r2_buckets": [{"binding": "RECORDS_BUCKET", "bucket_name": "optiflows-proposal-records"}],
+  "vars": {"PUBLIC_ORIGIN": "https://optiflows.com.au", "APPROVAL_EMAIL_ENDPOINT": "https://formspree.io/f/meelyrkd",
+    "CONFIRM_FROM": "James Richmond <james.richmond@reminders.optiflows.com.au>", "CONFIRM_REPLY_TO": "james.richmond@optiflows.com.au"},
   "observability": {"enabled": false}
 }

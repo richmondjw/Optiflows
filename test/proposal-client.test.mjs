@@ -15,7 +15,7 @@ function harness(response,contract){
     history:{replaceState(a,b,url){location.href=url;}},document:{getElementById:node,querySelector:()=>node('consentLabel'),querySelectorAll:()=>[],createElement:()=>node('offscreen'),body:node('body')},
     window:{devicePixelRatio:1,addEventListener(type,fn){events[type]=fn;},print(){}},fetch:async(url,options)=>{const payload=JSON.parse(options.body);requests.push({url,payload});return response(payload);}};
   vm.runInNewContext(source,sandbox);
-  async function submit(){node('name').value='Synthetic signer';node('role').value='Test';node('consent').checked=true;
+  async function submit(){node('email0').value='Signer@Example.test';node('name').value='Synthetic signer';node('role').value='Test';node('consent').checked=true;
     for(const fn of node('sigpad').listeners.pointerdown)fn({preventDefault(){},clientX:5,clientY:5,pointerId:1});
     node('approvalForm').listeners.submit[0]({preventDefault(){}});await new Promise(setImmediate);await new Promise(setImmediate);}
   return {submit,node,requests,stored,location};
@@ -23,7 +23,7 @@ function harness(response,contract){
 for(const contract of [teamwear,copySkill,feedbackLoop]){
 let h=harness(p=>({ok:true,json:async()=>({accepted:true,stored:true,record:{...p,approved_at:'2026-09-16T08:00:00Z'},record_url:'https://optiflows.com.au'+contract.path+'#record='+p.record_id+'.'+'a'.repeat(64)})}),contract);
 await h.submit();assert.equal(h.requests[0].url,'/api/proposal-approvals');assert.equal(h.requests[0].payload.consent_accepted,true);assert.equal(h.node('approvalForm').hidden,true);assert.equal(h.stored.size,1);assert.match(h.location.href,/#record=/);
-assert.equal(h.requests[0].payload.fee_aud_ex_gst,contract.fee_aud_ex_gst);assert.equal(h.requests[0].payload.proposal_id,contract.proposal_id);
+assert.equal(h.requests[0].payload.fee_aud_ex_gst,contract.fee_aud_ex_gst);if(contract===teamwear)assert.deepEqual(h.requests[0].payload.recipients,['signer@example.test']);assert.equal(h.requests[0].payload.proposal_id,contract.proposal_id);
 if(contract!==teamwear){for(const k of ['proposal','proposal_version','consent','scope','payment_milestones','approval_type','proposal_text'])assert.equal(h.requests[0].payload[k],contract[k],k);}
 for(const response of [{ok:false,status:503},{ok:true,json:async()=>({stored:false})}]){
   h=harness(()=>response,contract);await h.submit();assert.equal(h.node('approvalForm').hidden,false);assert.equal(h.stored.size,0);assert.equal(h.node('submitBtn').disabled,false);assert.match(h.node('msg').textContent,/could not be sent/);

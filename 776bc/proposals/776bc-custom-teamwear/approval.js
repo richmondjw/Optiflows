@@ -9,6 +9,33 @@
   var roleEl = document.getElementById('role');
   var dateEl = document.getElementById('date');
   var consentEl = document.getElementById('consent');
+  var email0 = document.getElementById('email0');
+  var emailRows = document.getElementById('emailRows');
+  var addEmail = document.getElementById('addEmail');
+  var extraEmails = [];
+  var EMAIL_RE = /^[^\s@<>(),;:"]+@[^\s@<>(),;:"]+\.[a-z]{2,}$/i;
+  addEmail.addEventListener('click', function(){
+    if (extraEmails.length >= 4) return;
+    var row = document.createElement('div'); row.className = 'email-row';
+    var input = document.createElement('input');
+    input.type = 'email'; input.name = 'email'; input.autocomplete = 'email'; input.inputMode = 'email';
+    input.placeholder = 'Another email address'; input.setAttribute('aria-label', 'Another email address');
+    var remove = document.createElement('button'); remove.type = 'button'; remove.className = 'link-btn'; remove.textContent = 'Remove';
+    remove.addEventListener('click', function(){ extraEmails.splice(extraEmails.indexOf(input), 1); emailRows.removeChild(row); addEmail.hidden = false; pendingRecord = null; });
+    row.appendChild(input); row.appendChild(remove); emailRows.appendChild(row);
+    extraEmails.push(input); addEmail.hidden = extraEmails.length >= 4; input.focus();
+  });
+  function collectEmails(){
+    var out = [], bad = false;
+    var all = [email0].concat(extraEmails);
+    for (var i = 0; i < all.length; i++){
+      var v = (all[i].value || '').trim().toLowerCase();
+      var wrong = (i === 0 && !v) || (v && !EMAIL_RE.test(v));
+      if (all[i].classList) all[i].classList.toggle('bad', wrong);
+      if (wrong) bad = true; else if (v && out.indexOf(v) < 0) out.push(v);
+    }
+    return bad ? null : out;
+  }
   var msg = document.getElementById('msg');
   var submitBtn = document.getElementById('submitBtn');
   var pad = document.getElementById('pad');
@@ -84,6 +111,7 @@
   }
   function render(rec){
     document.getElementById('recId').textContent = rec.record_id;
+    document.getElementById('recRecipients').textContent = (rec.recipients || []).join(', ');
     document.getElementById('recConsent').textContent = rec.consent;
     document.getElementById('recName').textContent = rec.name;
     document.getElementById('recRole').textContent = rec.role || '';
@@ -134,10 +162,12 @@
     mark('fRole', !roleEl.value.trim()); bad = bad || !roleEl.value.trim();
     mark('fDate', !dateEl.value); bad = bad || !dateEl.value;
     pad.classList.toggle('invalid', !hasInk); bad = bad || !hasInk;
+    var recipients = collectEmails();
+    mark('fEmails', !recipients); bad = bad || !recipients;
     mark('fConsent', !consentEl.checked); bad = bad || !consentEl.checked;
     if (bad){
       msg.className = 'msg';
-      msg.textContent = !hasInk ? 'Add your signature to approve.' : 'Complete the highlighted fields to approve.';
+      msg.textContent = !hasInk ? 'Add your signature to approve.' : !recipients ? 'Add a valid email address for the signed copy.' : 'Complete the highlighted fields to approve.';
       return;
     }
     var rec = pendingRecord || {
@@ -157,6 +187,7 @@
       date: dateEl.value,
       approved_at: new Date().toISOString(),
       signature: exportSignature(),
+      recipients: recipients,
       page: location.href,
       _subject: 'PROPOSAL APPROVED: Custom Teamwear retainer signed by ' + name
     };

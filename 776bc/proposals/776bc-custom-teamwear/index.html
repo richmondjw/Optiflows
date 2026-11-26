@@ -151,10 +151,12 @@ td:first-child{font-weight:600;color:var(--dark);width:34%;letter-spacing:-0.01e
 .form{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:20px 20px}
 .field{display:flex;flex-direction:column;gap:8px}
 .field label{font-family:var(--mono);font-size:.75rem;letter-spacing:.05em;text-transform:uppercase;color:var(--mid)}
-.field input[type=text],.field input[type=date]{font:inherit;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--white);color:var(--ink);min-height:52px;width:100%}
+.field input[type=text],.field input[type=date],.field input[type=email]{font:inherit;padding:14px 16px;border:1px solid var(--line);border-radius:var(--r-s);background:var(--white);color:var(--ink);min-height:52px;width:100%}
 .field input:focus-visible{outline:2px solid var(--electric);outline-offset:2px;border-color:var(--mid)}
 .field.invalid input{border-color:var(--error)}
 .sig{grid-column:1/-1}
+.recipients{grid-column:1/-1}.email-rows{display:grid;gap:10px}.email-row{display:flex;gap:12px;align-items:center}.email-row input{flex:1}
+.email-row .link-btn{flex:none}.recipients.invalid input:invalid,.recipients .bad{border-color:var(--error)}
 .pad{position:relative;border:1px solid var(--line);border-radius:var(--r);background:var(--white);height:190px;touch-action:none;overflow:hidden}
 .pad.invalid{border-color:var(--error)}
 .pad canvas{width:100%;height:100%;display:block;cursor:crosshair}
@@ -620,8 +622,19 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
           <div class="hint">Sign here with your mouse, finger or stylus</div>
         </div>
         <div class="pad-tools">
-          <span class="note">Submitting sends your name, role, date and signature to Optiflows via Formspree and stores a local copy in this browser. Save a PDF for your records. This is a proposal approval record, not verified identity or a centrally managed signing service.</span>
+          <span class="note">Submitting sends your name, role, date and signature to OptiFlows and stores a local copy in this browser. This is a proposal approval record, not verified identity or a centrally managed signing service.</span>
           <button type="button" class="link-btn" id="clearSig">Clear signature</button>
+        </div>
+      </div>
+
+      <div class="field recipients" id="fEmails">
+        <label for="email0">Send the signed copy to</label>
+        <div class="email-rows" id="emailRows">
+          <div class="email-row"><input type="email" id="email0" name="email" autocomplete="email" inputmode="email" placeholder="Your email address" required></div>
+        </div>
+        <div class="pad-tools">
+          <span class="note">We’ll email a PDF of the signed proposal to each address. Add anyone else who should keep a copy.</span>
+          <button type="button" class="link-btn" id="addEmail">+ Add another person</button>
         </div>
       </div>
 
@@ -647,7 +660,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
             <dl>
               <dt>Date</dt><dd id="recDate"></dd>
               <dt>Recorded</dt><dd id="recStamp"></dd>
-              <dt>Record ID</dt><dd id="recId"></dd><dt>Approval</dt><dd id="recConsent"></dd><dt>Proposal</dt><dd>Custom Teamwear retainer, 27 November 2026, v4.1</dd>
+              <dt>Signed copy sent to</dt><dd id="recRecipients"></dd><dt>Record ID</dt><dd id="recId"></dd><dt>Approval</dt><dd id="recConsent"></dd><dt>Proposal</dt><dd>Custom Teamwear retainer, 27 November 2026, v4.1</dd>
             </dl>
           </div>
           <div class="sigbox">
@@ -695,4 +708,4 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
         </svg>
         <span>Optiflows</span>
       </a><span class="mono">Confidential | Custom teamwear | optiflows.com.au</span></div></footer>
-<script src="./approval.js?v=4.1-20261127"></script></body></html>
+<script src="./approval.js?v=4.1-20261127b"></script></body></html>
