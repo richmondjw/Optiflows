@@ -556,6 +556,11 @@ function renderCovers(covers) {
   const source=byId('cover-source');
   source.href=urls.get(covers.source);
   source.download=covers.source;
+  if(covers.credit) {
+    const credit=byId('cover-credit');
+    credit.textContent=covers.credit;
+    credit.hidden=false;
+  }
   byId('covers').hidden=false;
 }
 function showContent(data,bytes) {
@@ -602,7 +607,7 @@ async function unlock(token,fromForm) {
   try {
     const decoded=Uint8Array.from(atob(token.replace(/-/g,'+').replace(/_/g,'/')+'='),c=>c.charCodeAt(0));
     const key=await crypto.subtle.importKey('raw',decoded,'AES-GCM',false,['decrypt']);
-    const resp=await fetch('./december.bin?v=pi-covers-2026-1',{credentials:'omit',referrerPolicy:'no-referrer'});
+    const resp=await fetch('./december.bin?v=pi-coastal-punch-2026-1',{credentials:'omit',referrerPolicy:'no-referrer'});
     if (!resp.ok) throw new Error('fetch');
     const packet=new Uint8Array(await resp.arrayBuffer());
     const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:packet.subarray(0,12)},key,packet.subarray(12));
