@@ -14,7 +14,7 @@ const notificationDetails = new Map([
     // Signed-copy email to the client, with the rendered signed proposal attached. Test records go to OptiFlows only.
     confirm:{cc:['james.richmond@optiflows.com.au'], agreement:'Custom Teamwear retainer', title:'Custom Teamwear Workflow', client:'776BC',
       terms:'Each month is invoiced at its start and payable within seven days. The fee and hours are reviewed at six months, with at least 60 days’ written notice of any change.', file:'OptiFlows-776BC-Custom-Teamwear-signed',
-      lead:'The Custom Teamwear retainer is now in place. Your signed copy of the proposal is attached as a PDF for your records.',
+      lead:'The Custom Teamwear retainer is now in place. Here is your signed copy and what happens next.',
       tiles:[['Monthly fee','A$5,000','ex GST, invoiced monthly'],['Initial term','6 months','then month to month'],['Capacity','~100 hours','pooled across the term'],['Rate','A$300/hour','standard rate A$350']],
       next:[['Start date','I’ll confirm the start date with you in the next day or two.'],['First invoice','The first monthly invoice of A$5,000 ex GST follows on the start date, payable within seven days.'],['Kickoff','We’ll lock in the day-to-day lead, the past job we’ll trace and the access we need, then book the kickoff.']]}}],
   [calliope.path, {title:'776BC Calliope Telegram Pilot', next:'Confirm pilot users, launch deliverables, the review owner and kickoff date.'}],
@@ -106,9 +106,10 @@ const cleanRecipients = list => {
   return out;
 };
 
-// Mirrors the proposal: dark cover (#053D3D) with the white lockup, mono kicker, large headline,
-// cover-style meta row; then white sections with mint tiles (#E0FFF6) and a numbered roadmap list.
-// General Sans / Space Mono load where the client allows (Apple Mail, iOS); Helvetica/Arial elsewhere.
+// Signed-copy email, cmo-design pass (landing surface in email form). Brand: the proposal cover
+// (#053D3D with the cover mark), General Sans / Space Mono where the client loads them.
+// House rules held: no eyebrows, a heading is followed by its content, flat (no card in a card,
+// no badge), values carried by their ink, one filled button, no footer text.
 function confirmationEmail(record, c, link, to, cc, file) {
   const test = record.is_test;
   const first = test ? 'James' : (record.name.trim().split(/\s+/)[0] || record.name);
@@ -118,81 +119,72 @@ function confirmationEmail(record, c, link, to, cc, file) {
   const subject = `${test ? 'TEST ONLY: ' : ''}Thank you for signing: ${c.agreement}`;
   const F = "'General Sans','Helvetica Neue',Helvetica,Arial,sans-serif", M = "'Space Mono','SFMono-Regular',Menlo,'Courier New',monospace";
   const LOGO = 'https://optiflows.com.au/776bc/proposals/assets/optiflows-email-logo.png';
-  const kicker = (txt, color, sq) => `<div style="font-family:${M};font-size:11px;line-height:16px;letter-spacing:.12em;text-transform:uppercase;color:${color}"><span style="display:inline-block;width:7px;height:7px;background:${sq};margin:0 9px 1px 0;vertical-align:middle"></span>${txt}</div>`;
-  const meta = (label, value, sub) => `<td class="meta" width="50%" valign="top" style="padding:18px 16px 18px 0">
-<div style="font-family:${M};font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#66FFE0;padding-bottom:6px">${label}</div>
+  const label = (txt, color) => `<div style="font-family:${M};font-size:11px;line-height:15px;letter-spacing:.1em;text-transform:uppercase;color:${color};padding-bottom:7px">${txt}</div>`;
+  // Cover details: labels name a datum inside the component.
+  const meta = (l, value, sub) => `<td class="meta" width="50%" valign="top" style="padding:18px 16px 18px 0">${label(l, '#B8E8E0')}
 <div style="font-family:${F};font-size:15px;line-height:21px;color:#FFFFFF">${value}</div>${sub ? `<div style="font-family:${F};font-size:13px;line-height:19px;color:#B8E8E0">${sub}</div>` : ''}</td>`;
-  const tile = t => t ? `<td class="tile" width="50%" valign="top" style="background:#E0FFF6;border-radius:12px;padding:18px 18px 16px">
-<div style="font-family:${M};font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#0A6E6E">${esc(t[0])}</div>
-<div class="tv" style="font-family:${F};font-size:24px;line-height:30px;font-weight:600;letter-spacing:-.02em;color:#053D3D;padding-top:8px;white-space:nowrap">${esc(t[1])}</div>
-<div style="font-family:${F};font-size:13px;line-height:18px;color:#4A5A5A;padding-top:2px">${esc(t[2])}</div></td>` : '<td width="50%"></td>';
-  const rows = [];
-  for (let i = 0; i < c.tiles.length; i += 2) rows.push(c.tiles.slice(i, i + 2));
-  const steps = c.next.map(([h, b], i) => `<tr><td valign="top" style="padding:18px 18px 18px 0;border-top:1px solid #DDDDDD;width:34px;font-family:${M};font-size:13px;line-height:22px;color:#0A6E6E">${String(i + 1).padStart(2, '0')}</td>
-<td valign="top" style="padding:18px 0;border-top:1px solid #DDDDDD;font-family:${F};font-size:15px;line-height:23px;color:#1A1A1A"><div style="font-weight:600;color:#053D3D;font-size:16px;padding-bottom:3px">${esc(h)}</div>${esc(b)}</td></tr>`).join('');
+  // Agreement figures: flat 2x2, hairline dividers, the value carried by its ink.
+  const fig = (t, left, top) => `<td class="fig" width="50%" valign="top" style="padding:20px ${left ? '20px' : '0'} 20px ${left ? '0' : '20px'};${top ? '' : 'border-top:1px solid #DDDDDD;'}${left ? 'border-right:1px solid #DDDDDD;' : ''}">${label(esc(t[0]), '#0A6E6E')}
+<div class="tv" style="font-family:${F};font-size:30px;line-height:34px;font-weight:600;letter-spacing:-.025em;color:#053D3D;white-space:nowrap">${esc(t[1])}</div>
+<div style="font-family:${F};font-size:13px;line-height:19px;color:#6F6F6F;padding-top:4px">${esc(t[2])}</div></td>`;
+  const figs = [];
+  for (let i = 0; i < c.tiles.length; i += 2) figs.push(`<tr>${fig(c.tiles[i], true, i === 0)}${c.tiles[i + 1] ? fig(c.tiles[i + 1], false, i === 0) : '<td></td>'}</tr>`);
+  const steps = c.next.map(([h, b], i) => `<tr><td valign="top" style="padding:18px 16px 18px 0;border-top:1px solid #DDDDDD;width:30px;font-family:${M};font-size:12px;line-height:23px;color:#0A6E6E">${String(i + 1).padStart(2, '0')}</td>
+<td valign="top" style="padding:18px 0;border-top:1px solid #DDDDDD;font-family:${F};font-size:15px;line-height:23px;color:#1A1A1A"><div style="font-weight:600;color:#053D3D;font-size:16px;padding-bottom:2px">${esc(h)}</div>${esc(b)}</td></tr>`).join('');
   const fileMeta = ['PDF', file.pages ? `${file.pages} pages` : '', `${file.kb} KB`].filter(Boolean).join(' · ');
   const lead = test ? 'This is a test of the signed-copy email. The signed PDF is attached exactly as a client would receive it.' : c.lead;
+  const sentTo = to.map(esc).join('<br>');
   const html = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="x-apple-disable-message-reformatting">
-<meta name="color-scheme" content="light only"><meta name="supported-color-schemes" content="light"><title>${esc(subject)}</title>
+<meta name="color-scheme" content="light only"><meta name="supported-color-schemes" content="light"><meta name="ds-surface" content="landing"><title>${esc(subject)}</title>
 <link href="https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono&display=swap" rel="stylesheet">
 <style>
 body{margin:0;padding:0;-webkit-text-size-adjust:100%}a{text-decoration:none}
-@media (max-width:520px){.px{padding-left:24px!important;padding-right:24px!important}.pxt{padding-left:16px!important;padding-right:16px!important}
-.h1{font-size:31px!important;line-height:35px!important}.h2{font-size:23px!important;line-height:28px!important}.tv{font-size:20px!important}.tile{padding:15px 13px!important}
-.meta{padding:14px 10px 14px 0!important}.hide-sm{display:none!important}.outer{padding:12px 4px 24px!important}.px{padding-left:22px!important;padding-right:22px!important}.pxt{padding-left:12px!important;padding-right:12px!important}.tile{padding:14px 11px!important}.fname{font-size:14px!important}}
+@media (max-width:520px){.outer{padding:0!important}.card{border-radius:0!important}.px{padding-left:22px!important;padding-right:22px!important}
+.h1{font-size:32px!important;line-height:36px!important}.h2{font-size:24px!important;line-height:29px!important}.tv{font-size:23px!important;line-height:28px!important}
+.fig{padding-top:16px!important;padding-bottom:16px!important}.meta{display:block!important;width:100%!important;padding:12px 0!important}}
 </style></head>
 <body style="margin:0;padding:0;background:#EEF1F0">
-<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">Your signed copy of the ${esc(c.agreement)} is attached. Here is what happens next.</div>
+<div style="display:none;max-height:0;overflow:hidden;mso-hide:all">Your signed copy of the ${esc(c.agreement)} is attached, with what happens next.</div>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#EEF1F0"><tr><td class="outer" align="center" style="padding:28px 10px 36px">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:620px;background:#FFFFFF;border-radius:18px;overflow:hidden">
-${test ? `<tr><td class="px" style="background:#8A2A1B;padding:11px 44px;font-family:${M};font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:#FFFFFF">Test only. Not a client approval. Sent to OptiFlows only.</td></tr>` : ''}
-<tr><td class="px" style="background:#053D3D;padding:36px 44px 8px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="card" style="max-width:620px;background:#FFFFFF;border-radius:18px;overflow:hidden">
+${test ? `<tr><td class="px" style="background:#8A2A1B;padding:11px 44px;font-family:${M};font-size:11px;letter-spacing:.08em;color:#FFFFFF">TEST ONLY. Not a client approval. Sent to OptiFlows only.</td></tr>` : ''}
+<tr><td class="px" style="background:#053D3D;padding:36px 44px 10px">
 <a href="https://www.optiflows.com.au/"><img src="${LOGO}" width="124" height="32" alt="Optiflows" style="display:block;border:0;width:124px;height:32px"></a>
-<div style="height:46px;line-height:46px">&nbsp;</div>
-${kicker(`${esc(c.client)}&nbsp;&nbsp;|&nbsp;&nbsp;Signed agreement`, '#66FFE0', '#66FFE0')}
-<h1 class="h1" style="margin:16px 0 0;font-family:${F};font-size:40px;line-height:44px;font-weight:600;letter-spacing:-.03em;color:#FFFFFF">Thank you for signing, ${esc(first)}.</h1>
-<p style="margin:18px 0 0;font-family:${F};font-size:17px;line-height:26px;color:#B8E8E0">${esc(lead)}</p>
-<div style="height:30px;line-height:30px">&nbsp;</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #1E5A5A;border-bottom:1px solid #1E5A5A"><tr>
+<div style="height:52px;line-height:52px">&nbsp;</div>
+<h1 class="h1" style="margin:0;font-family:${F};font-size:42px;line-height:46px;font-weight:600;letter-spacing:-.03em;color:#FFFFFF">Thank you for signing, ${esc(first)}.</h1>
+<p data-lede style="margin:18px 0 0;font-family:${F};font-size:17px;line-height:26px;color:#B8E8E0">${esc(lead)}</p>
+<div style="height:34px;line-height:34px">&nbsp;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-top:1px solid #326060;border-bottom:1px solid #326060"><tr>
 ${meta('Signed by', esc(record.name), esc(record.role))}${meta('Signed on', esc(day), `${esc(time)} Sydney time`)}</tr><tr>
-${meta('Agreement', esc(c.title), `Version ${esc(record.proposal_version)}`)}${meta('Status', `<span style="display:inline-block;width:8px;height:8px;border-radius:4px;background:#66FFE0;margin:0 8px 1px 0;vertical-align:middle"></span>Signed and in place`, `<span style="font-family:${M};font-size:11px">${esc(record.record_id.slice(0, 8))}</span>`)}
+${meta('Status', `<span style="display:inline-block;width:8px;height:8px;border-radius:4px;background:#66FFE0;margin:0 9px 1px 0;vertical-align:middle"></span>Signed`, `${esc(c.title)}, version ${esc(record.proposal_version)}`)}${meta('Copy sent to', sentTo, '')}
 </tr></table>
-<div style="height:28px;line-height:28px">&nbsp;</div>
+<div style="height:34px;line-height:34px">&nbsp;</div>
 </td></tr>
-<tr><td class="px" style="padding:34px 44px 4px">
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid #DDDDDD;border-radius:12px"><tr>
-<td width="62" valign="middle" style="padding:16px 0 16px 16px"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td width="44" height="54" align="center" valign="middle" style="background:#053D3D;border-radius:6px;font-family:${M};font-size:11px;letter-spacing:.06em;color:#66FFE0">PDF</td></tr></table></td>
-<td valign="middle" style="padding:16px 12px 16px 4px"><div class="fname" style="font-family:${F};font-size:15px;line-height:21px;font-weight:600;color:#053D3D">Signed proposal: ${esc(c.title)}</div>
-<div style="font-family:${F};font-size:13px;line-height:19px;color:#6F6F6F;padding-top:2px">${esc(fileMeta)}</div></td>
-<td class="hide-sm" align="right" valign="middle" style="padding:16px 18px 16px 0;font-family:${M};font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#0A6E6E;white-space:nowrap">Attached</td></tr></table>
+<tr><td class="px" style="padding:30px 44px 0">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #DDDDDD"><tr>
+<td valign="middle" style="padding:0 0 22px;font-family:${F}"><div style="font-size:15px;line-height:21px;font-weight:600;color:#053D3D">Your signed copy: ${esc(c.title)}</div>
+<div style="font-size:13px;line-height:19px;color:#6F6F6F;padding-top:3px">Attached&nbsp;&nbsp;·&nbsp;&nbsp;${esc(fileMeta)}</div></td></tr></table>
 </td></tr>
-<tr><td class="px" style="padding:40px 44px 0">${kicker('The agreement', '#0A6E6E', '#66FFE0')}
-<h2 class="h2" style="margin:12px 0 0;font-family:${F};font-size:27px;line-height:32px;font-weight:600;letter-spacing:-.02em;color:#053D3D">Your retainer at a glance.</h2></td></tr>
-<tr><td class="pxt" style="padding:16px 34px 0"><table role="presentation" width="100%" cellpadding="0" cellspacing="10" style="border-collapse:separate">${rows.map(r => `<tr>${tile(r[0])}${tile(r[1])}</tr>`).join('')}</table></td></tr>
-<tr><td class="px" style="padding:6px 44px 0;font-family:${F};font-size:13px;line-height:20px;color:#6F6F6F">${esc(c.terms)}</td></tr>
-<tr><td class="px" style="padding:40px 44px 0">${kicker('What happens next', '#0A6E6E', '#66FFE0')}
-<h2 class="h2" style="margin:12px 0 14px;font-family:${F};font-size:27px;line-height:32px;font-weight:600;letter-spacing:-.02em;color:#053D3D">Getting started.</h2>
+<tr><td class="px" style="padding:38px 44px 0">
+<h2 class="h2" style="margin:0 0 14px;font-family:${F};font-size:28px;line-height:33px;font-weight:600;letter-spacing:-.02em;color:#053D3D">Getting started.</h2>
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border-bottom:1px solid #DDDDDD">${steps}</table></td></tr>
-<tr><td class="px" style="padding:32px 44px 0"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="background:#053D3D;border-radius:8px">
-<a href="${esc(link)}" style="display:inline-block;padding:15px 26px;font-family:${F};font-size:15px;line-height:20px;font-weight:600;color:#FFFFFF">View your signed record&nbsp;&nbsp;<span style="color:#66FFE0">&rarr;</span></a></td></tr></table>
-<div style="font-family:${F};font-size:14px;line-height:21px;color:#6F6F6F;padding-top:14px">Questions about anything here? Just reply to this email.</div></td></tr>
-<tr><td class="px" style="padding:36px 44px 40px;font-family:${F};font-size:16px;line-height:25px;color:#1A1A1A">Thanks again, ${esc(first)}. I’m looking forward to getting started.
-<div style="padding-top:22px;font-weight:600;color:#053D3D">James Richmond</div><div style="font-size:14px;color:#6F6F6F">OptiFlows&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:james.richmond@optiflows.com.au" style="color:#0A6E6E">james.richmond@optiflows.com.au</a></div></td></tr>
-<tr><td class="px" style="background:#053D3D;padding:26px 44px 28px">
-<img src="${LOGO}" width="93" height="24" alt="Optiflows" style="display:block;border:0;width:93px;height:24px">
-<div style="font-family:${F};font-size:12px;line-height:19px;color:#B8E8E0;padding-top:14px">Optiflows Consulting&nbsp;&nbsp;·&nbsp;&nbsp;ABN 71 155 199 637&nbsp;&nbsp;·&nbsp;&nbsp;<a href="https://www.optiflows.com.au/" style="color:#66FFE0">optiflows.com.au</a></div>
-<div style="font-family:${F};font-size:12px;line-height:19px;color:#7FB5AD;padding-top:8px">Sent to ${esc(to.join(', '))}${cc.length ? `, with a copy to ${esc(cc.join(', '))}` : ''}. The attached PDF is the signed proposal and your record of the agreement.</div>
-</td></tr>
+<tr><td class="px" style="padding:44px 44px 0">
+<h2 class="h2" style="margin:0 0 6px;font-family:${F};font-size:28px;line-height:33px;font-weight:600;letter-spacing:-.02em;color:#053D3D">Your retainer.</h2>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${figs.join('')}</table></td></tr>
+<tr><td class="px" style="padding:36px 44px 0"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="background:#053D3D;border-radius:8px">
+<a href="${esc(link)}" style="display:inline-block;padding:15px 26px;font-family:${F};font-size:15px;line-height:20px;font-weight:600;color:#FFFFFF">View your signed record&nbsp;&nbsp;<span style="color:#66FFE0">&rarr;</span></a></td></tr></table></td></tr>
+<tr><td class="px" style="padding:34px 44px 44px;font-family:${F};font-size:16px;line-height:25px;color:#1A1A1A">Thanks again, ${esc(first)}. I’m looking forward to getting started, and if anything here raises a question, just reply.
+<div style="padding-top:22px;font-weight:600;color:#053D3D">James Richmond</div><div style="font-size:14px;color:#6F6F6F">OptiFlows&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:james.richmond@optiflows.com.au" style="color:#0A6E6E;text-decoration:underline;text-underline-offset:3px">james.richmond@optiflows.com.au</a></div></td></tr>
 </table></td></tr></table></body></html>`;
   const text = [test ? 'TEST ONLY. Not a client approval. Sent to OptiFlows only.\n' : '', `Thank you for signing, ${first}.`, '', lead, '',
-    `Signed by: ${record.name}, ${record.role}`, `Signed on: ${day}, ${time} Sydney time`, `Agreement: ${c.title}, version ${record.proposal_version}`, `Record: ${record.record_id}`, '',
+    `Signed by: ${record.name}, ${record.role}`, `Signed on: ${day}, ${time} Sydney time`,
+    `Status: Signed`, `Copy sent to: ${to.join(', ')}`, '',
     `Attached: ${file.name} (${fileMeta})`, '',
-    'YOUR RETAINER AT A GLANCE', ...c.tiles.map(t => `${t[0]}: ${t[1]} (${t[2]})`), c.terms, '',
     'GETTING STARTED', ...c.next.map(([h, b], i) => `${String(i + 1).padStart(2, '0')}  ${h}. ${b}`), '',
-    `View your signed record: ${link}`, 'Questions about anything here? Just reply to this email.', '',
-    `Thanks again, ${first}. I’m looking forward to getting started.`, '', 'James Richmond', 'OptiFlows', 'james.richmond@optiflows.com.au', '',
-    'Optiflows Consulting · ABN 71 155 199 637 · optiflows.com.au'].join('\n').trimStart();
+    'YOUR RETAINER', ...c.tiles.map(t => `${t[0]}: ${t[1]} (${t[2]})`), '',
+    `View your signed record: ${link}`, '',
+    `Thanks again, ${first}. I’m looking forward to getting started, and if anything here raises a question, just reply.`, '', 'James Richmond', 'OptiFlows', 'james.richmond@optiflows.com.au'].join('\n').trimStart();
   return {subject, html, text};
 }
 
