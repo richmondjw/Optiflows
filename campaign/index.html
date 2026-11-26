@@ -7,8 +7,8 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' blob:; media-src 'self' blob:; connect-src 'self'; form-action 'none'; base-uri 'none'">
   <title>Campaign preview | Peninsula Insider</title>
-  <link rel="stylesheet" href="./gallery.css?v=pi-photo-complete-2026-1">
-  <script src="./gallery.js?v=pi-photo-complete-2026-1" defer></script>
+  <link rel="stylesheet" href="./gallery.css?v=pi-scorecard-2026-2">
+  <script src="./gallery.js?v=pi-scorecard-2026-2" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to preview</a>
@@ -36,7 +36,7 @@
             <h1 id="campaign-title">Campaign schedule</h1>
             <p class="schedule-summary"><strong id="total-posts"></strong> · Melbourne time (AEDT)</p>
           </div>
-          <div class="date-actions"><a class="primary-link" id="read-all" href="#posts">Read every post ↓</a><a href="#day-2026-12-01">Jump to December ↓</a></div>
+          <div class="date-actions"><a class="primary-link" id="read-all" href="#posts">Read every post ↓</a><a href="#day-2026-12-01">Jump to December ↓</a><a id="download-schedule" download>Download schedule (CSV)</a></div>
         </div>
         <ul id="legend" class="legend" aria-label="Planned posts by channel"></ul>
         <div id="calendar-days"></div>
@@ -88,6 +88,7 @@
       <section id="scorecard" aria-labelledby="scorecard-title" tabindex="-1">
         <div class="section-heading"><h2 id="scorecard-title">Copy and creative scorecard</h2><p id="score-overview"></p></div>
         <p id="score-programme"></p><p id="score-scope"></p>
+        <p><a id="download-scorecard" download>Download the Excel scorecard</a></p>
         <details id="rubric"><summary>How the scores work</summary><div id="score-rubric"></div></details>
         <div class="score-tools"><label for="score-order">Sort by <select id="score-order"><option value="low">Lowest score first</option><option value="date">Publish date</option></select></label>
         <label for="score-channel">Channel <select id="score-channel"><option value="all">All channels</option><option value="facebook">Facebook</option><option value="stories">Instagram Stories</option><option value="feed">Instagram feed</option><option value="linkedin">LinkedIn</option></select></label></div>

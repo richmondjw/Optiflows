@@ -464,7 +464,7 @@ function renderScorecard(card){
   const {dimensions,rows,programme}=card;
   const codes=dimensions.map(d=>d.code);
   const total=s=>codes.reduce((n,k)=>n+s[k],0);
-  byId('score-overview').textContent=rows.filter(r=>total(r.scores)>=99).length+' of '+rows.length+' scheduled posts reach the 99/100 target.';
+  byId('score-overview').textContent=rows.filter(r=>total(r.scores)>=99).length+' of '+rows.length+' planned posts reach the 99/100 target.';
   byId('score-programme').textContent='Programme '+programme.score+'/100. The first round scored '+programme.baseline+'/100. The lowest final placement scores '+Math.min(...rows.map(r=>r.total))+'/100.';
   const programmeNote=el('p',programme.reason);byId('score-rubric').prepend(programmeNote);
   byId('score-scope').textContent='The independent scores assess publishing copy and finished media before release. Engagement and traffic are measured after publication.';
@@ -517,6 +517,11 @@ function showContent(data,bytes) {
   for(const [name,file] of Object.entries(data.files)) {
     urls.set(name,URL.createObjectURL(new Blob([bytes.subarray(file.start,file.start+file.size)],{type:file.type})));
   }
+  for(const type of ['scorecard','schedule']){
+    const link=byId('download-'+type),file=data.downloads?.[type];
+    link.hidden=!file;
+    if(file){link.href=urls.get(file);link.download=file;}
+  }
   postsById=Object.fromEntries(data.posts.map(p=>[p.id,p]));
   const picker=byId('art-select');picker.replaceChildren();
   let previousMonth='',monthGroup;
@@ -550,7 +555,7 @@ async function unlock(token,fromForm) {
   try {
     const decoded=Uint8Array.from(atob(token.replace(/-/g,'+').replace(/_/g,'/')+'='),c=>c.charCodeAt(0));
     const key=await crypto.subtle.importKey('raw',decoded,'AES-GCM',false,['decrypt']);
-    const resp=await fetch('./december.bin?v=pi-photo-complete-2026-1',{credentials:'omit',referrerPolicy:'no-referrer'});
+    const resp=await fetch('./december.bin?v=pi-scorecard-2026-2',{credentials:'omit',referrerPolicy:'no-referrer'});
     if (!resp.ok) throw new Error('fetch');
     const packet=new Uint8Array(await resp.arrayBuffer());
     const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:packet.subarray(0,12)},key,packet.subarray(12));
