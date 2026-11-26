@@ -7,15 +7,15 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' blob:; media-src 'self' blob:; connect-src 'self'; form-action 'none'; base-uri 'none'">
   <title>Campaign preview | Peninsula Insider</title>
-  <link rel="stylesheet" href="./gallery.css?v=nov-dec-2026-1">
-  <script src="./gallery.js?v=nov-dec-2026-1" defer></script>
+  <link rel="stylesheet" href="./gallery.css?v=pi-photo-complete-2026-1">
+  <script src="./gallery.js?v=pi-photo-complete-2026-1" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to preview</a>
   <header class="mast">
     <span class="wordmark">Peninsula <span>Insider</span></span>
     <nav id="navigation" aria-label="Preview sections" hidden>
-      <a href="#schedule">Schedule</a><a href="#posts">All posts</a><a href="#artwork">Artwork</a>
+      <a href="#schedule">Schedule</a><a href="#posts">All posts</a><a href="#artwork">Artwork</a><a href="#scorecard">Scorecard</a>
     </nav>
   </header>
   <main id="main" tabindex="-1">
@@ -36,7 +36,7 @@
             <h1 id="campaign-title">Campaign schedule</h1>
             <p class="schedule-summary"><strong id="total-posts"></strong> · Melbourne time (AEDT)</p>
           </div>
-          <a class="primary-link" id="read-all" href="#posts">Read every post ↓</a>
+          <div class="date-actions"><a class="primary-link" id="read-all" href="#posts">Read every post ↓</a><a href="#day-2026-12-01">Jump to December ↓</a></div>
         </div>
         <ul id="legend" class="legend" aria-label="Planned posts by channel"></ul>
         <div id="calendar-days"></div>
@@ -63,8 +63,8 @@
         <div id="post-list"></div>
       </section>
       <section id="artwork" aria-labelledby="artwork-title" tabindex="-1">
-        <div class="section-heading"><h2 id="artwork-title">Artwork gallery</h2><p>Browse the reviewed images, frames and Reel used in the schedule.</p></div>
-        <div id="tray" class="tray" role="group" aria-label="Choose an artwork set"></div>
+        <div class="section-heading"><h2 id="artwork-title">Artwork gallery</h2><p>Choose a post to see its photographs, slides, Story frames or film.</p></div>
+        <div class="gallery-picker"><div><label for="art-select">Find a post</label><select id="art-select"></select></div><div class="gallery-step"><button type="button" id="previous-art" aria-label="Previous post">← Previous</button><button type="button" id="next-art" aria-label="Next post">Next →</button></div></div>
         <article class="showcase" aria-labelledby="asset-title">
           <div class="stage"><div id="primary-media" class="media"></div></div>
           <div class="notes">
@@ -72,18 +72,34 @@
             <h3 id="asset-title"></h3>
             <div id="variants" class="variants" role="group" aria-label="Choose a slide, frame or version"></div>
             <div id="caption" class="caption"></div>
-            <div class="actions"><button id="expand" type="button">View full size</button><a id="asset-guide" target="_blank" rel="noopener noreferrer">Open PI guide</a></div>
+            <div id="gallery-credit" class="credit"></div><div class="actions"><button id="expand" type="button">View full size</button><a id="asset-guide" target="_blank" rel="noopener noreferrer">Open PI guide</a></div>
             <details id="description"><summary>Image description</summary><div id="description-text"></div></details>
             <span id="asset-live" class="sr" aria-live="polite"></span>
           </div>
         </article>
+      </section>
+      <details id="reserve" class="reserve"><summary>Replacement artwork</summary>
+        <p>Choose a reserve if a dated event, source or publishing arrangement changes. These are separate from the schedule.</p>
+        <label for="reserve-select">Replacement set</label><select id="reserve-select"></select>
+        <div class="showcase"><div class="stage"><div class="media" id="reserve-media"></div></div>
+        <div class="notes"><h3 id="reserve-title"></h3><div class="variants" id="reserve-variants"></div><p id="reserve-caption" class="caption"></p>
+        <p id="reserve-credit" class="credit"></p><div class="actions"><a id="reserve-download" download>Download image</a><a id="reserve-guide" target="_blank" rel="noopener noreferrer">Open PI guide</a></div></div></div>
+      </details>
+      <section id="scorecard" aria-labelledby="scorecard-title" tabindex="-1">
+        <div class="section-heading"><h2 id="scorecard-title">Copy and creative scorecard</h2><p id="score-overview"></p></div>
+        <p id="score-programme"></p><p id="score-scope"></p>
+        <details id="rubric"><summary>How the scores work</summary><div id="score-rubric"></div></details>
+        <div class="score-tools"><label for="score-order">Sort by <select id="score-order"><option value="low">Lowest score first</option><option value="date">Publish date</option></select></label>
+        <label for="score-channel">Channel <select id="score-channel"><option value="all">All channels</option><option value="facebook">Facebook</option><option value="stories">Instagram Stories</option><option value="feed">Instagram feed</option><option value="linkedin">LinkedIn</option></select></label></div>
+        <div id="score-table-wrap" tabindex="0" role="region" aria-label="Scores across ten dimensions"><table id="score-table"><caption>Placement scores. Select a post for its evidence and revisions.</caption><thead></thead><tbody></tbody></table></div>
+        <details id="reserve-scores"><summary>Scores for the unscheduled alternatives</summary><div class="reserve-score-wrap" role="region" aria-label="Scores for alternative creative" tabindex="0"><table><caption>Replacement creative</caption><thead><tr id="reserve-score-head"><th scope="col">Set</th><th scope="col">Total</th></tr></thead><tbody id="reserve-score-rows"></tbody></table></div></details>
       </section>
     </div>
   </main>
   <footer><span>Peninsula Insider</span><a id="footer-schedule" href="#schedule" hidden>Back to schedule ↑</a></footer>
   <dialog id="enlarged" aria-labelledby="large-title">
     <div class="dialog-bar"><h2 id="large-title">Artwork</h2><button id="close" type="button">Close</button></div>
-    <div id="large-media"></div><p id="large-credit" class="credit" hidden></p><div id="large-controls" class="variants"></div>
+    <div id="large-media"></div><p id="large-credit" class="credit" hidden></p><div id="large-controls" class="variants"></div><div id="file-actions" class="file-actions"></div>
     <div id="layout-direction" hidden><h3>Creative direction</h3><p></p></div>
   </dialog>
 </body>

@@ -38,7 +38,7 @@ document.addEventListener('click', event => {
   const id = anchor.getAttribute('href').slice(1);
   if (!byId(id)) return;
   event.preventDefault();
-  if (campaign && (id === 'posts' || anchor.closest('#calendar-days'))) applyFilter('all');
+  if (campaign && (id === 'posts' || id.startsWith('day-') || id.startsWith('post-') || anchor.closest('#calendar-days'))) applyFilter('all');
   if (id.startsWith('day-')) byId('date').value = id.slice(4);
   goTo(id);
 });
@@ -81,6 +81,7 @@ function mediaView(set, index) {
     video.controls=true; video.playsInline=true; video.muted=true; video.preload='metadata';
     const metadata=campaign.videos[name];
     video.setAttribute('aria-label',metadata.label);
+    video.loop=Boolean(metadata.loop) && !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     video.poster=urls.get(metadata.poster);
     video.src=urls.get(name);
     const track=el('track');
@@ -91,7 +92,12 @@ function mediaView(set, index) {
   const img=el('img');
   img.src=urls.get(name); img.alt=set.alt || campaign.alt[name]; img.decoding='async';
   const post=postsById[set.post];
-  if (post.frames && index===1) {
+  if (post.poll && index===0){
+    const wrap=el('div',undefined,'story-wrapper');const poll=el('div',undefined,'sticker poll-preview');
+    poll.append(el('b',post.poll.question),el('span',post.poll.options.join('  /  ')));
+    wrap.append(img,poll);return wrap;
+  }
+  if (post.frames && index===post.frames.length-1) {
     const wrap=el('div',undefined,'story-wrapper');
     const link=external(post.sticker,post.guide);
     link.className='sticker'; link.setAttribute('aria-label','Preview link sticker: '+post.sticker);
@@ -119,11 +125,11 @@ function renderArtwork() {
   byId('asset-format').textContent=active.format+' · '+dateLabel(post.date);
   byId('asset-title').textContent=active.title;
   byId('asset-guide').href=post.guide;
-  byId('asset-guide').textContent=active.id==='gallery'?'Open exhibition guide':active.id==='tile'?'Open event guide':'Open PI guide';
+  byId('asset-guide').textContent='Open PI guide';
   byId('caption').replaceChildren();
   if (post.frames) {
     lines(byId('caption'),post.frames[revision]);
-    const c=el('p','Illustration: Peninsula Insider','credit'); byId('caption').append(c);
+
   } else lines(byId('caption'),post.copy);
   byId('description').open=false;
   byId('description').querySelector('summary').textContent=name.endsWith('.mp4')?'Video description and transcript':'Image description';
@@ -131,25 +137,64 @@ function renderArtwork() {
   if (name.endsWith('.mp4')) {
     const blocks=campaign.videos[name].transcript.split(/\n\s*\n/).slice(1);
     for (const block of blocks) {
-      const [timing,...words]=block.split('\n'); const p=el('p');
+      const rows=block.split('\n');if(/^\d+$/.test(rows[0]))rows.shift();
+      const [timing,...words]=rows; const p=el('p');
       p.append(el('strong',timing.slice(3,8)+' '),document.createTextNode(words.join(' '))); box.append(p);
     }
-  } else lines(box,campaign.alt[name]);
+  } else lines(box,active.alt || campaign.alt[name]);
   const primary=byId('primary-media'); pausePlayers(primary); primary.replaceChildren(mediaView(active,revision));
   variants(byId('variants'),active,revision,i=>{revision=i;renderArtwork();});
-  for (const b of byId('tray').children) b.setAttribute('aria-pressed',String(b.dataset.id===active.id));
+  byId('art-select').value=active.id;
+  const position=campaign.sets.indexOf(active);
+  byId('previous-art').disabled=position===0; byId('next-art').disabled=position===campaign.sets.length-1;
+  drawCredit(byId('gallery-credit'),active,Boolean(!post.frames && post.copy.includes(active.credit)));
   byId('asset-live').textContent=active.title+', '+active.labels[revision];
 }
 function showSet(id) {
   active=campaign.sets.find(x => x.id===id);
   revision=0; renderArtwork();
 }
+function drawCredit(node,set,alreadyVisible) {
+  node.replaceChildren();
+  const credit=alreadyVisible?'':set.credit;
+  if(credit) node.append(document.createTextNode(credit));
+  if(set.source){
+    if(credit) node.append(document.createTextNode(' · '));
+    node.append(external('Original photograph',set.source),document.createTextNode(' · '),external(set.licenceLabel,set.licence));
+  }
+  node.hidden=!node.hasChildNodes();
+}
+function fileActions(set,index) {
+  const actions=byId('file-actions'); actions.replaceChildren();
+  if(set.layout) return;
+  if(set.nativeOnly){
+    actions.append(el('p','The guide supplies this image when its link is shared.','credit'));
+    return;
+  }
+  const name=set.files[index];
+  const isFilm=name.endsWith('.mp4');
+  const button=el('a',isFilm?'Download MP4':name.endsWith('.webp')?'Download PNG':'Download image');
+  button.download=name; button.href=urls.get(name);
+  if(name.endsWith('.webp')) button.addEventListener('click',async event=>{
+    event.preventDefault();
+    const img=new Image(); img.src=urls.get(name);await img.decode();
+    const canvas=document.createElement('canvas');canvas.width=img.naturalWidth;canvas.height=img.naturalHeight;
+    canvas.getContext('2d').drawImage(img,0,0);
+    const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+    if(!blob)return;
+    const url=URL.createObjectURL(blob);const file=document.createElement('a');file.download=name.slice(0,-5)+'.png';file.href=url;
+    document.body.append(file);file.click();file.remove();setTimeout(()=>URL.revokeObjectURL(url),15000);
+  });
+  actions.append(button);
+  if(isFilm){
+    const link=el('a','Download descriptions (.vtt)');
+    const track=campaign.videos[name].track;link.download=track;link.href=urls.get(track);actions.append(link);
+  }
+}
 function renderLarge() {
   const box=byId('large-media'); pausePlayers(box); box.replaceChildren(mediaView(enlarged,enlargedRevision));
-  const credit=byId('large-credit');
-  const creditText=enlarged.credit || (enlarged.id==='facebook-market' ? 'Mornington Farmers Market, Mornington Peninsula. Photo: Robert Blackburn, courtesy of Visit Victoria' : '');
-  credit.textContent=creditText;
-  credit.hidden=!creditText;
+  drawCredit(byId('large-credit'),enlarged,false);
+  fileActions(enlarged,enlargedRevision);
   const direction=byId('layout-direction');
   direction.hidden=!enlarged.layout;
   direction.querySelector('p').textContent=enlarged.layout ? postsById[enlarged.post].creative : '';
@@ -167,7 +212,7 @@ function openLarge(set, index) {
 }
 byId('expand').addEventListener('click',() => openLarge(active,revision));
 byId('close').addEventListener('click',()=>byId('enlarged').close());
-byId('enlarged').addEventListener('close',()=>{pausePlayers(byId('large-media'));byId('large-media').replaceChildren();});
+byId('enlarged').addEventListener('close',()=>{if(byId('enlarged').open)return;pausePlayers(byId('large-media'));byId('large-media').replaceChildren();});
 
 function internalLink(label, id, className) {
   const a = el('a', label, className);
@@ -230,19 +275,13 @@ function renderCalendars(byDate) {
 
 function postMedia(post) {
   let set, label, preview;
-  if (post.art) {
-    const source = campaign.sets.find(item => item.id === post.art);
-    set = {id: source.id, title: post.title, post: post.id, files: post.media,
-      labels: post.media.map(name => source.labels[source.files.indexOf(name)])};
-    label = {Carousel:'View '+set.files.length+' slides', 'Two-frame Story':'View both frames', Reel:'View Reel'}[post.format] || (campaign.videos[set.files[0]] ? 'View animation' : 'View image');
-    if (set.id === 'facebook-market') set.credit = 'Mornington Farmers Market, Mornington Peninsula. Photo: Robert Blackburn, courtesy of Visit Victoria';
-  } else if (post.native) {
-    set = {title:post.title, post:post.id, files:[post.native.file], labels:['Link preview'], alt:post.imageDescription, credit:post.native.credit};
-    label = 'View link preview';
+  set=campaign.sets.find(item=>item.post===post.id);
+  if(set){
+    label=post.native || set.nativeOnly ? 'View link image' : post.frames ? 'View both frames' : post.format==='Reel' ? 'Play Reel' : campaign.videos[set.files[0]] ? 'Play animation' : set.files.length>1 ? 'View '+set.files.length+(post.format==='Carousel'?' slides':' images') : 'View image';
   } else {
-    const kind = post.format === 'Reel' ? 'Draft storyboard' : 'Draft layout';
-    set = {title:post.title+' · '+kind, post:post.id, layout:post.layout, labels:post.layout.map(frame=>frame.label)};
-    label = 'View '+kind.toLowerCase();
+    const kind=post.format==='Reel'?'Draft storyboard':'Draft layout';
+    set={title:post.title+' · '+kind,post:post.id,layout:post.layout,labels:post.layout.map(frame=>frame.label)};
+    label='View '+kind.toLowerCase();
   }
   const figure = el('figure', undefined, 'post-art');
   figure.dataset.preview = post.art ? 'reviewed' : post.native ? 'native' : 'layout';
@@ -253,7 +292,7 @@ function postMedia(post) {
     preview.setAttribute('aria-hidden','true');
   } else {
     preview = el('img');
-    preview.src = urls.get(campaign.videos[set.files[0]]?.poster || set.files[0]);
+    preview.src = urls.get(set.thumb || campaign.videos[set.files[0]]?.poster || set.files[0]);
     preview.alt = '';
     preview.loading = 'lazy';
   }
@@ -261,7 +300,7 @@ function postMedia(post) {
   button.setAttribute('aria-label', label+' for '+post.channel+' on '+dateLabel(post.date));
   button.addEventListener('click', () => openLarge(set, 0));
   figure.append(button);
-  if (set.credit) figure.append(el('figcaption',set.credit,'credit'));
+  if (set.credit && (post.native || set.nativeOnly || set.source || set.placeCredit)) { const caption=el('figcaption',undefined,'credit');drawCredit(caption,set,false);figure.append(caption); }
   return figure;
 }
 
@@ -318,7 +357,10 @@ function renderPost(post) {
   const brief = el('details', undefined, 'brief');
   brief.append(el('summary', 'Creative brief'), el('p', post.creative, 'direction'));
   if (post.imageDescription) {
-    brief.append(el('strong', 'Draft image description'), el('p', post.imageDescription));
+    brief.append(el('strong', 'Image description'), el('p', post.imageDescription));
+  }
+  if(post.profile){
+    const profile=external('Town guides profile destination',post.profile.hub);profile.className='guide-link';controls.append(profile);
   }
   controls.append(brief);
   content.append(controls);
@@ -366,10 +408,10 @@ function renderPlan() {
   for (const posts of byDate.values()) posts.sort((a,b)=>a.time.localeCompare(b.time));
   byId('total-posts').textContent = campaign.posts.length+' planned posts';
   byId('read-all').textContent = 'Read all '+campaign.posts.length+' posts ↓';
-  const reviewed = campaign.posts.filter(post => post.art).length;
-  const native = campaign.posts.filter(post => post.native).length;
-  const drafts = campaign.posts.length-reviewed-native;
-  byId('preview-types').textContent = reviewed+' posts use reviewed artwork, '+native+' use guide link previews and '+drafts+' have draft layouts or storyboards.';
+  const native = campaign.sets.filter(set => set.nativeOnly).length;
+  const attachments = campaign.sets.length-native;
+  const drafts = campaign.posts.length-campaign.sets.length;
+  byId('preview-types').textContent = attachments+' posts have media to attach. '+native+' use the image from their linked guide.'+(drafts?' '+drafts+' have draft layouts or storyboards.':'');
   for (const [group, names] of Object.entries(groups)) {
     const count = campaign.posts.filter(p => groupOf(p)===group).length;
     const legend = el('li');
@@ -397,21 +439,101 @@ byId('date').addEventListener('change', event => {
   if (event.target.value) goTo(dayId(event.target.value));
 });
 
+function renderReserves(sets){
+  byId('reserve').hidden=!sets.length;
+  if(!sets.length)return;
+  const select=byId('reserve-select');
+  for(const s of sets){const o=el('option',s.title);o.value=s.id;select.add(o);}
+  function display(s,i){
+    byId('reserve-title').textContent=s.title;byId('reserve-caption').textContent=s.copy;
+    byId('reserve-credit').textContent=s.credit;byId('reserve-guide').href=s.guide;
+    const f=s.files[i],img=el('img');img.src=urls.get(f);img.alt=s.alt[f];
+    const wrap=el('div',undefined,'story-wrapper');wrap.append(img);
+    if(i===1&&s.sticker){const a=external(s.sticker,s.guide);a.className='sticker';wrap.append(a);}
+    byId('reserve-media').replaceChildren(wrap);
+    const download=byId('reserve-download');download.href=urls.get(f);download.download=f;
+    variants(byId('reserve-variants'),s,i,j=>display(s,j));
+  }
+  select.addEventListener('change',()=>display(sets.find(s=>s.id===select.value),0));
+  display(sets[0],0);
+}
+function renderScorecard(card){
+  const section=byId('scorecard');
+  section.hidden=!card;
+  if(!card)return;
+  const {dimensions,rows,programme}=card;
+  const codes=dimensions.map(d=>d.code);
+  const total=s=>codes.reduce((n,k)=>n+s[k],0);
+  byId('score-overview').textContent=rows.filter(r=>total(r.scores)>=99).length+' of '+rows.length+' scheduled posts reach the 99/100 target.';
+  byId('score-programme').textContent='Programme '+programme.score+'/100. The first round scored '+programme.baseline+'/100. The lowest final placement scores '+Math.min(...rows.map(r=>r.total))+'/100.';
+  const programmeNote=el('p',programme.reason);byId('score-rubric').prepend(programmeNote);
+  byId('score-scope').textContent='The independent scores assess publishing copy and finished media before release. Engagement and traffic are measured after publication.';
+  const legend=byId('score-rubric');
+  const list=el('dl');for(const d of dimensions){list.append(el('dt',d.code+' · '+d.name+' ('+d.max+')'),el('dd',d.criteria));}legend.append(list);
+  if(card.references){const p=el('p','References: ');for(const [i,s] of card.references.entries()){if(i)p.append(document.createTextNode(' · '));p.append(external(s.title,s.url));}legend.append(p);}
+  const head=el('tr');head.append(el('th','Post'),el('th','Total'));for(const d of dimensions){const h=el('th');h.scope='col';const a=el('abbr',d.code+' / '+d.max);a.title=d.name;h.append(a);head.append(h);}byId('score-table').tHead.append(head);
+  const reserveTbody=byId('reserve-score-rows');
+  const reserveHead=byId('reserve-score-head');
+  for(const d of dimensions){const h=el('th');h.scope='col';const a=el('abbr',d.code+' / '+d.max);a.title=d.name;h.append(a);reserveHead.append(h);}
+  const reviewCol=el('th','Review');reviewCol.scope='col';reserveHead.append(reviewCol);
+  for(const row of card.reserveRows||[]){
+    const tr=el('tr');const name=el('th');name.scope='row';const btn=el('button',row.title,'score-post');btn.type='button';
+    btn.addEventListener('click',()=>{byId('reserve').open=true;byId('reserve-select').value=row.id;byId('reserve-select').dispatchEvent(new Event('change'));byId('reserve').scrollIntoView();byId('reserve-select').focus({preventScroll:true});});
+    name.append(btn);tr.append(name,el('td',String(row.total)));
+    for(const d of dimensions)tr.append(el('td',String(row.scores[d.code])));
+    const reason=el('td',row.evidence);if(row.remaining)reason.append(el('p',row.remaining));tr.append(reason);reserveTbody.append(tr);
+  }
+  function render(){
+    const tb=byId('score-table').tBodies[0];tb.replaceChildren();
+    const order=byId('score-order').value,channel=byId('score-channel').value;
+    const chronology=(a,b)=>a.date.localeCompare(b.date)||a.time.localeCompare(b.time);
+    const shown=rows.filter(r=>channel==='all'||groupOf(postsById[r.id])===channel).sort((a,b)=>(order==='low'?total(a.scores)-total(b.scores):0)||chronology(postsById[a.id],postsById[b.id]));
+    for(const r of shown){
+      const post=postsById[r.id],tr=el('tr');tr.dataset.scorePost=r.id;
+      const name=el('th');name.scope='row';const btn=el('button',post.title,'score-post');btn.type='button';btn.setAttribute('aria-expanded','false');
+      btn.append(el('span',dateLabel(post.date)+' · '+groups[groupOf(post)].short,'score-byline'));name.append(btn);
+      tr.append(name,el('td',String(total(r.scores)),'score-total'));for(const d of dimensions)tr.append(el('td',String(r.scores[d.code])));
+      const notes=el('tr');notes.hidden=true;const cell=el('td');cell.colSpan=dimensions.length+2;
+      const block=el('div',undefined,'score-note');block.append(el('strong','Review evidence'),el('p',r.evidence));
+      if(r.sources?.length){
+        const sources=el('ul',undefined,'source-list');
+        for(const address of r.sources){
+          const url=new URL(address),last=url.pathname.split('/').filter(Boolean).pop();
+          const label=last ? decodeURI(last).replaceAll('_',' ').replaceAll('-',' ') : url.hostname;
+          const item=el('li');item.append(external(label,url.href));sources.append(item);
+        }
+        block.append(el('strong','Sources checked'),sources);
+      }
+      if(r.change)block.append(el('strong','Revision'),el('p',r.change));if(r.remaining)block.append(el('strong','Remaining deduction'),el('p',r.remaining));
+      block.append(internalLink('Open scheduled post','post-'+post.id));cell.append(block);notes.append(cell);
+      btn.addEventListener('click',()=>{notes.hidden=!notes.hidden;btn.setAttribute('aria-expanded',String(!notes.hidden));});
+      tb.append(tr,notes);
+    }
+  }
+  byId('score-channel').addEventListener('change',render);byId('score-order').addEventListener('change',render);render();
+}
 function showContent(data,bytes) {
   campaign=data;
   for(const [name,file] of Object.entries(data.files)) {
     urls.set(name,URL.createObjectURL(new Blob([bytes.subarray(file.start,file.start+file.size)],{type:file.type})));
   }
   postsById=Object.fromEntries(data.posts.map(p=>[p.id,p]));
-  const tray=byId('tray');tray.replaceChildren();
-  data.sets.forEach(set=>{
-    const button=el('button',undefined,'asset-tab');button.type='button';button.dataset.id=set.id;
-    const img=el('img');img.src=urls.get(set.thumb);img.alt='';
-    button.append(img,el('span',set.short));
-    button.addEventListener('click',()=>showSet(set.id));tray.append(button);
-  });
+  const picker=byId('art-select');picker.replaceChildren();
+  let previousMonth='',monthGroup;
+  for (const set of data.sets){
+    const p=postsById[set.post],month=p.date.slice(0,7);
+    if(month!==previousMonth){monthGroup=el('optgroup');monthGroup.label=monthLabel.format(calendarDate(p.date));picker.append(monthGroup);previousMonth=month;}
+    const option=el('option',dateLabel(p.date)+' · '+p.time+' · '+groups[groupOf(p)].short+' · '+p.title);
+    option.value=set.id;monthGroup.append(option);
+  }
+  picker.addEventListener('change',()=>showSet(picker.value));
+  for(const [button,step] of [['previous-art',-1],['next-art',1]]){
+    byId(button).addEventListener('click',()=>{const next=data.sets[data.sets.indexOf(active)+step];if(next)showSet(next.id);});
+  }
   renderPlan();
-  showSet('reel');
+  renderReserves(data.reserves||[]);
+  renderScorecard(data.scorecard);
+  showSet(data.sets.find(s=>s.post==='d03_ig_feed')?.id||data.sets[0].id);
   byId('entry').hidden=true;byId('campaign').hidden=false;byId('navigation').hidden=false;byId('footer-schedule').hidden=false;
 }
 const sessionKey='pi-december-2026-preview';
@@ -428,13 +550,17 @@ async function unlock(token,fromForm) {
   try {
     const decoded=Uint8Array.from(atob(token.replace(/-/g,'+').replace(/_/g,'/')+'='),c=>c.charCodeAt(0));
     const key=await crypto.subtle.importKey('raw',decoded,'AES-GCM',false,['decrypt']);
-    const resp=await fetch('./december.bin?v=nov-dec-2026-1',{credentials:'omit',referrerPolicy:'no-referrer'});
+    const resp=await fetch('./december.bin?v=pi-photo-complete-2026-1',{credentials:'omit',referrerPolicy:'no-referrer'});
     if (!resp.ok) throw new Error('fetch');
     const packet=new Uint8Array(await resp.arrayBuffer());
     const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:packet.subarray(0,12)},key,packet.subarray(12));
     const size=new DataView(plain).getUint32(0);
     const data=JSON.parse(new TextDecoder().decode(new Uint8Array(plain,4,size)));
     showContent(data,new Uint8Array(plain,4+size));
+    const options=new URLSearchParams(location.hash.slice(1));
+    const destination=options.get('view');const selected=options.get('post');
+    if(selected&&postsById[selected])requestAnimationFrame(()=>goTo('post-'+selected));
+    else if(['scorecard','artwork','schedule','posts'].includes(destination)&&!byId(destination).hidden)requestAnimationFrame(()=>goTo(destination));
     try {sessionStorage.setItem(sessionKey,token);}catch{}
     if (fromForm) history.replaceState(null,'','#k='+token);
     byId('access-link').value='';
