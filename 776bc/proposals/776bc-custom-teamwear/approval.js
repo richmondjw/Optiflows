@@ -1,8 +1,8 @@
 
 (function(){
   var ENDPOINT = '/api/proposal-approvals';
-  var KEY = 'optiflows-proposal-776bc-teamwear-v4-0-approval';
-  var PROPOSAL = 'Custom Teamwear Workflow: monthly retainer (776BC), 27 November 2026, v4.0';
+  var KEY = 'optiflows-proposal-776bc-teamwear-v4-1-approval';
+  var PROPOSAL = 'Custom Teamwear Workflow: monthly retainer (776BC), 27 November 2026, v4.1';
 
   var form = document.getElementById('approvalForm');
   var nameEl = document.getElementById('name');
@@ -142,7 +142,7 @@
     }
     var rec = pendingRecord || {
       record_id: crypto.randomUUID(),
-      proposal_version: '4.0',
+      proposal_version: '4.1',
       consent: CONSENT,
       consent_accepted: true,
       scope: 'Custom Teamwear retainer: six-month initial term, approximately 100 pooled hours, then month to month',
