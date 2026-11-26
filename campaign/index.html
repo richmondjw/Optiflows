@@ -7,15 +7,15 @@
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' blob:; media-src 'self' blob:; connect-src 'self'; form-action 'none'; base-uri 'none'">
   <title>Campaign preview | Peninsula Insider</title>
-  <link rel="stylesheet" href="./gallery.css?v=pi-buffer-2026-1">
-  <script src="./gallery.js?v=pi-buffer-2026-1" defer></script>
+  <link rel="stylesheet" href="./gallery.css?v=pi-covers-2026-1">
+  <script src="./gallery.js?v=pi-covers-2026-1" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to preview</a>
   <header class="mast">
     <span class="wordmark">Peninsula <span>Insider</span></span>
     <nav id="navigation" aria-label="Preview sections" hidden>
-      <a href="#schedule">Schedule</a><a href="#posts">All posts</a><a href="#artwork">Artwork</a><a href="#scorecard">Scorecard</a>
+      <a href="#schedule">Schedule</a><a href="#posts">All posts</a><a href="#artwork">Artwork</a><a href="#covers">Page covers</a><a href="#scorecard">Scorecard</a>
     </nav>
   </header>
   <main id="main" tabindex="-1">
@@ -49,6 +49,11 @@
           </table>
         </template>
         <p id="calendar-help">Choose a date to read that day’s posts.</p>
+      </section>
+      <section id="covers" aria-labelledby="covers-title" tabindex="-1" hidden>
+        <div class="section-heading"><h2 id="covers-title">Page covers</h2></div>
+        <div id="cover-gallery"></div>
+        <a id="cover-source" class="guide-link" download>Download editable artwork and fonts (ZIP)</a>
       </section>
       <section id="posts" class="post-section" aria-labelledby="posts-title" tabindex="-1">
         <div class="section-heading">
