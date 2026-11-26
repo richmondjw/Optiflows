@@ -254,7 +254,7 @@ function renderCalendars(byDate) {
     const end = calendarDate(dates[dates.length-1]);
     const count = dates.reduce((total, day) => total+byDate.get(day).length, 0);
     const caption = table.caption;
-    caption.append(el('strong',monthLabel.format(start)),el('span',count+' planned posts'));
+    caption.append(el('strong',monthLabel.format(start)),el('span',count+' posts'));
     table.dataset.month = dates[0].slice(0,7);
     const body = table.tBodies[0];
     const monday = new Date(start);
@@ -333,6 +333,12 @@ function renderPost(post) {
   time.dateTime = post.date+'T'+post.time+':00+11:00';
   const channel = el('span', groups[group].label, 'channel-name');
   meta.append(time, channel, el('span', post.format, 'post-format'));
+  const booked=campaign.buffer?.rows[post.id];
+  if(booked){
+    const delivery=el('span',booked.method==='notification'?'Buffer · Mobile reminder':'Buffer · Automatic','buffer-delivery');
+    delivery.title='Buffer post '+booked.id;delivery.dataset.bufferId=booked.id;
+    meta.append(delivery);
+  }
 
   const content = el('div', undefined, 'post-content');
   const title = el('h4', post.title);
@@ -398,7 +404,7 @@ function applyFilter(group) {
     date.options.namedItem('option-'+section.id).disabled = section.hidden;
     count += dayCount;
   }
-  byId('showing').textContent = group === 'all' ? 'Showing all '+count+' planned posts.' : 'Showing '+count+' of '+campaign.posts.length+' planned posts.';
+  byId('showing').textContent = group === 'all' ? 'Showing all '+count+' posts.' : 'Showing '+count+' of '+campaign.posts.length+' posts.';
 }
 
 function renderPlan() {
@@ -406,7 +412,13 @@ function renderPlan() {
   const byDate = new Map(days.map(day => [day.date, []]));
   for (const post of campaign.posts) byDate.get(post.date).push(post);
   for (const posts of byDate.values()) posts.sort((a,b)=>a.time.localeCompare(b.time));
-  byId('total-posts').textContent = campaign.posts.length+' planned posts';
+  byId('total-posts').textContent = campaign.posts.length+(campaign.buffer?' scheduled in Buffer':' planned posts');
+  if(campaign.buffer){
+    const status=byId('queue-status');
+    const verified=new Intl.DateTimeFormat('en-AU',{day:'numeric',month:'short',hour:'numeric',minute:'2-digit',timeZone:'Australia/Melbourne',timeZoneName:'short'}).format(new Date(campaign.buffer.checked));
+    status.textContent=campaign.buffer.automatic+' posts publish automatically. '+campaign.buffer.notifications+' Instagram Stories send a mobile reminder to finish the stickers. Buffer queue verified '+verified+'.';
+    status.hidden=false;
+  }
   byId('read-all').textContent = 'Read all '+campaign.posts.length+' posts ↓';
   const native = campaign.sets.filter(set => set.nativeOnly).length;
   const attachments = campaign.sets.length-native;
@@ -555,7 +567,7 @@ async function unlock(token,fromForm) {
   try {
     const decoded=Uint8Array.from(atob(token.replace(/-/g,'+').replace(/_/g,'/')+'='),c=>c.charCodeAt(0));
     const key=await crypto.subtle.importKey('raw',decoded,'AES-GCM',false,['decrypt']);
-    const resp=await fetch('./december.bin?v=pi-scorecard-2026-2',{credentials:'omit',referrerPolicy:'no-referrer'});
+    const resp=await fetch('./december.bin?v=pi-buffer-2026-1',{credentials:'omit',referrerPolicy:'no-referrer'});
     if (!resp.ok) throw new Error('fetch');
     const packet=new Uint8Array(await resp.arrayBuffer());
     const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:packet.subarray(0,12)},key,packet.subarray(12));
