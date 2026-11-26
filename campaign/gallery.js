@@ -17,10 +17,10 @@ const groups = {
 };
 const shortDate = new Intl.DateTimeFormat('en-AU', {weekday:'short',day:'numeric',month:'short',timeZone:'UTC'});
 const longDate = new Intl.DateTimeFormat('en-AU', {weekday:'long',day:'numeric',month:'long',timeZone:'UTC'});
-const december = day => new Date(Date.UTC(2026,11,day));
-const dateLabel = day => shortDate.format(december(day));
-const isoDate = day => '2026-12-'+String(day).padStart(2,'0');
-const dayId = day => 'day-'+String(day).padStart(2,'0');
+const monthLabel = new Intl.DateTimeFormat('en-AU', {month:'long', year:'numeric', timeZone:'UTC'});
+const calendarDate = iso => new Date(iso+'T00:00:00Z');
+const dateLabel = iso => shortDate.format(calendarDate(iso));
+const dayId = iso => 'day-'+iso;
 function groupOf(post) {
   if (post.channel !== 'Instagram') return post.channel.toLowerCase();
   return post.frames ? 'stories' : 'feed';
@@ -39,7 +39,7 @@ document.addEventListener('click', event => {
   if (!byId(id)) return;
   event.preventDefault();
   if (campaign && (id === 'posts' || anchor.closest('#calendar-days'))) applyFilter('all');
-  if (id.startsWith('day-')) byId('date').value = String(Number(id.slice(4)));
+  if (id.startsWith('day-')) byId('date').value = id.slice(4);
   goTo(id);
 });
 function lines(parent, copy) {
@@ -62,9 +62,9 @@ function layoutPanel(post, index, thumbnail) {
   const panel = el('span', undefined, 'layout-panel');
   panel.dataset.shape = post.frames || post.format === 'Reel' ? 'portrait' : post.channel === 'Instagram' ? 'tile' : 'landscape';
   panel.dataset.group = groupOf(post);
-  const brand = el('span', 'Peninsula', 'layout-brand');
+  const brand = el('span', 'Peninsula ', 'layout-brand');
   brand.append(el('b','Insider'));
-  const stamp = el('span', post.layout.length > 1 ? frame.label+' · '+post.layout.length+(post.format==='Reel'?' scenes':post.frames?' frames':' slides') : dateLabel(post.day), 'layout-label');
+  const stamp = el('span', post.layout.length > 1 ? frame.label+' · '+post.layout.length+(post.format==='Reel'?' scenes':post.frames?' frames':' slides') : dateLabel(post.date), 'layout-label');
   panel.append(brand, el('span',frame.text,'layout-copy'), stamp);
   if (!thumbnail && post.frames && index === 1) {
     const link=external(post.sticker,post.guide);
@@ -79,20 +79,22 @@ function mediaView(set, index) {
   if (name.endsWith('.mp4')) {
     const video=el('video');
     video.controls=true; video.playsInline=true; video.muted=true; video.preload='metadata';
-    video.setAttribute('aria-label',set.title+' – silent nine-second Reel');
-    video.poster=urls.get('reel-still.png');
+    const metadata=campaign.videos[name];
+    video.setAttribute('aria-label',metadata.label);
+    video.poster=urls.get(metadata.poster);
     video.src=urls.get(name);
     const track=el('track');
-    track.kind='captions'; track.label='Visual descriptions'; track.srclang='en'; track.src=urls.get(campaign.track);
+    track.kind='captions'; track.label='Visual descriptions'; track.srclang='en'; track.src=urls.get(metadata.track);
     video.append(track);
     return video;
   }
   const img=el('img');
   img.src=urls.get(name); img.alt=set.alt || campaign.alt[name]; img.decoding='async';
-  if (name==='story-2.png') {
+  const post=postsById[set.post];
+  if (post.frames && index===1) {
     const wrap=el('div',undefined,'story-wrapper');
-    const link=external('Choose a market route',postsById[set.post].guide);
-    link.className='sticker'; link.setAttribute('aria-label','Preview link sticker: Choose a market route');
+    const link=external(post.sticker,post.guide);
+    link.className='sticker'; link.setAttribute('aria-label','Preview link sticker: '+post.sticker);
     wrap.append(img,link); return wrap;
   }
   return img;
@@ -114,7 +116,7 @@ function variants(target, set, index, onSelect) {
 function renderArtwork() {
   const post=postsById[active.post];
   const name=active.files[revision];
-  byId('asset-format').textContent=active.format+' · '+dateLabel(post.day);
+  byId('asset-format').textContent=active.format+' · '+dateLabel(post.date);
   byId('asset-title').textContent=active.title;
   byId('asset-guide').href=post.guide;
   byId('asset-guide').textContent=active.id==='gallery'?'Open exhibition guide':active.id==='tile'?'Open event guide':'Open PI guide';
@@ -127,7 +129,7 @@ function renderArtwork() {
   byId('description').querySelector('summary').textContent=name.endsWith('.mp4')?'Video description and transcript':'Image description';
   const box=byId('description-text'); box.replaceChildren();
   if (name.endsWith('.mp4')) {
-    const blocks=campaign.transcript.split(/\n\s*\n/).slice(1);
+    const blocks=campaign.videos[name].transcript.split(/\n\s*\n/).slice(1);
     for (const block of blocks) {
       const [timing,...words]=block.split('\n'); const p=el('p');
       p.append(el('strong',timing.slice(3,8)+' '),document.createTextNode(words.join(' '))); box.append(p);
@@ -176,8 +178,8 @@ function internalLink(label, id, className) {
 function calendarDay(day, posts) {
   const cell = el('td');
   const link = internalLink(undefined, dayId(day), 'calendar-date');
-  link.setAttribute('aria-label', longDate.format(december(day))+', '+posts.length+' posts');
-  link.append(el('span', String(day), 'date-number'), el('span', posts.length+' posts', 'date-count'));
+  link.setAttribute('aria-label', longDate.format(calendarDate(day))+', '+posts.length+' posts');
+  link.append(el('span', String(calendarDate(day).getUTCDate()), 'date-number'), el('span', posts.length+' posts', 'date-count'));
   const agenda = el('ul', undefined, 'calendar-agenda');
   for (const post of posts) {
     const item = el('li');
@@ -185,7 +187,7 @@ function calendarDay(day, posts) {
     jump.dataset.group = groupOf(post);
     jump.setAttribute('aria-label', post.time+' AEDT, '+post.channel+', '+post.format+', '+post.title);
     const time = el('time', post.time);
-    time.dateTime = isoDate(day)+'T'+post.time+':00+11:00';
+    time.dateTime = day+'T'+post.time+':00+11:00';
     jump.append(time, el('span', groups[groupOf(post)].short));
     item.append(jump);
     agenda.append(item);
@@ -194,16 +196,35 @@ function calendarDay(day, posts) {
   return cell;
 }
 
-function renderCalendar(days) {
-  const body = byId('calendar-days');
-  const offset = (december(1).getUTCDay()+6)%7;
-  for (let week = 0; week < Math.ceil((offset+days.length)/7); week++) {
-    const row = el('tr');
-    for (let weekday = 0; weekday < 7; weekday++) {
-      const day = week*7+weekday-offset+1;
-      row.append(day > 0 && day <= days.length ? calendarDay(day, days[day-1]) : el('td', undefined, 'outside-month'));
+function renderCalendars(byDate) {
+  const months = new Map();
+  for (const day of byDate.keys()) {
+    const month = day.slice(0,7);
+    if (!months.has(month)) months.set(month, []);
+    months.get(month).push(day);
+  }
+  for (const dates of months.values()) {
+    const table = byId('month-calendar').content.querySelector('table').cloneNode(true);
+    const start = calendarDate(dates[0]);
+    const end = calendarDate(dates[dates.length-1]);
+    const count = dates.reduce((total, day) => total+byDate.get(day).length, 0);
+    const caption = table.caption;
+    caption.append(el('strong',monthLabel.format(start)),el('span',count+' planned posts'));
+    table.dataset.month = dates[0].slice(0,7);
+    const body = table.tBodies[0];
+    const monday = new Date(start);
+    monday.setUTCDate(start.getUTCDate()-(start.getUTCDay()+6)%7);
+    for (const cursor = monday; cursor <= end;) {
+      const row = el('tr');
+      for (let weekday=0;weekday<7;weekday++) {
+        const day = cursor.toISOString().slice(0,10);
+        const posts = day.slice(0,7) === table.dataset.month ? byDate.get(day) : null;
+        row.append(posts ? calendarDay(day,posts) : el('td',undefined,'outside-month'));
+        cursor.setUTCDate(cursor.getUTCDate()+1);
+      }
+      body.append(row);
     }
-    body.append(row);
+    byId('calendar-days').append(table);
   }
 }
 
@@ -213,7 +234,7 @@ function postMedia(post) {
     const source = campaign.sets.find(item => item.id === post.art);
     set = {id: source.id, title: post.title, post: post.id, files: post.media,
       labels: post.media.map(name => source.labels[source.files.indexOf(name)])};
-    label = {Carousel:'View '+set.files.length+' slides', 'Two-frame Story':'View both frames', Reel:'View Reel'}[post.format] || 'View image';
+    label = {Carousel:'View '+set.files.length+' slides', 'Two-frame Story':'View both frames', Reel:'View Reel'}[post.format] || (campaign.videos[set.files[0]] ? 'View animation' : 'View image');
     if (set.id === 'facebook-market') set.credit = 'Mornington Farmers Market, Mornington Peninsula. Photo: Robert Blackburn, courtesy of Visit Victoria';
   } else if (post.native) {
     set = {title:post.title, post:post.id, files:[post.native.file], labels:['Link preview'], alt:post.imageDescription, credit:post.native.credit};
@@ -232,12 +253,12 @@ function postMedia(post) {
     preview.setAttribute('aria-hidden','true');
   } else {
     preview = el('img');
-    preview.src = urls.get(set.files[0].endsWith('.mp4') ? 'reel-still.png' : set.files[0]);
+    preview.src = urls.get(campaign.videos[set.files[0]]?.poster || set.files[0]);
     preview.alt = '';
     preview.loading = 'lazy';
   }
   button.append(preview, el('span', label, 'preview-action'));
-  button.setAttribute('aria-label', label+' for '+post.channel+' on '+dateLabel(post.day));
+  button.setAttribute('aria-label', label+' for '+post.channel+' on '+dateLabel(post.date));
   button.addEventListener('click', () => openLarge(set, 0));
   figure.append(button);
   if (set.credit) figure.append(el('figcaption',set.credit,'credit'));
@@ -270,7 +291,7 @@ function renderPost(post) {
 
   const meta = el('div', undefined, 'post-meta');
   const time = el('time', post.time);
-  time.dateTime = isoDate(post.day)+'T'+post.time+':00+11:00';
+  time.dateTime = post.date+'T'+post.time+':00+11:00';
   const channel = el('span', groups[group].label, 'channel-name');
   meta.append(time, channel, el('span', post.format, 'post-format'));
 
@@ -312,7 +333,7 @@ function renderDay(day, posts) {
   section.tabIndex = -1;
   section.setAttribute('aria-labelledby', 'heading-'+section.id);
   const head = el('header', undefined, 'day-heading');
-  const title = el('h3', longDate.format(december(day)));
+  const title = el('h3', longDate.format(calendarDate(day)));
   title.id = 'heading-'+section.id;
   head.append(title, el('span', undefined, 'day-count'));
   section.append(head, ...posts.map(renderPost));
@@ -339,9 +360,10 @@ function applyFilter(group) {
 }
 
 function renderPlan() {
-  const days = campaign.days.map(() => []);
-  for (const post of campaign.posts) days[post.day-1].push(post);
-  days.forEach(posts => posts.sort((a,b) => a.time.localeCompare(b.time)));
+  const days = [...campaign.days].sort((a,b)=>a.date.localeCompare(b.date));
+  const byDate = new Map(days.map(day => [day.date, []]));
+  for (const post of campaign.posts) byDate.get(post.date).push(post);
+  for (const posts of byDate.values()) posts.sort((a,b)=>a.time.localeCompare(b.time));
   byId('total-posts').textContent = campaign.posts.length+' planned posts';
   byId('read-all').textContent = 'Read all '+campaign.posts.length+' posts ↓';
   const reviewed = campaign.posts.filter(post => post.art).length;
@@ -358,10 +380,10 @@ function renderPlan() {
     option.value = group;
     byId('channel').add(option);
   }
-  renderCalendar(days);
-  days.forEach((posts, index) => {
-    const day = index+1;
-    const option = el('option', dateLabel(day)+' · '+campaign.days[index]);
+  renderCalendars(byDate);
+  days.forEach(({date:day,title}) => {
+    const posts=byDate.get(day);
+    const option = el('option', dateLabel(day)+' · '+title);
     option.id = 'option-'+dayId(day);
     option.value = String(day);
     byId('date').add(option);
@@ -372,7 +394,7 @@ function renderPlan() {
 
 byId('channel').addEventListener('change', event => applyFilter(event.target.value));
 byId('date').addEventListener('change', event => {
-  if (event.target.value) goTo(dayId(Number(event.target.value)));
+  if (event.target.value) goTo(dayId(event.target.value));
 });
 
 function showContent(data,bytes) {
@@ -406,7 +428,7 @@ async function unlock(token,fromForm) {
   try {
     const decoded=Uint8Array.from(atob(token.replace(/-/g,'+').replace(/_/g,'/')+'='),c=>c.charCodeAt(0));
     const key=await crypto.subtle.importKey('raw',decoded,'AES-GCM',false,['decrypt']);
-    const resp=await fetch('./december.bin?v=dec-schedule-1',{credentials:'omit',referrerPolicy:'no-referrer'});
+    const resp=await fetch('./december.bin?v=nov-dec-2026-1',{credentials:'omit',referrerPolicy:'no-referrer'});
     if (!resp.ok) throw new Error('fetch');
     const packet=new Uint8Array(await resp.arrayBuffer());
     const plain=await crypto.subtle.decrypt({name:'AES-GCM',iv:packet.subarray(0,12)},key,packet.subarray(12));

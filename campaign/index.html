@@ -6,21 +6,21 @@
   <meta name="robots" content="noindex,nofollow,noarchive,nosnippet,noimageindex">
   <meta name="referrer" content="no-referrer">
   <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' blob:; media-src 'self' blob:; connect-src 'self'; form-action 'none'; base-uri 'none'">
-  <title>December campaign preview | Peninsula Insider</title>
-  <link rel="stylesheet" href="./gallery.css?v=dec-schedule-1">
-  <script src="./gallery.js?v=dec-schedule-1" defer></script>
+  <title>Campaign preview | Peninsula Insider</title>
+  <link rel="stylesheet" href="./gallery.css?v=nov-dec-2026-1">
+  <script src="./gallery.js?v=nov-dec-2026-1" defer></script>
 </head>
 <body>
   <a class="skip" href="#main">Skip to preview</a>
   <header class="mast">
-    <span class="wordmark">Peninsula<span>Insider</span></span>
+    <span class="wordmark">Peninsula <span>Insider</span></span>
     <nav id="navigation" aria-label="Preview sections" hidden>
       <a href="#schedule">Schedule</a><a href="#posts">All posts</a><a href="#artwork">Artwork</a>
     </nav>
   </header>
   <main id="main" tabindex="-1">
     <section id="entry" class="entry" aria-labelledby="entry-title">
-      <p class="kicker">December 2026</p><h1 id="entry-title">Campaign preview</h1>
+      <p class="kicker">November–December 2026</p><h1 id="entry-title">Campaign preview</h1>
       <p id="entry-state" role="status">Opening the campaign preview…</p>
       <form id="unlock" hidden>
         <label for="access-link">Private review link</label>
@@ -32,18 +32,21 @@
       <section id="schedule" aria-labelledby="campaign-title" tabindex="-1">
         <div class="schedule-intro">
           <div>
-            <p class="kicker">Social campaign · December 2026</p>
+            <p class="kicker">Social campaign · 26 November – 31 December 2026</p>
             <h1 id="campaign-title">Campaign schedule</h1>
             <p class="schedule-summary"><strong id="total-posts"></strong> · Melbourne time (AEDT)</p>
           </div>
           <a class="primary-link" id="read-all" href="#posts">Read every post ↓</a>
         </div>
         <ul id="legend" class="legend" aria-label="Planned posts by channel"></ul>
-        <table class="calendar" aria-describedby="calendar-help">
-            <caption class="sr">December 2026 social media schedule</caption>
+        <div id="calendar-days"></div>
+        <template id="month-calendar">
+          <table class="calendar" aria-describedby="calendar-help">
+            <caption></caption>
             <thead><tr><th scope="col"><abbr title="Monday">Mon</abbr></th><th scope="col"><abbr title="Tuesday">Tue</abbr></th><th scope="col"><abbr title="Wednesday">Wed</abbr></th><th scope="col"><abbr title="Thursday">Thu</abbr></th><th scope="col"><abbr title="Friday">Fri</abbr></th><th scope="col"><abbr title="Saturday">Sat</abbr></th><th scope="col"><abbr title="Sunday">Sun</abbr></th></tr></thead>
-            <tbody id="calendar-days"></tbody>
-        </table>
+            <tbody></tbody>
+          </table>
+        </template>
         <p id="calendar-help">Choose a date to read that day’s posts.</p>
       </section>
       <section id="posts" class="post-section" aria-labelledby="posts-title" tabindex="-1">
