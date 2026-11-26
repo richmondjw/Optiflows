@@ -1,8 +1,8 @@
 
 (function(){
   var ENDPOINT = '/api/proposal-approvals';
-  var KEY = 'optiflows-proposal-776bc-teamwear-v2-0-approval';
-  var PROPOSAL = 'Custom Teamwear Workflow: Discover and Design (776BC), 18 November 2026, v2.0';
+  var KEY = 'optiflows-proposal-776bc-teamwear-v4-0-approval';
+  var PROPOSAL = 'Custom Teamwear Workflow: monthly retainer (776BC), 27 November 2026, v4.0';
 
   var form = document.getElementById('approvalForm');
   var nameEl = document.getElementById('name');
@@ -96,7 +96,7 @@
     form.hidden = true;
     document.body.classList.add('is-approved');
     document.getElementById('statusText').textContent = rec.is_test ? 'TEST ONLY: no client approval' : 'Approval submitted ' + fmtDate(rec.date);
-    document.title = 'Custom Teamwear Workflow: Discover and Design | ' + (rec.is_test ? 'Test record' : 'Approval submitted');
+    document.title = 'Custom Teamwear Workflow: monthly retainer | ' + (rec.is_test ? 'Test record' : 'Approval submitted');
   }
   try {
     var saved = localStorage.getItem(KEY);
@@ -142,13 +142,13 @@
     }
     var rec = pendingRecord || {
       record_id: crypto.randomUUID(),
-      proposal_version: '2.0',
+      proposal_version: '4.0',
       consent: CONSENT,
       consent_accepted: true,
-      scope: 'Three-week Discover and Design engagement, Outputs 1–4',
-      fee_aud_ex_gst: 16800,
-      payment_milestones: 'A$8,400 on approval before kickoff; A$8,400 on Outputs 1–4 acceptance',
-      approval_type: 'Approval of scope, fee, payment and general terms; this proposal is the agreement',
+      scope: 'Custom Teamwear retainer: six-month initial term, approximately 100 pooled hours, then month to month',
+      fee_aud_ex_gst: 5000,
+      payment_milestones: 'A$5,000 ex GST invoiced at the start of each month, payable within seven days',
+      approval_type: 'Approval of scope, monthly fee, initial term, payment and general terms; this proposal is the agreement',
       proposal_text: document.getElementById('proposalContent').textContent.replace(/\s+/g, ' ').trim(),
       proposal: PROPOSAL,
       client: '776BC',
@@ -158,7 +158,7 @@
       approved_at: new Date().toISOString(),
       signature: exportSignature(),
       page: location.href,
-      _subject: 'PROPOSAL APPROVED: Custom Teamwear Workflow: Discover and Design signed by ' + name
+      _subject: 'PROPOSAL APPROVED: Custom Teamwear retainer signed by ' + name
     };
     pendingRecord = rec;
     submitBtn.disabled = true;

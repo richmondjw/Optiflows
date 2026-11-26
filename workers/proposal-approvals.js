@@ -8,8 +8,8 @@ import feedbackLoop from './proposal-contract-workbench-feedback-loop.json' with
 // 30 September 2026 so stored records keep resolving against their own terms.
 const contracts = new Map([['776bc-custom-teamwear', teamwear], ['776bc-calliope-telegram-pilot', calliope], ['776bc-content-copy-skill', copySkill], ['776bc-workbench-feedback-loop', feedbackLoop]]);
 const notificationDetails = new Map([
-  // From v1.9 the Teamwear proposal is itself the agreement for Discover and Design: full approval, not in principle.
-  [teamwear.path, {title:'776BC Custom Teamwear', outcome:'approved', payment:true, next:'Issue the commencement invoice (A$8,400), confirm the client lead, job pack and access, and schedule kickoff.'}],
+  // From v4.0 the Teamwear proposal is itself the agreement for the monthly retainer: full approval, not in principle.
+  [teamwear.path, {title:'776BC Custom Teamwear', outcome:'approved', payment:true, next:'Issue the first monthly invoice (A$5,000), confirm the start date, day-to-day lead, historical job and access, and schedule kickoff.'}],
   [calliope.path, {title:'776BC Calliope Telegram Pilot', next:'Confirm pilot users, launch deliverables, the review owner and kickoff date.'}],
   // Not "in principle": this proposal carries its own payment terms and needs no separate agreement.
   [copySkill.path, {title:'776BC Content & Copy Skill for Claude', outcome:'approved', payment:true, next:'Issue the commencement invoice (50%), confirm Claude and source-material access, and book the authorship policy session.'}],
