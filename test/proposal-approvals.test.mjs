@@ -48,7 +48,7 @@ try{
   await Promise.all(waits);assert.equal(calls.length,4);
   const pilotEmail=calls[2],pilotTelegram=calls[3];
   assert.match(pilotEmail.body._subject,/Calliope Telegram Pilot approved in principle/);
-  assert.match(pilotTelegram.body.text,/A\$5,000 ex GST/);
+  assert.match(pilotTelegram.body.text,/Fee: A\$5,000\n/);
   assert.match(pilotTelegram.body.text,/20 development hours/);
   assert.doesNotMatch(pilotTelegram.body.text,/14,400|Project Management Agreement/);
   assert.equal((await (await post(pilot)).json()).duplicate,true);assert.equal(calls.length,4);
@@ -73,7 +73,7 @@ try{
   assert.match(loopSaved.record_url,/776bc-workbench-feedback-loop\/#record=/);
   await Promise.all(waits);assert.equal(calls.length,8);
   assert.equal(calls[6].body._subject,'776BC Workbench Feedback Loop approved');
-  assert.match(calls[7].body.text,/A\$2,400 ex GST/);
+  assert.match(calls[7].body.text,/Fee: A\$2,400\n/);
   assert.match(calls[7].body.text,/Payment: 50% on approval and commencement; 50% on release to the 776BC team/);
   assert.doesNotMatch(calls[7].body.text,/in principle|Copy Skill|Project Management Agreement/);
   globalThis.fetch=async()=>{throw new Error('timeout');};

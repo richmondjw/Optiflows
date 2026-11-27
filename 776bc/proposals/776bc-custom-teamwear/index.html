@@ -433,7 +433,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
 .is-approved .new-version{display:none}
 
 /* v4.0 */
-@media print{.two-col>.start-here{margin-bottom:5mm}}
+@media print{.two-col>.start-here{margin-bottom:5mm}#investment{break-before:page}}
 .two-col>.start-here{align-self:start;align-content:start;justify-content:start}
 @media screen and (max-width:700px){.tiles .tile:last-child:nth-child(odd){min-height:96px}}
 @media print{.outcome .stack{gap:3mm}.outcome .decision{padding:5mm 7mm;gap:1.5mm}.outcome .decision p{font-size:11.5pt}.outcome p{font-size:9.6pt}.outcome .lead{font-size:12pt}.phase-list>li{padding:2.6mm 0;gap:5mm}.phase-list h3{font-size:13pt}#approach .stack-lg{gap:4mm}#approach .decision{padding:4mm 6mm;gap:1mm;border-left-width:2mm}#approach .decision p{font-size:10pt}.phase-copy p{font-size:8.8pt;margin:0}.phase-copy{display:grid;gap:1.5mm}#approach .section-head{padding-bottom:4mm;margin-bottom:2mm}}
@@ -450,7 +450,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
       </a><a class="mono" style="color:var(--mist);text-decoration:none" href="/776bc/proposals/">All proposals →</a></div>
 <span class="pre">776BC | Programme proposal</span><h1>Custom Teamwear Workflow</h1>
 <p class="sub">One programme, from customer brief to production. Delivered as a monthly partnership.</p>
-<div class="meta"><div><span class="mono">Prepared for</span><p>Kate &amp; Cam<br>and the 776BC team</p></div><div><span class="mono">Prepared by</span><p>James Richmond<br>OptiFlows</p></div><div><span class="mono">Date</span><p>27 November 2026<br>Version 4.3</p></div><div><span class="mono">Status</span><p class="status-pill" id="statusText">Awaiting approval</p></div></div>
+<div class="meta"><div><span class="mono">Prepared for</span><p>Kate &amp; Cam<br>and the 776BC team</p></div><div><span class="mono">Prepared by</span><p>James Richmond<br>OptiFlows</p></div><div><span class="mono">Date</span><p>27 November 2026<br>Version 4.4</p></div><div><span class="mono">Status</span><p class="status-pill" id="statusText">Awaiting approval</p></div></div>
 <nav class="proposal-nav no-print" aria-label="Proposal sections"><a href="#approach">The approach</a><a href="#roadmap">Discover and Design</a><a href="#adoption">Making it stick</a><a href="#investment">Investment</a><a href="#scope">Detailed scope</a></nav></div></header>
 
 <main id="proposalContent">
@@ -487,12 +487,11 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
 </div></section>
 
 <section class="section paper" id="roadmap" aria-labelledby="roadmap-title"><div class="wrap stack-lg">
-<div class="section-head plain"><span class="pre">Discover and Design</span><h2 id="roadmap-title">A clear start.<br>Flexible on the way there.</h2><p>Discover and Design take about the first three months, from December to February. Timing is indicative and moves with inputs, decisions and the Christmas break on both sides.</p></div>
+<div class="section-head plain"><span class="pre">Discover and Design</span><h2 id="roadmap-title">A clear start.<br>Flexible on the way there.</h2><p>Discover and Design take about the first three months, from December to February, and keep the original proposal’s budget: 48 hours, or A$16,800 at the retainer rate. Timing is indicative and moves with inputs, decisions and the Christmas break. The development plan at the end of Design sets the scope, hours and timing of every later stage.</p></div>
 <div class="tbl"><table><thead><tr><th>When</th><th>What you will have</th><th>Decision at the end</th></tr></thead><tbody>
 <tr><td data-label="When">December–January<br>Discover</td><td data-label="What you will have">Outputs 1–2: the workflow map, job timeline, friction register and asset inventory from one traced job, then ranked requirements and acceptance tests.</td><td data-label="Decision at the end">Agree the priority workflow, garment set and acceptance tests</td></tr>
 <tr><td data-label="When">January–February<br>Design</td><td data-label="What you will have">Outputs 3–4: the future workflow, a clickable prototype reviewed by the team, feasibility evidence and the development plan.</td><td data-label="Decision at the end">Accept the design work and confirm the working proof</td></tr>
 </tbody></table></div>
-<p class="supporting">Discover and Design keep the budget of the original proposal: 48 hours, or A$16,800 at the retainer rate. That is just over three months of the monthly fee, and pooling the hours lets the work finish by about the end of February. The development plan at the end of Design then sets the scope, hours and timing of the working proof and every later stage, and the remaining retainer hours go to that plan.</p>
 </div></section>
 
 <section class="section" id="adoption" aria-labelledby="adoption-title"><div class="wrap stack-lg">
@@ -510,7 +509,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
 <section class="section paper" id="investment" aria-labelledby="investment-title"><div class="wrap stack-lg">
 <div class="section-head plain"><span class="pre">Investment and next step</span><h2 id="investment-title">A fixed monthly investment.</h2></div>
 <div class="tiles">
-<div class="tile"><span class="mono">Monthly fee</span><strong>A$5,000<small>ex GST, invoiced monthly</small></strong></div>
+<div class="tile"><span class="mono">Monthly fee</span><strong>A$5,000<small>per month, no GST</small></strong></div>
 <div class="tile"><span class="mono">Initial term</span><strong>6 months<small>then month to month</small></strong></div>
 <div class="tile"><span class="mono">Capacity</span><strong>~85 hours<small>pooled across the term</small></strong></div>
 <div class="tile"><span class="mono">Rate</span><strong>A$350/hour<small>standard rate A$400</small></strong></div>
@@ -519,10 +518,10 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
 <div class="two-col">
 <div class="start-here"><h3>How the hours work</h3><p>The six-month commitment earns a rate below our standard A$400/hour. Hours are pooled across the term rather than split evenly, so Discover and Design move quickly. All consulting time counts, including meetings, reviews and preparation, in half-hour units. A short monthly statement shows hours used, hours left, work delivered and the plan for the next month, and we flag it well before the pool runs low.</p></div>
 <div class="start-here"><h3>Good for both sides</h3><p>776BC gets a predictable cost it can budget for, early progress and the freedom to change priorities at each review. OptiFlows can reserve the time and front-load the early work with confidence.</p></div>
-<div class="start-here"><h3>After six months</h3><p>The retainer continues at A$5,000 ex GST a month, about 14 hours, until either party gives notice. The six-month review sets the pace for build, pilot and Deliver, including a temporary step-up if 776BC wants to reach launch sooner. It is also when we review the fee and hours for the months that follow; any change is confirmed in writing at least 60 days before it applies.</p></div>
+<div class="start-here"><h3>After six months</h3><p>The retainer continues at A$5,000 a month, about 14 hours, until either party gives notice. The six-month review sets the pace for build, pilot and Deliver, including a temporary step-up if 776BC wants to reach launch sooner. It is also when we review the fee and hours for the months that follow; any change is confirmed in writing at least 60 days before it applies.</p></div>
 <div class="start-here"><h3>To begin</h3><p>Approve by signing below, or by email from an authorised 776BC representative. Then nominate the day-to-day lead and approver, select the historical job and confirm access. The first month starts on an agreed date in early December 2026.</p></div>
 </div>
-<p class="supporting">Each month is invoiced at its start and payable within seven days; GST is added where applicable. Software, hosting, specialist and travel costs are separate and need 776BC’s written approval first.</p>
+<p class="supporting">Each month is invoiced at its start and payable within seven days. OptiFlows is not registered for GST, so no GST is charged. Software, hosting, specialist and travel costs are separate and need 776BC’s written approval first.</p>
 <div class="actions no-print"><a class="btn outline" href="#scope">Review detailed scope</a><a class="text-link" href="#approve">Go to proposal approval →</a></div>
 </div></section>
 
@@ -540,16 +539,16 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
 </div></details>
 <details><summary>Develop, Deliver and Evolve: indicative effort<span>Stage gates · Funded from the retainer</span></summary><div class="scope-body">
 <p>These preliminary allowances support planning. Asset readiness and technical findings may materially change them. Each stage is scoped in writing at its stage gate.</p>
-<div class="tbl"><table><thead><tr><th>Stage</th><th>Indicative effort</th><th>At the retainer rate, ex GST</th></tr></thead><tbody>
-<tr><td data-label="Stage">Discover and Design</td><td data-label="Indicative effort">48 hours</td><td data-label="At the retainer rate, ex GST">A$16,800</td></tr>
-<tr><td data-label="Stage">Develop: working proof</td><td data-label="Indicative effort">40–60 hours</td><td data-label="At the retainer rate, ex GST">A$14,000–21,000</td></tr>
-<tr><td data-label="Stage">Develop: build and pilot</td><td data-label="Indicative effort">80–120 hours</td><td data-label="At the retainer rate, ex GST">A$28,000–42,000</td></tr>
-<tr><td data-label="Stage">Deliver: launch and handover</td><td data-label="Indicative effort">16–24 hours</td><td data-label="At the retainer rate, ex GST">A$5,600–8,400</td></tr>
+<div class="tbl"><table><thead><tr><th>Stage</th><th>Indicative effort</th><th>At the retainer rate</th></tr></thead><tbody>
+<tr><td data-label="Stage">Discover and Design</td><td data-label="Indicative effort">48 hours</td><td data-label="At the retainer rate">A$16,800</td></tr>
+<tr><td data-label="Stage">Develop: working proof</td><td data-label="Indicative effort">40–60 hours</td><td data-label="At the retainer rate">A$14,000–21,000</td></tr>
+<tr><td data-label="Stage">Develop: build and pilot</td><td data-label="Indicative effort">80–120 hours</td><td data-label="At the retainer rate">A$28,000–42,000</td></tr>
+<tr><td data-label="Stage">Deliver: launch and handover</td><td data-label="Indicative effort">16–24 hours</td><td data-label="At the retainer rate">A$5,600–8,400</td></tr>
 </tbody></table></div>
 <article><h3>What this means for timing</h3><p>The timing of each later stage is set in the development plan at the end of Design, once the working proof’s scope is clear. The monthly retainer hours then set the pace, and a temporary step-up in hours, agreed at any monthly review, brings launch forward.</p></article>
 <article><h3>The working proof and pilot</h3><p>The working proof uses one historical rowing brief: three concepts on a master style, the chosen direction across two companion styles, front, back and side views and one controlled revision. Design and Production check quality, editability, accuracy and repeatability. The live pilot then uses two designers and five suitable briefs, subject to volume, with the manual process retained as a fallback.</p></article>
 <article><h3>Deliver and Evolve</h3><p>Deliver provides training, editable assets and bespoke code, account and recovery documentation, a named internal owner and accepted operating instructions. Evolve then uses the retainer hours for feedback, usage reviews and agreed improvements.</p></article>
-<p><strong>Planning allowance across the whole programme: A$64,400–88,200 ex GST at the retainer rate,</strong> the same as v2.0. This is not an approved build budget. It excludes GST, third-party costs, specialists and event implementation.</p>
+<p><strong>Planning allowance across the whole programme: A$64,400–88,200 at the retainer rate,</strong> the same as v2.0. This is not an approved build budget. It excludes third-party costs, specialists and event implementation.</p>
 </div></details>
 <details><summary>Working together and accepting the work<span>Team input · Reviews · Commercial and general terms</span></summary><div class="scope-body">
 <article><h3>Focused team input</h3><ul class="marks">
@@ -561,7 +560,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
 </ul></article>
 <article><h3>Acceptance</h3><p>Outputs 1–4 are accepted against the descriptions above. Later stages are accepted against the scope and checks agreed in writing at each stage gate. One consolidated feedback round per deliverable and corrections to agreed scope are included. Record blockers and limitations; any material reduction or substitution needs written agreement. A supported recommendation to narrow the scope or stop is a valid result.</p></article>
 <article><h3>Retainer basis and changes</h3><p>The retainer reserves capacity for the programme; it is not a fixed price for it. Hours are for the Custom Teamwear programme; other OptiFlows work for 776BC is quoted separately unless the lead and OptiFlows agree in writing to fund it from the hours. New requests are logged, and the lead chooses whether each one replaces planned work of similar size, waits for a later month or adds hours. When 80% of the term’s hours are used, OptiFlows confirms what the remaining hours will cover. Work beyond the available hours is scheduled into a later month or quoted separately and approved in writing before it starts, at A$350/hour in 0.5-hour units.</p><p>Unused hours carry forward within the initial term. At its end, up to eight unused hours carry into the next month and the rest lapse; after that, unused hours carry forward one month. If OptiFlows cannot provide agreed time in a month, the shortfall carries forward or is refunded, at 776BC’s choice. Delayed inputs or decisions move the schedule. Existing client access is assumed; paid tests are quoted before commitment.</p></article>
-<article><h3>General terms</h3><p>Once approved, this proposal is the agreement for the Custom Teamwear retainer between 776BC and Optiflows Consulting (ABN 71 155 199 637). It carries the same general terms as our Project Management Agreement of 20 February 2026.</p><ul class="marks"><li><strong>Ownership:</strong> materials created specifically for 776BC become 776BC’s property once the month in which they were created is paid. Optiflows keeps its pre-existing methods, frameworks, templates and tools.</li><li><strong>Use of learnings:</strong> Optiflows may use general, non-confidential learnings from the work. No confidential information or internal documentation is shared, and any public reference to 776BC needs prior written approval.</li><li><strong>Confidentiality:</strong> both parties keep sensitive business information shared during the engagement confidential.</li><li><strong>Term and ending:</strong> the initial term is six months from the agreed start date, then month to month. Either party may end the retainer on 30 days’ written notice. If 776BC ends it during the initial term, hours used above the fees paid are payable at A$350/hour; if Optiflows ends it, unused prepaid hours are refunded. Work completed to that date is handed over.</li><li><strong>Fee review:</strong> the A$5,000 monthly fee and A$350/hour rate are fixed for the initial term. The fee and the hours it includes are reviewed at the six-month review and every 12 months after that. Any change is confirmed in writing at least 60 days before it applies; if 776BC does not accept it, either party may end the retainer on the usual notice before the change takes effect.</li><li><strong>Liability:</strong> Optiflows’ liability is limited to the fees paid under this agreement, and excludes indirect or consequential loss.</li></ul></article>
+<article><h3>General terms</h3><p>Once approved, this proposal is the agreement for the Custom Teamwear retainer between 776BC and Optiflows Consulting (ABN 71 155 199 637). It carries the same general terms as our Project Management Agreement of 20 February 2026.</p><ul class="marks"><li><strong>Ownership:</strong> materials created specifically for 776BC become 776BC’s property once the month in which they were created is paid. Optiflows keeps its pre-existing methods, frameworks, templates and tools.</li><li><strong>Use of learnings:</strong> Optiflows may use general, non-confidential learnings from the work. No confidential information or internal documentation is shared, and any public reference to 776BC needs prior written approval.</li><li><strong>Confidentiality:</strong> both parties keep sensitive business information shared during the engagement confidential.</li><li><strong>Term and ending:</strong> the initial term is six months from the agreed start date, then month to month. Either party may end the retainer on 30 days’ written notice. If 776BC ends it during the initial term, hours used above the fees paid are payable at A$350/hour; if Optiflows ends it, unused prepaid hours are refunded. Work completed to that date is handed over.</li><li><strong>Fee review:</strong> the A$5,000 monthly fee and A$350/hour rate are fixed for the initial term. The fee and the hours it includes are reviewed at the six-month review and every 12 months after that. Any change is confirmed in writing at least 60 days before it applies; if 776BC does not accept it, either party may end the retainer on the usual notice before the change takes effect.</li><li><strong>GST:</strong> OptiFlows is not registered for GST, so no GST is charged under this agreement. If OptiFlows registers, it will give 776BC at least 30 days’ written notice and add GST to invoices from the date of registration.</li><li><strong>Liability:</strong> Optiflows’ liability is limited to the fees paid under this agreement, and excludes indirect or consequential loss.</li></ul></article>
 </div></details>
 <details><summary>The workflow we will explore<span>Customer experience · Safeguards · Boundaries</span></summary><div class="scope-body">
 <p>The starting ideas follow 776BC’s project brief. Discover will establish which deserve priority.</p>
@@ -638,7 +637,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
 
       <div class="consent" id="fConsent">
         <input type="checkbox" id="consent" name="consent" required>
-        <label for="consent">I am authorised to approve this proposal for 776BC. I approve the Custom Teamwear retainer at A$5,000 ex GST per month for an initial term of six months, approximately 85 consulting hours at A$350/hour pooled across the term, then month to month on 30 days’ written notice, with the fee and hours reviewed at six months and every 12 months after that. Each month is invoiced at its start and payable within seven days, on the scope and general terms set out in this proposal. This approved proposal is the agreement for the retainer; no separate Project Management Agreement is required.</label>
+        <label for="consent">I am authorised to approve this proposal for 776BC. I approve the Custom Teamwear retainer at A$5,000 per month, with no GST charged, for an initial term of six months, approximately 85 consulting hours at A$350/hour pooled across the term, then month to month on 30 days’ written notice, with the fee and hours reviewed at six months and every 12 months after that. Each month is invoiced at its start and payable within seven days, on the scope and general terms set out in this proposal. This approved proposal is the agreement for the retainer; no separate Project Management Agreement is required.</label>
       </div>
 
       <div class="actions">
@@ -658,7 +657,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
             <dl>
               <dt>Date</dt><dd id="recDate"></dd>
               <dt>Recorded</dt><dd id="recStamp"></dd>
-              <dt>Signed copy sent to</dt><dd id="recRecipients"></dd><dt>Record ID</dt><dd id="recId"></dd><dt>Approval</dt><dd id="recConsent"></dd><dt>Proposal</dt><dd>Custom Teamwear retainer, 27 November 2026, v4.3</dd>
+              <dt>Signed copy sent to</dt><dd id="recRecipients"></dd><dt>Record ID</dt><dd id="recId"></dd><dt>Approval</dt><dd id="recConsent"></dd><dt>Proposal</dt><dd>Custom Teamwear retainer, 27 November 2026, v4.4</dd>
             </dl>
           </div>
           <div class="sigbox">
@@ -677,12 +676,12 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
       <div class="print-acceptance">
         <span class="pre">Acceptance summary</span>
         <dl>
-          <div><dt>Investment</dt><dd>A$5,000 ex GST<br>per month</dd></div>
+          <div><dt>Investment</dt><dd>A$5,000 per month<br>no GST</dd></div>
           <div><dt>Initial term</dt><dd>Six months</dd></div>
           <div><dt>Capacity</dt><dd>About 85 hours<br>pooled across the term</dd></div>
           <div><dt>Payment</dt><dd>Monthly in advance</dd></div>
         </dl>
-        <p class="print-attest">I am authorised to approve this proposal for 776BC. I approve the Custom Teamwear retainer at A$5,000 ex GST per month for an initial term of six months, approximately 85 consulting hours at A$350/hour pooled across the term, then month to month on 30 days’ written notice, with the fee and hours reviewed at six months and every 12 months after that. Each month is invoiced at its start and payable within seven days, on the scope and general terms set out in this proposal. This approved proposal is the agreement for the retainer; no separate Project Management Agreement is required.</p>
+        <p class="print-attest">I am authorised to approve this proposal for 776BC. I approve the Custom Teamwear retainer at A$5,000 per month, with no GST charged, for an initial term of six months, approximately 85 consulting hours at A$350/hour pooled across the term, then month to month on 30 days’ written notice, with the fee and hours reviewed at six months and every 12 months after that. Each month is invoiced at its start and payable within seven days, on the scope and general terms set out in this proposal. This approved proposal is the agreement for the retainer; no separate Project Management Agreement is required.</p>
       </div>
       <div class="sig-lines">
         <div><span class="mono">Name</span></div>
@@ -706,4 +705,4 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--mid);outline-offse
         </svg>
         <span>Optiflows</span>
       </a><span class="mono">Confidential | Custom teamwear | optiflows.com.au</span></div></footer>
-<script src="./approval.js?v=4.3-20261127"></script></body></html>
+<script src="./approval.js?v=4.4-20261127"></script></body></html>

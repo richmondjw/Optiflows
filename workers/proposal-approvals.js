@@ -15,8 +15,8 @@ const notificationDetails = new Map([
     confirm:{cc:['james.richmond@optiflows.com.au'], agreement:'Custom Teamwear retainer', title:'Custom Teamwear Workflow', client:'776BC', tagline:'Workflow design and automation', signTitle:'Founder & Principal',
       terms:'Each month is invoiced at its start and payable within seven days. The fee and hours are reviewed at six months, with at least 60 days’ written notice of any change.', file:'OptiFlows-776BC-Custom-Teamwear-signed',
       lead:'The Custom Teamwear retainer is now in place. Here is your signed copy and what happens next.',
-      tiles:[['Monthly fee','A$5,000','ex GST, invoiced monthly'],['Initial term','6 months','then month to month'],['Capacity','~85 hours','pooled across the term'],['Rate','A$350/hour','standard rate A$400']],
-      next:[['Start date','I’ll confirm the start date with you in the next day or two.'],['First invoice','The first monthly invoice of A$5,000 ex GST follows on the start date, payable within seven days.'],['Kickoff','We’ll lock in the day-to-day lead, the past job we’ll trace and the access we need, then book the kickoff.']]}}],
+      tiles:[['Monthly fee','A$5,000','per month, no GST'],['Initial term','6 months','then month to month'],['Capacity','~85 hours','pooled across the term'],['Rate','A$350/hour','standard rate A$400']],
+      next:[['Start date','I’ll confirm the start date with you in the next day or two.'],['First invoice','The first monthly invoice of A$5,000 follows on the start date, payable within seven days. No GST is charged.'],['Kickoff','We’ll lock in the day-to-day lead, the past job we’ll trace and the access we need, then book the kickoff.']]}}],
   [calliope.path, {title:'776BC Calliope Telegram Pilot', next:'Confirm pilot users, launch deliverables, the review owner and kickoff date.'}],
   // Not "in principle": this proposal carries its own payment terms and needs no separate agreement.
   [copySkill.path, {title:'776BC Content & Copy Skill for Claude', outcome:'approved', payment:true, next:'Issue the commencement invoice (50%), confirm Claude and source-material access, and book the authorship policy session.'}],
@@ -45,7 +45,7 @@ async function deliver(env, record) {
   const heading = record.is_test ? `TEST ONLY: ${details.title} approval notification. No client approval.` : `${details.title} ${details.outcome ?? 'approved in principle'}`;
   const fee = new Intl.NumberFormat('en-AU').format(record.fee_aud_ex_gst);
   const payment = details.payment ? `\nPayment: ${record.payment_milestones}` : '';
-  const message = `${heading}\n\n${record.name}, ${record.role}\nReceived: ${record.approved_at}\nProposal: ${record.proposal}\nA$${fee} ex GST\nScope: ${record.scope}${payment}${record.recipients ? `\nSigned copy to: ${record.recipients.join(', ')}` : ''}\n\nNext: ${details.next}\n\nRecord: ${id}\nPrivate signed record: ${link}\n\nRemy`;
+  const message = `${heading}\n\n${record.name}, ${record.role}\nReceived: ${record.approved_at}\nProposal: ${record.proposal}\nFee: A$${fee}\nScope: ${record.scope}${payment}${record.recipients ? `\nSigned copy to: ${record.recipients.join(', ')}` : ''}\n\nNext: ${details.next}\n\nRecord: ${id}\nPrivate signed record: ${link}\n\nRemy`;
   // One attempt per channel. Ambiguous network outcomes require operator review,
   // never an automatic replay that could duplicate an external notification.
   await Promise.all([

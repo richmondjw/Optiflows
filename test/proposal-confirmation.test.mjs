@@ -46,7 +46,8 @@ try {
   assert.equal(Buffer.from(r[0].body.attachments[0].content, 'base64').length, 20000);
   assert.equal(r[0].headers['Idempotency-Key'], `approval-confirmation/${real.record_id}/first`);
   assert.match(r[0].body.text, /Signed by: Cameron McKenzie-McHarg, Director/);
-  assert.match(r[0].body.text, /Monthly fee: A\$5,000 \(ex GST/);
+  assert.match(r[0].body.text, /Monthly fee: A\$5,000 \(per month, no GST\)/);
+  assert.doesNotMatch(r[0].body.text + r[0].body.html, /ex GST/);
   assert.ok(!r[0].body.text.includes(sig) && !r[0].body.html.includes(sig));
   assert.match(renders[0].link, new RegExp(`776bc-custom-teamwear/#record=${real.record_id}\\.[a-f0-9]{64}$`));
   assert.equal(row(real.record_id).confirmation_status, 'accepted');
