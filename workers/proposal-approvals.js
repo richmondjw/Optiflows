@@ -85,10 +85,12 @@ async function renderSignedPdf(env, link, id) {
   const browser = await puppeteer.launch(env.BROWSER); log("launched");
   try {
     const page = await browser.newPage();
+    // The record stamp is formatted in the browser: print it in Sydney time, not the render host's UTC.
+    await page.emulateTimezone('Australia/Sydney');
     await page.setViewport({width:1280, height:900});
     await page.goto(link, {waitUntil:'networkidle0', timeout:20000}); log("loaded");
     await page.waitForFunction(rid => document.getElementById('recId')?.textContent === rid, {timeout:10000}, id);
-    log("record shown"); await page.emulateMediaType('print');
+    log(`record shown, stamp ${await page.evaluate(() => document.getElementById('recStamp')?.textContent)}`); await page.emulateMediaType('print');
     return await page.pdf({format:'A4', printBackground:true, preferCSSPageSize:true});
   } finally { await browser.close(); }
 }
