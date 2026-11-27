@@ -12,7 +12,7 @@ const notificationDetails = new Map([
   // From v4.0 the Teamwear proposal is itself the agreement for the monthly retainer: full approval, not in principle.
   [teamwear.path, {title:'776BC Custom Teamwear', outcome:'approved', payment:true, next:'Issue the first monthly invoice (A$5,000), confirm the start date, day-to-day lead, historical job and access, and schedule kickoff.',
     // Signed-copy email to the client, with the rendered signed proposal attached. Test records go to OptiFlows only.
-    confirm:{cc:['james.richmond@optiflows.com.au'], agreement:'Custom Teamwear retainer', title:'Custom Teamwear Workflow', client:'776BC',
+    confirm:{cc:['james.richmond@optiflows.com.au'], agreement:'Custom Teamwear retainer', title:'Custom Teamwear Workflow', client:'776BC', tagline:'Workflow design and automation', signTitle:'Founder & Principal',
       terms:'Each month is invoiced at its start and payable within seven days. The fee and hours are reviewed at six months, with at least 60 days’ written notice of any change.', file:'OptiFlows-776BC-Custom-Teamwear-signed',
       lead:'The Custom Teamwear retainer is now in place. Here is your signed copy and what happens next.',
       tiles:[['Monthly fee','A$5,000','ex GST, invoiced monthly'],['Initial term','6 months','then month to month'],['Capacity','~100 hours','pooled across the term'],['Rate','A$300/hour','standard rate A$350']],
@@ -118,7 +118,7 @@ function confirmationEmail(record, c, link, to, cc, file) {
   const time = new Intl.DateTimeFormat('en-AU', {timeZone:'Australia/Sydney', hour:'numeric', minute:'2-digit'}).format(d);
   const subject = `${test ? 'TEST ONLY: ' : ''}Thank you for signing: ${c.agreement}`;
   const F = "'General Sans','Helvetica Neue',Helvetica,Arial,sans-serif", M = "'Space Mono','SFMono-Regular',Menlo,'Courier New',monospace";
-  const LOGO = 'https://optiflows.com.au/776bc/proposals/assets/optiflows-email-logo.png';
+  const LOGO = 'https://optiflows.com.au/776bc/proposals/assets/optiflows-email-logo@6x.png';
   const label = (txt, color) => `<div style="font-family:${M};font-size:11px;line-height:15px;letter-spacing:.1em;text-transform:uppercase;color:${color};padding-bottom:7px">${txt}</div>`;
   // Cover details: labels name a datum inside the component.
   const meta = (l, value, sub) => `<td class="meta" width="50%" valign="top" style="padding:18px 16px 18px 0">${label(l, '#B8E8E0')}
@@ -141,7 +141,7 @@ function confirmationEmail(record, c, link, to, cc, file) {
 <style>
 body{margin:0;padding:0;-webkit-text-size-adjust:100%}a{text-decoration:none}
 @media (max-width:520px){.outer{padding:0!important}.card{border-radius:0!important}.px{padding-left:22px!important;padding-right:22px!important}
-.h1{font-size:32px!important;line-height:36px!important}.h2{font-size:24px!important;line-height:29px!important}.tv{font-size:23px!important;line-height:28px!important}
+.logo{width:155px!important;height:40px!important}.h1{font-size:32px!important;line-height:36px!important}.h2{font-size:24px!important;line-height:29px!important}.tv{font-size:23px!important;line-height:28px!important}
 .fig{padding-top:16px!important;padding-bottom:16px!important}.meta{display:block!important;width:100%!important;padding:12px 0!important}}
 </style></head>
 <body style="margin:0;padding:0;background:#EEF1F0">
@@ -150,8 +150,9 @@ body{margin:0;padding:0;-webkit-text-size-adjust:100%}a{text-decoration:none}
 <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="card" style="max-width:620px;background:#FFFFFF;border-radius:18px;overflow:hidden">
 ${test ? `<tr><td class="px" style="background:#8A2A1B;padding:11px 44px;font-family:${M};font-size:11px;letter-spacing:.08em;color:#FFFFFF">TEST ONLY. Not a client approval. Sent to OptiFlows only.</td></tr>` : ''}
 <tr><td class="px" style="background:#053D3D;padding:36px 44px 10px">
-<a href="https://www.optiflows.com.au/"><img src="${LOGO}" width="124" height="32" alt="Optiflows" style="display:block;border:0;width:124px;height:32px"></a>
-<div style="height:52px;line-height:52px">&nbsp;</div>
+<a href="https://www.optiflows.com.au/"><img class="logo" src="${LOGO}" width="186" height="48" alt="Optiflows" style="display:block;border:0;width:186px;height:48px;margin-left:-6px"></a>
+<div style="font-family:${F};font-size:14px;line-height:20px;color:#B8E8E0;padding:10px 0 0 1px">${esc(c.tagline)}</div>
+<div style="height:46px;line-height:46px">&nbsp;</div>
 <h1 class="h1" style="margin:0;font-family:${F};font-size:42px;line-height:46px;font-weight:600;letter-spacing:-.03em;color:#FFFFFF">Thank you for signing, ${esc(first)}.</h1>
 <p data-lede style="margin:18px 0 0;font-family:${F};font-size:17px;line-height:26px;color:#B8E8E0">${esc(lead)}</p>
 <div style="height:34px;line-height:34px">&nbsp;</div>
@@ -175,7 +176,7 @@ ${meta('Status', `<span style="display:inline-block;width:8px;height:8px;border-
 <tr><td class="px" style="padding:36px 44px 0"><table role="presentation" cellpadding="0" cellspacing="0"><tr><td style="background:#053D3D;border-radius:8px">
 <a href="${esc(link)}" style="display:inline-block;padding:15px 26px;font-family:${F};font-size:15px;line-height:20px;font-weight:600;color:#FFFFFF">View your signed record&nbsp;&nbsp;<span style="color:#66FFE0">&rarr;</span></a></td></tr></table></td></tr>
 <tr><td class="px" style="padding:34px 44px 44px;font-family:${F};font-size:16px;line-height:25px;color:#1A1A1A">Thanks again, ${esc(first)}. I’m looking forward to getting started, and if anything here raises a question, just reply.
-<div style="padding-top:22px;font-weight:600;color:#053D3D">James Richmond</div><div style="font-size:14px;color:#6F6F6F">OptiFlows&nbsp;&nbsp;·&nbsp;&nbsp;<a href="mailto:james.richmond@optiflows.com.au" style="color:#0A6E6E;text-decoration:underline;text-underline-offset:3px">james.richmond@optiflows.com.au</a></div></td></tr>
+<div style="padding-top:22px;font-weight:600;color:#053D3D">James Richmond</div><div style="font-size:14px;line-height:21px;color:#1A1A1A">${esc(c.signTitle)}, OptiFlows</div><div style="font-size:14px;line-height:21px;color:#6F6F6F"><a href="mailto:james.richmond@optiflows.com.au" style="color:#0A6E6E;text-decoration:underline;text-underline-offset:3px">james.richmond@optiflows.com.au</a></div></td></tr>
 </table></td></tr></table></body></html>`;
   const text = [test ? 'TEST ONLY. Not a client approval. Sent to OptiFlows only.\n' : '', `Thank you for signing, ${first}.`, '', lead, '',
     `Signed by: ${record.name}, ${record.role}`, `Signed on: ${day}, ${time} Sydney time`,
@@ -184,7 +185,7 @@ ${meta('Status', `<span style="display:inline-block;width:8px;height:8px;border-
     'GETTING STARTED', ...c.next.map(([h, b], i) => `${String(i + 1).padStart(2, '0')}  ${h}. ${b}`), '',
     'YOUR RETAINER', ...c.tiles.map(t => `${t[0]}: ${t[1]} (${t[2]})`), '',
     `View your signed record: ${link}`, '',
-    `Thanks again, ${first}. I’m looking forward to getting started, and if anything here raises a question, just reply.`, '', 'James Richmond', 'OptiFlows', 'james.richmond@optiflows.com.au'].join('\n').trimStart();
+    `Thanks again, ${first}. I’m looking forward to getting started, and if anything here raises a question, just reply.`, '', 'James Richmond', `${c.signTitle}, OptiFlows`, 'james.richmond@optiflows.com.au'].join('\n').trimStart();
   return {subject, html, text};
 }
 
